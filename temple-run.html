@@ -1,45 +1,193 @@
-<style>
-    body {
-        background-color: #0b0c10;
-        margin: 0;
-        padding: 0;
-        overflow-x: hidden;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Play Temple Run Online - Free Unblocked Browser Game | Nikunj Pro Games</title>
+    <meta name="description" content="Play Temple Run directly in your browser for free on Nikunj Pro Games! Escape the demonic monkeys, dodge ancient obstacles, and smash your high score. No downloads required.">
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;800&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoGame",
+      "name": "Temple Run",
+      "description": "An epic endless running video game where players escape from ancient ruins while dodging hazards.",
+      "genre": ["Endless Runner", "Action Game"],
+      "playMode": "SinglePlayer",
+      "applicationCategory": "Game",
+      "operatingSystem": "Web Browser",
+      "url": "https://nikunjprogames.github.io/NikunjProGame/temple-run.html"
     }
+    </script>
 
-    /* This makes the game container take up the main viewport screen */
-    .game-screen-wrapper {
-        width: 100vw;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background: #000;
-    }
+    <style>
+        /* Base Page Setup matching Nikunj Pro Games theme */
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #0d0e12;
+            color: #ffffff;
+            font-family: 'Rajdhani', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
 
-    iframe {
-        width: 100%;
-        height: 100%;
-        border: none;
-    }
+        /* 4. FUTURISTIC FLOATING HEADER */
+        .game-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background: rgba(13, 14, 18, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid rgba(0, 242, 254, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
 
-    /* The SEO text sits safely below the main game window screen */
-    .seo-text-section {
-        max-width: 800px;
-        margin: 50px auto;
-        padding: 20px;
-        color: #ffffff;
-        font-family: 'Rajdhani', sans-serif;
-        text-align: left;
-    }
-</style>
+        .logo-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            background: linear-gradient(45deg, #00f2fe, #4facfe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
+        }
 
-<div class="game-screen-wrapper">
-    <iframe src="https://html5.gamemonetize.co/pkvyuilfrg/" allowfullscreen loading="lazy"></iframe>
-</div>
+        /* MATCHING "EXPLORE MORE GAMES" NEON BUTTON */
+        .explore-btn {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #00f2fe;
+            text-decoration: none;
+            background: transparent;
+            padding: 10px 22px;
+            border: 2px solid #00f2fe;
+            border-radius: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 242, 254, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
 
-<div class="seo-text-section">
-    <h1>Play Temple Run Unblocked</h1>
-    <h2>About Temple Run Browser Edition</h2>
-    <p>Welcome to the ultimate version of Temple Run on Nikunj Pro Games...</p>
-</div>
+        .explore-btn:hover {
+            color: #0d0e12;
+            background: #00f2fe;
+            box-shadow: 0 0 25px #00f2fe;
+            cursor: pointer;
+            transform: translateY(-2px);
+        }
+
+        /* 5. PERFECT IFRAME GAME WRAPPER */
+        .game-viewport {
+            width: 100vw;
+            height: 100vh;
+            padding-top: 70px; /* Offset for our header */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #000000;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background-color: #000;
+        }
+
+        /* 6. COMPLIANT SEO TEXT SECTION (Perfectly safe below the viewport fold) */
+        .seo-content-container {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(0, 242, 254, 0.1);
+            border-left: 4px solid #00f2fe;
+            border-radius: 8px;
+        }
+
+        .seo-content-container h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            color: #00f2fe;
+            margin-top: 0;
+            text-shadow: 0 0 10px rgba(0, 242, 254, 0.2);
+        }
+
+        .seo-content-container h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            color: #4facfe;
+        }
+
+        .seo-content-container p, .seo-content-container li {
+            font-size: 1.15rem;
+            line-height: 1.6;
+            color: #b5b8c4;
+        }
+
+        .seo-content-container ul {
+            padding-left: 20px;
+        }
+
+        .seo-footer {
+            text-align: center;
+            padding: 30px 0;
+            color: #555866;
+            font-size: 0.95rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="game-header">
+        <div class="logo-text">NIKUNJ PRO GAMES</div>
+        <a href="index.html" class="explore-btn">
+            <i class="fa-solid fa-gamepad"></i> Explore More Games
+        </a>
+    </header>
+
+    <main class="game-viewport">
+        <iframe src="https://html5.gamemonetize.co/pkyyuilfrqkcdnmrxsg60j22ypk0peje/" allowfullscreen loading="lazy"></iframe>
+    </main>
+
+    <section class="seo-content-container">
+        <h1>Play Temple Run Unblocked Online By HTML Game Monetize.com </h1>
+        <p>Welcome to the premium unblocked version of <strong>Temple Run</strong> running directly on the <strong>Nikunj Pro Games</strong> arcade hub! Test your lightning-fast arcade survival reflexes as you navigate ancient temple layouts, sprint down golden brick pathways, and test your skills in an endless race for survival.</p>
+        
+        <h2>Game Description & Narrative</h2>
+        <p>In Temple Run, you have stolen the cursed idol from the ancient temple sanctuary, and now you must run for your life to escape the clutches of evil demonic monkeys. Jump over fiery obstacles, slide beneath low hanging branches, and make sharp turns around treacherous cliff edges. Collect coins along your journey to earn power-ups and build an unbeatable score matrix.</p>
+        
+        <h2>How to Play & Controls</h2>
+        <ul>
+            <li><strong>Arrow Keys / WASD keys:</strong> Turn corners sharply, jump up, and slide down to avoid incoming hazards.</li>
+            <li><strong>Browser Support:</strong> 100% optimized HTML5 version with no heavy downloads, plug-ins, or app installations required.</li>
+        </ul>
+    </section>
+
+    <footer class="seo-footer">
+        <p>© 2026 Nikunj Pro Games. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
