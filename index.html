@@ -971,6 +971,34 @@
     .form-note { font-size: 0.75rem; color: var(--text-dim); margin-bottom: 1.5rem; }
     .form-error { color: #ff6b6b; font-size: 0.78rem; min-height: 1rem; margin-bottom: 0.5rem; }
 
+    .auth-toggle {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1.4rem;
+      border: 1px solid rgba(139,0,255,0.15);
+      border-radius: 999px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.03);
+    }
+    .auth-toggle button {
+      flex: 1;
+      padding: 0.75rem 0.9rem;
+      border: none;
+      background: transparent;
+      color: var(--text-dim);
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: color 0.2s, background 0.2s;
+    }
+    .auth-toggle button.active {
+      color: #fff;
+      background: linear-gradient(135deg, var(--purple-1), var(--blue-2));
+      box-shadow: 0 0 12px rgba(139,0,255,0.3);
+    }
+
     /* Game modal */
     .game-modal-box {
       width: min(700px, 95vw);
@@ -1129,7 +1157,7 @@
 
   <div class="nav-actions">
     <span id="user-display"></span>
-    <button class="btn btn-outline" onclick="openLoginModal()">
+    <button class="btn btn-outline" id="auth-action-button" onclick="openLoginModal()">
       <i class="fas fa-user"></i> Login
     </button>
   </div>
@@ -1301,21 +1329,33 @@
 <div class="modal-overlay" id="login-modal">
   <div class="modal-box">
     <button class="modal-close" onclick="closeLoginModal()">&times;</button>
-    <div class="modal-title">Welcome Back</div>
-    <div class="modal-subtitle">Sign in to save your progress and climb the leaderboard.</div>
+    <div class="modal-title" id="auth-title">Welcome Back</div>
+    <div class="modal-subtitle" id="auth-subtitle">Sign in to save your progress and climb the leaderboard.</div>
+
+    <div class="auth-toggle">
+      <button type="button" id="login-tab" class="active" onclick="setAuthMode('login')">Sign In</button>
+      <button type="button" id="signup-tab" onclick="setAuthMode('signup')">Sign Up</button>
+    </div>
+
     <div class="form-group">
       <label>Username</label>
-      <input type="text" id="login-username" placeholder="Enter your username" autocomplete="username" />
+      <input type="text" id="auth-username" placeholder="Enter your username" autocomplete="username" />
     </div>
     <div class="form-group">
       <label>Password</label>
-      <input type="password" id="login-password" placeholder="Enter your password" autocomplete="current-password" />
+      <input type="password" id="auth-password" placeholder="Enter your password" autocomplete="current-password" />
+    </div>
+    <div class="form-group" id="signup-confirm-group" style="display:none;">
+      <label>Confirm Password</label>
+      <input type="password" id="auth-confirm-password" placeholder="Confirm your password" autocomplete="new-password" />
     </div>
     <p class="form-note"><i class="fas fa-save" style="color:var(--blue-1);"></i> &nbsp; Save Progress — your scores sync across all devices.</p>
-    <div class="form-error" id="login-error"></div>
-    <button class="btn btn-primary" style="width:100%; justify-content:center;" onclick="handleLogin()">
+    <div class="form-error" id="auth-error"></div>
+    <button class="btn btn-primary" style="width:100%; justify-content:center;" id="auth-submit-button" onclick="handleAuthSubmit()">
       <i class="fas fa-sign-in-alt"></i> Sign In
     </button>
+    <p class="form-note" id="auth-note" style="margin-top:1rem; color:var(--text-dim);">New here? Create an account to keep your progress.</p>
+    <p class="form-note" style="margin-top:0.35rem; color:var(--text-dim); font-size:0.8rem;">Local browser storage keeps this demo working offline only.</p>
   </div>
 </div>
 
@@ -1838,31 +1878,137 @@ sections.forEach(s => observer.observe(s));
 /* ============================================================
    LOGIN MODAL
 ============================================================ */
+let authMode = 'login';
+
 function openLoginModal() {
+  setAuthMode('login');
   document.getElementById('login-modal').classList.add('open');
 }
 function closeLoginModal() {
   document.getElementById('login-modal').classList.remove('open');
-  document.getElementById('login-error').textContent = '';
+  document.getElementById('auth-error').textContent = '';
 }
 document.getElementById('login-modal').addEventListener('click', e => {
   if (e.target === document.getElementById('login-modal')) closeLoginModal();
 });
 
+function getStoredAccounts() {
+  try {
+    return JSON.parse(localStorage.getItem('nikunj_auth_accounts') || '{}');
+  } catch (e) {
+    return {};
+  }
+}
+
+function setStoredAccounts(accounts) {
+  localStorage.setItem('nikunj_auth_accounts', JSON.stringify(accounts));
+}
+
+function getCurrentUser() {
+  return localStorage.getItem('nikunj_auth_current_user');
+}
+
+function setCurrentUser(username) {
+  localStorage.setItem('nikunj_auth_current_user', username);
+}
+
+function clearCurrentUser() {
+  localStorage.removeItem('nikunj_auth_current_user');
+}
+
+function updateAuthUI() {
+  const username = getCurrentUser();
+  const userDisplay = document.getElementById('user-display');
+  const authButton = document.getElementById('auth-action-button');
+
+  if (username) {
+    userDisplay.textContent = `Welcome, ${username}`;
+    userDisplay.style.display = 'inline-block';
+    authButton.innerHTML = '<i class="fas fa-sign-out-alt"></i> Logout';
+    authButton.classList.remove('btn-outline');
+    authButton.classList.add('btn-primary');
+    authButton.onclick = handleLogout;
+  } else {
+    userDisplay.textContent = '';
+    userDisplay.style.display = 'none';
+    authButton.innerHTML = '<i class="fas fa-user"></i> Login';
+    authButton.classList.remove('btn-primary');
+    authButton.classList.add('btn-outline');
+    authButton.onclick = openLoginModal;
+  }
+}
+
+function handleLogout() {
+  clearCurrentUser();
+  updateAuthUI();
+}
+
+function setAuthMode(mode) {
+  authMode = mode;
+  const isLogin = mode === 'login';
+  document.getElementById('login-tab').classList.toggle('active', isLogin);
+  document.getElementById('signup-tab').classList.toggle('active', !isLogin);
+  document.getElementById('signup-confirm-group').style.display = isLogin ? 'none' : 'block';
+  document.getElementById('auth-submit-button').innerHTML = isLogin
+    ? '<i class="fas fa-sign-in-alt"></i> Sign In'
+    : '<i class="fas fa-user-plus"></i> Sign Up';
+  document.getElementById('auth-title').textContent = isLogin ? 'Welcome Back' : 'Create Account';
+  document.getElementById('auth-subtitle').textContent = isLogin
+    ? 'Sign in to save your progress and climb the leaderboard.'
+    : 'Create a new account to keep your progress safe on this device.';
+  document.getElementById('auth-note').textContent = isLogin
+    ? 'New here? Create an account to keep your progress.'
+    : 'Already have an account? Sign in to continue.';
+  document.getElementById('auth-error').textContent = '';
+}
+
+function handleAuthSubmit() {
+  if (authMode === 'login') {
+    handleLogin();
+  } else {
+    handleSignup();
+  }
+}
+
 function handleLogin() {
-  const username = document.getElementById('login-username').value.trim();
-  const password = document.getElementById('login-password').value;
-  const err = document.getElementById('login-error');
+  const username = document.getElementById('auth-username').value.trim();
+  const password = document.getElementById('auth-password').value;
+  const errorEl = document.getElementById('auth-error');
+  const accounts = getStoredAccounts();
 
-  if (!username) { err.textContent = 'Username is required.'; return; }
-  if (password.length < 4) { err.textContent = 'Password must be at least 4 characters.'; return; }
+  if (!username) { errorEl.textContent = 'Username is required.'; return; }
+  if (!password) { errorEl.textContent = 'Password is required.'; return; }
+  if (!accounts[username]) { errorEl.textContent = 'No account found with that username.'; return; }
+  if (accounts[username] !== password) { errorEl.textContent = 'Incorrect password. Try again.'; return; }
 
-  // Simulate login success
-  const ud = document.getElementById('user-display');
-  ud.textContent = `User: ${username}`;
-  ud.style.display = 'inline';
+  setCurrentUser(username);
+  updateAuthUI();
   closeLoginModal();
 }
+
+function handleSignup() {
+  const username = document.getElementById('auth-username').value.trim();
+  const password = document.getElementById('auth-password').value;
+  const confirmPassword = document.getElementById('auth-confirm-password').value;
+  const errorEl = document.getElementById('auth-error');
+  const accounts = getStoredAccounts();
+
+  if (!username) { errorEl.textContent = 'Username is required.'; return; }
+  if (username.length < 3) { errorEl.textContent = 'Username must be at least 3 characters.'; return; }
+  if (!password) { errorEl.textContent = 'Password is required.'; return; }
+  if (password.length < 4) { errorEl.textContent = 'Password must be at least 4 characters.'; return; }
+  if (password !== confirmPassword) { errorEl.textContent = 'Passwords do not match.'; return; }
+  if (accounts[username]) { errorEl.textContent = 'That username is already taken.'; return; }
+
+  accounts[username] = password;
+  setStoredAccounts(accounts);
+  setCurrentUser(username);
+  updateAuthUI();
+  closeLoginModal();
+}
+
+setAuthMode('login');
+updateAuthUI();
 
 /* ============================================================
    GAME MODAL + MINI-GAME (Click-the-target)
