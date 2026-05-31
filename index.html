@@ -40,6 +40,9 @@
       font-size: 16px;
       overflow-x: hidden;
       min-height: 100vh;
+      touch-action: pan-y;
+      -webkit-tap-highlight-color: transparent;
+      overscroll-behavior-y: contain;
     }
 
     /* ============================================================
@@ -203,6 +206,13 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      transition: background 0.25s ease, box-shadow 0.25s ease, padding 0.25s ease, transform 0.25s ease;
+      will-change: background, box-shadow, transform;
+    }
+    header.scrolled {
+      background: rgba(8,8,15,0.95);
+      box-shadow: 0 16px 45px rgba(0,0,0,0.28);
+      backdrop-filter: blur(18px);
     }
 
     .logo {
@@ -265,31 +275,105 @@
       width: 24px; height: 2px;
       background: var(--blue-1);
       border-radius: 2px;
-      transition: transform 0.3s, opacity 0.3s;
+      transition: transform 0.3s, opacity 0.3s, background 0.3s;
       box-shadow: 0 0 6px var(--blue-1);
     }
+    .hamburger:hover span { background: #ffffff; }
     .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .hamburger.open span:nth-child(2) { opacity: 0; }
     .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .hamburger.open { animation: hamburger-bounce 0.35s ease; }
+    @keyframes hamburger-bounce {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+      100% { transform: translateY(0); }
+    }
 
     /* Mobile nav */
-    @media (max-width: 768px) {
-      .hamburger { display: flex; }
-      nav {
-        position: fixed;
-        top: 70px; left: 0; right: 0;
-        background: rgba(10,10,20,0.97);
-        backdrop-filter: blur(20px);
-        border-bottom: 1px solid rgba(139,0,255,0.3);
-        padding: 1.5rem 2rem;
-        transform: translateY(-110%);
-        transition: transform 0.3s ease;
-        z-index: 999;
+    @media (max-width: 960px) {
+      header {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        grid-column-gap: 1rem;
+        align-items: center;
+        padding: 0.85rem 1rem;
+        height: 70px;
       }
-      nav.open { transform: translateY(0); }
-      nav ul { flex-direction: column; gap: 1.2rem; }
-      nav a { font-size: 0.85rem; }
-      .nav-actions { display: none; }
+      .nav-actions {
+        justify-self: start;
+        align-self: center;
+        z-index: 1001;
+        margin-right: 0.8rem;
+      }
+      .logo {
+        position: relative;
+        left: auto;
+        transform: none;
+        justify-self: center;
+        z-index: 1001;
+        margin: 0;
+      }
+      .hamburger {
+        display: flex;
+        justify-self: end;
+        z-index: 1001;
+      }
+      nav {
+        display: none;
+      }
+      nav.open {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        inset: 70px 0 0 0;
+        min-height: calc(100vh - 70px);
+        background: rgba(6, 6, 18, 0.98);
+        backdrop-filter: blur(18px);
+        padding: 1.6rem 1.2rem 2rem;
+        z-index: 999;
+        overflow-y: auto;
+        opacity: 0;
+        transform: translateY(-18px);
+        transition: opacity 0.28s ease, transform 0.28s ease;
+      }
+      nav.open { opacity: 1; transform: translateY(0); }
+      nav.open ul {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+      }
+      nav.open li { width: 100%; }
+      nav.open a {
+        display: block;
+        width: 100%;
+        padding: 1rem 1rem;
+        border-radius: 16px;
+        background: rgba(255,255,255,0.05);
+        text-align: center;
+        font-size: 1rem;
+      }
+      nav.open a:hover {
+        background: rgba(0,191,255,0.18);
+      }
+      .nav-actions button { min-width: 120px; }
+      .nav-actions span { display: none; }
+    }
+
+    @media (max-width: 640px) {
+      header { padding: 0.75rem 0.9rem; }
+      nav.open a { font-size: 1rem; }
+      .nav-actions button { padding: 0.55rem 1rem; }
+    }
+
+    @media (max-width: 520px) {
+      .logo { font-size: 1rem; }
+      nav.open { padding: 1.2rem 1rem 1.8rem; }
+      .hamburger span { width: 20px; }
     }
 
     /* ============================================================
@@ -484,8 +568,8 @@
 
     .games-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.6rem;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.2rem;
     }
 
     /* Game card */
@@ -497,10 +581,10 @@
       display: flex;
       flex-direction: column;
       backdrop-filter: blur(12px);
-      transition: transform 0.3s, box-shadow 0.3s;
+      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
       position: relative;
       cursor: pointer;
-      min-height: 420px;
+      min-height: 360px;
       animation: card-in 0.4s ease both;
     }
     @keyframes card-in {
@@ -508,7 +592,7 @@
       to   { opacity: 1; transform: translateY(0); }
     }
     .game-card:hover {
-      transform: translateY(-8px) scale(1.02);
+      transform: translateY(-15px) scale(1.12);
       box-shadow: 0 0 22px rgba(139,0,255,0.55), 0 0 46px rgba(0,191,255,0.25);
       border-color: var(--blue-1);
     }
@@ -528,7 +612,7 @@
 
     .game-thumb {
       width: 100%;
-      height: 260px;
+      height: 200px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -537,11 +621,11 @@
       border-bottom: 1px solid rgba(255,255,255,0.08);
     }
     .game-thumb img {
-      width: 120px;
-      height: 120px;
+      width: 92px;
+      height: 92px;
       object-fit: cover;
-      border-radius: 24px;
-      box-shadow: 0 0 24px rgba(0,0,0,0.15);
+      border-radius: 20px;
+      box-shadow: 0 0 18px rgba(0,0,0,0.12);
       border: 2px solid rgba(255,255,255,0.12);
       background: rgba(255,255,255,0.05);
     }
@@ -627,6 +711,9 @@
       overflow-x: auto;
       padding-bottom: 1rem;
       cursor: grab;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory;
+      scroll-padding-left: 1rem;
     }
     .trending-scroll-wrap:active { cursor: grabbing; }
     .trending-scroll-wrap::-webkit-scrollbar { height: 4px; }
@@ -637,6 +724,10 @@
       gap: 1.4rem;
       width: max-content;
       padding: 0.5rem 1rem;
+    }
+
+    .trending-card {
+      scroll-snap-align: start;
     }
 
     .trending-card {
@@ -949,14 +1040,31 @@
     section { position: relative; z-index: 2; }
     .ad-wrap { padding: 1.5rem 2rem; }
 
+    @media (min-width: 1600px) {
+      .games-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+      .game-card { min-height: 340px; }
+    }
+    @media (min-width: 1400px) and (max-width: 1599px) {
+      .games-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+    }
+    @media (min-width: 1100px) and (max-width: 1399px) {
+      .games-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    }
+    @media (min-width: 860px) and (max-width: 1099px) {
+      .games-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+    @media (max-width: 860px) {
+      .games-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .game-card { min-height: 340px; }
+    }
     @media (max-width: 768px) {
       header { padding: 0 1rem; height: 64px; }
       #home { padding: 6.5rem 1.2rem 3rem; }
       #games, #trending, #leaderboard, #about, footer { padding: 3rem 1.2rem; }
       .ad-wrap { padding: 1rem 1.2rem; }
       .games-grid { grid-template-columns: 1fr; }
-      .game-thumb { height: 220px; }
-      .game-thumb img { width: 100px; height: 100px; }
+      .game-thumb { height: 180px; }
+      .game-thumb img { width: 88px; height: 88px; }
       .game-info { padding: 0.9rem; }
       .game-modal-box { width: min(92vw, 95vw); padding: 1.2rem; }
       #game-frame-wrap { min-height: 320px; }
@@ -1183,7 +1291,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    &copy; 2024 Nikunj Pro Games. All Rights Reserved.
+    &copy; 2026 Nikunj Pro Games. All Rights Reserved.
   </div>
 </footer>
 
@@ -1252,10 +1360,68 @@
   const canvas = document.getElementById('bg-canvas');
   const ctx = canvas.getContext('2d');
   let offset = 0;
+  const meteors = [];
+  let meteorTimer = 0;
 
   function resize() {
     canvas.width  = window.innerWidth;
     canvas.height = window.innerHeight;
+  }
+
+  function spawnMeteor() {
+    const startX = canvas.width * (0.05 + Math.random() * 0.18);
+    const startY = canvas.height * (0.05 + Math.random() * 0.12);
+    const speed = 5 + Math.random() * 4;
+    const length = 120 + Math.random() * 80;
+    meteors.push({
+      x: startX,
+      y: startY,
+      dx: speed * 0.9,
+      dy: speed * 1.35,
+      length,
+      life: 0,
+      maxLife: 60 + Math.random() * 40,
+      alpha: 0,
+    });
+  }
+
+  function drawMeteors() {
+    if (Math.random() < 0.012) spawnMeteor();
+    for (let i = meteors.length - 1; i >= 0; i--) {
+      const m = meteors[i];
+      m.x += m.dx;
+      m.y += m.dy;
+      m.life += 1;
+      if (m.life < 10) {
+        m.alpha = m.life / 10;
+      } else if (m.life > m.maxLife - 14) {
+        m.alpha = Math.max(0, (m.maxLife - m.life) / 14);
+      } else {
+        m.alpha = 1;
+      }
+
+      const tailX = m.x - m.length * 0.78;
+      const tailY = m.y - m.length * 0.42;
+      const grad = ctx.createLinearGradient(m.x, m.y, tailX, tailY);
+      grad.addColorStop(0, `rgba(255,255,255,${(m.alpha * 1.0).toFixed(3)})`);
+      grad.addColorStop(0.3, `rgba(180,230,255,${(m.alpha * 0.55).toFixed(3)})`);
+      grad.addColorStop(1, 'rgba(0,0,0,0)');
+      ctx.strokeStyle = grad;
+      ctx.lineWidth = 2.2;
+      ctx.beginPath();
+      ctx.moveTo(m.x, m.y);
+      ctx.lineTo(tailX, tailY);
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.fillStyle = `rgba(255,255,255,${(m.alpha * 0.95).toFixed(3)})`;
+      ctx.arc(m.x, m.y, 2.6, 0, Math.PI * 2);
+      ctx.fill();
+
+      if (m.life >= m.maxLife || m.x < -m.length || m.y > canvas.height + m.length) {
+        meteors.splice(i, 1);
+      }
+    }
   }
 
   function drawFrame() {
@@ -1395,6 +1561,7 @@
     ctx.fillStyle = bloom;
     ctx.fillRect(0, horizonY - H * 0.25, W, H * 0.5);
 
+    drawMeteors();
     requestAnimationFrame(drawFrame);
   }
 
@@ -1641,6 +1808,9 @@ function toggleMobileNav() {
   document.getElementById('main-nav').classList.toggle('open');
   document.getElementById('hamburger').classList.toggle('open');
 }
+window.addEventListener('scroll', () => {
+  document.querySelector('header').classList.toggle('scrolled', window.scrollY > 18);
+});
 // Close on link click
 document.querySelectorAll('nav a').forEach(a => {
   a.addEventListener('click', () => {
