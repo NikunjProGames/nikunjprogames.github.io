@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <title>Play Battledudes Online - Free Multiplayer Shooter Game | Nikunj Pro Games</title>
-    <meta name="description" content="Play Battledudes (.io) directly in your browser for free on Nikunj Pro Games! Join intense 2D multiplayer battles, customize your weapons, and dominate the arena. No downloads required.">
+    <title>Play Battledudes Online - Free Multiplayer Shooter Game | NPG</title>
+    <meta name="description" content="Play Battledudes (.io) directly in your browser for free on NPG! Join intense 2D multiplayer battles, customize your weapons, and dominate the arena. No downloads required.">
 
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;800&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -25,19 +25,25 @@
     </script>
 
     <style>
-        * {
-            box-sizing: border-box;
-        }
-        body {
+        /* CRITICAL MOBILE INTERCEPT: Locks down scrolling entirely */
+        html, body {
             background-color: #0d0e12;
             color: #ffffff;
             font-family: 'Rajdhani', sans-serif;
             margin: 0;
             padding: 0;
-            overflow-x: hidden;
+            width: 100%;
+            height: 100%;
+            overflow: hidden; 
+            position: fixed;  
         }
 
-        /* NEW COMPACT HEADER */
+        * {
+            box-sizing: border-box;
+            touch-action: none; 
+        }
+
+        /* NEW COMPACT NPG HEADER */
         .game-header {
             position: fixed;
             top: 0;
@@ -46,7 +52,7 @@
             height: 50px;
             background: rgba(13, 14, 18, 0.9);
             backdrop-filter: blur(10px);
-            border-bottom: 2px solid rgba(0, 242, 254, 0.3);
+            border-bottom: 2px solid rgba(139, 0, 255, 0.3);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -60,21 +66,21 @@
             font-size: 1.2rem;
             font-weight: 800;
             letter-spacing: 1px;
-            background: linear-gradient(45deg, #00f2fe, #4facfe);
+            background: linear-gradient(45deg, #8B00FF, #00BFFF);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 10px rgba(0, 242, 254, 0.3);
+            text-shadow: 0 0 10px rgba(139, 0, 255, 0.3);
         }
 
         .explore-btn {
             font-family: 'Orbitron', sans-serif;
             font-size: 0.8rem;
             font-weight: 700;
-            color: #00f2fe;
+            color: #00BFFF;
             text-decoration: none;
             background: transparent;
             padding: 6px 14px;
-            border: 2px solid #00f2fe;
+            border: 2px solid #00BFFF;
             border-radius: 5px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -86,15 +92,16 @@
 
         .explore-btn:hover {
             color: #0d0e12;
-            background: #00f2fe;
-            box-shadow: 0 0 15px #00f2fe;
+            background: #00BFFF;
+            box-shadow: 0 0 15px #00BFFF;
             transform: translateY(-1px);
         }
 
+        /* IMMUTABLE GAME SCREEN */
         .game-viewport {
             width: 100vw;
             height: 100vh;
-            padding-top: 50px; /* Adjusted offset */
+            padding-top: 50px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -106,61 +113,66 @@
             height: 100%;
             border: none;
             background-color: #000;
+            touch-action: auto; 
         }
 
-        /* MOBILE OVERLAP PROTECTION SCREEN FIX */
+        /* FIXED TO THE LEFT SIDE: No more overlaying with game UI buttons */
+        .accordion-wrapper {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 2000;
+            max-width: 350px;
+            font-family: 'Rajdhani', sans-serif;
+        }
+
+        .accordion-toggle {
+            background: linear-gradient(135deg, #8B00FF, #0047AB);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 10px 16px;
+            border-radius: 30px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(139, 0, 255, 0.4);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .accordion-toggle:hover {
+            box-shadow: 0 0 20px #8B00FF;
+            transform: scale(1.03);
+        }
+
+        .accordion-content {
+            display: none; 
+            background: rgba(13, 14, 18, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid #8B00FF;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 10px;
+            max-height: 250px;
+            overflow-y: auto; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+        }
+
+        .accordion-content h1 { font-size: 1.2rem; color: #00BFFF; margin-top: 0; font-family: 'Orbitron', sans-serif; }
+        .accordion-content p { font-size: 0.9rem; color: #b5b8c4; line-height: 1.4; }
+        .accordion-content ul { padding-left: 15px; font-size: 0.9rem; color: #b5b8c4; }
+
+        /* RESPONSIVE LAYOUT FIX FOR SMARTPHONES */
         @media (max-width: 600px) {
-            .game-header {
-                padding: 0 12px;
-                height: 48px;
-            }
-            .logo-text {
-                font-size: 1.05rem;
-            }
-            .explore-btn {
-                padding: 4px 10px;
-                font-size: 0.75rem;
-            }
-            .game-viewport {
-                padding-top: 48px;
-            }
-        }
-
-        .seo-content-container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(0, 242, 254, 0.1);
-            border-left: 4px solid #00f2fe;
-            border-radius: 8px;
-        }
-
-        .seo-content-container h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.7rem;
-            color: #00f2fe;
-            margin-top: 0;
-        }
-
-        .seo-content-container h2 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.2rem;
-            color: #4facfe;
-        }
-
-        .seo-content-container p, .seo-content-container li {
-            font-size: 1.05rem;
-            line-height: 1.6;
-            color: #b5b8c4;
-        }
-
-        .seo-footer {
-            text-align: center;
-            padding: 20px 0;
-            color: #555866;
-            font-size: 0.85rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            .game-header { padding: 0 12px; height: 48px; }
+            .logo-text { font-size: 1.05rem; }
+            .explore-btn { padding: 4px 10px; font-size: 0.75rem; }
+            .game-viewport { padding-top: 48px; }
+            .accordion-wrapper { left: 15px; right: 15px; max-width: none; }
+            .accordion-toggle { width: 100%; justify-content: center; }
         }
     </style>
 </head>
@@ -177,16 +189,32 @@
         <iframe src="https://battledudes.io/" allowfullscreen loading="lazy"></iframe>
     </main>
 
-    <section class="seo-content-container">
-        <h1>Play Battledudes Unblocked Online</h1>
-        <p>Drop into tactical warfare with <strong>Battledudes.io</strong> unblocked on the premium <strong>NPG</strong> platform! Engage in real-time, chaotic multiplayer arena battles with players worldwide directly inside your desktop or mobile browser.</p>
-        <h2>How to Play & Basic Controls</h2>
-        <p>WASD to move, mouse to aim, left-click to shoot, and R to reload weapons.</p>
-    </section>
+    <div class="accordion-wrapper">
+        <div class="accordion-content" id="seoContent">
+            <h1>Play Battledudes Unblocked Online</h1>
+            <p>Drop into tactical warfare with <strong>Battledudes.io</strong> unblocked on the premium <strong>NPG</strong> platform! Engage in real-time, chaotic multiplayer arena battles with players worldwide directly inside your desktop or mobile browser.</p>
+            <h2>How to Play & Basic Controls</h2>
+            <ul>
+                <li><strong>WASD:</strong> Move around the map.</li>
+                <li><strong>Mouse:</strong> Aim and left-click to shoot.</li>
+                <li><strong>R:</strong> Reload weapons.</li>
+            </ul>
+        </div>
+        <button class="accordion-toggle" onclick="toggleSEO()">
+            <i class="fa-solid fa-circle-info"></i> Game Info & Controls
+        </button>
+    </div>
 
-    <footer class="seo-footer">
-        <p>© 2026 NPG. All Rights Reserved.</p>
-    </footer>
+    <script>
+        function toggleSEO() {
+            var content = document.getElementById("seoContent");
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        }
+    </script>
 
 </body>
 </html>
