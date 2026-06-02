@@ -1217,6 +1217,8 @@
     <button class="filter-tab" data-cat="racing">Racing</button>
     <button class="filter-tab" data-cat="sports">Sports</button>
     <button class="filter-tab" data-cat="arcade">Arcade</button>
+    <button class="filter-tab" data-cat="io">IO</button>
+    <button class="filter-tab" data-cat="endless">Endless Runner</button>
     <button class="filter-tab" data-cat="strategy">Strategy</button>
   </div>
 
@@ -1681,14 +1683,15 @@
    GAME DATA
 ============================================================ */
 const GAMES = [
-  { id:1,  name:'Temple Run',        cat:'strategy',   color:'#8B00FF', gradient:'linear-gradient(135deg,#1a0030,#4a0080)', players:'12.4K', imageUrl:'Templerun.png', iframeUrl:'temple-run.html' },
-  { id:2,  name:'Battle Dudes',         cat:'action',   color:'#0055C4', gradient:'linear-gradient(135deg,#001a3a,#004080)', players:'9.1K',  imageUrl:'battledudes.png', iframeUrl:'battledudes.html' },
-  { id:3,  name:'Running Fred (Poki)',     cat:'racing',   color:'#008840', gradient:'linear-gradient(135deg,#003300,#006600)', players:'18.7K', imageUrl:'runningfred.png', iframeUrl:'running-fred.html' },
-  { id:4,  name:'Subway Surfers',      cat:'racing',   color:'#FF8C00', gradient:'linear-gradient(135deg,#3a1a00,#804000)', players:'7.3K',  imageUrl:'subwaysurfers.png', iframeUrl:'subway-surfers.html' },
-  { id:5,  name:'Galactic Blaster',  cat:'arcade',   color:'#5B2BFF', gradient:'linear-gradient(135deg,#1a003a,#500090)', players:'22.1K', imageUrl:'', iframeUrl:'' },
-  { id:6,  name:'Empire Builder',    cat:'strategy', color:'#D48A00', gradient:'linear-gradient(135deg,#3a2000,#805000)', players:'5.8K',  imageUrl:'', iframeUrl:'' },
-  { id:7,  name:'Cyber Brawl',       cat:'action',   color:'#A100FF', gradient:'linear-gradient(135deg,#300030,#800060)', players:'14.2K', imageUrl:'', iframeUrl:'' },
-  { id:8,  name:'Mind Maze',         cat:'puzzle',   color:'#0068B8', gradient:'linear-gradient(135deg,#002030,#005080)', players:'6.5K',  imageUrl:'', iframeUrl:'' },
+  { id:1,  name:'Temple Run',        cat:'endless',   color:'#8B00FF', gradient:'linear-gradient(135deg,#1a0030,#4a0080)', players:'12.4K', imageUrl:'Templerun.png', iframeUrl:'temple-run.html' },
+  { id:2,  name:'Battle Dudes',       cat:'action',    color:'#0055C4', gradient:'linear-gradient(135deg,#001a3a,#004080)', players:'9.1K',  imageUrl:'battledudes.png', iframeUrl:'battledudes.html' },
+  { id:3,  name:'Running Fred (Poki)',cat:'racing',    color:'#008840', gradient:'linear-gradient(135deg,#003300,#006600)', players:'18.7K', imageUrl:'runningfred.png', iframeUrl:'running-fred.html' },
+  { id:4,  name:'Subway Surfers',     cat:'endless',   color:'#FF8C00', gradient:'linear-gradient(135deg,#3a1a00,#804000)', players:'7.3K',  imageUrl:'subwaysurfers.png', iframeUrl:'subway-surfers.html' },
+  { id:5,  name:'Worms Zone',        cat:'io',        color:'#5B2BFF', gradient:'linear-gradient(135deg,#1a003a,#500090)', players:'22.1K', imageUrl:'Worms-Zone.png', iframeUrl:'worms-zone.html' },
+  { id:6,  name:'Squid Challenge',    cat:'action',  color:'#D48A00', gradient:'linear-gradient(135deg,#3a2000,#805000)', players:'5.8K',  imageUrl:'squid_challenge.png', iframeUrl:'squid-challenge.html' },
+  { id:15, name:'Stock Car Hero',          cat:'racing',        color:'#24B8FF', gradient:'linear-gradient(135deg,#003040,#008FB8)', players:'20.0K', imageUrl:'stock_car_hero.png', iframeUrl:'stock-car-hero.html' },
+  { id:7,  name:'Box Tower',       cat:'puzzle',   color:'#A100FF', gradient:'linear-gradient(135deg,#300030,#800060)', players:'14.2K', imageUrl:'box_tower.png', iframeUrl:'box-tower.html' },
+  { id:8,  name:'Color Line',         cat:'strategy',   color:'#0068B8', gradient:'linear-gradient(135deg,#002030,#005080)', players:'6.5K',  imageUrl:'color_line.png', iframeUrl:'color-line.html' },
   { id:9,  name:'Drift King',        cat:'racing',   color:'#2E8B00', gradient:'linear-gradient(135deg,#1a2000,#405000)', players:'11.9K', imageUrl:'', iframeUrl:'' },
   { id:10, name:'Soccer Stars',      cat:'sports',   color:'#00A5D1', gradient:'linear-gradient(135deg,#003320,#006040)', players:'16.3K', imageUrl:'', iframeUrl:'' },
   { id:11, name:'Retro Invaders',    cat:'arcade',   color:'#9D50FF', gradient:'linear-gradient(135deg,#250040,#600090)', players:'19.8K', imageUrl:'', iframeUrl:'' },
