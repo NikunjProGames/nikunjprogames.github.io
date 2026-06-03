@@ -1090,16 +1090,51 @@
       #home { padding: 6.5rem 1.2rem 3rem; }
       #games, #trending, #leaderboard, #about, footer { padding: 3rem 1.2rem; }
       .ad-wrap { padding: 1rem 1.2rem; }
-      .games-grid { grid-template-columns: 1fr; }
-      .game-thumb { height: 180px; }
-      .game-thumb img { width: 88px; height: 88px; }
-      .game-info { padding: 0.9rem; }
+      .games-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.75rem;
+      }
+      .game-card {
+        min-height: 0;
+        border-radius: 12px;
+      }
+      .game-card:hover {
+        transform: translateY(-4px) scale(1.02);
+      }
+      .game-thumb { height: clamp(104px, 31vw, 150px); }
+      .game-thumb img { width: 72px; height: 72px; border-radius: 16px; }
+      .game-info { padding: 0.65rem; gap: 0.5rem; }
+      .game-name {
+        font-size: 0.78rem;
+        min-height: 1.9rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .cat-badge {
+        font-size: 0.5rem;
+        padding: 2px 6px;
+      }
+      .btn-play {
+        padding: 0.48rem 0.55rem;
+        font-size: 0.58rem;
+      }
       .game-modal-box { width: min(92vw, 95vw); padding: 1.2rem; }
       #game-frame-wrap { min-height: 320px; }
       #game-frame { min-height: 320px; }
       .game-search-wrap { margin-bottom: 1rem; }
       .filter-tabs { gap: 0.5rem; }
       .filter-tab { font-size: 0.75rem; padding: 0.4rem 1rem; }
+    }
+
+    @media (max-width: 380px) {
+      #games { padding-left: 0.8rem; padding-right: 0.8rem; }
+      .games-grid { gap: 0.6rem; }
+      .game-thumb { height: 96px; }
+      .game-info { padding: 0.58rem; }
+      .game-name { font-size: 0.72rem; }
+      .btn-play { font-size: 0.54rem; }
     }
 
     /* ============================================================
@@ -1220,6 +1255,7 @@
     <button class="filter-tab" data-cat="io">IO</button>
     <button class="filter-tab" data-cat="endless">Endless Runner</button>
     <button class="filter-tab" data-cat="strategy">Strategy</button>
+    <button class="filter-tab" data-cat="nostalgia">Nostalgia</button>
   </div>
 
   <div class="games-grid" id="games-grid">
@@ -1683,29 +1719,32 @@
    GAME DATA
 ============================================================ */
 const GAMES = [
-  { id:1,  name:'Temple Run',        cat:'endless',   color:'#8B00FF', gradient:'linear-gradient(135deg,#1a0030,#4a0080)', players:'12.4K', imageUrl:'Templerun.png', iframeUrl:'temple-run.html' },
+  { id:1,  name:'Temple Run',        cat:'nostalgia',   color:'#8B00FF', gradient:'linear-gradient(135deg,#1a0030,#4a0080)', players:'12.4K', imageUrl:'Templerun.png', iframeUrl:'temple-run.html' },
   { id:2,  name:'Battle Dudes',       cat:'action',    color:'#0055C4', gradient:'linear-gradient(135deg,#001a3a,#004080)', players:'9.1K',  imageUrl:'battledudes.png', iframeUrl:'battledudes.html' },
   { id:3,  name:'Running Fred (Poki)',cat:'racing',    color:'#008840', gradient:'linear-gradient(135deg,#003300,#006600)', players:'18.7K', imageUrl:'runningfred.png', iframeUrl:'running-fred.html' },
   { id:4,  name:'Subway Surfers',     cat:'endless',   color:'#FF8C00', gradient:'linear-gradient(135deg,#3a1a00,#804000)', players:'7.3K',  imageUrl:'subwaysurfers.png', iframeUrl:'subway-surfers.html' },
   { id:5,  name:'Worms Zone',        cat:'io',        color:'#5B2BFF', gradient:'linear-gradient(135deg,#1a003a,#500090)', players:'22.1K', imageUrl:'Worms-Zone.png', iframeUrl:'worms-zone.html' },
   { id:6,  name:'Squid Challenge',    cat:'action',  color:'#D48A00', gradient:'linear-gradient(135deg,#3a2000,#805000)', players:'5.8K',  imageUrl:'squid_challenge.png', iframeUrl:'squid-challenge.html' },
-  { id:15, name:'Stock Car Hero',          cat:'racing',        color:'#24B8FF', gradient:'linear-gradient(135deg,#003040,#008FB8)', players:'20.0K', imageUrl:'stock_car_hero.png', iframeUrl:'stock-car-hero.html' },
+  { id:15, name:'Stock Car Hero',          cat:'sports',        color:'#24B8FF', gradient:'linear-gradient(135deg,#003040,#008FB8)', players:'20.0K', imageUrl:'stock_car_hero.png', iframeUrl:'stock-car-hero.html' },
   { id:7,  name:'Box Tower',       cat:'puzzle',   color:'#A100FF', gradient:'linear-gradient(135deg,#300030,#800060)', players:'14.2K', imageUrl:'box_tower.png', iframeUrl:'box-tower.html' },
   { id:8,  name:'Color Line',         cat:'strategy',   color:'#0068B8', gradient:'linear-gradient(135deg,#002030,#005080)', players:'6.5K',  imageUrl:'color_line.png', iframeUrl:'color-line.html' },
-  { id:9,  name:'Drift King',        cat:'racing',   color:'#2E8B00', gradient:'linear-gradient(135deg,#1a2000,#405000)', players:'11.9K', imageUrl:'', iframeUrl:'' },
-  { id:10, name:'Soccer Stars',      cat:'sports',   color:'#00A5D1', gradient:'linear-gradient(135deg,#003320,#006040)', players:'16.3K', imageUrl:'', iframeUrl:'' },
-  { id:11, name:'Retro Invaders',    cat:'arcade',   color:'#9D50FF', gradient:'linear-gradient(135deg,#250040,#600090)', players:'19.8K', imageUrl:'', iframeUrl:'' },
-  { id:12, name:'War Tactics',       cat:'strategy', color:'#B36A00', gradient:'linear-gradient(135deg,#2a1500,#604000)', players:'8.7K',  imageUrl:'', iframeUrl:'' },
-  { id:13, name:'Fire Warrior',      cat:'action',   color:'#FF3300', gradient:'linear-gradient(135deg,#3a0010,#8a0020)', players:'20.5K', imageUrl:'', iframeUrl:'' },
-  { id:14, name:'Color Switch',      cat:'puzzle',   color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'', iframeUrl:'' },
+  { id:9,  name:'Moto Road Rash',        cat:'racing',   color:'#2E8B00', gradient:'linear-gradient(135deg,#1a2000,#405000)', players:'11.9K', imageUrl:'moto_road_rash_.png', iframeUrl:'moto-road-rash.html' },
+  { id:10, name:'FireBoy And WaterGirl-1',      cat:'strategy',   color:'#00A5D1', gradient:'linear-gradient(135deg,#003320,#006040)', players:'16.3K', imageUrl:'fireboy-and-watergirl.png', iframeUrl:'fireboyandwatergirl.html' },
+  { id:11, name:'Pacman',    cat:'',   color:'#9D50FF', gradient:'linear-gradient(135deg,#250040,#600090)', players:'19.8K', imageUrl:'pacman.png', iframeUrl:'pacman.html' },
+  { id:12, name:'Cut The Rope ',       cat:'nostalgia', color:'#B36A00', gradient:'linear-gradient(135deg,#2a1500,#604000)', players:'8.7K',  imageUrl:'Cut_the_Rope.png', iframeUrl:'cut-the-rope.html' },
+  { id:13, name:'City Stunts',      cat:'action',   color:'#FF3300', gradient:'linear-gradient(135deg,#3a0010,#8a0020)', players:'20.5K', imageUrl:'city-stunts.png', iframeUrl:'car-stunts.html' },
+  { id:14, name:'Magic Piano Tiles',      cat:'puzzle',   color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'magic-piano-tiles.png', iframeUrl:'magic-piano-tiles.html' },
+    { id:16, name:'Magic Piano Tiles',      cat:'puzzle',   color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'magic-piano-tiles.png', iframeUrl:'magic-piano-tiles.html' },
+      { id:17, name:'Magic Piano Tiles',      cat:'puzzle',   color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'magic-piano-tiles.png', iframeUrl:'magic-piano-tiles.html' },
 ];
 
 const TRENDING = [
   { id:3,  name:'Running Fred (Poki)',    color:'#008840', gradient:'linear-gradient(135deg,#003300,#006600)', players:'18.7K' },
-  { id:13, name:'Temple Run',     color:'#FF3300', gradient:'linear-gradient(135deg,#3a0010,#8a0020)', players:'20.5K' },
-  { id:11, name:'Subway Surfers',   color:'#9D50FF', gradient:'linear-gradient(135deg,#250040,#600090)', players:'19.8K' },
-  { id:5,  name:'Battledudes', color:'#5B2BFF', gradient:'linear-gradient(135deg,#1a003a,#500090)', players:'22.1K' },
-  { id:7,  name:'Fireboy And Watergirl',      color:'#A100FF', gradient:'linear-gradient(135deg,#300030,#800060)', players:'14.2K' },
+  { id:1, name:'Temple Run',     color:'#FF3300', gradient:'linear-gradient(135deg,#3a0010,#8a0020)', players:'20.5K' },
+  { id:4, name:'Subway Surfers',   color:'#9D50FF', gradient:'linear-gradient(135deg,#250040,#600090)', players:'19.8K' },
+  { id:2,  name:'Battledudes', color:'#5B2BFF', gradient:'linear-gradient(135deg,#1a003a,#500090)', players:'22.1K' },
+  { id:10,  name:'Fireboy And Watergirl',      color:'#A100FF', gradient:'linear-gradient(135deg,#300030,#800060)', players:'14.2K' },
+  { id:11,  name:'Pacman',      color:'#A100FF', gradient:'linear-gradient(135deg,#300030,#800060)', players:'14.2K' },
 ];
 
 const LEADERBOARD = [

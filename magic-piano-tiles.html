@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Play Magic Piano Tiles Online - Free Rhythm Music Game | NPG</title>
+    <meta name="description" content="Play Magic Piano Tiles unblocked on NPG! Tap black musical keys to tempo rhythms and play beautiful classical tracks layout lag-free.">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;800&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoGame",
+      "name": "Magic Piano Tiles",
+      "description": "Test your rhythm precision by tapping music tiles in perfect sync.",
+      "genre": ["Rhythm Game", "Music Arcade", "Casual"],
+      "playMode": "SinglePlayer",
+      "applicationCategory": "Game",
+      "operatingSystem": "Web Browser",
+      "url": "https://nikunjprogames.github.io/NikunjProGame/magic-piano-tiles.html"
+    }
+    </script>
+
+    <style>
+        html, body { background-color: #0d0e12; color: #ffffff; font-family: 'Rajdhani', sans-serif; margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; position: fixed; }
+        * { box-sizing: border-box; touch-action: none; }
+        .game-header { position: fixed; top: 0; left: 0; width: 100%; height: 50px; background: rgba(13, 14, 18, 0.9); backdrop-filter: blur(10px); border-bottom: 2px solid rgba(139, 0, 255, 0.3); display: flex; justify-content: space-between; align-items: center; padding: 0 20px; z-index: 1000; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); }
+        .logo-text { font-family: 'Orbitron', sans-serif; font-size: 1.2rem; font-weight: 800; letter-spacing: 1px; background: linear-gradient(45deg, #8B00FF, #00BFFF); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 0 10px rgba(139, 0, 255, 0.3); }
+        .header-actions { display: flex; gap: 10px; align-items: center; }
+        .explore-btn, .new-tab-btn { font-family: 'Orbitron', sans-serif; font-size: 0.8rem; font-weight: 700; text-decoration: none; padding: 6px 14px; border-radius: 5px; text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.3s ease; display: flex; align-items: center; gap: 6px; }
+        .explore-btn { color: #00BFFF; background: transparent; border: 2px solid #00BFFF; }
+        .explore-btn:hover { color: #0d0e12; background: #00BFFF; box-shadow: 0 0 15px #00BFFF; transform: translateY(-1px); }
+        .new-tab-btn { color: #ff007f; background: transparent; border: 2px solid #ff007f; }
+        .new-tab-btn:hover { color: #0d0e12; background: #ff007f; box-shadow: 0 0 15px #ff007f; transform: translateY(-1px); }
+        .game-viewport { width: 100vw; height: 100vh; padding-top: 50px; display: flex; justify-content: center; align-items: center; background: #000000; }
+        iframe { width: 100%; height: 100%; border: none; background-color: #000; touch-action: auto; }
+        .accordion-wrapper { position: fixed; bottom: 20px; left: 20px; z-index: 2000; max-width: 350px; font-family: 'Rajdhani', sans-serif; }
+        .accordion-toggle { background: linear-gradient(135deg, #8B00FF, #0047AB); color: white; border: 1px solid rgba(255,255,255,0.2); padding: 10px 16px; border-radius: 30px; font-family: 'Orbitron', sans-serif; font-size: 0.8rem; font-weight: 700; cursor: pointer; box-shadow: 0 4px 15px rgba(139, 0, 255, 0.4); display: flex; align-items: center; gap: 8px; transition: all 0.3s ease; }
+        .accordion-toggle:hover { box-shadow: 0 0 20px #8B00FF; transform: scale(1.03); }
+        .accordion-content { display: none; background: rgba(13, 14, 18, 0.95); backdrop-filter: blur(10px); border: 1px solid #8B00FF; border-radius: 12px; padding: 15px; margin-bottom: 10px; max-height: 250px; overflow-y: auto; box-shadow: 0 10px 30px rgba(0,0,0,0.7); }
+        .accordion-content h1 { font-size: 1.2rem; color: #00BFFF; margin-top: 0; font-family: 'Orbitron', sans-serif; }
+        .accordion-content p { font-size: 0.9rem; color: #b5b8c4; line-height: 1.4; }
+        .accordion-content ul { padding-left: 15px; font-size: 0.9rem; color: #b5b8c4; }
+        @media (max-width: 600px) { .game-header { padding: 0 12px; height: 48px; } .logo-text { font-size: 1.05rem; } .explore-btn, .new-tab-btn { padding: 4px 10px; font-size: 0.75rem; } .game-viewport { padding-top: 48px; } .accordion-wrapper { left: 15px; right: 15px; max-width: none; } .accordion-toggle { width: 100%; justify-content: center; } }
+    </style>
+</head>
+<body>
+    <header class="game-header">
+        <div class="logo-text">NPG</div>
+        <div class="header-actions">
+            <a href="https://html5.gamedistribution.com/44fbc5e5c6e54ac9985d1c81f1fb8121/" target="_blank" class="new-tab-btn">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> New Tab
+            </a>
+            <a href="index.html" class="explore-btn"><i class="fa-solid fa-gamepad"></i> Explore</a>
+        </div>
+    </header>
+    <main class="game-viewport">
+        <iframe src="https://html5.gamedistribution.com/44fbc5e5c6e54ac9985d1c81f1fb8121/" allowfullscreen loading="lazy"></iframe>
+    </main>
+    <div class="accordion-wrapper">
+        <div class="accordion-content" id="seoContent">
+            <h1>Play Magic Piano Tiles Unblocked</h1>
+            <p>Test your response processing speed in <strong>Magic Piano Tiles</strong> on NPG! Match running piano key paths across cascading rows without missing a single beat.</p>
+            <h2>Controls & How to Play</h2>
+            <ul>
+                <li><strong>Mouse Left-Click / Screen Tap:</strong> Tap black tracking tiles perfectly as they approach the active lower boundary line.</li>
+            </ul>
+        </div>
+        <button class="accordion-toggle" onclick="toggleSEO()"><i class="fa-solid fa-circle-info"></i> Game Info & Controls</button>
+    </div>
+    <script>
+        function toggleSEO() {
+            var content = document.getElementById("seoContent");
+            content.style.display = (content.style.display === "block") ? "none" : "block";
+        }
+    </script>
+</body>
+</html>
