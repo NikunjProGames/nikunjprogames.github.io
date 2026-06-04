@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Launching NPG...</title>
+    <style>
+        /* Deep dark background to make neon pop */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #0d0214;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        .loader-container {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* The Neon Purple Circular Loader */
+        .circle-loader {
+            width: 120px;
+            height: 120px;
+            border: 4px solid rgba(186, 85, 211, 0.1);
+            border-radius: 50%;
+            border-top: 4px solid #bc13fe;
+            border-right: 4px solid #bc13fe;
+            position: relative;
+            box-shadow: 0 0 20px #bc13fe, inset 0 0 10px #bc13fe;
+            animation: spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+        }
+
+        /* Inner glowing pulse effect */
+        .circle-loader::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+            border: 2px solid rgba(186, 85, 211, 0.05);
+            border-radius: 50%;
+            border-bottom: 2px solid #9d00ff;
+            border-left: 2px solid #9d00ff;
+            box-shadow: 0 0 15px #9d00ff;
+            animation: spinReverse 2s linear infinite;
+        }
+
+        /* Neon Text Styling */
+        .loading-text {
+            margin-top: 40px;
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-shadow: 0 0 5px #fff, 
+                         0 0 10px #bc13fe, 
+                         0 0 20px #bc13fe, 
+                         0 0 40px #bc13fe;
+            animation: pulse 1.5s ease-in-out infinite alternate;
+        }
+
+        /* Animations */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes spinReverse {
+            0% { transform: rotate(360deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        @keyframes pulse {
+            from {
+                opacity: 0.6;
+                text-shadow: 0 0 5px #fff, 0 0 10px #bc13fe, 0 0 20px #bc13fe;
+            }
+            to {
+                opacity: 1;
+                text-shadow: 0 0 7px #fff, 0 0 15px #bc13fe, 0 0 30px #bc13fe, 0 0 50px #bc13fe;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="loader-container">
+        <div class="circle-loader"></div>
+        
+        <div class="loading-text">Launching NPG</div>
+    </div>
+
+    <script>
+        // Wait 3 seconds (3000 milliseconds) for the animation, then redirect
+        setTimeout(function() {
+            // REPLACE THIS URL WITH YOUR ACTUAL NEW WEBSITE ADDRESS
+            window.location.href = "https://nikunjprogames.github.io/"; 
+        }, 3000);
+    </script>
+
+</body>
+</html>
