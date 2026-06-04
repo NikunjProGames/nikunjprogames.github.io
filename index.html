@@ -255,6 +255,84 @@
 
     .nav-actions { display: flex; gap: 1rem; align-items: center; }
 
+    .recent-games-wrapper { position: relative; }
+    .recent-toggle { position: relative; }
+    .recent-toggle .mobile-icon { display: none; }
+    .recent-panel {
+      position: absolute;
+      right: 0;
+      top: calc(100% + 0.85rem);
+      min-width: 240px;
+      width: min(320px, 100vw);
+      background: rgba(7, 7, 26, 0.98);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(24px);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+      border-radius: 20px;
+      padding: 0.9rem;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s;
+      z-index: 1002;
+    }
+    .recent-games-wrapper:hover .recent-panel { opacity: 1; visibility: visible; transform: translateY(0); }
+    .recent-panel[data-open="true"] { opacity: 1; visibility: visible; transform: translateY(0); }
+    .recent-panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.85rem;
+      font-size: 0.78rem;
+      color: #ddd;
+      letter-spacing: 0.08em;
+    }
+    .recent-panel-header .close-panel {
+      background: transparent;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      font-size: 0.9rem;
+      padding: 0.25rem;
+    }
+    .recent-list {
+      display: grid;
+      gap: 0.6rem;
+      max-height: 280px;
+      overflow: auto;
+    }
+    .recent-game-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.72rem 0.75rem;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      width: 100%;
+      text-align: left;
+    }
+    .recent-game-item:hover { background: rgba(255,255,255,0.08); transform: translateX(2px); }
+    .recent-game-thumb {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      background: var(--purple-1);
+      display: grid;
+      place-items: center;
+      font-size: 0.95rem;
+      color: #fff;
+      box-shadow: inset 0 0 12px rgba(0,0,0,0.12);
+      flex-shrink: 0;
+    }
+    .recent-game-meta { flex: 1; min-width: 0; }
+    .recent-game-meta strong { display: block; color: #fff; font-size: 0.86rem; line-height: 1.2; }
+    .recent-game-meta small { display: block; color: var(--text-dim); font-size: 0.72rem; }
+    .recent-empty { color: var(--text-dim); font-size: 0.82rem; opacity: 0.8; text-align: center; margin-top: 0.25rem; }
+    .recent-toggle[aria-expanded="true"] .desktop-label { text-decoration: underline; }
+
     #user-display {
       font-family: 'Orbitron', sans-serif;
       font-size: 0.7rem;
@@ -362,6 +440,16 @@
       }
       .nav-actions button { min-width: 120px; }
       .nav-actions span { display: none; }
+      .recent-toggle .desktop-label { display: none; }
+      .recent-toggle .mobile-icon { display: inline-block; }
+      .recent-panel {
+        position: fixed;
+        top: 70px;
+        right: 0.85rem;
+        left: auto;
+        width: min(280px, 92vw);
+        max-height: calc(100vh - 88px);
+      }
     }
 
     @media (max-width: 640px) {
@@ -1192,6 +1280,22 @@
 
   <div class="nav-actions">
     <span id="user-display"></span>
+
+    <div class="recent-games-wrapper" id="recent-menu">
+      <button class="btn btn-outline recent-toggle" id="recent-toggle-button" onclick="toggleRecentPanel()" aria-expanded="false">
+        <span class="desktop-label"><i class="fas fa-history"></i> Recent</span>
+        <span class="mobile-icon"><i class="fas fa-bars"></i></span>
+      </button>
+      <div class="recent-panel" id="recent-panel" data-open="false">
+        <div class="recent-panel-header">
+          <span>Recent games</span>
+          <button type="button" class="close-panel" onclick="toggleRecentPanel(false)" aria-label="Close recent games"><i class="fas fa-times"></i></button>
+        </div>
+        <div id="recent-list" class="recent-list"></div>
+        <div class="recent-empty">No recent games yet. Play a game to add it here.</div>
+      </div>
+    </div>
+
     <button class="btn btn-outline" id="auth-action-button" onclick="openLoginModal()">
       <i class="fas fa-user"></i> Login
     </button>
@@ -1341,9 +1445,9 @@
     <div class="footer-links">
       <h4>Legal</h4>
       <ul>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">Terms of Service</a></li>
-        <li><a href="#">Contact Us</a></li>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="terms-and-conditions.html">Terms of Service</a></li>
+        <li><a href="">Contact Us</a></li>
       </ul>
     </div>
     <div class="footer-social">
@@ -1393,7 +1497,7 @@
       <i class="fas fa-sign-in-alt"></i> Sign In
     </button>
     <p class="form-note" id="auth-note" style="margin-top:1rem; color:var(--text-dim);">New here? Create an account to keep your progress.</p>
-    <p class="form-note" style="margin-top:0.35rem; color:var(--text-dim); font-size:0.8rem;">Local browser storage keeps this demo working offline only.</p>
+    <p class="form-note" style="margin-top:0.35rem; color:var(--text-dim); font-size:0.8rem;">Passwords are hashed locally before they are stored. This demo is browser-only; cross-device login requires a backend server.</p>
   </div>
 </div>
 
@@ -1734,8 +1838,11 @@ const GAMES = [
   { id:12, name:'Cut The Rope ',       cat:'nostalgia', color:'#B36A00', gradient:'linear-gradient(135deg,#2a1500,#604000)', players:'8.7K',  imageUrl:'Cut_the_Rope.png', iframeUrl:'cut-the-rope.html' },
   { id:13, name:'City Stunts',      cat:'sports',   color:'#FF3300', gradient:'linear-gradient(135deg,#3a0010,#8a0020)', players:'20.5K', imageUrl:'city-stunts.png', iframeUrl:'car-stunts.html' },
   { id:14, name:'Magic Piano Tiles',      cat:'',   color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'magic-piano-tiles.png', iframeUrl:'magic-piano-tiles.html' },
-    { id:16, name:'Magic Piano Tiles',      cat:'puzzle',   color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'magic-piano-tiles.png', iframeUrl:'magic-piano-tiles.html' },
-      { id:17, name:'Magic Piano Tiles',      cat:'puzzle',   color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'magic-piano-tiles.png', iframeUrl:'magic-piano-tiles.html' },
+    { id:16, name:'Car Rush',      cat:'puzzle',   color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'car-rush.png', iframeUrl:'car-rush.html' },
+      { id:17, name:'Killer Assassin',      cat:'puzzle',   color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'killer-assassin.png', iframeUrl:'killer-assassin.html' },
+       { id:18, name:'Bottle Flip',      cat:'puzzle',   color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'bottle-flip.png', iframeUrl:'bottle-flip.html' },
+        { id:19, name:'Under The Red Sky',      cat:'puzzle',   color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'under-the-red-sky.png', iframeUrl:'under-the-red-sky.html' },
+         { id:20, name:'Killer Assassin',      cat:'puzzle',   color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'killer-assassin.png', iframeUrl:'killer-assassin.html' },
 ];
 
 const TRENDING = [
@@ -1934,6 +2041,13 @@ document.getElementById('login-modal').addEventListener('click', e => {
   if (e.target === document.getElementById('login-modal')) closeLoginModal();
 });
 
+async function hashPassword(password) {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(password);
+  const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+  return Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
 function getStoredAccounts() {
   try {
     return JSON.parse(localStorage.getItem('nikunj_auth_accounts') || '{}');
@@ -1958,6 +2072,89 @@ function clearCurrentUser() {
   localStorage.removeItem('nikunj_auth_current_user');
 }
 
+function getRecentGamesForUser(username) {
+  if (!username) return [];
+  try {
+    return JSON.parse(localStorage.getItem(`nikunj_recent_games_${username}`) || '[]');
+  } catch (e) {
+    return [];
+  }
+}
+
+function setRecentGamesForUser(username, recent) {
+  localStorage.setItem(`nikunj_recent_games_${username}`, JSON.stringify(recent));
+}
+
+function saveRecentGame(gameId) {
+  const username = getCurrentUser();
+  if (!username) return;
+  const game = GAMES.find(g => g.id === gameId);
+  if (!game) return;
+
+  const recent = getRecentGamesForUser(username);
+  const existingIndex = recent.findIndex(item => item.id === gameId);
+  if (existingIndex !== -1) recent.splice(existingIndex, 1);
+  recent.unshift({ id: game.id, name: game.name, color: game.color || '#8B00FF' });
+  if (recent.length > 5) recent.length = 5;
+  setRecentGamesForUser(username, recent);
+  renderRecentGamesPanel();
+}
+
+function renderRecentGamesPanel() {
+  const username = getCurrentUser();
+  const listEl = document.getElementById('recent-list');
+  const emptyEl = document.querySelector('.recent-empty');
+  if (!listEl || !emptyEl) return;
+
+  listEl.innerHTML = '';
+  if (!username) {
+    emptyEl.textContent = 'Log in to save recent games and view them here.';
+    return;
+  }
+
+  const recent = getRecentGamesForUser(username);
+  if (!recent.length) {
+    emptyEl.textContent = `No recent games yet, ${username}. Play a game to add it here.`;
+    return;
+  }
+
+  emptyEl.textContent = '';
+  recent.forEach(entry => {
+    const item = document.createElement('button');
+    item.type = 'button';
+    item.className = 'recent-game-item';
+    item.onclick = () => { openGame(entry.id); toggleRecentPanel(false); };
+    item.innerHTML = `
+      <div class="recent-game-thumb" style="background:${entry.color};">${entry.name.split(' ').map(s => s[0]).slice(0, 2).join('').toUpperCase()}</div>
+      <div class="recent-game-meta"><strong>${entry.name}</strong><small>Tap to play again</small></div>
+    `;
+    listEl.appendChild(item);
+  });
+}
+
+function toggleRecentPanel(forceOpen) {
+  const panel = document.getElementById('recent-panel');
+  const button = document.getElementById('recent-toggle-button');
+  if (!panel || !button) return false;
+
+  const isOpen = panel.getAttribute('data-open') === 'true';
+  const open = forceOpen === undefined ? !isOpen : Boolean(forceOpen);
+  panel.setAttribute('data-open', open ? 'true' : 'false');
+  button.setAttribute('aria-expanded', open ? 'true' : 'false');
+  if (open) renderRecentGamesPanel();
+  return open;
+}
+
+function closeRecentPanel() {
+  toggleRecentPanel(false);
+}
+
+document.addEventListener('click', event => {
+  if (!event.target.closest('.recent-games-wrapper')) {
+    closeRecentPanel();
+  }
+});
+
 function updateAuthUI() {
   const username = getCurrentUser();
   const userDisplay = document.getElementById('user-display');
@@ -1978,6 +2175,7 @@ function updateAuthUI() {
     authButton.classList.add('btn-outline');
     authButton.onclick = openLoginModal;
   }
+  renderRecentGamesPanel();
 }
 
 function handleLogout() {
@@ -2004,37 +2202,41 @@ function setAuthMode(mode) {
   document.getElementById('auth-error').textContent = '';
 }
 
-function handleAuthSubmit() {
+async function handleAuthSubmit() {
   if (authMode === 'login') {
-    handleLogin();
+    await handleLogin();
   } else {
-    handleSignup();
+    await handleSignup();
   }
 }
 
-function handleLogin() {
+async function handleLogin() {
   const username = document.getElementById('auth-username').value.trim();
   const password = document.getElementById('auth-password').value;
   const errorEl = document.getElementById('auth-error');
   const accounts = getStoredAccounts();
 
+  errorEl.textContent = '';
   if (!username) { errorEl.textContent = 'Username is required.'; return; }
   if (!password) { errorEl.textContent = 'Password is required.'; return; }
   if (!accounts[username]) { errorEl.textContent = 'No account found with that username.'; return; }
-  if (accounts[username] !== password) { errorEl.textContent = 'Incorrect password. Try again.'; return; }
+
+  const passwordHash = await hashPassword(password);
+  if (accounts[username] !== passwordHash) { errorEl.textContent = 'Incorrect password. Try again.'; return; }
 
   setCurrentUser(username);
   updateAuthUI();
   closeLoginModal();
 }
 
-function handleSignup() {
+async function handleSignup() {
   const username = document.getElementById('auth-username').value.trim();
   const password = document.getElementById('auth-password').value;
   const confirmPassword = document.getElementById('auth-confirm-password').value;
   const errorEl = document.getElementById('auth-error');
   const accounts = getStoredAccounts();
 
+  errorEl.textContent = '';
   if (!username) { errorEl.textContent = 'Username is required.'; return; }
   if (username.length < 3) { errorEl.textContent = 'Username must be at least 3 characters.'; return; }
   if (!password) { errorEl.textContent = 'Password is required.'; return; }
@@ -2042,7 +2244,8 @@ function handleSignup() {
   if (password !== confirmPassword) { errorEl.textContent = 'Passwords do not match.'; return; }
   if (accounts[username]) { errorEl.textContent = 'That username is already taken.'; return; }
 
-  accounts[username] = password;
+  const passwordHash = await hashPassword(password);
+  accounts[username] = passwordHash;
   setStoredAccounts(accounts);
   setCurrentUser(username);
   updateAuthUI();
@@ -2068,6 +2271,7 @@ function openGame(id) {
   const game = GAMES.find(g => g.id === id);
   if (!game) return;
 
+  saveRecentGame(game.id);
   document.getElementById('game-modal-title').textContent = game.name;
   const iframe = document.getElementById('game-frame');
   document.getElementById('game-modal').classList.add('open');
