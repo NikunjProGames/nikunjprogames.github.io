@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { margin: 0; background: #0d0214; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; font-family: sans-serif; }
+        canvas { border: 2px solid #bc13fe; box-shadow: 0 0 15px #bc13fe; background: #140526; }
+    </style>
+</head>
+<body>
+    <canvas id="c" width="320" height="480"></canvas>
+    <script>
+        const canvas = document.getElementById('c'), ctx = canvas.getContext('2d');
+        let bird = { x: 50, y: 150, v: 0, g: 0.4, j: -6, r: 8 }, pipes = [], score = 0, over = false;
+        function spawn() { pipes.push({ x: 320, y: Math.random() * 200 + 50, w: 50, g: 120 }); }
+        function reset() { bird.y = 150; bird.v = 0; pipes = []; score = 0; over = false; spawn(); }
+        window.addEventListener('keydown', () => { if(over) reset(); else bird.v = bird.j; });
+        canvas.addEventListener('touchstart', (e) => { e.preventDefault(); if(over) reset(); else bird.v = bird.j; });
+        function loop() {
+            ctx.fillStyle = '#140526'; ctx.fillRect(0,0,320,480);
+            bird.v += bird.g; bird.y += bird.v;
+            ctx.fillStyle = '#00ffff'; ctx.shadowBlur = 10; ctx.shadowColor = '#00ffff';
+            ctx.beginPath(); ctx.arc(bird.x, bird.y, bird.r, 0, Math.PI*2); ctx.fill();
+            ctx.fillStyle = '#bc13fe'; ctx.shadowColor = '#bc13fe';
+            for(let i = pipes.length-1; i >= 0; i--) {
+                let p = pipes[i]; p.x -= 2;
+                ctx.fillRect(p.x, 0, p.w, p.y);
+                ctx.fillRect(p.x, p.y + p.g, p.w, 480 - p.y - p.g);
+                if(p.x + p.w < 0) { pipes.splice(i, 1); score++; }
+                if(bird.x+bird.r > p.x && bird.x-bird.r < p.x+p.w && (bird.y-bird.r < p.y || bird.y+bird.r > p.y+p.g)) over = true;
+            }
+            if(pipes.length === 0 || pipes[pipes.length-1].x < 180) spawn();
+            if(bird.y > 480 || bird.y < 0) over = true;
+            ctx.shadowBlur = 0; ctx.fillStyle = '#fff'; ctx.font = '20px sans-serif'; ctx.fillText('Score: ' + score, 10, 30);
+            if(over) { ctx.fillText('GAME OVER. Tap to Reset', 40, 240); } else { requestAnimationFrame(loop); }
+        }
+        reset(); loop();
+    </script>
+</body>
+</html>

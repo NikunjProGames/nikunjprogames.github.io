@@ -54,8 +54,6 @@ Every game is fully integrated and optimized for both keyboard and mouse control
 * **Google Fonts:** Utilizing *Orbitron* & *Rajdhani* for that signature high-tech, futuristic aesthetic.
 * **Font Awesome 6 (via CDN):** Clean, high-resolution iconography throughout the interface.
 
----
-
 ## 📈 SEO Integration & Google Discovery
 
 This repository is optimized using modern search engine conventions. The layout is structured so that Google Search spiders crawling the codebase can easily map game keywords (such as *play unblocked arcade games*, *free web browser games*, and *no-download mobile games*) directly back to the project's root domain.
