@@ -787,8 +787,12 @@
     .cat-sports  { background: rgba(0,191,255,0.1);   color: #00bfff; border: 1px solid rgba(0,191,255,0.3); }
     .cat-arcade  { background: rgba(139,0,255,0.15);  color: #bf7fff; border: 1px solid rgba(139,0,255,0.3); }
     .cat-strategy{ background: rgba(255,140,0,0.1);   color: #ff8c00; border: 1px solid rgba(255,140,0,0.3); }
-
-    /* ============================================================
+    .cat-endless{ background: rgba(255,140,0,0.1);   color: #00e5ff; border: 1px solid rgba(0, 255, 213, 0.3); }
+     .cat-cars{ background: rgba(255,140,0,0.1);   color: #0022ff; border: 1px solid rgba(0, 0, 255, 0.3); }
+      .cat-nostalgia{ background: rgba(255,140,0,0.1);   color: #aaff00; border: 1px solid rgba(179, 255, 0, 0.3); }
+       .cat-io{ background: rgba(255,140,0,0.1);   color: #bf00ff; border: 1px solid rgba(255, 0, 255, 0.3); }
+.cat-parkour{background: rgba(255,140,0,0.1);   color: #bf00ff; border: 1px solid rgba(255, 0, 255, 0.3); }
+       /* ============================================================
        TRENDING SECTION
     ============================================================ */
     #trending {
@@ -1361,6 +1365,8 @@
     <button class="filter-tab" data-cat="endless">Endless Runner</button>
     <button class="filter-tab" data-cat="strategy">Strategy</button>
     <button class="filter-tab" data-cat="nostalgia">Nostalgia</button>
+    <button class="filter-tab" data-cat="cars">Car Games</button>
+    <button class="filter-tab" data-cat="parkour">Parkour</button>
   </div>
 
   <div class="games-grid" id="games-grid">
@@ -1833,25 +1839,26 @@ const GAMES = [
   { id:4,  name:'Subway Surfers',     cat:'endless',   color:'#FF8C00', gradient:'linear-gradient(135deg,#3a1a00,#804000)', players:'7.3K',  imageUrl:'subwaysurfers.png', iframeUrl:'subway-surfers.html' },
   { id:5,  name:'Worms Zone',        cat:'io',        color:'#5B2BFF', gradient:'linear-gradient(135deg,#1a003a,#500090)', players:'22.1K', imageUrl:'Worms-Zone.png', iframeUrl:'worms-zone.html' },
   { id:6,  name:'Squid Challenge',    cat:'action',  color:'#D48A00', gradient:'linear-gradient(135deg,#3a2000,#805000)', players:'5.8K',  imageUrl:'squid_challenge.png', iframeUrl:'squid-challenge.html' },
-  { id:15, name:'Stock Car Hero',          cat:'sports',        color:'#24B8FF', gradient:'linear-gradient(135deg,#003040,#008FB8)', players:'20.0K', imageUrl:'stock_car_hero.png', iframeUrl:'stock-car-hero.html' },
+  { id:15, name:'Stock Car Hero',          cat:'cars',        color:'#24B8FF', gradient:'linear-gradient(135deg,#003040,#008FB8)', players:'20.0K', imageUrl:'stock_car_hero.png', iframeUrl:'stock-car-hero.html' },
   { id:7,  name:'Box Tower',       cat:'puzzle',   color:'#A100FF', gradient:'linear-gradient(135deg,#300030,#800060)', players:'14.2K', imageUrl:'box_tower.png', iframeUrl:'box-tower.html' },
   { id:8,  name:'Color Line',         cat:'strategy',   color:'#0068B8', gradient:'linear-gradient(135deg,#002030,#005080)', players:'6.5K',  imageUrl:'color_line.png', iframeUrl:'color-line.html' },
   { id:9,  name:'Moto Road Rash',        cat:'racing',   color:'#2E8B00', gradient:'linear-gradient(135deg,#1a2000,#405000)', players:'11.9K', imageUrl:'moto_road_rash_.png', iframeUrl:'moto-road-rash.html' },
   { id:10, name:'FireBoy And WaterGirl-1',      cat:'strategy',   color:'#00A5D1', gradient:'linear-gradient(135deg,#003320,#006040)', players:'16.3K', imageUrl:'fireboy-and-watergirl.png', iframeUrl:'fireboyandwatergirl.html' },
   { id:11, name:'Pacman',    cat:'',   color:'#9D50FF', gradient:'linear-gradient(135deg,#250040,#600090)', players:'19.8K', imageUrl:'pacman.png', iframeUrl:'pacman.html' },
   { id:12, name:'Cut The Rope ',       cat:'nostalgia', color:'#B36A00', gradient:'linear-gradient(135deg,#2a1500,#604000)', players:'8.7K',  imageUrl:'Cut_the_Rope.png', iframeUrl:'cut-the-rope.html' },
-  { id:13, name:'City Stunts',      cat:'sports',   color:'#FF3300', gradient:'linear-gradient(135deg,#3a0010,#8a0020)', players:'20.5K', imageUrl:'city-stunts.png', iframeUrl:'car-stunts.html' },
+  { id:13, name:'City Stunts',      cat:'cars',   color:'#FF3300', gradient:'linear-gradient(135deg,#3a0010,#8a0020)', players:'20.5K', imageUrl:'city-stunts.png', iframeUrl:'car-stunts.html' },
   { id:14, name:'Magic Piano Tiles',      cat:'',   color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'magic-piano-tiles.png', iframeUrl:'magic-piano-tiles.html' },
-    { id:16, name:'Car Rush',      cat:'puzzle',   color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'car-rush.png', iframeUrl:'car-rush.html' },
+    { id:16, name:'Car Rush',      cat:'cars',   color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'car-rush.png', iframeUrl:'car-rush.html' },
       { id:17, name:'Killer Assassin',      cat:'puzzle',   color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'killer-assassin.png', iframeUrl:'killer-assassin.html' },
        { id:18, name:'Bottle Flip',      cat:'puzzle',   color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'bottle-flip.png', iframeUrl:'bottle-flip.html' },
-        { id:19, name:'Under The Red Sky',      cat:'puzzle',   color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'under-the-red-sky.png', iframeUrl:'under-the-red-sky.html' },
+        { id:19, name:'Under The Red Sky',      cat:'parkour',   color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'under-the-red-sky.png', iframeUrl:'under-the-red-sky.html' },
          { id:21, name:'Happy Glass',      cat:'puzzle',   color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'happy-glass.png', iframeUrl:'happy-glass.html' },
-          { id:22, name:'Grey Hound Racing',      cat:'puzzle',   color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'grey-hound-racing.jpeg', iframeUrl:'greyhound-racing.html' },
-           { id:23, name:'Table Tennis World Tour',      cat:'puzzle',   color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'table-tennis-world-tour.png', iframeUrl:'table-tennis-world-tour.html' },
-           { id:24, name:'Flappy Dunk',      cat:'puzzle',   color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'flappy-dunk.png', iframeUrl:'flappy-dunk.html' },
+          { id:22, name:'Grey Hound Racing',      cat:'sports',   color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'grey-hound-racing.jpeg', iframeUrl:'greyhound-racing.html' },
+           { id:23, name:'Table Tennis World Tour',      cat:'sports',   color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'table-tennis-world-tour.png', iframeUrl:'table-tennis-world-tour.html' },
+           { id:24, name:'Flappy Dunk',      cat:'sports',   color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'flappy-dunk.png', iframeUrl:'flappy-dunk.html' },
            { id:25, name:'Archery World Tour',      cat:'arcade',   color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'Archery-World-Tour.png', iframeUrl:'archery-world-tour.html' },
-
+            { id:26, name:'Crazy Cars',      cat:'cars',   color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'crazy-cars.png', iframeUrl:'crazy-cars.html' },
+            { id:27, name:'FIFA World Cup Game',      cat:'sports',   color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'fifa.png', iframeUrl:'fifa.html' },
 ];
 
 const TRENDING = [
