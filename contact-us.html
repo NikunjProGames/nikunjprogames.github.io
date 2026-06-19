@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Nikunj Pro Games (NPG)</title>
+    <meta name="description" content="Get in touch with the creator of Nikunj Pro Games. Send feedback, report bugs, or submit your own web games to be featured on NPG.">
+    
+    <style>
+        :root {
+            --primary-neon: #A100FF; /* Neon Purple */
+            --secondary-neon: #0055C4; /* Neon Blue */
+            --bg-gradient: linear-gradient(135deg, #1a0030, #001a3a);
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background: #0d0d1a;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        header {
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-sizing: border-box;
+        }
+        .back-btn {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .back-btn:hover {
+            background: var(--primary-neon);
+            border-color: var(--primary-neon);
+            box-shadow: 0 0 15px var(--primary-neon);
+        }
+        .page-title {
+            margin: 0;
+            font-size: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: linear-gradient(45deg, #ffffff, #b3d1ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .content-card {
+            width: 90%;
+            max-width: 800px;
+            background: var(--bg-gradient);
+            padding: 40px;
+            border-radius: 16px;
+            box-sizing: border-box;
+            margin-top: 20px;
+            margin-bottom: 50px;
+            border: 1px solid rgba(161, 0, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(161, 0, 255, 0.1);
+        }
+        h1 {
+            margin-top: 0;
+            font-size: 32px;
+            background: linear-gradient(45deg, #ffffff, #b3d1ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        h2 {
+            color: #b3d1ff;
+            font-size: 20px;
+            margin-top: 30px;
+        }
+        p {
+            color: #dddddd;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+        .button-container {
+            margin-top: 35px;
+            text-align: center;
+        }
+        .email-btn {
+            display: inline-block;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .email-btn:hover {
+            background: var(--secondary-neon);
+            border-color: var(--secondary-neon);
+            box-shadow: 0 0 20px var(--secondary-neon), 0 0 40px var(--primary-neon);
+        }
+        @media (max-width: 600px) {
+            .content-card {
+                padding: 25px 20px;
+                width: 95%;
+            }
+            h1 { font-size: 26px; }
+        }
+        body {
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    
+    /* --- Cool Neon Background Settings --- */
+    background: #0d0d1a;
+    /* Creates a giant soft dual-glow effect */
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(161, 0, 255, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(0, 85, 196, 0.15) 0px, transparent 50%);
+    background-size: 200% 200%;
+    /* Triggers the smooth 15-second infinite looping animation below */
+    animation: neonShift 15s ease infinite;
+}
+
+/* --- The Animation Logic --- */
+@keyframes neonShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="back-btn">← Back to NPG</a>
+        <h2 class="page-title">NPG Help</h2>
+    </header>
+
+    <main class="content-card">
+        <h1>Contact Nikunj Pro Games</h1>
+        
+        <h2>About Me & NPG</h2>
+        <p>Welcome to <strong>Nikunj Pro Games (NPG)</strong>! I am Nikunj, a 15 year old (as of 2026) front-end developer passionate about creating a clean, fast, and completely unblocked space to play classic web games. I manage, update, and optimize this entire arcade platform by myself to keep it running smoothly for players all over the world.</p>
+        
+        <h2>Game Submissions & Developers</h2>
+        <p>Are you an independent game developer or studio looking to showcase your work? NPG loves supporting creators! If you want to see your game featured directly on our dashboard grid, send over your game details along with a stable HTML5 embed link or deployment configuration files.</p>
+
+        <h2>Have a Question or Feedback?</h2>
+        <p>Whether you found a broken game link, have ideas for awesome new titles I should add, or just want to leave some user feedback, I'd love to hear from you!</p>
+        <p>Click the button below to open your mail app and drop me a direct line. Make sure to include your game link if you are submitting a project!</p>
+
+        <div class="button-container">
+            <a href="mailto:nikunjprogames@gmail.com?subject=NPG%20Game%20Submission%20/%20Inquiry" class="email-btn">Send Me an Email ✉️</a>
+        </div>
+    </main>
+
+</body>
+</html>
