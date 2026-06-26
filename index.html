@@ -1256,6 +1256,61 @@
       border-radius: 50%;
       animation: spin 0.8s linear infinite;
     }
+    .submit-game-banner {
+    width: 100%;
+    background: linear-gradient(135deg, #1f1f1f, #2f2f2f);
+    padding: 60px 20px;
+    margin: 60px 0;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.submit-content {
+    max-width: 800px;
+    margin: auto;
+}
+
+.submit-game-banner h2 {
+    color: #00a6ff;
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.submit-game-banner p {
+    color: #00a6ff;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.submit-btn {
+    display: inline-block;
+    padding: 15px 35px;
+    background: #8B00FF;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.submit-btn:hover {
+    background: #8c00ff56;
+    transform: translateY(-7px);
+}
+/* Cyberpunk Blue Selection */
+::selection {
+    background: #00b7ff;
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(0, 225, 255, 0.8);
+}
+
+::-moz-selection {
+    background: #00b7ff;
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(0, 225, 255, 0.8);
+}
     @keyframes spin { to { transform: rotate(360deg); } }
     
   </style>
