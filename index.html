@@ -1319,6 +1319,150 @@
 
 <body>
 
+<!-- =========================
+     NPG Cyber Cursor Trail v2
+========================== -->
+
+<style>
+.cursor-trail {
+    position: fixed;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 999999;
+    transform: translate(-50%, -50%);
+    will-change: transform;
+
+    background:
+        radial-gradient(circle,
+        #ffffff 0%,
+        #c88cff 18%,
+        #61d8ff 55%,
+        rgba(97,216,255,0) 100%);
+
+    box-shadow:
+        0 0 8px #b56dff,
+        0 0 18px #b56dff,
+        0 0 35px #45d5ff,
+        0 0 55px rgba(69,213,255,.85),
+        0 0 85px rgba(181,109,255,.55);
+
+    transition:
+        transform .18s ease,
+        box-shadow .18s ease,
+        opacity .2s ease;
+}
+
+.cursor-trail.hover {
+    box-shadow:
+        0 0 18px #d793ff,
+        0 0 35px #c16dff,
+        0 0 65px #53d8ff,
+        0 0 100px rgba(83,216,255,.95),
+        0 0 140px rgba(193,109,255,.7);
+}
+</style>
+
+<script>
+if (window.matchMedia("(pointer:fine)").matches) {
+
+const TRAIL_LENGTH = 20;
+
+const dots = [];
+
+let mouse = {
+    x: innerWidth / 2,
+    y: innerHeight / 2
+};
+
+let hovering = false;
+
+for(let i=0;i<TRAIL_LENGTH;i++){
+
+    const dot=document.createElement("div");
+
+    dot.className="cursor-trail";
+
+    document.body.appendChild(dot);
+
+    dots.push({
+        el:dot,
+        x:mouse.x,
+        y:mouse.y
+    });
+
+}
+
+window.addEventListener("mousemove",(e)=>{
+
+    mouse.x=e.clientX;
+    mouse.y=e.clientY;
+
+});
+
+document.addEventListener("mouseover",(e)=>{
+
+    hovering=e.target.closest(
+        "button,a,.submit-btn,.game-card,input,textarea,select"
+    );
+
+});
+
+document.addEventListener("mouseout",()=>{
+
+    hovering=false;
+
+});
+
+function animate(){
+
+    let x=mouse.x;
+    let y=mouse.y;
+
+    dots.forEach((dot,index)=>{
+
+        dot.x+=(x-dot.x)*0.34;
+        dot.y+=(y-dot.y)*0.34;
+
+        const scale=((TRAIL_LENGTH-index)/TRAIL_LENGTH);
+
+        let size=scale;
+
+        if(index===0 && hovering){
+
+            size=2.15;
+
+            dot.el.classList.add("hover");
+
+        }else{
+
+            dot.el.classList.remove("hover");
+
+        }
+
+        dot.el.style.left=dot.x+"px";
+        dot.el.style.top=dot.y+"px";
+
+        dot.el.style.transform=
+        `translate(-50%,-50%) scale(${size})`;
+
+        dot.el.style.opacity=Math.max(scale,0.08);
+
+        x=dot.x;
+        y=dot.y;
+
+    });
+
+    requestAnimationFrame(animate);
+
+}
+
+animate();
+
+}
+</script>
+
 <!-- Synthwave background canvas -->
 <canvas id="bg-canvas"></canvas>
 
