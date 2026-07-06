@@ -370,28 +370,33 @@
       100% { transform: translateY(0); }
     }
 
-    /* Mobile nav */
     @media (max-width: 960px) {
       header {
         display: grid;
-        grid-template-columns: auto 1fr auto;
+        grid-template-columns: auto 1fr auto auto;
         align-items: center;
-        padding: 0.85rem 1rem;
-        height: 70px;
+        padding: 0.75rem 0.9rem;
+        height: 60px;
+        gap: 0.6rem;
       }
+      #home { padding: 5.8rem 1.5rem 3rem; }
       .nav-actions {
-        justify-self: start;
-        align-self: center;
-        z-index: 1001;
-        margin-right: 0.8rem;
+        display: none;
       }
       .logo {
         position: relative;
         left: auto;
         transform: none;
-        justify-self: center;
+        justify-self: start;
         z-index: 1001;
         margin: 0;
+        font-size: 1rem;
+      }
+      #auth-action-button {
+        justify-self: end;
+        z-index: 1001;
+        padding: 0.55rem 1rem;
+        font-size: 0.75rem;
       }
       .hamburger {
         display: flex;
@@ -404,11 +409,11 @@
       nav.open {
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
         position: fixed;
-        inset: 70px 0 0 0;
-        min-height: calc(100vh - 70px);
+        inset: 60px 0 0 0;
+        min-height: calc(100vh - 60px);
         background: rgba(6, 6, 18, 0.98);
         backdrop-filter: blur(18px);
         padding: 1.6rem 1.2rem 2rem;
@@ -417,53 +422,76 @@
         opacity: 0;
         transform: translateY(-18px);
         transition: opacity 0.28s ease, transform 0.28s ease;
+        border-top: 1px solid rgba(139,0,255,0.2);
       }
       nav.open { opacity: 1; transform: translateY(0); }
       nav.open ul {
         display: flex;
         flex-direction: column;
-        gap: 1rem;
+        gap: 0.8rem;
         padding: 0;
         margin: 0;
         width: 100%;
+        max-width: 300px;
       }
       nav.open li { width: 100%; }
       nav.open a {
         display: block;
         width: 100%;
-        padding: 1rem 1rem;
-        border-radius: 16px;
+        padding: 0.9rem 1rem;
+        border-radius: 12px;
         background: rgba(255,255,255,0.05);
         text-align: center;
-        font-size: 1rem;
+        font-size: 0.95rem;
       }
       nav.open a:hover {
         background: rgba(0,191,255,0.18);
       }
-      .nav-actions button { min-width: 120px; }
-      .nav-actions span { display: none; }
       .recent-toggle .desktop-label { display: none; }
       .recent-toggle .mobile-icon { display: inline-block; }
       .recent-panel {
         position: fixed;
-        top: 70px;
-        right: 0.85rem;
+        top: 60px;
+        right: 0.6rem;
         left: auto;
         width: min(280px, 92vw);
-        max-height: calc(100vh - 88px);
+        max-height: calc(100vh - 80px);
+        z-index: 1002;
       }
     }
 
     @media (max-width: 640px) {
-      header { padding: 0.75rem 0.9rem; }
-      nav.open a { font-size: 1rem; }
-      .nav-actions button { padding: 0.55rem 1rem; }
+      header { 
+        padding: 0.65rem 0.8rem;
+        height: 58px;
+      }
+      #home { padding: 5.5rem 1.2rem 3rem; }
+      nav.open { inset: 58px 0 0 0; top: 58px; }
+      #auth-action-button {
+        padding: 0.5rem 0.9rem;
+        font-size: 0.7rem;
+        gap: 4px;
+      }
+      .logo { font-size: 0.95rem; }
     }
 
     @media (max-width: 520px) {
-      .logo { font-size: 1rem; }
-      nav.open { padding: 1.2rem 1rem 1.8rem; }
-      .hamburger span { width: 20px; }
+      header { 
+        padding: 0.6rem 0.7rem;
+        height: 56px;
+        grid-template-columns: auto 1fr auto auto;
+        gap: 0.4rem;
+      }
+      #home { padding: 5.3rem 1rem 2.8rem; }
+      nav.open { inset: 56px 0 0 0; top: 56px; }
+      .logo { font-size: 0.9rem; }
+      #auth-action-button {
+        padding: 0.45rem 0.8rem;
+        font-size: 0.65rem;
+        gap: 3px;
+      }
+      .hamburger span { width: 18px; height: 2px; }
+      .hamburger { gap: 4px; }
     }
 
     /* ============================================================
@@ -1293,8 +1321,8 @@
       .game-card { min-height: 340px; }
     }
     @media (max-width: 768px) {
-      header { padding: 0 1rem; height: 64px; }
-      #home { padding: 6.5rem 1.2rem 3rem; }
+      header { padding: 0 0.8rem; height: 58px; }
+      #home { padding: 5.5rem 1.2rem 3rem; }
       #games, #trending, #leaderboard, #about, footer { padding: 3rem 1.2rem; }
       .ad-wrap { padding: 1rem 1.2rem; }
       .games-grid {
@@ -2616,6 +2644,7 @@ updateAuthUI();
 let gameLoop = null;
 let gameState = {};
 let gameLoadTimer = null;
+let currentOpenGame = null; // Track the current game for fullscreen redirect
 
 function showGameFrame() {
   document.getElementById('game-loading').style.display = 'none';
@@ -2626,13 +2655,15 @@ function openGame(id) {
   const game = GAMES.find(g => g.id === id);
   if (!game) return;
 
+  currentOpenGame = game; // Store the current game for fullscreen redirect
+
   saveRecentGame(game.id);
   document.getElementById('game-modal-title').textContent = game.name;
   const iframe = document.getElementById('game-frame');
   document.getElementById('game-modal').classList.add('open');
   document.getElementById('game-loading').style.display = 'flex';
   document.getElementById('game-frame-wrap').style.display = 'none';
-  document.getElementById('game-instructions').textContent = 'Use fullscreen for the best experience, then enjoy the game inside the embed.';
+  document.getElementById('game-instructions').textContent = 'Click the fullscreen button to play in a separate tab for the best performance!';
 
   if (gameLoadTimer) clearTimeout(gameLoadTimer);
   iframe.onload = showGameFrame;
@@ -2642,15 +2673,10 @@ function openGame(id) {
 }
 
 function requestGameFullscreen() {
-  const frameWrap = document.getElementById('game-frame-wrap');
-  if (!frameWrap) return;
-  if (document.fullscreenElement) {
-    document.exitFullscreen();
-    return;
+  // Open the separate game file in a new tab for best performance
+  if (currentOpenGame && currentOpenGame.iframeUrl) {
+    window.open(currentOpenGame.iframeUrl, '_blank');
   }
-  if (frameWrap.requestFullscreen) frameWrap.requestFullscreen();
-  else if (frameWrap.webkitRequestFullscreen) frameWrap.webkitRequestFullscreen();
-  else if (frameWrap.msRequestFullscreen) frameWrap.msRequestFullscreen();
 }
 
 function closeGameModal() {
@@ -2664,6 +2690,7 @@ function closeGameModal() {
     iframe.src = '';
     iframe.onload = null;
   }
+  currentOpenGame = null; // Clear the current game when modal closes
 }
 document.getElementById('game-modal').addEventListener('click', e => {
   if (e.target === document.getElementById('game-modal')) closeGameModal();
