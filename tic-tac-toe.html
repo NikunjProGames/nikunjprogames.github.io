@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tic Tac Toe — Nikunj Pro Games</title>
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--accent:#7c3aed;--muted:#9ca3af;--win:#16a34a}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg),#071024);font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial}
+    .wrap{min-height:100%;display:flex;align-items:center;justify-content:center;padding:32px}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border-radius:12px;padding:24px;width:360px;box-shadow:0 10px 50px rgba(2,6,23,0.65);color:#e6eef8}
+    h1{margin:0 0 8px;font-size:20px;letter-spacing:0.2px}
+    .meta{color:var(--muted);font-size:13px;margin-bottom:12px}
+    .board{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
+    .cell{aspect-ratio:1/1;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));display:flex;align-items:center;justify-content:center;font-size:46px;border-radius:10px;cursor:pointer;user-select:none;transition:transform .12s cubic-bezier(.2,.9,.3,1),box-shadow .18s}
+    .cell:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(0,0,0,0.45),0 0 18px rgba(124,58,237,0.12)}
+    .cell.x{color:#ffd166;text-shadow:0 6px 24px rgba(255,209,102,0.12);transform-origin:center}
+    .cell.o{color:#66f0ff;text-shadow:0 6px 24px rgba(102,240,255,0.12)}
+    .mark-appear{animation:mark-pop .18s ease both}
+    @keyframes mark-pop{0%{transform:scale(.2) rotate(-20deg);opacity:0}60%{transform:scale(1.08) rotate(6deg);opacity:1}100%{transform:scale(1) rotate(0)} }
+    .controls{display:flex;gap:8px;align-items:center;margin-top:8px}
+    button{background:var(--accent);border:0;color:white;padding:8px 12px;border-radius:8px;cursor:pointer}
+    button.secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+    .status{margin-left:auto;color:var(--muted);font-size:14px}
+    .line{height:4px;background:var(--win);border-radius:2px;margin-top:12px;transform-origin:left;transition:width .28s ease,margin-left .28s ease}
+    .hidden{display:none}
+    footer{margin-top:12px;color:var(--muted);font-size:12px;text-align:center}
+    .win-glow{box-shadow:0 10px 40px rgba(22,163,74,0.12),0 0 40px rgba(124,58,237,0.06)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <main class="card" role="main">
+      <h1>Tic Tac Toe</h1>
+      <div class="meta">Choose mode and play — stronger effects included.</div>
+
+      <div style="display:flex;gap:8px;margin-bottom:12px;align-items:center">
+        <label style="display:flex;gap:8px;align-items:center;color:var(--muted)">
+          <input type="radio" name="mode" value="friend" id="mode-friend" checked /> Play with friend
+        </label>
+        <label style="display:flex;gap:8px;align-items:center;color:var(--muted)">
+          <input type="radio" name="mode" value="ai" id="mode-ai" /> Play with robot
+        </label>
+      </div>
+
+      <div id="board" class="board" aria-label="Tic Tac Toe board"></div>
+
+      <div class="controls">
+        <button id="reset">Reset</button>
+        <button id="new-game" class="secondary">New Game</button>
+        <div id="status" class="status">Current: <strong id="player">X</strong></div>
+      </div>
+      <div id="line" class="line hidden"></div>
+      <footer>Made for the site — enjoy!</footer>
+    </main>
+  </div>
+
+  <script>
+    (function(){
+      const boardEl = document.getElementById('board');
+      const statusEl = document.getElementById('status');
+      const playerEl = document.getElementById('player');
+      const lineEl = document.getElementById('line');
+      const resetBtn = document.getElementById('reset');
+      const newBtn = document.getElementById('new-game');
+      const modeFriend = document.getElementById('mode-friend');
+      const modeAI = document.getElementById('mode-ai');
+
+      let board = Array(9).fill(null);
+      let current = 'X';
+      let running = true;
+      let mode = 'friend';
+
+      const AI_PLAYER = 'O';
+      const HUMAN_PLAYER = 'X';
+
+      const wins = [
+        [0,1,2],[3,4,5],[6,7,8],
+        [0,3,6],[1,4,7],[2,5,8],
+        [0,4,8],[2,4,6]
+      ];
+
+      modeFriend.addEventListener('change', ()=> mode='friend');
+      modeAI.addEventListener('change', ()=> mode='ai');
+
+      function render(){
+        boardEl.innerHTML = '';
+        board.forEach((v,i)=>{
+          const cell = document.createElement('button');
+          cell.className = 'cell' + (v ? (' '+v.toLowerCase()) : '');
+          cell.type = 'button';
+          cell.dataset.index = i;
+          cell.setAttribute('aria-label','Cell '+(i+1));
+          if(v){
+            const span = document.createElement('span');
+            span.textContent = v;
+            span.className = 'mark-appear';
+            cell.appendChild(span);
+          }
+          cell.addEventListener('click', onCellClick);
+          boardEl.appendChild(cell);
+        })
+        playerEl.textContent = current;
+      }
+
+      function onCellClick(e){
+        if(!running) return;
+        const idx = Number(e.currentTarget.dataset.index);
+        if(board[idx]) return;
+        // if AI mode and it's AI's turn, ignore clicks
+        if(mode==='ai' && current===AI_PLAYER) return;
+
+        makeMove(idx, current);
+        render();
+
+        const winner = checkWinner();
+        if(winner){
+          finishGame(winner);
+          return;
+        }
+
+        current = current === 'X' ? 'O' : 'X';
+        playerEl.textContent = current;
+
+        if(mode==='ai' && current===AI_PLAYER && running){
+          // small delay to feel like thinking
+          setTimeout(()=>{ aiTurn(); }, 320 + Math.random()*300);
+        }
+      }
+
+      function makeMove(idx, player){
+        board[idx] = player;
+      }
+
+      function finishGame(winner){
+        running = false;
+        if(winner === 'draw'){
+          statusEl.textContent = 'Draw!';
+          lineEl.classList.remove('hidden'); lineEl.style.width='100%';
+        } else {
+          statusEl.textContent = (winner.player+' wins!');
+          highlightWin(winner.line);
+        }
+      }
+
+      function checkWinner(){
+        for(const line of wins){
+          const [a,b,c] = line;
+          if(board[a] && board[a]===board[b] && board[a]===board[c]){
+            return {player:board[a], line};
+          }
+        }
+        if(board.every(Boolean)) return 'draw';
+        return null;
+      }
+
+      function highlightWin(winLine){
+        if(!winLine){ lineEl.classList.remove('hidden'); lineEl.style.width='100%'; return; }
+        const cells = Array.from(boardEl.children);
+        const a = cells[winLine[0]].getBoundingClientRect();
+        const c = cells[winLine[2]].getBoundingClientRect();
+        const parent = boardEl.getBoundingClientRect();
+        const left = a.left - parent.left;
+        const width = (c.right - a.left);
+        lineEl.classList.remove('hidden');
+        lineEl.style.width = width + 'px';
+        lineEl.style.marginLeft = left + 'px';
+        lineEl.style.background = 'linear-gradient(90deg,var(--win),#34d399)';
+        // highlight cells
+        winLine.forEach(i => {
+          const cell = boardEl.children[i];
+          if(cell) cell.classList.add('win-glow');
+        });
+      }
+
+      // AI: Minimax implementation
+      function aiTurn(){
+        if(!running) return;
+        const best = minimax(board.slice(), AI_PLAYER);
+        if(typeof best.index === 'number'){
+          makeMove(best.index, AI_PLAYER);
+          render();
+          const winner = checkWinner();
+          if(winner){ finishGame(winner); return; }
+          current = HUMAN_PLAYER;
+          playerEl.textContent = current;
+        }
+      }
+
+      function minimax(newBoard, player){
+        const avail = newBoard.reduce((arr,v,i)=>(v?arr:arr.concat(i)),[]);
+
+        const winnerCheck = (()=>{
+          for(const line of wins){
+            const [a,b,c] = line;
+            if(newBoard[a] && newBoard[a]===newBoard[b] && newBoard[a]===newBoard[c]) return newBoard[a];
+          }
+          return null;
+        })();
+
+        if(winnerCheck === HUMAN_PLAYER) return {score:-10};
+        if(winnerCheck === AI_PLAYER) return {score:10};
+        if(avail.length === 0) return {score:0};
+
+        const moves = [];
+
+        for(const i of avail){
+          const move = {};
+          move.index = i;
+          newBoard[i] = player;
+
+          if(player === AI_PLAYER){
+            const result = minimax(newBoard, HUMAN_PLAYER);
+            move.score = result.score;
+          } else {
+            const result = minimax(newBoard, AI_PLAYER);
+            move.score = result.score;
+          }
+
+          newBoard[i] = null;
+          moves.push(move);
+        }
+
+        let bestMove;
+        if(player === AI_PLAYER){
+          let bestScore = -Infinity;
+          moves.forEach(m => { if(m.score > bestScore){ bestScore = m.score; bestMove = m; } });
+        } else {
+          let bestScore = Infinity;
+          moves.forEach(m => { if(m.score < bestScore){ bestScore = m.score; bestMove = m; } });
+        }
+
+        return bestMove;
+      }
+
+      function resetBoard(){
+        board = Array(9).fill(null);
+        current = HUMAN_PLAYER;
+        running = true;
+        lineEl.classList.add('hidden'); lineEl.style.width='0';
+        statusEl.textContent = 'Current:';
+        playerEl.textContent = current;
+        // remove any existing highlights
+        Array.from(boardEl.children).forEach(c=>c && c.classList && c.classList.remove('win-glow'));
+        render();
+        // if AI starts first in future variants, handle here
+      }
+
+      resetBtn.addEventListener('click', resetBoard);
+      newBtn.addEventListener('click', ()=>{ resetBoard(); });
+
+      // initialize
+      render();
+    })();
+  </script>
+</body>
+</html>
