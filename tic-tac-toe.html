@@ -3,14 +3,17 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Tic Tac Toe — Nikunj Pro Games</title>
+  <meta name="description" content="Play Nikunj Pro Games Original Tic Tac Toe online for free with a polished browser version, quick matches, and smooth two-player or robot modes." />
+  <title>Nikunj Pro Games Original Tic Tac Toe</title>
   <style>
     :root{--bg:#0f1724;--card:#0b1220;--accent:#7c3aed;--muted:#9ca3af;--win:#16a34a}
     html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg),#071024);font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial}
     .wrap{min-height:100%;display:flex;align-items:center;justify-content:center;padding:32px}
-    .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border-radius:12px;padding:24px;width:360px;box-shadow:0 10px 50px rgba(2,6,23,0.65);color:#e6eef8}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border-radius:12px;padding:24px;width:min(420px,92vw);box-shadow:0 10px 50px rgba(2,6,23,0.65);color:#e6eef8}
     h1{margin:0 0 8px;font-size:20px;letter-spacing:0.2px}
+    .hero-title{margin:0 0 8px;font-size:clamp(1.25rem,3.2vw,1.75rem);font-weight:800;letter-spacing:.3px;text-align:center;line-height:1.15;background:linear-gradient(90deg,#ffd166,#66f0ff,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-shadow:0 0 20px rgba(102,240,255,0.12)}
     .meta{color:var(--muted);font-size:13px;margin-bottom:12px}
+    .hero-copy{color:var(--muted);font-size:13px;line-height:1.5;margin:0 0 14px;text-align:center}
     .board{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
     .cell{aspect-ratio:1/1;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));display:flex;align-items:center;justify-content:center;font-size:46px;border-radius:10px;cursor:pointer;user-select:none;transition:transform .12s cubic-bezier(.2,.9,.3,1),box-shadow .18s}
     .cell:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(0,0,0,0.45),0 0 18px rgba(124,58,237,0.12)}
@@ -26,12 +29,21 @@
     .hidden{display:none}
     footer{margin-top:12px;color:var(--muted);font-size:12px;text-align:center}
     .win-glow{box-shadow:0 10px 40px rgba(22,163,74,0.12),0 0 40px rgba(124,58,237,0.06)}
+    .game-info-addon{margin-top:16px;padding:14px;border:1px solid rgba(255,255,255,0.12);border-radius:10px;background:rgba(255,255,255,0.035)}
+    .game-info-addon h2{margin:0 0 8px;font-size:1rem;color:#66f0ff}
+    .game-info-addon p,.game-info-addon li{color:#d9e2f1;font-size:13px;line-height:1.5}
+    .game-info-addon table{width:100%;border-collapse:collapse;font-size:12px;margin-top:8px}
+    .game-info-addon th,.game-info-addon td{border:1px solid rgba(255,255,255,0.12);padding:8px;text-align:left;vertical-align:top}
+    .game-info-addon th{background:rgba(255,255,255,0.06)}
+    .game-info-addon ul{margin:8px 0 0 16px;padding:0}
+    .game-info-addon .disclaimer{font-size:11px;color:#94a3b8;margin-top:10px}
   </style>
 </head>
 <body>
   <div class="wrap">
     <main class="card" role="main">
-      <h1>Tic Tac Toe</h1>
+      <h1 class="hero-title">Nikunj Pro Games Original Tic Tac Toe</h1>
+      <p class="hero-copy">A fast, polished browser version of the classic game with quick rounds, clean controls, and a simple choice between a friend or a smart robot opponent.</p>
       <div class="meta">Choose mode and play — stronger effects included.</div>
 
       <div style="display:flex;gap:8px;margin-bottom:12px;align-items:center">
@@ -51,6 +63,26 @@
         <div id="status" class="status">Current: <strong id="player">X</strong></div>
       </div>
       <div id="line" class="line hidden"></div>
+
+      <section class="game-info-addon" aria-label="Game information and controls">
+        <h2>Game Info & Controls</h2>
+        <p>Enjoy quick rounds of strategy and timing in this bright, easy-to-learn version of Tic Tac Toe. The game works smoothly in a browser, keeps the action simple, and offers both two-player and robot modes so you can challenge a friend or sharpen your skills against the computer.</p>
+        <table>
+          <thead>
+            <tr><th>Desktop</th><th>Mobile</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Use a mouse or touchpad to tap a square and place your mark.</td><td>Tap the board directly to play on phones or tablets.</td></tr>
+          </tbody>
+        </table>
+        <ul>
+          <li>Try to create a line early and force the opponent to react.</li>
+          <li>Block the center when possible to gain the strongest position.</li>
+          <li>Practice both modes to improve your timing and strategy.</li>
+        </ul>
+        <p class="disclaimer">This is a free fan-made web adaptation and is not affiliated with any corporate trademark owners.</p>
+      </section>
+
       <footer>Made for the site — enjoy!</footer>
     </main>
   </div>
