@@ -2236,9 +2236,38 @@ function createGameIconUrl(game) {
 
 function createGameImageMarkup(game) {
   const imageUrl = game.imageUrl && game.imageUrl.trim();
-  const src = imageUrl || createGameIconUrl(game);
+  const actualSrc = imageUrl || createGameIconUrl(game);
+  const placeholderSrc = createGameIconUrl(game);
   const className = imageUrl ? 'game-icon custom-game-image' : 'game-icon';
-  return `<img class="${className}" src="${src}" alt="${game.name} image" />`;
+  return `<img class="${className}" src="${placeholderSrc}" alt="${game.name} image" loading="lazy" decoding="async" data-src="${actualSrc}" />`;
+}
+
+function observeLazyImages() {
+  const images = document.querySelectorAll('img[data-src]');
+  if (!images.length) return;
+
+  if (!('IntersectionObserver' in window)) {
+    images.forEach(img => {
+      img.src = img.dataset.src;
+      img.removeAttribute('data-src');
+    });
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const img = entry.target;
+      const src = img.dataset.src;
+      if (src) {
+        img.src = src;
+        img.removeAttribute('data-src');
+      }
+      obs.unobserve(img);
+    });
+  }, { rootMargin: '220px 0px' });
+
+  images.forEach(img => observer.observe(img));
 }
 
 function createGameFrameUrl(game) {
@@ -2284,6 +2313,8 @@ function renderGames(filter = 'all') {
       </div>`;
     grid.appendChild(card);
   });
+
+  observeLazyImages();
 }
 
 function renderTrending() {
@@ -2313,6 +2344,8 @@ function renderTrending() {
       </div>`;
     row.appendChild(card);
   });
+
+  observeLazyImages();
 
   // Drag-scroll
   const wrap = document.getElementById('trending-scroll');
