@@ -1,0 +1,502 @@
+const NEW_GAMES = [
+  {
+    id: 44,
+    name: "Speen",
+    cat: "multiplayer",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://img.gamemonetize.com/fwiozook1vr9lw7duxy81zup5676u7bj/512x384.jpg",
+    iframeUrl: "speen.html"
+  },
+  {
+    id: 45,
+    name: "Music Night Battle: Rhythm Game",
+    cat: "multiplayer",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://img.gamemonetize.com/gpnthl10ris6862m1lrywpqk8gc4zk4v/512x384.jpg",
+    iframeUrl: "music-night-battle-rhythm-game.html"
+  },
+  {
+    id: 46,
+    name: "Wiggly Worm Race",
+    cat: "sports",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://img.gamemonetize.com/l0nqbs09szfpxezuy44h886ecqpomll5/512x384.jpg",
+    iframeUrl: "wiggly-worm-race.html"
+  },
+  {
+    id: 47,
+    name: "Stickman Trivia Fall IO",
+    cat: "multiplayer",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://img.gamemonetize.com/cybh6ym22ww2ehlpu23d6azrudls31ar/512x384.jpg",
+    iframeUrl: "stickman-trivia-fall-io.html"
+  },
+  {
+    id: 48,
+    name: "Castle Wars: Legacy",
+    cat: "multiplayer",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://img.gamemonetize.com/f6ung9e7lfninu1957spejeihzprdusb/512x384.jpg",
+    iframeUrl: "castle-wars-legacy.html"
+  },
+  {
+    id: 49,
+    name: "Guardz IO",
+    cat: "multiplayer",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://img.gamemonetize.com/f1e896emfy104h8j8higjjdkcqeqvtau/512x384.jpg",
+    iframeUrl: "guardz-io.html"
+  },
+  {
+    id: 50,
+    name: "Robot Astro Party",
+    cat: "racing",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://img.gamemonetize.com/iv0siadzdl75mq4brnh2p63bjdomi3jt/512x384.jpg",
+    iframeUrl: "robot-astro-party.html"
+  },
+  {
+    id: 51,
+    name: "INCOWORD",
+    cat: "puzzle",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://img.gamemonetize.com/y4wmrpbd3v374mr8z6vtd97bwbo4kc82/512x384.jpg",
+    iframeUrl: "incoword.html"
+  },
+  {
+    id: 52,
+    name: "blockscape.io",
+    cat: "multiplayer",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://img.gamemonetize.com/z41q0ycg5i8u33rqy7sfjcedpak3e7zz/512x384.jpg",
+    iframeUrl: "blockscape-io.html"
+  },
+  {
+    id: 53,
+    name: "Quiz Runner.io",
+    cat: "multiplayer",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://img.gamemonetize.com/o265mdiouhnx82t87q3p0t5jgspwsdoy/512x384.jpg",
+    iframeUrl: "quiz-runner-io.html"
+  },
+  {
+    id: 54,
+    name: "Santa Matching Game",
+    cat: "multiplayer",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://img.gamemonetize.com/7zwgvkvq609jq0jk7tpfe10bncofyj5o/512x384.jpg",
+    iframeUrl: "santa-matching-game.html"
+  },
+  {
+    id: 55,
+    name: "Brainrot Bridge Race 3D",
+    cat: "multiplayer",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://img.gamemonetize.com/e27ezlhh5edki5wv0aad96d8w3g1l1bf/512x384.jpg",
+    iframeUrl: "brainrot-bridge-race-3d.html"
+  },
+  {
+    id: 56,
+    name: "carrom pro",
+    cat: "multiplayer",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://img.gamemonetize.com/ts6iu4xqkctvpkau5yk4hwdkr3nwbsn7/512x384.jpg",
+    iframeUrl: "carrom-pro.html"
+  },
+  {
+    id: 57,
+    name: "WHOT The Ultimate Nigerian Card Game",
+    cat: "multiplayer",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://img.gamemonetize.com/at7gjto5axuv0mv7m4ain5pll3qmutcz/512x384.jpg",
+    iframeUrl: "whot-the-ultimate-nigerian-card-game.html"
+  },
+  {
+    id: 58,
+    name: "English Checkers",
+    cat: "sports",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://img.gamemonetize.com/pir55cwoygvsus9az7d5zyxd6gra48dh/512x384.jpg",
+    iframeUrl: "english-checkers.html"
+  },
+  {
+    id: 59,
+    name: "Clonium",
+    cat: "multiplayer",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://img.gamemonetize.com/cx9ykv4xl6wlfq6vd9odkn68e6zenz7s/512x384.jpg",
+    iframeUrl: "clonium.html"
+  },
+  {
+    id: 60,
+    name: "Fall Guys Unblocked Web Multiplayer",
+    cat: "multiplayer",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://img.gamemonetize.com/7o8qtn59e5ejushl2s6bp52nbcgiu44x/512x384.jpg",
+    iframeUrl: "fall-guys-unblocked-web-multiplayer.html"
+  },
+  {
+    id: 61,
+    name: "Battle SWAT vs Mercenary Remaster",
+    cat: "multiplayer",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://img.gamemonetize.com/np11v2111dvriy3bgljgr99a8qo2l8vi/512x384.jpg",
+    iframeUrl: "battle-swat-vs-mercenary-remaster.html"
+  },
+  {
+    id: 62,
+    name: "PGA Toons",
+    cat: "multiplayer",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://img.gamemonetize.com/gw00mqn2tqrl78k76v4bug5o2ho9qng8/512x384.jpg",
+    iframeUrl: "pga-toons.html"
+  },
+  {
+    id: 63,
+    name: "PGA3 Zombie",
+    cat: "multiplayer",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://img.gamemonetize.com/tg44gsgkrah9ash957sdnj6jg2oeyn75/512x384.jpg",
+    iframeUrl: "pga3-zombie.html"
+  },
+  {
+    id: 64,
+    name: "Paws Off My Clues!",
+    cat: "multiplayer",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://img.gamemonetize.com/u1n5ttd87g2a326o5b2pn1wb9ntpx33f/512x384.jpg",
+    iframeUrl: "paws-off-my-clues.html"
+  },
+  {
+    id: 65,
+    name: "Tic tac toe   with AI and multiplayer",
+    cat: "multiplayer",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://img.gamemonetize.com/yek6als54qfbxd4vx2h26nuq55rt7gt8/512x384.jpg",
+    iframeUrl: "tic-tac-toe-with-ai-and-multiplayer.html"
+  },
+  {
+    id: 66,
+    name: "Balloon Heroes Run and Rise",
+    cat: "racing",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://img.gamemonetize.com/vlhloqzu0cvn1apzoyq9vwycgddt3fxn/512x384.jpg",
+    iframeUrl: "balloon-heroes-run-and-rise.html"
+  },
+  {
+    id: 67,
+    name: "Iron Legion",
+    cat: "multiplayer",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://img.gamemonetize.com/gkeofcoqengjzxlw0b09f2qrng35egbi/512x384.jpg",
+    iframeUrl: "iron-legion.html"
+  },
+  {
+    id: 68,
+    name: "Casual Poker Online",
+    cat: "sports",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://img.gamemonetize.com/bcs4hy6efm4uqx1qacogniq5xvn9jzhe/512x384.jpg",
+    iframeUrl: "casual-poker-online.html"
+  },
+  {
+    id: 69,
+    name: "super sprunki adventure game",
+    cat: "multiplayer",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://img.gamemonetize.com/yh0n2bobl4i5wdm0z43l7rhow2nk62qy/512x384.jpg",
+    iframeUrl: "super-sprunki-adventure-game.html"
+  },
+  {
+    id: 70,
+    name: "Run Guys: Knockout Royale",
+    cat: "racing",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://img.gamemonetize.com/bivqu9s6efq0gk7rknnqlad3qw0ncizt/512x384.jpg",
+    iframeUrl: "run-guys-knockout-royale.html"
+  },
+  {
+    id: 71,
+    name: "Online Cats Multiplayer Park",
+    cat: "racing",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://img.gamemonetize.com/2zzd4eaozs2hipxphec84xoac3sagofk/512x384.jpg",
+    iframeUrl: "online-cats-multiplayer-park.html"
+  },
+  {
+    id: 72,
+    name: "Tung Sahur IO",
+    cat: "multiplayer",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://img.gamemonetize.com/oddet3vf59i0den8dikuc3us81aby79z/512x384.jpg",
+    iframeUrl: "tung-sahur-io.html"
+  },
+  {
+    id: 73,
+    name: "Ludo King   offline Ludo Game",
+    cat: "multiplayer",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://img.gamemonetize.com/e8vfdarke5qjx5uemefer4jtnbo3dc01/512x384.jpg",
+    iframeUrl: "ludo-king-offline-ludo-game.html"
+  },
+  {
+    id: 74,
+    name: "Snake War Multiplayer",
+    cat: "multiplayer",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://img.gamemonetize.com/qf4hzartah4bf6ewbpelfx4dmz1qql4a/512x384.jpg",
+    iframeUrl: "snake-war-multiplayer.html"
+  },
+  {
+    id: 75,
+    name: "Counter Terror 3d",
+    cat: "shooting",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://img.gamemonetize.com/lbj1gbsu0l7j8jdaih6a3yqibr9xtgu2/512x384.jpg",
+    iframeUrl: "counter-terror-3d.html"
+  },
+  {
+    id: 76,
+    name: "Sure Shot",
+    cat: "shooting",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://img.gamemonetize.com/s0e0jqx8z8e8s5n9dshww2gexamrw0cm/512x384.jpg",
+    iframeUrl: "sure-shot.html"
+  },
+  {
+    id: 77,
+    name: "Free Rally: Vice",
+    cat: "racing",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://img.gamemonetize.com/dx1obtwhyn14plnk6inxzny5295onzl5/512x384.jpg",
+    iframeUrl: "free-rally-vice.html"
+  },
+  {
+    id: 78,
+    name: "Gorilla Multiplayer",
+    cat: "multiplayer",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://img.gamemonetize.com/i5povrpxi9gwdyq2d9zr1haw3cm0il6h/512x384.jpg",
+    iframeUrl: "gorilla-multiplayer.html"
+  },
+  {
+    id: 79,
+    name: "Turkish draughts",
+    cat: "multiplayer",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://img.gamemonetize.com/d2gokou3otdsj4x3y2l09gxx4ktk1okw/512x384.jpg",
+    iframeUrl: "turkish-draughts.html"
+  },
+  {
+    id: 80,
+    name: "Sunny Fields",
+    cat: "multiplayer",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://img.gamemonetize.com/6677ao3k189n72jdo2h94kdvvkmo6c72/512x384.jpg",
+    iframeUrl: "sunny-fields.html"
+  },
+  {
+    id: 81,
+    name: "Jump Race",
+    cat: "multiplayer",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://img.gamemonetize.com/iquipc0k9ijyjxw1pxc0q271kxb4t7gn/512x384.jpg",
+    iframeUrl: "jump-race.html"
+  },
+  {
+    id: 82,
+    name: "Qolor 2048",
+    cat: "puzzle",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://img.gamemonetize.com/3e4hk4zpotozwuy9ehh5uy0xzeaabp3k/512x384.jpg",
+    iframeUrl: "qolor-2048.html"
+  },
+  {
+    id: 83,
+    name: "Dominoes classic duel",
+    cat: "multiplayer",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://img.gamemonetize.com/l3njgmefn0e3h9ih3zyhyctgjj2jlpsv/512x384.jpg",
+    iframeUrl: "dominoes-classic-duel.html"
+  },
+  {
+    id: 84,
+    name: "Animerge",
+    cat: "puzzle",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://img.gamemonetize.com/8g5l1zycbzl4d95ho3kztawxu1cjrz0a/512x384.jpg",
+    iframeUrl: "animerge.html"
+  },
+  {
+    id: 85,
+    name: "Multiplayer Team Death Match",
+    cat: "shooting",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://img.gamemonetize.com/h5hc9ltwjo3sk2g2upo4su465kf1kkgz/512x384.jpg",
+    iframeUrl: "multiplayer-team-death-match.html"
+  },
+  {
+    id: 86,
+    name: "Tafl: viking chess",
+    cat: "puzzle",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://img.gamemonetize.com/9dfjnm3ihlvt9h0yxblmdflszkbanpc2/512x384.jpg",
+    iframeUrl: "tafl-viking-chess.html"
+  },
+  {
+    id: 87,
+    name: "popaloon",
+    cat: "multiplayer",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://img.gamemonetize.com/l28ng8jar2mopyfsls1ufwi7zm9ml4zi/512x384.jpg",
+    iframeUrl: "popaloon.html"
+  },
+  {
+    id: 88,
+    name: "Sprunki Drift Multiplayer",
+    cat: "racing",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://img.gamemonetize.com/c8p1307f1u9vsd1njv8qswqfomtayqgl/512x384.jpg",
+    iframeUrl: "sprunki-drift-multiplayer.html"
+  },
+  {
+    id: 89,
+    name: "Greedy Snake Multiplayer Duel",
+    cat: "multiplayer",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://img.gamemonetize.com/fzxidkarnp7ykiii4mot05y6nfwt8h3w/512x384.jpg",
+    iframeUrl: "greedy-snake-multiplayer-duel.html"
+  },
+  {
+    id: 90,
+    name: "Gomoku: five stones in a row",
+    cat: "puzzle",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://img.gamemonetize.com/slrxe38x6845ol68bkcrtet7yqe728g9/512x384.jpg",
+    iframeUrl: "gomoku-five-stones-in-a-row.html"
+  },
+  {
+    id: 91,
+    name: "Survev.io",
+    cat: "multiplayer",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://img.gamemonetize.com/q9xrmuceu30pey8llzop5cr0p1p2fbx9/512x384.jpg",
+    iframeUrl: "survev-io.html"
+  },
+  {
+    id: 92,
+    name: "Battle Jitsu",
+    cat: "multiplayer",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://img.gamemonetize.com/cxu4dpr5uspgzim70lf6t4p6milazwr0/512x384.jpg",
+    iframeUrl: "battle-jitsu.html"
+  },
+  {
+    id: 93,
+    name: "Giveaway Checkers",
+    cat: "puzzle",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://img.gamemonetize.com/594795s0fh64izkmnelrpracbmz1we3t/512x384.jpg",
+    iframeUrl: "giveaway-checkers.html"
+  }
+];

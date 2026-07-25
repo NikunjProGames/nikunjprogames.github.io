@@ -1,0 +1,49 @@
+const fs = require('fs');
+const path = require('path');
+
+// 1. Point to your sample JSON file
+const FEED_FILE = 'feed.json';
+
+function generateGamePages() {
+  // Read the JSON file and HTML template
+  const gamesData = fs.readFileSync(FEED_FILE, 'utf8');
+  const games = JSON.parse(gamesData);
+  const template = fs.readFileSync('template.html', 'utf8');
+
+  // Create the output directory
+  const outputDir = path.join(__dirname, 'games');
+  if (!fs.existsSync(outputDir)) {
+    fs.mkdirSync(outputDir);
+  }
+
+  // 2. Loop through each game
+  games.forEach(game => {
+    // Make a safe URL slug (e.g., "Temple Run 2" -> "temple-run-2")
+    const slug = game.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
+
+    // Convert JSON tags into HTML chips
+    let tagsHtml = '';
+    if (game.tags) {
+      const tagArray = game.tags.split(',');
+      tagsHtml = tagArray.map(tag => `<span class="chip">${tag.trim()}</span>`).join('\n        ');
+    } else {
+      tagsHtml = `<span class="chip">${game.category}</span>`;
+    }
+
+    // 3. Replace placeholders with actual data
+    let htmlContent = template
+      .replaceAll('{{TITLE}}', game.title)
+      .replaceAll('{{DESCRIPTION}}', game.description)
+      .replaceAll('{{EMBED_URL}}', game.url)
+      .replaceAll('{{INSTRUCTIONS}}', game.instructions || 'Mouse click or tap to play.')
+      .replaceAll('{{TAGS}}', game.tags || game.category)
+      .replaceAll('{{CHIPS}}', tagsHtml);
+
+    // 4. Save the file
+    fs.writeFileSync(path.join(outputDir, `${slug}.html`), htmlContent);
+  });
+
+  console.log(`Success! ${games.length} game pages generated in the /games/ folder.`);
+}
+
+generateGamePages();
