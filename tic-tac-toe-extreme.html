@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="Play Nikunj Pro Games Original Tic Tac Toe online for free with a polished browser version, quick matches, and smooth two-player or robot modes." />
-  <title>Nikunj Pro Games Original Tic Tac Toe</title>
+  <title>Tic Tac Toe Extreme</title>
   <style>
     :root {
       --bg: #090a0f;
@@ -291,37 +291,113 @@
       text-align: center;
     }
     
-    /* Ad Section styling */
-    .page-ad-section { 
-      max-width: 980px; 
-      margin: 24px auto; 
-      padding: 14px 16px; 
+   .page-ad-section { 
+      max-width: 600px; /* Standard horizontal ad width */
+      width: 100%;
+      margin: 20px auto 0; /* Keeps it tight to the content above it */
+      padding: 10px 16px; 
       border: 1px solid rgba(188, 19, 254, 0.3); 
       background: rgba(0, 0, 0, 0.5); 
-      border-radius: 14px; 
+      border-radius: 12px; 
       box-shadow: 0 0 20px rgba(188, 19, 254, 0.05); 
+      box-sizing: border-box;
     }
+    
     .page-ad-section .ad-label { 
-      font-size: 0.72rem; 
+      font-size: 0.7rem; 
       letter-spacing: 0.2em; 
       text-transform: uppercase; 
       color: var(--accent); 
-      margin-bottom: 8px; 
+      margin-bottom: 6px; 
       text-align: center; 
       font-weight: 700; 
       text-shadow: 0 0 5px var(--accent);
     }
-    .page-ad-section .adsbygoogle { min-height: 90px; }
+    
+    .page-ad-section .adsbygoogle { 
+      height: 70px !important; /* Forces the ad unit to stay horizontally thin */
+      display: block; 
+    }
+    #preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #010517; /* Matches your dark background */
+      z-index: 9999; /* Keeps it on top of everything */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
+    }
+
+    .loader-ring {
+      width: 80px;
+      height: 80px;
+      border: 3px solid rgba(188, 19, 254, 0.1); /* Faded accent */
+      border-top: 3px solid var(--accent); /* Bright accent */
+      border-right: 3px solid var(--neon-o); /* Cyan accent */
+      border-radius: 50%;
+      animation: spin-ring 1s linear infinite;
+      margin-bottom: 24px;
+      box-shadow: 0 0 20px rgba(188, 19, 254, 0.4), inset 0 0 20px rgba(0, 243, 255, 0.2);
+    }
+
+    .loader-text {
+      color: #fff;
+      font-size: 1.8rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      text-shadow: 0 0 10px var(--neon-o), 0 0 20px var(--neon-o), 0 0 40px var(--neon-o);
+      animation: pulse-neon 1.5s ease-in-out infinite alternate;
+    }
+
+    .loader-sub {
+      color: var(--muted);
+      margin-top: 12px;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      animation: blink 1s step-end infinite;
+    }
+
+    .preloader-hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    @keyframes spin-ring {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes pulse-neon {
+      0% { text-shadow: 0 0 5px var(--neon-o), 0 0 10px var(--neon-o); opacity: 0.8; }
+      100% { text-shadow: 0 0 10px var(--neon-o), 0 0 20px var(--neon-o), 0 0 40px var(--neon-o); opacity: 1; }
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
   </style>
 
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3172987137389272" crossorigin="anonymous"></script>
   <link rel="icon" type="image/png" href="favicon.png" />
 </head>
 <body>
+    <div id="preloader">
+    <div class="loader-ring"></div>
+    <div class="loader-text">Tic Tac Toe Extreme</div>
+     <div class="loader-text">By NPG</div>
+    <div class="loader-sub">Loading Game...</div>
+  </div>
   <div class="wrap">
     <main class="card" role="main">
-      <h1 class="hero-title">Nikunj Pro Games</h1>
-      <p class="hero-copy">A fast, polished browser version of the classic game. High-voltage neon graphics, smooth controls, and a ruthless AI opponent.</p>
+      <h1 class="hero-title">Tic Tac Toe Extreme</h1>
       <div class="meta">Select System Mode</div>
 
       <div class="mode-selector">
@@ -342,35 +418,12 @@
       </div>
       <div id="line" class="line hidden"></div>
 
-      <section class="game-info-addon" aria-label="Game information and controls">
-        <h2>System Info & Controls</h2>
-        <p>Enjoy quick rounds of strategy and timing in this neon-drenched adaptation. Block the center to gain the strongest position, and force your opponent to react.</p>
-        <table>
-          <thead>
-            <tr><th>Terminal (Desktop)</th><th>Mobile Link (Phones)</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Use a mouse or touchpad to click a square and deploy your mark.</td><td>Tap the grid directly to play on touch devices.</td></tr>
-          </tbody>
-        </table>
+        <section class="game-info-addon">
         <p class="disclaimer">This is a free fan-made web adaptation and is not affiliated with any corporate trademark owners.</p>
       </section>
 
       <footer>Made for the site — enjoy!</footer>
     </main>
-
-    <section class="page-ad-section" aria-label="Sponsored content">
-      <div class="ad-label">Sponsored Data Link</div>
-      <ins class="adsbygoogle"
-           style="display:block; text-align:center;"
-           data-ad-client="ca-pub-3172987137389272"
-           data-ad-slot="1234567890"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-      <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </section>
   </div>
 
   <script>
@@ -581,6 +634,16 @@
 
       render();
     })();
+  </script>
+  <script>
+    // Preloader Logic
+    window.addEventListener('load', function() {
+      const preloader = document.getElementById('preloader');
+      
+      setTimeout(function() {
+        preloader.classList.add('preloader-hidden');
+      }, 3500); 
+    });
   </script>
 </body>
 </html>
