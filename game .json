@@ -1,0 +1,75 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "110265",
+          "slug": "hazmob-fps-online-shooter",
+          "title": "Hazmob FPS: Online Shooter",
+          "description": "Hazmob FPS is a multiplayer shooting FPS game where every second counts! Play against other players across multiple game modes in non-stop combat. This first-person shooter game is ideal for those seeking a bit of thrill.\n\nSkilled FPS players will love Hazmob FPS. The game features excellent, clean 3D graphics with a fluid and intuitive control system that allows you to maneuver quickly and tactically. The maps are designed for fast-paced battles in a close-quarters setting, leaving it down to pure reflex and skill to get the job done.\n\nPlay various game modes\n\nTeam Deathmatch\nSearch and Destroy\nCapture the flag\nDomination\nFree for all\nElimination\nGun race\n",
+          "howToPlayText": "Controls\n\nWASD = move\nSpace = jump\nLeft mouse = shoot\nRight mouse / V = aim\nP = leaderboard, pause, and settings\nG = pick up the gun\nC = crouch\nShift = run\n1, 2, 3 = switch weapons\n4, 5, 6 = skills\nE = alternative skills\nQ = alternative skills",
+          "gameURL": "https://playgama.com/export/game/hazmob-fps-online-shooter?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/hazmob-fps-online-shooter",
+          "genres": [
+            "action",
+            "3d",
+            "multiplayer",
+            "shooting",
+            "gun",
+            "cool-games",
+            "popular",
+            "first-person-shooter",
+            "sniper"
+          ],
+          "tags": [
+            "reaction-games",
+            "iphone-games",
+            "exciting-games",
+            "competitive-games",
+            "military-games",
+            "combat-games",
+            "agility-games",
+            "teams-games",
+            "android-games",
+            "sniper-shooter",
+            "action-fighting"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/hazmob-fps-online-shooter/preview/76a02c8e7dbd4bd3a87bc87d868d6158?width=448",
+            "https://static.playgama.com/p-img/pg/hazmob-fps-online-shooter/icon/ee2ef33081624f1eab03827b6f212bb6?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "8a7a62bfcec943b6a64d1188c8baf31d",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "8a7a62bfcec943b6a64d1188c8baf31d",
+          "mobileReady": [
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/hazmob-fps-online-shooter/preview/76a02c8e7dbd4bd3a87bc87d868d6158?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/hazmob-fps-online-shooter/icon/ee2ef33081624f1eab03827b6f212bb6?width=448",
+          "inGamePurchases": "Yes",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "supportedLanguages": [
+            "en-US"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/hazmob-fps-online-shooter?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

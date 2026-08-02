@@ -508,5 +508,15 @@ const NEW_GAMES = [
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/rivals-fps-online-shooter/preview/2203a049014e4f6eaa4038ab696f6afa?width=448",
     iframeUrl: "rivals-fps-online-shooter.html"
+  },
+  {
+    id: 95,
+    name: "Hazmob FPS: Online Shooter",
+    cat: "action",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/hazmob-fps-online-shooter/preview/76a02c8e7dbd4bd3a87bc87d868d6158?width=448",
+    iframeUrl: "hazmob-fps-online-shooter.html"
   }
 ];

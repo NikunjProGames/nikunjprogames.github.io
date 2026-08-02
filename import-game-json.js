@@ -1,8 +1,14 @@
 const fs = require('fs');
 const path = require('path');
 
-const SOURCE_FILE = path.join(__dirname, 'game.json');
 const FEED_FILE = path.join(__dirname, 'feed.json');
+
+function findSourceFiles() {
+  return fs.readdirSync(__dirname, { withFileTypes: true })
+    .filter((entry) => entry.isFile() && entry.name.toLowerCase().endsWith('.json') && entry.name !== 'feed.json')
+    .map((entry) => path.join(__dirname, entry.name))
+    .sort((a, b) => fs.statSync(b).mtimeMs - fs.statSync(a).mtimeMs);
+}
 
 function slugify(value) {
   return String(value)
@@ -53,32 +59,58 @@ function buildFeedEntry(hit) {
 }
 
 function main() {
-  if (!fs.existsSync(SOURCE_FILE)) {
-    console.error(`Source file not found: ${SOURCE_FILE}`);
+  const sourceFiles = findSourceFiles();
+
+  if (!sourceFiles.length) {
+    console.error('No JSON source files found in the project root.');
     process.exit(1);
   }
 
-  const sourceRaw = fs.readFileSync(SOURCE_FILE, 'utf8');
-  const sourceGames = flattenSourceGames(JSON.parse(sourceRaw));
-
   const feedRaw = fs.readFileSync(FEED_FILE, 'utf8');
   const existingFeed = JSON.parse(feedRaw);
-
   const seenTitles = new Set(existingFeed.map((game) => String(game.title || '').toLowerCase()));
   const imported = [];
+  const processedFiles = [];
 
-  sourceGames.forEach((hit) => {
-    if (!hit || !hit.title) return;
-    const normalizedTitle = String(hit.title).toLowerCase();
-    if (seenTitles.has(normalizedTitle)) return;
+  sourceFiles.forEach((sourceFile) => {
+    let sourceRaw;
+    try {
+      sourceRaw = fs.readFileSync(sourceFile, 'utf8');
+    } catch (error) {
+      console.warn(`Skipping ${path.basename(sourceFile)}: ${error.message}`);
+      return;
+    }
 
-    const entry = buildFeedEntry(hit);
-    imported.push(entry);
-    seenTitles.add(normalizedTitle);
+    let sourceGames = [];
+    try {
+      sourceGames = flattenSourceGames(JSON.parse(sourceRaw));
+    } catch (error) {
+      console.warn(`Skipping ${path.basename(sourceFile)}: not a valid game JSON file (${error.message})`);
+      return;
+    }
+
+    if (!sourceGames.length) {
+      console.log(`Skipping ${path.basename(sourceFile)}: no usable game entries found.`);
+      return;
+    }
+
+    processedFiles.push(path.basename(sourceFile));
+
+    sourceGames.forEach((hit) => {
+      if (!hit || !hit.title) return;
+      const normalizedTitle = String(hit.title).toLowerCase();
+      if (seenTitles.has(normalizedTitle)) return;
+
+      const entry = buildFeedEntry(hit);
+      imported.push(entry);
+      seenTitles.add(normalizedTitle);
+    });
   });
 
   if (!imported.length) {
-    console.log('No new games were imported. The game may already exist in feed.json.');
+    console.log('No new games were imported.');
+    console.log(`Checked files: ${processedFiles.length ? processedFiles.join(', ') : 'none'}`);
+    console.log('This usually means the title already exists in feed.json or the source file has no usable game entries.');
     return;
   }
 
@@ -86,6 +118,7 @@ function main() {
   fs.writeFileSync(FEED_FILE, JSON.stringify(updatedFeed, null, 2));
 
   console.log(`Imported ${imported.length} game(s) into feed.json`);
+  console.log(`Processed files: ${processedFiles.join(', ')}`);
   imported.forEach((game) => {
     console.log(`- ${game.title} -> /games/${slugify(game.title)}.html`);
   });
