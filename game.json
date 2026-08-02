@@ -1,0 +1,72 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "119203",
+          "slug": "rivals-fps-online-shooter",
+          "title": "RIVALS FPS: Online Shooter",
+          "description": "💥Welcome to the world of \"RIVALS FPS: Online Shooter\" — a new free multiplayer online shooter where fun battles, cool guns, and a real arena of clashes await you!\n\n🎮 The game is inspired by top shooters like Star Wars Battlefront and Battlefield. Here you can dive into dynamic online battles, team up with friends, and show your shooting skills in the arena.\n\n⚙️ Features:\n- Online multiplayer with friends\n- First-person shooter\n- Bright 3D graphics in a colorful style\n- Lots of interesting maps\n- Different game modes and leaderboards\n- Play for free right in the browser from your mobile phone or computer\n\nFight, upgrade, change weapons and take rewards in epic online battles! ",
+          "howToPlayText": "To start a game, create a map or join other players.\n\nThe controls are the same as in many top shooters.\n\nOn PC:\n- Movement - WASD\n- Camera rotation - Using the mouse\n- Jump - Space\n- Crouch - C\n- Interact with objects - E\n\nOn mobile:\n- Movement - Virtual joystick on the left\n- Camera rotation - Swipes on the right side of the screen\n- Jump, reload using virtual buttons",
+          "gameURL": "https://playgama.com/export/game/rivals-fps-online-shooter?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/rivals-fps-online-shooter",
+          "genres": [
+            "action",
+            "arcade",
+            "boys",
+            "3d",
+            "multiplayer",
+            "shooting",
+            "co-op",
+            "first-person-shooter"
+          ],
+          "tags": [
+            "3rd-person-shooter-games",
+            "competitive-games",
+            "arena-games",
+            "combat-games",
+            "2-player-gun",
+            "arcade-shooter",
+            "multiplayer-horror"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/rivals-fps-online-shooter/preview/2203a049014e4f6eaa4038ab696f6afa?width=448",
+            "https://static.playgama.com/p-img/pg/rivals-fps-online-shooter/icon/0d5ef6af771b445685c78000fc32a36e?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "519f0e08d9764b25aea0b93699671b44",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "519f0e08d9764b25aea0b93699671b44",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/rivals-fps-online-shooter/preview/2203a049014e4f6eaa4038ab696f6afa?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/rivals-fps-online-shooter/icon/0d5ef6af771b445685c78000fc32a36e?width=448",
+          "inGamePurchases": "Yes",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "supportedLanguages": [
+            "en-US",
+            "ru-RU"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/rivals-fps-online-shooter?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

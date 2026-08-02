@@ -498,5 +498,15 @@ const NEW_GAMES = [
     players: "0",
     imageUrl: "https://img.gamemonetize.com/594795s0fh64izkmnelrpracbmz1we3t/512x384.jpg",
     iframeUrl: "giveaway-checkers.html"
+  },
+  {
+    id: 94,
+    name: "RIVALS FPS: Online Shooter",
+    cat: "action",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/rivals-fps-online-shooter/preview/2203a049014e4f6eaa4038ab696f6afa?width=448",
+    iframeUrl: "rivals-fps-online-shooter.html"
   }
 ];
