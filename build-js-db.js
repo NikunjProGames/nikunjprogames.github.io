@@ -22,7 +22,9 @@ function generateJsDatabase() {
       gradient: 'linear-gradient(135deg,#001530,#003080)',
       players: '0',
       imageUrl: game.thumb,
-      iframeUrl: `${slug}.html`
+      iframeUrl: `${slug}.html`,
+      fullscreen: true,
+      videoUrl: game.videoUrl || game.video_url || game.video || ''
     };
   });
 

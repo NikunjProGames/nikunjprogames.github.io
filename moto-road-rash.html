@@ -225,7 +225,7 @@
     </header>
 
     <main class="game-viewport">
-        <iframe id="gameFrame" src="https://html5.gamedistribution.com/e3c282ba53744a0f9ab4c51215c13ef2/" allowfullscreen loading="lazy"></iframe>
+        <div class="game-shell"><div class="game-toolbar"><button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button></div><div class="game-frame"><iframe id="gameFrame" src="https://html5.gamedistribution.com/e3c282ba53744a0f9ab4c51215c13ef2/" allowfullscreen loading="lazy"></iframe></div></div>
     </main>
 
     <div class="accordion-wrapper">

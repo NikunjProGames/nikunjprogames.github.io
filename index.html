@@ -1860,12 +1860,12 @@ animate();
 
     <!-- Iframe game -->
     <div id="game-frame-wrap" style="display:none; position:relative;">
-      <iframe id="game-frame"
+      <div class="game-shell"><div class="game-toolbar"><button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button></div><div class="game-frame"><iframe id="game-frame"
         src=""
         allow="fullscreen; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen
         frameborder="0"
-        title="Game Preview"></iframe>
+        title="Game Preview"></iframe></div></div>
       <button class="fullscreen-btn" onclick="requestGameFullscreen()"><i class="fas fa-expand"></i> Fullscreen</button>
     </div>
     <div class="game-instructions" id="game-instructions" style="margin-top:1rem; color:var(--text-dim);"></div>

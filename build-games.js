@@ -4,6 +4,49 @@ const path = require('path');
 // 1. Point to your sample JSON file
 const FEED_FILE = 'feed.json';
 
+function escapeHtml(value) {
+  return String(value || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function getVideoHtml(game) {
+  const videoUrl = game.videoUrl || game.video_url || game.video || game.videos?.[0]?.external_url || game.videos?.[0]?.url || '';
+
+  if (!videoUrl) return '';
+
+  const safeUrl = escapeHtml(videoUrl);
+  const youtubeMatch = videoUrl.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([\w-]+)/i);
+  const vimeoMatch = videoUrl.match(/vimeo\.com\/(\d+)/i);
+
+  if (youtubeMatch) {
+    const embedUrl = `https://www.youtube.com/embed/${youtubeMatch[1]}`;
+    return `
+      <section class="video-card" aria-label="Game preview video">
+        <h3>Game Preview</h3>
+        <iframe src="${embedUrl}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </section>`;
+  }
+
+  if (vimeoMatch) {
+    const embedUrl = `https://player.vimeo.com/video/${vimeoMatch[1]}`;
+    return `
+      <section class="video-card" aria-label="Game preview video">
+        <h3>Game Preview</h3>
+        <iframe src="${embedUrl}" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </section>`;
+  }
+
+  return `
+    <section class="video-card" aria-label="Game preview video">
+      <h3>Game Preview</h3>
+      <video controls preload="metadata" playsinline src="${safeUrl}"></video>
+    </section>`;
+}
+
 function generateGamePages() {
   // Read the JSON file and HTML template
   const gamesData = fs.readFileSync(FEED_FILE, 'utf8');
@@ -31,13 +74,16 @@ function generateGamePages() {
     }
 
     // 3. Replace placeholders with actual data
+    const videoHtml = getVideoHtml(game);
+
     let htmlContent = template
       .replaceAll('{{TITLE}}', game.title)
       .replaceAll('{{DESCRIPTION}}', game.description)
       .replaceAll('{{EMBED_URL}}', game.url)
       .replaceAll('{{INSTRUCTIONS}}', game.instructions || 'Mouse click or tap to play.')
       .replaceAll('{{TAGS}}', game.tags || game.category)
-      .replaceAll('{{CHIPS}}', tagsHtml);
+      .replaceAll('{{CHIPS}}', tagsHtml)
+      .replaceAll('{{VIDEO_HTML}}', videoHtml);
 
     // 4. Save the file
     fs.writeFileSync(path.join(outputDir, `${slug}.html`), htmlContent);
