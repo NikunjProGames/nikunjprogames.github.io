@@ -267,6 +267,27 @@
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
   </section>
+<script>
+  function toggleGameFullscreen(root) {
+    const target = root ? root.querySelector('.game-frame') : document.querySelector('.game-frame');
+    if (!target) return;
+    const req = target.requestFullscreen || target.webkitRequestFullscreen || target.msRequestFullscreen;
+    if (req) {
+      req.call(target).catch(() => {
+        const iframe = target.querySelector('iframe');
+        if (!iframe) return;
+        const iframeReq = iframe.requestFullscreen || iframe.webkitRequestFullscreen || iframe.msRequestFullscreen;
+        if (iframeReq) iframeReq.call(iframe).catch(() => {});
+      });
+    } else {
+      const iframe = target.querySelector('iframe');
+      if (iframe) {
+        const iframeReq = iframe.requestFullscreen || iframe.webkitRequestFullscreen || iframe.msRequestFullscreen;
+        if (iframeReq) iframeReq.call(iframe).catch(() => {});
+      }
+    }
+  }
+</script>
 </body>
 </html>
 <script id="npg-fullscreen-snippet">

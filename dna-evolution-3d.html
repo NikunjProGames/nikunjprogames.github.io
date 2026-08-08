@@ -186,5 +186,63 @@
             (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
     </section>
+<script>
+  function toggleGameFullscreen(root) {
+    const target = root ? root.querySelector('.game-frame') : document.querySelector('.game-frame');
+    if (!target) return;
+    const req = target.requestFullscreen || target.webkitRequestFullscreen || target.msRequestFullscreen;
+    if (req) {
+      req.call(target).catch(() => {
+        const iframe = target.querySelector('iframe');
+        if (!iframe) return;
+        const iframeReq = iframe.requestFullscreen || iframe.webkitRequestFullscreen || iframe.msRequestFullscreen;
+        if (iframeReq) iframeReq.call(iframe).catch(() => {});
+      });
+    } else {
+      const iframe = target.querySelector('iframe');
+      if (iframe) {
+        const iframeReq = iframe.requestFullscreen || iframe.webkitRequestFullscreen || iframe.msRequestFullscreen;
+        if (iframeReq) iframeReq.call(iframe).catch(() => {});
+      }
+    }
+  }
+</script>
+<script id="npg-fullscreen-snippet">
+(function(){
+    if(window.__npgFullscreenSnippetLoaded) return; window.__npgFullscreenSnippetLoaded = true;
+    document.querySelectorAll('#npg-fullscreen-btn, .npg-fullscreen-btn').forEach((el,i)=>{ if(i>0) el.remove(); });
+    function ensureStyles(){
+        if(document.getElementById('npg-fullscreen-styles')) return;
+        const css = `
+        .npg-fullscreen-active, .npg-fullscreen-active html, .npg-fullscreen-active body { height:100% !important; width:100% !important; margin:0 !important; padding:0 !important; background:#000 !important; }
+        .npg-fullscreen-active .game-frame, .npg-fullscreen-active iframe { height:100vh !important; min-height:100vh !important; width:100% !important; }
+        .npg-fullscreen-btn { position: fixed; right: 18px; bottom: 18px; z-index:2147483647; padding:10px 14px; border-radius:8px; background:#8B00FF; color:#fff; border:none; font-weight:700; box-shadow:0 6px 18px rgba(0,0,0,0.4); cursor:pointer; }
+        `;
+        const s = document.createElement('style'); s.id = 'npg-fullscreen-styles'; s.appendChild(document.createTextNode(css)); document.head.appendChild(s);
+    }
+    ensureStyles();
+    document.addEventListener('fullscreenchange', ()=>{
+        if(document.fullscreenElement) document.documentElement.classList.add('npg-fullscreen-active');
+        else document.documentElement.classList.remove('npg-fullscreen-active');
+    });
+    const hasToolbar = !!document.querySelector('.game-toolbar button') || !!document.querySelector('[onclick*="toggleGameFullscreen"]');
+    if(hasToolbar) return;
+    if(document.querySelector('.npg-fullscreen-btn')) return;
+    const btn = document.createElement('button');
+    btn.className = 'npg-fullscreen-btn'; btn.id = 'npg-fullscreen-btn'; btn.textContent = 'Fullscreen';
+    btn.addEventListener('click', function(){
+        const iframe = document.querySelector('iframe') || document.querySelector('.game-frame') || document.documentElement;
+        const el = (iframe && iframe.tagName === 'IFRAME') ? iframe : (iframe && iframe.querySelector ? (iframe.querySelector('iframe') || iframe) : document.documentElement);
+        const target = el || document.documentElement;
+        const req = target.requestFullscreen || target.webkitRequestFullscreen || target.msRequestFullscreen;
+        if(req){
+            try{ req.call(target); }catch(e){ window.open(location.href, '_blank'); }
+        } else {
+            window.open(location.href, '_blank');
+        }
+    });
+    document.body.appendChild(btn);
+})();
+</script>
 </body>
 </html>
