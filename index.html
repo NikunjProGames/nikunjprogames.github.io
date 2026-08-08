@@ -1458,12 +1458,51 @@
 }
     @keyframes spin { to { transform: rotate(360deg); } }
     
+    /* LEFT SIDEBAR */
+    #sidebar {
+      position: fixed;
+      left: 20px;
+      top: 84px;
+      width: 220px;
+      max-height: calc(100vh - 120px);
+      overflow: auto;
+      background: rgba(7,7,26,0.92);
+      border: 1px solid rgba(139,0,255,0.12);
+      backdrop-filter: blur(12px);
+      border-radius: 12px;
+      padding: 0.75rem;
+      z-index: 950;
+    }
+    .sidebar-title { font-family: 'Orbitron', sans-serif; color: var(--purple-1); font-weight:700; margin: 0 0 0.5rem 0; font-size: 0.95rem; }
+    .sidebar-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.4rem; }
+    .sidebar-list li a { display: block; padding: 0.55rem 0.6rem; border-radius: 8px; text-decoration: none; color: var(--text-dim); font-weight:700; font-size: 0.9rem; }
+    .sidebar-list li a:hover, .sidebar-list li a.active { background: rgba(139,0,255,0.06); color: var(--text); }
+
+    /* main content offset when sidebar visible on wide screens */
+    @media (min-width: 1100px) {
+      #main-content { margin-left: 260px; transition: margin 0.18s; }
+    }
+    @media (max-width: 1100px) {
+      #sidebar { display: none; }
+      #main-content { margin-left: 0; }
+    }
   </style>
  
 </head>
 
 <body>
+ 
+<!-- LEFT SIDEBAR: categories -->
+<aside id="sidebar" aria-label="Game categories">
+  <div class="sidebar-inner">
+    <h4 class="sidebar-title">Categories</h4>
+    <ul id="sidebar-cats" class="sidebar-list">
+      <!-- injected by JS -->
+    </ul>
+  </div>
+</aside>
 
+<main id="main-content">
 <!-- =========================
      NPG Cyber Cursor Trail v2
 ========================== -->
@@ -1770,9 +1809,11 @@ animate();
         <a href="contact-us.html" class="submit-btn">Submit Your Game ↗</a>
     </div>
 </section>
-<!-- ============================================================
-     FOOTER
-============================================================ -->
+      </main>
+
+      <!-- ============================================================
+        FOOTER
+      ============================================================ -->
 <footer>
   <div class="footer-top" style="max-width:1200px; margin:0 auto;">
     <div class="footer-brand">
@@ -3152,9 +3193,10 @@ function openGame(id) {
 }
 
 function requestGameFullscreen() {
-  // Open the separate game file in a new tab for best performance
+  // Open the game inside the player wrapper so the new tab has a single fullscreen control
   if (currentOpenGame && currentOpenGame.iframeUrl) {
-    window.open(currentOpenGame.iframeUrl, '_blank');
+    const src = encodeURIComponent(currentOpenGame.iframeUrl);
+    window.open(`/play.html?src=${src}`, '_blank');
   }
 }
 
@@ -3174,6 +3216,97 @@ function closeGameModal() {
 document.getElementById('game-modal').addEventListener('click', e => {
   if (e.target === document.getElementById('game-modal')) closeGameModal();
 });
+
+/* ============================================================
+   FULLSCREEN HELPERS & SIDEBAR INITIALIZATION
+============================================================ */
+function toggleGameFullscreen() {
+  const wrap = document.getElementById('game-frame-wrap');
+  if (!wrap) return;
+  const isFull = document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
+  if (isFull) {
+    (document.exitFullscreen || document.webkitExitFullscreen || document.msExitFullscreen).call(document).catch(() => {});
+  } else {
+    const req = wrap.requestFullscreen || wrap.webkitRequestFullScreen || wrap.msRequestFullscreen;
+    if (req) {
+      req.call(wrap).catch(() => {
+        // fallback: open in new tab if fullscreen is blocked
+        if (currentOpenGame && currentOpenGame.iframeUrl) {
+          const src = encodeURIComponent(currentOpenGame.iframeUrl);
+          window.open(`/play.html?src=${src}`, '_blank');
+        }
+      });
+    } else if (currentOpenGame && currentOpenGame.iframeUrl) {
+      const src = encodeURIComponent(currentOpenGame.iframeUrl);
+      window.open(`/play.html?src=${src}`, '_blank');
+    }
+  }
+}
+
+// legacy: keep function name but make it open the player wrapper
+function requestGameFullscreenModal() {
+  if (currentOpenGame && currentOpenGame.iframeUrl) {
+    const src = encodeURIComponent(currentOpenGame.iframeUrl);
+    window.open(`/play.html?src=${src}`, '_blank');
+  }
+}
+
+// Build the left sidebar categories and wire clicks to filterGames
+const SIDEBAR_CATEGORIES = [
+  {cat: 'all', label: 'All'},
+  {cat: 'action', label: 'Action'},
+  {cat: 'adventure', label: 'Adventure'},
+  {cat: 'boys', label: 'Games for Boys'},
+  {cat: 'girls', label: 'Games for Girls'},
+  {cat: 'puzzle', label: 'Puzzle'},
+  {cat: 'ad-free', label: 'Ad-free Games'},
+  {cat: 'original', label: 'Original Games'},
+  {cat: 'trending', label: 'Trending Games'},
+  {cat: '2d', label: '2D Games'},
+  {cat: '3d', label: '3D Games'},
+  {cat: 'multiplayer', label: 'Multiplayer'},
+  {cat: '2player', label: '2 Player'},
+  {cat: 'io', label: '.io Games'},
+];
+
+function initSidebar() {
+  const ul = document.getElementById('sidebar-cats');
+  if (!ul) return;
+  ul.innerHTML = '';
+  SIDEBAR_CATEGORIES.forEach(item => {
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    // link to a unique category URL, e.g. /action-games
+    const slug = item.cat === 'all' ? '' : `${item.cat}-games`;
+    a.href = slug ? `/${slug}` : '/';
+    a.textContent = item.label;
+    a.dataset.cat = item.cat;
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      const cat = e.currentTarget.dataset.cat || 'all';
+      // set active state in sidebar
+      document.querySelectorAll('#sidebar-cats a').forEach(x => x.classList.toggle('active', x === e.currentTarget));
+      // sync with existing filter-tabs if present
+      const tab = document.querySelector(`.filter-tab[data-cat="${cat}"]`);
+      if (tab) {
+        document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+      }
+      renderGames(cat);
+      // scroll to games section for user
+      const gamesSection = document.getElementById('games');
+      if (gamesSection) gamesSection.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+    li.appendChild(a);
+    ul.appendChild(li);
+  });
+  // mark 'All' active by default
+  const first = document.querySelector('#sidebar-cats a[data-cat="all"]');
+  if (first) first.classList.add('active');
+}
+
+// Initialize sidebar right away
+initSidebar();
 
 function startMiniGame() {
   stopMiniGame();
@@ -3390,7 +3523,35 @@ function stopMiniGame() {
 /* ============================================================
    INIT
 ============================================================ */
-renderGames();
+// URL driven category filter: support ?cat=action and path /action-games
+function applyUrlCategoryFilter(){
+  const params = new URLSearchParams(location.search);
+  let cat = params.get('cat');
+  if (!cat) {
+    // detect /action-games style paths
+    const p = (location.pathname || '').replace(/\/$/, '');
+    const base = p.split('/').pop();
+    if (base && base.endsWith('-games')) cat = base.replace('-games', '');
+  }
+  if (cat) {
+    // set active tab & sidebar
+    const tab = document.querySelector(`.filter-tab[data-cat="${cat}"]`);
+    if (tab) {
+      document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+    }
+    document.querySelectorAll('#sidebar-cats a').forEach(x => x.classList.toggle('active', x.dataset.cat === cat));
+    renderGames(cat);
+    // scroll to games section
+    const gamesSection = document.getElementById('games');
+    if (gamesSection) gamesSection.scrollIntoView({behavior:'smooth', block:'start'});
+    return true;
+  }
+  return false;
+}
+
+const applied = applyUrlCategoryFilter();
+if (!applied) renderGames();
 renderTrending();
 renderLeaderboard();
 </script>

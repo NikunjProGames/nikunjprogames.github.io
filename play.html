@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Play - Nikunj Pro Games</title>
+<style>
+  :root{--bg:#000;--btn:#8B00FF}
+  html,body{height:100%;margin:0;background:#000;color:#fff;font-family:Rajdhani,Arial,sans-serif}
+  .wrap{min-height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:18px}
+  .player{width:100%;max-width:1280px;background:#000}
+  .player iframe{width:100%;aspect-ratio:16/9;border:0;background:#000}
+  .controls{margin-top:12px;display:flex;gap:10px;align-items:center}
+  .btn{background:var(--btn);color:#fff;padding:10px 14px;border-radius:8px;border:none;font-weight:700;cursor:pointer}
+  .note{color:#999;margin-top:10px;font-size:0.95rem;text-align:center}
+  @media (max-width:720px){ .player iframe{aspect-ratio:4/3} }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="player" id="player">
+      <iframe id="player-iframe" src="" allow="fullscreen; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen sandbox="allow-scripts allow-forms allow-same-origin allow-popups"></iframe>
+    </div>
+    <div class="controls">
+      <button id="enter-full" class="btn">Enter Fullscreen</button>
+      <a id="open-source" class="btn" style="background:#222;border:1px solid rgba(255,255,255,0.06);text-decoration:none;display:inline-flex;align-items:center;gap:8px;" target="_blank">Open Source</a>
+    </div>
+    <div class="note">If fullscreen is blocked, try the "Open Source" button to view the game directly.</div>
+  </div>
+<script>
+(function(){
+  function qs(name){ const u = new URL(location.href); return u.searchParams.get(name); }
+  const src = qs('src') || qs('url') || '';
+  const iframe = document.getElementById('player-iframe');
+  const openBtn = document.getElementById('open-source');
+  if (!src) {
+    iframe.srcdoc = '<!doctype html><html><body style="background:#000;color:#fff;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;font-family:Arial">No game specified.</body></html>';
+    openBtn.style.display='none';
+    return;
+  }
+  // allow both absolute and relative URLs
+  iframe.src = decodeURIComponent(src);
+  openBtn.href = decodeURIComponent(src);
+
+  const enter = document.getElementById('enter-full');
+  enter.addEventListener('click', ()=>{
+    const el = document.getElementById('player');
+    const req = el.requestFullscreen || el.webkitRequestFullscreen || el.msRequestFullscreen;
+    if (req) {
+      req.call(el).catch(()=>{ window.open(decodeURIComponent(src),'_blank'); });
+    } else {
+      window.open(decodeURIComponent(src),'_blank');
+    }
+  });
+
+  // Listen for fullscreenchange to expand iframe sizing
+  document.addEventListener('fullscreenchange', ()=>{
+    if (document.fullscreenElement) {
+      document.documentElement.style.background = '#000';
+    } else {
+      document.documentElement.style.background = '';
+    }
+  });
+})();
+</script>
+</body>
+</html>
