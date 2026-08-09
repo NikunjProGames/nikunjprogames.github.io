@@ -622,5 +622,53 @@ const NEW_GAMES = [
     iframeUrl: "hazmob-fps-online-shooter.html",
     fullscreen: true,
     videoUrl: ""
+  },
+  {
+    id: 96,
+    name: "Geometry Arrow 2",
+    cat: "arcade",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/backfill/game-99645/preview/90df3206f7f0c706e6431b9ae58fc331d0ed13a11e547ce0271b720ff82e6b21?width=448",
+    iframeUrl: "geometry-arrow-2.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
+  {
+    id: 97,
+    name: "Basket Random",
+    cat: "action",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/basket-random/preview/fec7a407ebd246d8a893abaf7801622c?width=448",
+    iframeUrl: "basket-random.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
+  {
+    id: 98,
+    name: "Beam Drive Car Crash Test Simulator",
+    cat: "simulation",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/backfill/game-86496/preview/57449a8aeb08b058814fb911b0c15014c583f10801e7fa2f4c986e6743c4913c?width=448",
+    iframeUrl: "beam-drive-car-crash-test-simulator.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
+    {
+    id: 99,
+    name: "Cube Snake 2048",
+    cat: "arcade",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/backfill/game-109351/preview/b0afdef34402ca9cc780be5207be4cbfe8b640b6cd70d6626c7cec02741a4e3c?width=448",
+    iframeUrl: "cube-snake-2048.html",
+    fullscreen: true,
+    videoUrl: ""
   }
 ];

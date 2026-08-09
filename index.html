@@ -1306,20 +1306,20 @@
     .ad-wrap { padding: 1.5rem 2rem; }
 
     @media (min-width: 1600px) {
-      .games-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+      .games-grid { grid-template-columns: repeat(7, minmax(0, 1fr)); }
       .game-card { min-height: 340px; }
     }
     @media (min-width: 1400px) and (max-width: 1599px) {
-      .games-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+      .games-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
     }
     @media (min-width: 1100px) and (max-width: 1399px) {
-      .games-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .games-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
     }
     @media (min-width: 860px) and (max-width: 1099px) {
-      .games-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .games-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
     }
     @media (max-width: 860px) {
-      .games-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .games-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       .game-card { min-height: 340px; }
     }
     @media (max-width: 768px) {
@@ -1328,7 +1328,7 @@
       #games, #trending, #leaderboard, #about, footer { padding: 3rem 1.2rem; }
       .ad-wrap { padding: 1rem 1.2rem; }
       .games-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 0.75rem;
       }
       .game-card {
@@ -1762,6 +1762,8 @@ animate();
   <div class="filter-tabs" id="filter-tabs">
     <button class="filter-tab active" data-cat="all">All</button>
     <button class="filter-tab" data-cat="action">Action</button>
+    <button class="filter-tab" data-cat="boys">Boys</button>
+    <button class="filter-tab" data-cat="girls">Girls</button>
     <button class="filter-tab" data-cat="puzzle">Puzzle</button>
     <button class="filter-tab" data-cat="racing">Racing</button>
     <button class="filter-tab" data-cat="sports">Sports</button>
@@ -2209,6 +2211,7 @@ const GAMES = [
     id: 95,
     name: "Hazmob FPS: Online Shooter",
     cat: "action",
+    categories: ["action", "boys"],
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
@@ -2219,51 +2222,63 @@ const GAMES = [
     id: 94,
     name: "RIVALS FPS: Online Shooter",
     cat: "action",
+    categories: ["action", "boys"],
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/rivals-fps-online-shooter/preview/2203a049014e4f6eaa4038ab696f6afa?width=448",
     iframeUrl: "/games/rivals-fps-online-shooter.html"
   },
-   { id:6, name:'GTA New York',      cat:'action',   color:'#FF0066', gradient:'linear-gradient(135deg,#ff0066,#7c3aed)', players:'0', imageUrl:'', iframeUrl:'gta-new-york.html', imageUrl:'GTA New York-512x512.jpg' },
+   { id:6, name:'GTA New York',      cat:'action', categories:['action','boys'],   color:'#FF0066', gradient:'linear-gradient(135deg,#ff0066,#7c3aed)', players:'0', imageUrl:'', iframeUrl:'gta-new-york.html', imageUrl:'GTA New York-512x512.jpg' },
   { id:33, name:'Fire Truck Simulator',      cat:'puzzle',   color:'#FF0066', gradient:'linear-gradient(135deg,#ff0066,#7c3aed)', players:'0', imageUrl:'', iframeUrl:'fire-truck-simulator.html', imageUrl:'Fire Truck Rescue simulator-512x512.jpg' },
 { id:30,  name:'Minecraft',        cat:'nostalgia',   color:'#8B00FF', gradient:'linear-gradient(135deg,#1a0030,#4a0080)', players:'12.4K', imageUrl:'minecraft.png', iframeUrl:'minecraft.html' },
-  { id:1,  name:'Temple Run',        cat:'nostalgia',   color:'#8B00FF', gradient:'linear-gradient(135deg,#1a0030,#4a0080)', players:'12.4K', imageUrl:'Templerun.png', iframeUrl:'temple-run.html' },
+  { id:1,  name:'Temple Run',        cat:'nostalgia',   categories:['nostalgia','adventure','girls'], color:'#8B00FF', gradient:'linear-gradient(135deg,#1a0030,#4a0080)', players:'12.4K', imageUrl:'Templerun.png', iframeUrl:'temple-run.html' },
    { id:32, name:'Rocket Goal',      cat:'puzzle',   color:'#FF0066', gradient:'linear-gradient(135deg,#ff0066,#7c3aed)', players:'0', imageUrl:'', iframeUrl:'rocket-goal-io.html', imageUrl:'rocket-goal.png' },
-  { id:2,  name:'Battle Dudes',       cat:'action',    color:'#0055C4', gradient:'linear-gradient(135deg,#001a3a,#004080)', players:'9.1K',  imageUrl:'battledudes.png', iframeUrl:'battledudes.html' },
-  { id:3,  name:'Running Fred (Poki)',cat:'racing',    color:'#008840', gradient:'linear-gradient(135deg,#003300,#006600)', players:'18.7K', imageUrl:'runningfred.png', iframeUrl:'running-fred.html' },
+  { id:2,  name:'Battle Dudes',       cat:'action',    categories:['action','boys'], color:'#0055C4', gradient:'linear-gradient(135deg,#001a3a,#004080)', players:'9.1K',  imageUrl:'battledudes.png', iframeUrl:'battledudes.html' },
   { id:4,  name:'Subway Surfers',     cat:'endless',   color:'#FF8C00', gradient:'linear-gradient(135deg,#3a1a00,#804000)', players:'7.3K',  imageUrl:'subwaysurfers.png', iframeUrl:'subway-surfers.html' }, 
-  { id:15, name:'Stock Car Hero',          cat:'cars',        color:'#24B8FF', gradient:'linear-gradient(135deg,#003040,#008FB8)', players:'20.0K', imageUrl:'stock_car_hero.png', iframeUrl:'stock-car-hero.html' },
+  { id:15, name:'Stock Car Hero',          cat:'cars',        categories:['cars','racing','boys'], color:'#24B8FF', gradient:'linear-gradient(135deg,#003040,#008FB8)', players:'20.0K', imageUrl:'stock_car_hero.png', iframeUrl:'stock-car-hero.html' },
   { id:8,  name:'Color Line',         cat:'strategy',   color:'#0068B8', gradient:'linear-gradient(135deg,#002030,#005080)', players:'6.5K',  imageUrl:'color_line.png', iframeUrl:'color-line.html' },
-  { id:9,  name:'Moto Road Rash',        cat:'racing',   color:'#2E8B00', gradient:'linear-gradient(135deg,#1a2000,#405000)', players:'11.9K', imageUrl:'moto_road_rash_.png', iframeUrl:'moto-road-rash.html' },
-  { id:10, name:'FireBoy And WaterGirl-1',      cat:'strategy',   color:'#00A5D1', gradient:'linear-gradient(135deg,#003320,#006040)', players:'16.3K', imageUrl:'fireboy-and-watergirl.png', iframeUrl:'fireboyandwatergirl.html' },
+  { id:9,  name:'Moto Road Rash',        cat:'racing',   categories:['racing','boys'], color:'#2E8B00', gradient:'linear-gradient(135deg,#1a2000,#405000)', players:'11.9K', imageUrl:'moto_road_rash_.png', iframeUrl:'moto-road-rash.html' },
+  { id:10, name:'FireBoy And WaterGirl-1',      cat:'strategy',   categories:['strategy','adventure','girls'], color:'#00A5D1', gradient:'linear-gradient(135deg,#003320,#006040)', players:'16.3K', imageUrl:'fireboy-and-watergirl.png', iframeUrl:'fireboyandwatergirl.html' },
   { id:11, name:'Pacman',    cat:'',   color:'#9D50FF', gradient:'linear-gradient(135deg,#250040,#600090)', players:'19.8K', imageUrl:'pacman.png', iframeUrl:'pacman.html' },
   { id:12, name:'Cut The Rope ',       cat:'nostalgia', color:'#B36A00', gradient:'linear-gradient(135deg,#2a1500,#604000)', players:'8.7K',  imageUrl:'Cut_the_Rope.png', iframeUrl:'cut-the-rope.html' },
-  { id:13, name:'City Stunts',      cat:'cars',   color:'#FF3300', gradient:'linear-gradient(135deg,#3a0010,#8a0020)', players:'20.5K', imageUrl:'city-stunts.png', iframeUrl:'car-stunts.html' },
-    { id:16, name:'Car Rush',      cat:'cars',   color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'car-rush.png', iframeUrl:'car-rush.html' },
+  { id:13, name:'City Stunts',      cat:'cars',   categories:['cars','racing','boys'], color:'#FF3300', gradient:'linear-gradient(135deg,#3a0010,#8a0020)', players:'20.5K', imageUrl:'city-stunts.png', iframeUrl:'car-stunts.html' },
+    { id:16, name:'Car Rush',      cat:'cars',   categories:['cars','racing','boys'], color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'car-rush.png', iframeUrl:'car-rush.html' },
       { id:17, name:'Killer Assassin',      cat:'puzzle',   color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'killer-assassin.png', iframeUrl:'killer-assassin.html' },
        { id:18, name:'Bottle Flip',      cat:'puzzle',   color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'bottle-flip.png', iframeUrl:'bottle-flip.html' },
-        { id:19, name:'Under The Red Sky',      cat:'parkour',   color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'under-the-red-sky.png', iframeUrl:'under-the-red-sky.html' },
+        { id:19, name:'Under The Red Sky',      cat:'parkour',   categories:['parkour','adventure','boys'], color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'under-the-red-sky.png', iframeUrl:'under-the-red-sky.html' },
          { id:21, name:'Happy Glass',      cat:'puzzle',   color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'happy-glass.png', iframeUrl:'happy-glass.html' },
-          { id:22, name:'Grey Hound Racing',      cat:'sports',   color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'grey-hound-racing.jpeg', iframeUrl:'greyhound-racing.html' },
-           { id:23, name:'Table Tennis World Tour',      cat:'sports',   color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'table-tennis-world-tour.png', iframeUrl:'table-tennis-world-tour.html' },
-           { id:24, name:'Flappy Dunk',      cat:'sports',   color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'flappy-dunk.png', iframeUrl:'flappy-dunk.html' },
-           { id:25, name:'Archery World Tour',      cat:'arcade',   color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'Archery-World-Tour.png', iframeUrl:'archery-world-tour.html' },
-            { id:26, name:'Crazy Cars',      cat:'cars',   color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'crazy-cars.png', iframeUrl:'crazy-cars.html' },
-            { id:27, name:'FIFA World Cup Game',      cat:'sports',   color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'fifa.png', iframeUrl:'fifa.html' },
+          { id:22, name:'Grey Hound Racing',      cat:'sports',   categories:['sports','boys','girls'], color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'grey-hound-racing.jpeg', iframeUrl:'greyhound-racing.html' },
+           { id:23, name:'Table Tennis World Tour',      cat:'sports',   categories:['sports','boys','girls'], color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'table-tennis-world-tour.png', iframeUrl:'table-tennis-world-tour.html' },
+           { id:24, name:'Flappy Dunk',      cat:'sports',   categories:['sports','boys','girls'], color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'flappy-dunk.png', iframeUrl:'flappy-dunk.html' },
+           { id:25, name:'Archery World Tour',      cat:'arcade',   categories:['arcade','boys'], color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'Archery-World-Tour.png', iframeUrl:'archery-world-tour.html' },
+            { id:26, name:'Crazy Cars',      cat:'cars',   categories:['cars','racing','boys'], color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'crazy-cars.png', iframeUrl:'crazy-cars.html' },
+            { id:27, name:'FIFA World Cup Game',      cat:'sports',   categories:['sports','boys','girls'], color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'fifa.png', iframeUrl:'fifa.html' },
              { id:28, name:'Hole IO',      cat:'io',   color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'hole-io.png', iframeUrl:'hole-io.html' },
               { id:29, name:'Square Bird',      cat:'puzzle',   color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'square-bird.png', iframeUrl:'square-bird.html' },
+                {
+    id: 97,
+    name: "Basket Random",
+    cat: "action",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/basket-random/preview/fec7a407ebd246d8a893abaf7801622c?width=448",
+    iframeUrl: "/games/basket-random.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
   { id:31, name:'Tic Tac Toe',      cat:'puzzle',   color:'#FF0066', gradient:'linear-gradient(135deg,#ff0066,#7c3aed)', players:'0', imageUrl:'', iframeUrl:'tic-tac-toe.html', imageUrl:'tic-tac-toe.png' },
    { id:33, name:'Fire Truck Simulator',      cat:'puzzle',   color:'#FF0066', gradient:'linear-gradient(135deg,#ff0066,#7c3aed)', players:'0', imageUrl:'', iframeUrl:'fire-truck-simulator.html', imageUrl:'Fire Truck Rescue simulator-512x512.jpg' },
    { id:34, name:'Home Cleaning Game',      cat:'puzzle',   color:'#FF0066', gradient:'linear-gradient(135deg,#ff0066,#7c3aed)', players:'0', imageUrl:'', iframeUrl:'cleaning-game.html', imageUrl:'Home Makeover Cleaning Game-512x512.jpg' },
    { id:35, name:'FIFA World Cup Jigsaw', cat:'puzzle', color:'#00BFFF', gradient:'linear-gradient(135deg,#002f4d,#00a8ff)', players:'0', imageUrl:'https://img.gamemonetize.com/r4uajbh1wyesosbb12k2hi2tl4izze2m/512x384.jpg', iframeUrl:'fifa-world-cup-jigsaw.html' },
-   { id:36, name:'FIFA Score', cat:'sports', color:'#22C55E', gradient:'linear-gradient(135deg,#10361d,#2ea043)', players:'0', imageUrl:'https://img.gamemonetize.com/qjtd7ud3ysktv7ii5xcklblw7vjsujy4/512x384.jpg', iframeUrl:'fifa-score.html' },
-   { id:37, name:'FIFA Soccer 2023', cat:'sports', color:'#8B00FF', gradient:'linear-gradient(135deg,#2d0f4f,#7b2cbf)', players:'0', imageUrl:'https://img.gamemonetize.com/j6y0wq913tf5t6iswkgr5t70i4d0ouwz/512x384.jpg', iframeUrl:'fifa-soccer-2023.html' },
-   { id:39, name:'Poppy Strike 6', cat:'sports', color:'#8B00FF', gradient:'linear-gradient(135deg,#2d0f4f,#7b2cbf)', players:'0', imageUrl:'Poppy Strike 6-512x512.jpg', iframeUrl:'poppy-strike-6.html' },
-   { id:40, name:'Digital Circus Shooter', cat:'action', color:'#FF5C8A', gradient:'linear-gradient(135deg,#1f0a29,#ff4d6d)', players:'0', imageUrl:'circus game.png', iframeUrl:'digital-circus-shooter.html' },
-   { id:41, name:'DNA Evolution 3D', cat:'adventure', color:'#22C55E', gradient:'linear-gradient(135deg,#062b1d,#22c55e)', players:'0', imageUrl:'DNA Evolution 3D-512x512.jpg', iframeUrl:'dna-evolution-3d.html' },
+   { id:36, name:'FIFA Score', cat:'sports', categories:['sports','boys','girls'], color:'#22C55E', gradient:'linear-gradient(135deg,#10361d,#2ea043)', players:'0', imageUrl:'https://img.gamemonetize.com/qjtd7ud3ysktv7ii5xcklblw7vjsujy4/512x384.jpg', iframeUrl:'fifa-score.html' },
+   { id:37, name:'FIFA Soccer 2023', cat:'sports', categories:['sports','boys','girls'], color:'#8B00FF', gradient:'linear-gradient(135deg,#2d0f4f,#7b2cbf)', players:'0', imageUrl:'https://img.gamemonetize.com/j6y0wq913tf5t6iswkgr5t70i4d0ouwz/512x384.jpg', iframeUrl:'fifa-soccer-2023.html' },
+   { id:39, name:'Poppy Strike 6', cat:'sports', categories:['sports','boys','girls'], color:'#8B00FF', gradient:'linear-gradient(135deg,#2d0f4f,#7b2cbf)', players:'0', imageUrl:'Poppy Strike 6-512x512.jpg', iframeUrl:'poppy-strike-6.html' },
+   { id:40, name:'Digital Circus Shooter', cat:'action', categories:['action','boys'], color:'#FF5C8A', gradient:'linear-gradient(135deg,#1f0a29,#ff4d6d)', players:'0', imageUrl:'circus game.png', iframeUrl:'digital-circus-shooter.html' },
+   { id:41, name:'DNA Evolution 3D', cat:'adventure', categories:['adventure','girls'], color:'#22C55E', gradient:'linear-gradient(135deg,#062b1d,#22c55e)', players:'0', imageUrl:'DNA Evolution 3D-512x512.jpg', iframeUrl:'dna-evolution-3d.html' },
    { id:42, name:'Crowd Rush', cat:'arcade', color:'#F59E0B', gradient:'linear-gradient(135deg,#221100,#f59e0b)', players:'0', imageUrl:'Crowd Rush-512x512.jpg', iframeUrl:'crowd-rush.html' },
-   { id:43, name:'Storm Fighter 007', cat:'action', color:'#0EA5E9', gradient:'linear-gradient(135deg,#071c2d,#0ea5e9)', players:'0', imageUrl:'Storm Fighter007-512x512.jpg', iframeUrl:'storm-fighter007.html' },
+   { id:43, name:'Storm Fighter 007', cat:'action', categories:['action','boys'], color:'#0EA5E9', gradient:'linear-gradient(135deg,#071c2d,#0ea5e9)', players:'0', imageUrl:'Storm Fighter007-512x512.jpg', iframeUrl:'storm-fighter007.html' },
   {
     id: 44,
     name: "Speen",
@@ -2273,6 +2288,18 @@ const GAMES = [
     players: "0",
     imageUrl: "https://img.gamemonetize.com/fwiozook1vr9lw7duxy81zup5676u7bj/512x384.jpg",
     iframeUrl: "/games/speen.html"
+  },
+    {
+    id: 98,
+    name: "Beam Drive Car Crash Test Simulator",
+    cat: "simulation",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/backfill/game-86496/preview/57449a8aeb08b058814fb911b0c15014c583f10801e7fa2f4c986e6743c4913c?width=448",
+    iframeUrl: "/games/beam-drive-car-crash-test-simulator.html",
+    fullscreen: true,
+    videoUrl: ""
   },
   {
     id: 45,
@@ -2288,6 +2315,7 @@ const GAMES = [
     id: 46,
     name: "Wiggly Worm Race",
     cat: "sports",
+    categories: ["sports", "boys", "girls"],
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
@@ -2399,6 +2427,7 @@ const GAMES = [
     id: 58,
     name: "English Checkers",
     cat: "sports",
+    categories: ["sports", "boys", "girls"],
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
@@ -2734,19 +2763,47 @@ const GAMES = [
     players: "0",
     imageUrl: "https://img.gamemonetize.com/594795s0fh64izkmnelrpracbmz1we3t/512x384.jpg",
     iframeUrl: "/games/giveaway-checkers.html"
-  }
+  },
+{
+    id: 96,
+    name: "Geometry Arrow 2",
+    cat: "arcade",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/backfill/game-99645/preview/90df3206f7f0c706e6431b9ae58fc331d0ed13a11e547ce0271b720ff82e6b21?width=448",
+    iframeUrl: "/games/geometry-arrow-2.html",
+    fullscreen: true,
+    videoUrl: "",
+  },
+    {
+    id: 99,
+    name: "Cube Snake 2048",
+    cat: "arcade",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/backfill/game-109351/preview/b0afdef34402ca9cc780be5207be4cbfe8b640b6cd70d6626c7cec02741a4e3c?width=448",
+    iframeUrl: "cube-snake-2048.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
 ];
 
 const TRENDING = [
   { id:95,  name:'Hazmob FPS: Online Shooter',    color:'#008840', gradient:'linear-gradient(135deg,#003300,#006600)', players:'18.7K' },
-  { id:3,  name:'Running Fred (Poki)',    color:'#008840', gradient:'linear-gradient(135deg,#003300,#006600)', players:'18.7K' },
   { id:94, name:'RIVALS FPS: Online Shooter', color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'16.3K' },
+  { id:6, name:'GTA New York', color:'#FF0066', gradient:'linear-gradient(135deg,#3f0d3d,#ff0066)', players:'17.2K' },
+  { id:15, name:'Stock Car Hero', color:'#24B8FF', gradient:'linear-gradient(135deg,#0e2230,#24b8ff)', players:'16.8K' },
+  { id:9, name:'Moto Road Rash', color:'#2E8B00', gradient:'linear-gradient(135deg,#1a2000,#405000)', players:'16.1K' },
   { id:30, name:'Minecraft', color:'#00BFFF', gradient:'linear-gradient(135deg,#001a3a,#004080)', players:'12.4K' },
   { id:1, name:'Temple Run',     color:'#FF3300', gradient:'linear-gradient(135deg,#3a0010,#8a0020)', players:'20.5K' },
   { id:4, name:'Subway Surfers',   color:'#9D50FF', gradient:'linear-gradient(135deg,#250040,#600090)', players:'19.8K' },
   { id:2,  name:'Battledudes', color:'#5B2BFF', gradient:'linear-gradient(135deg,#1a003a,#500090)', players:'22.1K' },
   { id:10,  name:'Fireboy And Watergirl',      color:'#A100FF', gradient:'linear-gradient(135deg,#300030,#800060)', players:'14.2K' },
   { id:11,  name:'Pacman',      color:'#A100FF', gradient:'linear-gradient(135deg,#300030,#800060)', players:'14.2K' },
+  { id:37, name:'FIFA Soccer 2023', color:'#8B00FF', gradient:'linear-gradient(135deg,#2d0f4f,#7b2cbf)', players:'14.6K' },
+  { id:41, name:'DNA Evolution 3D', color:'#22C55E', gradient:'linear-gradient(135deg,#062b1d,#22c55e)', players:'13.4K' },
 ];
 
 const LEADERBOARD = [
@@ -2787,12 +2844,19 @@ function createGameFrameUrl(game) {
 /* ============================================================
    RENDER FUNCTIONS
 ============================================================ */
+function getGameCategories(game) {
+  if (Array.isArray(game.categories)) return game.categories;
+  if (Array.isArray(game.cats)) return game.cats;
+  return game.cat ? [game.cat] : [];
+}
+
 function renderGames(filter = 'all') {
   const grid = document.getElementById('games-grid');
   const searchValue = document.getElementById('game-search')?.value.trim().toLowerCase() || '';
   grid.innerHTML = '';
   const filtered = GAMES.filter(g => {
-    const matchesCategory = filter === 'all' || g.cat === filter;
+    const categories = getGameCategories(g);
+    const matchesCategory = filter === 'all' || categories.includes(filter);
     const matchesSearch = searchValue === '' || g.name.toLowerCase().includes(searchValue);
     return matchesCategory && matchesSearch;
   });

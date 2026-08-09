@@ -1,0 +1,64 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "86496",
+          "slug": "beam-drive-car-crash-test-simulator",
+          "title": "Beam Drive Car Crash Test Simulator",
+          "description": "Dive into the exhilarating world of car crashes with the Beam Drive Car Crash Test Simulator. Perfect for those who love realistic car destruction and high-speed racing, this free online game is accessible on both mobile and PC. Prepare for an entertaining experience filled with destruction physics!\n\nControls:\nDesktop: WASD — movement, right mouse button to click buttons, ZX — left and right turn signals. Mouse wheel — zoom in/out camera, left mouse button — rotate camera.\nMobile: Tap the buttons. Left/right buttons, accelerate forward, reverse.\n\nKey Features:\n• Realistic controls: The game features highly accurate controls, along with vehicle destructibility. Watch as cars crumple, tear apart, and explode into pieces!\n• Create your own levels: If the basic maps aren't enough for you, create your own — you decide what will be on your map and how it will look!\n• Choose your car: Pick the car you like and hit the road! Wonder how long your journey will be.\n\nGame Modes:\n• Classic mode: A classic mode where you can play on 8 ready-made maps and test the cars!\n• Map Editor: A separate large world where you can create your own maps as your heart desires. Come up with your own challenges and obstacles or just create something unique.\n\nVehicles / Cars:\n• Caro: A powerful muscle car. It will impress you with its speed and power. See how it withstands obstacles in its path!\n• Flash: The futuristic electric car! Powerful and fast enough. Watch how it takes a hit!\n• Syper: A sports car designed specifically for speed. Street racing is its forte, but how will it perform on the map? Find out!\n\nCore Gameplay & Story\nQ: What is the goal of the game?\nA: Test the cars' durability by completing challenges, or create your own! It's your sandbox where you can play as you wish! Choose a car and go racing on the map! You can complete challenges or immediately destroy your car on the first obstacle! Watch as cars turn into heaps of metal, or try to keep them intact. The choice is yours!\n\nQ: How do you win / what counts as losing?\nA: This is your sandbox where you set the rules. Destroy cars and enjoy watching them explode, or try to keep them whole!\n\nQ: What grabs attention in the first minutes?\nA: Realistic controls and driving physics allow for realistic scenarios. You can turn on the turn signal, honk, and even get out of the car or drive from a first-person perspective, witnessing all the chaos from inside! A wide selection of maps lets you play out numerous scenarios!\n\nMechanics & Progression\nQ: How many levels are there / is the structure clear?\nA: There are 8 maps in the game, each differing in challenges and content. But if that's not enough, you can create your own map in the map editor! You're not limited in possible scenarios!\n\nQ: What unlocks as you play?\nA: Unlock new cars and test their durability! See how many challenges they can withstand.\n\nEconomy & Customization\nQ: Are there skins / customization?\nA: Paint the cars in your desired color and see how they perform on the map!\n\nQ: What is available from the start?\nA: Most cars in the game are available from the start. Begin your journey with the car you like!\n\nRetention & Engagement\nQ: Is sound necessary?\nA: Sound is not mandatory, but it can enhance the emotional experience!\n\nQ: Is there onboarding in the game? What does it entail?\nA: At the beginning of the game, you'll be taught how to control the car, and from the first seconds, you'll understand what to do!",
+          "howToPlayText": "Driving/Walking/Flying - WASD\nRight mouse button - Rotate camera\nSpace - Handbrake\nC - Change camera\nB - Look back\nH - Horn\nJ - Hazard lights\nZ - Left turn signal\nX - Right turn signal\n\nFor mobile devices, use the in-game interface.",
+          "gameURL": "https://playgama.com/export/game/beam-drive-car-crash-test-simulator?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/beam-drive-car-crash-test-simulator",
+          "genres": [
+            "simulation"
+          ],
+          "tags": [
+            "destruction-games",
+            "car-crash-games",
+            "desktop-games",
+            "sandbox-games",
+            "borwser-games",
+            "unity-games-online"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/backfill/game-86496/preview/57449a8aeb08b058814fb911b0c15014c583f10801e7fa2f4c986e6743c4913c?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-86496/icon/8a5cdc1f71a39a24a8f5d6009363d930417b66e632d28d20541b803c786cd062?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "ca01b2a7120a42899a3bd18db50b4ebe",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "ca01b2a7120a42899a3bd18db50b4ebe",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/backfill/game-86496/preview/57449a8aeb08b058814fb911b0c15014c583f10801e7fa2f4c986e6743c4913c?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/backfill/game-86496/icon/8a5cdc1f71a39a24a8f5d6009363d930417b66e632d28d20541b803c786cd062?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "supportedLanguages": [
+            "en-US"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/beam-drive-car-crash-test-simulator?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

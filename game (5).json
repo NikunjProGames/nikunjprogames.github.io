@@ -1,0 +1,65 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "109351",
+          "slug": "cube-snake-2048",
+          "title": "Cube Snake 2048",
+          "description": "A great Cube Snake 2048 game begins with cube snakes and cubes in a huge arena. You will start with a low number of snakes, collect lower numbered cubes around the map, and try to make your snake bigger by combining numbers. Collect power-ups and give your snake more advantages.",
+          "howToPlayText": "Move: \"MOUSE\" or \"LEFT-RIGHT ARROWS\" or \"A, D\" Keys.\nBoost: \"LEFT-CLICK\" or \"SPACE\"\n\nTry to collect lower or equal cubes around.",
+          "gameURL": "https://playgama.com/export/game/cube-snake-2048?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/cube-snake-2048",
+          "genres": [
+            "arcade",
+            "snake",
+            "number",
+            "merge",
+            "classic"
+          ],
+          "tags": [
+            "cube-games",
+            "arena-games",
+            "collecting-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/backfill/game-109351/preview/b0afdef34402ca9cc780be5207be4cbfe8b640b6cd70d6626c7cec02741a4e3c?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-109351/icon/37e7ffd0a428dec2cacd620135eee0ddff04ab7833e5ca692bc4ac72b03cfa86?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "c8ec011435b84bb3921bb39ff64b0973",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "c8ec011435b84bb3921bb39ff64b0973",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/backfill/game-109351/preview/b0afdef34402ca9cc780be5207be4cbfe8b640b6cd70d6626c7cec02741a4e3c?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/backfill/game-109351/icon/37e7ffd0a428dec2cacd620135eee0ddff04ab7833e5ca692bc4ac72b03cfa86?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": true
+          },
+          "supportedLanguages": [
+            "en-US"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/cube-snake-2048?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

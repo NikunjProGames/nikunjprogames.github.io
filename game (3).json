@@ -1,0 +1,74 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "122770",
+          "slug": "basket-random",
+          "title": "Basket Random",
+          "description": "Basket Random is a chaotic arcade basketball game where every match turns into a funny test of timing, luck, and unpredictable physics. Instead of giving players a serious sports simulation, it focuses on quick rounds, simple controls, and hilarious ragdoll movement. You control your team with one key, jump toward the ball, block your opponent, and try to score before the other side reaches the winning point. The idea is easy to understand, but the random physics make every attempt feel different.\n\nWhat makes Basket Random stand out is the way it changes after almost every score. One round may take place on a normal court, while the next may throw you into a completely different setup with unusual players, strange body proportions, or a ball that behaves in an unexpected way. Sometimes the characters have long arms, sometimes their movement feels heavier, and sometimes the ball bounces in a way that makes even a simple shot difficult to predict. This constant variety keeps the game fresh without making it complicated.\n\nThe controls are intentionally simple, which makes the game accessible for almost anyone. In single-player mode, you can play against the CPU and practice your timing. In 2-player mode, the game becomes even more entertaining because both players share the same device and compete in fast, messy basketball duels. Since both sides are dealing with the same strange physics, every point feels like a mix of skill, reaction, and comedy.\n\nBasket Random is especially enjoyable for players who like short sports games with instant action. You do not need to learn complex moves, manage a team, or follow advanced basketball rules. The goal is clear: jump, reach the ball, defend your basket, and score. However, the challenge comes from reading the movement of your characters and adapting quickly when the game changes the court, the players, or the ball behavior.\n\nThe pixel-style visuals give the game a clean and playful look, while the ragdoll animation creates many unexpected moments. A missed jump can turn into a lucky block. A bad shot can bounce into the basket. A perfect attack can fail because your player lands in the wrong position. These small surprises are the reason Basket Random feels fun even after many rounds.\n\nFor fans of funny basketball games, local 2-player games, and physics-based sports challenges, Basket Random offers a simple but highly replayable experience. It is easy to start, fast to understand, and unpredictable enough to keep every match exciting. Whether you are playing alone or challenging a friend, each round brings a new chance to score a ridiculous basket, make a surprising comeback, or laugh at a completely unexpected play.",
+          "howToPlayText": "Player 1: W\nPlayer 2: UP ARROW\n\nJump, block, and shoot with one key. Time your moves well and score before your opponent.",
+          "gameURL": "https://playgama.com/export/game/basket-random?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/basket-random",
+          "genres": [
+            "action",
+            "arcade",
+            "sports",
+            "two-player",
+            "ragdoll",
+            "basketball",
+            "physics"
+          ],
+          "tags": [
+            "fast-paced-games",
+            "addictive-games",
+            "competitive-games",
+            "agility-games",
+            "1-player-games",
+            "2-player-sports",
+            "2-player-party",
+            "action-adventure",
+            "fast-paced-action",
+            "2-player-basketball"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/basket-random/preview/fec7a407ebd246d8a893abaf7801622c?width=448",
+            "https://static.playgama.com/p-img/pg/basket-random/icon/5e177b56e0034c8cb50398a710a86568?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "cbc801637e5c42c88a4ed95bc33c2564",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "cbc801637e5c42c88a4ed95bc33c2564",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/basket-random/preview/fec7a407ebd246d8a893abaf7801622c?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/basket-random/icon/5e177b56e0034c8cb50398a710a86568?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": true
+          },
+          "supportedLanguages": [
+            "en-US"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/basket-random?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

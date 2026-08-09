@@ -1,0 +1,71 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "99645",
+          "slug": "geometry-arrow-2",
+          "title": "Geometry Arrow 2",
+          "description": "Geometry Arrow 2 ─ sequel of the game about the arrow in the cave.\n\nThe goal of the game is to reach the end of the cave (the portal) alive. Along the way, you need to dodge unique obstacles.\n\nIn the new part, a new game character has been added ─ the \"Wheel\"\nAnd now you can customize your arrow and ball looks, change game particles and blocks textures.\n\nThe game has 13 levels of varying difficulty. Each level consists of \"Arrow\" segments and new \"Wheel\" segments.",
+          "howToPlayText": "Choose one of the 13 levels in the menu and start the game by clicking it with the left mouse button, the SPACEBAR or your finger.\n\nPC controls:\n\n─ LEFT MOUSE BUTTON or SPACEBAR ─ arrow movement;\n─ ESCAPE ─ exit the level.\n\nMOBILE controls:\n\n─ TOUCHING THE SCREEN ─ movement of the arrow.",
+          "gameURL": "https://playgama.com/export/game/geometry-arrow-2?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/geometry-arrow-2",
+          "genres": [
+            "arcade",
+            "skill",
+            "popular"
+          ],
+          "tags": [
+            "reaction-games",
+            "avoid-games",
+            "challenging-games",
+            "jumping-games",
+            "timing-games",
+            "geometry-games",
+            "rhythm-games",
+            "godot-games-online",
+            "fast-paced-action",
+            "space-waves"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/backfill/game-99645/preview/90df3206f7f0c706e6431b9ae58fc331d0ed13a11e547ce0271b720ff82e6b21?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-99645/icon/879425bddbcc6adb604bb539268e9fc7e5deb8d452aa753aa10d4525876a9e1f?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "5b84237660d746b7bd76be4e60bdba3a",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "5b84237660d746b7bd76be4e60bdba3a",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/backfill/game-99645/preview/90df3206f7f0c706e6431b9ae58fc331d0ed13a11e547ce0271b720ff82e6b21?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/backfill/game-99645/icon/879425bddbcc6adb604bb539268e9fc7e5deb8d452aa753aa10d4525876a9e1f?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "supportedLanguages": [
+            "en-US",
+            "ru-RU"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/geometry-arrow-2?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}
