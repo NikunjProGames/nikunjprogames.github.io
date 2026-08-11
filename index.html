@@ -3607,5 +3607,28 @@ if (!applied) renderGames();
 renderTrending();
 renderLeaderboard();
 </script>
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyAZeHHIF2uOS-K5s6kZEffx-itN6xyxFk8",
+    authDomain: "pleyz-dd9f8.firebaseapp.com",
+    projectId: "pleyz-dd9f8",
+    storageBucket: "pleyz-dd9f8.firebasestorage.app",
+    messagingSenderId: "386766168723",
+    appId: "1:386766168723:web:bffbdec0ad82394f64a366",
+    measurementId: "G-HT57V3EZPP"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
 </body>
 </html>
