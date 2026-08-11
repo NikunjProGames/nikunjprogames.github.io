@@ -1669,9 +1669,7 @@ animate();
   </nav>
 
   <div class="nav-actions">
-    <span id="user-display"></span>
-
-    <div class="recent-games-wrapper" id="recent-menu">
+    <div class="recent-games-wrapper">
       <button class="btn btn-outline recent-toggle" id="recent-toggle-button" onclick="toggleRecentPanel()" aria-expanded="false">
         <span class="desktop-label"><i class="fas fa-history"></i> Recent</span>
         <span class="mobile-icon"><i class="fas fa-bars"></i></span>
@@ -1686,13 +1684,14 @@ animate();
       </div>
     </div>
 
+    <span id="user-display" style="display:none; margin-right:0.6rem; font-weight:600; color:var(--text);"></span>
     <button class="btn btn-outline" id="auth-action-button" onclick="openLoginModal()">
       <i class="fas fa-user"></i> Login
     </button>
-  </div>
 
-  <div class="hamburger" id="hamburger" onclick="toggleMobileNav()">
-    <span></span><span></span><span></span>
+    <div class="hamburger" id="hamburger" onclick="toggleMobileNav()">
+      <span></span><span></span><span></span>
+    </div>
   </div>
 </header>
 
@@ -1790,6 +1789,33 @@ animate();
 </div>
 
 
+<!-- ============================================================
+     LEADERBOARD SECTION
+============================================================ -->
+<section id="leaderboard">
+  <div class="section-title">Leaderboard</div>
+  <div class="section-underline"></div>
+  <p class="trending-copy" style="max-width:760px; margin:1rem auto 2rem;">
+    PleyZ leaderboard tracks the top players by score and total games played. Sign in and open games to begin earning PleyZ points.
+  </p>
+  <div class="leaderboard-table-wrap">
+    <table class="leaderboard-table">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Player</th>
+          <th>Score</th>
+          <th>Games</th>
+        </tr>
+      </thead>
+      <tbody id="leaderboard-body">
+        <tr><td colspan="4" style="text-align:center; padding:1.5rem; color:var(--text-dim);">Loading leaderboard...</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
 
 <!-- ============================================================
      ABOUT SECTION (brief)
@@ -1865,8 +1891,8 @@ animate();
     </div>
 
     <div class="form-group">
-      <label>Username</label>
-      <input type="text" id="auth-username" placeholder="Enter your username" autocomplete="username" />
+      <label>Email</label>
+      <input type="email" id="auth-username" placeholder="Enter your email" autocomplete="email" />
     </div>
     <div class="form-group">
       <label>Password</label>
@@ -1882,9 +1908,28 @@ animate();
       <i class="fas fa-sign-in-alt"></i> Sign In
     </button>
     <p class="form-note" id="auth-note" style="margin-top:1rem; color:var(--text-dim);">New here? Create an account to keep your progress.</p>
-    <p class="form-note" style="margin-top:0.35rem; color:var(--text-dim); font-size:0.8rem;">Note : Passwords are hashed locally before they are stored. This is for browser-only</p>
+    <p class="form-note" style="margin-top:0.35rem; color:var(--text-dim); font-size:0.8rem;">Note: your credentials are stored securely with Firebase Auth.</p>
   </div>
 </div>
+
+  <!-- PLEYZ SCORE CHECK MODAL -->
+  <div class="modal-overlay" id="pleyz-modal">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closePleyzModal()">&times;</button>
+      <div class="modal-title">PleyZ Score</div>
+      <div style="margin-top:0.6rem; color:var(--text-dim);" id="pleyz-modal-desc">Check your PleyZ score or lookup another player's score.</div>
+      <div style="margin-top:1rem; display:flex; gap:0.6rem; align-items:center;">
+        <input id="pleyz-lookup-input" placeholder="Enter email or username" style="flex:1; padding:0.6rem; border-radius:8px; border:1px solid rgba(255,255,255,0.06); background:transparent; color:var(--text);" />
+        <button class="btn" onclick="lookupPleyz()">Check</button>
+      </div>
+      <div id="pleyz-result" style="margin-top:1rem; font-weight:600;"></div>
+      <div style="margin-top:1rem; display:flex; gap:0.6rem; align-items:center;">
+        <label style="font-size:0.9rem; color:var(--text-dim)"><input type="checkbox" id="pleyz-dont-show" /> Don't show again</label>
+        <div style="flex:1"></div>
+        <button class="btn btn-primary" onclick="closePleyzModal(true)">Close</button>
+      </div>
+    </div>
+  </div>
 
 <!-- ============================================================
      GAME MODAL
@@ -2926,8 +2971,15 @@ function renderTrending() {
   });
 }
 
-function renderLeaderboard() {
+async function renderLeaderboard() {
   const tbody = document.getElementById('leaderboard-body');
+  if (!tbody) return;
+  tbody.innerHTML = '<tr><td colspan="4" style="text-align:center; padding:1.5rem; color:var(--text-dim);">Loading leaderboard...</td></tr>';
+
+  if (window.firebaseFetchLeaderboard) {
+    return window.firebaseFetchLeaderboard();
+  }
+
   tbody.innerHTML = '';
   LEADERBOARD.forEach(p => {
     const tr = document.createElement('tr');
@@ -3029,6 +3081,10 @@ function setStoredAccounts(accounts) {
 }
 
 function getCurrentUser() {
+  if (window.firebaseAuth?.currentUser) {
+    const email = window.firebaseAuth.currentUser.email || '';
+    return email.split('@')[0];
+  }
   return localStorage.getItem('nikunj_auth_current_user');
 }
 
@@ -3066,6 +3122,20 @@ function saveRecentGame(gameId) {
   if (recent.length > 5) recent.length = 5;
   setRecentGamesForUser(username, recent);
   renderRecentGamesPanel();
+  // increment local PleyZ for non-Firebase users
+  if (!window.firebaseAuth || !window.firebaseAuth.currentUser) {
+    try { incrementLocalPleyz(username); } catch (e) { }
+  }
+}
+
+function incrementLocalPleyz(username) {
+  if (!username) return;
+  const keyScore = `nikunj_pleyz_${username}`;
+  const keyGames = `nikunj_games_${username}`;
+  const score = parseInt(localStorage.getItem(keyScore) || '0', 10) + 1;
+  const games = parseInt(localStorage.getItem(keyGames) || '0', 10) + 1;
+  localStorage.setItem(keyScore, String(score));
+  localStorage.setItem(keyGames, String(games));
 }
 
 function renderRecentGamesPanel() {
@@ -3146,8 +3216,16 @@ function updateAuthUI() {
   renderRecentGamesPanel();
 }
 
-function handleLogout() {
-  clearCurrentUser();
+async function handleLogout() {
+  if (window.firebaseLogout) {
+    try {
+      await window.firebaseLogout();
+    } catch (err) {
+      console.warn('Logout failed', err);
+    }
+  } else {
+    clearCurrentUser();
+  }
   updateAuthUI();
 }
 
@@ -3182,16 +3260,30 @@ async function handleLogin() {
   const username = document.getElementById('auth-username').value.trim();
   const password = document.getElementById('auth-password').value;
   const errorEl = document.getElementById('auth-error');
-  const accounts = getStoredAccounts();
-
   errorEl.textContent = '';
-  if (!username) { errorEl.textContent = 'Username is required.'; return; }
+  if (!username) { errorEl.textContent = 'Email is required.'; return; }
   if (!password) { errorEl.textContent = 'Password is required.'; return; }
-  if (!accounts[username]) { errorEl.textContent = 'No account found with that username.'; return; }
-
+  if (window.firebaseLogin) {
+    try {
+      await window.firebaseLogin(username, password);
+      updateAuthUI();
+      closeLoginModal();
+      return;
+    } catch (err) {
+      // If Firebase Email/Password not configured, fall back to local accounts
+      if (err && err.code === 'auth/configuration-not-found') {
+        console.warn('Firebase auth not configured; falling back to local auth');
+        errorEl.textContent = 'Firebase Email/Password not enabled — using local accounts.';
+      } else {
+        errorEl.textContent = err.message || 'Unable to sign in. Please check your credentials.';
+        return;
+      }
+    }
+  }
+  const accounts = getStoredAccounts();
+  if (!accounts[username]) { errorEl.textContent = 'No account found with that email.'; return; }
   const passwordHash = await hashPassword(password);
   if (accounts[username] !== passwordHash) { errorEl.textContent = 'Incorrect password. Try again.'; return; }
-
   setCurrentUser(username);
   updateAuthUI();
   closeLoginModal();
@@ -3202,16 +3294,30 @@ async function handleSignup() {
   const password = document.getElementById('auth-password').value;
   const confirmPassword = document.getElementById('auth-confirm-password').value;
   const errorEl = document.getElementById('auth-error');
-  const accounts = getStoredAccounts();
-
   errorEl.textContent = '';
-  if (!username) { errorEl.textContent = 'Username is required.'; return; }
-  if (username.length < 3) { errorEl.textContent = 'Username must be at least 3 characters.'; return; }
+  if (!username) { errorEl.textContent = 'Email is required.'; return; }
   if (!password) { errorEl.textContent = 'Password is required.'; return; }
-  if (password.length < 4) { errorEl.textContent = 'Password must be at least 4 characters.'; return; }
+  if (password.length < 6) { errorEl.textContent = 'Password must be at least 6 characters.'; return; }
   if (password !== confirmPassword) { errorEl.textContent = 'Passwords do not match.'; return; }
-  if (accounts[username]) { errorEl.textContent = 'That username is already taken.'; return; }
-
+  if (window.firebaseSignup) {
+    try {
+      await window.firebaseSignup(username, password);
+      updateAuthUI();
+      closeLoginModal();
+      return;
+    } catch (err) {
+      // If Firebase not configured for Email/Password, fall back to local storage method
+      if (err && err.code === 'auth/configuration-not-found') {
+        console.warn('Firebase signup not configured; falling back to local signup');
+        errorEl.textContent = 'Firebase Email/Password not enabled — creating a local account instead.';
+      } else {
+        errorEl.textContent = err.message || 'Unable to create account. Please try again.';
+        return;
+      }
+    }
+  }
+  const accounts = getStoredAccounts();
+  if (accounts[username]) { errorEl.textContent = 'That email is already registered.'; return; }
   const passwordHash = await hashPassword(password);
   accounts[username] = passwordHash;
   setStoredAccounts(accounts);
@@ -3243,6 +3349,9 @@ function openGame(id) {
   currentOpenGame = game; // Store the current game for fullscreen redirect
 
   saveRecentGame(game.id);
+  if (window.firebaseOnGameOpened) {
+    window.firebaseOnGameOpened().catch(err => console.warn('PleyZ score update failed', err));
+  }
   document.getElementById('game-modal-title').textContent = game.name;
   const iframe = document.getElementById('game-frame');
   document.getElementById('game-modal').classList.add('open');
@@ -3602,10 +3711,36 @@ function applyUrlCategoryFilter(){
   return false;
 }
 
-const applied = applyUrlCategoryFilter();
-if (!applied) renderGames();
-renderTrending();
-renderLeaderboard();
+try {
+  const applied = applyUrlCategoryFilter();
+  if (!applied) renderGames();
+  renderTrending();
+  renderLeaderboard();
+} catch (err) {
+  // Avoid halting the rest of the script — try again shortly
+  console.warn('Initial render failed, retrying shortly', err);
+  setTimeout(() => {
+    try { renderGames(); renderTrending(); renderLeaderboard(); } catch (e) { console.error('Retry failed', e); }
+  }, 200);
+}
+
+// Fallback: if the main renderer didn't populate games (due to an earlier error), render a minimal set so the page remains usable.
+try {
+  const grid = document.getElementById('games-grid');
+  if (grid && grid.children.length === 0 && Array.isArray(GAMES) && GAMES.length) {
+    grid.innerHTML = '';
+    GAMES.slice(0, 50).forEach(g => {
+      try {
+        const div = document.createElement('div');
+        div.className = 'game-card';
+        div.innerHTML = `<div class="game-thumb" style="background:${g.gradient};">${createGameImageMarkup(g)}</div><div class="game-info"><div class="game-name">${g.name}</div><button class="btn-play" onclick="openGame(${g.id})"><i class="fas fa-play"></i> Play</button></div>`;
+        grid.appendChild(div);
+      } catch (inner) { /* ignore individual item render failures */ }
+    });
+  }
+} catch (e) {
+  console.warn('fallback render failed', e);
+}
 </script>
 <script type="module">
   // Import the functions you need from the SDKs you need
@@ -3629,6 +3764,181 @@ renderLeaderboard();
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
+  // Lazy-load Auth + Firestore helpers (optional: if you want auth/leaderboard)
+  import("https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js").then(m => {
+    const { getAuth, onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } = m;
+    const auth = getAuth(app);
+    window.firebaseAuth = auth;
+
+    window.firebaseLogin = async (email, password) => {
+      const cred = await signInWithEmailAndPassword(auth, email, password);
+      return cred.user;
+    };
+    window.firebaseSignup = async (email, password) => {
+      const cred = await createUserWithEmailAndPassword(auth, email, password);
+      // create user document in Firestore when created
+      await window.firebaseEnsureUserDoc(cred.user);
+      return cred.user;
+    };
+    window.firebaseLogout = async () => await signOut(auth);
+
+    onAuthStateChanged(auth, user => {
+      updateAuthUI();
+    });
+  }).catch(() => {});
+
+  import("https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js").then(m => {
+    const { getFirestore, doc, setDoc, updateDoc, serverTimestamp, collection, query, orderBy, limit, getDocs, increment, getDoc } = m;
+    const db = getFirestore(app);
+    window.firebaseDb = db;
+
+    window.firebaseEnsureUserDoc = async (user) => {
+      if (!user) return;
+      const ref = doc(db, 'users', user.uid);
+      try { await setDoc(ref, { email: user.email, createdAt: serverTimestamp(), pleyzScore: 0, gamesPlayed: 0 }, { merge: true }); } catch (e) { }
+    };
+
+    window.firebaseOnGameOpened = async () => {
+      const auth = window.firebaseAuth;
+      if (!auth || !auth.currentUser) return;
+      const uid = auth.currentUser.uid;
+      const userRef = doc(db, 'users', uid);
+      try {
+        await updateDoc(userRef, {
+          pleyzScore: increment(1),
+          gamesPlayed: increment(1),
+          lastPlayed: serverTimestamp()
+        });
+      } catch (e) {
+        // if user doc doesn't exist or update failed, create with initial values
+        try {
+          await setDoc(userRef, { pleyzScore: 1, gamesPlayed: 1, email: auth.currentUser.email, createdAt: serverTimestamp(), lastPlayed: serverTimestamp() }, { merge: true });
+        } catch (_) {}
+      }
+    };
+
+    window.firebaseFetchLeaderboard = async () => {
+      const tbody = document.getElementById('leaderboard-body');
+      tbody.innerHTML = '<tr><td colspan="4" style="text-align:center; padding:1.5rem; color:var(--text-dim);">Loading leaderboard...</td></tr>';
+      try {
+        const usersCol = collection(db, 'users');
+        const q = query(usersCol, orderBy('pleyzScore', 'desc'), limit(50));
+        const snap = await getDocs(q);
+        tbody.innerHTML = '';
+        let rank = 1;
+        const seenIds = new Set();
+        snap.forEach(docSnap => {
+          const d = docSnap.data();
+          const tr = document.createElement('tr');
+          if (rank <= 3) tr.className = `rank-${rank}`;
+          const icon = rank === 1 ? '<i class="fas fa-trophy"></i>' : rank === 2 ? '<i class="fas fa-medal"></i>' : rank === 3 ? '<i class="fas fa-award"></i>' : `#${rank}`;
+          tr.innerHTML = `<td><span class="rank-icon">${icon}</span></td><td>${(d.email||'Player').split('@')[0]}</td><td class="score-cell">${(d.pleyzScore||0).toLocaleString()}</td><td>${(d.gamesPlayed||0)}</td>`;
+          tbody.appendChild(tr);
+          seenIds.add(docSnap.id);
+          rank++;
+        });
+
+        // If current user isn't in the top list, fetch and show their score highlighted
+        const auth = window.firebaseAuth;
+        if (auth && auth.currentUser) {
+          const meRef = doc(db, 'users', auth.currentUser.uid);
+          try {
+            const meSnap = await getDoc(meRef);
+            if (meSnap.exists() && !seenIds.has(meSnap.id)) {
+              const d = meSnap.data();
+              const tr = document.createElement('tr');
+              tr.className = 'you';
+              tr.innerHTML = `<td><span class="rank-icon">—</span></td><td>${(d.email||'You').split('@')[0]}</td><td class="score-cell">${(d.pleyzScore||0).toLocaleString()}</td><td>${(d.gamesPlayed||0)}</td>`;
+              // append at the end
+              tbody.appendChild(tr);
+            }
+          } catch (_) {}
+        }
+      } catch (err) {
+        tbody.innerHTML = '<tr><td colspan="4" style="text-align:center; padding:1.5rem; color:var(--text-dim);">Unable to load leaderboard</td></tr>';
+      }
+    };
+  }).catch(() => {});
+  // PleyZ modal helpers
+  window.openPleyzModal = function() {
+    const shown = localStorage.getItem('nikunj_pleyz_seen');
+    if (shown === 'true') return;
+    const modal = document.getElementById('pleyz-modal');
+    if (modal) modal.classList.add('open');
+    // show current user's score if available
+    const res = document.getElementById('pleyz-result');
+    if (!res) return;
+    if (window.firebaseAuth && window.firebaseAuth.currentUser && window.firebaseDb) {
+      try {
+        const { doc, getDoc } = await import('https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js');
+        const db = window.firebaseDb;
+        const uid = window.firebaseAuth.currentUser.uid;
+        const meRef = doc(db, 'users', uid);
+        const meSnap = await getDoc(meRef);
+        if (meSnap.exists()) {
+          const d = meSnap.data();
+          res.textContent = `Your PleyZ: ${Number(d.pleyzScore||0).toLocaleString()} | Games: ${d.gamesPlayed||0}`;
+        } else {
+          res.textContent = 'No PleyZ score yet. Play a game to start earning PleyZ!';
+        }
+      } catch (e) {
+        console.warn('Unable to load your PleyZ', e);
+        const username = getCurrentUser();
+        const score = localStorage.getItem(`nikunj_pleyz_${username}`) || '0';
+        if (username) res.textContent = `Your PleyZ: ${Number(score).toLocaleString()}`;
+        else res.textContent = 'Sign in to see your PleyZ score.';
+      }
+    } else {
+      const username = getCurrentUser();
+      const score = localStorage.getItem(`nikunj_pleyz_${username}`) || '0';
+      if (username) res.textContent = `Your PleyZ: ${Number(score).toLocaleString()}`;
+      else res.textContent = 'Sign in to see your PleyZ score.';
+    }
+  };
+
+  window.closePleyzModal = function(saveDontShow) {
+    const modal = document.getElementById('pleyz-modal');
+    if (modal) modal.classList.remove('open');
+    const dont = document.getElementById('pleyz-dont-show');
+    if (saveDontShow && dont && dont.checked) localStorage.setItem('nikunj_pleyz_seen', 'true');
+  };
+
+  window.lookupPleyz = async function() {
+    const q = document.getElementById('pleyz-lookup-input').value.trim();
+    const res = document.getElementById('pleyz-result');
+    if (!q || !res) return;
+    res.textContent = 'Searching...';
+    // If firebase available, scan users for match
+    if (window.firebaseDb) {
+      try {
+        const { getFirestore, collection, getDocs } = await import('https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js');
+        const db = window.firebaseDb;
+        const usersCol = collection(db, 'users');
+        const snap = await getDocs(usersCol);
+        let found = null;
+        snap.forEach(s => {
+          const d = s.data();
+          const email = (d.email||'').toLowerCase();
+          if (email === q.toLowerCase() || email.split('@')[0] === q.toLowerCase()) found = d;
+        });
+        if (found) {
+          res.textContent = `${(found.email||'Player').split('@')[0]} — PleyZ ${Number(found.pleyzScore||0).toLocaleString()} | Games ${found.gamesPlayed||0}`;
+        } else {
+          res.textContent = 'Player not found.';
+        }
+        return;
+      } catch (e) { console.warn(e); }
+    }
+    // fallback to localStorage
+    const username = q;
+    const score = localStorage.getItem(`nikunj_pleyz_${username}`) || '0';
+    const games = localStorage.getItem(`nikunj_games_${username}`) || '0';
+    if (score === '0' && games === '0') res.textContent = 'Player not found.';
+    else res.textContent = `${username} — PleyZ ${Number(score).toLocaleString()} | Games ${Number(games).toLocaleString()}`;
+  };
+
+  // Show modal once after load unless user disabled
+  setTimeout(() => { try { openPleyzModal(); } catch(e){} }, 1000);
 </script>
 </body>
 </html>
