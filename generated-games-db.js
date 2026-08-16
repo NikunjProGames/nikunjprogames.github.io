@@ -659,7 +659,7 @@ const NEW_GAMES = [
     fullscreen: true,
     videoUrl: ""
   },
-    {
+  {
     id: 99,
     name: "Cube Snake 2048",
     cat: "arcade",
@@ -668,6 +668,18 @@ const NEW_GAMES = [
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/backfill/game-109351/preview/b0afdef34402ca9cc780be5207be4cbfe8b640b6cd70d6626c7cec02741a4e3c?width=448",
     iframeUrl: "cube-snake-2048.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
+  {
+    id: 100,
+    name: "Piece of Cake: Merge & Bake",
+    cat: "puzzle",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/piece-of-cake-merge--bake/big-preview/4124b3ce37ab4b92b6a8ff1332c9eee8?width=448",
+    iframeUrl: "piece-of-cake-merge-bake.html",
     fullscreen: true,
     videoUrl: ""
   }

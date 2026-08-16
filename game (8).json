@@ -1,0 +1,67 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "97426",
+          "slug": "piece-of-cake-merge--bake",
+          "title": "Piece of Cake: Merge & Bake",
+          "description": "Join the enchanting world of Piece of Cake: Merge & Bake, an engaging game that combines puzzle-solving with café management. Explore a beautiful mansion, uncover family secrets, and help Emily grow her café into a culinary empire. Enjoy this unique experience for free on your phone or computer.\n\nControls:\nDesktop: Right-click on buttons, drag items.\nMobile: Tap buttons, drag items with your finger.\n\nKey Features:\n• Expand your cooking table! : Combine ingredients and find matches on the table. Merge and expand your territory! This way, you can cook more masterpieces!\n• Combine ingredients! : Want to create something more complex than a sandwich? Great! Combine ingredients to unlock increasingly complex dishes.\n• Restore the café! : Restore the café and other areas with the money you earn. An incredibly engaging process where you’ll see progress at every stage!\n\nLevels / Maps / Worlds:\n• 21 maps\n• Café. : Your grandfather's café has fallen into disrepair. Why be sad when you can restore it and make it better than before? Get to work!\n• Café facade. : You've done well inside the café, great! But the facade also needs repairs, it's time to work on that too!\n\nStory / Setting:\nYou've come to your grandfather's café in the countryside. Unfortunately, it has long been abandoned. Once a popular spot, it's now your task to restore it and make it even better!\n\nCore Gameplay & Story\nQ: What is the goal of the game?\nA: Revive your grandfather's café and breathe new life into its walls! Cook delicacies for visitors and develop your kitchen by unlocking new dishes!\n\nQ: Is there a story?\nA: You lived in a big city, but you had to return. Your grandfather had an old café, but sadly, it has fallen into disrepair. Help restore it and make it better than before! You will encounter new characters—delight them with your tasty treats!\n\nQ: What grabs you in the first minutes?\nA: Pleasant graphics, everything looks cozy and warm. It's especially satisfying to watch the progress of the café's reconstruction. With each amount earned, you can repair and upgrade your café and move on to other locations! With each new stage, you will see progress.\n\nMechanics & Progression\nQ: How many levels are there / is the structure clear?\nA: The game features a total of 21 locations! You will restore them one by one, cooking food and drinks. Each location is unique with its own distinct style and theme.\n\nQ: How can I level up faster?\nA: Combine ingredients to get new ones. Expand your cooking table to hold more ingredients. Upgrade your kitchen tools to cook more efficiently!\n\nQ: What unlocks as you progress?\nA: As you play, you will expand your table, allowing you to accommodate more ingredients for cooking. You will also upgrade your kitchen setup, receiving new equipment. But you won't be limited to just the kitchen. New locations will unlock as you progress through the game!\n\nEconomy & Customization\nQ: What can be bought/upgraded?\nA: Upgrade the café and other locations. And don't forget about kitchen tools. With them, you can cook more delicious food!\n\nQ: What is available from the start?\nA: You start with an abandoned coffee shop and gradually, step by step, restore it. It's very engaging to watch life return to a once-popular place!\n\nRetention & Engagement\nQ: Is sound necessary?\nA: You can play anywhere and even without sound if that suits you better.\n\nQ: Is there onboarding in the game? What is it like?\nA: From the first missions, the game will show you what to do and how to do it. Additionally, hints will guide you in moments where you might miss something. But don’t worry, you’ll understand everything quickly!",
+          "howToPlayText": "Use mouse or your finger tap for navigation in this game.",
+          "gameURL": "https://playgama.com/export/game/piece-of-cake-merge--bake?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/piece-of-cake-merge--bake",
+          "genres": [
+            "puzzle",
+            "story",
+            "merge",
+            "cozy",
+            "cooking"
+          ],
+          "tags": [
+            "mystery-games",
+            "relaxing-games",
+            "android-games",
+            "defold-games-online",
+            "gam-supported-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/piece-of-cake-merge--bake/big-preview/4124b3ce37ab4b92b6a8ff1332c9eee8?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-97426/icon/6067d1465ed11aebb966da2c2441cff5d9760a9c34f6ceb0fa504bca50799963?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "73b06d463c9141eb802f8f79f75d208c",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "73b06d463c9141eb802f8f79f75d208c",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/piece-of-cake-merge--bake/big-preview/4124b3ce37ab4b92b6a8ff1332c9eee8?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/backfill/game-97426/icon/6067d1465ed11aebb966da2c2441cff5d9760a9c34f6ceb0fa504bca50799963?width=448",
+          "inGamePurchases": "Yes",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "supportedLanguages": [
+            "en-US"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/piece-of-cake-merge--bake?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}
