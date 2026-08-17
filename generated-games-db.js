@@ -682,5 +682,17 @@ const NEW_GAMES = [
     iframeUrl: "piece-of-cake-merge-bake.html",
     fullscreen: true,
     videoUrl: ""
+  },
+  {
+    id: 101,
+    name: "Mahjong Classic",
+    cat: "puzzle",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/mahjong-classic/big-preview/730f65084d864a9baffefa86e110b106?width=448",
+    iframeUrl: "mahjong-classic.html",
+    fullscreen: true,
+    videoUrl: ""
   }
 ];

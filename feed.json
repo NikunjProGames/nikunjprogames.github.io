@@ -682,5 +682,17 @@
     "thumb": "https://static.playgama.com/p-img/pg/piece-of-cake-merge--bake/big-preview/4124b3ce37ab4b92b6a8ff1332c9eee8?width=448",
     "width": "800",
     "height": "450"
+  },
+  {
+    "id": "121631",
+    "title": "Mahjong Classic",
+    "description": "\"Mahjong Classic\" is a classic mahjong solitaire with a unique algorithm for generating levels - a random layout of chips always has a solution! Each playthrough becomes unique, allowing you to play your favorite fields an unlimited amount of times!\nIn the game you will find popular fields: Turtle, Fort, Crab, Spider, Cat, Dragon and many others.",
+    "instructions": "The goal of the game is to clear the field of chips. Choose chips with the same symbols to remove them. Special chips \"flowers\" are considered paired, and \"seasons\" are paired. A chip can be selected if it is not blocked by other chips.\nIf there are no available pairs left on the field, you have lost.\nBoosters will help solve solitaire:\n1) \"Undo\" - return the last pair.\n2) \"Hint\" - show a pair.\n3) \"Spotlight\" - simplify the search of chips available for selection.",
+    "url": "https://playgama.com/export/game/mahjong-classic?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+    "category": "Puzzle",
+    "tags": "puzzle, mahjong, classic, casual-games, brain-training-games, addictive-games, 1-player-games, mahjong-solitaire-online, pyramid-mahjong",
+    "thumb": "https://static.playgama.com/p-img/pg/mahjong-classic/big-preview/730f65084d864a9baffefa86e110b106?width=448",
+    "width": "800",
+    "height": "450"
   }
 ]

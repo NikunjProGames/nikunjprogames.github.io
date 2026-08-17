@@ -1,0 +1,69 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "121631",
+          "slug": "mahjong-classic",
+          "title": "Mahjong Classic",
+          "description": "\"Mahjong Classic\" is a classic mahjong solitaire with a unique algorithm for generating levels - a random layout of chips always has a solution! Each playthrough becomes unique, allowing you to play your favorite fields an unlimited amount of times!\nIn the game you will find popular fields: Turtle, Fort, Crab, Spider, Cat, Dragon and many others.",
+          "howToPlayText": "The goal of the game is to clear the field of chips. Choose chips with the same symbols to remove them. Special chips \"flowers\" are considered paired, and \"seasons\" are paired. A chip can be selected if it is not blocked by other chips.\nIf there are no available pairs left on the field, you have lost.\nBoosters will help solve solitaire:\n1) \"Undo\" - return the last pair.\n2) \"Hint\" - show a pair.\n3) \"Spotlight\" - simplify the search of chips available for selection.",
+          "gameURL": "https://playgama.com/export/game/mahjong-classic?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/mahjong-classic",
+          "genres": [
+            "puzzle",
+            "mahjong",
+            "classic"
+          ],
+          "tags": [
+            "casual-games",
+            "brain-training-games",
+            "addictive-games",
+            "1-player-games",
+            "mahjong-solitaire-online",
+            "pyramid-mahjong"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/mahjong-classic/big-preview/730f65084d864a9baffefa86e110b106?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-121631/icon/d9cc661f648e2ba097c3bcf8433389c2033d164a01beb9d2ac4e4bd4ccfb8080?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "e1239d526cff4df79172804cabe8304a",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "e1239d526cff4df79172804cabe8304a",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/mahjong-classic/big-preview/730f65084d864a9baffefa86e110b106?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/backfill/game-121631/icon/d9cc661f648e2ba097c3bcf8433389c2033d164a01beb9d2ac4e4bd4ccfb8080?width=448",
+          "inGamePurchases": "Yes",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "supportedLanguages": [
+            "en-US",
+            "de-DE",
+            "es-ES",
+            "ru-RU"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/mahjong-classic?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

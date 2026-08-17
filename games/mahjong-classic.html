@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mahjong Classic | Nikunj Pro Games</title>
+  <meta name="description" content=""Mahjong Classic" is a classic mahjong solitaire with a unique algorithm for generating levels - a random layout of chips always has a solution! Each playthrough becomes unique, allowing you to play your favorite fields an unlimited amount of times!
+In the game you will find popular fields: Turtle, Fort, Crab, Spider, Cat, Dragon and many others." />
+  <meta name="keywords" content="puzzle, mahjong, classic, casual-games, brain-training-games, addictive-games, 1-player-games, mahjong-solitaire-online, pyramid-mahjong, online puzzle game, free puzzle games, Nikunj Pro Games" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3172987137389272" crossorigin="anonymous"></script>
+  <style>
+    :root {
+      --bg: #0a0d14;
+      --panel: rgba(255,255,255,0.06);
+      --panel-border: rgba(255,255,255,0.12);
+      --text: #f4f4ff;
+      --muted: #aab0c4;
+      --accent: #00bfff;
+      --accent-2: #8b00ff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Rajdhani', sans-serif;
+      background: linear-gradient(135deg, #070911, #111826);
+      color: var(--text);
+      min-height: 100vh;
+    }
+    a { color: inherit; text-decoration: none; }
+    .page-shell { max-width: 1280px; margin: 0 auto; padding: 20px 16px 40px; }
+    .topbar {
+      display: flex; justify-content: space-between; align-items: center; gap: 12px;
+      padding: 16px 20px; border: 1px solid var(--panel-border); border-radius: 16px;
+      background: rgba(7, 9, 17, 0.82); backdrop-filter: blur(12px); margin-bottom: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+    .topbar h1 { font-family: 'Orbitron', sans-serif; margin: 0; font-size: clamp(1.1rem, 2vw, 1.5rem); }
+    .topbar .actions { display: flex; gap: 8px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 8px 12px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.14); font-weight: 700; font-size: 0.92rem;
+      background: var(--panel); color: var(--text);
+    }
+    .btn.primary { background: linear-gradient(90deg, var(--accent-2), var(--accent)); color: white; border-color: transparent; }
+    .game-toolbar {
+      display: flex; justify-content: flex-end; gap: 8px; margin-bottom: 10px;
+    }
+    .btn.compact { padding: 7px 12px; font-size: 0.9rem; }
+    .game-frame {
+      border-radius: 18px; overflow: hidden; border: 1px solid var(--panel-border);
+      background: #000; box-shadow: 0 14px 40px rgba(0,0,0,0.35);
+      min-height: 70vh;
+    }
+    iframe { width: 100%; min-height: 70vh; border: 0; display: block; background: #000; }
+    .video-card {
+      margin-top: 16px; padding: 16px; border-radius: 16px; background: rgba(255,255,255,0.05);
+      border: 1px solid var(--panel-border);
+    }
+    .video-card h3 { margin: 0 0 10px; font-family: 'Orbitron', sans-serif; font-size: 1rem; }
+    .video-card video, .video-card iframe {
+      width: 100%; min-height: 280px; border-radius: 12px; border: 0; background: #000;
+    }
+    .info-card {
+      margin-top: 18px; padding: 18px; border-radius: 18px; background: rgba(255,255,255,0.05); border: 1px solid var(--panel-border);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+    }
+    .info-card h2 { margin: 0 0 10px; font-family: 'Orbitron', sans-serif; font-size: 1.1rem; }
+    .info-card p, .info-card li { color: var(--muted); line-height: 1.6; }
+    .chip-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .chip { padding: 6px 10px; border-radius: 999px; background: rgba(0,191,255,0.14); border: 1px solid rgba(0,191,255,0.26); color: #bfeeff; font-size: 0.9rem; }
+    .page-ad-section { margin-top: 18px; padding: 14px 16px; border-radius: 14px; border: 1px solid var(--panel-border); background: rgba(255,255,255,0.04); }
+    .page-ad-section .ad-label { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8b00ff; margin-bottom: 8px; text-align: center; font-weight: 700; }
+    .page-ad-section .adsbygoogle { min-height: 90px; }
+    @media (max-width: 700px) {
+      .page-shell { padding: 12px 12px 24px; }
+      .topbar { flex-direction: column; align-items: flex-start; }
+      .game-frame, iframe { min-height: 60vh; }
+    }
+  </style>
+<!-- ads.txt: google.com, pub-3172987137389272, DIRECT, f08c47fec0942fa0 -->
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <h1>Mahjong Classic</h1>
+      <div class="actions">
+        <a class="btn" href="../index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a class="btn primary" href="https://nikunjprogames.github.io/" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Play More Games </a>
+      </div>
+    </header>
+
+    <div class="game-shell">
+      <div class="game-toolbar">
+        <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
+      </div>
+      <div class="game-frame">
+        <iframe src="https://playgama.com/export/game/mahjong-classic?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487" allowfullscreen loading="lazy" title="Mahjong Classic"></iframe>
+      </div>
+      
+    </div>
+
+    <section class="info-card" aria-label="Game information">
+      <h2>Game Info & Controls</h2>
+      <p>"Mahjong Classic" is a classic mahjong solitaire with a unique algorithm for generating levels - a random layout of chips always has a solution! Each playthrough becomes unique, allowing you to play your favorite fields an unlimited amount of times!
+In the game you will find popular fields: Turtle, Fort, Crab, Spider, Cat, Dragon and many others. This game is provided to Nikunj Pro Games by GameMonetize.</p>
+      <p><strong>Controls:</strong> The goal of the game is to clear the field of chips. Choose chips with the same symbols to remove them. Special chips "flowers" are considered paired, and "seasons" are paired. A chip can be selected if it is not blocked by other chips.
+If there are no available pairs left on the field, you have lost.
+Boosters will help solve solitaire:
+1) "Undo" - return the last pair.
+2) "Hint" - show a pair.
+3) "Spotlight" - simplify the search of chips available for selection.</p>
+      
+      <div class="chip-list">
+        <span class="chip">puzzle</span>
+        <span class="chip">mahjong</span>
+        <span class="chip">classic</span>
+        <span class="chip">casual-games</span>
+        <span class="chip">brain-training-games</span>
+        <span class="chip">addictive-games</span>
+        <span class="chip">1-player-games</span>
+        <span class="chip">mahjong-solitaire-online</span>
+        <span class="chip">pyramid-mahjong</span>
+      </div>
+    </section>
+
+    <section class="page-ad-section" aria-label="Sponsored content">
+      <div class="ad-label">Sponsored</div>
+      <ins class="adsbygoogle"
+           style="display:block; text-align:center;"
+           data-ad-client="ca-pub-3172987137389272"
+           data-ad-slot="1234567890"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </section>
+  </div>
+  <script>
+    function toggleGameFullscreen(root) {
+      const target = root ? root.querySelector('.game-frame') : null;
+      if (!target) return;
+      if (!document.fullscreenElement) {
+        if (target.requestFullscreen) {
+          target.requestFullscreen().catch(() => {});
+        } else if (target.webkitRequestFullscreen) {
+          target.webkitRequestFullscreen();
+        }
+      } else if (document.exitFullscreen) {
+        document.exitFullscreen();
+      }
+    }
+  </script>
+  <script id="npg-fullscreen-snippet">
+  (function(){
+    if(window.__npgFullscreenSnippetLoaded) return; window.__npgFullscreenSnippetLoaded = true;
+
+    // remove legacy duplicate buttons if present
+    document.querySelectorAll('#npg-fullscreen-btn, .npg-fullscreen-btn').forEach((el,i)=>{ if(i>0) el.remove(); });
+
+    // inject minimal styles used while in fullscreen
+    function ensureStyles(){
+      if(document.getElementById('npg-fullscreen-styles')) return;
+      const css = `
+      .npg-fullscreen-active, .npg-fullscreen-active html, .npg-fullscreen-active body { height:100% !important; width:100% !important; margin:0 !important; padding:0 !important; background:#000 !important; }
+      .npg-fullscreen-active .game-frame, .npg-fullscreen-active iframe { height:100vh !important; min-height:100vh !important; width:100% !important; }
+      .npg-fullscreen-btn { position: fixed; right: 18px; bottom: 18px; z-index:2147483647; padding:10px 14px; border-radius:8px; background:#8B00FF; color:#fff; border:none; font-weight:700; box-shadow:0 6px 18px rgba(0,0,0,0.4); cursor:pointer; }
+      `;
+      const s = document.createElement('style'); s.id = 'npg-fullscreen-styles'; s.appendChild(document.createTextNode(css)); document.head.appendChild(s);
+    }
+
+    ensureStyles();
+
+    document.addEventListener('fullscreenchange', ()=>{
+      if(document.fullscreenElement) document.documentElement.classList.add('npg-fullscreen-active');
+      else document.documentElement.classList.remove('npg-fullscreen-active');
+    });
+
+    // If the page already has a fullscreen toolbar button, don't add a floating control
+    const hasToolbar = !!document.querySelector('.game-toolbar button') || !!document.querySelector('[onclick*="toggleGameFullscreen"]');
+    if(hasToolbar) return;
+
+    // If button already exists (maybe added by another pass), keep the first and exit
+    if(document.querySelector('.npg-fullscreen-btn')) return;
+
+    const btn = document.createElement('button');
+    btn.className = 'npg-fullscreen-btn';
+    btn.id = 'npg-fullscreen-btn';
+    btn.textContent = 'Fullscreen';
+    btn.addEventListener('click', function(){
+      // prefer the iframe element when present
+      const iframe = document.querySelector('iframe') || document.querySelector('.game-frame') || document.documentElement;
+      const el = (iframe && iframe.tagName === 'IFRAME') ? iframe : (iframe && iframe.querySelector ? (iframe.querySelector('iframe') || iframe) : document.documentElement);
+      const target = el || document.documentElement;
+      const req = target.requestFullscreen || target.webkitRequestFullscreen || target.msRequestFullscreen;
+      if(req){
+        try{ req.call(target); }catch(e){ window.open(location.href, '_blank'); }
+      } else {
+        window.open(location.href, '_blank');
+      }
+    });
+
+    // append at end so it doesn't conflict with page layout
+    document.body.appendChild(btn);
+  })();
+  </script>
+</body>
+</html>
