@@ -2908,7 +2908,7 @@ function createGameImageMarkup(game) {
   const imageUrl = game.imageUrl && game.imageUrl.trim();
   const src = imageUrl || createGameIconUrl(game);
   const className = imageUrl ? 'game-icon custom-game-image' : 'game-icon';
-  return `<img class="${className}" src="${src}" alt="${game.name} image" />`;
+return `<img class="${className}" src="${src}" alt="${game.name} image" loading="lazy" decoding="async" />`;
 }
 
 function createGameFrameUrl(game) {
@@ -2928,41 +2928,113 @@ function getGameCategories(game) {
   if (Array.isArray(game.cats)) return game.cats;
   return game.cat ? [game.cat] : [];
 }
+const GAMES_PER_BATCH = 12;
+let currentGameBatch = 0;
+let currentFilteredGames = [];
+let gamesObserver = null;
 
-function renderGames(filter = 'all') {
+function renderGames(filter = 'all', reset = true) {
   const grid = document.getElementById('games-grid');
-  const searchValue = document.getElementById('game-search')?.value.trim().toLowerCase() || '';
-  grid.innerHTML = '';
-  const filtered = GAMES.filter(g => {
-    const categories = getGameCategories(g);
-    const matchesCategory = filter === 'all' || categories.includes(filter);
-    const matchesSearch = searchValue === '' || g.name.toLowerCase().includes(searchValue);
-    return matchesCategory && matchesSearch;
-  });
+  const searchValue =
+    document.getElementById('game-search')?.value.trim().toLowerCase() || '';
 
-  if (!filtered.length) {
-    grid.innerHTML = `<div class="no-results">No games match your search. Try a different keyword or category.</div>`;
+  // Recalculate the filtered game list when starting a new render
+  if (reset) {
+    currentGameBatch = 0;
+
+    currentFilteredGames = GAMES.filter(g => {
+      const categories = getGameCategories(g);
+      const matchesCategory =
+        filter === 'all' || categories.includes(filter);
+
+      const matchesSearch =
+        searchValue === '' ||
+        g.name.toLowerCase().includes(searchValue);
+
+      return matchesCategory && matchesSearch;
+    });
+
+    grid.innerHTML = '';
+
+    // Disconnect old observer
+    if (gamesObserver) {
+      gamesObserver.disconnect();
+      gamesObserver = null;
+    }
+  }
+
+  if (!currentFilteredGames.length) {
+    grid.innerHTML =
+      `<div class="no-results">
+        No games match your search. Try a different keyword or category.
+      </div>`;
     return;
   }
 
-  filtered.forEach((g, i) => {
+  // Calculate which games to render
+  const start = currentGameBatch * GAMES_PER_BATCH;
+  const end = Math.min(
+    start + GAMES_PER_BATCH,
+    currentFilteredGames.length
+  );
+
+  const gamesToRender = currentFilteredGames.slice(start, end);
+
+  gamesToRender.forEach((g, i) => {
     const card = document.createElement('div');
+
     card.className = 'game-card';
     card.style.animationDelay = `${i * 0.05}s`;
     card.dataset.cat = g.cat;
+
     card.innerHTML = `
       <div class="game-thumb" style="background:${g.gradient};">
         ${createGameImageMarkup(g)}
       </div>
+
       <div class="game-info">
         <div class="game-name">${g.name}</div>
-        <span class="cat-badge cat-${g.cat}">${g.cat.toUpperCase()}</span>
-        <button class="btn-play" onclick="openGame(${g.id})"><i class="fas fa-play"></i> Play Now</button>
-      </div>`;
+
+        <span class="cat-badge cat-${g.cat}">
+          ${g.cat.toUpperCase()}
+        </span>
+
+        <button
+          class="btn-play"
+          onclick="openGame(${g.id})">
+          <i class="fas fa-play"></i> Play Now
+        </button>
+      </div>
+    `;
+
     grid.appendChild(card);
   });
-}
 
+  currentGameBatch++;
+
+  // If there are more games, create a loading trigger
+  if (end < currentFilteredGames.length) {
+    const loader = document.createElement('div');
+
+    loader.id = 'games-loader';
+    loader.style.height = '1px';
+    loader.style.width = '100%';
+
+    grid.appendChild(loader);
+
+    gamesObserver = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) {
+        loader.remove();
+        gamesObserver.disconnect();
+        renderGames(filter, false);
+      }
+    }, {
+      rootMargin: '500px'
+    });
+
+    gamesObserver.observe(loader);
+  }
+}
 function renderTrending() {
   const row = document.getElementById('trending-row');
   row.innerHTML = '';
