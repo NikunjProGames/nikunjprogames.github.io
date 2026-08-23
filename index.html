@@ -1981,7 +1981,7 @@ No downloads. No paywalls. Just pure gaming. Jump in and play!
 (function() {
   const canvas = document.getElementById('bg-canvas');
   const ctx = canvas.getContext('2d');
-  let offset = 0;
+  let offset = 200;
   const meteors = [];
   let meteorTimer = 0;
 
@@ -1998,7 +1998,7 @@ No downloads. No paywalls. Just pure gaming. Jump in and play!
     meteors.push({
       x: startX,
       y: startY,
-      dx: speed * 0.9,
+      dx: speed * 0.99,
       dy: speed * 1.35,
       length,
       life: 0,
@@ -2114,7 +2114,7 @@ No downloads. No paywalls. Just pure gaming. Jump in and play!
     // Perspective grid
     const COLS = 16;
     const ROWS = 24;
-    offset = (offset + 0.006) % 1;
+    offset = (offset + 0.03) % 1;
 
     ctx.save();
 
