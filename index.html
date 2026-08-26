@@ -3941,147 +3941,284 @@ try {
       try { await setDoc(ref, { email: user.email, createdAt: serverTimestamp(), pleyzScore: 0, gamesPlayed: 0 }, { merge: true }); } catch (e) { }
     };
 
-    window.firebaseOnGameOpened = async () => {
-      const auth = window.firebaseAuth;
-      if (!auth || !auth.currentUser) return;
-      const uid = auth.currentUser.uid;
-      const userRef = doc(db, 'users', uid);
-      try {
-        await updateDoc(userRef, {
-          pleyzScore: increment(1),
-          gamesPlayed: increment(1),
-          lastPlayed: serverTimestamp()
-        });
-      } catch (e) {
-        // if user doc doesn't exist or update failed, create with initial values
-        try {
-          await setDoc(userRef, { pleyzScore: 1, gamesPlayed: 1, email: auth.currentUser.email, createdAt: serverTimestamp(), lastPlayed: serverTimestamp() }, { merge: true });
-        } catch (_) {}
-      }
-    };
+window.firebaseOnGameOpened = async () => {
+  const auth = window.firebaseAuth;
+  if (!auth || !auth.currentUser) return;
 
-    window.firebaseFetchLeaderboard = async () => {
-      const tbody = document.getElementById('leaderboard-body');
-      tbody.innerHTML = '<tr><td colspan="4" style="text-align:center; padding:1.5rem; color:var(--text-dim);">Loading leaderboard...</td></tr>';
-      try {
-        const usersCol = collection(db, 'users');
-        const q = query(usersCol, orderBy('pleyzScore', 'desc'), limit(50));
-        const snap = await getDocs(q);
-        tbody.innerHTML = '';
-        let rank = 1;
-        const seenIds = new Set();
-        snap.forEach(docSnap => {
-          const d = docSnap.data();
-          const tr = document.createElement('tr');
-          if (rank <= 3) tr.className = `rank-${rank}`;
-          const icon = rank === 1 ? '<i class="fas fa-trophy"></i>' : rank === 2 ? '<i class="fas fa-medal"></i>' : rank === 3 ? '<i class="fas fa-award"></i>' : `#${rank}`;
-          tr.innerHTML = `<td><span class="rank-icon">${icon}</span></td><td>${(d.email||'Player').split('@')[0]}</td><td class="score-cell">${(d.pleyzScore||0).toLocaleString()}</td><td>${(d.gamesPlayed||0)}</td>`;
-          tbody.appendChild(tr);
-          seenIds.add(docSnap.id);
-          rank++;
-        });
+  const uid = auth.currentUser.uid;
+  const userRef = doc(db, 'users', uid);
 
-        // If current user isn't in the top list, fetch and show their score highlighted
-        const auth = window.firebaseAuth;
-        if (auth && auth.currentUser) {
-          const meRef = doc(db, 'users', auth.currentUser.uid);
-          try {
-            const meSnap = await getDoc(meRef);
-            if (meSnap.exists() && !seenIds.has(meSnap.id)) {
-              const d = meSnap.data();
-              const tr = document.createElement('tr');
-              tr.className = 'you';
-              tr.innerHTML = `<td><span class="rank-icon">—</span></td><td>${(d.email||'You').split('@')[0]}</td><td class="score-cell">${(d.pleyzScore||0).toLocaleString()}</td><td>${(d.gamesPlayed||0)}</td>`;
-              // append at the end
-              tbody.appendChild(tr);
-            }
-          } catch (_) {}
-        }
-      } catch (err) {
-        tbody.innerHTML = '<tr><td colspan="4" style="text-align:center; padding:1.5rem; color:var(--text-dim);">Unable to load leaderboard</td></tr>';
+  try {
+    await updateDoc(userRef, {
+      pleyzScore: increment(1),
+      gamesPlayed: increment(1),
+      lastPlayed: serverTimestamp()
+    });
+  } catch (e) {
+    // if user doc doesn't exist or update failed, create with initial values
+    try {
+      await setDoc(userRef, {
+        pleyzScore: 1,
+        gamesPlayed: 1,
+        email: auth.currentUser.email,
+        createdAt: serverTimestamp(),
+        lastPlayed: serverTimestamp()
+      }, { merge: true });
+    } catch (_) {}
+  }
+};
+
+window.firebaseFetchLeaderboard = async () => {
+  const tbody = document.getElementById('leaderboard-body');
+  if (!tbody) return;
+
+  tbody.innerHTML =
+    '<tr><td colspan="4" style="text-align:center; padding:1.5rem; color:var(--text-dim);">Loading leaderboard...</td></tr>';
+
+  try {
+    const usersCol = collection(db, 'users');
+    const q = query(usersCol, orderBy('pleyzScore', 'desc'), limit(50));
+    const snap = await getDocs(q);
+
+    tbody.innerHTML = '';
+
+    let rank = 1;
+    const seenIds = new Set();
+
+    snap.forEach(docSnap => {
+      const d = docSnap.data();
+      const tr = document.createElement('tr');
+
+      if (rank <= 3) {
+        tr.className = `rank-${rank}`;
       }
-    };
-  }).catch(() => {});
-  // PleyZ modal helpers
-  window.openPleyzModal = function() {
-    const shown = localStorage.getItem('nikunj_pleyz_seen');
-    if (shown === 'true') return;
-    const modal = document.getElementById('pleyz-modal');
-    if (modal) modal.classList.add('open');
-    // show current user's score if available
-    const res = document.getElementById('pleyz-result');
-    if (!res) return;
-    if (window.firebaseAuth && window.firebaseAuth.currentUser && window.firebaseDb) {
+
+      const icon =
+        rank === 1
+          ? '<i class="fas fa-trophy"></i>'
+          : rank === 2
+          ? '<i class="fas fa-medal"></i>'
+          : rank === 3
+          ? '<i class="fas fa-award"></i>'
+          : `#${rank}`;
+
+      tr.innerHTML =
+        `<td><span class="rank-icon">${icon}</span></td>` +
+        `<td>${(d.email || 'Player').split('@')[0]}</td>` +
+        `<td class="score-cell">${Number(d.pleyzScore || 0).toLocaleString()}</td>` +
+        `<td>${Number(d.gamesPlayed || 0).toLocaleString()}</td>`;
+
+      tbody.appendChild(tr);
+      seenIds.add(docSnap.id);
+      rank++;
+    });
+
+    // If current user isn't in the top list, fetch and show their score highlighted
+    const auth = window.firebaseAuth;
+
+    if (auth && auth.currentUser) {
+      const meRef = doc(db, 'users', auth.currentUser.uid);
+
       try {
-        const { doc, getDoc } = await import('https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js');
-        const db = window.firebaseDb;
-        const uid = window.firebaseAuth.currentUser.uid;
-        const meRef = doc(db, 'users', uid);
         const meSnap = await getDoc(meRef);
-        if (meSnap.exists()) {
+
+        if (meSnap.exists() && !seenIds.has(meSnap.id)) {
           const d = meSnap.data();
-          res.textContent = `Your PleyZ: ${Number(d.pleyzScore||0).toLocaleString()} | Games: ${d.gamesPlayed||0}`;
-        } else {
-          res.textContent = 'No PleyZ score yet. Play a game to start earning PleyZ!';
+          const tr = document.createElement('tr');
+
+          tr.className = 'you';
+
+          tr.innerHTML =
+            `<td><span class="rank-icon">—</span></td>` +
+            `<td>${(d.email || 'You').split('@')[0]}</td>` +
+            `<td class="score-cell">${Number(d.pleyzScore || 0).toLocaleString()}</td>` +
+            `<td>${Number(d.gamesPlayed || 0).toLocaleString()}</td>`;
+
+          // append at the end
+          tbody.appendChild(tr);
         }
-      } catch (e) {
-        console.warn('Unable to load your PleyZ', e);
-        const username = getCurrentUser();
-        const score = localStorage.getItem(`nikunj_pleyz_${username}`) || '0';
-        if (username) res.textContent = `Your PleyZ: ${Number(score).toLocaleString()}`;
-        else res.textContent = 'Sign in to see your PleyZ score.';
+      } catch (_) {}
+    }
+
+  } catch (err) {
+    console.error('Leaderboard error:', err);
+
+    tbody.innerHTML =
+      '<tr><td colspan="4" style="text-align:center; padding:1.5rem; color:var(--text-dim);">Unable to load leaderboard</td></tr>';
+  }
+};
+
+// PleyZ modal helpers
+window.openPleyzModal = async function() {
+  const shown = localStorage.getItem('nikunj_pleyz_seen');
+
+  if (shown === 'true') return;
+
+  const modal = document.getElementById('pleyz-modal');
+
+  if (modal) {
+    modal.classList.add('open');
+  }
+
+  // show current user's score if available
+  const res = document.getElementById('pleyz-result');
+
+  if (!res) return;
+
+  if (
+    window.firebaseAuth &&
+    window.firebaseAuth.currentUser &&
+    window.firebaseDb
+  ) {
+    try {
+      const { doc, getDoc } = await import(
+        'https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js'
+      );
+
+      const db = window.firebaseDb;
+      const uid = window.firebaseAuth.currentUser.uid;
+
+      const meRef = doc(db, 'users', uid);
+      const meSnap = await getDoc(meRef);
+
+      if (meSnap.exists()) {
+        const d = meSnap.data();
+
+        res.textContent =
+          `Your PleyZ: ${Number(d.pleyzScore || 0).toLocaleString()} | ` +
+          `Games: ${Number(d.gamesPlayed || 0).toLocaleString()}`;
+      } else {
+        res.textContent =
+          'No PleyZ score yet. Play a game to start earning PleyZ!';
       }
-    } else {
+
+    } catch (e) {
+      console.warn('Unable to load your PleyZ', e);
+
       const username = getCurrentUser();
-      const score = localStorage.getItem(`nikunj_pleyz_${username}`) || '0';
-      if (username) res.textContent = `Your PleyZ: ${Number(score).toLocaleString()}`;
-      else res.textContent = 'Sign in to see your PleyZ score.';
+      const score =
+        localStorage.getItem(`nikunj_pleyz_${username}`) || '0';
+
+      if (username) {
+        res.textContent =
+          `Your PleyZ: ${Number(score).toLocaleString()}`;
+      } else {
+        res.textContent = 'Sign in to see your PleyZ score.';
+      }
+
     }
-  };
+  } else {
+    const username = getCurrentUser();
+    const score =
+      localStorage.getItem(`nikunj_pleyz_${username}`) || '0';
 
-  window.closePleyzModal = function(saveDontShow) {
-    const modal = document.getElementById('pleyz-modal');
-    if (modal) modal.classList.remove('open');
-    const dont = document.getElementById('pleyz-dont-show');
-    if (saveDontShow && dont && dont.checked) localStorage.setItem('nikunj_pleyz_seen', 'true');
-  };
+    if (username) {
+      res.textContent =
+        `Your PleyZ: ${Number(score).toLocaleString()}`;
+    } else {
+      res.textContent = 'Sign in to see your PleyZ score.';
+    }
+  }
+};
 
-  window.lookupPleyz = async function() {
-    const q = document.getElementById('pleyz-lookup-input').value.trim();
-    const res = document.getElementById('pleyz-result');
-    if (!q || !res) return;
-    res.textContent = 'Searching...';
-    // If firebase available, scan users for match
-    if (window.firebaseDb) {
-      try {
-        const { getFirestore, collection, getDocs } = await import('https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js');
-        const db = window.firebaseDb;
-        const usersCol = collection(db, 'users');
-        const snap = await getDocs(usersCol);
-        let found = null;
-        snap.forEach(s => {
-          const d = s.data();
-          const email = (d.email||'').toLowerCase();
-          if (email === q.toLowerCase() || email.split('@')[0] === q.toLowerCase()) found = d;
-        });
-        if (found) {
-          res.textContent = `${(found.email||'Player').split('@')[0]} — PleyZ ${Number(found.pleyzScore||0).toLocaleString()} | Games ${found.gamesPlayed||0}`;
-        } else {
-          res.textContent = 'Player not found.';
+window.closePleyzModal = function(saveDontShow) {
+  const modal = document.getElementById('pleyz-modal');
+
+  if (modal) {
+    modal.classList.remove('open');
+  }
+
+  const dont = document.getElementById('pleyz-dont-show');
+
+  if (
+    saveDontShow &&
+    dont &&
+    dont.checked
+  ) {
+    localStorage.setItem('nikunj_pleyz_seen', 'true');
+  }
+};
+
+window.lookupPleyz = async function() {
+  const input = document.getElementById('pleyz-lookup-input');
+  const res = document.getElementById('pleyz-result');
+
+  if (!input || !res) return;
+
+  const q = input.value.trim();
+
+  if (!q) return;
+
+  res.textContent = 'Searching...';
+
+  // If firebase available, scan users for match
+  if (window.firebaseDb) {
+    try {
+      const {
+        collection,
+        getDocs
+      } = await import(
+        'https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js'
+      );
+
+      const db = window.firebaseDb;
+      const usersCol = collection(db, 'users');
+      const snap = await getDocs(usersCol);
+
+      let found = null;
+
+      snap.forEach(s => {
+        const d = s.data();
+        const email = (d.email || '').toLowerCase();
+
+        if (
+          email === q.toLowerCase() ||
+          email.split('@')[0] === q.toLowerCase()
+        ) {
+          found = d;
         }
-        return;
-      } catch (e) { console.warn(e); }
-    }
-    // fallback to localStorage
-    const username = q;
-    const score = localStorage.getItem(`nikunj_pleyz_${username}`) || '0';
-    const games = localStorage.getItem(`nikunj_games_${username}`) || '0';
-    if (score === '0' && games === '0') res.textContent = 'Player not found.';
-    else res.textContent = `${username} — PleyZ ${Number(score).toLocaleString()} | Games ${Number(games).toLocaleString()}`;
-  };
+      });
 
-  // Show modal once after load unless user disabled
-  setTimeout(() => { try { openPleyzModal(); } catch(e){} }, 1000);
+      if (found) {
+        res.textContent =
+          `${(found.email || 'Player').split('@')[0]} — ` +
+          `PleyZ ${Number(found.pleyzScore || 0).toLocaleString()} | ` +
+          `Games ${Number(found.gamesPlayed || 0).toLocaleString()}`;
+      } else {
+        res.textContent = 'Player not found.';
+      }
+
+      return;
+
+    } catch (e) {
+      console.warn(e);
+    }
+  }
+
+  // fallback to localStorage
+  const username = q;
+
+  const score =
+    localStorage.getItem(`nikunj_pleyz_${username}`) || '0';
+
+  const games =
+    localStorage.getItem(`nikunj_games_${username}`) || '0';
+
+  if (score === '0' && games === '0') {
+    res.textContent = 'Player not found.';
+  } else {
+    res.textContent =
+      `${username} — PleyZ ${Number(score).toLocaleString()} | ` +
+      `Games ${Number(games).toLocaleString()}`;
+  }
+};
+
+// Show modal once after load unless user disabled
+setTimeout(() => {
+  try {
+    openPleyzModal();
+  } catch (e) {}
+}, 1000);
 </script>
 </body>
 </html>
