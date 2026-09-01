@@ -14,19 +14,46 @@ function escapeHtml(value) {
 }
 
 function getVideoHtml(game) {
-  const videoUrl = game.videoUrl || game.video_url || game.video || game.videos?.[0]?.external_url || game.videos?.[0]?.url || '';
+  const directCandidates = [
+    game.videoUrl,
+    game.video_url,
+    game.video,
+    game.videoURL,
+    game.previewVideoUrl,
+    game.preview_url,
+    game.external_url,
+    game.videos?.[0]?.external_url,
+    game.videos?.[0]?.url,
+    game.video_metadata?.[0]?.external_url,
+    game.video_metadata?.[0]?.url,
+    game.embed && String(game.embed).match(/https?:\/\/[^"'\s]+(?:mp4|webm|m3u8)/i)?.[0]
+  ].filter(Boolean);
+
+  const directVideoUrl = directCandidates.find(value => /\.(mp4|webm|m3u8)(\?|$)/i.test(value) || /static\.playgama\.com\/p-video\//i.test(value));
+  const playgamaId = [
+    game.videoId,
+    game.playgama_id,
+    game.playgamaId,
+    game.videos?.[0]?.playgama_id,
+    game.video_metadata?.[0]?.playgama_id,
+  ].find(value => typeof value === 'string' && value.trim());
+
+  const videoUrl = directVideoUrl || (playgamaId ? `https://static.playgama.com/p-video/${String(playgamaId).trim()}/orig_length_h640_6so.mp4` : '');
 
   if (!videoUrl) return '';
 
   const safeUrl = escapeHtml(videoUrl);
-  const youtubeMatch = videoUrl.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([\w-]+)/i);
-  const vimeoMatch = videoUrl.match(/vimeo\.com\/(\d+)/i);
+  const youtubeMatch = String(videoUrl).match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([\w-]+)/i);
+  const vimeoMatch = String(videoUrl).match(/vimeo\.com\/(\d+)/i);
 
   if (youtubeMatch) {
     const embedUrl = `https://www.youtube.com/embed/${youtubeMatch[1]}`;
     return `
-      <section class="video-card" aria-label="Game preview video">
-        <h3>Game Preview</h3>
+      <section class="video-card" aria-label="How to play video">
+        <div class="video-card-header">
+          <h3>How to Play</h3>
+          <span>Quick guide</span>
+        </div>
         <iframe src="${embedUrl}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
       </section>`;
   }
@@ -34,15 +61,21 @@ function getVideoHtml(game) {
   if (vimeoMatch) {
     const embedUrl = `https://player.vimeo.com/video/${vimeoMatch[1]}`;
     return `
-      <section class="video-card" aria-label="Game preview video">
-        <h3>Game Preview</h3>
+      <section class="video-card" aria-label="How to play video">
+        <div class="video-card-header">
+          <h3>How to Play</h3>
+          <span>Quick guide</span>
+        </div>
         <iframe src="${embedUrl}" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
       </section>`;
   }
 
   return `
-    <section class="video-card" aria-label="Game preview video">
-      <h3>Game Preview</h3>
+    <section class="video-card" aria-label="How to play video">
+      <div class="video-card-header">
+        <h3>How to Play</h3>
+        <span>Quick guide</span>
+      </div>
       <video controls preload="metadata" playsinline src="${safeUrl}"></video>
     </section>`;
 }

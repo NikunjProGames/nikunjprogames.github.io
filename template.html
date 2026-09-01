@@ -68,20 +68,28 @@
     }
     .info-card h2 { margin: 0 0 10px; font-family: 'Orbitron', sans-serif; font-size: 1.1rem; }
     .info-card p, .info-card li { color: var(--muted); line-height: 1.6; }
-    .related-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
-    .related-game { display: flex; flex-direction: column; gap: 7px; min-width: 0; color: var(--text); font-weight: 700; }
+    .related-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    .related-game {
+      display: grid; grid-template-columns: 130px 1fr; gap: 12px; align-items: center;
+      min-width: 0; color: var(--text); font-weight: 700; background: rgba(255,255,255,0.04);
+      border: 1px solid var(--panel-border); border-radius: 12px; padding: 8px; transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .related-game:hover { transform: translateY(-2px); border-color: rgba(0,191,255,0.45); }
     .related-game img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 10px; background: #05070d; }
-    .related-game span { font-size: 0.85rem; line-height: 1.2; }
+    .related-game span { font-size: 0.9rem; line-height: 1.2; }
     .chip-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
     .chip { padding: 6px 10px; border-radius: 999px; background: rgba(0,191,255,0.14); border: 1px solid rgba(0,191,255,0.26); color: #bfeeff; font-size: 0.9rem; }
     .page-ad-section { margin-top: 18px; padding: 14px 16px; border-radius: 14px; border: 1px solid var(--panel-border); background: rgba(255,255,255,0.04); }
     .page-ad-section .ad-label { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8b00ff; margin-bottom: 8px; text-align: center; font-weight: 700; }
     .page-ad-section .adsbygoogle { min-height: 90px; }
+    .video-card-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+    .video-card-header h3 { margin: 0; }
+    .video-card-header span { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
     @media (max-width: 700px) {
       .page-shell { padding: 12px 12px 24px; }
       .topbar { flex-direction: column; align-items: flex-start; }
       .game-frame, iframe { min-height: 60vh; }
-      .related-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .related-game { grid-template-columns: 96px 1fr; }
     }
   </style>
 <!-- ads.txt: google.com, pub-3172987137389272, DIRECT, f08c47fec0942fa0 -->
@@ -107,9 +115,9 @@
     </div>
 
     <section class="info-card" aria-label="Game information">
-      <h2>Game Info & Controls</h2>
-      <p>{{DESCRIPTION}} This game is provided to PleyZ by GameMonetize.</p>
+      <h2>How to Play</h2>
       <p><strong>Controls:</strong> {{INSTRUCTIONS}}</p>
+      <p>{{DESCRIPTION}} This game is provided to PleyZ by GameMonetize.</p>
       
       <div class="chip-list">
         {{CHIPS}}

@@ -78,20 +78,28 @@ For fans of funny basketball games, local 2-player games, and physics-based spor
     }
     .info-card h2 { margin: 0 0 10px; font-family: 'Orbitron', sans-serif; font-size: 1.1rem; }
     .info-card p, .info-card li { color: var(--muted); line-height: 1.6; }
-    .related-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
-    .related-game { display: flex; flex-direction: column; gap: 7px; min-width: 0; color: var(--text); font-weight: 700; }
+    .related-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    .related-game {
+      display: grid; grid-template-columns: 130px 1fr; gap: 12px; align-items: center;
+      min-width: 0; color: var(--text); font-weight: 700; background: rgba(255,255,255,0.04);
+      border: 1px solid var(--panel-border); border-radius: 12px; padding: 8px; transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .related-game:hover { transform: translateY(-2px); border-color: rgba(0,191,255,0.45); }
     .related-game img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 10px; background: #05070d; }
-    .related-game span { font-size: 0.85rem; line-height: 1.2; }
+    .related-game span { font-size: 0.9rem; line-height: 1.2; }
     .chip-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
     .chip { padding: 6px 10px; border-radius: 999px; background: rgba(0,191,255,0.14); border: 1px solid rgba(0,191,255,0.26); color: #bfeeff; font-size: 0.9rem; }
     .page-ad-section { margin-top: 18px; padding: 14px 16px; border-radius: 14px; border: 1px solid var(--panel-border); background: rgba(255,255,255,0.04); }
     .page-ad-section .ad-label { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8b00ff; margin-bottom: 8px; text-align: center; font-weight: 700; }
     .page-ad-section .adsbygoogle { min-height: 90px; }
+    .video-card-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+    .video-card-header h3 { margin: 0; }
+    .video-card-header span { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
     @media (max-width: 700px) {
       .page-shell { padding: 12px 12px 24px; }
       .topbar { flex-direction: column; align-items: flex-start; }
       .game-frame, iframe { min-height: 60vh; }
-      .related-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .related-game { grid-template-columns: 96px 1fr; }
     }
   </style>
 <!-- ads.txt: google.com, pub-3172987137389272, DIRECT, f08c47fec0942fa0 -->
@@ -117,7 +125,11 @@ For fans of funny basketball games, local 2-player games, and physics-based spor
     </div>
 
     <section class="info-card" aria-label="Game information">
-      <h2>Game Info & Controls</h2>
+      <h2>How to Play</h2>
+      <p><strong>Controls:</strong> Player 1: W
+Player 2: UP ARROW
+
+Jump, block, and shoot with one key. Time your moves well and score before your opponent.</p>
       <p>Basket Random is a chaotic arcade basketball game where every match turns into a funny test of timing, luck, and unpredictable physics. Instead of giving players a serious sports simulation, it focuses on quick rounds, simple controls, and hilarious ragdoll movement. You control your team with one key, jump toward the ball, block your opponent, and try to score before the other side reaches the winning point. The idea is easy to understand, but the random physics make every attempt feel different.
 
 What makes Basket Random stand out is the way it changes after almost every score. One round may take place on a normal court, while the next may throw you into a completely different setup with unusual players, strange body proportions, or a ball that behaves in an unexpected way. Sometimes the characters have long arms, sometimes their movement feels heavier, and sometimes the ball bounces in a way that makes even a simple shot difficult to predict. This constant variety keeps the game fresh without making it complicated.
@@ -129,10 +141,6 @@ Basket Random is especially enjoyable for players who like short sports games wi
 The pixel-style visuals give the game a clean and playful look, while the ragdoll animation creates many unexpected moments. A missed jump can turn into a lucky block. A bad shot can bounce into the basket. A perfect attack can fail because your player lands in the wrong position. These small surprises are the reason Basket Random feels fun even after many rounds.
 
 For fans of funny basketball games, local 2-player games, and physics-based sports challenges, Basket Random offers a simple but highly replayable experience. It is easy to start, fast to understand, and unpredictable enough to keep every match exciting. Whether you are playing alone or challenging a friend, each round brings a new chance to score a ridiculous basket, make a surprising comeback, or laugh at a completely unexpected play. This game is provided to PleyZ by GameMonetize.</p>
-      <p><strong>Controls:</strong> Player 1: W
-Player 2: UP ARROW
-
-Jump, block, and shoot with one key. Time your moves well and score before your opponent.</p>
       
       <div class="chip-list">
         <span class="chip">action</span>

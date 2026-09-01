@@ -763,6 +763,24 @@
       box-shadow: 0 0 18px rgba(0,0,0,0.12);
       border: 2px solid rgba(255,255,255,0.12);
       background: rgba(255,255,255,0.05);
+      transition: opacity 0.25s ease;
+    }
+    .game-thumb .game-hover-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+      background: rgba(0,0,0,0.24);
+    }
+    .game-thumb:hover .game-hover-video {
+      opacity: 1;
+    }
+    .game-thumb:hover img {
+      opacity: 0;
     }
     .game-thumb img.custom-game-image,
     .trending-thumb img.custom-game-image {
@@ -903,25 +921,28 @@
     }
     .trending-scroll-wrap {
       overflow-x: auto;
+      overflow-y: hidden;
       padding: 0.3rem 0 0.2rem;
       cursor: grab;
       -webkit-overflow-scrolling: touch;
       scroll-snap-type: x proximity;
-      scroll-padding-left: 1rem;
+      scroll-padding-left: 0;
     }
     .trending-scroll-wrap:active { cursor: grabbing; }
-    .trending-scroll-wrap::-webkit-scrollbar { height: 6px; }
-    .trending-scroll-wrap::-webkit-scrollbar-thumb { background: linear-gradient(90deg, var(--purple-1), var(--blue-1)); border-radius: 999px; }
+    .trending-scroll-wrap::-webkit-scrollbar { height: 0; }
+    .trending-scroll-wrap::-webkit-scrollbar-thumb { background: transparent; border-radius: 0; }
 
     .trending-row {
       display: flex;
       gap: 1.1rem;
       width: max-content;
+      min-width: 100%;
       padding: 0.35rem 0.1rem 0.45rem;
     }
 
     .trending-card {
-      width: 230px;
+      width: 220px;
+      min-width: 220px;
       background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
       border: 1px solid rgba(0,191,255,0.25);
       border-radius: 12px;
@@ -1065,6 +1086,85 @@
       letter-spacing: 0.15em;
       text-transform: uppercase;
       color: rgba(255,255,255,0.65);
+    }
+
+    .recommendation-shell {
+      display: grid;
+      grid-template-columns: minmax(0, 1.8fr) minmax(0, 0.9fr);
+      gap: 1rem;
+      align-items: stretch;
+      margin: 0 0 1.4rem;
+    }
+    .recommendation-featured {
+      position: relative;
+      min-height: 340px;
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(5,7,18,0.9);
+      box-shadow: 0 18px 40px rgba(26,16,54,0.45);
+    }
+    .recommendation-featured iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 340px;
+      border: 0;
+      display: block;
+      background: #000;
+    }
+    .recommendation-side {
+      display: grid;
+      gap: 0.75rem;
+    }
+    .recommendation-card {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      width: 100%;
+      padding: 0.6rem 0.7rem;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      cursor: pointer;
+      text-align: left;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+    .recommendation-card:hover {
+      transform: translateX(2px);
+      border-color: rgba(0,191,255,0.32);
+      background: rgba(255,255,255,0.06);
+    }
+    .recommendation-card img {
+      width: 86px;
+      height: 70px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.08);
+      flex-shrink: 0;
+      background: rgba(255,255,255,0.04);
+    }
+    .recommendation-card strong {
+      display: block;
+      font-size: 0.84rem;
+      line-height: 1.2;
+      margin-bottom: 0.18rem;
+    }
+    .recommendation-card small {
+      display: block;
+      color: var(--text-dim);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    @media (max-width: 860px) {
+      .recommendation-shell {
+        grid-template-columns: 1fr;
+      }
+      .recommendation-featured,
+      .recommendation-featured iframe {
+        min-height: 260px;
+      }
     }
 
     /* ============================================================
@@ -1586,7 +1686,6 @@
     background:
         radial-gradient(circle,
         #ffffff 0%,
-        #c88cff 18%,
         #61d8ff 55%,
         rgba(97,216,255,0) 100%);
 
@@ -1805,6 +1904,13 @@ animate();
       <p class="trending-copy">The games everyone is jumping into first, styled with a more premium experience and packed with instant-play energy.</p>
     </div>
     <div class="trending-badge"><i class="fas fa-bolt"></i> Live • 24/7 hits</div>
+  </div>
+
+  <div class="recommendation-shell" id="recommended-shell">
+    <div class="recommendation-featured">
+      <iframe id="recommended-featured-frame" title="Recommended game preview" loading="lazy" allowfullscreen></iframe>
+    </div>
+    <div class="recommendation-side" id="recommended-side"></div>
   </div>
 
   <div class="trending-scroll-wrap" id="trending-scroll">
@@ -2185,7 +2291,7 @@ PleyZ is a curated gaming platform built for the next generation of players.** W
 
   function drawMeteors() {
     if (Math.random() < 0.012) spawnMeteor();
-    for (let i = meteors.length - 1; i >= 0; i--) {
+    for (let i = meteors.length - 2; i >= 0; i--) {
       const m = meteors[i];
       m.x += m.dx;
       m.y += m.dy;
@@ -2462,7 +2568,9 @@ const GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/hazmob-fps-online-shooter/preview/76a02c8e7dbd4bd3a87bc87d868d6158?width=448",
-    iframeUrl: "/games/hazmob-fps-online-shooter.html"
+    iframeUrl: "/games/hazmob-fps-online-shooter.html",
+    videoId: "8a7a62bfcec943b6a64d1188c8baf31d",
+    videoUrl: "https://static.playgama.com/p-video/8a7a62bfcec943b6a64d1188c8baf31d/orig_length_h640_6so.mp4"
   },
     {
     id: 94,
@@ -2473,7 +2581,9 @@ const GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/rivals-fps-online-shooter/preview/2203a049014e4f6eaa4038ab696f6afa?width=448",
-    iframeUrl: "/games/rivals-fps-online-shooter.html"
+    iframeUrl: "/games/rivals-fps-online-shooter.html",
+    videoId: "519f0e08d9764b25aea0b93699671b44",
+    videoUrl: "https://static.playgama.com/p-video/519f0e08d9764b25aea0b93699671b44/orig_length_h640_6so.mp4"
   },
    { id:6, name:'GTA New York',      cat:'action', categories:['action','boys'],   color:'#FF0066', gradient:'linear-gradient(135deg,#ff0066,#7c3aed)', players:'0', imageUrl:'', iframeUrl:'gta-new-york.html', imageUrl:'GTA New York-512x512.jpg' },
   { id:33, name:'Fire Truck Simulator',      cat:'puzzle',   color:'#FF0066', gradient:'linear-gradient(135deg,#ff0066,#7c3aed)', players:'0', imageUrl:'', iframeUrl:'fire-truck-simulator.html', imageUrl:'Fire Truck Rescue simulator-512x512.jpg' },
@@ -3094,11 +3204,87 @@ function createGameIconUrl(game) {
   return 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg);
 }
 
+function resolveGameVideoUrl(game) {
+  const fallbackVideoMap = {
+    95: 'https://static.playgama.com/p-video/8a7a62bfcec943b6a64d1188c8baf31d/orig_length_h640_6so.mp4',
+    94: 'https://static.playgama.com/p-video/519f0e08d9764b25aea0b93699671b44/orig_length_h640_6so.mp4',
+    105: 'https://static.playgama.com/p-video/8a7a62bfcec943b6a64d1188c8baf31d/orig_length_h640_6so.mp4'
+  };
+
+  if (game && fallbackVideoMap[game.id]) return fallbackVideoMap[game.id];
+
+  const candidates = [];
+
+  if (Array.isArray(game.videos)) {
+    game.videos.forEach(item => {
+      if (item && typeof item === 'object') {
+        candidates.push(item.external_url, item.url, item.src, item.file, item.link, item.href);
+      }
+    });
+  }
+
+  if (Array.isArray(game.video_metadata)) {
+    game.video_metadata.forEach(item => {
+      if (item && typeof item === 'object') {
+        candidates.push(item.external_url, item.url, item.src, item.file, item.link, item.href);
+      }
+    });
+  }
+
+  candidates.push(
+    game.videoUrl,
+    game.video_url,
+    game.video,
+    game.videoURL,
+    game.previewVideoUrl,
+    game.preview_url,
+    game.external_url,
+    game.embed && String(game.embed).match(/https?:\/\/[^"'\s]+(?:mp4|webm|m3u8)/i)?.[0]
+  );
+
+  const explicitUrl = candidates
+    .filter(Boolean)
+    .map(value => String(value).trim())
+    .find(value => /\.(mp4|webm|m3u8)(\?|$)/i.test(value) || /static\.playgama\.com\/p-video\//i.test(value) || /youtube\.com|youtu\.be|vimeo\.com/i.test(value));
+
+  if (explicitUrl) return explicitUrl;
+
+  const playgamaId = [
+    game.videoId,
+    game.playgama_id,
+    game.playgamaId,
+    Array.isArray(game.videos) ? game.videos[0]?.playgama_id : null,
+    Array.isArray(game.video_metadata) ? game.video_metadata[0]?.playgama_id : null,
+  ].find(value => typeof value === 'string' && value.trim());
+
+  if (playgamaId) {
+    const cleanId = String(playgamaId).trim();
+    return `https://static.playgama.com/p-video/${cleanId}/orig_length_h640_6so.mp4`;
+  }
+
+  return '';
+}
+
 function createGameImageMarkup(game) {
   const imageUrl = game.imageUrl && game.imageUrl.trim();
   const src = imageUrl || createGameIconUrl(game);
   const className = imageUrl ? 'game-icon custom-game-image' : 'game-icon';
-return `<img class="${className}" src="${src}" alt="${game.name} image" loading="lazy" decoding="async" />`;
+  return `<img class="${className}" src="${src}" alt="${game.name} image" loading="lazy" decoding="async" />`;
+}
+
+function createGameVideoMarkup(game) {
+  const videoUrl = resolveGameVideoUrl(game);
+  if (!videoUrl) return '';
+
+  const safeVideoUrl = videoUrl.replace(/"/g, '');
+  const youtubeMatch = safeVideoUrl.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([\w-]+)/i);
+
+  if (youtubeMatch) {
+    const embedUrl = `https://www.youtube.com/embed/${youtubeMatch[1]}?autoplay=1&mute=1&loop=1&playlist=${youtubeMatch[1]}`;
+    return `<iframe class="game-hover-video" src="${embedUrl}" title="${game.name} preview" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe>`;
+  }
+
+  return `<video class="game-hover-video" muted autoplay loop playsinline preload="metadata" src="${safeVideoUrl}"></video>`;
 }
 
 function createGameFrameUrl(game) {
@@ -3241,6 +3427,7 @@ function renderGames(filter = 'all', reset = true) {
     card.innerHTML = `
       <div class="game-thumb" style="background:${g.gradient};">
         ${createGameImageMarkup(g)}
+        ${createGameVideoMarkup(g)}
       </div>
 
       <div class="game-info">
@@ -3286,6 +3473,34 @@ function renderGames(filter = 'all', reset = true) {
     gamesObserver.observe(loader);
   }
 }
+function renderRecommendedGames() {
+  const featuredFrame = document.getElementById('recommended-featured-frame');
+  const side = document.getElementById('recommended-side');
+  if (!featuredFrame || !side) return;
+
+  const primaryGame = GAMES.find(game => game.id === 94) || GAMES[0];
+  const sideGames = [95, 6, 9, 30, 1].map(id => GAMES.find(game => game.id === id)).filter(Boolean);
+
+  if (primaryGame) {
+    const frameSrc = primaryGame.iframeUrl && primaryGame.iframeUrl.trim() ? primaryGame.iframeUrl : createGameFrameUrl(primaryGame);
+    featuredFrame.src = frameSrc;
+  }
+
+  side.innerHTML = sideGames.map(game => `
+    <button class="recommendation-card" type="button" data-id="${game.id}">
+      <img src="${(game.imageUrl || '').trim() || createGameIconUrl(game)}" alt="${game.name}" loading="lazy" />
+      <div>
+        <strong>${game.name}</strong>
+        <small>Click to play</small>
+      </div>
+    </button>
+  `).join('');
+
+  side.querySelectorAll('.recommendation-card').forEach(button => {
+    button.addEventListener('click', () => openGame(Number(button.dataset.id)));
+  });
+}
+
 function renderTrending() {
   const row = document.getElementById('trending-row');
   row.innerHTML = '';
@@ -3314,8 +3529,8 @@ function renderTrending() {
     row.appendChild(card);
   });
 
-  // Drag-scroll
   const wrap = document.getElementById('trending-scroll');
+  if (!wrap) return;
   let isDragging = false, startX, scrollLeft;
   wrap.addEventListener('mousedown', e => { isDragging = true; startX = e.pageX - wrap.offsetLeft; scrollLeft = wrap.scrollLeft; });
   wrap.addEventListener('mouseleave', () => isDragging = false);
@@ -4142,13 +4357,14 @@ function applyUrlCategoryFilter(){
 try {
   const applied = applyUrlCategoryFilter();
   if (!applied) renderGames();
+  renderRecommendedGames();
   renderTrending();
   renderLeaderboard();
 } catch (err) {
   // Avoid halting the rest of the script — try again shortly
   console.warn('Initial render failed, retrying shortly', err);
   setTimeout(() => {
-    try { renderGames(); renderTrending(); renderLeaderboard(); } catch (e) { console.error('Retry failed', e); }
+    try { renderGames(); renderRecommendedGames(); renderTrending(); renderLeaderboard(); } catch (e) { console.error('Retry failed', e); }
   }, 200);
 }
 

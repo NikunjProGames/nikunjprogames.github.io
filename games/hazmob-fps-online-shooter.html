@@ -81,20 +81,28 @@ Gun race
     }
     .info-card h2 { margin: 0 0 10px; font-family: 'Orbitron', sans-serif; font-size: 1.1rem; }
     .info-card p, .info-card li { color: var(--muted); line-height: 1.6; }
-    .related-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
-    .related-game { display: flex; flex-direction: column; gap: 7px; min-width: 0; color: var(--text); font-weight: 700; }
+    .related-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    .related-game {
+      display: grid; grid-template-columns: 130px 1fr; gap: 12px; align-items: center;
+      min-width: 0; color: var(--text); font-weight: 700; background: rgba(255,255,255,0.04);
+      border: 1px solid var(--panel-border); border-radius: 12px; padding: 8px; transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .related-game:hover { transform: translateY(-2px); border-color: rgba(0,191,255,0.45); }
     .related-game img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 10px; background: #05070d; }
-    .related-game span { font-size: 0.85rem; line-height: 1.2; }
+    .related-game span { font-size: 0.9rem; line-height: 1.2; }
     .chip-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
     .chip { padding: 6px 10px; border-radius: 999px; background: rgba(0,191,255,0.14); border: 1px solid rgba(0,191,255,0.26); color: #bfeeff; font-size: 0.9rem; }
     .page-ad-section { margin-top: 18px; padding: 14px 16px; border-radius: 14px; border: 1px solid var(--panel-border); background: rgba(255,255,255,0.04); }
     .page-ad-section .ad-label { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8b00ff; margin-bottom: 8px; text-align: center; font-weight: 700; }
     .page-ad-section .adsbygoogle { min-height: 90px; }
+    .video-card-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+    .video-card-header h3 { margin: 0; }
+    .video-card-header span { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
     @media (max-width: 700px) {
       .page-shell { padding: 12px 12px 24px; }
       .topbar { flex-direction: column; align-items: flex-start; }
       .game-frame, iframe { min-height: 60vh; }
-      .related-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .related-game { grid-template-columns: 96px 1fr; }
     }
   </style>
 <!-- ads.txt: google.com, pub-3172987137389272, DIRECT, f08c47fec0942fa0 -->
@@ -120,12 +128,7 @@ Gun race
     </div>
 
     <section class="info-card" aria-label="Game information">
-      <h2>Game Info & Controls</h2>
-    <p>Gear up for the ultimate tactical combat experience with Hazmob FPS, an action-packed multiplayer shooting game engineered for competitive gamers who thrive under pressure. Jump straight into non-stop, heart-pounding firefights where every single second, step, and trigger pull counts. Designed around tight, close-quarters maps, this game eliminates boring downtime and throws you directly into fast-paced arenas where raw reflex, sharp spatial awareness, and elite skill determine who rules the match.
-</p>
-<p>
-Powered by crisp, modern 3D graphics and exceptionally fluid, customizable controls, this dynamic first-person shooter delivers smooth console-quality gameplay directly to your device. Whether you prefer stealthy tactical maneuvers or aggressive rush strategies, the intuitive movement mechanics give you complete control over every shootout. Master an extensive arsenal of firearms and fine-tune your target tracking as you clash with top-tier players from around the globe.</p>
-      <p><strong>Game Modes:</strong> Team Deathmatch, Search and Destroy, Capture the Flag, Domination, Free for All, Elimination, Gun Race</p>
+      <h2>How to Play</h2>
       <p><strong>Controls:</strong> Controls
 
 WASD = move
@@ -140,6 +143,20 @@ Shift = run
 4, 5, 6 = skills
 E = alternative skills
 Q = alternative skills</p>
+      <p>Hazmob FPS is a multiplayer shooting FPS game where every second counts! Play against other players across multiple game modes in non-stop combat. This first-person shooter game is ideal for those seeking a bit of thrill.
+
+Skilled FPS players will love Hazmob FPS. The game features excellent, clean 3D graphics with a fluid and intuitive control system that allows you to maneuver quickly and tactically. The maps are designed for fast-paced battles in a close-quarters setting, leaving it down to pure reflex and skill to get the job done.
+
+Play various game modes
+
+Team Deathmatch
+Search and Destroy
+Capture the flag
+Domination
+Free for all
+Elimination
+Gun race
+ This game is provided to PleyZ by GameMonetize.</p>
       
       <div class="chip-list">
         <span class="chip">action</span>
