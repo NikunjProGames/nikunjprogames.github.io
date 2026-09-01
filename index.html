@@ -2058,8 +2058,12 @@ PleyZ is a curated gaming platform built for the next generation of players.** W
     </div>
 
     <div class="form-group">
+      <label>Email Address</label>
+      <input type="email" id="auth-email" placeholder="Enter your email" autocomplete="email" />
+    </div>
+    <div class="form-group">
       <label>Username</label>
-      <input type="email" id="auth-username" placeholder="Enter your Username" autocomplete="email" />
+      <input type="text" id="auth-username" placeholder="Enter your username" autocomplete="username" />
     </div>
     <div class="form-group">
       <label>Password</label>
@@ -2100,7 +2104,8 @@ PleyZ is a curated gaming platform built for the next generation of players.** W
         <button class="btn" onclick="lookupPleyz()">Check</button>
       </div>
       <div id="pleyz-result" style="margin-top:1rem; font-weight:600;"></div>
-      <div style="margin-top:1rem; display:flex; gap:0.6rem; align-items:center;">
+      <div style="margin-top:1rem; display:flex; gap:0.6rem; align-items:center; flex-wrap:wrap;">
+        <button class="btn btn-primary" onclick="sharePleyzScore()" style="justify-content:center;">Share my score</button>
         <label style="font-size:0.9rem; color:var(--text-dim)"><input type="checkbox" id="pleyz-dont-show" /> Don't show again</label>
         <div style="flex:1"></div>
         <button class="btn btn-primary" onclick="closePleyzModal(true)">Close</button>
@@ -3432,15 +3437,26 @@ function setStoredAccounts(accounts) {
 }
 
 function getCurrentUser() {
+  const saved = localStorage.getItem('nikunj_current_username');
+  if (saved && saved.trim()) return saved.trim();
+
   if (window.firebaseAuth?.currentUser) {
-    const email = window.firebaseAuth.currentUser.email || '';
-    return email.split('@')[0];
+    const user = window.firebaseAuth.currentUser;
+    const email = user.email || '';
+    const username = (user.displayName || '').trim() || email.split('@')[0] || 'Player';
+    setCurrentUser(username);
+    return username;
   }
   return null;
 }
 
 function setCurrentUser(username) {
-  // Firebase Auth is the source of truth; credentials are never stored locally.
+  const clean = (username || '').trim();
+  if (!clean) {
+    localStorage.removeItem('nikunj_current_username');
+    return;
+  }
+  localStorage.setItem('nikunj_current_username', clean);
 }
 
 function clearCurrentUser() {
@@ -3681,18 +3697,21 @@ function getAuthErrorMessage(error, action) {
 }
 
 async function handleLogin() {
+  const email = document.getElementById('auth-email').value.trim();
   const username = document.getElementById('auth-username').value.trim();
   const password = document.getElementById('auth-password').value;
   const errorEl = document.getElementById('auth-error');
   errorEl.textContent = '';
-  if (!username) { errorEl.textContent = 'Email is required.'; return; }
+  if (!email) { errorEl.textContent = 'Email is required.'; return; }
+  if (!username) { errorEl.textContent = 'Username is required.'; return; }
   if (!password) { errorEl.textContent = 'Password is required.'; return; }
   if (!(await waitForFirebaseAuth()) || !window.firebaseLogin) {
     errorEl.textContent = 'Authentication is still loading. Please try again.';
     return;
   }
   try {
-    await window.firebaseLogin(username, password);
+    await window.firebaseLogin(email, password, username);
+    setCurrentUser(username);
     updateAuthUI();
     closeLoginModal();
   } catch (err) {
@@ -3701,12 +3720,14 @@ async function handleLogin() {
 }
 
 async function handleSignup() {
+  const email = document.getElementById('auth-email').value.trim();
   const username = document.getElementById('auth-username').value.trim();
   const password = document.getElementById('auth-password').value;
   const confirmPassword = document.getElementById('auth-confirm-password').value;
   const errorEl = document.getElementById('auth-error');
   errorEl.textContent = '';
-  if (!username) { errorEl.textContent = 'Email is required.'; return; }
+  if (!email) { errorEl.textContent = 'Email is required.'; return; }
+  if (!username) { errorEl.textContent = 'Username is required.'; return; }
   if (!password) { errorEl.textContent = 'Password is required.'; return; }
   if (password.length < 6) { errorEl.textContent = 'Password must be at least 6 characters.'; return; }
   if (password !== confirmPassword) { errorEl.textContent = 'Passwords do not match.'; return; }
@@ -3715,7 +3736,8 @@ async function handleSignup() {
     return;
   }
   try {
-    await window.firebaseSignup(username, password);
+    await window.firebaseSignup(email, password, username);
+    setCurrentUser(username);
     updateAuthUI();
     closeLoginModal();
   } catch (err) {
@@ -4175,15 +4197,21 @@ try {
     const auth = getAuth(app);
     window.firebaseAuth = auth;
 
-    window.firebaseLogin = async (email, password) => {
+    window.firebaseLogin = async (email, password, usernameOverride = null) => {
       const cred = await signInWithEmailAndPassword(auth, email, password);
+      const safeUsername = (usernameOverride || cred.user.displayName || (email.split('@')[0] || 'Player')).trim();
+      if (safeUsername) setCurrentUser(safeUsername);
+      if (window.firebaseEnsureUserDoc) {
+        await window.firebaseEnsureUserDoc(cred.user, safeUsername);
+      }
       return cred.user;
     };
-    window.firebaseSignup = async (email, password) => {
+    window.firebaseSignup = async (email, password, usernameOverride = null) => {
       const cred = await createUserWithEmailAndPassword(auth, email, password);
+      const safeUsername = (usernameOverride || cred.user.displayName || (email.split('@')[0] || 'Player')).trim();
       // create user document in Firestore when created
       if (window.firebaseEnsureUserDoc) {
-        await window.firebaseEnsureUserDoc(cred.user);
+        await window.firebaseEnsureUserDoc(cred.user, safeUsername);
       }
       return cred.user;
     };
@@ -4201,10 +4229,12 @@ try {
     const db = getFirestore(app);
     window.firebaseDb = db;
 
-    window.firebaseEnsureUserDoc = async (user) => {
+    window.firebaseEnsureUserDoc = async (user, usernameOverride = null) => {
       if (!user) return;
+      const email = user.email || '';
+      const username = String(usernameOverride || user.displayName || (email.split('@')[0] || 'Player')).trim() || 'Player';
       const ref = doc(db, 'users', user.uid);
-      try { await setDoc(ref, { email: user.email, createdAt: serverTimestamp(), pleyzScore: 0, gamesPlayed: 0 }, { merge: true }); } catch (e) { }
+      try { await setDoc(ref, { email, username, createdAt: serverTimestamp(), pleyzScore: 0, gamesPlayed: 0 }, { merge: true }); } catch (e) { }
     };
 
 window.firebaseOnGameOpened = async () => {
@@ -4227,6 +4257,7 @@ window.firebaseOnGameOpened = async () => {
         pleyzScore: 1,
         gamesPlayed: 1,
         email: auth.currentUser.email,
+        username: getCurrentUser() || (auth.currentUser.email || 'Player').split('@')[0],
         createdAt: serverTimestamp(),
         lastPlayed: serverTimestamp()
       }, { merge: true });
@@ -4241,6 +4272,37 @@ window.firebaseFetchLeaderboard = async () => {
   tbody.innerHTML =
     '<tr><td colspan="4" style="text-align:center; padding:1.5rem; color:var(--text-dim);">Loading leaderboard...</td></tr>';
 
+  const fakeRows = [
+    { name: 'ProGamer_X', score: 98450, games: 342 },
+    { name: 'NeonBlaster99', score: 87230, games: 289 },
+    { name: 'CyberNinja', score: 79100, games: 301 },
+    { name: 'StarHunter', score: 65540, games: 198 },
+    { name: 'VoltStrike', score: 58320, games: 241 }
+  ];
+
+  const buildRow = (rank, name, score, games, isYou = false) => {
+    const tr = document.createElement('tr');
+    if (!isYou && rank <= 3) tr.className = `rank-${rank}`;
+    if (isYou) tr.className = 'you';
+
+    const icon =
+      rank === 1
+        ? '<i class="fas fa-trophy"></i>'
+        : rank === 2
+        ? '<i class="fas fa-medal"></i>'
+        : rank === 3
+        ? '<i class="fas fa-award"></i>'
+        : `#${rank}`;
+
+    tr.innerHTML =
+      `<td><span class="rank-icon">${icon}</span></td>` +
+      `<td>${name}</td>` +
+      `<td class="score-cell">${Number(score || 0).toLocaleString()}</td>` +
+      `<td>${Number(games || 0).toLocaleString()}</td>`;
+
+    return tr;
+  };
+
   try {
     const usersCol = collection(db, 'users');
     const q = query(usersCol, orderBy('pleyzScore', 'desc'), limit(50));
@@ -4248,60 +4310,45 @@ window.firebaseFetchLeaderboard = async () => {
 
     tbody.innerHTML = '';
 
-    let rank = 1;
-    const seenIds = new Set();
-
-    snap.forEach(docSnap => {
-      const d = docSnap.data();
-      const tr = document.createElement('tr');
-
-      if (rank <= 3) {
-        tr.className = `rank-${rank}`;
-      }
-
-      const icon =
-        rank === 1
-          ? '<i class="fas fa-trophy"></i>'
-          : rank === 2
-          ? '<i class="fas fa-medal"></i>'
-          : rank === 3
-          ? '<i class="fas fa-award"></i>'
-          : `#${rank}`;
-
-      tr.innerHTML =
-        `<td><span class="rank-icon">${icon}</span></td>` +
-        `<td>${(d.email || 'Player').split('@')[0]}</td>` +
-        `<td class="score-cell">${Number(d.pleyzScore || 0).toLocaleString()}</td>` +
-        `<td>${Number(d.gamesPlayed || 0).toLocaleString()}</td>`;
-
-      tbody.appendChild(tr);
-      seenIds.add(docSnap.id);
-      rank++;
+    const seenNames = new Set();
+    fakeRows.forEach((player, index) => {
+      const rank = index + 1;
+      const name = player.name;
+      seenNames.add(String(name).trim().toLowerCase());
+      tbody.appendChild(buildRow(rank, name, player.score, player.games));
     });
 
-    // If current user isn't in the top list, fetch and show their score highlighted
-    const auth = window.firebaseAuth;
+    const realEntries = [];
+    snap.forEach(docSnap => {
+      const d = docSnap.data();
+      const username = String(d.username || d.displayName || (d.email || 'Player')).trim();
+      const safeUsername = username || ((d.email || 'Player').split('@')[0] || 'Player');
+      const normalized = safeUsername.toLowerCase();
+      if (seenNames.has(normalized) || !safeUsername || safeUsername === 'Player') return;
+      realEntries.push({
+        name: safeUsername,
+        score: Number(d.pleyzScore || 0),
+        games: Number(d.gamesPlayed || 0)
+      });
+      seenNames.add(normalized);
+    });
 
+    realEntries.forEach((player, index) => {
+      tbody.appendChild(buildRow(fakeRows.length + index + 1, player.name, player.score, player.games));
+    });
+
+    const auth = window.firebaseAuth;
     if (auth && auth.currentUser) {
       const meRef = doc(db, 'users', auth.currentUser.uid);
-
       try {
         const meSnap = await getDoc(meRef);
-
-        if (meSnap.exists() && !seenIds.has(meSnap.id)) {
+        if (meSnap.exists()) {
           const d = meSnap.data();
-          const tr = document.createElement('tr');
-
-          tr.className = 'you';
-
-          tr.innerHTML =
-            `<td><span class="rank-icon">—</span></td>` +
-            `<td>${(d.email || 'You').split('@')[0]}</td>` +
-            `<td class="score-cell">${Number(d.pleyzScore || 0).toLocaleString()}</td>` +
-            `<td>${Number(d.gamesPlayed || 0).toLocaleString()}</td>`;
-
-          // append at the end
-          tbody.appendChild(tr);
+          const name = String(d.username || d.displayName || (d.email || 'You')).trim() || 'You';
+          const hasBeenShown = [...tbody.children].some(row => row.textContent && row.textContent.toLowerCase().includes(name.toLowerCase()));
+          if (!hasBeenShown) {
+            tbody.appendChild(buildRow(tbody.children.length + 1, name, Number(d.pleyzScore || 0), Number(d.gamesPlayed || 0), true));
+          }
         }
       } catch (_) {}
     }
@@ -4435,19 +4482,24 @@ window.lookupPleyz = async function() {
 
       snap.forEach(s => {
         const d = s.data();
+        const username = String(d.username || d.displayName || (d.email || 'Player')).trim();
         const email = (d.email || '').toLowerCase();
+        const emailUser = (email.split('@')[0] || '').toLowerCase();
+        const query = q.toLowerCase();
 
         if (
-          email === q.toLowerCase() ||
-          email.split('@')[0] === q.toLowerCase()
+          username.toLowerCase() === query ||
+          email === query ||
+          emailUser === query
         ) {
           found = d;
         }
       });
 
       if (found) {
+        const username = String(found.username || found.displayName || (found.email || 'Player')).trim() || 'Player';
         res.textContent =
-          `${(found.email || 'Player').split('@')[0]} — ` +
+          `${username} — ` +
           `PleyZ ${Number(found.pleyzScore || 0).toLocaleString()} | ` +
           `Games ${Number(found.gamesPlayed || 0).toLocaleString()}`;
       } else {
@@ -4476,6 +4528,51 @@ window.lookupPleyz = async function() {
     res.textContent =
       `${username} — PleyZ ${Number(score).toLocaleString()} | ` +
       `Games ${Number(games).toLocaleString()}`;
+  }
+};
+
+window.sharePleyzScore = async function() {
+  const username = getCurrentUser() || 'Player';
+  const score = (() => {
+    if (window.firebaseAuth && window.firebaseAuth.currentUser && window.firebaseDb) {
+      const currentUser = window.firebaseAuth.currentUser;
+      const key = `nikunj_pleyz_${username}`;
+      const localValue = Number(localStorage.getItem(key) || '0');
+      if (localValue > 0) return localValue;
+      return Number(currentUser?.pleyzScore || 0);
+    }
+    return Number(localStorage.getItem(`nikunj_pleyz_${username}`) || '0');
+  })();
+
+  const shareText = `PleyZ Games — the future of games. Here’s my score: ${username} has ${Number(score).toLocaleString()} PleyZ. I’m flaunting my score and challenging you to beat me! #PleyZ #FutureOfGames`;
+
+  try {
+    if (navigator.share) {
+      await navigator.share({
+        title: 'PleyZ Games',
+        text: shareText,
+        url: window.location.href
+      });
+      return;
+    }
+
+    if (navigator.clipboard) {
+      await navigator.clipboard.writeText(shareText);
+      const res = document.getElementById('pleyz-result');
+      if (res) res.textContent = 'Score copied to clipboard — share it with your friends!';
+      return;
+    }
+
+    const res = document.getElementById('pleyz-result');
+    if (res) res.textContent = shareText;
+  } catch (err) {
+    try {
+      if (navigator.clipboard) {
+        await navigator.clipboard.writeText(shareText);
+      }
+    } catch (_) {}
+    const res = document.getElementById('pleyz-result');
+    if (res) res.textContent = shareText;
   }
 };
 
