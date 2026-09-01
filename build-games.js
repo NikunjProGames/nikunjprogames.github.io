@@ -47,6 +47,24 @@ function getVideoHtml(game) {
     </section>`;
 }
 
+function getRecommendationsHtml(game, games) {
+  const category = String(game.category || '').toLowerCase();
+  const recommendations = games
+    .filter(candidate => candidate.title !== game.title)
+    .sort((a, b) => {
+      const aMatch = String(a.category || '').toLowerCase() === category;
+      const bMatch = String(b.category || '').toLowerCase() === category;
+      return Number(bMatch) - Number(aMatch);
+    })
+    .slice(0, 5);
+
+  return recommendations.map(candidate => {
+    const slug = candidate.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
+    const image = candidate.thumb ? `<img src="${escapeHtml(candidate.thumb)}" alt="${escapeHtml(candidate.title)}" loading="lazy" />` : '';
+    return `<a class="related-game" href="${slug}.html">${image}<span>${escapeHtml(candidate.title)}</span></a>`;
+  }).join('\n        ');
+}
+
 function generateGamePages() {
   // Read the JSON file and HTML template
   const gamesData = fs.readFileSync(FEED_FILE, 'utf8');
@@ -83,7 +101,8 @@ function generateGamePages() {
       .replaceAll('{{INSTRUCTIONS}}', game.instructions || 'Mouse click or tap to play.')
       .replaceAll('{{TAGS}}', game.tags || game.category)
       .replaceAll('{{CHIPS}}', tagsHtml)
-      .replaceAll('{{VIDEO_HTML}}', videoHtml);
+      .replaceAll('{{VIDEO_HTML}}', videoHtml)
+      .replaceAll('{{RECOMMENDATIONS_HTML}}', getRecommendationsHtml(game, games));
 
     // 4. Save the file
     fs.writeFileSync(path.join(outputDir, `${slug}.html`), htmlContent);

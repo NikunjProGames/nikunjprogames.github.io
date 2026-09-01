@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cube Snake 2048 | Nikunj Pro Games</title>
+  <title>Cube Snake 2048 | PleyZ</title>
   <meta name="description" content="A great Cube Snake 2048 game begins with cube snakes and cubes in a huge arena. You will start with a low number of snakes, collect lower numbered cubes around the map, and try to make your snake bigger by combining numbers. Collect power-ups and give your snake more advantages." />
-  <meta name="keywords" content="arcade, snake, number, merge, classic, cube-games, arena-games, collecting-games, online puzzle game, free puzzle games, Nikunj Pro Games" />
- <link rel="icon" type="image/png" href="https://nikunjprogames.github.io/favicon.ico" />
+  <meta name="keywords" content="arcade, snake, number, merge, classic, cube-games, arena-games, collecting-games, online puzzle game, free puzzle games, PleyZ" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet" />
@@ -69,6 +68,10 @@
     }
     .info-card h2 { margin: 0 0 10px; font-family: 'Orbitron', sans-serif; font-size: 1.1rem; }
     .info-card p, .info-card li { color: var(--muted); line-height: 1.6; }
+    .related-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
+    .related-game { display: flex; flex-direction: column; gap: 7px; min-width: 0; color: var(--text); font-weight: 700; }
+    .related-game img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 10px; background: #05070d; }
+    .related-game span { font-size: 0.85rem; line-height: 1.2; }
     .chip-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
     .chip { padding: 6px 10px; border-radius: 999px; background: rgba(0,191,255,0.14); border: 1px solid rgba(0,191,255,0.26); color: #bfeeff; font-size: 0.9rem; }
     .page-ad-section { margin-top: 18px; padding: 14px 16px; border-radius: 14px; border: 1px solid var(--panel-border); background: rgba(255,255,255,0.04); }
@@ -78,6 +81,7 @@
       .page-shell { padding: 12px 12px 24px; }
       .topbar { flex-direction: column; align-items: flex-start; }
       .game-frame, iframe { min-height: 60vh; }
+      .related-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
   </style>
 <!-- ads.txt: google.com, pub-3172987137389272, DIRECT, f08c47fec0942fa0 -->
@@ -103,34 +107,12 @@
     </div>
 
     <section class="info-card" aria-label="Game information">
-  
-<h2>About Cube Snake 2048</h2>
+      <h2>Game Info & Controls</h2>
+      <p>A great Cube Snake 2048 game begins with cube snakes and cubes in a huge arena. You will start with a low number of snakes, collect lower numbered cubes around the map, and try to make your snake bigger by combining numbers. Collect power-ups and give your snake more advantages. This game is provided to PleyZ by GameMonetize.</p>
+      <p><strong>Controls:</strong> Move: "MOUSE" or "LEFT-RIGHT ARROWS" or "A, D" Keys.
+Boost: "LEFT-CLICK" or "SPACE"
 
-Cube Snake 2048 drops you into a <strong>huge arena where cube snakes and numbered cubes</strong> share the same open space. The goal is to grow your snake by collecting cubes and combining their numbers — a satisfying loop that rewards careful routing over the map. Several scenes show a trail of cubes following a lead cube in a linear sequence across a dark blue surface divided by faint grid lines.
-<p></p>
-<h2>How to Play Cube Snake 2048</h2>
-
-Start with a low number of snakes and seek out lower-numbered cubes scattered around the arena. Collecting cubes with equal or lower values lets you combine numbers and make your snake bigger. Power-ups are also available across the map, giving your snake additional advantages as you grow.
-<p></p>
-<h2>Controls</h2> 
-
-Mouse: Move
-<p></p>
-Left / Right Arrow Keys: Move
-<p></p>
-A / D Keys: Move
-<p></p>
-Left Click: Boost
-<p></p>
-Space: Boost
-
-<p>Games You Might Like</p>
-
-If the number-merging side of Cube Snake 2048 appeals to you, browse the full Merge games catalog or explore the 2048 Games series for more titles built around combining numbers. Man Runner 2048 shares the grow-by-merging concept, letting you run and combine numbers while fighting monsters across levels. For a slower, puzzle-focused take on the same number-merging idea, Block Blast 2048 has you merging adjacent blocks at your own pace toward high scores.
-
-Blocks Shooter 3D! Run, Shoot, Merge Weapons! blends running, collecting, and merging into fast action — a natural next step if you enjoy the collecting rhythm of Cube Snake 2048. More arena and collecting titles are waiting in the Arcade games section.
-
-
+Try to collect lower or equal cubes around.</p>
       
       <div class="chip-list">
         <span class="chip">arcade</span>
@@ -154,6 +136,15 @@ Blocks Shooter 3D! Run, Shoot, Merge Weapons! blends running, collecting, and me
            data-full-width-responsive="true"></ins>
       <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </section>
+
+      <section class="info-card related-games" aria-label="Related games">
+        <h2>Games You Might Like</h2>
+        <div class="related-grid"><a class="related-game" href="geometry-arrow-2.html"><img src="https://static.playgama.com/p-img/pg/backfill/game-99645/preview/90df3206f7f0c706e6431b9ae58fc331d0ed13a11e547ce0271b720ff82e6b21?width=448" alt="Geometry Arrow 2" loading="lazy" /><span>Geometry Arrow 2</span></a>
+        <a class="related-game" href="speen.html"><img src="https://img.gamemonetize.com/fwiozook1vr9lw7duxy81zup5676u7bj/512x384.jpg" alt="Speen" loading="lazy" /><span>Speen</span></a>
+        <a class="related-game" href="music-night-battle-rhythm-game.html"><img src="https://img.gamemonetize.com/gpnthl10ris6862m1lrywpqk8gc4zk4v/512x384.jpg" alt="Music Night Battle: Rhythm Game" loading="lazy" /><span>Music Night Battle: Rhythm Game</span></a>
+        <a class="related-game" href="wiggly-worm-race.html"><img src="https://img.gamemonetize.com/l0nqbs09szfpxezuy44h886ecqpomll5/512x384.jpg" alt="Wiggly Worm Race" loading="lazy" /><span>Wiggly Worm Race</span></a>
+        <a class="related-game" href="stickman-trivia-fall-io.html"><img src="https://img.gamemonetize.com/cybh6ym22ww2ehlpu23d6azrudls31ar/512x384.jpg" alt="Stickman Trivia Fall IO" loading="lazy" /><span>Stickman Trivia Fall IO</span></a></div>
+      </section>
   </div>
   <script>
     function toggleGameFullscreen(root) {

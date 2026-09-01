@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Geometry Arrow 2 | Nikunj Pro Games</title>
+  <title>Geometry Arrow 2 | PleyZ</title>
   <meta name="description" content="Geometry Arrow 2 ─ sequel of the game about the arrow in the cave.
 
 The goal of the game is to reach the end of the cave (the portal) alive. Along the way, you need to dodge unique obstacles.
@@ -12,8 +12,7 @@ In the new part, a new game character has been added ─ the "Wheel"
 And now you can customize your arrow and ball looks, change game particles and blocks textures.
 
 The game has 13 levels of varying difficulty. Each level consists of "Arrow" segments and new "Wheel" segments." />
-  <meta name="keywords" content="arcade, skill, popular, reaction-games, avoid-games, challenging-games, jumping-games, timing-games, geometry-games, rhythm-games, godot-games-online, fast-paced-action, space-waves, online puzzle game, free puzzle games, Nikunj Pro Games" />
-  <link rel="icon" type="image/png" href="https://nikunjprogames.github.io/favicon.ico" />
+  <meta name="keywords" content="arcade, skill, popular, reaction-games, avoid-games, challenging-games, jumping-games, timing-games, geometry-games, rhythm-games, godot-games-online, fast-paced-action, space-waves, online puzzle game, free puzzle games, PleyZ" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet" />
@@ -76,6 +75,10 @@ The game has 13 levels of varying difficulty. Each level consists of "Arrow" seg
     }
     .info-card h2 { margin: 0 0 10px; font-family: 'Orbitron', sans-serif; font-size: 1.1rem; }
     .info-card p, .info-card li { color: var(--muted); line-height: 1.6; }
+    .related-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
+    .related-game { display: flex; flex-direction: column; gap: 7px; min-width: 0; color: var(--text); font-weight: 700; }
+    .related-game img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 10px; background: #05070d; }
+    .related-game span { font-size: 0.85rem; line-height: 1.2; }
     .chip-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
     .chip { padding: 6px 10px; border-radius: 999px; background: rgba(0,191,255,0.14); border: 1px solid rgba(0,191,255,0.26); color: #bfeeff; font-size: 0.9rem; }
     .page-ad-section { margin-top: 18px; padding: 14px 16px; border-radius: 14px; border: 1px solid var(--panel-border); background: rgba(255,255,255,0.04); }
@@ -85,6 +88,7 @@ The game has 13 levels of varying difficulty. Each level consists of "Arrow" seg
       .page-shell { padding: 12px 12px 24px; }
       .topbar { flex-direction: column; align-items: flex-start; }
       .game-frame, iframe { min-height: 60vh; }
+      .related-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
   </style>
 <!-- ads.txt: google.com, pub-3172987137389272, DIRECT, f08c47fec0942fa0 -->
@@ -118,7 +122,7 @@ The goal of the game is to reach the end of the cave (the portal) alive. Along t
 In the new part, a new game character has been added ─ the "Wheel"
 And now you can customize your arrow and ball looks, change game particles and blocks textures.
 
-The game has 13 levels of varying difficulty. Each level consists of "Arrow" segments and new "Wheel" segments. </p>
+The game has 13 levels of varying difficulty. Each level consists of "Arrow" segments and new "Wheel" segments. This game is provided to PleyZ by GameMonetize.</p>
       <p><strong>Controls:</strong> Choose one of the 13 levels in the menu and start the game by clicking it with the left mouse button, the SPACEBAR or your finger.
 
 PC controls:
@@ -157,6 +161,15 @@ MOBILE controls:
            data-full-width-responsive="true"></ins>
       <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </section>
+
+      <section class="info-card related-games" aria-label="Related games">
+        <h2>Games You Might Like</h2>
+        <div class="related-grid"><a class="related-game" href="cube-snake-2048.html"><img src="https://static.playgama.com/p-img/pg/backfill/game-109351/preview/b0afdef34402ca9cc780be5207be4cbfe8b640b6cd70d6626c7cec02741a4e3c?width=448" alt="Cube Snake 2048" loading="lazy" /><span>Cube Snake 2048</span></a>
+        <a class="related-game" href="speen.html"><img src="https://img.gamemonetize.com/fwiozook1vr9lw7duxy81zup5676u7bj/512x384.jpg" alt="Speen" loading="lazy" /><span>Speen</span></a>
+        <a class="related-game" href="music-night-battle-rhythm-game.html"><img src="https://img.gamemonetize.com/gpnthl10ris6862m1lrywpqk8gc4zk4v/512x384.jpg" alt="Music Night Battle: Rhythm Game" loading="lazy" /><span>Music Night Battle: Rhythm Game</span></a>
+        <a class="related-game" href="wiggly-worm-race.html"><img src="https://img.gamemonetize.com/l0nqbs09szfpxezuy44h886ecqpomll5/512x384.jpg" alt="Wiggly Worm Race" loading="lazy" /><span>Wiggly Worm Race</span></a>
+        <a class="related-game" href="stickman-trivia-fall-io.html"><img src="https://img.gamemonetize.com/cybh6ym22ww2ehlpu23d6azrudls31ar/512x384.jpg" alt="Stickman Trivia Fall IO" loading="lazy" /><span>Stickman Trivia Fall IO</span></a></div>
+      </section>
   </div>
   <script>
     function toggleGameFullscreen(root) {

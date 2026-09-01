@@ -3,14 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mahjong Classic FREE on PleyZ</title>
+  <title>Mahjong Classic | PleyZ</title>
   <meta name="description" content=""Mahjong Classic" is a classic mahjong solitaire with a unique algorithm for generating levels - a random layout of chips always has a solution! Each playthrough becomes unique, allowing you to play your favorite fields an unlimited amount of times!
 In the game you will find popular fields: Turtle, Fort, Crab, Spider, Cat, Dragon and many others." />
-  <meta name="keywords" content="puzzle, mahjong, classic, casual-games, brain-training-games, addictive-games, 1-player-games, mahjong-solitaire-online, pyramid-mahjong, online puzzle game, free puzzle games, Nikunj Pro Games" />
+  <meta name="keywords" content="puzzle, mahjong, classic, casual-games, brain-training-games, addictive-games, 1-player-games, mahjong-solitaire-online, pyramid-mahjong, online puzzle game, free puzzle games, PleyZ" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet" />
-<link rel="icon" type="image/png" href="https://nikunjprogames.github.io/favicon.ico" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3172987137389272" crossorigin="anonymous"></script>
   <style>
     :root {
@@ -70,6 +69,10 @@ In the game you will find popular fields: Turtle, Fort, Crab, Spider, Cat, Drago
     }
     .info-card h2 { margin: 0 0 10px; font-family: 'Orbitron', sans-serif; font-size: 1.1rem; }
     .info-card p, .info-card li { color: var(--muted); line-height: 1.6; }
+    .related-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
+    .related-game { display: flex; flex-direction: column; gap: 7px; min-width: 0; color: var(--text); font-weight: 700; }
+    .related-game img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 10px; background: #05070d; }
+    .related-game span { font-size: 0.85rem; line-height: 1.2; }
     .chip-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
     .chip { padding: 6px 10px; border-radius: 999px; background: rgba(0,191,255,0.14); border: 1px solid rgba(0,191,255,0.26); color: #bfeeff; font-size: 0.9rem; }
     .page-ad-section { margin-top: 18px; padding: 14px 16px; border-radius: 14px; border: 1px solid var(--panel-border); background: rgba(255,255,255,0.04); }
@@ -79,6 +82,7 @@ In the game you will find popular fields: Turtle, Fort, Crab, Spider, Cat, Drago
       .page-shell { padding: 12px 12px 24px; }
       .topbar { flex-direction: column; align-items: flex-start; }
       .game-frame, iframe { min-height: 60vh; }
+      .related-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
   </style>
 <!-- ads.txt: google.com, pub-3172987137389272, DIRECT, f08c47fec0942fa0 -->
@@ -104,24 +108,15 @@ In the game you will find popular fields: Turtle, Fort, Crab, Spider, Cat, Drago
     </div>
 
     <section class="info-card" aria-label="Game information">
-      <p>Clear the board. That's it. Match pairs of identical tiles to remove them. Free tiles only. If both sides are open, it's fair game. No moves left? You lose. Simple math. Pure strategy.</p>
-
-<h3>Tile Matching Rules</h3>
-<p>Click a tile. Click its twin. Gone. Most tiles need exact matches. Exception: <b>Flowers</b> pair with any flower. <b>Seasons</b> pair with any season. Remember that. Critical rule: blocked tiles are dead tiles. Left side blocked? Right side blocked? Top covered? Can't touch it.</p>
-
-<h3>Board Layouts &amp; Progression</h3>
-<p>Multiple classic fields unlocked. <b>Turtle</b>. <b>Fort</b>. <b>Crab</b>. <b>Spider</b>. <b>Cat</b>. <b>Dragon</b>. More beyond these six. Each shape changes strategy. Turtle stacks high. Spider spreads wide. Randomized tile positions mean unlimited replays. Same field. Different puzzle. Every. Single. Time.</p>
-
-<h3>Booster Strategy</h3>
-<p>Three power-ups save failed runs. <b>Undo</b> reverses your last move. Made a mistake? Fix it. <b>Hint</b> highlights one available pair. Stuck? Use it. <b>Spotlight</b> dims blocked tiles. Shows only free pieces. Game changer for speed runs. Don't waste boosters early. Save them for endgame crisis moments when the board shrinks.</p>
-
-<h2>Key Features</h2>
-<ul>
-    <li><strong>Solvable Algorithm:</strong> Every generated layout has a solution. No impossible boards.</li>
-    <li><strong>Random Layouts:</strong> Unlimited unique puzzles. Same field shape, different tile arrangement every time.</li>
-    <li><strong>Classic Fields:</strong> 6+ traditional mahjong layouts including Turtle, Fort, Crab, Spider, Cat, Dragon.</li>
-    <li><strong>Three Boosters:</strong> Undo, Hint, Spotlight tools for tactical play.</li>
-    <li><strong>Clean Visuals:</strong> Traditional tile art. Sharp icons. Zero clutter. Focus on the puzzle.</li>
+      <h2>Game Info & Controls</h2>
+      <p>"Mahjong Classic" is a classic mahjong solitaire with a unique algorithm for generating levels - a random layout of chips always has a solution! Each playthrough becomes unique, allowing you to play your favorite fields an unlimited amount of times!
+In the game you will find popular fields: Turtle, Fort, Crab, Spider, Cat, Dragon and many others. This game is provided to PleyZ by GameMonetize.</p>
+      <p><strong>Controls:</strong> The goal of the game is to clear the field of chips. Choose chips with the same symbols to remove them. Special chips "flowers" are considered paired, and "seasons" are paired. A chip can be selected if it is not blocked by other chips.
+If there are no available pairs left on the field, you have lost.
+Boosters will help solve solitaire:
+1) "Undo" - return the last pair.
+2) "Hint" - show a pair.
+3) "Spotlight" - simplify the search of chips available for selection.</p>
       
       <div class="chip-list">
         <span class="chip">puzzle</span>
@@ -146,6 +141,15 @@ In the game you will find popular fields: Turtle, Fort, Crab, Spider, Cat, Drago
            data-full-width-responsive="true"></ins>
       <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </section>
+
+      <section class="info-card related-games" aria-label="Related games">
+        <h2>Games You Might Like</h2>
+        <div class="related-grid"><a class="related-game" href="incoword.html"><img src="https://img.gamemonetize.com/y4wmrpbd3v374mr8z6vtd97bwbo4kc82/512x384.jpg" alt="INCOWORD" loading="lazy" /><span>INCOWORD</span></a>
+        <a class="related-game" href="qolor-2048.html"><img src="https://img.gamemonetize.com/3e4hk4zpotozwuy9ehh5uy0xzeaabp3k/512x384.jpg" alt="Qolor 2048" loading="lazy" /><span>Qolor 2048</span></a>
+        <a class="related-game" href="animerge.html"><img src="https://img.gamemonetize.com/8g5l1zycbzl4d95ho3kztawxu1cjrz0a/512x384.jpg" alt="Animerge" loading="lazy" /><span>Animerge</span></a>
+        <a class="related-game" href="tafl-viking-chess.html"><img src="https://img.gamemonetize.com/9dfjnm3ihlvt9h0yxblmdflszkbanpc2/512x384.jpg" alt="Tafl: viking chess" loading="lazy" /><span>Tafl: viking chess</span></a>
+        <a class="related-game" href="gomoku-five-stones-in-a-row.html"><img src="https://img.gamemonetize.com/slrxe38x6845ol68bkcrtet7yqe728g9/512x384.jpg" alt="Gomoku: five stones in a row" loading="lazy" /><span>Gomoku: five stones in a row</span></a></div>
+      </section>
   </div>
   <script>
     function toggleGameFullscreen(root) {

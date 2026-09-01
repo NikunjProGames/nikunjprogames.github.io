@@ -4,8 +4,8 @@
   <meta name="msvalidate.01" content="094E1ED761D7CE3B597F41F2347CD317" />
   <meta charset="UTF-8" />
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <meta name="keywords" content="pleyz, nikunj pro games, npg, unblocked games, free online games, browser games, html5 games, play games free, free online games, NPG, nikunj pro games, free games online, play games online, free browser games, online gaming, casual games, multiplayer games, arcade games, puzzle games, action games, racing games, sports games, fifa world cup games, sports, games for boys, games for girls, premium games, quick games, neon games, pleyz , PlayZ , PleyZi , PLEYZ, PleuZ, pleyz, playz" />
-  <meta name="description" content="PleyZ Or Nikunj Pro Games offers a vast collection of free online games across various genres. Play action, puzzle, racing, sports, and arcade games directly in your browser with no downloads required. Enjoy hours of fun and entertainment on any device!" />
+ <meta name="keywords" content="pleyz, PleyZ, npg, unblocked games, free online games, browser games, html5 games, play games free, free online games, PleyZ, PleyZ, free games online, play games online, free browser games, online gaming, casual games, multiplayer games, arcade games, puzzle games, action games, racing games, sports games, fifa world cup games, sports, games for boys, games for girls, premium games, quick games, neon games, pleyz , PlayZ , PleyZi , PLEYZ, PleuZ, pleyz, playz" />
+  <meta name="description" content="PleyZ Or PleyZ offers a vast collection of free online games across various genres. Play action, puzzle, racing, sports, and arcade games directly in your browser with no downloads required. Enjoy hours of fun and entertainment on any device!" />
   <title>PleyZ - Games Worth Playing | Play Now! </title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -689,7 +689,7 @@
 
     .games-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
       gap: 1.2rem;
     }
 
@@ -697,7 +697,7 @@
     .game-card {
       background: var(--glass);
       border: 2px solid var(--glass-border);
-      border-radius: 18px;
+      border-radius: 12px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
@@ -705,15 +705,16 @@
       transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
       position: relative;
       cursor: pointer;
-      min-height: 360px;
+      min-height: 0;
       animation: card-in 0.4s ease both;
+      contain: content;
     }
     @keyframes card-in {
       from { opacity: 0; transform: translateY(20px); }
       to   { opacity: 1; transform: translateY(0); }
     }
     .game-card:hover {
-      transform: translateY(-15px) scale(1.12);
+      transform: translateY(-8px) scale(1.04);
       box-shadow: 0 0 22px rgba(139,0,255,0.55), 0 0 46px rgba(0,191,255,0.25);
       border-color: var(--blue-1);
     }
@@ -733,7 +734,8 @@
 
     .game-thumb {
       width: 100%;
-      height: 200px;
+      aspect-ratio: 4 / 3;
+      height: auto;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -910,7 +912,7 @@
       width: 230px;
       background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
       border: 1px solid rgba(0,191,255,0.25);
-      border-radius: 22px;
+      border-radius: 12px;
       overflow: hidden;
       flex-shrink: 0;
       position: relative;
@@ -1002,6 +1004,37 @@
       color: var(--text);
       line-height: 1.3;
     }
+
+    .game-card-actions {
+      display: flex;
+      align-items: center;
+      justify-content: stretch;
+      margin-top: auto;
+    }
+
+    .game-modal-preferences {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin-left: auto;
+      margin-right: 0.75rem;
+    }
+
+    .game-modal-preferences button {
+      width: 34px;
+      height: 34px;
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 7px;
+      background: rgba(255,255,255,0.05);
+      color: var(--text-dim);
+      cursor: pointer;
+    }
+
+    .game-modal-preferences button.active,
+    .game-modal-preferences button:hover {
+      color: var(--blue-1);
+      border-color: var(--blue-1);
+    }
     .trending-players {
       font-size: 0.72rem;
       color: var(--text-dim);
@@ -1029,9 +1062,11 @@
       padding: 5rem 2rem;
       position: relative;
       z-index: 2;
-      max-width: 800px;
+      width: min(100%, 980px);
       margin: 0 auto;
     }
+
+    .leaderboard-table-wrap { overflow-x: auto; }
 
     .leaderboard-table {
       width: 100%;
@@ -1324,9 +1359,18 @@
       .game-card { min-height: 340px; }
     }
     @media (max-width: 768px) {
+      #bg-canvas,
+      #particle-canvas { opacity: 0.45; }
+
+      .game-card,
+      .trending-card { backdrop-filter: none; }
+
       header { padding: 0 0.8rem; height: 58px; }
       #home { padding: 5.5rem 1.2rem 3rem; }
       #games, #trending, #leaderboard, #about, footer { padding: 3rem 1.2rem; }
+      #leaderboard { padding-top: 2.5rem; padding-bottom: 2.5rem; }
+      .leaderboard-table th,
+      .leaderboard-table td { padding: 0.65rem 0.7rem; }
       .ad-wrap { padding: 1rem 1.2rem; }
       .games-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1487,6 +1531,15 @@
       #sidebar { display: none; }
       #main-content { margin-left: 0; }
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
   </style>
  
 </head>
@@ -1504,7 +1557,7 @@
 
 <main id="main-content">
 <!-- =========================
-     NPG Cyber Cursor Trail v2
+     PleyZ Cyber Cursor Trail v2
 ========================== -->
 
 <style>
@@ -1551,7 +1604,7 @@
 <script>
 if (window.matchMedia("(pointer:fine)").matches) {
 
-const TRAIL_LENGTH = 20;
+const TRAIL_LENGTH = 10;
 
 const dots = [];
 
@@ -1683,7 +1736,7 @@ animate();
       </div>
     </div>
 
-    <span id="user-display" style="display:none; margin-right:0.6rem; font-weight:600; color:var(--text);"></span>
+    <button id="user-display" type="button" onclick="openProfileModal()" style="display:none; margin-right:0.6rem; font-weight:600; color:var(--text); background:none; border:0; cursor:pointer;"></button>
     <button class="btn btn-outline" id="auth-action-button" onclick="openLoginModal()">
       <i class="fas fa-user"></i> Login
     </button>
@@ -1852,7 +1905,7 @@ PleyZ is a curated gaming platform built for the next generation of players.** W
 <footer>
   <div class="footer-top" style="max-width:1200px; margin:0 auto;">
     <div class="footer-brand">
-      <div class="logo" style="display:inline-block; font-size:1.1rem;">Nikunj Pro Games - Now PLeyZ</div>
+      <div class="logo" style="display:inline-block; font-size:1.1rem;">PleyZ - Now PLeyZ</div>
       <p class="footer-tagline">Play Free. Play Epic.</p>
     </div>
     <div class="footer-links">
@@ -1878,7 +1931,7 @@ PleyZ is a curated gaming platform built for the next generation of players.** W
 
   </div>
   <div class="footer-bottom">
-    &copy; 2026 Nikunj Pro Games. All Rights Reserved.
+    &copy; 2026 PleyZ. All Rights Reserved.
   </div>
 </footer>
 
@@ -1918,6 +1971,16 @@ PleyZ is a curated gaming platform built for the next generation of players.** W
   </div>
 </div>
 
+<div class="modal-overlay" id="profile-modal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeProfileModal()">&times;</button>
+    <div class="modal-title">Player Profile</div>
+    <div class="modal-subtitle" id="profile-email">Signed-in account</div>
+    <div id="profile-stats" class="trending-copy">Loading your PleyZ profile...</div>
+    <button class="btn btn-primary" style="margin-top:1.2rem; width:100%; justify-content:center;" onclick="closeProfileModal()">Close</button>
+  </div>
+</div>
+
   <!-- PLEYZ SCORE CHECK MODAL -->
   <div class="modal-overlay" id="pleyz-modal">
     <div class="modal-box">
@@ -1944,6 +2007,10 @@ PleyZ is a curated gaming platform built for the next generation of players.** W
   <div class="modal-box game-modal-box">
     <div class="game-modal-header">
       <div class="modal-title" id="game-modal-title">Game Title</div>
+      <div class="game-modal-preferences" aria-label="Game preference">
+        <button type="button" id="modal-like-button" aria-label="Like game" onclick="setModalGamePreference('like')"><i class="fas fa-thumbs-up"></i></button>
+        <button type="button" id="modal-dislike-button" aria-label="Dislike game" onclick="setModalGamePreference('dislike')"><i class="fas fa-thumbs-down"></i></button>
+      </div>
       <button class="modal-close" style="position:relative;top:auto;right:auto;" onclick="closeGameModal()">&times;</button>
     </div>
 
@@ -2042,7 +2109,15 @@ PleyZ is a curated gaming platform built for the next generation of players.** W
     }
   }
 
-  function drawFrame() {
+  let lastFrameTime = 0;
+
+  function drawFrame(timestamp = 0) {
+    if (document.hidden || timestamp - lastFrameTime < 33) {
+      requestAnimationFrame(drawFrame);
+      return;
+    }
+    lastFrameTime = timestamp;
+
     const W = canvas.width;
     const H = canvas.height;
     const horizonY = H * 0.52;
@@ -2195,11 +2270,11 @@ PleyZ is a curated gaming platform built for the next generation of players.** W
   const canvas = document.getElementById('particle-canvas');
   const ctx = canvas.getContext('2d');
   let particles = [];
-  const COUNT = 90;
+  const COUNT = window.matchMedia('(max-width: 768px)').matches ? 35 : 70;
 
   function resize() {
     canvas.width  = window.innerWidth;
-    canvas.height = document.body.scrollHeight || window.innerHeight;
+    canvas.height = window.innerHeight;
   }
 
   function mkParticle() {
@@ -2219,7 +2294,15 @@ PleyZ is a curated gaming platform built for the next generation of players.** W
 
   for (let i = 0; i < COUNT; i++) particles.push(mkParticle());
 
-  function draw() {
+  let lastFrameTime = 0;
+
+  function draw(timestamp = 0) {
+    if (document.hidden || timestamp - lastFrameTime < 33) {
+      requestAnimationFrame(draw);
+      return;
+    }
+    lastFrameTime = timestamp;
+
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     particles.forEach(p => {
@@ -2249,8 +2332,6 @@ PleyZ is a curated gaming platform built for the next generation of players.** W
   }
 
   window.addEventListener('resize', resize);
-  // Resize after layout settles for scroll-height accuracy
-  setTimeout(resize, 200);
   resize();
   draw();
 })();
@@ -2924,6 +3005,67 @@ function getGameCategories(game) {
   if (Array.isArray(game.cats)) return game.cats;
   return game.cat ? [game.cat] : [];
 }
+
+function getPreferenceKey() {
+  const username = getCurrentUser();
+  return username ? `nikunj_game_preferences_${username}` : 'nikunj_game_preferences_guest';
+}
+
+function getGamePreferences() {
+  try {
+    return JSON.parse(localStorage.getItem(getPreferenceKey()) || '{}');
+  } catch (_) {
+    return {};
+  }
+}
+
+function getGamePreference(gameId) {
+  return getGamePreferences()[gameId] || '';
+}
+
+function setGamePreference(event, gameId, preference) {
+  event.stopPropagation();
+  const preferences = getGamePreferences();
+  preferences[gameId] = preferences[gameId] === preference ? '' : preference;
+  localStorage.setItem(getPreferenceKey(), JSON.stringify(preferences));
+  const activeTab = document.querySelector('.filter-tab.active');
+  renderGames(activeTab?.dataset.cat || 'all');
+}
+
+function setModalGamePreference(preference) {
+  if (!currentOpenGame) return;
+  const preferences = getGamePreferences();
+  preferences[currentOpenGame.id] = preferences[currentOpenGame.id] === preference ? '' : preference;
+  localStorage.setItem(getPreferenceKey(), JSON.stringify(preferences));
+  updateModalPreferenceButtons();
+}
+
+function updateModalPreferenceButtons() {
+  const preference = currentOpenGame ? getGamePreference(currentOpenGame.id) : '';
+  document.getElementById('modal-like-button')?.classList.toggle('active', preference === 'like');
+  document.getElementById('modal-dislike-button')?.classList.toggle('active', preference === 'dislike');
+}
+
+function rankGamesForUser(games) {
+  const recent = getRecentGamesForUser(getCurrentUser());
+  const preferences = getGamePreferences();
+  const recentGames = recent.map(item => GAMES.find(game => game.id === item.id)).filter(Boolean);
+  const preferredCategories = new Set(
+    recentGames.flatMap(game => getGameCategories(game))
+  );
+
+  return [...games].sort((a, b) => {
+    const score = game => {
+      const preference = preferences[game.id];
+      if (preference === 'dislike') return -100;
+      if (preference === 'like') return 50;
+      const categoryMatch = getGameCategories(game).some(cat => preferredCategories.has(cat));
+      return categoryMatch ? 10 : 0;
+    };
+    return score(b) - score(a);
+  });
+}
+
 const GAMES_PER_BATCH = 12;
 let currentGameBatch = 0;
 let currentFilteredGames = [];
@@ -2938,7 +3080,7 @@ function renderGames(filter = 'all', reset = true) {
   if (reset) {
     currentGameBatch = 0;
 
-    currentFilteredGames = GAMES.filter(g => {
+    currentFilteredGames = rankGamesForUser(GAMES.filter(g => {
       const categories = getGameCategories(g);
       const matchesCategory =
         filter === 'all' || categories.includes(filter);
@@ -2948,7 +3090,7 @@ function renderGames(filter = 'all', reset = true) {
         g.name.toLowerCase().includes(searchValue);
 
       return matchesCategory && matchesSearch;
-    });
+    }));
 
     grid.innerHTML = '';
 
@@ -2995,11 +3137,11 @@ function renderGames(filter = 'all', reset = true) {
           ${g.cat.toUpperCase()}
         </span>
 
-        <button
-          class="btn-play"
-          onclick="openGame(${g.id})">
-          <i class="fas fa-play"></i> Play Now
-        </button>
+        <div class="game-card-actions">
+          <button class="btn-play" onclick="openGame(${g.id})">
+            <i class="fas fa-play"></i> Play Now
+          </button>
+        </div>
       </div>
     `;
 
@@ -3186,11 +3328,11 @@ function getCurrentUser() {
     const email = window.firebaseAuth.currentUser.email || '';
     return email.split('@')[0];
   }
-  return localStorage.getItem('nikunj_auth_current_user');
+  return null;
 }
 
 function setCurrentUser(username) {
-  localStorage.setItem('nikunj_auth_current_user', username);
+  // Firebase Auth is the source of truth; credentials are never stored locally.
 }
 
 function clearCurrentUser() {
@@ -3258,14 +3400,35 @@ function renderRecentGamesPanel() {
   }
 
   emptyEl.textContent = '';
-  recent.forEach(entry => {
+  const recentIds = new Set(recent.map(entry => entry.id));
+  const recentGames = recent
+    .map(entry => GAMES.find(game => game.id === entry.id))
+    .filter(Boolean);
+  const relatedGames = rankGamesForUser(GAMES.filter(game => {
+    if (recentIds.has(game.id)) return false;
+    return recentGames.some(recentGame =>
+      getGameCategories(game).some(category => getGameCategories(recentGame).includes(category))
+    );
+  })).slice(0, 3);
+
+  const panelGames = [
+    ...recent.slice(0, 2).map(entry => ({ ...entry, label: 'Recently played' })),
+    ...relatedGames.map(game => ({
+      id: game.id,
+      name: game.name,
+      color: game.color || '#8B00FF',
+      label: 'Recommended for you'
+    }))
+  ];
+
+  panelGames.forEach(entry => {
     const item = document.createElement('button');
     item.type = 'button';
     item.className = 'recent-game-item';
     item.onclick = () => { openGame(entry.id); toggleRecentPanel(false); };
     item.innerHTML = `
       <div class="recent-game-thumb" style="background:${entry.color};">${entry.name.split(' ').map(s => s[0]).slice(0, 2).join('').toUpperCase()}</div>
-      <div class="recent-game-meta"><strong>${entry.name}</strong><small>Tap to play again</small></div>
+      <div class="recent-game-meta"><strong>${entry.name}</strong><small>${entry.label}</small></div>
     `;
     listEl.appendChild(item);
   });
@@ -3317,6 +3480,31 @@ function updateAuthUI() {
   renderRecentGamesPanel();
 }
 
+async function openProfileModal() {
+  const modal = document.getElementById('profile-modal');
+  const stats = document.getElementById('profile-stats');
+  const email = document.getElementById('profile-email');
+  const user = window.firebaseAuth?.currentUser;
+  if (!modal || !stats || !user) return;
+
+  modal.classList.add('open');
+  email.textContent = user.email || 'Signed-in account';
+  stats.textContent = 'Loading your PleyZ profile...';
+
+  try {
+    const { doc, getDoc } = await import('https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js');
+    const snapshot = await getDoc(doc(window.firebaseDb, 'users', user.uid));
+    const data = snapshot.exists() ? snapshot.data() : {};
+    stats.textContent = `PleyZ score: ${Number(data.pleyzScore || 0).toLocaleString()} | Games played: ${Number(data.gamesPlayed || 0).toLocaleString()} | Email verified: ${user.emailVerified ? 'Yes' : 'No'}`;
+  } catch (_) {
+    stats.textContent = 'Profile details are temporarily unavailable.';
+  }
+}
+
+function closeProfileModal() {
+  document.getElementById('profile-modal')?.classList.remove('open');
+}
+
 async function handleLogout() {
   if (window.firebaseLogout) {
     try {
@@ -3324,9 +3512,8 @@ async function handleLogout() {
     } catch (err) {
       console.warn('Logout failed', err);
     }
-  } else {
-    clearCurrentUser();
   }
+  clearCurrentUser();
   updateAuthUI();
 }
 
@@ -3357,6 +3544,34 @@ async function handleAuthSubmit() {
   }
 }
 
+async function waitForFirebaseAuth(timeout = 8000) {
+  const startedAt = Date.now();
+  while (!window.firebaseLogin && Date.now() - startedAt < timeout) {
+    if (window.firebaseAuthReady) {
+      try {
+        await Promise.race([
+          window.firebaseAuthReady,
+          new Promise(resolve => setTimeout(resolve, 250))
+        ]);
+      } catch (_) {
+        return false;
+      }
+    } else {
+      await new Promise(resolve => setTimeout(resolve, 100));
+    }
+  }
+  return Boolean(window.firebaseLogin);
+}
+
+function getAuthErrorMessage(error, action) {
+  if (error?.code === 'auth/configuration-not-found') {
+    return 'Email sign-in is not enabled yet. Enable Email/Password in Firebase Authentication settings.';
+  }
+  if (error?.code === 'auth/invalid-credential') return 'Incorrect email or password.';
+  if (error?.code === 'auth/email-already-in-use') return 'That email is already registered.';
+  return error?.message || `Unable to ${action}. Please try again.`;
+}
+
 async function handleLogin() {
   const username = document.getElementById('auth-username').value.trim();
   const password = document.getElementById('auth-password').value;
@@ -3364,30 +3579,17 @@ async function handleLogin() {
   errorEl.textContent = '';
   if (!username) { errorEl.textContent = 'Email is required.'; return; }
   if (!password) { errorEl.textContent = 'Password is required.'; return; }
-  if (window.firebaseLogin) {
-    try {
-      await window.firebaseLogin(username, password);
-      updateAuthUI();
-      closeLoginModal();
-      return;
-    } catch (err) {
-      // If Firebase Email/Password not configured, fall back to local accounts
-      if (err && err.code === 'auth/configuration-not-found') {
-        console.warn('Firebase auth not configured; falling back to local auth');
-        errorEl.textContent = 'Firebase Email/Password not enabled — using local accounts.';
-      } else {
-        errorEl.textContent = err.message || 'Unable to sign in. Please check your credentials.';
-        return;
-      }
-    }
+  if (!(await waitForFirebaseAuth()) || !window.firebaseLogin) {
+    errorEl.textContent = 'Authentication is still loading. Please try again.';
+    return;
   }
-  const accounts = getStoredAccounts();
-  if (!accounts[username]) { errorEl.textContent = 'No account found with that email.'; return; }
-  const passwordHash = await hashPassword(password);
-  if (accounts[username] !== passwordHash) { errorEl.textContent = 'Incorrect password. Try again.'; return; }
-  setCurrentUser(username);
-  updateAuthUI();
-  closeLoginModal();
+  try {
+    await window.firebaseLogin(username, password);
+    updateAuthUI();
+    closeLoginModal();
+  } catch (err) {
+    errorEl.textContent = getAuthErrorMessage(err, 'sign in');
+  }
 }
 
 async function handleSignup() {
@@ -3400,31 +3602,17 @@ async function handleSignup() {
   if (!password) { errorEl.textContent = 'Password is required.'; return; }
   if (password.length < 6) { errorEl.textContent = 'Password must be at least 6 characters.'; return; }
   if (password !== confirmPassword) { errorEl.textContent = 'Passwords do not match.'; return; }
-  if (window.firebaseSignup) {
-    try {
-      await window.firebaseSignup(username, password);
-      updateAuthUI();
-      closeLoginModal();
-      return;
-    } catch (err) {
-      // If Firebase not configured for Email/Password, fall back to local storage method
-      if (err && err.code === 'auth/configuration-not-found') {
-        console.warn('Firebase signup not configured; falling back to local signup');
-        errorEl.textContent = 'Firebase Email/Password not enabled — creating a local account instead.';
-      } else {
-        errorEl.textContent = err.message || 'Unable to create account. Please try again.';
-        return;
-      }
-    }
+  if (!(await waitForFirebaseAuth()) || !window.firebaseSignup) {
+    errorEl.textContent = 'Authentication is still loading. Please try again.';
+    return;
   }
-  const accounts = getStoredAccounts();
-  if (accounts[username]) { errorEl.textContent = 'That email is already registered.'; return; }
-  const passwordHash = await hashPassword(password);
-  accounts[username] = passwordHash;
-  setStoredAccounts(accounts);
-  setCurrentUser(username);
-  updateAuthUI();
-  closeLoginModal();
+  try {
+    await window.firebaseSignup(username, password);
+    updateAuthUI();
+    closeLoginModal();
+  } catch (err) {
+    errorEl.textContent = getAuthErrorMessage(err, 'create your account');
+  }
 }
 
 setAuthMode('login');
@@ -3436,6 +3624,7 @@ updateAuthUI();
 let gameLoop = null;
 let gameState = {};
 let gameLoadTimer = null;
+let pleyzSessionTimer = null;
 let currentOpenGame = null; // Track the current game for fullscreen redirect
 
 function showGameFrame() {
@@ -3448,11 +3637,15 @@ function openGame(id) {
   if (!game) return;
 
   currentOpenGame = game; // Store the current game for fullscreen redirect
+  updateModalPreferenceButtons();
 
   saveRecentGame(game.id);
-  if (window.firebaseOnGameOpened) {
-    window.firebaseOnGameOpened().catch(err => console.warn('PleyZ score update failed', err));
-  }
+  if (pleyzSessionTimer) clearTimeout(pleyzSessionTimer);
+  pleyzSessionTimer = setTimeout(() => {
+    if (window.firebaseAuth?.currentUser && window.firebaseOnGameOpened) {
+      window.firebaseOnGameOpened().catch(err => console.warn('PleyZ score update failed', err));
+    }
+  }, 300000);
   document.getElementById('game-modal-title').textContent = game.name;
   const iframe = document.getElementById('game-frame');
   document.getElementById('game-modal').classList.add('open');
@@ -3477,6 +3670,10 @@ function requestGameFullscreen() {
 
 function closeGameModal() {
   document.getElementById('game-modal').classList.remove('open');
+  if (pleyzSessionTimer) {
+    clearTimeout(pleyzSessionTimer);
+    pleyzSessionTimer = null;
+  }
   if (gameLoadTimer) {
     clearTimeout(gameLoadTimer);
     gameLoadTimer = null;
@@ -3846,7 +4043,6 @@ try {
 <script type="module">
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-analytics.js";
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -3864,9 +4060,9 @@ try {
 
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-  // Lazy-load Auth + Firestore helpers (optional: if you want auth/leaderboard)
-  import("https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js").then(m => {
+  // Auth is required for cross-device accounts. Keep optional services out of
+  // this startup path so an Analytics or Firestore issue cannot block sign-in.
+  window.firebaseAuthReady = import("https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js").then(m => {
     const { getAuth, onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } = m;
     const auth = getAuth(app);
     window.firebaseAuth = auth;
@@ -3878,15 +4074,19 @@ try {
     window.firebaseSignup = async (email, password) => {
       const cred = await createUserWithEmailAndPassword(auth, email, password);
       // create user document in Firestore when created
-      await window.firebaseEnsureUserDoc(cred.user);
+      if (window.firebaseEnsureUserDoc) {
+        await window.firebaseEnsureUserDoc(cred.user);
+      }
       return cred.user;
     };
     window.firebaseLogout = async () => await signOut(auth);
 
-    onAuthStateChanged(auth, user => {
-      updateAuthUI();
-    });
-  }).catch(() => {});
+    onAuthStateChanged(auth, () => updateAuthUI());
+    return true;
+  }).catch(error => {
+    console.warn('Firebase Auth unavailable:', error);
+    return false;
+  });
 
   import("https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js").then(m => {
     const { getFirestore, doc, setDoc, updateDoc, serverTimestamp, collection, query, orderBy, limit, getDocs, increment, getDoc } = m;
@@ -4176,7 +4376,8 @@ setTimeout(() => {
   try {
     openPleyzModal();
   } catch (e) {}
-}, 1000);
+}, 300000);
+});
 </script>
 </body>
 </html>
