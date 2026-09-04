@@ -5,8 +5,27 @@
   <meta charset="UTF-8" />
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <meta name="keywords" content="pleyz, PleyZ, npg, unblocked games, free online games, browser games, html5 games, play games free, free online games, PleyZ, PleyZ, free games online, play games online, free browser games, online gaming, casual games, multiplayer games, arcade games, puzzle games, action games, racing games, sports games, fifa world cup games, sports, games for boys, games for girls, premium games, quick games, neon games, pleyz , PlayZ , PleyZi , PLEYZ, PleuZ, pleyz, playz" />
-  <meta name="description" content="PleyZ Or PleyZ offers a vast collection of free online games across various genres. Play action, puzzle, racing, sports, and arcade games directly in your browser with no downloads required. Enjoy hours of fun and entertainment on any device!" />
-  <title>PleyZ - Games Worth Playing | Play Now! </title>
+  <meta name="description" content="Play free online games on PleyZ, including action, puzzle, racing, sports, arcade, and multiplayer games that run directly in your browser." />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <link rel="canonical" href="https://nikunjprogames.github.io/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="PleyZ Games | Games Worth Playing" />
+  <meta property="og:description" content="Play free online browser games across action, puzzle, racing, sports, arcade, and multiplayer categories on PleyZ." />
+  <meta property="og:url" content="https://nikunjprogames.github.io/" />
+  <meta property="og:site_name" content="PleyZ Games" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="PleyZ Games | Games Worth Playing" />
+  <meta name="twitter:description" content="Play free online browser games across action, puzzle, racing, sports, arcade, and multiplayer categories on PleyZ." />
+  <title>PleyZ Games | Games Worth Playing</title>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "PleyZ Games",
+      "url": "https://nikunjprogames.github.io/",
+      "description": "Free online browser games across action, puzzle, racing, sports, arcade, and multiplayer categories."
+    }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet" />
@@ -346,6 +365,28 @@
       display: none;
     }
 
+    #profile-avatar-button {
+      display: none;
+      width: 38px;
+      height: 38px;
+      padding: 0;
+      border: 1px solid rgba(0,191,255,0.55);
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--purple-1), var(--blue-2));
+      color: #fff;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      cursor: pointer;
+      overflow: hidden;
+      box-shadow: 0 0 12px rgba(0,191,255,0.35);
+    }
+    #profile-avatar-button img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
     /* Hamburger */
     .hamburger {
       display: none;
@@ -384,7 +425,9 @@
       }
       #home { padding: 5.8rem 1.5rem 3rem; }
       .nav-actions {
-        display: none;
+        display: flex;
+        justify-self: end;
+        gap: 0.45rem;
       }
       .logo {
         position: relative;
@@ -1112,6 +1155,34 @@
       display: block;
       background: #000;
     }
+    .recommendation-featured-content {
+      min-height: 340px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      gap: 0.8rem;
+      padding: 1.5rem;
+      background-position: center;
+      background-size: cover;
+      position: relative;
+    }
+    .recommendation-featured-content::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(5,7,18,0.05), rgba(5,7,18,0.92));
+    }
+    .recommendation-featured-content > * { position: relative; z-index: 1; }
+    .recommendation-featured-content h3 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(1.1rem, 2.5vw, 1.7rem);
+      color: #fff;
+    }
+    .recommendation-featured-content p {
+      color: rgba(255,255,255,0.78);
+      max-width: 520px;
+    }
     .recommendation-side {
       display: grid;
       gap: 0.75rem;
@@ -1162,7 +1233,8 @@
         grid-template-columns: 1fr;
       }
       .recommendation-featured,
-      .recommendation-featured iframe {
+      .recommendation-featured iframe,
+      .recommendation-featured-content {
         min-height: 260px;
       }
     }
@@ -1848,6 +1920,7 @@ animate();
     </div>
 
     <button id="user-display" type="button" onclick="openProfileModal()" style="display:none; margin-right:0.6rem; font-weight:600; color:var(--text); background:none; border:0; cursor:pointer;"></button>
+    <button id="profile-avatar-button" type="button" onclick="openPleyzModal(true)" aria-label="Open my PleyZ score and leaderboard" title="PleyZ score and leaderboard"></button>
     <button class="btn btn-outline" id="auth-action-button" onclick="openLoginModal()">
       <i class="fas fa-user"></i> Login
     </button>
@@ -1899,7 +1972,7 @@ animate();
   <div class="trending-intro">
     <div>
       <div class="section-pill"><i class="fas fa-fire"></i> Trending picks</div>
-      <div class="section-title"><center>Hot right now</center></div>
+      <div class="section-title">Hot right now</div>
       <div class="section-underline"></div>
       <p class="trending-copy">The games everyone is jumping into first, styled with a more premium experience and packed with instant-play energy.</p>
     </div>
@@ -1907,9 +1980,7 @@ animate();
   </div>
 
   <div class="recommendation-shell" id="recommended-shell">
-    <div class="recommendation-featured">
-      <iframe id="recommended-featured-frame" title="Recommended game preview" loading="lazy" allowfullscreen></iframe>
-    </div>
+    <div class="recommendation-featured" id="recommended-featured-frame" aria-label="Featured game"></div>
     <div class="recommendation-side" id="recommended-side"></div>
   </div>
 
@@ -2195,6 +2266,7 @@ PleyZ is a curated gaming platform built for the next generation of players.** W
     <div class="modal-title">Player Profile</div>
     <div class="modal-subtitle" id="profile-email">Signed-in account</div>
     <div id="profile-stats" class="trending-copy">Loading your PleyZ profile...</div>
+    <a href="about-us.html" class="form-note" style="display:inline-block; margin-top:0.8rem; color:var(--blue-1); text-decoration:underline;">Learn more about PleyZ Score</a>
     <button class="btn btn-primary" style="margin-top:1.2rem; width:100%; justify-content:center;" onclick="closeProfileModal()">Close</button>
   </div>
 </div>
@@ -2212,6 +2284,7 @@ PleyZ is a curated gaming platform built for the next generation of players.** W
       <div id="pleyz-result" style="margin-top:1rem; font-weight:600;"></div>
       <div style="margin-top:1rem; display:flex; gap:0.6rem; align-items:center; flex-wrap:wrap;">
         <button class="btn btn-primary" onclick="sharePleyzScore()" style="justify-content:center;">Share my score</button>
+        <a class="btn btn-outline" href="#leaderboard" onclick="closePleyzModal()" style="justify-content:center;">View leaderboard</a>
         <label style="font-size:0.9rem; color:var(--text-dim)"><input type="checkbox" id="pleyz-dont-show" /> Don't show again</label>
         <div style="flex:1"></div>
         <button class="btn btn-primary" onclick="closePleyzModal(true)">Close</button>
@@ -3185,17 +3258,12 @@ const TRENDING = [
   { id:41, name:'DNA Evolution 3D', color:'#22C55E', gradient:'linear-gradient(135deg,#062b1d,#22c55e)', players:'13.4K' },
 ];
 
-const LEADERBOARD = [
+const SEEDED_LEADERBOARD = [
   { rank:1,  name:'ProGamer_X',    score:98450, games:342 },
   { rank:2,  name:'NeonBlaster99', score:87230, games:289 },
   { rank:3,  name:'CyberNinja',    score:79100, games:301 },
   { rank:4,  name:'StarHunter',    score:65540, games:198 },
-  { rank:5,  name:'VoltStrike',    score:58320, games:241 },
-  { rank:6,  name:'PixelKnight',   score:49870, games:176 },
-  { rank:7,  name:'DarkPulse',     score:43210, games:155 },
-  { rank:8,  name:'NebulaDrift',   score:37650, games:130 },
-  { rank:9,  name:'GridRunner',    score:29980, games:104 },
-  { rank:10, name:'LightSpeed_Z',  score:21450, games:87  },
+  { rank:5,  name:'VoltStrike',    score:58320, games:241 }
 ];
 
 function createGameIconUrl(game) {
@@ -3482,8 +3550,14 @@ function renderRecommendedGames() {
   const sideGames = [95, 6, 9, 30, 1].map(id => GAMES.find(game => game.id === id)).filter(Boolean);
 
   if (primaryGame) {
-    const frameSrc = primaryGame.iframeUrl && primaryGame.iframeUrl.trim() ? primaryGame.iframeUrl : createGameFrameUrl(primaryGame);
-    featuredFrame.src = frameSrc;
+    const imageUrl = (primaryGame.imageUrl || '').trim() || createGameIconUrl(primaryGame);
+    featuredFrame.innerHTML = `
+      <div class="recommendation-featured-content" style="background-image:url('${imageUrl.replace(/'/g, '%27')}');">
+        <h3>${primaryGame.name}</h3>
+        <p>Jump into a featured PleyZ game directly from its dedicated game page.</p>
+        <button class="btn btn-primary" type="button" data-featured-game="${primaryGame.id}" style="width:fit-content;">Play featured game</button>
+      </div>`;
+    featuredFrame.querySelector('[data-featured-game]')?.addEventListener('click', () => openGame(primaryGame.id));
   }
 
   side.innerHTML = sideGames.map(game => `
@@ -3552,7 +3626,7 @@ async function renderLeaderboard() {
   }
 
   tbody.innerHTML = '';
-  LEADERBOARD.forEach(p => {
+  SEEDED_LEADERBOARD.forEach(p => {
     const tr = document.createElement('tr');
     if (p.rank <= 3) tr.className = `rank-${p.rank}`;
     const icon = p.rank === 1 ? '<i class="fas fa-trophy"></i>' : p.rank === 2 ? '<i class="fas fa-medal"></i>' : p.rank === 3 ? '<i class="fas fa-award"></i>' : `#${p.rank}`;
@@ -3675,7 +3749,7 @@ function setCurrentUser(username) {
 }
 
 function clearCurrentUser() {
-  localStorage.removeItem('nikunj_auth_current_user');
+  localStorage.removeItem('nikunj_current_username');
 }
 
 function getRecentGamesForUser(username) {
@@ -3799,11 +3873,20 @@ document.addEventListener('click', event => {
 function updateAuthUI() {
   const username = getCurrentUser();
   const userDisplay = document.getElementById('user-display');
+  const avatarButton = document.getElementById('profile-avatar-button');
   const authButton = document.getElementById('auth-action-button');
 
   if (username) {
     userDisplay.textContent = `Welcome, ${username}`;
     userDisplay.style.display = 'inline-block';
+    if (avatarButton) {
+      const photoUrl = window.firebaseAuth?.currentUser?.photoURL;
+      avatarButton.innerHTML = photoUrl
+        ? `<img src="${photoUrl}" alt="" />`
+        : username.slice(0, 2).toUpperCase();
+      avatarButton.style.display = 'inline-grid';
+      avatarButton.style.placeItems = 'center';
+    }
     authButton.innerHTML = '<i class="fas fa-sign-out-alt"></i> Logout';
     authButton.classList.remove('btn-outline');
     authButton.classList.add('btn-primary');
@@ -3811,6 +3894,10 @@ function updateAuthUI() {
   } else {
     userDisplay.textContent = '';
     userDisplay.style.display = 'none';
+    if (avatarButton) {
+      avatarButton.innerHTML = '';
+      avatarButton.style.display = 'none';
+    }
     authButton.innerHTML = '<i class="fas fa-user"></i> Login';
     authButton.classList.remove('btn-primary');
     authButton.classList.add('btn-outline');
@@ -3985,12 +4072,9 @@ function openGame(id) {
   updateModalPreferenceButtons();
 
   saveRecentGame(game.id);
-  if (pleyzSessionTimer) clearTimeout(pleyzSessionTimer);
-  pleyzSessionTimer = setTimeout(() => {
-    if (window.firebaseAuth?.currentUser && window.firebaseOnGameOpened) {
-      window.firebaseOnGameOpened().catch(err => console.warn('PleyZ score update failed', err));
-    }
-  }, 300000);
+  if (window.firebaseAuth?.currentUser && window.firebaseOnGameOpened) {
+    window.firebaseOnGameOpened().catch(err => console.warn('PleyZ score update failed', err));
+  }
   document.getElementById('game-modal-title').textContent = game.name;
   const iframe = document.getElementById('game-frame');
   document.getElementById('game-modal').classList.add('open');
@@ -4002,7 +4086,7 @@ function openGame(id) {
   iframe.onload = showGameFrame;
   iframe.src = createGameFrameUrl(game);
 
-  document.getElementById('game-instructions').textContent = 'Click the fullscreen button to play in a separate tab if fullscreen is blocked.';
+  document.getElementById('game-instructions').textContent = 'Click Fullscreen to play in a separate tab for the best performance!';
   gameLoadTimer = setTimeout(showGameFrame, 2500);
 }
 
@@ -4488,7 +4572,7 @@ window.firebaseFetchLeaderboard = async () => {
   tbody.innerHTML =
     '<tr><td colspan="4" style="text-align:center; padding:1.5rem; color:var(--text-dim);">Loading leaderboard...</td></tr>';
 
-  const fakeRows = [
+  const seededRows = [
     { name: 'ProGamer_X', score: 98450, games: 342 },
     { name: 'NeonBlaster99', score: 87230, games: 289 },
     { name: 'CyberNinja', score: 79100, games: 301 },
@@ -4527,7 +4611,7 @@ window.firebaseFetchLeaderboard = async () => {
     tbody.innerHTML = '';
 
     const seenNames = new Set();
-    fakeRows.forEach((player, index) => {
+    seededRows.forEach((player, index) => {
       const rank = index + 1;
       const name = player.name;
       seenNames.add(String(name).trim().toLowerCase());
@@ -4550,7 +4634,7 @@ window.firebaseFetchLeaderboard = async () => {
     });
 
     realEntries.forEach((player, index) => {
-      tbody.appendChild(buildRow(fakeRows.length + index + 1, player.name, player.score, player.games));
+      tbody.appendChild(buildRow(seededRows.length + index + 1, player.name, player.score, player.games));
     });
 
     const auth = window.firebaseAuth;
@@ -4577,11 +4661,13 @@ window.firebaseFetchLeaderboard = async () => {
   }
 };
 
+renderLeaderboard();
+
 // PleyZ modal helpers
-window.openPleyzModal = async function() {
+window.openPleyzModal = async function(forceOpen = false) {
   const shown = localStorage.getItem('nikunj_pleyz_seen');
 
-  if (shown === 'true') return;
+  if (shown === 'true' && !forceOpen) return;
 
   const modal = document.getElementById('pleyz-modal');
 
@@ -4749,18 +4835,21 @@ window.lookupPleyz = async function() {
 
 window.sharePleyzScore = async function() {
   const username = getCurrentUser() || 'Player';
-  const score = (() => {
-    if (window.firebaseAuth && window.firebaseAuth.currentUser && window.firebaseDb) {
-      const currentUser = window.firebaseAuth.currentUser;
-      const key = `nikunj_pleyz_${username}`;
-      const localValue = Number(localStorage.getItem(key) || '0');
-      if (localValue > 0) return localValue;
-      return Number(currentUser?.pleyzScore || 0);
-    }
-    return Number(localStorage.getItem(`nikunj_pleyz_${username}`) || '0');
-  })();
+  let score = Number(localStorage.getItem(`nikunj_pleyz_${username}`) || '0');
 
-  const shareText = `PleyZ Games — the future of games. Here’s my score: ${username} has ${Number(score).toLocaleString()} PleyZ. I’m flaunting my score and challenging you to beat me! #PleyZ #FutureOfGames`;
+  if (window.firebaseAuth?.currentUser && window.firebaseDb) {
+    try {
+      const { doc, getDoc } = await import('https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js');
+      const snapshot = await getDoc(doc(window.firebaseDb, 'users', window.firebaseAuth.currentUser.uid));
+      if (snapshot.exists()) {
+        score = Number(snapshot.data().pleyzScore || 0);
+      }
+    } catch (_) {
+      // Keep the local score if Firestore is temporarily unavailable.
+    }
+  }
+
+  const shareText = `I have gained a PleyZ score of ${score.toLocaleString()} by playing on PleyZ Games, which is the future of games. Join me at ${window.location.origin} and discover games worth playing! #PleyZ`;
 
   try {
     if (navigator.share) {
