@@ -694,5 +694,17 @@ const NEW_GAMES = [
     iframeUrl: "mahjong-classic.html",
     fullscreen: true,
     videoUrl: ""
+  },
+  {
+    id: 102,
+    name: "Numicolor",
+    cat: "puzzle",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/numicolor/big-preview/ad1c290e65cb4e1b8a747cb2b51de044?width=448",
+    iframeUrl: "numicolor.html",
+    fullscreen: true,
+    videoUrl: ""
   }
 ];

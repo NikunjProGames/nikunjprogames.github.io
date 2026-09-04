@@ -1,0 +1,60 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "123250",
+          "slug": "numicolor",
+          "title": "Numicolor",
+          "description": "Discover a creative way to relax. Coloring by number helps you focus and switch off from daily worries. Many find it an excellent tool for stress relief and finding harmony.\n\nKey features:\n\nGrowing image collection: Dive into popular categories like peaceful nature, stylish anime, fashion, and charming animals. Our collection is regularly updated with new works!\n\nFlexible filter system: Find the perfect image quickly and easily. Use detailed filters by theme and difficulty to choose a coloring page for any mood.\n\nVariety of game modes: Tired of the classic mode? Try the unique \"Reveal\" and \"Mystery\" modes to add a touch of intrigue to your coloring process.\n\nFor the whole family: The perfect app for adults looking to relax and for kids developing attention and creative skills.",
+          "howToPlayText": "Choose a color from the palette.\n\nTap on the highlighted areas whose number corresponds to the selected color.\n\nUse a hint to find an uncolored detail ",
+          "gameURL": "https://numicolor.com/export?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/numicolor",
+          "genres": [
+            "puzzle",
+            "color"
+          ],
+          "tags": [
+            "relaxing-games",
+            "addictive-games",
+            "art-games",
+            "children-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/numicolor/big-preview/ad1c290e65cb4e1b8a747cb2b51de044?width=448",
+            "https://static.playgama.com/p-img/pg/icon/76ef8306f96643c884fda16013407c30?width=448"
+          ],
+          "videos": [],
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/numicolor/big-preview/ad1c290e65cb4e1b8a747cb2b51de044?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/icon/76ef8306f96643c884fda16013407c30?width=448",
+          "inGamePurchases": "Yes",
+          "screenOrientation": {
+            "horizontal": false,
+            "vertical": true
+          },
+          "supportedLanguages": [
+            "en-US",
+            "de-DE",
+            "es-ES",
+            "ja-JP",
+            "ru-RU"
+          ],
+          "embed": "<iframe src='https://numicolor.com/export?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

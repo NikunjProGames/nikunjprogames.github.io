@@ -694,5 +694,17 @@
     "thumb": "https://static.playgama.com/p-img/pg/mahjong-classic/big-preview/730f65084d864a9baffefa86e110b106?width=448",
     "width": "800",
     "height": "450"
+  },
+  {
+    "id": "123250",
+    "title": "Numicolor",
+    "description": "Discover a creative way to relax. Coloring by number helps you focus and switch off from daily worries. Many find it an excellent tool for stress relief and finding harmony.\n\nKey features:\n\nGrowing image collection: Dive into popular categories like peaceful nature, stylish anime, fashion, and charming animals. Our collection is regularly updated with new works!\n\nFlexible filter system: Find the perfect image quickly and easily. Use detailed filters by theme and difficulty to choose a coloring page for any mood.\n\nVariety of game modes: Tired of the classic mode? Try the unique \"Reveal\" and \"Mystery\" modes to add a touch of intrigue to your coloring process.\n\nFor the whole family: The perfect app for adults looking to relax and for kids developing attention and creative skills.",
+    "instructions": "Choose a color from the palette.\n\nTap on the highlighted areas whose number corresponds to the selected color.\n\nUse a hint to find an uncolored detail ",
+    "url": "https://numicolor.com/export?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+    "category": "Puzzle",
+    "tags": "puzzle, color, relaxing-games, addictive-games, art-games, children-games",
+    "thumb": "https://static.playgama.com/p-img/pg/numicolor/big-preview/ad1c290e65cb4e1b8a747cb2b51de044?width=448",
+    "width": "800",
+    "height": "450"
   }
 ]
