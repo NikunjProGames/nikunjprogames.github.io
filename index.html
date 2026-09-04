@@ -500,8 +500,12 @@
       nav.open a:hover {
         background: rgba(0,191,255,0.18);
       }
-      .recent-toggle .desktop-label { display: none; }
-      .recent-toggle .mobile-icon { display: inline-block; }
+      .recent-toggle {
+        padding: 0.55rem 1rem;
+        font-size: 0.75rem;
+        gap: 4px;
+      }
+      .recent-toggle .desktop-label { display: inline-flex; align-items: center; gap: 4px; }
       .recent-panel {
         position: fixed;
         top: 60px;
@@ -525,6 +529,10 @@
         font-size: 0.7rem;
         gap: 4px;
       }
+      .recent-toggle {
+        padding: 0.5rem 0.9rem;
+        font-size: 0.7rem;
+      }
       .recent-games-wrapper { display: none; }
       .logo { font-size: 0.95rem; }
     }
@@ -542,6 +550,10 @@
         padding: 0.45rem 0.8rem;
         font-size: 0.65rem;
         gap: 3px;
+      }
+      .recent-toggle {
+        padding: 0.45rem 0.8rem;
+        font-size: 0.65rem;
       }
       #user-display { max-width: 6.5rem; font-size: 0.65rem; }
       .hamburger span { width: 18px; height: 2px; }
@@ -1915,7 +1927,6 @@ animate();
     <div class="recent-games-wrapper">
       <button class="btn btn-outline recent-toggle" id="recent-toggle-button" onclick="toggleRecentPanel()" aria-expanded="false">
         <span class="desktop-label"><i class="fas fa-history"></i> Recent</span>
-        <span class="mobile-icon"><i class="fas fa-bars"></i></span>
       </button>
       <div class="recent-panel" id="recent-panel" data-open="false">
         <div class="recent-panel-header">
@@ -1959,9 +1970,7 @@ animate();
     <a href="#games" class="btn btn-primary mb-2 mb-sm-0" style="font-size:0.85rem; padding: 0.8rem 2.2rem;">
         <i class="fas fa-gamepad"></i> Explore Games
     </a>
-    <button class="btn btn-primary" onclick="openLoginModal()" style="font-size:0.85rem; padding:0.8rem 2.2rem;">
-        Sign In
-    </button>
+
 </div>
   </div>
 </section>
