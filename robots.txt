@@ -1,0 +1,19 @@
+
+User-agent: *
+Disallow: /admin/
+Disallow: /cart/
+Disallow: /checkout/
+Disallow: /private/
+
+Optimization (GEO)
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+# Link to your XML Sitemap
+Sitemap: https://nikunjprogames.github.io/sitemap.xml
