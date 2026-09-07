@@ -706,5 +706,17 @@
     "thumb": "https://static.playgama.com/p-img/pg/numicolor/big-preview/ad1c290e65cb4e1b8a747cb2b51de044?width=448",
     "width": "800",
     "height": "450"
+  },
+  {
+    "id": "114034",
+    "title": "Basketball Stars",
+    "description": "Basketball Stars is a cool 2-player basketball game by MadPuffers. Prepared for the 2025 basketball season. Choose your team and enter a challenging tournament. Control your player to perform awesome dunks and 3-pointers to win the game. Feel free to block and slap your opponent to knock him out and get the ball, and pay attention to the supershot bar on the top of the screen. Once fully loaded, you can use the hot special dunk from wherever you stand; it never fails. Be the best player!",
+    "instructions": "1 player controls\nWASD or arrow keys to move\nX/L to shoot/steal\nS to pump/block\nA+A or D+D or left/right arrow twice to dash\nK/Z to super shot\n\n2 player controls\nTo move, player 1 use the WASD keys and player 2 use arrow keys\nTo shoot/steal, player 1 use B and player 2 use L\nTo pump, player 1 use S and player 2 use down arrow\nTo dash, player 1 use A/D twice and player 2 use left/right arrow twice\nK to super shot",
+    "url": "https://playgama.com/export/game/basketball-stars?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+    "category": "Arcade",
+    "tags": "arcade, sports, two-player, popular, basketball, pvp, reaction-games, iphone-games, casual-games, competitive-games, desktop-games, 1-player-games, timing-games, dunking-games, android-games, 2-player-basketball, 2-player-arcade",
+    "thumb": "https://static.playgama.com/p-img/pg/basketball-stars/big_preview/2e0653c710ad43e09c40d1ba5968e447?width=448",
+    "width": "800",
+    "height": "450"
   }
 ]

@@ -706,5 +706,17 @@ const NEW_GAMES = [
     iframeUrl: "numicolor.html",
     fullscreen: true,
     videoUrl: ""
+  },
+  {
+    id: 103,
+    name: "Basketball Stars",
+    cat: "arcade",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/basketball-stars/big_preview/2e0653c710ad43e09c40d1ba5968e447?width=448",
+    iframeUrl: "basketball-stars.html",
+    fullscreen: true,
+    videoUrl: ""
   }
 ];
