@@ -545,7 +545,7 @@
       }
       #home { padding: 5.3rem 1rem 2.8rem; }
       nav.open { inset: 56px 0 0 0; top: 56px; }
-      .logo { font-size: 0.9rem; }
+      .logo { font-size: 1.1rem; }
       #auth-action-button {
         padding: 0.45rem 0.8rem;
         font-size: 0.65rem;
@@ -1403,6 +1403,11 @@
     }
     .modal-overlay.open .modal-box { transform: scale(1); }
 
+    .auth-modal-box {
+      max-height: calc(100vh - 2rem);
+      overflow-y: auto;
+    }
+
     .modal-close {
       position: absolute;
       top: 1rem; right: 1.2rem;
@@ -1608,6 +1613,15 @@
         font-size: 0.58rem;
       }
       .game-modal-box { width: min(92vw, 95vw); padding: 1.2rem; }
+      .auth-modal-box {
+        width: min(92vw, 420px);
+        padding: 1.35rem;
+      }
+      .auth-modal-box .modal-subtitle { margin-bottom: 1rem; line-height: 1.25; }
+      .auth-modal-box .auth-toggle { margin-bottom: 1rem; }
+      .auth-modal-box .form-group { gap: 0.25rem; margin-bottom: 0.75rem; }
+      .auth-modal-box .form-note { margin-bottom: 0.85rem; line-height: 1.25; }
+      .auth-modal-box .form-note:last-child { display: none; }
       #game-frame-wrap { min-height: 320px; }
       #game-frame { min-height: 320px; }
       .game-search-wrap { margin-bottom: 1rem; }
@@ -1744,6 +1758,7 @@
         transition-duration: 0.01ms !important;
       }
     }
+
   </style>
  
 </head>
@@ -1991,7 +2006,7 @@ animate();
       <div class="section-pill"><i class="fas fa-fire"></i> Trending picks</div>
       <div class="section-title">Hot right now</div>
       <div class="section-underline"></div>
-      <p class="trending-copy">The games everyone is jumping into first, styled with a more premium experience and packed with instant-play energy.</p>
+      <p class="trending-copy">The games everyone is jumping into first</p>
     </div>
     <div class="trending-badge"><i class="fas fa-bolt"></i> Live • 24/7 hits</div>
   </div>
@@ -2242,10 +2257,10 @@ PleyZ is a curated gaming platform built for the next generation of players.** W
      LOGIN MODAL
 ============================================================ -->
 <div class="modal-overlay" id="login-modal">
-  <div class="modal-box">
+  <div class="modal-box auth-modal-box">
     <button class="modal-close" onclick="closeLoginModal()">&times;</button>
     <div class="modal-title" id="auth-title">Welcome Back</div>
-    <div class="modal-subtitle" id="auth-subtitle">Sign in to save your progress and climb the leaderboard.</div>
+    <div class="modal-subtitle" id="auth-subtitle">Enjoying PleyZ? Create a free account to earn PleyZ Score and climb the leaderboard.</div>
 
     <div class="auth-toggle">
       <button type="button" id="login-tab" class="active" onclick="setAuthMode('login')">Sign In</button>
@@ -2293,8 +2308,8 @@ PleyZ is a curated gaming platform built for the next generation of players.** W
   <div class="modal-overlay" id="pleyz-modal">
     <div class="modal-box">
       <button class="modal-close" onclick="closePleyzModal()">&times;</button>
-      <div class="modal-title">PleyZ Score</div>
-      <div style="margin-top:0.6rem; color:var(--text-dim);" id="pleyz-modal-desc">Check your PleyZ score or lookup another player's score.</div>
+      <div class="modal-title">Enjoying PleyZ?</div>
+      <div style="margin-top:0.6rem; color:var(--text-dim);" id="pleyz-modal-desc">Create a free account to earn PleyZ Score and climb the leaderboard.</div>
       <div style="margin-top:1rem; display:flex; gap:0.6rem; align-items:center;">
         <input id="pleyz-lookup-input" placeholder="Enter username" style="flex:1; padding:0.6rem; border-radius:8px; border:1px solid rgba(255,255,255,0.06); background:transparent; color:var(--text);" />
         <button class="btn" onclick="lookupPleyz()">Check</button>
@@ -3984,8 +3999,8 @@ function setAuthMode(mode) {
     : '<i class="fas fa-user-plus"></i> Sign Up';
   document.getElementById('auth-title').textContent = isLogin ? 'Welcome Back' : 'Create Account';
   document.getElementById('auth-subtitle').textContent = isLogin
-    ? 'Sign in to save your progress and climb the leaderboard.'
-    : 'Create a new account to keep your progress safe on this device.';
+    ? 'Enjoying PleyZ? Create a free account to earn PleyZ Score and climb the leaderboard.'
+    : 'Create a free account to earn PleyZ Score and climb the leaderboard.';
   document.getElementById('auth-note').textContent = isLogin
     ? 'New here? Create an account to keep your progress.'
     : 'Already have an account? Sign in to continue.';
@@ -4920,7 +4935,7 @@ setTimeout(() => {
   try {
     openPleyzModal();
   } catch (e) {}
-}, 300000);
+}, 120000);
 });
 </script>
 </body>

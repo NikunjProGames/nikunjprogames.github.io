@@ -38,6 +38,17 @@
     }
     .topbar h1 { font-family: 'Orbitron', sans-serif; margin: 0; font-size: clamp(1.1rem, 2vw, 1.5rem); }
     .topbar .actions { display: flex; gap: 8px; flex-wrap: wrap; }
+    .profile-score-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 10px 6px 6px; border-radius: 999px;
+      border: 1px solid rgba(0,191,255,0.35); background: rgba(0,191,255,0.08);
+      color: var(--text); font-weight: 700; font-size: 0.88rem;
+    }
+    .profile-score-avatar {
+      display: grid; place-items: center; width: 28px; height: 28px;
+      border-radius: 50%; background: linear-gradient(135deg, var(--accent-2), var(--accent));
+      color: #fff; font-size: 0.68rem; font-family: 'Orbitron', sans-serif;
+    }
     .btn {
       display: inline-flex; align-items: center; justify-content: center; gap: 8px;
       padding: 8px 12px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.14); font-weight: 700; font-size: 0.92rem;
@@ -99,6 +110,10 @@
     <header class="topbar">
       <h1>Brainrot Bridge Race 3D</h1>
       <div class="actions">
+        <a class="profile-score-link" href="../index.html#leaderboard" title="View PleyZ score and leaderboard">
+          <span class="profile-score-avatar" id="profile-score-avatar">PZ</span>
+          <span id="profile-score-label">PleyZ Score</span>
+        </a>
         <a class="btn" href="../index.html"><i class="fa-solid fa-house"></i> Home</a>
         <a class="btn primary" href="https://nikunjprogames.github.io/" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Play More Games </a>
       </div>
@@ -214,6 +229,18 @@
     // append at end so it doesn't conflict with page layout
     document.body.appendChild(btn);
   })();
+  </script>
+  <script>
+    (function () {
+      const username = (localStorage.getItem('nikunj_current_username') || '').trim();
+      const avatar = document.getElementById('profile-score-avatar');
+      const label = document.getElementById('profile-score-label');
+      if (!username || !avatar || !label) return;
+      const initials = username.split(/\s+/).map(part => part[0]).join('').slice(0, 2).toUpperCase();
+      const score = Number(localStorage.getItem(`nikunj_pleyz_${username}`) || 0).toLocaleString();
+      avatar.textContent = initials || 'PZ';
+      label.textContent = `PleyZ ${score}`;
+    }());
   </script>
 </body>
 </html>
