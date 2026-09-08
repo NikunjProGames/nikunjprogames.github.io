@@ -9,7 +9,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="icon" type="image/png" href="https://nikunjprogames.github.io/favicon.ico" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3172987137389272" crossorigin="anonymous"></script>
   <style>
     :root {
@@ -60,6 +59,10 @@
       display: flex; justify-content: flex-end; gap: 8px; margin-bottom: 10px;
     }
     .btn.compact { padding: 7px 12px; font-size: 0.9rem; }
+    .game-layout {
+      display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 16px; align-items: start;
+    }
+    .game-shell { min-width: 0; }
     .game-frame {
       border-radius: 18px; overflow: hidden; border: 1px solid var(--panel-border);
       background: #000; box-shadow: 0 14px 40px rgba(0,0,0,0.35);
@@ -81,8 +84,9 @@
     .info-card h2 { margin: 0 0 10px; font-family: 'Orbitron', sans-serif; font-size: 1.1rem; }
     .info-card p, .info-card li { color: var(--muted); line-height: 1.6; }
     .related-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    .related-games { margin-top: 0; position: sticky; top: 16px; max-height: 70vh; overflow-y: auto; }
     .related-game {
-      display: grid; grid-template-columns: 130px 1fr; gap: 12px; align-items: center;
+      display: grid; grid-template-columns: 88px 1fr; gap: 10px; align-items: center;
       min-width: 0; color: var(--text); font-weight: 700; background: rgba(255,255,255,0.04);
       border: 1px solid var(--panel-border); border-radius: 12px; padding: 8px; transition: transform 0.2s ease, border-color 0.2s ease;
     }
@@ -100,7 +104,9 @@
     @media (max-width: 700px) {
       .page-shell { padding: 12px 12px 24px; }
       .topbar { flex-direction: column; align-items: flex-start; }
+      .game-layout { grid-template-columns: 1fr; }
       .game-frame, iframe { min-height: 60vh; }
+      .related-games { position: static; max-height: none; }
       .related-game { grid-template-columns: 96px 1fr; }
     }
   </style>
@@ -120,74 +126,43 @@
       </div>
     </header>
 
-    <div class="game-shell">
-      <div class="game-toolbar">
-        <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
+    <div class="game-layout">
+      <div class="game-shell">
+        <div class="game-toolbar">
+          <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
+        </div>
+        <div class="game-frame">
+          <iframe src="https://playgama.com/export/game/basketball-stars?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487" allowfullscreen loading="lazy" title="Basketball Stars"></iframe>
+        </div>
+        
       </div>
-      <div class="game-frame">
-        <iframe src="https://playgama.com/export/game/basketball-stars?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487" allowfullscreen loading="lazy" title="Basketball Stars"></iframe>
-      </div>
-      
+
+      <section class="info-card related-games" aria-label="Related games">
+        <h2>Games You Might Like</h2>
+        <div class="related-grid"><a class="related-game" href="geometry-arrow-2.html"><img src="https://static.playgama.com/p-img/pg/backfill/game-99645/preview/90df3206f7f0c706e6431b9ae58fc331d0ed13a11e547ce0271b720ff82e6b21?width=448" alt="Geometry Arrow 2" loading="lazy" /><span>Geometry Arrow 2</span></a>
+        <a class="related-game" href="cube-snake-2048.html"><img src="https://static.playgama.com/p-img/pg/backfill/game-109351/preview/b0afdef34402ca9cc780be5207be4cbfe8b640b6cd70d6626c7cec02741a4e3c?width=448" alt="Cube Snake 2048" loading="lazy" /><span>Cube Snake 2048</span></a>
+        <a class="related-game" href="speen.html"><img src="https://img.gamemonetize.com/fwiozook1vr9lw7duxy81zup5676u7bj/512x384.jpg" alt="Speen" loading="lazy" /><span>Speen</span></a>
+        <a class="related-game" href="music-night-battle-rhythm-game.html"><img src="https://img.gamemonetize.com/gpnthl10ris6862m1lrywpqk8gc4zk4v/512x384.jpg" alt="Music Night Battle: Rhythm Game" loading="lazy" /><span>Music Night Battle: Rhythm Game</span></a>
+        <a class="related-game" href="wiggly-worm-race.html"><img src="https://img.gamemonetize.com/l0nqbs09szfpxezuy44h886ecqpomll5/512x384.jpg" alt="Wiggly Worm Race" loading="lazy" /><span>Wiggly Worm Race</span></a></div>
+      </section>
     </div>
 
     <section class="info-card" aria-label="Game information">
-     <p>Basketball Stars is a 2-player basketball game by MadPuffers, prepared for the 2025 basketball season. Pick your team, step onto the court, and rack up dunks and 3-pointers to outsccore your opponent. Blocking and slapping are fair play — knock the ball loose and take control. Keep an eye on the supershot bar at the top of the screen; once it's full, unleash the special dunk from anywhere on the court for a guaranteed score.</p>
+      <h2>How to Play</h2>
+      <p><strong>Controls:</strong> 1 player controls
+WASD or arrow keys to move
+X/L to shoot/steal
+S to pump/block
+A+A or D+D or left/right arrow twice to dash
+K/Z to super shot
 
-<h2>How to Play Basketball Stars</h2>
-<p>Score more points than your opponent to win. Choose from famous clubs and players, and set up matchups for both yourself and your opponent. All modes, players, and teams are available from the start with no restrictions. A built-in tutorial covers controls and gameplay principles for new players.</p>
-<h3>Game Modes</h3>
-<ul>
-<li><b>1 Player</b>: 1-on-1 match against an opponent.</li>
-<li><b>2 Players Match</b>: Team vs. team game with 2 players — a friend joins as ally or rival.</li>
-<li><b>Quick Match</b>: A short match for a fast game.</li>
-</ul>
-
-<h2>Controls</h2>
-<h3>Desktop — 1 Player</h3>
-<ul>
-<li><b>WASD / Arrow Keys</b>: Move</li>
-<li><b>X / L</b>: Shoot or steal</li>
-<li><b>S</b>: Pump / block</li>
-<li><b>A+A or D+D / Left or Right Arrow twice</b>: Dash</li>
-<li><b>K / Z</b>: Super shot</li>
-</ul>
-<h3>Desktop — 2 Players</h3>
-<ul>
-<li><b>WASD (Player 1) / Arrow Keys (Player 2)</b>: Move</li>
-<li><b>B (Player 1) / L (Player 2)</b>: Shoot or steal</li>
-<li><b>S (Player 1) / Down Arrow (Player 2)</b>: Pump / block</li>
-<li><b>A/D twice (Player 1) / Left/Right Arrow twice (Player 2)</b>: Dash</li>
-<li><b>K</b>: Super shot (both players)</li>
-</ul>
-<h3>Mobile</h3>
-<ul>
-<li><b>On-screen touch buttons</b>: Mirror the keyboard layout — tap to move, shoot, and dash</li>
-</ul>
-
-<h2>FAQ</h2>
-<div itemscope="" itemtype="https://schema.org/FAQPage">
-<div itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
-<h3 itemprop="name">Which players and teams are available at the start?</h3>
-<div itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-<p itemprop="text">All modes, players, and teams are unlocked from the very beginning — no progression gates. Both you and your opponent can pick any combination of famous clubs and players for every match.</p>
-</div>
-</div>
-<div itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
-<h3 itemprop="name">How does the super shot work in Basketball Stars?</h3>
-<div itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-<p itemprop="text">Watch the supershot bar at the top of the screen. Once it's fully loaded, trigger the special dunk from wherever you're standing — it never misses.</p>
-</div>
-</div>
-<div itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
-<h3 itemprop="name">How many matches or levels are there to play through?</h3>
-<div itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-<p itemprop="text">There's no set number of levels. Play match after match across different modes and with various teams for as long as you like.</p>
-</div>
-</div>
-<div itemscope="" itemprop="mainEntity" itemtype="https://schema.org/Question">
-<h3 itemprop="name">What do the 2 Players Match and Quick Match modes offer differently?</h3>
-<div itemscope="" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-<p itemprop="text">2 Players Match puts two players on the same court as allies or rivals in a team game. Quick Match is a shorter format designed for a fast session when time is limited.</p>
+2 player controls
+To move, player 1 use the WASD keys and player 2 use arrow keys
+To shoot/steal, player 1 use B and player 2 use L
+To pump, player 1 use S and player 2 use down arrow
+To dash, player 1 use A/D twice and player 2 use left/right arrow twice
+K to super shot</p>
+      <p>Basketball Stars is a cool 2-player basketball game by MadPuffers. Prepared for the 2025 basketball season. Choose your team and enter a challenging tournament. Control your player to perform awesome dunks and 3-pointers to win the game. Feel free to block and slap your opponent to knock him out and get the ball, and pay attention to the supershot bar on the top of the screen. Once fully loaded, you can use the hot special dunk from wherever you stand; it never fails. Be the best player! This game is provided to PleyZ by GameMonetize.</p>
       
       <div class="chip-list">
         <span class="chip">arcade</span>
@@ -221,14 +196,6 @@
       <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </section>
 
-      <section class="info-card related-games" aria-label="Related games">
-        <h2>Games You Might Like</h2>
-        <div class="related-grid"><a class="related-game" href="geometry-arrow-2.html"><img src="https://static.playgama.com/p-img/pg/backfill/game-99645/preview/90df3206f7f0c706e6431b9ae58fc331d0ed13a11e547ce0271b720ff82e6b21?width=448" alt="Geometry Arrow 2" loading="lazy" /><span>Geometry Arrow 2</span></a>
-        <a class="related-game" href="cube-snake-2048.html"><img src="https://static.playgama.com/p-img/pg/backfill/game-109351/preview/b0afdef34402ca9cc780be5207be4cbfe8b640b6cd70d6626c7cec02741a4e3c?width=448" alt="Cube Snake 2048" loading="lazy" /><span>Cube Snake 2048</span></a>
-        <a class="related-game" href="speen.html"><img src="https://img.gamemonetize.com/fwiozook1vr9lw7duxy81zup5676u7bj/512x384.jpg" alt="Speen" loading="lazy" /><span>Speen</span></a>
-        <a class="related-game" href="music-night-battle-rhythm-game.html"><img src="https://img.gamemonetize.com/gpnthl10ris6862m1lrywpqk8gc4zk4v/512x384.jpg" alt="Music Night Battle: Rhythm Game" loading="lazy" /><span>Music Night Battle: Rhythm Game</span></a>
-        <a class="related-game" href="wiggly-worm-race.html"><img src="https://img.gamemonetize.com/l0nqbs09szfpxezuy44h886ecqpomll5/512x384.jpg" alt="Wiggly Worm Race" loading="lazy" /><span>Wiggly Worm Race</span></a></div>
-      </section>
   </div>
   <script>
     function toggleGameFullscreen(root) {

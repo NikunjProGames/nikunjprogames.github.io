@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Piece of Cake: Merge & Bake | PleyZ</title>
-  <meta name="msvalidate.01" content="DEC5FFC579F67AA54C9E8DBFB0168908" />
   <meta name="description" content="Join the enchanting world of Piece of Cake: Merge & Bake, an engaging game that combines puzzle-solving with café management. Explore a beautiful mansion, uncover family secrets, and help Emily grow her café into a culinary empire. Enjoy this unique experience for free on your phone or computer.
 
 Controls:
@@ -58,7 +57,6 @@ A: You can play anywhere and even without sound if that suits you better.
 Q: Is there onboarding in the game? What is it like?
 A: From the first missions, the game will show you what to do and how to do it. Additionally, hints will guide you in moments where you might miss something. But don’t worry, you’ll understand everything quickly!" />
   <meta name="keywords" content="puzzle, story, merge, cozy, cooking, mystery-games, relaxing-games, android-games, defold-games-online, gam-supported-games, online puzzle game, free puzzle games, PleyZ" />
-  <link rel="icon" type="image/png" href="https://nikunjprogames.github.io/favicon.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet" />
@@ -112,6 +110,10 @@ A: From the first missions, the game will show you what to do and how to do it. 
       display: flex; justify-content: flex-end; gap: 8px; margin-bottom: 10px;
     }
     .btn.compact { padding: 7px 12px; font-size: 0.9rem; }
+    .game-layout {
+      display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 16px; align-items: start;
+    }
+    .game-shell { min-width: 0; }
     .game-frame {
       border-radius: 18px; overflow: hidden; border: 1px solid var(--panel-border);
       background: #000; box-shadow: 0 14px 40px rgba(0,0,0,0.35);
@@ -133,8 +135,9 @@ A: From the first missions, the game will show you what to do and how to do it. 
     .info-card h2 { margin: 0 0 10px; font-family: 'Orbitron', sans-serif; font-size: 1.1rem; }
     .info-card p, .info-card li { color: var(--muted); line-height: 1.6; }
     .related-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    .related-games { margin-top: 0; position: sticky; top: 16px; max-height: 70vh; overflow-y: auto; }
     .related-game {
-      display: grid; grid-template-columns: 130px 1fr; gap: 12px; align-items: center;
+      display: grid; grid-template-columns: 88px 1fr; gap: 10px; align-items: center;
       min-width: 0; color: var(--text); font-weight: 700; background: rgba(255,255,255,0.04);
       border: 1px solid var(--panel-border); border-radius: 12px; padding: 8px; transition: transform 0.2s ease, border-color 0.2s ease;
     }
@@ -152,7 +155,9 @@ A: From the first missions, the game will show you what to do and how to do it. 
     @media (max-width: 700px) {
       .page-shell { padding: 12px 12px 24px; }
       .topbar { flex-direction: column; align-items: flex-start; }
+      .game-layout { grid-template-columns: 1fr; }
       .game-frame, iframe { min-height: 60vh; }
+      .related-games { position: static; max-height: none; }
       .related-game { grid-template-columns: 96px 1fr; }
     }
   </style>
@@ -172,14 +177,25 @@ A: From the first missions, the game will show you what to do and how to do it. 
       </div>
     </header>
 
-    <div class="game-shell">
-      <div class="game-toolbar">
-        <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
+    <div class="game-layout">
+      <div class="game-shell">
+        <div class="game-toolbar">
+          <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
+        </div>
+        <div class="game-frame">
+          <iframe src="https://playgama.com/export/game/piece-of-cake-merge--bake?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487" allowfullscreen loading="lazy" title="Piece of Cake: Merge & Bake"></iframe>
+        </div>
+        
       </div>
-      <div class="game-frame">
-        <iframe src="https://playgama.com/export/game/piece-of-cake-merge--bake?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487" allowfullscreen loading="lazy" title="Piece of Cake: Merge & Bake"></iframe>
-      </div>
-      
+
+      <section class="info-card related-games" aria-label="Related games">
+        <h2>Games You Might Like</h2>
+        <div class="related-grid"><a class="related-game" href="incoword.html"><img src="https://img.gamemonetize.com/y4wmrpbd3v374mr8z6vtd97bwbo4kc82/512x384.jpg" alt="INCOWORD" loading="lazy" /><span>INCOWORD</span></a>
+        <a class="related-game" href="qolor-2048.html"><img src="https://img.gamemonetize.com/3e4hk4zpotozwuy9ehh5uy0xzeaabp3k/512x384.jpg" alt="Qolor 2048" loading="lazy" /><span>Qolor 2048</span></a>
+        <a class="related-game" href="animerge.html"><img src="https://img.gamemonetize.com/8g5l1zycbzl4d95ho3kztawxu1cjrz0a/512x384.jpg" alt="Animerge" loading="lazy" /><span>Animerge</span></a>
+        <a class="related-game" href="tafl-viking-chess.html"><img src="https://img.gamemonetize.com/9dfjnm3ihlvt9h0yxblmdflszkbanpc2/512x384.jpg" alt="Tafl: viking chess" loading="lazy" /><span>Tafl: viking chess</span></a>
+        <a class="related-game" href="gomoku-five-stones-in-a-row.html"><img src="https://img.gamemonetize.com/slrxe38x6845ol68bkcrtet7yqe728g9/512x384.jpg" alt="Gomoku: five stones in a row" loading="lazy" /><span>Gomoku: five stones in a row</span></a></div>
+      </section>
     </div>
 
     <section class="info-card" aria-label="Game information">
@@ -263,14 +279,6 @@ A: From the first missions, the game will show you what to do and how to do it. 
       <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </section>
 
-      <section class="info-card related-games" aria-label="Related games">
-        <h2>Games You Might Like</h2>
-        <div class="related-grid"><a class="related-game" href="incoword.html"><img src="https://img.gamemonetize.com/y4wmrpbd3v374mr8z6vtd97bwbo4kc82/512x384.jpg" alt="INCOWORD" loading="lazy" /><span>INCOWORD</span></a>
-        <a class="related-game" href="qolor-2048.html"><img src="https://img.gamemonetize.com/3e4hk4zpotozwuy9ehh5uy0xzeaabp3k/512x384.jpg" alt="Qolor 2048" loading="lazy" /><span>Qolor 2048</span></a>
-        <a class="related-game" href="animerge.html"><img src="https://img.gamemonetize.com/8g5l1zycbzl4d95ho3kztawxu1cjrz0a/512x384.jpg" alt="Animerge" loading="lazy" /><span>Animerge</span></a>
-        <a class="related-game" href="tafl-viking-chess.html"><img src="https://img.gamemonetize.com/9dfjnm3ihlvt9h0yxblmdflszkbanpc2/512x384.jpg" alt="Tafl: viking chess" loading="lazy" /><span>Tafl: viking chess</span></a>
-        <a class="related-game" href="gomoku-five-stones-in-a-row.html"><img src="https://img.gamemonetize.com/slrxe38x6845ol68bkcrtet7yqe728g9/512x384.jpg" alt="Gomoku: five stones in a row" loading="lazy" /><span>Gomoku: five stones in a row</span></a></div>
-      </section>
   </div>
   <script>
     function toggleGameFullscreen(root) {

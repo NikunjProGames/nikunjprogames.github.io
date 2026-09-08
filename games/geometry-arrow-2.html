@@ -16,7 +16,6 @@ The game has 13 levels of varying difficulty. Each level consists of "Arrow" seg
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="icon" type="image/png" href="https://nikunjprogames.github.io/favicon.ico" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3172987137389272" crossorigin="anonymous"></script>
   <style>
     :root {
@@ -67,6 +66,10 @@ The game has 13 levels of varying difficulty. Each level consists of "Arrow" seg
       display: flex; justify-content: flex-end; gap: 8px; margin-bottom: 10px;
     }
     .btn.compact { padding: 7px 12px; font-size: 0.9rem; }
+    .game-layout {
+      display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 16px; align-items: start;
+    }
+    .game-shell { min-width: 0; }
     .game-frame {
       border-radius: 18px; overflow: hidden; border: 1px solid var(--panel-border);
       background: #000; box-shadow: 0 14px 40px rgba(0,0,0,0.35);
@@ -88,8 +91,9 @@ The game has 13 levels of varying difficulty. Each level consists of "Arrow" seg
     .info-card h2 { margin: 0 0 10px; font-family: 'Orbitron', sans-serif; font-size: 1.1rem; }
     .info-card p, .info-card li { color: var(--muted); line-height: 1.6; }
     .related-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    .related-games { margin-top: 0; position: sticky; top: 16px; max-height: 70vh; overflow-y: auto; }
     .related-game {
-      display: grid; grid-template-columns: 130px 1fr; gap: 12px; align-items: center;
+      display: grid; grid-template-columns: 88px 1fr; gap: 10px; align-items: center;
       min-width: 0; color: var(--text); font-weight: 700; background: rgba(255,255,255,0.04);
       border: 1px solid var(--panel-border); border-radius: 12px; padding: 8px; transition: transform 0.2s ease, border-color 0.2s ease;
     }
@@ -107,7 +111,9 @@ The game has 13 levels of varying difficulty. Each level consists of "Arrow" seg
     @media (max-width: 700px) {
       .page-shell { padding: 12px 12px 24px; }
       .topbar { flex-direction: column; align-items: flex-start; }
+      .game-layout { grid-template-columns: 1fr; }
       .game-frame, iframe { min-height: 60vh; }
+      .related-games { position: static; max-height: none; }
       .related-game { grid-template-columns: 96px 1fr; }
     }
   </style>
@@ -127,14 +133,25 @@ The game has 13 levels of varying difficulty. Each level consists of "Arrow" seg
       </div>
     </header>
 
-    <div class="game-shell">
-      <div class="game-toolbar">
-        <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
+    <div class="game-layout">
+      <div class="game-shell">
+        <div class="game-toolbar">
+          <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
+        </div>
+        <div class="game-frame">
+          <iframe src="https://playgama.com/export/game/geometry-arrow-2?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487" allowfullscreen loading="lazy" title="Geometry Arrow 2"></iframe>
+        </div>
+        
       </div>
-      <div class="game-frame">
-        <iframe src="https://playgama.com/export/game/geometry-arrow-2?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487" allowfullscreen loading="lazy" title="Geometry Arrow 2"></iframe>
-      </div>
-      
+
+      <section class="info-card related-games" aria-label="Related games">
+        <h2>Games You Might Like</h2>
+        <div class="related-grid"><a class="related-game" href="cube-snake-2048.html"><img src="https://static.playgama.com/p-img/pg/backfill/game-109351/preview/b0afdef34402ca9cc780be5207be4cbfe8b640b6cd70d6626c7cec02741a4e3c?width=448" alt="Cube Snake 2048" loading="lazy" /><span>Cube Snake 2048</span></a>
+        <a class="related-game" href="basketball-stars.html"><img src="https://static.playgama.com/p-img/pg/basketball-stars/big_preview/2e0653c710ad43e09c40d1ba5968e447?width=448" alt="Basketball Stars" loading="lazy" /><span>Basketball Stars</span></a>
+        <a class="related-game" href="speen.html"><img src="https://img.gamemonetize.com/fwiozook1vr9lw7duxy81zup5676u7bj/512x384.jpg" alt="Speen" loading="lazy" /><span>Speen</span></a>
+        <a class="related-game" href="music-night-battle-rhythm-game.html"><img src="https://img.gamemonetize.com/gpnthl10ris6862m1lrywpqk8gc4zk4v/512x384.jpg" alt="Music Night Battle: Rhythm Game" loading="lazy" /><span>Music Night Battle: Rhythm Game</span></a>
+        <a class="related-game" href="wiggly-worm-race.html"><img src="https://img.gamemonetize.com/l0nqbs09szfpxezuy44h886ecqpomll5/512x384.jpg" alt="Wiggly Worm Race" loading="lazy" /><span>Wiggly Worm Race</span></a></div>
+      </section>
     </div>
 
     <section class="info-card" aria-label="Game information">
@@ -186,14 +203,6 @@ The game has 13 levels of varying difficulty. Each level consists of "Arrow" seg
       <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </section>
 
-      <section class="info-card related-games" aria-label="Related games">
-        <h2>Games You Might Like</h2>
-        <div class="related-grid"><a class="related-game" href="cube-snake-2048.html"><img src="https://static.playgama.com/p-img/pg/backfill/game-109351/preview/b0afdef34402ca9cc780be5207be4cbfe8b640b6cd70d6626c7cec02741a4e3c?width=448" alt="Cube Snake 2048" loading="lazy" /><span>Cube Snake 2048</span></a>
-        <a class="related-game" href="basketball-stars.html"><img src="https://static.playgama.com/p-img/pg/basketball-stars/big_preview/2e0653c710ad43e09c40d1ba5968e447?width=448" alt="Basketball Stars" loading="lazy" /><span>Basketball Stars</span></a>
-        <a class="related-game" href="speen.html"><img src="https://img.gamemonetize.com/fwiozook1vr9lw7duxy81zup5676u7bj/512x384.jpg" alt="Speen" loading="lazy" /><span>Speen</span></a>
-        <a class="related-game" href="music-night-battle-rhythm-game.html"><img src="https://img.gamemonetize.com/gpnthl10ris6862m1lrywpqk8gc4zk4v/512x384.jpg" alt="Music Night Battle: Rhythm Game" loading="lazy" /><span>Music Night Battle: Rhythm Game</span></a>
-        <a class="related-game" href="wiggly-worm-race.html"><img src="https://img.gamemonetize.com/l0nqbs09szfpxezuy44h886ecqpomll5/512x384.jpg" alt="Wiggly Worm Race" loading="lazy" /><span>Wiggly Worm Race</span></a></div>
-      </section>
   </div>
   <script>
     function toggleGameFullscreen(root) {

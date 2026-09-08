@@ -6,7 +6,6 @@
   <title>Music Night Battle: Rhythm Game | PleyZ</title>
   <meta name="description" content="Music Night Battle is a fast rhythm battle game where you tap arrows in time with the beat and fight in music duels. Play solo or compete in online multiplayer matches, improve your timing skills, build combos, and climb the leaderboard. Enjoy neon arcade visuals, fast reaction gameplay, and addictive rhythm challenges with arrow-based music mechanics. Defeat opponents, unlock new challenges, and test your reflexes in competitive rhythm battles designed for casual and hardcore players." />
   <meta name="keywords" content="Arcade, Music, online puzzle game, free puzzle games, PleyZ" />
-  <link rel="icon" type="image/png" href="https://nikunjprogames.github.io/favicon.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet" />
@@ -60,6 +59,10 @@
       display: flex; justify-content: flex-end; gap: 8px; margin-bottom: 10px;
     }
     .btn.compact { padding: 7px 12px; font-size: 0.9rem; }
+    .game-layout {
+      display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 16px; align-items: start;
+    }
+    .game-shell { min-width: 0; }
     .game-frame {
       border-radius: 18px; overflow: hidden; border: 1px solid var(--panel-border);
       background: #000; box-shadow: 0 14px 40px rgba(0,0,0,0.35);
@@ -81,8 +84,9 @@
     .info-card h2 { margin: 0 0 10px; font-family: 'Orbitron', sans-serif; font-size: 1.1rem; }
     .info-card p, .info-card li { color: var(--muted); line-height: 1.6; }
     .related-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    .related-games { margin-top: 0; position: sticky; top: 16px; max-height: 70vh; overflow-y: auto; }
     .related-game {
-      display: grid; grid-template-columns: 130px 1fr; gap: 12px; align-items: center;
+      display: grid; grid-template-columns: 88px 1fr; gap: 10px; align-items: center;
       min-width: 0; color: var(--text); font-weight: 700; background: rgba(255,255,255,0.04);
       border: 1px solid var(--panel-border); border-radius: 12px; padding: 8px; transition: transform 0.2s ease, border-color 0.2s ease;
     }
@@ -100,7 +104,9 @@
     @media (max-width: 700px) {
       .page-shell { padding: 12px 12px 24px; }
       .topbar { flex-direction: column; align-items: flex-start; }
+      .game-layout { grid-template-columns: 1fr; }
       .game-frame, iframe { min-height: 60vh; }
+      .related-games { position: static; max-height: none; }
       .related-game { grid-template-columns: 96px 1fr; }
     }
   </style>
@@ -120,14 +126,25 @@
       </div>
     </header>
 
-    <div class="game-shell">
-      <div class="game-toolbar">
-        <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
+    <div class="game-layout">
+      <div class="game-shell">
+        <div class="game-toolbar">
+          <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
+        </div>
+        <div class="game-frame">
+          <iframe src="https://html5.gamemonetize.co/gpnthl10ris6862m1lrywpqk8gc4zk4v/" allowfullscreen loading="lazy" title="Music Night Battle: Rhythm Game"></iframe>
+        </div>
+        
       </div>
-      <div class="game-frame">
-        <iframe src="https://html5.gamemonetize.co/gpnthl10ris6862m1lrywpqk8gc4zk4v/" allowfullscreen loading="lazy" title="Music Night Battle: Rhythm Game"></iframe>
-      </div>
-      
+
+      <section class="info-card related-games" aria-label="Related games">
+        <h2>Games You Might Like</h2>
+        <div class="related-grid"><a class="related-game" href="speen.html"><img src="https://img.gamemonetize.com/fwiozook1vr9lw7duxy81zup5676u7bj/512x384.jpg" alt="Speen" loading="lazy" /><span>Speen</span></a>
+        <a class="related-game" href="stickman-trivia-fall-io.html"><img src="https://img.gamemonetize.com/cybh6ym22ww2ehlpu23d6azrudls31ar/512x384.jpg" alt="Stickman Trivia Fall IO" loading="lazy" /><span>Stickman Trivia Fall IO</span></a>
+        <a class="related-game" href="castle-wars-legacy.html"><img src="https://img.gamemonetize.com/f6ung9e7lfninu1957spejeihzprdusb/512x384.jpg" alt="Castle Wars: Legacy" loading="lazy" /><span>Castle Wars: Legacy</span></a>
+        <a class="related-game" href="guardz-io.html"><img src="https://img.gamemonetize.com/f1e896emfy104h8j8higjjdkcqeqvtau/512x384.jpg" alt="Guardz IO" loading="lazy" /><span>Guardz IO</span></a>
+        <a class="related-game" href="blockscape-io.html"><img src="https://img.gamemonetize.com/z41q0ycg5i8u33rqy7sfjcedpak3e7zz/512x384.jpg" alt="blockscape.io" loading="lazy" /><span>blockscape.io</span></a></div>
+      </section>
     </div>
 
     <section class="info-card" aria-label="Game information">
@@ -152,14 +169,6 @@
       <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </section>
 
-      <section class="info-card related-games" aria-label="Related games">
-        <h2>Games You Might Like</h2>
-        <div class="related-grid"><a class="related-game" href="speen.html"><img src="https://img.gamemonetize.com/fwiozook1vr9lw7duxy81zup5676u7bj/512x384.jpg" alt="Speen" loading="lazy" /><span>Speen</span></a>
-        <a class="related-game" href="stickman-trivia-fall-io.html"><img src="https://img.gamemonetize.com/cybh6ym22ww2ehlpu23d6azrudls31ar/512x384.jpg" alt="Stickman Trivia Fall IO" loading="lazy" /><span>Stickman Trivia Fall IO</span></a>
-        <a class="related-game" href="castle-wars-legacy.html"><img src="https://img.gamemonetize.com/f6ung9e7lfninu1957spejeihzprdusb/512x384.jpg" alt="Castle Wars: Legacy" loading="lazy" /><span>Castle Wars: Legacy</span></a>
-        <a class="related-game" href="guardz-io.html"><img src="https://img.gamemonetize.com/f1e896emfy104h8j8higjjdkcqeqvtau/512x384.jpg" alt="Guardz IO" loading="lazy" /><span>Guardz IO</span></a>
-        <a class="related-game" href="blockscape-io.html"><img src="https://img.gamemonetize.com/z41q0ycg5i8u33rqy7sfjcedpak3e7zz/512x384.jpg" alt="blockscape.io" loading="lazy" /><span>blockscape.io</span></a></div>
-      </section>
   </div>
   <script>
     function toggleGameFullscreen(root) {

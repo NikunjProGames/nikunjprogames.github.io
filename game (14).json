@@ -1,0 +1,71 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "122192",
+          "slug": "1-speed-escape-prison",
+          "title": "+1 Speed: Escape Prison",
+          "description": "Get ready for a wild prison break in this dynamic obstacle parkour game with +1 Speed boosts! Your goal is to escape from prison by navigating challenging obstacles and accelerating with each level. This is a real escape where every mistake can set you back!\n\nLevel up your speed, complete obstacle courses, and master parkour to find the best escape route. The further you go, the faster you get—feel the thrill of increasing speed and overcoming obstacles!\n\nThe prison is full of traps, guards, and dangerous zones. Can you pull off the perfect prison break and escape faster than anyone else?\n\nGame Features:\n\n🔶 A thrilling prison break\n\n🔶 Dynamic parkour-style gameplay +1 to speed\n\n🔶 Gradual acceleration and challenging trials\n\n🔶 Diverse levels and obstacles\n\n🔶 Ability to level up your character\n\nStart your escape right now and prove you can break out of prison!\n\nCore Gameplay & Story\n\nQ: What is the game about? What needs to be done?\nA: You need to escape from prison by overcoming obstacles, jumping, running, and doing parkour. It is important to improve your movement speed and stamina because stamina affects movement speed during the escape levels.\n\nQ: Is there a storyline in the game?\nA: No.\n\nQ: What is the unique feature of the game? How can it engage players?\nA: There are various features like pets that provide bonuses to movement speed and stamina, a wheel of fortune, leaderboards, and character customization.\n\nMechanics & Progression\n\nQ: Are there bosses in the game, and how are they different?\nA: No.\n\nQ: How does leveling up work? What needs to be done to level up faster?\nA: You need to train in the gym and improve your movement speed and stamina.\n\nEconomy & Customization\n\nQ: What currencies are available and what can they be spent on (regular - gold, premium - crystals, etc.)?\nA: There are regular money and diamonds that can be spent on different skins, faster movement speed and stamina upgrades, and the ability to return to the last checkpoint upon losing.\n\nQ: Is there in-game purchases? What can be bought and what does it affect? Does making a donation speed up game progress?\nA: You can buy skins and in-game currency.\n\nQ: Is there a leaderboard? How to access it? What types are there (weekly, monthly, all-time, etc.)?\nA: There are three different leaderboards: one for the highest stamina, one for the highest movement speed, and one for the player who has progressed the furthest during the escape.\n\nRetention & Engagement\n\nQ: What are some engaging elements of the content (weapons, cars, locations, skills, references to famous franchises, etc.)?\nA: There are many cool skins and epic music during the escape.\n\nQ: Is there customization in the game? Can the appearance of the hero be customized, location editor, car tuning, etc.?\nA: Yes, you can buy clothes and accessories.\n\nQ: Are there daily rewards or something similar to encourage players to return?\nA: There are daily rewards as well as rewards based on gameplay time.\n\nQ: Is it preferable to play with sound to better immerse in the atmosphere, or will there be difficulties in passing without sound?\nA: It is preferable to play with sound as the music is very cool and epic during the escape.",
+          "howToPlayText": "✅ Controls\n\nOn PC:\n\nRight-click - rotate camera\nWASD / arrow keys - move character\nSpacebar - jump\n\nOn mobile:\nControls via interface elements\nRotate camera — swipe on the right side of the screen\n\n✅ Gameplay\n\n🔶 Upgrade your stats in the prison cell. Collect energy or work out on the exercise machines\n\n🔶 For every step you take, you gain a speed boost; the more you move, the faster you become\n\n🔶 Complete levels, collect money, and get closer to your main goal—escaping from prison! (Trust me, you’ll love the final level)\n\n🔶 Boost your upgrades using the “Upgrades” button—it appears when you have enough money\n\n🔶 Overcome obstacles, avoid traps, and find hidden paths\n\n🔶 As your speed increases, the challenges get tougher—test your reflexes and agility\n\n🔶 Compete with other players and climb the leaderboard\n\n🔶 Your main goal is to pull off the perfect prison break and set a new record 🚀",
+          "gameURL": "https://playgama.com/export/game/1-speed-escape-prison?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/1-speed-escape-prison",
+          "genres": [
+            "action",
+            "skill",
+            "running",
+            "obby"
+          ],
+          "tags": [
+            "trial-games",
+            "obstacles-games",
+            "challenging-games",
+            "speed-games",
+            "agility-games",
+            "action-adventure"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/1-speed-escape-prison/big-preview/415c3326c7724e6cae83d74990cc3020?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-122192/icon/248e3f4537e31c30d2ad784c8a429c1285310c885670d890a8b3955233236cc9?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "32247dbeba054937adf4fe6321dabfb3",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "32247dbeba054937adf4fe6321dabfb3",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/1-speed-escape-prison/big-preview/415c3326c7724e6cae83d74990cc3020?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/backfill/game-122192/icon/248e3f4537e31c30d2ad784c8a429c1285310c885670d890a8b3955233236cc9?width=448",
+          "inGamePurchases": "Yes",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "supportedLanguages": [
+            "en-US",
+            "es-ES",
+            "pt-PT",
+            "ru-RU",
+            "tr-TR"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/1-speed-escape-prison?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

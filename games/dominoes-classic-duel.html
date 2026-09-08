@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dominoes classic duel | PleyZ</title>
   <meta name="description" content="A board game in which a chain of dominoes (bones, stones) is built, touching halves with the same number of dots indicating the number of points. You can play the game with artificial intelligence or with an opponent online in multiplayer mode. A classic set has 28 dominoes, they are also called stones or bones. These rectangles are divided into 2 parts, each with dots from 0 to 6. Two players play the game. At the beginning of the game, 7 bones are dealt to each player. The remaining ones are kept aside in reserve, with the clean side up (on the market). The player who has a double 6-6 starts, he puts up a bone. The next players place" />
-  <link rel="icon" type="image/png" href="https://nikunjprogames.github.io/favicon.ico" />
   <meta name="keywords" content="2 Player, 2 Player Games, Board, Classic, Multiplayer, two player games, online puzzle game, free puzzle games, PleyZ" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -60,6 +59,10 @@
       display: flex; justify-content: flex-end; gap: 8px; margin-bottom: 10px;
     }
     .btn.compact { padding: 7px 12px; font-size: 0.9rem; }
+    .game-layout {
+      display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 16px; align-items: start;
+    }
+    .game-shell { min-width: 0; }
     .game-frame {
       border-radius: 18px; overflow: hidden; border: 1px solid var(--panel-border);
       background: #000; box-shadow: 0 14px 40px rgba(0,0,0,0.35);
@@ -81,8 +84,9 @@
     .info-card h2 { margin: 0 0 10px; font-family: 'Orbitron', sans-serif; font-size: 1.1rem; }
     .info-card p, .info-card li { color: var(--muted); line-height: 1.6; }
     .related-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    .related-games { margin-top: 0; position: sticky; top: 16px; max-height: 70vh; overflow-y: auto; }
     .related-game {
-      display: grid; grid-template-columns: 130px 1fr; gap: 12px; align-items: center;
+      display: grid; grid-template-columns: 88px 1fr; gap: 10px; align-items: center;
       min-width: 0; color: var(--text); font-weight: 700; background: rgba(255,255,255,0.04);
       border: 1px solid var(--panel-border); border-radius: 12px; padding: 8px; transition: transform 0.2s ease, border-color 0.2s ease;
     }
@@ -100,7 +104,9 @@
     @media (max-width: 700px) {
       .page-shell { padding: 12px 12px 24px; }
       .topbar { flex-direction: column; align-items: flex-start; }
+      .game-layout { grid-template-columns: 1fr; }
       .game-frame, iframe { min-height: 60vh; }
+      .related-games { position: static; max-height: none; }
       .related-game { grid-template-columns: 96px 1fr; }
     }
   </style>
@@ -120,14 +126,25 @@
       </div>
     </header>
 
-    <div class="game-shell">
-      <div class="game-toolbar">
-        <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
+    <div class="game-layout">
+      <div class="game-shell">
+        <div class="game-toolbar">
+          <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
+        </div>
+        <div class="game-frame">
+          <iframe src="https://html5.gamemonetize.co/l3njgmefn0e3h9ih3zyhyctgjj2jlpsv/" allowfullscreen loading="lazy" title="Dominoes classic duel"></iframe>
+        </div>
+        
       </div>
-      <div class="game-frame">
-        <iframe src="https://html5.gamemonetize.co/l3njgmefn0e3h9ih3zyhyctgjj2jlpsv/" allowfullscreen loading="lazy" title="Dominoes classic duel"></iframe>
-      </div>
-      
+
+      <section class="info-card related-games" aria-label="Related games">
+        <h2>Games You Might Like</h2>
+        <div class="related-grid"><a class="related-game" href="speen.html"><img src="https://img.gamemonetize.com/fwiozook1vr9lw7duxy81zup5676u7bj/512x384.jpg" alt="Speen" loading="lazy" /><span>Speen</span></a>
+        <a class="related-game" href="music-night-battle-rhythm-game.html"><img src="https://img.gamemonetize.com/gpnthl10ris6862m1lrywpqk8gc4zk4v/512x384.jpg" alt="Music Night Battle: Rhythm Game" loading="lazy" /><span>Music Night Battle: Rhythm Game</span></a>
+        <a class="related-game" href="stickman-trivia-fall-io.html"><img src="https://img.gamemonetize.com/cybh6ym22ww2ehlpu23d6azrudls31ar/512x384.jpg" alt="Stickman Trivia Fall IO" loading="lazy" /><span>Stickman Trivia Fall IO</span></a>
+        <a class="related-game" href="castle-wars-legacy.html"><img src="https://img.gamemonetize.com/f6ung9e7lfninu1957spejeihzprdusb/512x384.jpg" alt="Castle Wars: Legacy" loading="lazy" /><span>Castle Wars: Legacy</span></a>
+        <a class="related-game" href="guardz-io.html"><img src="https://img.gamemonetize.com/f1e896emfy104h8j8higjjdkcqeqvtau/512x384.jpg" alt="Guardz IO" loading="lazy" /><span>Guardz IO</span></a></div>
+      </section>
     </div>
 
     <section class="info-card" aria-label="Game information">
@@ -156,14 +173,6 @@
       <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </section>
 
-      <section class="info-card related-games" aria-label="Related games">
-        <h2>Games You Might Like</h2>
-        <div class="related-grid"><a class="related-game" href="speen.html"><img src="https://img.gamemonetize.com/fwiozook1vr9lw7duxy81zup5676u7bj/512x384.jpg" alt="Speen" loading="lazy" /><span>Speen</span></a>
-        <a class="related-game" href="music-night-battle-rhythm-game.html"><img src="https://img.gamemonetize.com/gpnthl10ris6862m1lrywpqk8gc4zk4v/512x384.jpg" alt="Music Night Battle: Rhythm Game" loading="lazy" /><span>Music Night Battle: Rhythm Game</span></a>
-        <a class="related-game" href="stickman-trivia-fall-io.html"><img src="https://img.gamemonetize.com/cybh6ym22ww2ehlpu23d6azrudls31ar/512x384.jpg" alt="Stickman Trivia Fall IO" loading="lazy" /><span>Stickman Trivia Fall IO</span></a>
-        <a class="related-game" href="castle-wars-legacy.html"><img src="https://img.gamemonetize.com/f6ung9e7lfninu1957spejeihzprdusb/512x384.jpg" alt="Castle Wars: Legacy" loading="lazy" /><span>Castle Wars: Legacy</span></a>
-        <a class="related-game" href="guardz-io.html"><img src="https://img.gamemonetize.com/f1e896emfy104h8j8higjjdkcqeqvtau/512x384.jpg" alt="Guardz IO" loading="lazy" /><span>Guardz IO</span></a></div>
-      </section>
   </div>
   <script>
     function toggleGameFullscreen(root) {

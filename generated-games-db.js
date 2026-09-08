@@ -718,5 +718,17 @@ const NEW_GAMES = [
     iframeUrl: "basketball-stars.html",
     fullscreen: true,
     videoUrl: ""
+  },
+  {
+    id: 104,
+    name: "+1 Speed: Escape Prison",
+    cat: "action",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/1-speed-escape-prison/big-preview/415c3326c7724e6cae83d74990cc3020?width=448",
+    iframeUrl: "1-speed-escape-prison.html",
+    fullscreen: true,
+    videoUrl: ""
   }
 ];

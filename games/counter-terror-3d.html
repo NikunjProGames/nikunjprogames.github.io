@@ -6,7 +6,6 @@
   <title>Counter Terror 3d | PleyZ</title>
   <meta name="description" content="Dive into the action-packed world of Counter Terror, a game that blends the excitement of CS with high-speed car battles. With over 10 types of weapons, 8 dynamic maps, and 4 customizable cars, the adrenaline never stops! Choose your side in thrilling game modes like DeathMatch and Team DeathMatch, and climb the military ranks from a common soldier to the prestigious General, unlocking more powerful weapons with each promotion. Explore the urban chaos in maps like Big City and GTA SA, where you can spawn cars from the garage, turning the battlefield into a vehicular warzone." />
   <meta name="keywords" content="CSGO, online puzzle game, free puzzle games, PleyZ" />
-  <link rel="icon" type="image/png" href="https://nikunjprogames.github.io/favicon.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet" />
@@ -60,6 +59,10 @@
       display: flex; justify-content: flex-end; gap: 8px; margin-bottom: 10px;
     }
     .btn.compact { padding: 7px 12px; font-size: 0.9rem; }
+    .game-layout {
+      display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 16px; align-items: start;
+    }
+    .game-shell { min-width: 0; }
     .game-frame {
       border-radius: 18px; overflow: hidden; border: 1px solid var(--panel-border);
       background: #000; box-shadow: 0 14px 40px rgba(0,0,0,0.35);
@@ -81,8 +84,9 @@
     .info-card h2 { margin: 0 0 10px; font-family: 'Orbitron', sans-serif; font-size: 1.1rem; }
     .info-card p, .info-card li { color: var(--muted); line-height: 1.6; }
     .related-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    .related-games { margin-top: 0; position: sticky; top: 16px; max-height: 70vh; overflow-y: auto; }
     .related-game {
-      display: grid; grid-template-columns: 130px 1fr; gap: 12px; align-items: center;
+      display: grid; grid-template-columns: 88px 1fr; gap: 10px; align-items: center;
       min-width: 0; color: var(--text); font-weight: 700; background: rgba(255,255,255,0.04);
       border: 1px solid var(--panel-border); border-radius: 12px; padding: 8px; transition: transform 0.2s ease, border-color 0.2s ease;
     }
@@ -100,7 +104,9 @@
     @media (max-width: 700px) {
       .page-shell { padding: 12px 12px 24px; }
       .topbar { flex-direction: column; align-items: flex-start; }
+      .game-layout { grid-template-columns: 1fr; }
       .game-frame, iframe { min-height: 60vh; }
+      .related-games { position: static; max-height: none; }
       .related-game { grid-template-columns: 96px 1fr; }
     }
   </style>
@@ -120,14 +126,25 @@
       </div>
     </header>
 
-    <div class="game-shell">
-      <div class="game-toolbar">
-        <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
+    <div class="game-layout">
+      <div class="game-shell">
+        <div class="game-toolbar">
+          <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
+        </div>
+        <div class="game-frame">
+          <iframe src="https://html5.gamemonetize.co/lbj1gbsu0l7j8jdaih6a3yqibr9xtgu2/" allowfullscreen loading="lazy" title="Counter Terror 3d"></iframe>
+        </div>
+        
       </div>
-      <div class="game-frame">
-        <iframe src="https://html5.gamemonetize.co/lbj1gbsu0l7j8jdaih6a3yqibr9xtgu2/" allowfullscreen loading="lazy" title="Counter Terror 3d"></iframe>
-      </div>
-      
+
+      <section class="info-card related-games" aria-label="Related games">
+        <h2>Games You Might Like</h2>
+        <div class="related-grid"><a class="related-game" href="sure-shot.html"><img src="https://img.gamemonetize.com/s0e0jqx8z8e8s5n9dshww2gexamrw0cm/512x384.jpg" alt="Sure Shot" loading="lazy" /><span>Sure Shot</span></a>
+        <a class="related-game" href="multiplayer-team-death-match.html"><img src="https://img.gamemonetize.com/h5hc9ltwjo3sk2g2upo4su465kf1kkgz/512x384.jpg" alt="Multiplayer Team Death Match" loading="lazy" /><span>Multiplayer Team Death Match</span></a>
+        <a class="related-game" href="speen.html"><img src="https://img.gamemonetize.com/fwiozook1vr9lw7duxy81zup5676u7bj/512x384.jpg" alt="Speen" loading="lazy" /><span>Speen</span></a>
+        <a class="related-game" href="music-night-battle-rhythm-game.html"><img src="https://img.gamemonetize.com/gpnthl10ris6862m1lrywpqk8gc4zk4v/512x384.jpg" alt="Music Night Battle: Rhythm Game" loading="lazy" /><span>Music Night Battle: Rhythm Game</span></a>
+        <a class="related-game" href="wiggly-worm-race.html"><img src="https://img.gamemonetize.com/l0nqbs09szfpxezuy44h886ecqpomll5/512x384.jpg" alt="Wiggly Worm Race" loading="lazy" /><span>Wiggly Worm Race</span></a></div>
+      </section>
     </div>
 
     <section class="info-card" aria-label="Game information">
@@ -151,14 +168,6 @@
       <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </section>
 
-      <section class="info-card related-games" aria-label="Related games">
-        <h2>Games You Might Like</h2>
-        <div class="related-grid"><a class="related-game" href="sure-shot.html"><img src="https://img.gamemonetize.com/s0e0jqx8z8e8s5n9dshww2gexamrw0cm/512x384.jpg" alt="Sure Shot" loading="lazy" /><span>Sure Shot</span></a>
-        <a class="related-game" href="multiplayer-team-death-match.html"><img src="https://img.gamemonetize.com/h5hc9ltwjo3sk2g2upo4su465kf1kkgz/512x384.jpg" alt="Multiplayer Team Death Match" loading="lazy" /><span>Multiplayer Team Death Match</span></a>
-        <a class="related-game" href="speen.html"><img src="https://img.gamemonetize.com/fwiozook1vr9lw7duxy81zup5676u7bj/512x384.jpg" alt="Speen" loading="lazy" /><span>Speen</span></a>
-        <a class="related-game" href="music-night-battle-rhythm-game.html"><img src="https://img.gamemonetize.com/gpnthl10ris6862m1lrywpqk8gc4zk4v/512x384.jpg" alt="Music Night Battle: Rhythm Game" loading="lazy" /><span>Music Night Battle: Rhythm Game</span></a>
-        <a class="related-game" href="wiggly-worm-race.html"><img src="https://img.gamemonetize.com/l0nqbs09szfpxezuy44h886ecqpomll5/512x384.jpg" alt="Wiggly Worm Race" loading="lazy" /><span>Wiggly Worm Race</span></a></div>
-      </section>
   </div>
   <script>
     function toggleGameFullscreen(root) {
