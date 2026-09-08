@@ -730,5 +730,5 @@ const NEW_GAMES = [
     iframeUrl: "1-speed-escape-prison.html",
     fullscreen: true,
     videoUrl: ""
-  }
+  },
 ];
