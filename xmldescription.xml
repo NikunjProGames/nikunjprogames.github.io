@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com">
+  <ShortName>PleyZ Games</ShortName>
+  <Description>Search PleyZ Games- Games Worth Playing</Description>
+  <Tags>pleyz games free games trending games online games</Tags>
+  <Url type="text/html" template="https://nikunjprogames.github.io{searchTerms}"/>
+</OpenSearchDescription>
