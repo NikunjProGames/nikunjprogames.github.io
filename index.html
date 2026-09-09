@@ -17,15 +17,105 @@
   <meta name="twitter:title" content="PleyZ Games | Games Worth Playing" />
   <meta name="twitter:description" content="Play free online browser games across action, puzzle, racing, sports, arcade, and multiplayer categories on PleyZ." />
   <title>PleyZ Games | Games Worth Playing</title>
-  <script type="application/ld+json">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
     {
-      "@context": "https://schema.org",
       "@type": "WebSite",
-      "name": "PleyZ Games",
+      "@id": "https://nikunjprogames.github.io/#website",
       "url": "https://nikunjprogames.github.io/",
-      "description": "Free online browser games across action, puzzle, racing, sports, arcade, and multiplayer categories."
+      "name": "PleyZ",
+      "alternateName": "PleyZ Games",
+      "description": "Play free online games on PleyZ. Discover handpicked browser games, PleyZ Originals, multiplayer games, and more.",
+      "publisher": {
+        "@id": "https://nikunjprogames.github.io/#organization"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://nikunjprogames.github.io/#webpage",
+      "url": "https://nikunjprogames.github.io/",
+      "name": "PleyZ - Free Online Games",
+      "description": "Play free online games on PleyZ. Explore handpicked browser games, discover PleyZ Originals, and enjoy a growing collection of games on desktop and mobile.",
+      "isPartOf": {
+        "@id": "https://nikunjprogames.github.io/"
+      },
+      "about": {
+        "@id": "https://nikunjprogames.github.io/"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://nikunjprogames.github.io/#organization",
+      "name": "PleyZ",
+      "alternateName": "PleyZ Games",
+      "url": "https://nikunjprogames.github.io/",
+      "description": "PleyZ is an online gaming platform featuring free browser games, handpicked games, multiplayer experiences, PleyZ Score, and PleyZ Originals.",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "/favicon.ico"
+      },
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://nikunjprogames.github.io/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is PleyZ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "PleyZ is an online gaming platform where players can discover and play free browser games, including handpicked games, multiplayer games, and PleyZ Originals."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are the games on PleyZ free to play?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. PleyZ focuses on free-to-play browser games that can be played online without requiring a traditional game installation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What types of games can I play on PleyZ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "PleyZ features a variety of browser games across different genres, including action, arcade, puzzle, racing, multiplayer, casual, and other game categories."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is PleyZ Score?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "PleyZ Score is PleyZ's player scoring system that tracks a player's progress and gaming activity on the platform."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are PleyZ Originals?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "PleyZ Originals are games created or developed specifically for the PleyZ platform."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I play PleyZ games on mobile?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Many PleyZ browser games can be played on mobile devices, although compatibility can vary between individual games."
+          }
+        }
+      ]
     }
-  </script>
+  ]
+}
+</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet" />
@@ -2196,19 +2286,192 @@ animate();
 <!-- ==================================================
      ABOUT SECTION 
 =================================================-->
-<section id="about" style="padding:6rem 2rem; max-width:700px; margin:0 auto; text-align:center;">
-  <div class="section-title">About Us</div>
-  <div class="section-underline"></div>
-  <p></p>
+<section id="about" style="padding:6rem 2rem; max-width:700px; margin:0 auto; text-align:center;"></section>
+<style>
+.pleyz-about-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 45px 55px;
+    background: #eeeeee0d;
+    border-radius: 18px;
+    box-sizing: border-box;
+    text-align: left;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                 Roboto, Arial, sans-serif;
+    color: #fffefe;
+    line-height: 1.75;
+}
 
-PleyZ is a curated gaming platform built for the next generation of players.** We bring together hand-picked, premium-quality browser games in a modern, neon-inspired experience designed to make discovering something genuinely fun feel effortless.
+.pleyz-about-section h2 {
+    font-size: 28px;
+    margin: 30px 0 12px;
+    font-weight: 700;
+}
 
-<br>But PleyZ didn't start as a gaming company or a business. It started in <strong>2020, from simple curiosity</strong>. What began as a child's first experiment with making a game gradually grew through years of projects, ideas, experiments, and rebrands into what PleyZ is today. Now, PleyZ is being built as something more than a collection of games — it's a place to discover, play, and come back to games you actually enjoy. This is Not a platform for endless ads, clickbait, or low-quality games. It's a platform built with curiosity, for curious players. There Might not be a million games, but each one here is worth playing.
-<p>
-<strong>Curated games. Personal discovery. A platform built with curiosity. That's PleyZ </strong>
-<P>You can Learn More About Us on our <a href="about-us.html" style="color:var(--blue-1); text-decoration:underline;">About Page</a>.</p>
+.pleyz-about-section h3 {
+    font-size: 20px;
+    margin: 22px 0 8px;
+    color: #5c9ac7;
+    font-weight: 600;
+}
 
-</section>
+.pleyz-about-section p {
+    font-size: 16px;
+    margin: 0 0 18px;
+}
+
+@media (max-width: 768px) {
+    .pleyz-about-section {
+        padding: 30px 22px;
+        margin: 30px auto;
+    }
+
+    .pleyz-about-section h2 {
+        font-size: 24px;
+    }
+
+    .pleyz-about-section h3 {
+        font-size: 18px;
+    }
+
+    .pleyz-about-section p {
+        font-size: 15px;
+    }
+}
+</style>
+
+<div class="pleyz-about-section">
+
+<h2>Free Online Games on PleyZ</h2>
+
+<p>Welcome to PleyZ, a gaming platform for discovering and playing free, curated, premium-quality browser games. PleyZ brings together handpicked games across different genres, with a focus on providing an enjoyable gaming experience without constantly dragging players into irritating or disruptive ads.</p>
+
+<p>From action and arcade games to racing, puzzles, multiplayer experiences, and more, PleyZ makes it easy to discover games worth playing. Our goal is to build a gaming platform where players can spend less time searching and more time playing.</p>
+
+<p>PleyZ is more than just a collection of browser games. With <strong>PleyZ Score</strong> and an active <strong>leaderboard system</strong>, players can track their progress, compete for higher positions, and make their gaming activity part of the PleyZ experience.</p>
+
+
+<h2>Discover Curated Games on PleyZ</h2>
+
+<p>PleyZ focuses on carefully selected games rather than simply filling a library with anything available. Our collection includes free browser games chosen to give players a variety of enjoyable experiences across different genres and play styles.</p>
+
+
+<h3>Action and Arcade Games</h3>
+
+<p>Take on fast-paced challenges with action and arcade games that test your reactions, timing, and skills. Discover quick games that are easy to start and challenging to master.</p>
+
+
+<h3>Racing Games</h3>
+
+<p>Get behind the wheel and explore racing games featuring different tracks, vehicles, challenges, and driving styles. Whether you prefer fast races or skill-based driving, there are racing experiences to discover on PleyZ.</p>
+
+
+<h3>Puzzle Games</h3>
+
+<p>Challenge your thinking with puzzle games that require logic, observation, planning, and quick decisions. Explore different types of puzzles and find a challenge that matches your play style.</p>
+
+
+<h3>Multiplayer Games</h3>
+
+<p>Play multiplayer games and compete or cooperate with other players where supported. Multiplayer games on PleyZ offer different ways to challenge yourself and enjoy gaming with others.</p>
+
+
+<h2>Premium Gaming, Without the Irritating Experience</h2>
+
+<p>PleyZ aims to provide a cleaner and more enjoyable way to play free online games. We believe players should be able to focus on the game instead of constantly being interrupted by irritating or excessive advertising.</p>
+
+<p>Our curated collection focuses on premium-quality gaming experiences that are easy to discover and play in your browser. While individual games may have their own advertising or loading requirements, PleyZ's goal is to keep the overall platform experience as smooth and player-friendly as possible.</p>
+
+
+<h2>PleyZ Originals</h2>
+
+<p>PleyZ Originals are games created or developed specifically for the PleyZ platform. They represent PleyZ's own approach to browser gaming and are part of the platform's growing collection of original experiences.</p>
+
+<p>As PleyZ continues to grow, PleyZ Originals can become a place to discover games that are unique to the platform.</p>
+
+
+<h2>PleyZ Score</h2>
+
+<p>PleyZ Score is PleyZ's player scoring system, designed to make gaming activity more meaningful by giving players a way to track their progress and build their score on the platform.</p>
+
+<p>Players can build their PleyZ Score through eligible activity on PleyZ, making the score part of the platform's identity and giving players another reason to keep exploring games and improving their performance.</p>
+
+
+<h2>Active PleyZ Leaderboards</h2>
+
+<p>PleyZ features an active leaderboard system where players can see how they rank and compete for higher positions. Leaderboards add a competitive element to PleyZ and give players a way to compare their progress within the platform.</p>
+
+<p>As the PleyZ community grows, the leaderboard system can become an important part of the platform's competitive gaming experience.</p>
+
+
+<h2>Play Free Browser Games</h2>
+
+<p>PleyZ is designed to make browser gaming simple and accessible. Open a supported game, start playing, discover new titles, and keep building your PleyZ gaming journey.</p>
+
+<p>Whether you're looking for a quick arcade challenge, a racing game, a puzzle, a multiplayer experience, or a PleyZ Original, PleyZ gives you different ways to discover and enjoy free online games.</p>
+
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>What is PleyZ?</h3>
+
+<p>PleyZ is an online gaming platform where players can discover and play free, curated browser games. PleyZ focuses on premium-quality gaming experiences and also features PleyZ Score and an active leaderboard system.</p>
+
+
+<h3>Are the games on PleyZ free to play?</h3>
+
+<p>Yes. PleyZ focuses on free-to-play browser games that can be played online through a supported web browser.</p>
+
+
+<h3>What makes PleyZ different from other gaming websites?</h3>
+
+<p>PleyZ focuses on curated, premium-quality games and a player-friendly experience. The platform also includes features such as PleyZ Score, active leaderboards, and PleyZ Originals.</p>
+
+
+<h3>Does PleyZ have annoying ads?</h3>
+
+<p>PleyZ aims to provide a cleaner gaming experience without constantly interrupting players with irritating or excessive advertising. However, individual games may have their own advertising or loading requirements.</p>
+
+
+<h3>What types of games are available on PleyZ?</h3>
+
+<p>PleyZ includes games from a variety of genres, including action, arcade, puzzle, racing, multiplayer, casual, and other browser game categories.</p>
+
+
+<h3>What is PleyZ Score?</h3>
+
+<p>PleyZ Score is PleyZ's player scoring system for tracking gaming activity and progress on the platform.</p>
+
+
+<h3>What are the PleyZ leaderboards?</h3>
+
+<p>The PleyZ leaderboards are an active ranking system that allows players to see their position and compete for higher rankings based on eligible PleyZ activity.</p>
+
+
+<h3>What are PleyZ Originals?</h3>
+
+<p>PleyZ Originals are games created or developed specifically for the PleyZ platform and form part of PleyZ's original gaming collection.</p>
+
+
+<h3>Can I play PleyZ games on mobile?</h3>
+
+<p>Many PleyZ games support mobile play, although compatibility can vary depending on the individual game.</p>
+
+
+<h3>Do I need to install games to play on PleyZ?</h3>
+
+<p>PleyZ features browser games that can be played online, so supported games can be started directly through a web browser without a traditional game installation.</p>
+
+<h3>How can I submit my game to PleyZ?</h3>
+
+<p>If you're a developer with a game you'd like to feature on PleyZ, you can submit it through the button below to the thousands of players who visit our site.</p>
+
+<h3>Does PleyZ also have FPS Games ?</h3>
+<p>Yes, PleyZ features a selection of first-person shooter games that can be played directly in your web browser.</p>
+
+</div>
+
 
 <section class="submit-game-banner">
     <div class="submit-content">
@@ -2771,7 +3034,7 @@ const GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/basketball-stars/big_preview/2e0653c710ad43e09c40d1ba5968e447?width=448",
-    iframeUrl: "basketball-stars.html",
+    iframeUrl: "/games/basketball-stars.html",
     fullscreen: true,
     videoUrl: ""
   },
