@@ -3872,7 +3872,22 @@ function renderGames(filter = 'all', reset = true) {
       </div>
     `;
 
-    grid.appendChild(card);
+    // Make the entire game card clickable
+card.addEventListener('click', () => {
+  openGame(g.id);
+});
+
+// Keep the Play Now button working too
+const playButton = card.querySelector('.btn-play');
+
+if (playButton) {
+  playButton.addEventListener('click', (event) => {
+    event.stopPropagation();
+    openGame(g.id);
+  });
+}
+
+grid.appendChild(card);
   });
 
   currentGameBatch++;
