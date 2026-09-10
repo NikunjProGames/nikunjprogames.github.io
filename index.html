@@ -227,6 +227,15 @@
       box-shadow: 0 0 12px var(--purple-1), 0 0 24px var(--blue-1);
       animation: underline-pulse 2s ease-in-out infinite;
     }
+    .desktop-only {
+  display: inline;
+}
+
+@media (max-width: 767px) {
+  .desktop-only {
+    display: none;
+  }
+}
     @keyframes underline-pulse {
       0%,100% { box-shadow: 0 0 12px var(--purple-1), 0 0 24px var(--blue-1); }
       50% { box-shadow: 0 0 20px var(--purple-1), 0 0 40px var(--blue-1), 0 0 60px var(--purple-1); }
@@ -635,7 +644,7 @@
       }
       #home { padding: 5.3rem 1rem 2.8rem; }
       nav.open { inset: 56px 0 0 0; top: 56px; }
-      .logo { font-size: 1.1rem; }
+      .logo { font-size: 1.45rem; }
       #auth-action-button {
         padding: 0.45rem 0.8rem;
         font-size: 0.65rem;
@@ -683,20 +692,28 @@
       0%,100% { box-shadow: 0 0 6px rgba(139,0,255,0.4); }
       50% { box-shadow: 0 0 18px rgba(139,0,255,0.8), 0 0 30px rgba(0,191,255,0.4); }
     }
+.hero-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 5rem;
+  font-weight: 950;
+  line-height: 1.1;
+  margin-bottom: 1.2rem;
+  background: linear-gradient(105deg, #ffffff 0%, var(--purple-1) 40%, var(--blue-1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: title-shimmer 4s linear infinite;
+  background-size: 200% auto;
+}
 
-    .hero-title {
-      font-family: 'Orbitron', sans-serif;
-      font-size: clamp(2rem, 7vw, 5rem);
-      font-weight: 1000;
-      line-height: 1.1;
-      margin-bottom: 1.2rem;
-      background: linear-gradient(135deg, #ffffff 0%, var(--purple-1) 40%, var(--blue-1) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: title-shimmer 4s linear infinite;
-      background-size: 200% auto;
-    }
+/* PHONE */
+@media screen and (max-width: 767px) {
+  .hero-title {
+    font-size: 1.75rem !important;
+    line-height: 1.15;
+    margin-bottom: 0.8rem;
+  }
+}
     @keyframes title-shimmer {
       0% { background-position: 0% center; }
       100% { background-position: 200% center; }
@@ -2055,6 +2072,21 @@ animate();
   </div>
 </header>
 
+<nav class="mobile-bottom-nav" aria-label="Mobile navigation">
+  <button type="button" class="mobile-nav-item active" onclick="mobileNavGo('home', this)">
+    <i class="fas fa-house"></i><span>Home</span>
+  </button>
+  <button type="button" class="mobile-nav-item" onclick="mobileNavSearch(this)">
+    <i class="fas fa-search"></i><span>Search</span>
+  </button>
+  <button type="button" class="mobile-nav-item" onclick="mobileNavRecent(this)">
+    <i class="fas fa-bookmark"></i><span>My Games</span>
+  </button>
+  <button type="button" class="mobile-nav-item" onclick="mobileNavLogin(this)">
+    <i class="fas fa-user"></i><span>Login</span>
+  </button>
+</nav>
+
 <!-- ============================================================
      HERO SECTION
 ============================================================ -->
@@ -2065,23 +2097,18 @@ animate();
     <div class="ring ring-3"></div>
   </div>
   <div class="hero-content fade-in">
-    <div class="hero-badge">ONLINE GAMING PLATFORM</div>
-    <h1 class="hero-title"> PleyZ Games</h1>
-    <p class="hero-tagline">
-      Games Worth<span> Playing</span> 
+
+    <h1 class="hero-title"> PleyZ - Games Worth Playing</h1>
 
     </p>
 <div class="d-flex flex-column flex-sm-row align-items-center justify-content-center gap-5">
-    <a href="#games" class="btn btn-primary mb-2 mb-sm-0" style="font-size:0.85rem; padding: 0.8rem 2.2rem;">
-        <i class="fas fa-gamepad"></i> Explore Games
-    </a>
 
 </div>
   </div>
 </section>
 
 <!-- Ad Banner 1 -->
-<div class="ad-wrap">
+<div class="ad-wrap" id="top-ad">
   <div class="ad-banner">
     <span>[ Advertisement ]</span>
   </div>
@@ -2093,10 +2120,9 @@ animate();
 <section id="trending">
   <div class="trending-intro">
     <div>
-      <div class="section-pill"><i class="fas fa-fire"></i> Trending picks</div>
-      <div class="section-title">Hot right now</div>
+      <div class="section-title">Trending Games</div>
       <div class="section-underline"></div>
-      <p class="trending-copy">The games everyone is jumping into first</p>
+    
     </div>
     <div class="trending-badge"><i class="fas fa-bolt"></i> Live • 24/7 hits</div>
   </div>
@@ -2351,6 +2377,8 @@ animate();
 
 <p>PleyZ is more than just a collection of browser games. With <strong>PleyZ Score</strong> and an active <strong>leaderboard system</strong>, players can track their progress, compete for higher positions, and make their gaming activity part of the PleyZ experience.</p>
 
+<p>With Smooth neon animations, gameplay videos, and curated games sections, PleyZ Games, makes gameplay easier and better for everyone </p>
+
 
 <h2>Discover Curated Games on PleyZ</h2>
 
@@ -2469,6 +2497,7 @@ animate();
 
 <h3>Does PleyZ also have FPS Games ?</h3>
 <p>Yes, PleyZ features a selection of first-person shooter games that can be played directly in your web browser.</p>
+
 
 </div>
 
@@ -3992,6 +4021,27 @@ function toggleMobileNav() {
   document.getElementById('main-nav').classList.toggle('open');
   document.getElementById('hamburger').classList.toggle('open');
 }
+function setMobileNavActive(button) {
+  document.querySelectorAll('.mobile-nav-item').forEach(item => item.classList.remove('active'));
+  button?.classList.add('active');
+}
+function mobileNavGo(target, button) {
+  setMobileNavActive(button);
+  document.getElementById(target)?.scrollIntoView({ behavior: 'smooth' });
+}
+function mobileNavSearch(button) {
+  setMobileNavActive(button);
+  document.getElementById('games')?.scrollIntoView({ behavior: 'smooth' });
+  window.setTimeout(() => document.getElementById('game-search')?.focus(), 350);
+}
+function mobileNavRecent(button) {
+  setMobileNavActive(button);
+  toggleRecentPanel(true);
+}
+function mobileNavLogin(button) {
+  setMobileNavActive(button);
+  openLoginModal();
+}
 window.addEventListener('scroll', () => {
   document.querySelector('header').classList.toggle('scrolled', window.scrollY > 18);
 });
@@ -4990,12 +5040,15 @@ window.firebaseFetchLeaderboard = async () => {
   } catch (err) {
     console.error('Leaderboard error:', err);
 
-    tbody.innerHTML =
-      '<tr><td colspan="4" style="text-align:center; padding:1.5rem; color:var(--text-dim);">Unable to load leaderboard</td></tr>';
+    tbody.innerHTML = '';
+    seededRows.forEach((player, index) => {
+      tbody.appendChild(buildRow(index + 1, player.name, player.score, player.games));
+    });
   }
 };
 
-renderLeaderboard();
+  // The Firestore module loads asynchronously; refresh once its API is ready.
+  renderLeaderboard();
 
 // PleyZ modal helpers
 window.openPleyzModal = async function(forceOpen = false) {
@@ -5223,5 +5276,69 @@ setTimeout(() => {
 }, 120000);
 });
 </script>
+<style>
+  #home { min-height: auto; padding: 8.5rem 2rem 2.4rem; }
+  #top-ad { display: none; }
+  .hero-content { max-width: 760px; }
+  .hero-badge { margin-bottom: 0.8rem; }
+  .hero-title { font-size: clamp(1.2rem, 3vw, 4.4rem); margin-bottom: 0.35rem; }
+  .hero-tagline { margin-bottom: 1rem; }
+  .hero-explore { color: var(--blue-1); font-family: 'Orbitron', sans-serif; font-size: 0.76rem; font-weight: 700; letter-spacing: 1px; text-decoration: none; }
+  .hero-explore:hover { color: #fff; text-shadow: 0 0 12px var(--blue-1); }
+  #trending { padding-top: 1rem; }
+  #trending::before { inset: 0; border-radius: 0; border-left: 0; border-right: 0; }
+  .trending-intro { margin-bottom: 1.1rem; }
+  .trending-intro .section-title { text-align: left; font-size: clamp(1.4rem, 3vw, 2rem); }
+  .trending-intro .section-underline { margin: 0.45rem 0 0.7rem; height: 2px; }
+  .trending-copy { font-size: 0.95rem; }
+  .games-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 1.25rem 1rem; }
+  .game-card { background: transparent; border: 0; border-radius: 0; backdrop-filter: none; }
+  .game-card:hover { transform: translateY(-5px); box-shadow: none; border-color: transparent; }
+  .game-thumb { aspect-ratio: 4 / 3; border: 1px solid rgba(255,255,255,0.12); border-radius: 16px; box-shadow: 0 12px 28px rgba(0,0,0,0.24); }
+  .game-thumb img.custom-game-image { border-radius: 16px; }
+  .game-thumb img:not(.custom-game-image) { width: 72%; height: 72%; border-radius: 18px; }
+  .game-info { padding: 0.7rem 0.15rem 0; gap: 0.35rem; }
+  .game-name { font-size: 0.82rem; line-height: 1.25; }
+  .cat-badge { border: 0; background: transparent; padding: 0; font-size: 0.56rem; opacity: 0.8; }
+  .game-card-actions { display: none; }
+  .mobile-bottom-nav { display: none; }
+
+  @media (min-width: 1100px) and (max-width: 1399px) {
+    .games-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  }
+  @media (min-width: 861px) and (max-width: 1099px) {
+    .games-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  }
+  @media (max-width: 768px) {
+    body { padding-bottom: 76px; }
+    .hamburger { display: none !important; }
+    #home { padding: 6.8rem 1.2rem 1.5rem; }
+    .hero-title { font-size: clamp(2rem, 11vw, 3rem); }
+    .hero-badge { font-size: 0.4rem; letter-spacing: 2px; }
+    #trending { padding: 1rem 1.2rem 2.2rem; }
+    #trending::before { display: none; }
+    .trending-intro .section-title { font-size: 1.45rem; }
+    .trending-badge { display: none; }
+    #games { padding: 2.2rem 1.2rem 3rem; }
+    #games > .section-title { text-align: left; font-size: 1.45rem; }
+    #games > .section-underline { margin-left: 0; margin-bottom: 1.2rem; }
+    .games-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem 0.8rem; }
+    .game-thumb { border-radius: 14px; }
+    .game-thumb img.custom-game-image { border-radius: 14px; }
+    .game-info { padding-top: 0.55rem; }
+    .game-name { font-size: 0.76rem; }
+    .filter-tabs { justify-content: flex-start; overflow-x: auto; flex-wrap: nowrap; padding-bottom: 0.3rem; scrollbar-width: none; }
+    .filter-tabs::-webkit-scrollbar { display: none; }
+    .mobile-bottom-nav { position: fixed; display: flex; left: 0; right: 0; bottom: 0; z-index: 1100; justify-content: space-around; padding: 0.55rem 0.35rem calc(0.55rem + env(safe-area-inset-bottom)); background: rgba(8,8,15,0.96); border-top: 1px solid rgba(139,0,255,0.35); box-shadow: 0 -10px 30px rgba(0,0,0,0.28); backdrop-filter: blur(18px); }
+    .mobile-nav-item { display: grid; gap: 0.28rem; min-width: 70px; border: 0; background: transparent; color: var(--text-dim); font: 600 0.66rem 'Rajdhani', sans-serif; cursor: pointer; text-align: center; }
+    .mobile-nav-item i { font-size: 1rem; }
+    .mobile-nav-item.active, .mobile-nav-item:hover { color: var(--blue-1); text-shadow: 0 0 10px rgba(0,191,255,0.55); }
+  }
+  @media (max-width: 380px) {
+    #home { padding-left: 0.9rem; padding-right: 0.9rem; }
+    #trending, #games { padding-left: 0.9rem; padding-right: 0.9rem; }
+    .games-grid { gap: 1rem 0.65rem; }
+  }
+</style>
 </body>
 </html>
