@@ -6,477 +6,997 @@
 
 <title>Add Your Game — PleyZ</title>
 
+<meta name="description" content="Submit your game to PleyZ and give players something worth discovering.">
+<meta name="robots" content="index, follow">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-:root {
-    --purple: #8b00ff;
-    --purple2: #6a0dad;
-    --blue: #00bfff;
-    --deep-blue: #0047ab;
-    --bg: #03030a;
-    --text: #f5f5ff;
-    --muted: #a6a6bd;
+
+:root{
+    --purple:#8b00ff;
+    --purple2:#6a0dad;
+    --blue:#00bfff;
+    --bg:#03030a;
+    --text:#f5f5ff;
+    --muted:#a6a6bd;
+    --line:rgba(255,255,255,.09)
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box
 }
 
-html {
-    scroll-behavior: smooth;
+html{
+    scroll-behavior:smooth
 }
 
-body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Rajdhani', sans-serif;
-    overflow-x: hidden;
+body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Rajdhani',sans-serif;
+    overflow-x:hidden
 }
 
-/* ---------- BACKGROUND ---------- */
-
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
+body:before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
     background:
-        radial-gradient(circle at 15% 20%, rgba(139,0,255,.18), transparent 30%),
-        radial-gradient(circle at 85% 30%, rgba(0,191,255,.13), transparent 28%),
-        radial-gradient(circle at 50% 90%, rgba(106,13,173,.12), transparent 35%);
-    z-index: -2;
+        radial-gradient(circle at 15% 20%,rgba(139,0,255,.18),transparent 30%),
+        radial-gradient(circle at 85% 30%,rgba(0,191,255,.13),transparent 28%),
+        radial-gradient(circle at 50% 90%,rgba(106,13,173,.12),transparent 35%);
+    z-index:-2
 }
 
-.grid {
-    position: fixed;
-    inset: 0;
+.grid{
+    position:fixed;
+    inset:0;
     background-image:
-        linear-gradient(rgba(139,0,255,.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(139,0,255,.035) 1px, transparent 1px);
-    background-size: 55px 55px;
-    mask-image: linear-gradient(to bottom, black, transparent 90%);
-    pointer-events: none;
-    z-index: -1;
+        linear-gradient(rgba(139,0,255,.035) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(139,0,255,.035) 1px,transparent 1px);
+    background-size:55px 55px;
+    mask-image:linear-gradient(to bottom,black,transparent 90%);
+    pointer-events:none;
+    z-index:-1
 }
 
-/* ---------- NAV ---------- */
+/* ============================================================
+   NAVIGATION
+============================================================ */
 
-nav {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 80px;
-    padding: 0 6%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    z-index: 10;
+nav{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:80px;
+    padding:0 6%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    z-index:10
 }
 
-.logo {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 900;
-    letter-spacing: 2px;
+.logo{
+    font-family:'Orbitron',sans-serif;
+    font-size:1.5rem;
+    font-weight:900;
+    letter-spacing:2px
 }
 
-.logo span {
-    color: var(--purple);
+.logo span{
+    color:var(--purple)
 }
 
-.nav-link {
-    color: #fff;
-    text-decoration: none;
-    border: 1px solid rgba(255,255,255,.15);
-    padding: 10px 20px;
-    border-radius: 30px;
-    transition: .3s;
-    backdrop-filter: blur(10px);
+.nav-link{
+    color:#fff;
+    text-decoration:none;
+    border:1px solid rgba(255,255,255,.15);
+    padding:10px 20px;
+    border-radius:30px;
+    transition:.3s;
+    backdrop-filter:blur(10px)
 }
 
-.nav-link:hover {
-    border-color: var(--purple);
-    box-shadow: 0 0 20px rgba(139,0,255,.3);
+.nav-link:hover{
+    border-color:var(--purple);
+    box-shadow:0 0 20px rgba(139,0,255,.3)
 }
 
-/* ---------- HERO ---------- */
+/* ============================================================
+   HERO
+============================================================ */
 
-.hero {
-    min-height: 100vh;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 120px 7% 80px;
-    overflow: hidden;
+.hero{
+    min-height:100vh;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:120px 7% 80px;
+    overflow:hidden
 }
 
-.hero-art {
-    position: absolute;
-    inset: 0;
+.hero-art{
+    position:absolute;
+    inset:0;
     background:
-        linear-gradient(to bottom, rgba(3,3,10,.35), #03030a 92%),
-        radial-gradient(circle at 50% 40%, rgba(139,0,255,.2), transparent 45%);
+        linear-gradient(to bottom,rgba(3,3,10,.35),#03030a 92%),
+        radial-gradient(circle at 50% 40%,rgba(139,0,255,.2),transparent 45%)
 }
 
-.orb {
-    position: absolute;
-    width: 450px;
-    height: 450px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(139,0,255,.28), transparent 65%);
-    filter: blur(15px);
-    animation: float 8s ease-in-out infinite;
+.orb{
+    position:absolute;
+    width:450px;
+    height:450px;
+    border-radius:50%;
+    background:radial-gradient(circle,rgba(139,0,255,.28),transparent 65%);
+    filter:blur(15px);
+    animation:float 8s ease-in-out infinite
 }
 
-.orb.one {
-    left: -150px;
-    top: 20%;
+.orb.one{
+    left:-150px;
+    top:20%
 }
 
-.orb.two {
-    right: -170px;
-    bottom: 10%;
-    background: radial-gradient(circle, rgba(0,191,255,.2), transparent 65%);
-    animation-delay: -3s;
+.orb.two{
+    right:-170px;
+    bottom:10%;
+    background:radial-gradient(circle,rgba(0,191,255,.2),transparent 65%);
+    animation-delay:-3s
 }
 
-@keyframes float {
-    50% {
-        transform: translateY(-30px) scale(1.08);
+@keyframes float{
+    50%{
+        transform:translateY(-30px) scale(1.08)
     }
 }
 
-.hero-content {
-    position: relative;
-    max-width: 1000px;
-    z-index: 2;
+.hero-content{
+    position:relative;
+    max-width:1000px;
+    z-index:2
 }
 
-.eyebrow {
-    display: inline-block;
-    color: var(--blue);
-    font-weight: 700;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    font-size: .85rem;
-    margin-bottom: 25px;
+.eyebrow{
+    display:inline-block;
+    color:var(--blue);
+    font-weight:700;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    font-size:.85rem;
+    margin-bottom:25px
 }
 
-.hero h1 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: clamp(3rem, 8vw, 7.5rem);
-    line-height: .95;
-    font-weight: 900;
-    letter-spacing: -3px;
-    background: linear-gradient(110deg, #fff 10%, #d6b4ff 40%, #8b00ff 65%, #00bfff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 0 35px rgba(139,0,255,.22));
+.hero h1{
+    font-family:'Orbitron',sans-serif;
+    font-size:clamp(3rem,8vw,7.5rem);
+    line-height:.95;
+    font-weight:900;
+    letter-spacing:-3px;
+    background:linear-gradient(
+        110deg,
+        #fff 10%,
+        #d6b4ff 40%,
+        #8b00ff 65%,
+        #00bfff
+    );
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    filter:drop-shadow(0 0 35px rgba(139,0,255,.22))
 }
 
-.hero p {
-    max-width: 650px;
-    margin: 30px auto;
-    color: var(--muted);
-    font-size: 1.25rem;
-    line-height: 1.6;
+.hero p{
+    max-width:700px;
+    margin:30px auto;
+    color:var(--muted);
+    font-size:1.25rem;
+    line-height:1.6
 }
 
-.cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 16px 30px;
-    border-radius: 12px;
-    color: white;
-    text-decoration: none;
-    font-family: 'Orbitron', sans-serif;
-    font-weight: 700;
-    background: linear-gradient(100deg, var(--purple2), var(--purple), var(--blue));
+.cta{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:16px 30px;
+    border-radius:12px;
+    color:#fff;
+    text-decoration:none;
+    font-family:'Orbitron',sans-serif;
+    font-weight:700;
+    background:linear-gradient(
+        100deg,
+        var(--purple2),
+        var(--purple),
+        var(--blue)
+    );
     box-shadow:
         0 0 25px rgba(139,0,255,.35),
         inset 0 0 20px rgba(255,255,255,.08);
-    transition: .3s;
+    transition:.3s
 }
 
-.cta:hover {
-    transform: translateY(-4px);
+.cta:hover{
+    transform:translateY(-4px);
     box-shadow:
         0 0 45px rgba(139,0,255,.55),
-        0 10px 35px rgba(0,0,0,.4);
+        0 10px 35px rgba(0,0,0,.4)
 }
 
-.scroll {
-    position: absolute;
-    bottom: 25px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: #66667d;
-    font-size: .75rem;
-    letter-spacing: 3px;
+.scroll{
+    position:absolute;
+    bottom:25px;
+    left:50%;
+    transform:translateX(-50%);
+    color:#66667d;
+    font-size:.75rem;
+    letter-spacing:3px
 }
 
-/* ---------- SECTIONS ---------- */
+/* ============================================================
+   SECTIONS
+============================================================ */
 
-section:not(.hero) {
-    padding: 120px 7%;
-    max-width: 1300px;
-    margin: auto;
+section:not(.hero){
+    padding:120px 7%;
+    max-width:1300px;
+    margin:auto
 }
 
-.section-label {
-    color: var(--purple);
-    font-family: 'Orbitron', sans-serif;
-    font-size: .8rem;
-    letter-spacing: 3px;
-    margin-bottom: 15px;
+.section-label{
+    color:var(--purple);
+    font-family:'Orbitron',sans-serif;
+    font-size:.8rem;
+    letter-spacing:3px;
+    margin-bottom:15px
 }
 
-.section-title {
-    font-family: 'Orbitron', sans-serif;
-    font-size: clamp(2rem, 5vw, 4rem);
-    line-height: 1.05;
-    margin-bottom: 50px;
+.section-title{
+    font-family:'Orbitron',sans-serif;
+    font-size:clamp(2rem,5vw,4rem);
+    line-height:1.05;
+    margin-bottom:35px
 }
 
-.section-title span {
-    color: var(--blue);
+.section-title span{
+    color:var(--blue)
 }
 
-/* ---------- WHY PLEYZ ---------- */
+/* ============================================================
+   FEATURES
+============================================================ */
 
-.features {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 18px;
+.features{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px
 }
 
-.card {
-    padding: 30px;
-    min-height: 230px;
-    border: 1px solid rgba(255,255,255,.09);
-    background: linear-gradient(
-        145deg,
-        rgba(255,255,255,.055),
-        rgba(255,255,255,.015)
-    );
-    border-radius: 18px;
-    backdrop-filter: blur(12px);
-    transition: .35s;
-}
-
-.card:hover {
-    transform: translateY(-8px);
-    border-color: rgba(139,0,255,.55);
-    box-shadow: 0 15px 50px rgba(139,0,255,.12);
-}
-
-.icon {
-    font-size: 2rem;
-    margin-bottom: 25px;
-}
-
-.card h3 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1rem;
-    margin-bottom: 12px;
-}
-
-.card p {
-    color: var(--muted);
-    line-height: 1.55;
-}
-
-/* ---------- LOOKING FOR ---------- */
-
-.looking {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 70px;
-    align-items: center;
-}
-
-.big-text {
-    font-size: 1.4rem;
-    color: var(--muted);
-    line-height: 1.7;
-}
-
-.checks {
-    display: grid;
-    gap: 14px;
-}
-
-.check {
-    padding: 18px 20px;
-    border-left: 2px solid var(--purple);
-    background: rgba(139,0,255,.05);
-    border-radius: 0 10px 10px 0;
-}
-
-.check strong {
-    display: block;
-    font-size: 1.1rem;
-    margin-bottom: 4px;
-}
-
-.check span {
-    color: #8888a0;
-}
-
-/* ---------- PROCESS ---------- */
-
-.process {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-}
-
-.step {
-    position: relative;
-    padding: 35px;
-    border-top: 1px solid rgba(139,0,255,.5);
-}
-
-.number {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 3.5rem;
-    font-weight: 900;
-    color: rgba(139,0,255,.25);
-    margin-bottom: 15px;
-}
-
-.step h3 {
-    font-family: 'Orbitron', sans-serif;
-    margin-bottom: 10px;
-}
-
-.step p {
-    color: var(--muted);
-    line-height: 1.6;
-}
-
-/* ---------- ABOUT ---------- */
-
-.about-box {
-    padding: 65px;
-    border-radius: 25px;
-    border: 1px solid rgba(139,0,255,.25);
+.card{
+    padding:30px;
+    min-height:230px;
+    border:1px solid var(--line);
     background:
-        radial-gradient(circle at 100% 0%, rgba(0,191,255,.1), transparent 35%),
-        linear-gradient(135deg, rgba(139,0,255,.08), rgba(255,255,255,.02));
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.055),
+            rgba(255,255,255,.015)
+        );
+    border-radius:18px;
+    backdrop-filter:blur(12px);
+    transition:.35s
 }
 
-.about-box p {
-    color: #b5b5c8;
-    font-size: 1.2rem;
-    line-height: 1.8;
-    max-width: 900px;
+.card:hover{
+    transform:translateY(-8px);
+    border-color:rgba(139,0,255,.55);
+    box-shadow:0 15px 50px rgba(139,0,255,.12)
 }
 
-/* ---------- FINAL CTA ---------- */
-
-.final {
-    min-height: 70vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+.icon{
+    font-size:2rem;
+    margin-bottom:25px
 }
 
-.final-inner {
-    max-width: 900px;
+.card h3{
+    font-family:'Orbitron',sans-serif;
+    font-size:1rem;
+    margin-bottom:12px
 }
 
-.final h2 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: clamp(2.5rem, 7vw, 6rem);
-    line-height: 1;
-    margin-bottom: 25px;
+.card p{
+    color:var(--muted);
+    line-height:1.55
 }
 
-.final h2 span {
-    color: var(--purple);
+/* ============================================================
+   LOOKING FOR
+============================================================ */
+
+.looking{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:70px;
+    align-items:center
 }
 
-.final p {
-    color: var(--muted);
-    font-size: 1.2rem;
-    margin-bottom: 35px;
+.big-text{
+    font-size:1.4rem;
+    color:var(--muted);
+    line-height:1.7
 }
 
-.email-note {
-    margin-top: 18px;
-    color: #68687d;
-    font-size: .85rem;
+.checks{
+    display:grid;
+    gap:14px
 }
 
-/* ---------- RESPONSIVE ---------- */
+.check{
+    padding:18px 20px;
+    border-left:2px solid var(--purple);
+    background:rgba(139,0,255,.05);
+    border-radius:0 10px 10px 0
+}
 
-@media (max-width: 900px) {
+.check strong{
+    display:block;
+    font-size:1.1rem;
+    margin-bottom:4px
+}
 
-    .features {
-        grid-template-columns: repeat(2, 1fr);
+.check span{
+    color:#8888a0
+}
+
+/* ============================================================
+   PROCESS
+============================================================ */
+
+.process{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px
+}
+
+.step{
+    position:relative;
+    padding:35px;
+    border-top:1px solid rgba(139,0,255,.5)
+}
+
+.number{
+    font-family:'Orbitron',sans-serif;
+    font-size:3.5rem;
+    font-weight:900;
+    color:rgba(139,0,255,.25);
+    margin-bottom:15px
+}
+
+.step h3{
+    font-family:'Orbitron',sans-serif;
+    margin-bottom:10px
+}
+
+.step p{
+    color:var(--muted);
+    line-height:1.6
+}
+
+/* ============================================================
+   TERMS
+============================================================ */
+
+.terms-box{
+    padding:55px;
+    border-radius:25px;
+    border:1px solid rgba(0,191,255,.18);
+    background:
+        radial-gradient(
+            circle at 0% 100%,
+            rgba(139,0,255,.12),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            rgba(0,191,255,.055),
+            rgba(255,255,255,.02)
+        )
+}
+
+.terms-lead{
+    color:#b9b9ca;
+    font-size:1.18rem;
+    line-height:1.75;
+    max-width:950px;
+    margin-bottom:32px
+}
+
+.permission-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
+    margin:30px 0 36px
+}
+
+.permission{
+    padding:18px;
+    border:1px solid rgba(255,255,255,.07);
+    border-radius:14px;
+    background:rgba(255,255,255,.025)
+}
+
+.permission strong{
+    display:block;
+    margin-bottom:6px
+}
+
+.permission span{
+    color:#9191a8;
+    line-height:1.5
+}
+
+.not-owner{
+    margin-top:28px;
+    padding:22px;
+    border-radius:14px;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(139,0,255,.09),
+            rgba(0,191,255,.05)
+        );
+    border:1px solid rgba(139,0,255,.16);
+    color:#c4c4d4;
+    line-height:1.7
+}
+
+.confirmations{
+    display:grid;
+    gap:12px;
+    margin-top:30px
+}
+
+.confirmation{
+    display:flex;
+    gap:13px;
+    align-items:flex-start;
+    padding:16px 18px;
+    border-radius:12px;
+    background:rgba(255,255,255,.025);
+    border:1px solid rgba(255,255,255,.07);
+    transition:.25s
+}
+
+.confirmation:has(input:checked){
+    border-color:rgba(139,0,255,.35);
+    background:rgba(139,0,255,.045)
+}
+
+.confirmation input{
+    width:18px;
+    height:18px;
+    flex:0 0 auto;
+    margin-top:3px;
+    accent-color:var(--purple);
+    cursor:pointer
+}
+
+.confirmation label{
+    color:#c1c1d2;
+    line-height:1.55;
+    cursor:pointer
+}
+
+.terms-button{
+    margin-top:28px;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:12px 18px;
+    border-radius:999px;
+    color:#fff;
+    text-decoration:none;
+    border:1px solid rgba(255,255,255,.13);
+    background:rgba(255,255,255,.035);
+    transition:.3s
+}
+
+.terms-button:hover{
+    border-color:var(--blue);
+    box-shadow:0 0 22px rgba(0,191,255,.12)
+}
+
+.legal-note{
+    margin-top:22px;
+    color:#66667d;
+    font-size:.85rem;
+    line-height:1.6;
+    max-width:900px
+}
+
+/* ============================================================
+   SUBMISSION GATE
+============================================================ */
+
+.submit-gate{
+    margin-top:35px;
+    padding-top:30px;
+    border-top:1px solid rgba(255,255,255,.07)
+}
+
+.submit-gate-button{
+    border:0;
+    cursor:not-allowed;
+    opacity:.45;
+    pointer-events:none;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:16px 25px;
+    border-radius:12px;
+    color:#fff;
+    font-family:'Orbitron',sans-serif;
+    font-weight:700;
+    background:linear-gradient(100deg,#3b1766,#57208c);
+    transition:.35s
+}
+
+.submit-gate-button.ready{
+    opacity:1;
+    pointer-events:auto;
+    cursor:pointer;
+    background:linear-gradient(
+        100deg,
+        var(--purple2),
+        var(--purple),
+        var(--blue)
+    );
+    box-shadow:0 0 25px rgba(139,0,255,.35)
+}
+
+.submit-gate-button.ready:hover{
+    transform:translateY(-3px);
+    box-shadow:0 0 40px rgba(139,0,255,.5)
+}
+
+.gate-message{
+    margin-top:12px;
+    color:#77778f;
+    font-size:.9rem
+}
+
+/* ============================================================
+   SUBMISSION FORM
+============================================================ */
+
+.submission-area{
+    display:none;
+    margin-top:60px;
+    animation:formReveal .6s ease forwards
+}
+
+.submission-area.show{
+    display:block
+}
+
+@keyframes formReveal{
+    from{
+        opacity:0;
+        transform:translateY(25px)
     }
-
-    .looking {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .process {
-        grid-template-columns: 1fr;
+    to{
+        opacity:1;
+        transform:translateY(0)
     }
 }
 
-@media (max-width: 600px) {
-
-    nav {
-        padding: 0 5%;
-    }
-
-    .nav-link {
-        padding: 8px 14px;
-        font-size: .85rem;
-    }
-
-    .hero {
-        padding-left: 5%;
-        padding-right: 5%;
-    }
-
-    .hero h1 {
-        letter-spacing: -2px;
-    }
-
-    .hero p {
-        font-size: 1.05rem;
-    }
-
-    section:not(.hero) {
-        padding: 80px 5%;
-    }
-
-    .features {
-        grid-template-columns: 1fr;
-    }
-
-    .about-box {
-        padding: 35px 25px;
-    }
-
-    .about-box p {
-        font-size: 1.05rem;
-    }
+.submission-header{
+    margin-bottom:30px
 }
+
+.submission-header p{
+    color:var(--muted);
+    max-width:800px;
+    line-height:1.7;
+    font-size:1.1rem
+}
+
+.submission-form{
+    padding:45px;
+    border-radius:25px;
+    border:1px solid rgba(139,0,255,.22);
+    background:
+        radial-gradient(
+            circle at 100% 0%,
+            rgba(0,191,255,.08),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            rgba(139,0,255,.07),
+            rgba(255,255,255,.02)
+        )
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px
+}
+
+.form-field{
+    display:flex;
+    flex-direction:column;
+    gap:8px
+}
+
+.form-field.full{
+    grid-column:1 / -1
+}
+
+.form-field label{
+    font-family:'Orbitron',sans-serif;
+    font-size:.75rem;
+    letter-spacing:1.5px;
+    color:#d9d9e8
+}
+
+.form-field label span{
+    color:#77778f;
+    font-family:'Rajdhani',sans-serif;
+    letter-spacing:0
+}
+
+.form-field input,
+.form-field textarea,
+.form-field select{
+    width:100%;
+    border:1px solid rgba(255,255,255,.1);
+    outline:none;
+    border-radius:12px;
+    padding:14px 16px;
+    background:rgba(255,255,255,.035);
+    color:#fff;
+    font-family:'Rajdhani',sans-serif;
+    font-size:1rem;
+    transition:.25s
+}
+
+.form-field textarea{
+    min-height:130px;
+    resize:vertical
+}
+
+.form-field select option{
+    background:#080812;
+    color:#fff
+}
+
+.form-field input:focus,
+.form-field textarea:focus,
+.form-field select:focus{
+    border-color:var(--purple);
+    box-shadow:0 0 20px rgba(139,0,255,.12)
+}
+
+.file-box{
+    border:1px dashed rgba(0,191,255,.3);
+    border-radius:16px;
+    padding:25px;
+    background:rgba(0,191,255,.025);
+    transition:.3s
+}
+
+.file-box:hover{
+    border-color:var(--blue);
+    background:rgba(0,191,255,.045)
+}
+
+.file-box input[type="file"]{
+    border:0;
+    padding:8px 0;
+    background:transparent
+}
+
+.file-box small{
+    display:block;
+    color:#77778f;
+    margin-top:8px;
+    line-height:1.5
+}
+
+.form-divider{
+    height:1px;
+    background:rgba(255,255,255,.07);
+    margin:35px 0
+}
+
+.form-consent{
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+    padding:18px;
+    border-radius:13px;
+    background:rgba(255,255,255,.025);
+    border:1px solid rgba(255,255,255,.07)
+}
+
+.form-consent input{
+    width:18px;
+    height:18px;
+    flex:0 0 auto;
+    margin-top:3px;
+    accent-color:var(--purple);
+    cursor:pointer
+}
+
+.form-consent label{
+    color:#bdbdce;
+    line-height:1.55;
+    cursor:pointer
+}
+
+.submit-game-button{
+    margin-top:28px;
+    width:100%;
+    border:0;
+    cursor:pointer;
+    padding:17px 25px;
+    border-radius:12px;
+    color:#fff;
+    font-family:'Orbitron',sans-serif;
+    font-weight:800;
+    font-size:.95rem;
+    background:linear-gradient(
+        100deg,
+        var(--purple2),
+        var(--purple),
+        var(--blue)
+    );
+    box-shadow:0 0 25px rgba(139,0,255,.3);
+    transition:.3s
+}
+
+.submit-game-button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 0 45px rgba(139,0,255,.5)
+}
+
+.form-note{
+    margin-top:15px;
+    text-align:center;
+    color:#66667d;
+    font-size:.82rem;
+    line-height:1.5
+}
+
+/* ============================================================
+   RIGHTS
+============================================================ */
+
+.rights{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px
+}
+
+.right-card{
+    padding:28px;
+    border:1px solid var(--line);
+    border-radius:18px;
+    background:rgba(255,255,255,.025)
+}
+
+.right-card h3{
+    font-family:'Orbitron',sans-serif;
+    font-size:1rem;
+    margin-bottom:14px
+}
+
+.right-card p,
+.right-card li{
+    color:var(--muted);
+    line-height:1.65
+}
+
+.right-card ul{
+    padding-left:20px
+}
+
+.right-card li+li{
+    margin-top:7px
+}
+
+/* ============================================================
+   ABOUT
+============================================================ */
+
+.about-box{
+    padding:65px;
+    border-radius:25px;
+    border:1px solid rgba(139,0,255,.25);
+    background:
+        radial-gradient(
+            circle at 100% 0%,
+            rgba(0,191,255,.1),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            rgba(139,0,255,.08),
+            rgba(255,255,255,.02)
+        )
+}
+
+.about-box p{
+    color:#b5b5c8;
+    font-size:1.2rem;
+    line-height:1.8;
+    max-width:900px
+}
+
+/* ============================================================
+   COPYRIGHT
+============================================================ */
+
+.policy-box{
+    padding:55px;
+    border-radius:25px;
+    border:1px solid rgba(255,255,255,.08);
+    background:rgba(255,255,255,.02)
+}
+
+.policy-box h3{
+    font-family:'Orbitron',sans-serif;
+    font-size:1rem;
+    margin:30px 0 10px
+}
+
+.policy-box h3:first-child{
+    margin-top:0
+}
+
+.policy-box p,
+.policy-box li{
+    color:var(--muted);
+    line-height:1.7
+}
+
+.policy-box ul{
+    padding-left:21px
+}
+
+/* ============================================================
+   FINAL
+============================================================ */
+
+.final{
+    min-height:70vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center
+}
+
+.final-inner{
+    max-width:900px
+}
+
+.final h2{
+    font-family:'Orbitron',sans-serif;
+    font-size:clamp(2.5rem,7vw,6rem);
+    line-height:1;
+    margin-bottom:25px
+}
+
+.final h2 span{
+    color:var(--purple)
+}
+
+.final p{
+    color:var(--muted);
+    font-size:1.2rem;
+    margin-bottom:35px
+}
+
+.email-note{
+    margin-top:18px;
+    color:#68687d;
+    font-size:.85rem
+}
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+
+@media(max-width:900px){
+
+    .features{
+        grid-template-columns:repeat(2,1fr)
+    }
+
+    .looking{
+        grid-template-columns:1fr;
+        gap:40px
+    }
+
+    .process{
+        grid-template-columns:1fr
+    }
+
+    .permission-grid,
+    .rights{
+        grid-template-columns:1fr
+    }
+
+}
+
+@media(max-width:600px){
+
+    nav{
+        padding:0 5%
+    }
+
+    .nav-link{
+        padding:8px 14px;
+        font-size:.85rem
+    }
+
+    .hero{
+        padding-left:5%;
+        padding-right:5%
+    }
+
+    .hero h1{
+        letter-spacing:-2px
+    }
+
+    .hero p{
+        font-size:1.05rem
+    }
+
+    section:not(.hero){
+        padding:80px 5%
+    }
+
+    .features{
+        grid-template-columns:1fr
+    }
+
+    .about-box,
+    .terms-box,
+    .policy-box{
+        padding:35px 25px
+    }
+
+    .about-box p,
+    .terms-lead{
+        font-size:1.05rem
+    }
+
+    .submission-form{
+        padding:28px 20px
+    }
+
+    .form-grid{
+        grid-template-columns:1fr
+    }
+
+    .form-field.full{
+        grid-column:auto
+    }
+
+}
+
 </style>
 </head>
 
@@ -484,14 +1004,27 @@ section:not(.hero) {
 
 <div class="grid"></div>
 
-<!-- NAV -->
+<!-- ============================================================
+     NAVIGATION
+============================================================ -->
+
 <nav>
-    <div class="logo">PLEY<span>Z</span></div>
-    <a href="index.html" class="nav-link">Back to PleyZ</a>
+
+    <div class="logo">
+        PLEY<span>Z</span>
+    </div>
+
+    <a href="index.html" class="nav-link">
+        Back to PleyZ
+    </a>
+
 </nav>
 
 
-<!-- HERO -->
+<!-- ============================================================
+     HERO
+============================================================ -->
+
 <header class="hero">
 
     <div class="hero-art"></div>
@@ -501,7 +1034,9 @@ section:not(.hero) {
 
     <div class="hero-content">
 
-        <div class="eyebrow">PleyZ Developer Portal</div>
+        <div class="eyebrow">
+            PleyZ Developer Portal
+        </div>
 
         <h1>
             BUILD THE NEXT<br>
@@ -510,27 +1045,35 @@ section:not(.hero) {
 
         <p>
             Think your game belongs on PleyZ?
-            Show us what you've built and give players something worth discovering.
+            Show us what you've built and give players
+            something worth discovering.
         </p>
 
         <a
             class="cta"
-            href="mailto:nikunjprogames@gmail.com?subject=Game Submission — PleyZ"
+            href="#creator-rights"
         >
-            ✉ SEND YOUR GAME
+            🚀 SUBMIT YOUR GAME
         </a>
 
     </div>
 
-    <div class="scroll">SCROLL TO EXPLORE ↓</div>
+    <div class="scroll">
+        SCROLL TO EXPLORE ↓
+    </div>
 
 </header>
 
 
-<!-- WHY PLEYZ -->
+<!-- ============================================================
+     WHY PLEYZ
+============================================================ -->
+
 <section>
 
-    <div class="section-label">WHY PleyZ</div>
+    <div class="section-label">
+        WHY PLEYZ
+    </div>
 
     <h2 class="section-title">
         NOT JUST ANOTHER<br>
@@ -540,35 +1083,58 @@ section:not(.hero) {
     <div class="features">
 
         <div class="card">
+
             <div class="icon">🎮</div>
+
             <h3>CURATED</h3>
+
             <p>
-                We focus on games worth playing instead of filling the platform with endless random titles.
+                We focus on games worth playing instead of
+                filling the platform with endless random titles.
             </p>
+
         </div>
 
+
         <div class="card">
+
             <div class="icon">🌐</div>
+
             <h3>DISCOVERY</h3>
+
             <p>
-                Put your game in front of players looking for something new to play.
+                Put your game in front of players looking
+                for something new to play.
             </p>
+
         </div>
 
+
         <div class="card">
+
             <div class="icon">⚡</div>
+
             <h3>MODERN</h3>
+
             <p>
-                PleyZ is built around a fast, modern browser gaming experience.
+                PleyZ is built around a fast, modern browser
+                gaming experience.
             </p>
+
         </div>
 
+
         <div class="card">
+
             <div class="icon">🚀</div>
+
             <h3>INDEPENDENT</h3>
+
             <p>
-                PleyZ is independently built with a genuine focus on games and creators.
+                PleyZ is independently built with a genuine
+                focus on games and creators.
             </p>
+
         </div>
 
     </div>
@@ -576,13 +1142,19 @@ section:not(.hero) {
 </section>
 
 
-<!-- WHAT WE WANT -->
+<!-- ============================================================
+     WHAT MAKES A GAME PLEYZ-WORTHY
+============================================================ -->
+
 <section>
 
     <div class="looking">
 
         <div>
-            <div class="section-label">SUBMISSIONS</div>
+
+            <div class="section-label">
+                SUBMISSIONS
+            </div>
 
             <h2 class="section-title">
                 WHAT MAKES A GAME<br>
@@ -590,31 +1162,64 @@ section:not(.hero) {
             </h2>
 
             <p class="big-text">
-                We're looking for games that give players a reason to stay,
-                replay, discover and share.
+                We're looking for games that give players
+                a reason to stay, replay, discover and share.
             </p>
+
         </div>
+
 
         <div class="checks">
 
             <div class="check">
-                <strong>🎮 Original gameplay</strong>
-                <span>Something fun, interesting or different.</span>
+
+                <strong>
+                    🎮 Original gameplay
+                </strong>
+
+                <span>
+                    Something fun, interesting or different.
+                </span>
+
             </div>
 
-            <div class="check">
-                <strong>✨ Polished experience</strong>
-                <span>A game that feels finished and enjoyable.</span>
-            </div>
 
             <div class="check">
-                <strong>📱 Browser friendly</strong>
-                <span>Playable smoothly on supported devices.</span>
+
+                <strong>
+                    ✨ Polished experience
+                </strong>
+
+                <span>
+                    A game that feels finished and enjoyable.
+                </span>
+
             </div>
 
+
             <div class="check">
-                <strong>🔥 Something memorable</strong>
-                <span>A reason players will want to come back.</span>
+
+                <strong>
+                    📱 Browser friendly
+                </strong>
+
+                <span>
+                    Playable smoothly on supported devices.
+                </span>
+
+            </div>
+
+
+            <div class="check">
+
+                <strong>
+                    🔥 Something memorable
+                </strong>
+
+                <span>
+                    A reason players will want to come back.
+                </span>
+
             </div>
 
         </div>
@@ -624,10 +1229,15 @@ section:not(.hero) {
 </section>
 
 
-<!-- PROCESS -->
+<!-- ============================================================
+     PROCESS
+============================================================ -->
+
 <section>
 
-    <div class="section-label">THE PROCESS</div>
+    <div class="section-label">
+        THE PROCESS
+    </div>
 
     <h2 class="section-title">
         FROM YOUR GAME<br>
@@ -637,27 +1247,57 @@ section:not(.hero) {
     <div class="process">
 
         <div class="step">
-            <div class="number">01</div>
-            <h3>SUBMIT</h3>
+
+            <div class="number">
+                01
+            </div>
+
+            <h3>
+                SUBMIT
+            </h3>
+
             <p>
-                Send us an email with your game and the information we need to check it out.
+                Accept the creator terms and send us your game,
+                creator information and the details we need to review it.
             </p>
+
         </div>
 
-        <div class="step">
-            <div class="number">02</div>
-            <h3>REVIEW</h3>
-            <p>
-                We'll take a look at the gameplay, quality, compatibility and overall experience.
-            </p>
-        </div>
 
         <div class="step">
-            <div class="number">03</div>
-            <h3>LAUNCH</h3>
+
+            <div class="number">
+                02
+            </div>
+
+            <h3>
+                REVIEW
+            </h3>
+
             <p>
-                If your game fits PleyZ, we'll work toward getting it onto the platform.
+                We'll review the gameplay, quality, compatibility,
+                originality and submission information.
             </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">
+                03
+            </div>
+
+            <h3>
+                DISCOVER
+            </h3>
+
+            <p>
+                If accepted, your game may appear across PleyZ —
+                including its own game page, categories,
+                recommendations and potentially the homepage.
+            </p>
+
         </div>
 
     </div>
@@ -665,31 +1305,848 @@ section:not(.hero) {
 </section>
 
 
-<!-- ABOUT PLEYZ -->
+<!-- ============================================================
+     CREATOR RIGHTS
+============================================================ -->
+
+<section id="creator-rights">
+
+    <div class="section-label">
+        CREATOR RIGHTS
+    </div>
+
+    <div class="terms-box">
+
+        <h2 class="section-title">
+            YOUR GAME.<br>
+            <span>YOUR RIGHTS.</span>
+        </h2>
+
+
+        <p class="terms-lead">
+
+            You keep ownership of your game.
+            PleyZ does not take ownership of creator-submitted games.
+            To publish a game, however, PleyZ needs your permission
+            to host, display and promote it across the platform.
+
+        </p>
+
+
+        <div class="permission-grid">
+
+
+            <div class="permission">
+
+                <strong>
+                    🌐 Host &amp; Publish
+                </strong>
+
+                <span>
+                    PleyZ may store and make your accepted game
+                    playable on the platform.
+                </span>
+
+            </div>
+
+
+            <div class="permission">
+
+                <strong>
+                    🎯 Dedicated Game Page
+                </strong>
+
+                <span>
+                    PleyZ may create a separate game page/file
+                    for your game.
+                </span>
+
+            </div>
+
+
+            <div class="permission">
+
+                <strong>
+                    🏠 Platform Features
+                </strong>
+
+                <span>
+                    Your game may be featured on the homepage,
+                    category pages, search results or other areas of PleyZ.
+                </span>
+
+            </div>
+
+
+            <div class="permission">
+
+                <strong>
+                    🔎 Search Discovery
+                </strong>
+
+                <span>
+                    Your dedicated PleyZ game page may be discoverable
+                    and indexed by search engines.
+                </span>
+
+            </div>
+
+
+            <div class="permission">
+
+                <strong>
+                    👤 Creator Credit
+                </strong>
+
+                <span>
+                    Your submitted creator/developer name will be
+                    displayed publicly with the game.
+                </span>
+
+            </div>
+
+
+            <div class="permission">
+
+                <strong>
+                    🧠 Recommendations
+                </strong>
+
+                <span>
+                    PleyZ may use game information and relevant
+                    platform signals to help recommend your game to players.
+                </span>
+
+            </div>
+
+
+            <div class="permission">
+
+                <strong>
+                    📣 Promotion
+                </strong>
+
+                <span>
+                    PleyZ may use the game's title, thumbnail,
+                    screenshots, description and related promotional
+                    materials to promote it.
+                </span>
+
+            </div>
+
+
+            <div class="permission">
+
+                <strong>
+                    ⚙️ Technical Processing
+                </strong>
+
+                <span>
+                    PleyZ may make reasonable technical copies,
+                    formatting changes, compression or similar changes
+                    needed to host and display the game.
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="not-owner">
+
+            <strong>
+                Important:
+            </strong>
+
+            Submitting a game does not transfer copyright ownership
+            to PleyZ. The permission granted here is intended to be
+            non-exclusive, so creators may continue to publish their
+            games elsewhere unless another agreement says otherwise.
+
+        </div>
+
+
+        <div class="not-owner">
+
+            <strong>
+                Current PleyZ model:
+            </strong>
+
+            PleyZ is currently accepting submissions for showcase
+            and discovery. PleyZ is not currently promising advertising
+            revenue or revenue-sharing for submitted games.
+            If PleyZ introduces monetization or a revenue-sharing
+            program in the future, additional terms may apply.
+
+        </div>
+
+
+        <!-- ====================================================
+             REQUIRED CONFIRMATIONS
+        ==================================================== -->
+
+        <div class="confirmations">
+
+
+            <div class="confirmation">
+
+                <input
+                    type="checkbox"
+                    id="confirm1"
+                    class="terms-check"
+                >
+
+                <label for="confirm1">
+
+                    I confirm that I am the creator/copyright owner
+                    of this game, or that I have permission and authority
+                    from the copyright owner(s) to submit the game to
+                    PleyZ and grant the permissions described on this page.
+
+                </label>
+
+            </div>
+
+
+            <div class="confirmation">
+
+                <input
+                    type="checkbox"
+                    id="confirm2"
+                    class="terms-check"
+                >
+
+                <label for="confirm2">
+
+                    I confirm that I have the necessary rights or
+                    permissions for third-party material included in
+                    my game, such as music, artwork, sound effects,
+                    fonts, code or other assets.
+
+                </label>
+
+            </div>
+
+
+            <div class="confirmation">
+
+                <input
+                    type="checkbox"
+                    id="confirm3"
+                    class="terms-check"
+                >
+
+                <label for="confirm3">
+
+                    I understand and agree that, if accepted,
+                    PleyZ may publish, host, promote, index and
+                    recommend my game as described above, and that
+                    my creator/developer name will be displayed
+                    with the game.
+
+                </label>
+
+            </div>
+
+
+            <div class="confirmation">
+
+                <input
+                    type="checkbox"
+                    id="confirm4"
+                    class="terms-check"
+                >
+
+                <label for="confirm4">
+
+                    I have read and agree to the PleyZ Game
+                    Submission &amp; Publishing Terms.
+
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <!-- ====================================================
+             UNLOCK BUTTON
+        ==================================================== -->
+
+        <div class="submit-gate">
+
+            <button
+                type="button"
+                id="continueButton"
+                class="submit-gate-button"
+            >
+                🔒 CONTINUE TO SUBMISSION
+            </button>
+
+            <div
+                class="gate-message"
+                id="gateMessage"
+            >
+                Accept all four confirmations above
+                to unlock the submission form.
+            </div>
+
+        </div>
+
+
+        <p class="legal-note">
+
+            These confirmations explain the permissions needed for
+            submission. PleyZ may request additional information or
+            proof of ownership before publication and may reject or
+            remove submissions that create legal, technical or policy concerns.
+
+        </p>
+
+
+        <!-- ====================================================
+             SUBMISSION FORM
+        ==================================================== -->
+
+        <div
+            class="submission-area"
+            id="submissionArea"
+        >
+
+            <div class="submission-header">
+
+                <div class="section-label">
+                    SUBMISSION FORM
+                </div>
+
+                <h2 class="section-title">
+
+                    TELL US ABOUT<br>
+                    <span>YOUR GAME.</span>
+
+                </h2>
+
+                <p>
+
+                    Your information helps PleyZ review your game,
+                    create its dedicated page and properly credit you
+                    as the creator.
+
+                </p>
+
+            </div>
+
+
+            <form
+                class="submission-form"
+                action="https://formsubmit.co/nikunjprogames@gmail.com"
+                method="POST"
+                enctype="multipart/form-data"
+            >
+
+                <!-- FormSubmit configuration -->
+
+                <input
+                    type="hidden"
+                    name="_subject"
+                    value="New Game Submission — PleyZ"
+                >
+
+                <input
+                    type="hidden"
+                    name="_captcha"
+                    value="true"
+                >
+
+                <input
+                    type="hidden"
+                    name="_next"
+                    value="https://nikunjprogames.github.io/submission-success.html"
+                >
+
+
+                <div class="form-grid">
+
+
+                    <!-- CREATOR NAME -->
+
+                    <div class="form-field">
+
+                        <label for="creatorName">
+                            CREATOR / DEVELOPER NAME
+                        </label>
+
+                        <input
+                            type="text"
+                            id="creatorName"
+                            name="Creator / Developer Name"
+                            placeholder="Your public creator name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- EMAIL -->
+
+                    <div class="form-field">
+
+                        <label for="email">
+                            CONTACT EMAIL
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="Submitter Email"
+                            placeholder="you@example.com"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- GAME TITLE -->
+
+                    <div class="form-field">
+
+                        <label for="gameTitle">
+                            GAME TITLE
+                        </label>
+
+                        <input
+                            type="text"
+                            id="gameTitle"
+                            name="Game Title"
+                            placeholder="Your game's name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- CATEGORY -->
+
+                    <div class="form-field">
+
+                        <label for="category">
+                            CATEGORY
+                        </label>
+
+                        <select
+                            id="category"
+                            name="Category"
+                            required
+                        >
+
+                            <option value="" disabled selected>
+                                Select a category
+                            </option>
+
+                            <option>Action</option>
+                            <option>Adventure</option>
+                            <option>Arcade</option>
+                            <option>Casual</option>
+                            <option>Multiplayer</option>
+                            <option>Puzzle</option>
+                            <option>Racing</option>
+                            <option>Simulation</option>
+                            <option>Sports</option>
+                            <option>Strategy</option>
+                            <option>Other</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- PLAYABLE URL -->
+
+                    <div class="form-field full">
+
+                        <label for="gameUrl">
+
+                            PLAYABLE GAME URL
+                            <span>(if hosted online)</span>
+
+                        </label>
+
+                        <input
+                            type="url"
+                            id="gameUrl"
+                            name="Playable Game URL"
+                            placeholder="https://..."
+                        >
+
+                    </div>
+
+
+                    <!-- DESCRIPTION -->
+
+                    <div class="form-field full">
+
+                        <label for="description">
+                            GAME DESCRIPTION
+                        </label>
+
+                        <textarea
+                            id="description"
+                            name="Game Description"
+                            placeholder="Tell us what your game is about, how it works and what makes it worth playing."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <!-- TAGS -->
+
+                    <div class="form-field full">
+
+                        <label for="tags">
+
+                            TAGS
+                            <span>
+                                (e.g. multiplayer, puzzle, 2D, arcade)
+                            </span>
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="tags"
+                            name="Game Tags"
+                            placeholder="Add useful tags separated by commas"
+                        >
+
+                    </div>
+
+
+                    <!-- WEBSITE -->
+
+                    <div class="form-field">
+
+                        <label for="website">
+
+                            WEBSITE / PORTFOLIO
+                            <span>(optional)</span>
+
+                        </label>
+
+                        <input
+                            type="url"
+                            id="website"
+                            name="Creator Website"
+                            placeholder="https://..."
+                        >
+
+                    </div>
+
+
+                    <!-- SOCIAL -->
+
+                    <div class="form-field">
+
+                        <label for="social">
+
+                            SOCIAL LINK
+                            <span>(optional)</span>
+
+                        </label>
+
+                        <input
+                            type="url"
+                            id="social"
+                            name="Creator Social Link"
+                            placeholder="https://..."
+                        >
+
+                    </div>
+
+
+                    <!-- GAME FILE -->
+
+                    <div class="form-field full">
+
+                        <label for="gameFile">
+                            GAME FILE / PACKAGE ( NOTE : Make Sure The Size is less than 10mb)
+                        </label>
+
+                        <div class="file-box">
+
+                            <input
+                                type="file"
+                                id="gameFile"
+                                name="Game File"
+                                accept=".html,.zip"
+                                required
+                            >
+
+                            <small>
+
+                                Upload your <strong>index.html</strong>.
+                                If your game needs additional assets such
+                                as JavaScript, CSS, images or sounds,
+                                upload the complete game as a ZIP instead.
+                                Maximum total upload size: 10 MB.
+
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- THUMBNAIL -->
+
+                    <div class="form-field full">
+
+                        <label for="thumbnail">
+
+                            GAME THUMBNAIL
+                            <span>(optional but recommended)</span>
+
+                        </label>
+
+                        <div class="file-box">
+
+                            <input
+                                type="file"
+                                id="thumbnail"
+                                name="Game Thumbnail"
+                                accept=".png,.jpg,.jpeg,.webp"
+                            >
+
+                            <small>
+
+                                A screenshot or promotional image that
+                                may be used on your PleyZ game page.
+
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-divider"></div>
+
+
+                <!-- FINAL CONFIRMATION -->
+
+                <div class="form-consent">
+
+                    <input
+                        type="checkbox"
+                        id="finalConsent"
+                        name="Final Submission Confirmation"
+                        value="Accepted"
+                        required
+                    >
+
+                    <label for="finalConsent">
+
+                        I confirm that the information submitted above
+                        is accurate, that I have the necessary rights
+                        to submit this game, and that I have accepted
+                        the PleyZ Game Submission &amp; Publishing Terms.
+
+                    </label>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="submit-game-button"
+                >
+                    🚀 SUBMIT GAME TO PLEYZ
+                </button>
+
+
+                <div class="form-note">
+
+                    Your submission will be sent to the PleyZ review team.
+                    Submission does not guarantee publication.
+                    Every game is reviewed before appearing on PleyZ.
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ============================================================
+     WHAT TO INCLUDE
+============================================================ -->
+
 <section>
 
-    <div class="section-label">ABOUT PLEYZ</div>
+    <div class="section-label">
+        WHAT TO INCLUDE
+    </div>
+
+    <h2 class="section-title">
+
+        MAKE YOUR<br>
+        <span>SUBMISSION COMPLETE.</span>
+
+    </h2>
+
+
+    <div class="rights">
+
+
+        <div class="right-card">
+
+            <h3>
+                👤 CREATOR INFORMATION
+            </h3>
+
+            <ul>
+
+                <li>
+                    Creator / developer name
+                    <strong>
+                        (this will be displayed publicly)
+                    </strong>
+                </li>
+
+                <li>
+                    Contact email
+                </li>
+
+                <li>
+                    Website or portfolio (optional)
+                </li>
+
+                <li>
+                    Social link (optional)
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="right-card">
+
+            <h3>
+                🎮 GAME INFORMATION
+            </h3>
+
+            <ul>
+
+                <li>
+                    Game title
+                </li>
+
+                <li>
+                    Playable URL, build or game files
+                </li>
+
+                <li>
+                    Description
+                </li>
+
+                <li>
+                    Category and useful tags
+                </li>
+
+                <li>
+                    Thumbnail / promotional image
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="right-card">
+
+            <h3>
+                © RIGHTS INFORMATION
+            </h3>
+
+            <p>
+
+                Tell PleyZ who owns the game and whether it
+                contains third-party assets. Only submit content
+                you created or are authorized to distribute.
+
+            </p>
+
+        </div>
+
+
+        <div class="right-card">
+
+            <h3>
+                🧠 DISCOVERY
+            </h3>
+
+            <p>
+
+                PleyZ may use information associated with the game —
+                such as its title, category, tags, description,
+                gameplay characteristics and relevant player
+                interaction on PleyZ — as part of its game discovery
+                and recommendation systems.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ============================================================
+     ABOUT PLEYZ
+============================================================ -->
+
+<section>
+
+    <div class="section-label">
+        ABOUT PLEYZ
+    </div>
 
     <div class="about-box">
 
         <h2 class="section-title">
+
             GAMES<br>
             <span>WORTH PLAYING.</span>
+
         </h2>
 
         <p>
-            PleyZ is an independent gaming platform built around one simple idea:
-            finding games should be just as exciting as playing them.
+
+            PleyZ is an independent gaming platform built around
+            one simple idea: finding games should be just as exciting
+            as playing them.
+
             <br><br>
 
-            Instead of trying to become a place with thousands of random games,
-            PleyZ focuses on building a curated collection of games that are actually
-            worth discovering.
+            Instead of trying to become a place with thousands of
+            random games, PleyZ focuses on building a curated
+            collection of games that are actually worth discovering.
+
             <br><br>
 
-            From indie creations to carefully selected games from trusted developers
-            and distributors, PleyZ is creating a modern home for browser gaming —
-            made for players who want something new.
+            From indie creations to carefully selected games from
+            trusted developers and distributors, PleyZ is creating
+            a modern home for browser gaming — made for players
+            who want something new.
+
         </p>
 
     </div>
@@ -697,37 +2154,272 @@ section:not(.hero) {
 </section>
 
 
-<!-- FINAL CTA -->
+<!-- ============================================================
+     COPYRIGHT POLICY
+============================================================ -->
+
+<section>
+
+    <div class="section-label">
+        COPYRIGHT
+    </div>
+
+    <div class="policy-box">
+
+        <h2 class="section-title">
+
+            PROTECTING<br>
+            <span>CREATORS.</span>
+
+        </h2>
+
+
+        <h3>
+            Think a game on PleyZ infringes your rights?
+        </h3>
+
+        <p>
+
+            PleyZ takes copyright and intellectual-property
+            complaints seriously. Contact PleyZ at
+            <strong>nikunjprogames@gmail.com</strong>
+            with enough information to identify the content,
+            explain the rights you own or are authorized to enforce,
+            and explain why you believe the content is unauthorized.
+
+        </p>
+
+
+        <h3>
+            What PleyZ may do
+        </h3>
+
+        <ul>
+
+            <li>
+                Review the reported game or content.
+            </li>
+
+            <li>
+                Request additional information or evidence.
+            </li>
+
+            <li>
+                Contact the submitting creator.
+            </li>
+
+            <li>
+                Temporarily restrict or remove the reported content
+                while the matter is reviewed, where appropriate.
+            </li>
+
+            <li>
+                Restore or permanently remove content based on the
+                information available and applicable requirements.
+            </li>
+
+        </ul>
+
+
+        <h3>
+            For creators
+        </h3>
+
+        <p>
+
+            PleyZ may ask creators to provide evidence of ownership
+            or authorization. Repeated submission of infringing or
+            knowingly unauthorized content may result in removal
+            of games or loss of submission privileges.
+
+        </p>
+
+
+        <h3>
+            Important
+        </h3>
+
+        <p>
+
+            A complaint does not automatically prove infringement.
+            PleyZ may consider information from both sides and may
+            comply with valid legal notices, orders or other
+            applicable requirements.
+
+        </p>
+
+
+        <p class="legal-note">
+
+            This page describes PleyZ's current platform process
+            and is not a substitute for legal advice. The final
+            legal terms and complaint process should be reviewed
+            for the legal structure and jurisdiction applicable
+            to PleyZ before formal operation.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ============================================================
+     FINAL CTA
+============================================================ -->
+
 <section class="final">
 
     <div class="final-inner">
 
-        <div class="section-label">YOUR MOVE</div>
+        <div class="section-label">
+            YOUR MOVE
+        </div>
 
         <h2>
+
             READY TO PUT<br>
             YOUR GAME ON <span>PLEYZ?</span>
+
         </h2>
 
         <p>
-            Tell us what you've built. We'll take it from here.
+
+            Tell us what you've built. We'll review it and,
+            if accepted, help players discover it.
+
         </p>
 
         <a
             class="cta"
-            href="mailto:YOUR-EMAIL@example.com?subject=Game Submission — PleyZ"
+            href="#creator-rights"
         >
-            ✉ SEND YOUR GAME
+            🚀 SUBMIT YOUR GAME
         </a>
 
         <div class="email-note">
-            Clicking the button will open your email app.
+
+            Accept the creator terms above to unlock the submission form.
+
         </div>
 
     </div>
 
 </section>
 
+
+<!-- ============================================================
+     JAVASCRIPT
+============================================================ -->
+
+<script>
+
+/* ============================================================
+   PLEYZ SUBMISSION GATE
+============================================================ */
+
+const termsChecks =
+    document.querySelectorAll('.terms-check');
+
+const continueButton =
+    document.getElementById('continueButton');
+
+const gateMessage =
+    document.getElementById('gateMessage');
+
+const submissionArea =
+    document.getElementById('submissionArea');
+
+
+function updateSubmissionGate(){
+
+    const allAccepted =
+        [...termsChecks].every(
+            checkbox => checkbox.checked
+        );
+
+
+    if(allAccepted){
+
+        continueButton.classList.add('ready');
+
+        continueButton.innerHTML =
+            '🚀 CONTINUE TO SUBMISSION';
+
+        gateMessage.textContent =
+            'All required confirmations accepted. You can now continue to the submission form.';
+
+        gateMessage.style.color = '';
+
+    }else{
+
+        continueButton.classList.remove('ready');
+
+        continueButton.innerHTML =
+            '🔒 CONTINUE TO SUBMISSION';
+
+        gateMessage.textContent =
+            'Accept all four confirmations above to unlock the submission form.';
+
+        gateMessage.style.color = '';
+
+    }
+
+}
+
+
+termsChecks.forEach(checkbox => {
+
+    checkbox.addEventListener(
+        'change',
+        updateSubmissionGate
+    );
+
+});
+
+
+continueButton.addEventListener(
+    'click',
+    function(){
+
+        const allAccepted =
+            [...termsChecks].every(
+                checkbox => checkbox.checked
+            );
+
+
+        if(!allAccepted){
+
+            gateMessage.textContent =
+                '⚠️ Please accept all four confirmations before continuing.';
+
+            gateMessage.style.color =
+                '#ff8a8a';
+
+            return;
+
+        }
+
+
+        submissionArea.classList.add('show');
+
+
+        setTimeout(function(){
+
+            submissionArea.scrollIntoView({
+                behavior:'smooth',
+                block:'start'
+            });
+
+        },100);
+
+    }
+);
+
+
+updateSubmissionGate();
+
+</script>
+
 </body>
 </html>
-
