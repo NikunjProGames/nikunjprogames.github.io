@@ -1,0 +1,67 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "121242",
+          "slug": "solar-smash",
+          "title": "Solar Smash",
+          "description": "Solar Smash is a fun game that allows you to fully embrace cosmic power and create or destroy planets as you wish. You can choose from a variety of different weapons and use them to destroy planets and moons. Additionally, you can create your own planetary systems and customize them as you wish.\n\nSolar Smash is also an opportunity to unleash your creativity and create worlds or destroy them in your hands. You can tear apart planets, cause supernovas and create black holes that consume everything in their path. The game has intuitive controls that are suitable for both beginners and experienced players.\n\nOverall, Solar Smash is an addictive game that allows you to harness cosmic power and create or destroy planets at will. If you love physics simulators and space, then this game is definitely for you!",
+          "howToPlayText": "The goal of the game is to destroy all planets using a variety of weapons.\nControl on a mobile device: touch/swipe.\nControl on desktop: left mouse button.",
+          "gameURL": "https://playgama.com/export/game/solar-smash?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/solar-smash",
+          "genres": [
+            "simulation",
+            "physics",
+            "unblocked"
+          ],
+          "tags": [
+            "destruction-games",
+            "destroy-games",
+            "addictive-games",
+            "creativity-games",
+            "space-shooter",
+            "space-io"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/solar-smash/big-preview/678db982b1364f018e7c4fac3b1f4a44?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-121242/icon/78f9de1f897c5e590d118af9d6ae85124738bfc499c3bbf15340909441794abb?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "20b78a71f7844d66aabe38ddbda3d270",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "20b78a71f7844d66aabe38ddbda3d270",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/solar-smash/big-preview/678db982b1364f018e7c4fac3b1f4a44?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/backfill/game-121242/icon/78f9de1f897c5e590d118af9d6ae85124738bfc499c3bbf15340909441794abb?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "supportedLanguages": [
+            "en-US",
+            "ru-RU"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/solar-smash?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

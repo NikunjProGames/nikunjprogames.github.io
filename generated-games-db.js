@@ -731,4 +731,28 @@ const NEW_GAMES = [
     fullscreen: true,
     videoUrl: ""
   },
+  {
+    id: 105,
+    name: "Solar Smash",
+    cat: "simulation",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/solar-smash/big-preview/678db982b1364f018e7c4fac3b1f4a44?width=448",
+    iframeUrl: "solar-smash.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
+  {
+    id: 106,
+    name: "PVZ Fusion Cheats",
+    cat: "strategy",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/plants-vs-zombies-fusion-edition/big_preview/0a3f694494fd4b469429f9c8baf0cb93?width=448",
+    iframeUrl: "pvz-fusion-cheats.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
 ];
