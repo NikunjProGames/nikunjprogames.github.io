@@ -755,4 +755,16 @@ const NEW_GAMES = [
     fullscreen: true,
     videoUrl: ""
   },
+  {
+    id: 107,
+    name: "Ragdoll Crash-Test: Throw and Break!",
+    cat: "action",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/ragdoll-crashtest-throw-and-break/big-preview/806817717e62466a83cb4377d0fa92eb?width=448",
+    iframeUrl: "ragdoll-crash-test-throw-and-break.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
 ];

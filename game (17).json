@@ -1,0 +1,73 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "86415",
+          "slug": "ragdoll-crashtest-throw-and-break",
+          "title": "Ragdoll Crash-Test: Throw and Break!",
+          "description": "«Ragdoll Crash-Test: Throw and Break!» is a casual puzzle game with physics and action destruction, where the challenge is to break a ragdoll stickman and plunge into a ragdoll simulator!\n\nDive into a world of chaotic destruction and fun with the game «Ragdoll Crash-Test: Throw and Break!». Throw your stickman and smash it to pieces. The game in the best traditions of Ragdoll physics will give you hours of fun, where every hit and every fall turns into a show of destruction! Ready to cope with the challenges?\n\nComplete all the tests, smash and break!",
+          "howToPlayText": "🕹Drag the stickman onto the selected objects and watch the chaos unfold. Try to experiment with different objects to maximize damage.\n\n🎯 Choose from a variety of objects to smash, hit, and drag the stickman. Each object has unique properties for maximum impact.",
+          "gameURL": "https://playgama.com/export/game/ragdoll-crashtest-throw-and-break?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/ragdoll-crashtest-throw-and-break",
+          "genres": [
+            "action",
+            "ragdoll"
+          ],
+          "tags": [
+            "2d-games",
+            "destruction-games",
+            "addictive-games",
+            "crash-games",
+            "desktop-games",
+            "1-player-games",
+            "simple-games",
+            "throwing-games",
+            "borwser-games",
+            "unity-games-online"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/ragdoll-crashtest-throw-and-break/big-preview/806817717e62466a83cb4377d0fa92eb?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-86415/icon/358a6b7b9f5f50618ef4275042fd4fe76ad5a44dc22336f62897db58aed769a7?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "1cbe32ecf2444651a508c985b8360784",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "1cbe32ecf2444651a508c985b8360784",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/ragdoll-crashtest-throw-and-break/big-preview/806817717e62466a83cb4377d0fa92eb?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/backfill/game-86415/icon/358a6b7b9f5f50618ef4275042fd4fe76ad5a44dc22336f62897db58aed769a7?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": false,
+            "vertical": true
+          },
+          "supportedLanguages": [
+            "en-US",
+            "es-ES",
+            "tr-TR",
+            "ru-RU",
+            "de-DE"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/ragdoll-crashtest-throw-and-break?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}
