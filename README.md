@@ -1,25 +1,22 @@
-# 🎮 Nikunj Pro Games
+# 🎮 PleyZ Games
 
-[![Live Site](https://img.shields.io/badge/Play-Live%20Arcade-brightgreen?style=for-the-badge)](https://nikunjprogames.github.io/NikunjProGame/)
+[![Live Site](https://img.shields.io/badge/Play-Live%20Arcade-brightgreen?style=for-the-badge)](https://nikunjprogames.github.io/)
 
-Welcome to **Nikunj Pro Games**, a cool, trendy, and completely **FREE Online Gaming Website**. This is a fully featured, high-performance browser gaming hub built to deliver instant arcade action directly in the browser with zero downloads required. 
+Welcome to **PleyZ**, A premium gaming Hub For those who just dont want a stack of games. These are **Curated, OG games** which are specially picked by hand for you!
 
-Designed with a futuristic neon-cyberpunk aesthetic, it features an animated user interface, a native particle background engine, interactive game-launch overlays, and a curated library of the web's most popular games running seamlessly via optimized iframe setups.
+Designed with a futuristic neon-cyberpunk aesthetic, it features an amazing bootstrapped interface, interactive game-launch overlays, and a curated library of the web's most popular games.
 
 ---
 
 ## 🚀 Key Features
 
-* **Zero Latency Iframe Architecture:** Fast-loading game embeds that keep players safely on the hub while running heavy gameplay elements smoothly.
-* **Futuristic Cyberpunk UI:** A visually stunning frontend utilizing premium typography, neon glow styling, and glassmorphism layouts.
-* **Interactive Controls & Analytics:** Dynamic leaderboard mechanics, animated login modals, and a built-in trending engine.
-* **Lightweight & Backendless:** Built purely on client-side code—no heavy frameworks, build tools, or server databases required. Highly optimized for GitHub Pages.
+* **Curatd Games** Special games that are handpicked with effort so that you dont have to 
+* **No nonsense UI** No irritating ads, or banners justWith partner ship with Playgama and Game Monetize.com, PleyZ now has a borad Amount of Games
+* **Neon background** With the neon moving background, we make pleyz step into the future
+* **Not Just Simple Games** PleyZ is not just a hub of simple games that somebody just casually plays, it is a substituion to get actual amazing games for FREE without any downloads or much storage space  
 
+* **PleyZ Originals:** Games Made specially for pleyz that you wont find anywhere else. this feature is evolving and will be slowly in large scale
 ---
-
-## 🕹️ Current Games Library
-
-Every game is fully integrated and optimized for both keyboard and mouse controls. Google indexes these titles to match casual gamer search queries:
 
 ### 🏃‍♂️ Endless Runners & Action
 * **Subway Surfers:** Dash, dodge, and escape the inspector in this classic unblocked endless running game.
@@ -43,17 +40,3 @@ Every game is fully integrated and optimized for both keyboard and mouse control
 * **Box Tower:** Test your precision reflexes by stacking boxes as high as humanly possible to build the ultimate tower.
 * **Color Line:** Guide a traveling cube along intricate neon paths without striking unpredictable obstacles.
 * **Go to the End:** A physics-based puzzle obstacle course challenging you to navigate carefully to the finish line.
-
----
-
-## 🛠️ Built With (Tech Stack)
-
-* **HTML5 Canvas:** Powers the responsive background interactive particle system and custom in-browser target mini-game.
-* **Vanilla JavaScript (ES6+):** Runs the game-filtering tab mechanics, modal state engines, and modular layouts.
-* **CSS Custom Properties & Keyframes:** Implements complex animations, glowing text shadows, and unified theme scaling.
-* **Google Fonts:** Utilizing *Orbitron* & *Rajdhani* for that signature high-tech, futuristic aesthetic.
-* **Font Awesome 6 (via CDN):** Clean, high-resolution iconography throughout the interface.
-
-## 📈 SEO Integration & Google Discovery
-
-This repository is optimized using modern search engine conventions. The layout is structured so that Google Search spiders crawling the codebase can easily map game keywords (such as *play unblocked arcade games*, *free web browser games*, and *no-download mobile games*) directly back to the project's root domain.
