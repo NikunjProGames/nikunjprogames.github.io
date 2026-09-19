@@ -766,5 +766,17 @@
     "thumb": "https://static.playgama.com/p-img/pg/ragdoll-crashtest-throw-and-break/big-preview/806817717e62466a83cb4377d0fa92eb?width=448",
     "width": "800",
     "height": "450"
+  },
+  {
+    "id": "110830",
+    "title": "Geometry Vibes ",
+    "description": "Geometry Vibes is a reaction-based arcade game where you avoid obstacles, traps and spikes that come at you in waves. Your goal in the game is to keep your arrow on the route and take it as far as possible. Geometry Vibes, where the excitement never ends, invites you to challenge.",
+    "instructions": "How to Play Geometry Vibes?\n\nThe game is quite simple to play, but difficult to master.\nTry to continue without hitting obstacles.\n\nClick to \"MOUSE LEFT-CLICK\" or \"UP ARROW\" and hold to fly up.\n\nRelease the button to dive down.\n\nIn 2,3,4 Player game modes, players are controlled with \"UP ARROW\", \"H\" and \"L\". (MOUSE LEFT-CLICK and SPACE keys can also be used instead of W.)",
+    "url": "https://playgama.com/export/game/geometry-vibes?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+    "category": "Arcade",
+    "tags": "arcade, skill, 3d, multiplayer, platform, popular, music, mobile, reaction-games, fast-paced-games, dodge-games, endless-games, geometry-games, space-waves",
+    "thumb": "https://static.playgama.com/p-img/pg/geometry-vibes/big-preview/cd0c9c56e9e54948b7eca6c49ef590b5?width=448",
+    "width": "800",
+    "height": "450"
   }
 ]

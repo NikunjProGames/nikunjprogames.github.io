@@ -767,4 +767,16 @@ const NEW_GAMES = [
     fullscreen: true,
     videoUrl: ""
   },
+  {
+    id: 108,
+    name: "Geometry Vibes ",
+    cat: "arcade",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/geometry-vibes/big-preview/cd0c9c56e9e54948b7eca6c49ef590b5?width=448",
+    iframeUrl: "geometry-vibes.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
 ];
