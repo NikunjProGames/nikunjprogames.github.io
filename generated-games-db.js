@@ -775,7 +775,19 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/geometry-vibes/big-preview/cd0c9c56e9e54948b7eca6c49ef590b5?width=448",
-    iframeUrl: "geometry-vibes.html",
+    iframeUrl: "/games/geometry-vibes.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
+  {
+    id: 109,
+    name: "Slope 3D",
+    cat: "arcade",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/slope-3d/big_preview/6031cc0ff00947dda0627af51b3316de?width=448",
+    iframeUrl: "/games/slope-3d.html",
     fullscreen: true,
     videoUrl: ""
   },

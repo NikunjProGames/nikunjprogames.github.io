@@ -1,0 +1,72 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "124002",
+          "slug": "slope-3d",
+          "title": "Slope 3D",
+          "description": "Slope 3D sends you down a steep neon track where quick reactions and precise movement decide how long your run will last. Guide the rolling ball through narrow platforms, sharp turns, sudden drops, and dangerous red obstacles while the speed continues to increase. The controls are simple to learn, but staying on the course becomes harder with every passing second.\n\nGame Overview\nYour objective in Slope 3D is to keep the ball on the track for as long as possible and achieve the highest score. The ball rolls forward automatically, leaving you responsible for steering it away from barriers, gaps, and the edges of the platform.\n\nThe slope changes constantly as you progress. Wide paths can quickly become narrow lanes, while sudden turns and uneven platforms force you to adjust your position without losing control. Red blocks are especially dangerous because touching one ends the current run immediately.\n\nSpeed is one of the biggest challenges. The farther you travel, the faster the ball moves, giving you less time to react to what appears ahead. A small steering mistake that seems harmless early in the run can send the ball off the track once the pace increases.\n\nKey Features\n- Fast-paced 3D endless runner gameplay\n- Futuristic neon environment\n- Simple left-and-right steering controls\n- Increasing speed and difficulty\n- Narrow tracks, sharp turns, and sudden gaps\n- Dangerous red obstacles to avoid\n- Score-based progression with no fixed finish line\n- Keyboard controls for desktop players \n- Swipe and tilt controls for mobile devices\n- Quick rounds designed for repeated high-score attempts\n\nTips for Beginners\n- Use short taps instead of holding a direction for too long.\n- Try to keep the ball near the center of the track.\n- Look ahead rather than focusing only on the ball.\n- Begin steering before reaching sharp turns.\n- Avoid unnecessary movement on narrow platforms.\n\nAdvanced Tips\n- Plan your position based on the next section of the course.\n- Use gentle corrections when the ball reaches higher speeds.\n- Enter narrow paths from the center whenever possible.\n- Move early when several obstacles appear close together.\n- Stay calm after sudden drops and regain control gradually.\n\nCommon Mistakes\n- Making large steering movements at high speed.\n- Waiting until the last moment to avoid an obstacle.\n- Staying too close to the edge of the platform.\n- Watching the current position instead of the upcoming track.\n- Trying to correct one mistake with another sudden turn.\n\nSlope 3D game turns a simple steering mechanic into a demanding test of focus, balance, and reflexes. Its endless course means every run offers another opportunity to travel farther and improve your score. Stay centered, react smoothly, and see how long you can survive as the neon slope becomes faster and more difficult.",
+          "howToPlayText": "PC Controls\nMove Left: Left Arrow or A\nMove Right: Right Arrow or D\n\nMobile Controls\nSteer: Swipe left or right",
+          "gameURL": "https://playgama.com/export/game/slope-3d?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/slope-3d",
+          "genres": [
+            "arcade",
+            "skill",
+            "3d",
+            "running",
+            "platform",
+            "ball",
+            "physics",
+            "unblocked"
+          ],
+          "tags": [
+            "reaction-games",
+            "fast-paced-games",
+            "hyper-casual-games",
+            "avoid-games",
+            "endless-games",
+            "speed-games",
+            "agility-games",
+            "rolling-games",
+            "1-player-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/slope-3d/big_preview/6031cc0ff00947dda0627af51b3316de?width=448",
+            "https://static.playgama.com/p-img/pg/slope-3d/icon/6dc931faf35e44d8b109bf9b214596c8?width=448"
+          ],
+          "videos": [],
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/slope-3d/big_preview/6031cc0ff00947dda0627af51b3316de?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/slope-3d/icon/6dc931faf35e44d8b109bf9b214596c8?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": true
+          },
+          "supportedLanguages": [
+            "en-US",
+            "ar-EG",
+            "de-DE",
+            "es-ES",
+            "ru-RU",
+            "tr-TR"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/slope-3d?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}
