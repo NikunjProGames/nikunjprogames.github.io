@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>PleyZ News — Gaming, without the noise.</title>
+  <meta name="description" content="PleyZ News — curated gaming news, browser gaming updates, game updates and useful gaming stories.">
+  <link rel="stylesheet" href="./news.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="../index.html" aria-label="PleyZ Games home">
+      <span class="brand-mark">P</span><span>leyZ</span>
+    </a>
+    <nav>
+      <a href="../index.html">Games</a>
+      <a class="active" href="./index.html">News</a>
+      <a href="../submit-game.html">Submit a Game</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="news-hero">
+      <p class="eyebrow">PLEYZ NEWS</p>
+      <h1>Gaming, <span>without the noise.</span></h1>
+      <p>Game updates, browser gaming, indie releases and stories worth knowing about — sourced, checked and curated.</p>
+      <div class="category-tabs" id="categoryTabs">
+        <button class="selected" data-category="all">Latest</button>
+        <button data-category="browser">Browser</button>
+        <button data-category="updates">Game Updates</button>
+        <button data-category="indie">Indie</button>
+        <button data-category="industry">Industry</button>
+      </div>
+    </section>
+
+    <section id="featured" class="featured"></section>
+
+    <section class="section-heading">
+      <div>
+        <p class="eyebrow">LATEST</p>
+        <h2>What's happening in gaming</h2>
+      </div>
+      <span id="articleCount"></span>
+    </section>
+
+    <section id="articleGrid" class="article-grid" aria-live="polite"></section>
+    <p id="emptyState" class="empty hidden">No published stories in this category yet.</p>
+  </main>
+
+  <footer>
+    <div>
+      <strong>PleyZ News</strong>
+      <p>Part of PleyZ Games — Games worth playing.</p>
+    </div>
+    <a href="../index.html">Back to PleyZ Games →</a>
+  </footer>
+
+  <script src="./news.js" defer></script>
+</body>
+</html>
