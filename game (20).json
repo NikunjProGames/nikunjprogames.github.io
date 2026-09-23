@@ -1,0 +1,75 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "117406",
+          "slug": "golf-orbit",
+          "title": "Golf Orbit",
+          "description": "Golf Orbit is an exciting golf simulator game within sports category where you aim to launch golf balls to incredible heights, even reaching Mars. Have fun in one-shot golf battles, complete challenging levels, and master the art of the perfect shot. Compete to become the golf king in this entertaining and unique golfing adventure.\n\nCore: A vibrant and highly accessible casual sports title centered on the fundamentals of golf.\nLoop: Player skill is directly rewarded with in-game currency for successful long-range shots, facilitating a clear progression path through continuous gear upgrades.\nStart: The game features highly intuitive controls and is immediately engaging, supported by a robust system of mini-quests to drive early-game retention.\nPlaygama Fact: The game is fully integrated with Playgama SDK: instant login and cross-device saves between PC and mobile. HTML5. Stable performance regardless of internet quality.\nVisual: Features a polished Stylized / Cartoon art direction, providing an appealing and universally pleasant visual experience.\nKey Feature: Offers an enjoyable blend of satisfying gameplay challenge coupled with eye-catching, high-quality graphics.\n\nControls:\nDesktop: Right-click on buttons and move the cursor.\nMobile: Tap buttons with your finger, drag your finger across the screen.\n\nKey Features:\n• Hit Accurately! : Try to hit the green indicator for a stronger shot and to make the ball fly further!\n• Hit the Green Zones! : Did you hit the green zone? Great! Now take another shot!\n• Obstacles on the Field! : Hit harder to make the ball fly higher! There can be various obstacles on the field, like trees, rocks, or even someone's house...\n\nCore Gameplay & Story\nQ: What is the goal of the game?\nA: Go play golf! Hit the ball as far as possible and try to get it into the holes.\n\nQ: How do you win / what counts as losing?\nA: Get the ball into the holes or the green zones, then take another shot. Aim more accurately to avoid missing, or you'll have to start over!\n\nQ: What grabs attention in the first few minutes?\nA: Try to hit the green section on the indicator when you take a shot. This way, you can hit harder, and your ball will fly further!\n\nEconomy & Customization\nQ: What can you buy/improve?\nA: Upgrade your abilities: ball flight speed, shot power, and more. Get better and hit the target directly!\n\nRetention & Engagement\nQ: Are there daily rewards / a wheel of fortune / achievements / tasks?\nA: Spin the wheel of fortune to earn more rewards. Test your luck!\n\nQ: Is sound necessary?\nA: Play however you feel comfortable! You can choose to turn off the sound.\n\nQ: Is there onboarding in the game? What is it like?\nA: From the first moments of the game, you'll immediately understand how to play! Improve your skills shot by shot!",
+          "howToPlayText": "The key to Golf Orbit is to aim and hit the golf ball as far as possible. This one-button game has relatively easy gameplay, but getting that perfect shot can be challenging. Tap and hold your left mouse button to set the power and release to hit the ball. As the ball soars, it bounces off various objects, gaining extra distance but, if you hit a perfect shot, the ball can destroy the obstacles it faces, including trees and buildings.\n\nAs in regular golf, if your ball ends in water or in sand bunkers\n\nYour distance will be recorded with each shot, keeping you accountable for your progress. The goal is to achieve the longest distance possible with each swing.\n\nCollect coins during the flight to upgrade your equipment and improve your shots. The goal is to achieve the longest distance possible with each swing. Points can be accumulated in various ways. The longer the distance you shoot, the more points you get. You can also unlock points with a surprise spin.\n\nIf you score a birdie (hole in 2 shots) or an eagle (hole in one), you'll amass way more points and will be able to improve the features of your future shots.\n\nThere are three elements to a perfect shot: strength, speed, and bounce. You can give each one of these a boost with reward points.",
+          "gameURL": "https://playgama.com/export/game/golf-orbit?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/golf-orbit",
+          "genres": [
+            "arcade",
+            "sports",
+            "mouse",
+            "ball",
+            "physics",
+            "easy",
+            "golf"
+          ],
+          "tags": [
+            "casual-games",
+            "hyper-casual-games",
+            "addictive-games",
+            "one-button-games",
+            "amazing-games",
+            "timing-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/golf-orbit/big-preview/e7f203e28b0745d880d1c0a995e9b213?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-117406/icon/74f1da783d9e4cd8917a6d359a1f33f4769f6268f9b9fe752835fe229380c500?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "6c572b73e1d9434eb82165297cc7c430",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "6c572b73e1d9434eb82165297cc7c430",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/golf-orbit/big-preview/e7f203e28b0745d880d1c0a995e9b213?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/backfill/game-117406/icon/74f1da783d9e4cd8917a6d359a1f33f4769f6268f9b9fe752835fe229380c500?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "supportedLanguages": [
+            "en-US",
+            "de-DE",
+            "es-ES",
+            "fr-FR",
+            "it-IT",
+            "pt-PT"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/golf-orbit?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

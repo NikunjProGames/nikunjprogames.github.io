@@ -1,0 +1,68 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "117063",
+          "slug": "diy-phone-case-maker",
+          "title": "DIY Phone Case Maker",
+          "description": "DIY Phone Case Maker\nAbout this game\nWelcome to DIY Phone Case Maker, the ultimate playground for those who love to personalize, design, and express their unique style! Dive into the colorful world of custom art and transform ordinary phone cases into extraordinary masterpieces. Whether you're a seasoned artist or just looking for a fun way to unleash your creative side, this game offers endless possibilities to craft the phone case of your dreams.",
+          "howToPlayText": "PAINTING: Bring your ideas to life with a palette of vibrant colors. From soft pastels to electric neons, paint your way to a phone case that screams 'you'.\nACRYLIC ART: Delve into the trendy world of acrylic art. Swirl, mix, and pour your way to stunning abstract designs that stand out in any crowd.\nSTICKERS: Add personality and flair with an array of whimsical and edgy stickers. From quotes to quirky characters, the perfect sticker is waiting to be placed.\nPOP IT: Embrace the satisfying trend of pop it and fidget toys by incorporating them into your designs. Why not have a phone case that's as fun to play with as it is to look at?\nKEYCHAINS: Accessorize your custom case with adorable keychains that dangle and dance with every move. Choose from a variety of designs to add that perfect finishing touch.",
+          "gameURL": "https://playgama.com/export/game/diy-phone-case-maker?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/diy-phone-case-maker",
+          "genres": [
+            "girls",
+            "mouse",
+            "decoration",
+            "crafting",
+            "color",
+            "easy"
+          ],
+          "tags": [
+            "customization-games",
+            "creativity-games",
+            "painting-games",
+            "cute-games",
+            "art-games",
+            "cartoons-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/diy-phone-case-maker/big-preview/041992ee7d4b4937b7758c8d1ab8c438?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-117063/icon/6d35dd98fef04ed5b0f08a85aa5b82368d656592f6903322324a7cdc6d246289?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "0ca58b11ff73485599187e293e4ff76b",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "0ca58b11ff73485599187e293e4ff76b",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/diy-phone-case-maker/big-preview/041992ee7d4b4937b7758c8d1ab8c438?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/backfill/game-117063/icon/6d35dd98fef04ed5b0f08a85aa5b82368d656592f6903322324a7cdc6d246289?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": true
+          },
+          "supportedLanguages": [
+            "en-US"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/diy-phone-case-maker?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

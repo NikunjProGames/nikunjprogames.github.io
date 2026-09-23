@@ -1,0 +1,81 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "114895",
+          "slug": "idle-airport-tycoon",
+          "title": "Idle Airport Tycoon",
+          "description": "Idle Airport Tycoon is a casual simulation game that puts you in charge of building and managing your very own bustling airport. Start with a humble airstrip and turn it into a world-class travel hub—move over Atlanta airport; we're looking to be the busiest airport in the world now! Upgrade everything from planes to terminals, unlock new revenue streams, and watch your profits soar! Are you ready to take on the challenge and become the ultimate airport tycoon?",
+          "howToPlayText": "Controls:\nUse the left mouse button = interact with the in-game UI+/- keys = change the size of the camera",
+          "gameURL": "https://playgama.com/export/game/idle-airport-tycoon?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/idle-airport-tycoon",
+          "genres": [
+            "strategy",
+            "simulation",
+            "tycoon",
+            "mouse",
+            "management",
+            "idle"
+          ],
+          "tags": [
+            "business-games",
+            "time-management-games",
+            "1-player-games",
+            "incremental-games",
+            "building-games",
+            "aviation-games",
+            "resource-management-games",
+            "airport-games",
+            "gam-supported-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/idle-airport-tycoon/big-preview/cf42eed8120a4f3f9fa4d25809bc4ab1?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-114895/icon/97d2c234d6f4b59034760f0ade06a844607b545a0ad5bfd5b79bcfc67028f7a7?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "8b026c228211b2728554c4f50ea97704",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "8b026c228211b2728554c4f50ea97704",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/idle-airport-tycoon/big-preview/cf42eed8120a4f3f9fa4d25809bc4ab1?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/backfill/game-114895/icon/97d2c234d6f4b59034760f0ade06a844607b545a0ad5bfd5b79bcfc67028f7a7?width=448",
+          "inGamePurchases": "Yes",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "supportedLanguages": [
+            "en-US",
+            "de-DE",
+            "es-ES",
+            "fr-FR",
+            "id-ID",
+            "it-IT",
+            "pl-PL",
+            "pt-PT",
+            "ru-RU",
+            "tr-TR"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/idle-airport-tycoon?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

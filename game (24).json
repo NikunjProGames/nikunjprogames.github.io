@@ -1,0 +1,86 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "115615",
+          "slug": "burger-restaurant-simulator-3d",
+          "title": "Burger Restaurant Simulator 3D",
+          "description": "Lead your own burger adventure!\n\nDive into the exciting world of restaurant management, where you will cook delicious dishes, expand your business and delight customers in this exciting simulation game.\n\nFrom frying juicy burgers to managing staff, every decision you make is important on the way to creating a real culinary empire!\n\n🔑 Key features:\n🍔 Cook and serve: Create a variety of burgers, crispy fries, juicy nuggets, refreshing drinks and aromatic coffee.\n\n💰 Burger tycoon: Manage finances, upgrade equipment and hire employees.\n✨ Expand and decorate: Use profits to create a unique interior.\n🚀 Develop a network: Open new branches with car services!\n⏰ New horizons: Launch a trendy cafe or food truck!",
+          "howToPlayText": "Desktop:\nWASD - move;\nE - interact;\nMouse - camera rotate;\nM - shop;\nJ - daily tasks;\nH - daily reward;\nTab - show/hide cursor;\nP - pause;\n\nOpen a restaurant and create a unique design.\nTake orders and cook in a realistic kitchen simulator.\nDiscover new dishes: milkshakes, desserts, snacks.\nImprove the kitchen, hire chefs and train staff.\nHappy customers = tips + reputation!",
+          "gameURL": "https://playgama.com/export/game/burger-restaurant-simulator-3d?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/burger-restaurant-simulator-3d",
+          "genres": [
+            "arcade",
+            "simulation",
+            "kids",
+            "3d",
+            "tycoon",
+            "food",
+            "management",
+            "logic",
+            "restaurant",
+            "cooking",
+            "idle"
+          ],
+          "tags": [
+            "casual-games",
+            "business-games",
+            "life-simulation-games",
+            "burger-games",
+            "time-management-games",
+            "1-player-games",
+            "timing-games",
+            "resource-management-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/burger-restaurant-simulator-3d/big_preview/b4cbcd2693594ae1a4e6aa672025365c?width=448",
+            "https://static.playgama.com/p-img/pg/burger-restaurant-simulator-3d/icon/f38b63c74f224a768073ff42fd424ffa?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "77eafebf3fa97f11d0a47fd2a4ce085c",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "77eafebf3fa97f11d0a47fd2a4ce085c",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/burger-restaurant-simulator-3d/big_preview/b4cbcd2693594ae1a4e6aa672025365c?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/burger-restaurant-simulator-3d/icon/f38b63c74f224a768073ff42fd424ffa?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "supportedLanguages": [
+            "en-US",
+            "de-DE",
+            "es-ES",
+            "fr-FR",
+            "id-ID",
+            "it-IT",
+            "ja-JP",
+            "pl-PL",
+            "pt-PT",
+            "ru-RU",
+            "tr-TR"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/burger-restaurant-simulator-3d?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}
