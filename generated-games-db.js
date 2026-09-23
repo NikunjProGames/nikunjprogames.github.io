@@ -7,7 +7,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/fwiozook1vr9lw7duxy81zup5676u7bj/512x384.jpg",
-    iframeUrl: "/games/speen.html",
+    iframeUrl: "speen.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -19,7 +19,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/gpnthl10ris6862m1lrywpqk8gc4zk4v/512x384.jpg",
-    iframeUrl: "/games/music-night-battle-rhythm-game.html",
+    iframeUrl: "music-night-battle-rhythm-game.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -31,7 +31,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/l0nqbs09szfpxezuy44h886ecqpomll5/512x384.jpg",
-    iframeUrl: "/games/wiggly-worm-race.html",
+    iframeUrl: "wiggly-worm-race.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -43,7 +43,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/cybh6ym22ww2ehlpu23d6azrudls31ar/512x384.jpg",
-    iframeUrl: "/games/stickman-trivia-fall-io.html",
+    iframeUrl: "stickman-trivia-fall-io.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -55,7 +55,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/f6ung9e7lfninu1957spejeihzprdusb/512x384.jpg",
-    iframeUrl: "/games/castle-wars-legacy.html",
+    iframeUrl: "castle-wars-legacy.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -67,7 +67,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/f1e896emfy104h8j8higjjdkcqeqvtau/512x384.jpg",
-    iframeUrl: "/games/guardz-io.html",
+    iframeUrl: "guardz-io.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -79,7 +79,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/iv0siadzdl75mq4brnh2p63bjdomi3jt/512x384.jpg",
-    iframeUrl: "/games/robot-astro-party.html",
+    iframeUrl: "robot-astro-party.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -91,7 +91,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/y4wmrpbd3v374mr8z6vtd97bwbo4kc82/512x384.jpg",
-    iframeUrl: "/games/incoword.html",
+    iframeUrl: "incoword.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -103,7 +103,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/z41q0ycg5i8u33rqy7sfjcedpak3e7zz/512x384.jpg",
-    iframeUrl: "/games/blockscape-io.html",
+    iframeUrl: "blockscape-io.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -115,7 +115,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/o265mdiouhnx82t87q3p0t5jgspwsdoy/512x384.jpg",
-    iframeUrl: "/games/quiz-runner-io.html",
+    iframeUrl: "quiz-runner-io.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -127,7 +127,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/7zwgvkvq609jq0jk7tpfe10bncofyj5o/512x384.jpg",
-    iframeUrl: "/games/santa-matching-game.html",
+    iframeUrl: "santa-matching-game.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -139,7 +139,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/e27ezlhh5edki5wv0aad96d8w3g1l1bf/512x384.jpg",
-    iframeUrl: "/games/brainrot-bridge-race-3d.html",
+    iframeUrl: "brainrot-bridge-race-3d.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -151,7 +151,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/ts6iu4xqkctvpkau5yk4hwdkr3nwbsn7/512x384.jpg",
-    iframeUrl: "/games/carrom-pro.html",
+    iframeUrl: "carrom-pro.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -163,7 +163,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/at7gjto5axuv0mv7m4ain5pll3qmutcz/512x384.jpg",
-    iframeUrl: "/games/whot-the-ultimate-nigerian-card-game.html",
+    iframeUrl: "whot-the-ultimate-nigerian-card-game.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -175,7 +175,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/pir55cwoygvsus9az7d5zyxd6gra48dh/512x384.jpg",
-    iframeUrl: "/games/english-checkers.html",
+    iframeUrl: "english-checkers.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -187,7 +187,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/cx9ykv4xl6wlfq6vd9odkn68e6zenz7s/512x384.jpg",
-    iframeUrl: "/games/clonium.html",
+    iframeUrl: "clonium.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -199,7 +199,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/7o8qtn59e5ejushl2s6bp52nbcgiu44x/512x384.jpg",
-    iframeUrl: "/games/fall-guys-unblocked-web-multiplayer.html",
+    iframeUrl: "fall-guys-unblocked-web-multiplayer.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -211,7 +211,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/np11v2111dvriy3bgljgr99a8qo2l8vi/512x384.jpg",
-    iframeUrl: "/games/battle-swat-vs-mercenary-remaster.html",
+    iframeUrl: "battle-swat-vs-mercenary-remaster.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -223,7 +223,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/gw00mqn2tqrl78k76v4bug5o2ho9qng8/512x384.jpg",
-    iframeUrl: "/games/pga-toons.html",
+    iframeUrl: "pga-toons.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -235,7 +235,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/tg44gsgkrah9ash957sdnj6jg2oeyn75/512x384.jpg",
-    iframeUrl: "/games/pga3-zombie.html",
+    iframeUrl: "pga3-zombie.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -247,7 +247,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/u1n5ttd87g2a326o5b2pn1wb9ntpx33f/512x384.jpg",
-    iframeUrl: "/games/paws-off-my-clues.html",
+    iframeUrl: "paws-off-my-clues.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -259,7 +259,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/yek6als54qfbxd4vx2h26nuq55rt7gt8/512x384.jpg",
-    iframeUrl: "/games/tic-tac-toe-with-ai-and-multiplayer.html",
+    iframeUrl: "tic-tac-toe-with-ai-and-multiplayer.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -271,7 +271,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/vlhloqzu0cvn1apzoyq9vwycgddt3fxn/512x384.jpg",
-    iframeUrl: "/games/balloon-heroes-run-and-rise.html",
+    iframeUrl: "balloon-heroes-run-and-rise.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -283,7 +283,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/gkeofcoqengjzxlw0b09f2qrng35egbi/512x384.jpg",
-    iframeUrl: "/games/iron-legion.html",
+    iframeUrl: "iron-legion.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -295,7 +295,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/bcs4hy6efm4uqx1qacogniq5xvn9jzhe/512x384.jpg",
-    iframeUrl: "/games/casual-poker-online.html",
+    iframeUrl: "casual-poker-online.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -307,7 +307,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/yh0n2bobl4i5wdm0z43l7rhow2nk62qy/512x384.jpg",
-    iframeUrl: "/games/super-sprunki-adventure-game.html",
+    iframeUrl: "super-sprunki-adventure-game.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -319,7 +319,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/bivqu9s6efq0gk7rknnqlad3qw0ncizt/512x384.jpg",
-    iframeUrl: "/games/run-guys-knockout-royale.html",
+    iframeUrl: "run-guys-knockout-royale.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -331,7 +331,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/2zzd4eaozs2hipxphec84xoac3sagofk/512x384.jpg",
-    iframeUrl: "/games/online-cats-multiplayer-park.html",
+    iframeUrl: "online-cats-multiplayer-park.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -343,7 +343,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/oddet3vf59i0den8dikuc3us81aby79z/512x384.jpg",
-    iframeUrl: "/games/tung-sahur-io.html",
+    iframeUrl: "tung-sahur-io.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -355,7 +355,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/e8vfdarke5qjx5uemefer4jtnbo3dc01/512x384.jpg",
-    iframeUrl: "/games/ludo-king-offline-ludo-game.html",
+    iframeUrl: "ludo-king-offline-ludo-game.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -367,7 +367,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/qf4hzartah4bf6ewbpelfx4dmz1qql4a/512x384.jpg",
-    iframeUrl: "/games/snake-war-multiplayer.html",
+    iframeUrl: "snake-war-multiplayer.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -379,7 +379,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/lbj1gbsu0l7j8jdaih6a3yqibr9xtgu2/512x384.jpg",
-    iframeUrl: "/games/counter-terror-3d.html",
+    iframeUrl: "counter-terror-3d.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -391,7 +391,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/s0e0jqx8z8e8s5n9dshww2gexamrw0cm/512x384.jpg",
-    iframeUrl: "/games/sure-shot.html",
+    iframeUrl: "sure-shot.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -403,7 +403,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/dx1obtwhyn14plnk6inxzny5295onzl5/512x384.jpg",
-    iframeUrl: "/games/free-rally-vice.html",
+    iframeUrl: "free-rally-vice.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -415,7 +415,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/i5povrpxi9gwdyq2d9zr1haw3cm0il6h/512x384.jpg",
-    iframeUrl: "/games/gorilla-multiplayer.html",
+    iframeUrl: "gorilla-multiplayer.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -427,7 +427,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/d2gokou3otdsj4x3y2l09gxx4ktk1okw/512x384.jpg",
-    iframeUrl: "/games/turkish-draughts.html",
+    iframeUrl: "turkish-draughts.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -439,7 +439,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/6677ao3k189n72jdo2h94kdvvkmo6c72/512x384.jpg",
-    iframeUrl: "/games/sunny-fields.html",
+    iframeUrl: "sunny-fields.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -451,7 +451,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/iquipc0k9ijyjxw1pxc0q271kxb4t7gn/512x384.jpg",
-    iframeUrl: "/games/jump-race.html",
+    iframeUrl: "jump-race.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -463,7 +463,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/3e4hk4zpotozwuy9ehh5uy0xzeaabp3k/512x384.jpg",
-    iframeUrl: "/games/qolor-2048.html",
+    iframeUrl: "qolor-2048.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -475,7 +475,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/l3njgmefn0e3h9ih3zyhyctgjj2jlpsv/512x384.jpg",
-    iframeUrl: "/games/dominoes-classic-duel.html",
+    iframeUrl: "dominoes-classic-duel.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -487,7 +487,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/8g5l1zycbzl4d95ho3kztawxu1cjrz0a/512x384.jpg",
-    iframeUrl: "/games/animerge.html",
+    iframeUrl: "animerge.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -499,7 +499,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/h5hc9ltwjo3sk2g2upo4su465kf1kkgz/512x384.jpg",
-    iframeUrl: "/games/multiplayer-team-death-match.html",
+    iframeUrl: "multiplayer-team-death-match.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -511,7 +511,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/9dfjnm3ihlvt9h0yxblmdflszkbanpc2/512x384.jpg",
-    iframeUrl: "/games/tafl-viking-chess.html",
+    iframeUrl: "tafl-viking-chess.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -523,7 +523,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/l28ng8jar2mopyfsls1ufwi7zm9ml4zi/512x384.jpg",
-    iframeUrl: "/games/popaloon.html",
+    iframeUrl: "popaloon.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -535,7 +535,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/c8p1307f1u9vsd1njv8qswqfomtayqgl/512x384.jpg",
-    iframeUrl: "/games/sprunki-drift-multiplayer.html",
+    iframeUrl: "sprunki-drift-multiplayer.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -547,7 +547,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/fzxidkarnp7ykiii4mot05y6nfwt8h3w/512x384.jpg",
-    iframeUrl: "/games/greedy-snake-multiplayer-duel.html",
+    iframeUrl: "greedy-snake-multiplayer-duel.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -559,7 +559,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/slrxe38x6845ol68bkcrtet7yqe728g9/512x384.jpg",
-    iframeUrl: "/games/gomoku-five-stones-in-a-row.html",
+    iframeUrl: "gomoku-five-stones-in-a-row.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -571,7 +571,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/q9xrmuceu30pey8llzop5cr0p1p2fbx9/512x384.jpg",
-    iframeUrl: "/games/survev-io.html",
+    iframeUrl: "survev-io.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -583,7 +583,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/cxu4dpr5uspgzim70lf6t4p6milazwr0/512x384.jpg",
-    iframeUrl: "/games/battle-jitsu.html",
+    iframeUrl: "battle-jitsu.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -595,7 +595,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/594795s0fh64izkmnelrpracbmz1we3t/512x384.jpg",
-    iframeUrl: "/games/giveaway-checkers.html",
+    iframeUrl: "giveaway-checkers.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -607,7 +607,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/rivals-fps-online-shooter/preview/2203a049014e4f6eaa4038ab696f6afa?width=448",
-    iframeUrl: "/games/rivals-fps-online-shooter.html",
+    iframeUrl: "rivals-fps-online-shooter.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -619,7 +619,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/hazmob-fps-online-shooter/preview/76a02c8e7dbd4bd3a87bc87d868d6158?width=448",
-    iframeUrl: "/games/hazmob-fps-online-shooter.html",
+    iframeUrl: "hazmob-fps-online-shooter.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -631,7 +631,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/backfill/game-99645/preview/90df3206f7f0c706e6431b9ae58fc331d0ed13a11e547ce0271b720ff82e6b21?width=448",
-    iframeUrl: "/games/geometry-arrow-2.html",
+    iframeUrl: "geometry-arrow-2.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -643,7 +643,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/basket-random/preview/fec7a407ebd246d8a893abaf7801622c?width=448",
-    iframeUrl: "/games/basket-random.html",
+    iframeUrl: "basket-random.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -655,7 +655,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/backfill/game-86496/preview/57449a8aeb08b058814fb911b0c15014c583f10801e7fa2f4c986e6743c4913c?width=448",
-    iframeUrl: "/games/beam-drive-car-crash-test-simulator.html",
+    iframeUrl: "beam-drive-car-crash-test-simulator.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -667,7 +667,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/backfill/game-109351/preview/b0afdef34402ca9cc780be5207be4cbfe8b640b6cd70d6626c7cec02741a4e3c?width=448",
-    iframeUrl: "/games/cube-snake-2048.html",
+    iframeUrl: "cube-snake-2048.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -679,7 +679,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/piece-of-cake-merge--bake/big-preview/4124b3ce37ab4b92b6a8ff1332c9eee8?width=448",
-    iframeUrl: "/games/piece-of-cake-merge-bake.html",
+    iframeUrl: "piece-of-cake-merge-bake.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -691,7 +691,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/mahjong-classic/big-preview/730f65084d864a9baffefa86e110b106?width=448",
-    iframeUrl: "/games/mahjong-classic.html",
+    iframeUrl: "mahjong-classic.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -703,7 +703,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/numicolor/big-preview/ad1c290e65cb4e1b8a747cb2b51de044?width=448",
-    iframeUrl: "/games/numicolor.html",
+    iframeUrl: "numicolor.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -715,7 +715,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/basketball-stars/big_preview/2e0653c710ad43e09c40d1ba5968e447?width=448",
-    iframeUrl: "/games/basketball-stars.html",
+    iframeUrl: "basketball-stars.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -727,7 +727,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/1-speed-escape-prison/big-preview/415c3326c7724e6cae83d74990cc3020?width=448",
-    iframeUrl: "/games/1-speed-escape-prison.html",
+    iframeUrl: "1-speed-escape-prison.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -739,7 +739,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/solar-smash/big-preview/678db982b1364f018e7c4fac3b1f4a44?width=448",
-    iframeUrl: "/games/solar-smash.html",
+    iframeUrl: "solar-smash.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -751,7 +751,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/plants-vs-zombies-fusion-edition/big_preview/0a3f694494fd4b469429f9c8baf0cb93?width=448",
-    iframeUrl: "/games/pvz-fusion-cheats.html",
+    iframeUrl: "pvz-fusion-cheats.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -763,7 +763,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/ragdoll-crashtest-throw-and-break/big-preview/806817717e62466a83cb4377d0fa92eb?width=448",
-    iframeUrl: "/games/ragdoll-crash-test-throw-and-break.html",
+    iframeUrl: "ragdoll-crash-test-throw-and-break.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -775,7 +775,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/geometry-vibes/big-preview/cd0c9c56e9e54948b7eca6c49ef590b5?width=448",
-    iframeUrl: "/games/geometry-vibes.html",
+    iframeUrl: "geometry-vibes.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -787,7 +787,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/slope-3d/big_preview/6031cc0ff00947dda0627af51b3316de?width=448",
-    iframeUrl: "/games/slope-3d.html",
+    iframeUrl: "slope-3d.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -799,7 +799,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/idle-airport-tycoon/big-preview/cf42eed8120a4f3f9fa4d25809bc4ab1?width=448",
-    iframeUrl: "/games/idle-airport-tycoon.html",
+    iframeUrl: "idle-airport-tycoon.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -811,7 +811,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/diy-phone-case-maker/big-preview/041992ee7d4b4937b7758c8d1ab8c438?width=448",
-    iframeUrl: "/games/diy-phone-case-maker.html",
+    iframeUrl: "diy-phone-case-maker.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -823,7 +823,7 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/golf-orbit/big-preview/e7f203e28b0745d880d1c0a995e9b213?width=448",
-    iframeUrl: "/games/golf-orbit.html",
+    iframeUrl: "golf-orbit.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -835,11 +835,11 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/plants-vs-zombies-hybrids/big_preview/f760a2d2906a4e8e93795c3e674d5c4f?width=448",
-    iframeUrl: "/games/plants-vs-zombies-hybrids.html",
+    iframeUrl: "plants-vs-zombies-hybrids.html",
     fullscreen: true,
     videoUrl: ""
   },
-  {
+    {
     id: 114,
     name: "Burger Restaurant Simulator 3D",
     cat: "arcade",
@@ -850,5 +850,5 @@ const NEW_GAMES = [
     iframeUrl: "/games/burger-restaurant-simulator-3d.html",
     fullscreen: true,
     videoUrl: ""
-  }
+  },
 ];
