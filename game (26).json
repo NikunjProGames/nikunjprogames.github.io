@@ -1,0 +1,77 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "123241",
+          "slug": "driver-club-highway-racing",
+          "title": "Driver Club: Highway Racing",
+          "description": "Driver Club: Highway Racing is a high speed driving game where you dodge traffic, overtake vehicles, and put your reflexes to the test.\n\nRace through a variety of dynamic environments\nUnlock and drive a range of powerful cars\nSmooth, responsive controls for an immersive experience\nStunning visuals that enhance the thrill of the ride\nPush your limits and dominate the highway leaderboard\n\n\nCore Gameplay & Story\n\nQ: What is the game about? What do you need to do?\nA: It's a racing game in the traffic racer genre. You need to overtake other cars to pass the section as quickly as possible. There is also a racing mode where a strong opponent is added to this process.\n\nQ: What is the unique feature of the game? What can hook players?\nA: There are not many high-quality and realistic races like this one.\n\nQ: Are there bosses and how are they different?\nA: There are faster opponents in the Race mode.\n\nMechanics & Progression\n\nQ: What currencies are there and what can they be spent on (regular - gold, premium - crystals, etc.)?\nA: Money is earned for victories and can be spent on new cars and upgrades for them.\n\nQ: How does leveling up work exactly? What needs to be done to level up faster?\nA: You need to win races and upgrade your car.\n\nEconomy & Customization\n\nQ: Is there customization in the game? Can you customize the appearance of the hero, location editor, car tuning, etc.?\nA: Yes, you can change the color of cars and rims. Change rims.\n\nRetention & Engagement\n\nQ: Is it preferable to play with sound to better immerse yourself in the atmosphere, or will there be difficulties in passing without sound?\nA: The sound is done excellently, but it is not necessary for the game.",
+          "howToPlayText": "Controls\nW / up arrow key = accelerate\nS / down arrow key = brake\nA / left arrow key = move left\nD / right arrow key = move right\nC = change camera view\nP = pause",
+          "gameURL": "https://playgama.com/export/game/driver-club-highway-racing?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/driver-club-highway-racing",
+          "genres": [
+            "action",
+            "racing",
+            "arcade",
+            "simulation",
+            "skill",
+            "boys",
+            "3d",
+            "car",
+            "car-racing",
+            "driving",
+            "easy",
+            "unity"
+          ],
+          "tags": [
+            "race-games",
+            "fast-paced-games",
+            "customization-games",
+            "vehicles-games",
+            "speed-games",
+            "car-tuning-games",
+            "car-crash-games",
+            "arcade-car",
+            "realistic-car",
+            "action-adventure",
+            "fast-paced-action"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/driver-club-highway-racing/big-preview/037ce11afe4f4d58a0f93a6339db96b5?width=448",
+            "https://static.playgama.com/p-img/pg/icon/fe43abdfe00844b2a289de940b3732f2?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "2bc9523376aa46139c01c868d86cbb68",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "2bc9523376aa46139c01c868d86cbb68",
+          "mobileReady": [
+            "For Desktop"
+          ],
+          "gender": [
+            "Male"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/driver-club-highway-racing/big-preview/037ce11afe4f4d58a0f93a6339db96b5?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/icon/fe43abdfe00844b2a289de940b3732f2?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "supportedLanguages": [
+            "en-US"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/driver-club-highway-racing?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

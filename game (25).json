@@ -1,0 +1,75 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "99734",
+          "slug": "find-the-frog--hidden-objects",
+          "title": "Find the Frog - Hidden Objects",
+          "description": "Find the Frog - Hidden Objects\n\nExplore thematic worlds: from cozy farms and mysterious swamps to bustling cities, enchanted forests, sunny beaches, pirate islands, and beyond!\n\nEach world contains 3 levels with unique frogs to discover.\n\nCollect all the frogs to complete your album - they're so adorable you'll want to find every single one!\n\n✨ Game Features:\n\n✅ Relaxing gameplay - perfect for stress relief\n✅ Simple controls - suitable for all ages\n✅ Striking visuals - black-and-white backgrounds with colorful frogs\n✅ Frog collection - motivation to complete all levels\n✅ Varied difficulty - from beginner to expert challenges\n\nPerfect for evening relaxation.\n\n\"Find the Frog\" isn't just a game - it's a meditative journey into a hidden object world that will bring you hours of enjoyment.\n\n🐸 Find them all, Ribbit!",
+          "howToPlayText": "Search for hidden frogs across beautifully drawn black-and-white scenes! Simply tap them with your finger (on mobile) or click with your mouse (on PC) to reveal their vibrant colors. Find all frogs to complete each level, and finish entire worlds to add special location-themed frogs to your personal collection!\n\nStuck? Use our handy Magnifying Glass power-up! When those green tricksters hide too well, this helpful tool will reveal where they're lurking.\n\nGood luck and happy hunting - Ribbit!",
+          "gameURL": "https://playgama.com/export/game/find-the-frog--hidden-objects?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/find-the-frog--hidden-objects",
+          "genres": [
+            "puzzle",
+            "animals",
+            "hidden-object",
+            "point-and-click",
+            "brain",
+            "classic",
+            "mobile"
+          ],
+          "tags": [
+            "casual-games",
+            "collecting-games",
+            "search-games",
+            "frog-games",
+            "construct-games-online"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/find-the-frog--hidden-objects/big_preview/541792f4c5354ef88be0646eb9be4b1b?width=448",
+            "https://static.playgama.com/p-img/pg/find-the-frog--hidden-objects/icon/96bb7ca516e7433783929a40085e136a?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "61541049fc244131805e9e1abfcbb54c",
+              "external_url": "",
+              "type": "gameplay"
+            },
+            {
+              "playgama_id": "89d2963fef19428f8810766562fa7488",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "61541049fc244131805e9e1abfcbb54c",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/find-the-frog--hidden-objects/big_preview/541792f4c5354ef88be0646eb9be4b1b?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/find-the-frog--hidden-objects/icon/96bb7ca516e7433783929a40085e136a?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": true
+          },
+          "supportedLanguages": [
+            "en-US",
+            "ru-RU"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/find-the-frog--hidden-objects?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

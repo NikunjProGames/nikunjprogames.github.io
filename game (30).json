@@ -1,0 +1,72 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "106349",
+          "slug": "hedgies",
+          "title": "Hedgies",
+          "description": "A single Hedgehog is capable of turning a desolate and abandoned household on plot of land into a bustling and flourishing farm. Only a few of us, people, are aware of the fact that Hedgies are great cooks, fishermen, craftsmen and last, but not the least, fabulously hospitable types! Come and see for yourself, plunge into ‘Hedgies’ game and contribute to the beautification of the Valley.\n",
+          "howToPlayText": "Hedgies is a charming farming game where a hardworking hedgehog transforms an abandoned plot into a thriving homestead. Grow crops, craft goods, and master skills like cooking and fishing. With a warm and welcoming spirit, your hedgehog will turn the valley into a lively community. Step in and help bring this enchanting world to life!",
+          "gameURL": "https://playgama.com/export/game/hedgies?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/hedgies",
+          "genres": [
+            "adventure",
+            "funny",
+            "animals",
+            "cool-games",
+            "management",
+            "cozy",
+            "farm",
+            "crafting",
+            "cooking"
+          ],
+          "tags": [
+            "casual-games",
+            "1-player-games",
+            "building-games",
+            "resource-management-games",
+            "animal-io",
+            "gam-supported-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/hedgies/big_preview/82348afa3e7b4db0bf915c835c40a8bd?width=448",
+            "https://static.playgama.com/p-img/pg/hedgies/icon/ce0d70a2737746eeaf60c56208b1f4ab?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "5190b1fcdbba4021a45c3930c54161e2",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "5190b1fcdbba4021a45c3930c54161e2",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/hedgies/big_preview/82348afa3e7b4db0bf915c835c40a8bd?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/hedgies/icon/ce0d70a2737746eeaf60c56208b1f4ab?width=448",
+          "inGamePurchases": "Yes",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "supportedLanguages": [
+            "en-US"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/hedgies?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

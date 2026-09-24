@@ -1,0 +1,69 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "46",
+          "slug": "good-sort-master",
+          "title": "Good Sort Master: Triple Match",
+          "description": "Arrange items on shelves, place identical items next to each other in order to connect 3 of the same items on the shelf. A relaxing game where you have to organize objects on shelves. Cleaning has never been so interesting and fun! A simple and relaxing game for women and men alike!",
+          "howToPlayText": "1. Drag items to place 3 identical items on the same shelf.\n2. Remove all items on the shelves to complete the level.\n3. Complete levels to discover more of your favorite items!",
+          "gameURL": "https://playgama.com/export/game/good-sort-master?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/good-sort-master",
+          "genres": [
+            "puzzle",
+            "matching"
+          ],
+          "tags": [
+            "iphone-games",
+            "relaxing-games",
+            "addictive-games",
+            "memory-games",
+            "sorting-games",
+            "desktop-games",
+            "simple-games",
+            "borwser-games",
+            "android-games",
+            "unity-games-online"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/good-sort-master/big-preview/87153c5702e14ce994b208df2c0a5f61?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-46/icon/c0a46a5e5ca0f818973da4fe340b68b9ab6d9cce73ea4babad9e167ef9393bd0?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "bde42b101df64dfd9bbc5fca8bd9cb96",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "bde42b101df64dfd9bbc5fca8bd9cb96",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/good-sort-master/big-preview/87153c5702e14ce994b208df2c0a5f61?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/backfill/game-46/icon/c0a46a5e5ca0f818973da4fe340b68b9ab6d9cce73ea4babad9e167ef9393bd0?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": false,
+            "vertical": true
+          },
+          "supportedLanguages": [
+            "en-US"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/good-sort-master?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

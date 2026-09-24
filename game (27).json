@@ -1,0 +1,69 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "86262",
+          "slug": "master-chess",
+          "title": "Master Chess",
+          "description": "Sharpen your tactics to defeat the king in this classic game. Compete online with either the AI or players from around the world. Aim for victory!",
+          "howToPlayText": "On desktop: click the piece you want to move and then click the square on the board where you want to positionate the piece.\n\nOn mobile: tap the piece you want to move and then tap the square on the board where you want to positionate the piece.",
+          "gameURL": "https://playgama.com/export/game/master-chess?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/master-chess",
+          "genres": [
+            "two-player",
+            "multiplayer",
+            "chess",
+            "classic",
+            "board"
+          ],
+          "tags": [
+            "turnbased-games",
+            "rts-games",
+            "mind-games",
+            "desktop-games",
+            "1-player-games",
+            "indie-games",
+            "borwser-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/master-chess/big-preview/52cdd471a5044f1e94c36787ee523746?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-86262/icon/f565a4e4737045152e0e5800694d608304b9e28d3f23ea052257e6699fd3a27c?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "066b3bab8a1c460cbc5d057dbbe37125",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "066b3bab8a1c460cbc5d057dbbe37125",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/master-chess/big-preview/52cdd471a5044f1e94c36787ee523746?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/backfill/game-86262/icon/f565a4e4737045152e0e5800694d608304b9e28d3f23ea052257e6699fd3a27c?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": true
+          },
+          "supportedLanguages": [
+            "en-US"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/master-chess?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

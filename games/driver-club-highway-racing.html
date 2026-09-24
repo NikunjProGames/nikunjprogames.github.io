@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Play Driver Club: Highway Racing for FREE on PleyZ</title>
+  <meta name="description" content="Driver Club: Highway Racing is a high speed driving game where you dodge traffic, overtake vehicles, and put your reflexes to the test.
+
+Race through a variety of dynamic environments
+Unlock and drive a range of powerful cars
+Smooth, responsive controls for an immersive experience
+Stunning visuals that enhance the thrill of the ride
+Push your limits and dominate the highway leaderboard
+
+
+Core Gameplay & Story
+
+Q: What is the game about? What do you need to do?
+A: It's a racing game in the traffic racer genre. You need to overtake other cars to pass the section as quickly as possible. There is also a racing mode where a strong opponent is added to this process.
+
+Q: What is the unique feature of the game? What can hook players?
+A: There are not many high-quality and realistic races like this one.
+
+Q: Are there bosses and how are they different?
+A: There are faster opponents in the Race mode.
+
+Mechanics & Progression
+
+Q: What currencies are there and what can they be spent on (regular - gold, premium - crystals, etc.)?
+A: Money is earned for victories and can be spent on new cars and upgrades for them.
+
+Q: How does leveling up work exactly? What needs to be done to level up faster?
+A: You need to win races and upgrade your car.
+
+Economy & Customization
+
+Q: Is there customization in the game? Can you customize the appearance of the hero, location editor, car tuning, etc.?
+A: Yes, you can change the color of cars and rims. Change rims.
+
+Retention & Engagement
+
+Q: Is it preferable to play with sound to better immerse yourself in the atmosphere, or will there be difficulties in passing without sound?
+A: The sound is done excellently, but it is not necessary for the game." />
+  <meta name="keywords" content="action, racing, arcade, simulation, skill, boys, 3d, car, car-racing, driving, easy, unity, race-games, fast-paced-games, customization-games, vehicles-games, speed-games, car-tuning-games, car-crash-games, arcade-car, realistic-car, action-adventure, fast-paced-action, online puzzle game, free puzzle games, PleyZ" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3172987137389272" crossorigin="anonymous"></script>
+  <style>
+    :root {
+      --bg: #0a0d14;
+      --panel: rgba(255,255,255,0.06);
+      --panel-border: rgba(255,255,255,0.12);
+      --text: #f4f4ff;
+      --muted: #aab0c4;
+      --accent: #00bfff;
+      --accent-2: #8b00ff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Rajdhani', sans-serif;
+      background: linear-gradient(135deg, #070911, #111826);
+      color: var(--text);
+      min-height: 100vh;
+    }
+    a { color: inherit; text-decoration: none; }
+    .page-shell { max-width: 1280px; margin: 0 auto; padding: 20px 16px 40px; }
+    .topbar {
+      display: flex; justify-content: space-between; align-items: center; gap: 12px;
+      padding: 16px 20px; border: 1px solid var(--panel-border); border-radius: 16px;
+      background: rgba(7, 9, 17, 0.82); backdrop-filter: blur(12px); margin-bottom: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+    .topbar h1 { font-family: 'Orbitron', sans-serif; margin: 0; font-size: clamp(1.1rem, 2vw, 1.5rem); }
+    .topbar .actions { display: flex; gap: 8px; flex-wrap: wrap; }
+    .profile-score-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 10px 6px 6px; border-radius: 999px;
+      border: 1px solid rgba(0,191,255,0.35); background: rgba(0,191,255,0.08);
+      color: var(--text); font-weight: 700; font-size: 0.88rem;
+    }
+    .profile-score-avatar {
+      display: grid; place-items: center; width: 28px; height: 28px;
+      border-radius: 50%; background: linear-gradient(135deg, var(--accent-2), var(--accent));
+      color: #fff; font-size: 0.68rem; font-family: 'Orbitron', sans-serif;
+    }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 8px 12px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.14); font-weight: 700; font-size: 0.92rem;
+      background: var(--panel); color: var(--text);
+    }
+    .btn.primary { background: linear-gradient(90deg, var(--accent-2), var(--accent)); color: white; border-color: transparent; }
+    .game-toolbar {
+      display: flex; justify-content: flex-end; gap: 8px; margin-bottom: 10px;
+    }
+    .btn.compact { padding: 7px 12px; font-size: 0.9rem; }
+    .game-layout {
+      display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 16px; align-items: start;
+    }
+    .game-shell { min-width: 0; }
+    .game-frame {
+      border-radius: 18px; overflow: hidden; border: 1px solid var(--panel-border);
+      background: #000; box-shadow: 0 14px 40px rgba(0,0,0,0.35);
+      min-height: 70vh;
+    }
+    iframe { width: 100%; min-height: 70vh; border: 0; display: block; background: #000; }
+    .video-card {
+      margin-top: 16px; padding: 16px; border-radius: 16px; background: rgba(255,255,255,0.05);
+      border: 1px solid var(--panel-border);
+    }
+    .video-card h3 { margin: 0 0 10px; font-family: 'Orbitron', sans-serif; font-size: 1rem; }
+    .video-card video, .video-card iframe {
+      width: 100%; min-height: 280px; border-radius: 12px; border: 0; background: #000;
+    }
+    .info-card {
+      margin-top: 18px; padding: 18px; border-radius: 18px; background: rgba(255,255,255,0.05); border: 1px solid var(--panel-border);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+    }
+    .info-card h2 { margin: 0 0 10px; font-family: 'Orbitron', sans-serif; font-size: 1.1rem; }
+    .info-card p, .info-card li { color: var(--muted); line-height: 1.6; }
+    .related-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    .related-games { margin-top: 0; position: sticky; top: 16px; max-height: 70vh; overflow-y: auto; }
+    .related-game {
+      display: grid; grid-template-columns: 88px 1fr; gap: 10px; align-items: center;
+      min-width: 0; color: var(--text); font-weight: 700; background: rgba(255,255,255,0.04);
+      border: 1px solid var(--panel-border); border-radius: 12px; padding: 8px; transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .related-game:hover { transform: translateY(-2px); border-color: rgba(0,191,255,0.45); }
+    .related-game img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 10px; background: #05070d; }
+    .related-game span { font-size: 0.9rem; line-height: 1.2; }
+    .chip-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .chip { padding: 6px 10px; border-radius: 999px; background: rgba(0,191,255,0.14); border: 1px solid rgba(0,191,255,0.26); color: #bfeeff; font-size: 0.9rem; }
+    .page-ad-section { margin-top: 18px; padding: 14px 16px; border-radius: 14px; border: 1px solid var(--panel-border); background: rgba(255,255,255,0.04); }
+    .page-ad-section .ad-label { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8b00ff; margin-bottom: 8px; text-align: center; font-weight: 700; }
+    .page-ad-section .adsbygoogle { min-height: 90px; }
+    .video-card-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+    .video-card-header h3 { margin: 0; }
+    .video-card-header span { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
+    @media (max-width: 700px) {
+      .page-shell { padding: 12px 12px 24px; }
+      .topbar { flex-direction: column; align-items: flex-start; }
+      .game-layout { grid-template-columns: 1fr; }
+      .game-frame, iframe { min-height: 60vh; }
+      .related-games { position: static; max-height: none; }
+      .related-game { grid-template-columns: 96px 1fr; }
+    }
+  </style>
+<!-- ads.txt: google.com, pub-3172987137389272, DIRECT, f08c47fec0942fa0 -->
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <h1>Driver Club: Highway Racing</h1>
+      <div class="actions">
+        <a class="profile-score-link" href="../index.html#leaderboard" title="View PleyZ score and leaderboard">
+          <span class="profile-score-avatar" id="profile-score-avatar">PZ</span>
+          <span id="profile-score-label">PleyZ Score</span>
+        </a>
+        <a class="btn" href="../index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a class="btn primary" href="https://nikunjprogames.github.io/" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Play More Games </a>
+      </div>
+    </header>
+
+    <div class="game-layout">
+      <div class="game-shell">
+        <div class="game-toolbar">
+          <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
+        </div>
+        <div class="game-frame">
+          <iframe src="https://playgama.com/export/game/driver-club-highway-racing?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487" allowfullscreen loading="lazy" title="Driver Club: Highway Racing"></iframe>
+        </div>
+        
+      </div>
+
+      <section class="info-card related-games" aria-label="Related games">
+        <h2>Games You Might Like</h2>
+        <div class="related-grid"><a class="related-game" href="rivals-fps-online-shooter.html"><img src="https://static.playgama.com/p-img/pg/rivals-fps-online-shooter/preview/2203a049014e4f6eaa4038ab696f6afa?width=448" alt="RIVALS FPS: Online Shooter" loading="lazy" /><span>RIVALS FPS: Online Shooter</span></a>
+        <a class="related-game" href="hazmob-fps-online-shooter.html"><img src="https://static.playgama.com/p-img/pg/hazmob-fps-online-shooter/preview/76a02c8e7dbd4bd3a87bc87d868d6158?width=448" alt="Hazmob FPS: Online Shooter" loading="lazy" /><span>Hazmob FPS: Online Shooter</span></a>
+        <a class="related-game" href="basket-random.html"><img src="https://static.playgama.com/p-img/pg/basket-random/preview/fec7a407ebd246d8a893abaf7801622c?width=448" alt="Basket Random" loading="lazy" /><span>Basket Random</span></a>
+        <a class="related-game" href="1-speed-escape-prison.html"><img src="https://static.playgama.com/p-img/pg/1-speed-escape-prison/big-preview/415c3326c7724e6cae83d74990cc3020?width=448" alt="+1 Speed: Escape Prison" loading="lazy" /><span>+1 Speed: Escape Prison</span></a>
+        <a class="related-game" href="ragdoll-crash-test-throw-and-break.html"><img src="https://static.playgama.com/p-img/pg/ragdoll-crashtest-throw-and-break/big-preview/806817717e62466a83cb4377d0fa92eb?width=448" alt="Ragdoll Crash-Test: Throw and Break!" loading="lazy" /><span>Ragdoll Crash-Test: Throw and Break!</span></a></div>
+      </section>
+    </div>
+
+    <section class="info-card" aria-label="Game information">
+     <h2>How to Play</h2>
+
+<p><strong>Controls:</strong></p>
+<p>W / up arrow key = accelerate</p>
+<p>S / down arrow key = brake</p>
+<p>A / left arrow key = move left</p>
+<p>D / right arrow key = move right</p>
+<p>C = change camera view</p>
+<p>P = pause</p>
+
+<p>Driver Club: Highway Racing is a high speed driving game where you dodge traffic, overtake vehicles, and put your reflexes to the test.</p>
+
+<p>Race through a variety of dynamic environments</p>
+<p>Unlock and drive a range of powerful cars</p>
+<p>Smooth, responsive controls for an immersive experience</p>
+<p>Stunning visuals that enhance the thrill of the ride</p>
+<p>Push your limits and dominate the highway leaderboard</p>
+
+<h2>Frequently Asked Questions (FAQ)</h2>
+
+<h3>Core Gameplay & Story</h3>
+
+<p><strong>Q: What is the game about? What do you need to do?</strong><br>
+A: It's a racing game in the traffic racer genre. You need to overtake other cars to pass the section as quickly as possible. There is also a racing mode where a strong opponent is added to this process.</p>
+
+<p><strong>Q: What is the unique feature of the game? What can hook players?</strong><br>
+A: There are not many high-quality and realistic races like this one.</p>
+
+<p><strong>Q: Are there bosses and how are they different?</strong><br>
+A: There are faster opponents in the Race mode.</p>
+
+<h3>Mechanics & Progression</h3>
+
+<p><strong>Q: What currencies are there and what can they be spent on (regular - gold, premium - crystals, etc.)?</strong><br>
+A: Money is earned for victories and can be spent on new cars and upgrades for them.</p>
+
+<p><strong>Q: How does leveling up work exactly? What needs to be done to level up faster?</strong><br>
+A: You need to win races and upgrade your car.</p>
+
+<h3>Economy & Customization</h3>
+
+<p><strong>Q: Is there customization in the game? Can you customize the appearance of the hero, location editor, car tuning, etc.?</strong><br>
+A: Yes, you can change the color of cars and rims. Change rims.</p>
+
+<h3>Retention & Engagement</h3>
+
+<p><strong>Q: Is it preferable to play with sound to better immerse yourself in the atmosphere, or will there be difficulties in passing without sound?</strong><br>
+A: The sound is done excellently, but it is not necessary for the game.</p>
+      <div class="chip-list">
+        <span class="chip">action</span>
+        <span class="chip">racing</span>
+        <span class="chip">arcade</span>
+        <span class="chip">simulation</span>
+        <span class="chip">skill</span>
+        <span class="chip">boys</span>
+        <span class="chip">3d</span>
+        <span class="chip">car</span>
+        <span class="chip">car-racing</span>
+        <span class="chip">driving</span>
+        <span class="chip">easy</span>
+        <span class="chip">unity</span>
+        <span class="chip">race-games</span>
+        <span class="chip">fast-paced-games</span>
+        <span class="chip">customization-games</span>
+        <span class="chip">vehicles-games</span>
+        <span class="chip">speed-games</span>
+        <span class="chip">car-tuning-games</span>
+        <span class="chip">car-crash-games</span>
+        <span class="chip">arcade-car</span>
+        <span class="chip">realistic-car</span>
+        <span class="chip">action-adventure</span>
+        <span class="chip">fast-paced-action</span>
+      </div>
+    </section>
+
+    <section class="page-ad-section" aria-label="Sponsored content">
+      <div class="ad-label">Sponsored</div>
+      <ins class="adsbygoogle"
+           style="display:block; text-align:center;"
+           data-ad-client="ca-pub-3172987137389272"
+           data-ad-slot="1234567890"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </section>
+
+  </div>
+  <script>
+    function toggleGameFullscreen(root) {
+      const target = root ? root.querySelector('.game-frame') : null;
+      if (!target) return;
+      if (!document.fullscreenElement) {
+        if (target.requestFullscreen) {
+          target.requestFullscreen().catch(() => {});
+        } else if (target.webkitRequestFullscreen) {
+          target.webkitRequestFullscreen();
+        }
+      } else if (document.exitFullscreen) {
+        document.exitFullscreen();
+      }
+    }
+  </script>
+  <script id="npg-fullscreen-snippet">
+  (function(){
+    if(window.__npgFullscreenSnippetLoaded) return; window.__npgFullscreenSnippetLoaded = true;
+
+    // remove legacy duplicate buttons if present
+    document.querySelectorAll('#npg-fullscreen-btn, .npg-fullscreen-btn').forEach((el,i)=>{ if(i>0) el.remove(); });
+
+    // inject minimal styles used while in fullscreen
+    function ensureStyles(){
+      if(document.getElementById('npg-fullscreen-styles')) return;
+      const css = `
+      .npg-fullscreen-active, .npg-fullscreen-active html, .npg-fullscreen-active body { height:100% !important; width:100% !important; margin:0 !important; padding:0 !important; background:#000 !important; }
+      .npg-fullscreen-active .game-frame, .npg-fullscreen-active iframe { height:100vh !important; min-height:100vh !important; width:100% !important; }
+      .npg-fullscreen-btn { position: fixed; right: 18px; bottom: 18px; z-index:2147483647; padding:10px 14px; border-radius:8px; background:#8B00FF; color:#fff; border:none; font-weight:700; box-shadow:0 6px 18px rgba(0,0,0,0.4); cursor:pointer; }
+      `;
+      const s = document.createElement('style'); s.id = 'npg-fullscreen-styles'; s.appendChild(document.createTextNode(css)); document.head.appendChild(s);
+    }
+
+    ensureStyles();
+
+    document.addEventListener('fullscreenchange', ()=>{
+      if(document.fullscreenElement) document.documentElement.classList.add('npg-fullscreen-active');
+      else document.documentElement.classList.remove('npg-fullscreen-active');
+    });
+
+    // If the page already has a fullscreen toolbar button, don't add a floating control
+    const hasToolbar = !!document.querySelector('.game-toolbar button') || !!document.querySelector('[onclick*="toggleGameFullscreen"]');
+    if(hasToolbar) return;
+
+    // If button already exists (maybe added by another pass), keep the first and exit
+    if(document.querySelector('.npg-fullscreen-btn')) return;
+
+    const btn = document.createElement('button');
+    btn.className = 'npg-fullscreen-btn';
+    btn.id = 'npg-fullscreen-btn';
+    btn.textContent = 'Fullscreen';
+    btn.addEventListener('click', function(){
+      // prefer the iframe element when present
+      const iframe = document.querySelector('iframe') || document.querySelector('.game-frame') || document.documentElement;
+      const el = (iframe && iframe.tagName === 'IFRAME') ? iframe : (iframe && iframe.querySelector ? (iframe.querySelector('iframe') || iframe) : document.documentElement);
+      const target = el || document.documentElement;
+      const req = target.requestFullscreen || target.webkitRequestFullscreen || target.msRequestFullscreen;
+      if(req){
+        try{ req.call(target); }catch(e){ window.open(location.href, '_blank'); }
+      } else {
+        window.open(location.href, '_blank');
+      }
+    });
+
+    // append at end so it doesn't conflict with page layout
+    document.body.appendChild(btn);
+  })();
+  </script>
+  <script>
+    (function () {
+      const username = (localStorage.getItem('nikunj_current_username') || '').trim();
+      const avatar = document.getElementById('profile-score-avatar');
+      const label = document.getElementById('profile-score-label');
+      if (!username || !avatar || !label) return;
+      const initials = username.split(/\s+/).map(part => part[0]).join('').slice(0, 2).toUpperCase();
+      const score = Number(localStorage.getItem(`nikunj_pleyz_${username}`) || 0).toLocaleString();
+      avatar.textContent = initials || 'PZ';
+      label.textContent = `PleyZ ${score}`;
+    }());
+  </script>
+</body>
+</html>

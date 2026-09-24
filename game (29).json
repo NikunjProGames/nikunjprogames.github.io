@@ -1,0 +1,68 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "118123",
+          "slug": "nuts-puzzle-sort-by-color",
+          "title": "Nuts Puzzle: Sort By Color",
+          "description": "Nuts Puzzle: Sort by Color is a classic puzzle game where you sort various colored nuts onto screws until they are all the same color.\n\nAs you progress through the levels, the puzzles get trickier, requiring you to plan your moves carefully and think several steps ahead. With each successful sort, you'll feel a satisfying sense of accomplishment. Get ready to test your strategy and problem-solving skills as you work your way through increasingly complex and colorful challenges!\n[Core Gameplay & Story]\n\nQ: What is the game about? What do players need to do?\nA: It is a puzzle game where players sort color-coded nuts onto matching bolts.\n\nQ: What is the unique selling point of the game? What makes it engaging for players?\nA: The beautiful, vibrant visuals and a progression system where players not only sort nuts but also fix their garden by gradually \"\"repairing\"\" the flowers.\n\nQ: What are the engaging content elements (weapons, vehicles, locations, skills, references to famous franchises, etc.)?\nA: The beautiful, vibrant visuals and a progression system where players not only sort nuts but also fix their garden by gradually \"\"repairing\"\" the flowers.\n\n[Economy & Customization]\n\nQ: What are the currencies and what are they spent on (standard - gold, premium - crystals, etc.)?\nA: There are Coins, which can be spent on in-game power-ups, such as an extra bolt for sorting nuts. There is also a separate currency, Nuts, which can be spent on \"\"repairing\"\" the garden.\n\n[Retention & Engagement]\n\nQ: Are there daily rewards or anything similar that encourages players to return?\nA: There is a money piggy bank, and Coins are collected while the player is away from the game. Additionally, there is a Chest that can be opened upon reaching certain in-game levels, which can drop rewards like game bonuses and in-game currency.\n\nQ: Is it preferable to play with sound to better immerse in the atmosphere, or will playing without sound cause difficulties in completing levels?\nA: It is not necessary.",
+          "howToPlayText": "Organize the nuts\n\nTo play Nuts Puzzle: Sort by Color, start by tapping on the nut you want to move, then select the screw where you want to place it. You can only place a nut on another screw if it’s either empty or if the top nut on that screw matches the color of the nut you’re moving. This simple rule sets the stage for the puzzle-solving challenge, as you’ll need to strategically plan your moves to ensure each screw ends up with nuts of a single color.\nAs you progress, the game introduces more nuts and a wider range of colors, making the puzzles increasingly complex. New challenges, such as hard mode levels, add an extra layer of difficulty by hiding the color of nuts until you move a piece from above them. These added twists will test your strategic thinking and problem-solving skills as you work through each level, striving to complete the puzzle with fewer moves and greater efficiency.\n\nUse helpers\n\nIt’s at this point that you may need to use the undo, reset, and extra screw options, which are available on every level. However, you can only win extra screws from chests and from the winner's wheel. Clicking the screw icon adds an extra screw to free up more space. The undo button has a finite number of uses, but these are restored on each level. You can use the reset button to start the level over from scratch if you have no choice.",
+          "gameURL": "https://playgama.com/export/game/nuts-puzzle-sort-by-color?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/nuts-puzzle-sort-by-color",
+          "genres": [
+            "puzzle",
+            "matching",
+            "brain",
+            "logic",
+            "color"
+          ],
+          "tags": [
+            "casual-games",
+            "brain-training-games",
+            "sorting-games",
+            "color-matching-games",
+            "1-player-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/nuts-puzzle-sort-by-color/big_preview/faab3ed519024179b5a31afb72cdf675?width=448",
+            "https://static.playgama.com/p-img/pg/nuts-puzzle-sort-by-color/icon/e5ff5a52e7d94ef188546cedbac10676?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "8157a03153474f7bb4a7529f3d5c355e",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "8157a03153474f7bb4a7529f3d5c355e",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/nuts-puzzle-sort-by-color/big_preview/faab3ed519024179b5a31afb72cdf675?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/nuts-puzzle-sort-by-color/icon/e5ff5a52e7d94ef188546cedbac10676?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": false,
+            "vertical": true
+          },
+          "supportedLanguages": [
+            "en-US",
+            "ru-RU"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/nuts-puzzle-sort-by-color?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

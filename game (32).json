@@ -1,0 +1,75 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "119111",
+          "slug": "special-ops",
+          "title": "Special Ops: GO",
+          "description": "Play instantly in your browser. Jump into fast 5v5 PvP firefights, climb the ranks, and dominate with modern weapons in Special Ops: FPS PvP War.\nFull description\nSpecial Ops: FPS PvP War is a modern online FPS built for quick, competitive matches — now playable directly in your browser with no download. Lock in your loadout, enter the arena, and prove yourself in intense real-time PvP battles.\nFight across multiple maps designed for close-quarters chaos and long-range sniper duels. Prefer to play solo? Jump into single-player missions and survive relentless enemies. Whether you’re here for ranked glory or casual fun with friends, every match is about sharp aim, movement, and smart decisions.\nKey features\n\nInstant browser play (WebGL): no install, jump straight into action\nOnline PvP: up to 5v5 real-time battles\nMultiple game modes: Deathmatch, Team Deathmatch, Ranked, and Custom Rooms\nSingle-player mode: missions and survival-style challenges\nBig arsenal: 20+ modern weapons including pistols, SMGs, rifles, and sniper rifles\nCustomization: unlock weapon skins and personalize your style\nProgression: daily rewards, quests, ranks, and credits\nSniper-friendly maps: long sightlines + high-stakes duels\nOptimized performance: smooth controls and responsive gunplay in the browser",
+          "howToPlayText": "WASD = move\nSpace = jump\nLeft mouse = shoot\nRight mouse  = aim\nP = pause, and settings\nTAB= leaderboard,\n1, 2, 3 = switch weapons\nH= Health Kit",
+          "gameURL": "https://playgama.com/export/game/special-ops?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/special-ops",
+          "genres": [
+            "action",
+            "boys",
+            "3d",
+            "multiplayer",
+            "shooting",
+            "gun",
+            "pve",
+            "pvp",
+            "army",
+            "first-person-shooter",
+            "sniper"
+          ],
+          "tags": [
+            "competitive-games",
+            "collecting-games",
+            "desktop-games",
+            "1-player-games",
+            "shoot-em-up-games",
+            "arcade-shooter",
+            "military-shooter",
+            "action-adventure",
+            "2d-action",
+            "survival-horror"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/special-ops/big_preview/379c25433de24d13afadf693d918e11e?width=448",
+            "https://static.playgama.com/p-img/pg/special-ops/icon/643041e15f5345c5bb5d6e671fc23099?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "cca4b40c9b6c4877a294c337ef342280",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "cca4b40c9b6c4877a294c337ef342280",
+          "mobileReady": [
+            "For Desktop"
+          ],
+          "gender": [
+            "Male"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/special-ops/big_preview/379c25433de24d13afadf693d918e11e?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/special-ops/icon/643041e15f5345c5bb5d6e671fc23099?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "supportedLanguages": [
+            "en-US"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/special-ops?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}
