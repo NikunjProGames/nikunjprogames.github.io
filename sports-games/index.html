@@ -46,15 +46,27 @@
     .game-item span { display: block; padding: 10px 12px; font-weight: 700; }
     .game-item:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     .category-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 14px; }
+    .site-footer { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--border); color: var(--muted); }
+    .site-footer a { text-decoration: none; }
+    body.theme-brain { --accent: #68dfff; --border: rgba(104,223,255,.34); background: radial-gradient(ellipse at 85% 4%, rgba(0,111,170,.2), transparent 38%), var(--bg); }
+    body.theme-skill { --accent: #a7f36b; --border: rgba(167,243,107,.3); }
+    body.theme-tactical { --accent: #ff765f; --border: rgba(255,118,95,.32); background: radial-gradient(ellipse at 85% 4%, rgba(143,37,33,.18), transparent 38%), var(--bg); }
+    body.theme-intense { --accent: #ff9b4a; --border: rgba(255,119,57,.34); }
+    body.theme-weird { --accent: #65e8d0; --border: rgba(101,232,208,.32); background: radial-gradient(ellipse at 85% 4%, rgba(9,124,111,.2), transparent 38%), var(--bg); }
+    body.theme-chill { --accent: #80e5bf; --border: rgba(128,229,191,.3); }
+    body.theme-arcade { --accent: #ffd369; --border: rgba(255,211,105,.32); }
+    body.theme-retro { --accent: #ffca7a; --border: rgba(255,172,91,.34); background: radial-gradient(ellipse at 85% 4%, rgba(125,67,22,.2), transparent 38%), var(--bg); }
+    body.theme-spooky { --accent: #c39bff; --border: rgba(132,93,192,.38); background: radial-gradient(ellipse at 85% 4%, rgba(38,79,66,.22), transparent 38%), var(--bg); }
+    body.theme-hidden { --accent: #d2a3ff; --border: rgba(178,106,255,.38); background: radial-gradient(ellipse at 85% 4%, rgba(81,37,121,.24), transparent 38%), var(--bg); }
     @media (max-width: 520px) { .page { width: min(100% - 24px, 1200px); } header { align-items: flex-start; flex-direction: column; } }
   </style>
 </head>
-<body>
+<body class="theme-skill">
   <a class="skip-link" href="#main-content">Skip to games</a>
   <div class="page">
     <header>
       <a class="brand" href="/">PleyZ</a>
-      <nav aria-label="Primary"><a href="/">Home</a><a href="/#games">All games</a></nav>
+      <nav aria-label="Primary"><a href="/">Home</a><a href="/#games">All games</a><a href="/account.html">Account</a></nav>
     </header>
     <main id="main-content">
       <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a> / Sports Games</nav>
@@ -104,12 +116,20 @@
       <section aria-labelledby="related-categories-heading">
         <h2 id="related-categories-heading">Explore more categories</h2>
         <nav class="category-links" aria-label="Related categories"><a href="/multiplayer-games/">Multiplayer Games</a>
+<a href="/quick-sessions-games/">Quick Sessions Games</a>
+<a href="/hidden-gems-games/">Hidden Gems Games</a>
 <a href="/boys-games/">Boys Games</a>
-<a href="/puzzle-games/">Puzzle Games</a>
-<a href="/girls-games/">Girls Games</a>
-<a href="/action-games/">Action Games</a></nav>
+<a href="/puzzle-games/">Puzzle Games</a></nav>
       </section>
     </main>
+    <footer class="site-footer">
+      <a href="/">PleyZ Home</a>
+      <a href="/account.html">Account</a>
+      <a href="/about-us.html">About</a>
+      <a href="/privacy-policy.html">Privacy</a>
+      <a href="/termsandconditions.html">Terms</a>
+      <a href="/contact-us.html">Contact</a>
+    </footer>
   </div>
 </body>
 </html>

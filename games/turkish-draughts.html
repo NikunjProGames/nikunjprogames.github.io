@@ -54,6 +54,7 @@
       box-shadow: 0 10px 30px rgba(0,0,0,0.25);
     }
     .topbar h1 { font-family: 'Orbitron', sans-serif; margin: 0; font-size: clamp(1.1rem, 2vw, 1.5rem); }
+    .site-brand { color: var(--text); font: 700 0.92rem 'Orbitron', sans-serif; white-space: nowrap; }
     .topbar .actions { display: flex; gap: 8px; flex-wrap: wrap; }
     .profile-score-link {
       display: inline-flex; align-items: center; gap: 8px;
@@ -121,6 +122,8 @@
     .video-card-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
     .video-card-header h3 { margin: 0; }
     .video-card-header span { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
+    .site-footer { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--panel-border); color: var(--muted); }
+    .site-footer a:hover { color: var(--accent); }
     @media (max-width: 700px) {
       .page-shell { padding: 12px 12px 24px; }
       .topbar { flex-direction: column; align-items: flex-start; }
@@ -136,6 +139,7 @@
   <a class="skip-link" href="#main-content">Skip to game content</a>
   <div class="page-shell">
     <header class="topbar">
+      <a class="site-brand" href="/">PleyZ Games</a>
       <h1>Turkish draughts</h1>
       <div class="actions">
         <a class="profile-score-link" href="../index.html#leaderboard" title="View PleyZ score and leaderboard">
@@ -143,6 +147,7 @@
           <span id="profile-score-label">PleyZ Score</span>
         </a>
         <a class="btn" href="../index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a class="btn" href="/account.html">Account</a>
         <a class="btn primary" href="https://nikunjprogames.github.io/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i> Play More Games </a>
       </div>
     </header>
@@ -198,6 +203,14 @@
     </section>
 
   </div>
+  <footer class="site-footer page-shell">
+    <a href="/">PleyZ Home</a>
+    <a href="/account.html">Account</a>
+    <a href="/about-us.html">About</a>
+    <a href="/privacy-policy.html">Privacy</a>
+    <a href="/termsandconditions.html">Terms</a>
+    <a href="/contact-us.html">Contact</a>
+  </footer>
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/turkish-draughts.html#game","name":"Turkish draughts","description":"The main feature is that moves and captures with checkers are made horizontally and vertically, and not diagonally, as in most popular types of checkers. Accordingly, the initial arrangement of checkers is different. On a 64-cell board, opponents place their 16 checkers on all cells of the second and third horizontals. You can play the game with artificial intelligence, with another person on one device, or with an opponent online in multiplayer mode. You can also watch other players play, act as a spectator, or suggest your own version of the next move to the player by making it on the board.","url":"https://nikunjprogames.github.io/games/turkish-draughts.html","image":"https://img.gamemonetize.com/d2gokou3otdsj4x3y2l09gxx4ktk1okw/512x384.jpg","gamePlatform":["Web browser"],"genre":["Multiplayer"],"keywords":["2 Player Games","Board","Brain","Classic","Multiplayer","two player games"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Multiplayer Games","item":"https://nikunjprogames.github.io/multiplayer-games/"},{"@type":"ListItem","position":3,"name":"Turkish draughts","item":"https://nikunjprogames.github.io/games/turkish-draughts.html"}]}]}</script>
   <script>
     function toggleGameFullscreen(root) {

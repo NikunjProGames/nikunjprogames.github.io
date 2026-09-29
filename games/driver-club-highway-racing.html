@@ -54,6 +54,7 @@
       box-shadow: 0 10px 30px rgba(0,0,0,0.25);
     }
     .topbar h1 { font-family: 'Orbitron', sans-serif; margin: 0; font-size: clamp(1.1rem, 2vw, 1.5rem); }
+    .site-brand { color: var(--text); font: 700 0.92rem 'Orbitron', sans-serif; white-space: nowrap; }
     .topbar .actions { display: flex; gap: 8px; flex-wrap: wrap; }
     .profile-score-link {
       display: inline-flex; align-items: center; gap: 8px;
@@ -121,6 +122,8 @@
     .video-card-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
     .video-card-header h3 { margin: 0; }
     .video-card-header span { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
+    .site-footer { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--panel-border); color: var(--muted); }
+    .site-footer a:hover { color: var(--accent); }
     @media (max-width: 700px) {
       .page-shell { padding: 12px 12px 24px; }
       .topbar { flex-direction: column; align-items: flex-start; }
@@ -136,6 +139,7 @@
   <a class="skip-link" href="#main-content">Skip to game content</a>
   <div class="page-shell">
     <header class="topbar">
+      <a class="site-brand" href="/">PleyZ Games</a>
       <h1>Driver Club: Highway Racing</h1>
       <div class="actions">
         <a class="profile-score-link" href="../index.html#leaderboard" title="View PleyZ score and leaderboard">
@@ -143,6 +147,7 @@
           <span id="profile-score-label">PleyZ Score</span>
         </a>
         <a class="btn" href="../index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a class="btn" href="/account.html">Account</a>
         <a class="btn primary" href="https://nikunjprogames.github.io/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i> Play More Games </a>
       </div>
     </header>
@@ -198,6 +203,14 @@
     </section>
 
   </div>
+  <footer class="site-footer page-shell">
+    <a href="/">PleyZ Home</a>
+    <a href="/account.html">Account</a>
+    <a href="/about-us.html">About</a>
+    <a href="/privacy-policy.html">Privacy</a>
+    <a href="/termsandconditions.html">Terms</a>
+    <a href="/contact-us.html">Contact</a>
+  </footer>
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/driver-club-highway-racing.html#game","name":"Driver Club: Highway Racing","description":"Driver Club: Highway Racing is a high speed driving game where you dodge traffic, overtake vehicles, and put your reflexes to the test. Race through a variety of dynamic environments Unlock and drive a range of powerful cars Smooth, responsive controls for an immersive experience Stunning visuals that enhance the thrill of the ride Push your limits and dominate the highway leaderboard Core Gameplay & Story Q: What is the game about? What do you need to do? A: It's a racing game in the traffic racer genre. You need to overtake other cars to pass the section as quickly as possible. There is also a racing mode where a strong opponent is added to this process. Q: What is the unique feature of the game? What can hook players? A: There are not many high-quality and realistic races like this one. Q: Are there bosses and how are they different? A: There are faster opponents in the Race mode. Mechanics & Progression Q: What currencies are there and what can they be spent on (regular - gold, premium - crystals, etc.)? A: Money is earned for victories and can be spent on new cars and upgrades for them. Q: How does leveling up work exactly? What needs to be done to level up faster? A: You need to win races and upgrade your car. Economy & Customization Q: Is there customization in the game? Can you customize the appearance of the hero, location editor, car tuning, etc.? A: Yes, you can change the color of cars and rims. Change rims. Retention & Engagement Q: Is it preferable to play with sound to better immerse yourself in the atmosphere, or will there be difficulties in passing without sound? A: The sound is done excellently, but it is not necessary for the game.","url":"https://nikunjprogames.github.io/games/driver-club-highway-racing.html","image":"https://static.playgama.com/p-img/pg/driver-club-highway-racing/big-preview/037ce11afe4f4d58a0f93a6339db96b5?width=448","gamePlatform":["Web browser"],"genre":["Action"],"keywords":["action","racing","arcade","simulation","skill","boys","3d","car","car-racing","driving","easy","unity","race-games","fast-paced-games","customization-games","vehicles-games","speed-games","car-tuning-games","car-crash-games","arcade-car","realistic-car","action-adventure","fast-paced-action"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Action Games","item":"https://nikunjprogames.github.io/action-games/"},{"@type":"ListItem","position":3,"name":"Driver Club: Highway Racing","item":"https://nikunjprogames.github.io/games/driver-club-highway-racing.html"}]}]}</script>
   <script>
     function toggleGameFullscreen(root) {

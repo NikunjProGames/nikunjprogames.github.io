@@ -2,17 +2,79 @@ rules_version='2'
 
 service cloud.firestore {
   match /databases/{database}/documents {
+    function owns(uid) {
+      return request.auth != null && request.auth.uid == uid;
+    }
+
+    function validUsername(value) {
+      return value is string && value.size() > 0 && value.size() <= 40;
+    }
+
+    function validCounts(data) {
+      return data.pleyzScore is int && data.pleyzScore >= 0
+        && data.gamesPlayed is int && data.gamesPlayed >= 0;
+    }
+
+    match /users/{uid} {
+      allow read: if owns(uid);
+      allow create: if owns(uid)
+        && request.resource.data.keys().hasOnly(['email', 'username', 'createdAt', 'pleyzScore', 'gamesPlayed'])
+        && request.resource.data.email == request.auth.token.email
+        && validUsername(request.resource.data.username)
+        && validCounts(request.resource.data)
+        && request.resource.data.pleyzScore == 0
+        && request.resource.data.gamesPlayed == 0
+        && request.resource.data.createdAt is timestamp;
+      allow update: if owns(uid)
+        && request.resource.data.keys().hasOnly(['email', 'username', 'createdAt', 'pleyzScore', 'gamesPlayed', 'lastPlayed'])
+        && request.resource.data.email == request.auth.token.email
+        && validUsername(request.resource.data.username)
+        && validCounts(request.resource.data)
+        && request.resource.data.createdAt == resource.data.createdAt
+        && (
+          (request.resource.data.diff(resource.data).affectedKeys().hasOnly(['email', 'username'])
+            && request.resource.data.pleyzScore == resource.data.pleyzScore
+            && request.resource.data.gamesPlayed == resource.data.gamesPlayed)
+          ||
+          (request.resource.data.diff(resource.data).affectedKeys().hasOnly(['username', 'pleyzScore', 'gamesPlayed', 'lastPlayed'])
+            && request.resource.data.pleyzScore == resource.data.pleyzScore + 1
+            && request.resource.data.gamesPlayed == resource.data.gamesPlayed + 1
+            && request.resource.data.lastPlayed is timestamp)
+        );
+      allow delete: if false;
+    }
+
+    match /leaderboard/{uid} {
+      allow read: if true;
+      allow create: if owns(uid)
+        && exists(/databases/$(database)/documents/users/$(uid))
+        && request.resource.data.keys().hasOnly(['uid', 'username', 'pleyzScore', 'gamesPlayed', 'updatedAt'])
+        && request.resource.data.uid == uid
+        && validUsername(request.resource.data.username)
+        && validCounts(request.resource.data)
+        && request.resource.data.updatedAt is timestamp
+        && request.resource.data.pleyzScore == get(/databases/$(database)/documents/users/$(uid)).data.pleyzScore
+        && request.resource.data.gamesPlayed == get(/databases/$(database)/documents/users/$(uid)).data.gamesPlayed;
+      allow update: if owns(uid)
+        && request.resource.data.keys().hasOnly(['uid', 'username', 'pleyzScore', 'gamesPlayed', 'updatedAt'])
+        && request.resource.data.uid == uid
+        && validUsername(request.resource.data.username)
+        && validCounts(request.resource.data)
+        && request.resource.data.updatedAt is timestamp
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['username', 'pleyzScore', 'gamesPlayed', 'updatedAt'])
+        && (
+          (request.resource.data.pleyzScore == resource.data.pleyzScore
+            && request.resource.data.gamesPlayed == resource.data.gamesPlayed)
+          ||
+          (request.resource.data.pleyzScore == resource.data.pleyzScore + 1
+            && request.resource.data.gamesPlayed == resource.data.gamesPlayed + 1)
+        );
+      allow delete: if false;
+    }
+
     match /{document=**} {
-      // This rule allows anyone with your database reference to view, edit,
-      // and delete all data in your database. It is useful for getting
-      // started, but it is configured to expire after 30 days because it
-      // leaves your app open to attackers. At that time, all client
-      // requests to your database will be denied.
-      //
-      // Make sure to write security rules for your app before that time, or
-      // else all client requests to your database will be denied until you
-      // update your rules.
-      allow read, write: if request.time < timestamp.date(2026, 9, 10);
+      allow read, write: if false;
+    }
     }
   }
 }

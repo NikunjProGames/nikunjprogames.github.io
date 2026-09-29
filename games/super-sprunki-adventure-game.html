@@ -54,6 +54,7 @@
       box-shadow: 0 10px 30px rgba(0,0,0,0.25);
     }
     .topbar h1 { font-family: 'Orbitron', sans-serif; margin: 0; font-size: clamp(1.1rem, 2vw, 1.5rem); }
+    .site-brand { color: var(--text); font: 700 0.92rem 'Orbitron', sans-serif; white-space: nowrap; }
     .topbar .actions { display: flex; gap: 8px; flex-wrap: wrap; }
     .profile-score-link {
       display: inline-flex; align-items: center; gap: 8px;
@@ -121,6 +122,8 @@
     .video-card-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
     .video-card-header h3 { margin: 0; }
     .video-card-header span { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
+    .site-footer { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--panel-border); color: var(--muted); }
+    .site-footer a:hover { color: var(--accent); }
     @media (max-width: 700px) {
       .page-shell { padding: 12px 12px 24px; }
       .topbar { flex-direction: column; align-items: flex-start; }
@@ -136,6 +139,7 @@
   <a class="skip-link" href="#main-content">Skip to game content</a>
   <div class="page-shell">
     <header class="topbar">
+      <a class="site-brand" href="/">PleyZ Games</a>
       <h1>super sprunki adventure game</h1>
       <div class="actions">
         <a class="profile-score-link" href="../index.html#leaderboard" title="View PleyZ score and leaderboard">
@@ -143,6 +147,7 @@
           <span id="profile-score-label">PleyZ Score</span>
         </a>
         <a class="btn" href="../index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a class="btn" href="/account.html">Account</a>
         <a class="btn primary" href="https://nikunjprogames.github.io/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i> Play More Games </a>
       </div>
     </header>
@@ -198,6 +203,14 @@
     </section>
 
   </div>
+  <footer class="site-footer page-shell">
+    <a href="/">PleyZ Home</a>
+    <a href="/account.html">Account</a>
+    <a href="/about-us.html">About</a>
+    <a href="/privacy-policy.html">Privacy</a>
+    <a href="/termsandconditions.html">Terms</a>
+    <a href="/contact-us.html">Contact</a>
+  </footer>
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/super-sprunki-adventure-game.html#game","name":"super sprunki adventure game","description":"super sprunki adventure game - Jungle Adventure - Classic Run Game gives you the chance to step back in time to your childhood. Bobby World has been nothing but empties since the Princess got kidnapped into the jungle. But then, the adventure begins! Your task is to help Bobby run through the mysterious jungle, jump over the obstacles, and super evil monsters save the beautiful Princess at the final destination of the adventure. This Game is free, and you can play Bob offline! [Features]: + More than 240 levels. + Challenging boss fights + Beautiful high-resolution graphics, drawn in a modern style mixed with a bit of classic. + Smooth us","url":"https://nikunjprogames.github.io/games/super-sprunki-adventure-game.html","image":"https://img.gamemonetize.com/yh0n2bobl4i5wdm0z43l7rhow2nk62qy/512x384.jpg","gamePlatform":["Web browser"],"genre":["Multiplayer"],"keywords":["Mario","Sprunki"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Multiplayer Games","item":"https://nikunjprogames.github.io/multiplayer-games/"},{"@type":"ListItem","position":3,"name":"super sprunki adventure game","item":"https://nikunjprogames.github.io/games/super-sprunki-adventure-game.html"}]}]}</script>
   <script>
     function toggleGameFullscreen(root) {

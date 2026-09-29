@@ -54,6 +54,7 @@
       box-shadow: 0 10px 30px rgba(0,0,0,0.25);
     }
     .topbar h1 { font-family: 'Orbitron', sans-serif; margin: 0; font-size: clamp(1.1rem, 2vw, 1.5rem); }
+    .site-brand { color: var(--text); font: 700 0.92rem 'Orbitron', sans-serif; white-space: nowrap; }
     .topbar .actions { display: flex; gap: 8px; flex-wrap: wrap; }
     .profile-score-link {
       display: inline-flex; align-items: center; gap: 8px;
@@ -121,6 +122,8 @@
     .video-card-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
     .video-card-header h3 { margin: 0; }
     .video-card-header span { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
+    .site-footer { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--panel-border); color: var(--muted); }
+    .site-footer a:hover { color: var(--accent); }
     @media (max-width: 700px) {
       .page-shell { padding: 12px 12px 24px; }
       .topbar { flex-direction: column; align-items: flex-start; }
@@ -136,6 +139,7 @@
   <a class="skip-link" href="#main-content">Skip to game content</a>
   <div class="page-shell">
     <header class="topbar">
+      <a class="site-brand" href="/">PleyZ Games</a>
       <h1>Special Ops: GO</h1>
       <div class="actions">
         <a class="profile-score-link" href="../index.html#leaderboard" title="View PleyZ score and leaderboard">
@@ -143,6 +147,7 @@
           <span id="profile-score-label">PleyZ Score</span>
         </a>
         <a class="btn" href="../index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a class="btn" href="/account.html">Account</a>
         <a class="btn primary" href="https://nikunjprogames.github.io/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i> Play More Games </a>
       </div>
     </header>
@@ -198,6 +203,14 @@
     </section>
 
   </div>
+  <footer class="site-footer page-shell">
+    <a href="/">PleyZ Home</a>
+    <a href="/account.html">Account</a>
+    <a href="/about-us.html">About</a>
+    <a href="/privacy-policy.html">Privacy</a>
+    <a href="/termsandconditions.html">Terms</a>
+    <a href="/contact-us.html">Contact</a>
+  </footer>
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/special-ops-go.html#game","name":"Special Ops: GO","description":"Play instantly in your browser. Jump into fast 5v5 PvP firefights, climb the ranks, and dominate with modern weapons in Special Ops: FPS PvP War. Full description Special Ops: FPS PvP War is a modern online FPS built for quick, competitive matches — now playable directly in your browser with no download. Lock in your loadout, enter the arena, and prove yourself in intense real-time PvP battles. Fight across multiple maps designed for close-quarters chaos and long-range sniper duels. Prefer to play solo? Jump into single-player missions and survive relentless enemies. Whether you’re here for ranked glory or casual fun with friends, every match is about sharp aim, movement, and smart decisions. Key features Instant browser play (WebGL): no install, jump straight into action Online PvP: up to 5v5 real-time battles Multiple game modes: Deathmatch, Team Deathmatch, Ranked, and Custom Rooms Single-player mode: missions and survival-style challenges Big arsenal: 20+ modern weapons including pistols, SMGs, rifles, and sniper rifles Customization: unlock weapon skins and personalize your style Progression: daily rewards, quests, ranks, and credits Sniper-friendly maps: long sightlines + high-stakes duels Optimized performance: smooth controls and responsive gunplay in the browser","url":"https://nikunjprogames.github.io/games/special-ops-go.html","image":"https://static.playgama.com/p-img/pg/special-ops/big_preview/379c25433de24d13afadf693d918e11e?width=448","gamePlatform":["Web browser"],"genre":["Action"],"keywords":["action","boys","3d","multiplayer","shooting","gun","pve","pvp","army","first-person-shooter","sniper","competitive-games","collecting-games","desktop-games","1-player-games","shoot-em-up-games","arcade-shooter","military-shooter","action-adventure","2d-action","survival-horror"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Action Games","item":"https://nikunjprogames.github.io/action-games/"},{"@type":"ListItem","position":3,"name":"Special Ops: GO","item":"https://nikunjprogames.github.io/games/special-ops-go.html"}]}]}</script>
   <script>
     function toggleGameFullscreen(root) {

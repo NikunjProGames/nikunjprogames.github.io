@@ -54,6 +54,7 @@
       box-shadow: 0 10px 30px rgba(0,0,0,0.25);
     }
     .topbar h1 { font-family: 'Orbitron', sans-serif; margin: 0; font-size: clamp(1.1rem, 2vw, 1.5rem); }
+    .site-brand { color: var(--text); font: 700 0.92rem 'Orbitron', sans-serif; white-space: nowrap; }
     .topbar .actions { display: flex; gap: 8px; flex-wrap: wrap; }
     .profile-score-link {
       display: inline-flex; align-items: center; gap: 8px;
@@ -121,6 +122,8 @@
     .video-card-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
     .video-card-header h3 { margin: 0; }
     .video-card-header span { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
+    .site-footer { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--panel-border); color: var(--muted); }
+    .site-footer a:hover { color: var(--accent); }
     @media (max-width: 700px) {
       .page-shell { padding: 12px 12px 24px; }
       .topbar { flex-direction: column; align-items: flex-start; }
@@ -136,6 +139,7 @@
   <a class="skip-link" href="#main-content">Skip to game content</a>
   <div class="page-shell">
     <header class="topbar">
+      <a class="site-brand" href="/">PleyZ Games</a>
       <h1>Ragdoll Crash-Test: Throw and Break!</h1>
       <div class="actions">
         <a class="profile-score-link" href="../index.html#leaderboard" title="View PleyZ score and leaderboard">
@@ -143,6 +147,7 @@
           <span id="profile-score-label">PleyZ Score</span>
         </a>
         <a class="btn" href="../index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a class="btn" href="/account.html">Account</a>
         <a class="btn primary" href="https://nikunjprogames.github.io/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i> Play More Games </a>
       </div>
     </header>
@@ -198,6 +203,14 @@
     </section>
 
   </div>
+  <footer class="site-footer page-shell">
+    <a href="/">PleyZ Home</a>
+    <a href="/account.html">Account</a>
+    <a href="/about-us.html">About</a>
+    <a href="/privacy-policy.html">Privacy</a>
+    <a href="/termsandconditions.html">Terms</a>
+    <a href="/contact-us.html">Contact</a>
+  </footer>
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/ragdoll-crash-test-throw-and-break.html#game","name":"Ragdoll Crash-Test: Throw and Break!","description":"«Ragdoll Crash-Test: Throw and Break!» is a casual puzzle game with physics and action destruction, where the challenge is to break a ragdoll stickman and plunge into a ragdoll simulator! Dive into a world of chaotic destruction and fun with the game «Ragdoll Crash-Test: Throw and Break!». Throw your stickman and smash it to pieces. The game in the best traditions of Ragdoll physics will give you hours of fun, where every hit and every fall turns into a show of destruction! Ready to cope with the challenges? Complete all the tests, smash and break!","url":"https://nikunjprogames.github.io/games/ragdoll-crash-test-throw-and-break.html","image":"https://static.playgama.com/p-img/pg/ragdoll-crashtest-throw-and-break/big-preview/806817717e62466a83cb4377d0fa92eb?width=448","gamePlatform":["Web browser"],"genre":["Action"],"keywords":["action","ragdoll","2d-games","destruction-games","addictive-games","crash-games","desktop-games","1-player-games","simple-games","throwing-games","borwser-games","unity-games-online"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Action Games","item":"https://nikunjprogames.github.io/action-games/"},{"@type":"ListItem","position":3,"name":"Ragdoll Crash-Test: Throw and Break!","item":"https://nikunjprogames.github.io/games/ragdoll-crash-test-throw-and-break.html"}]}]}</script>
   <script>
     function toggleGameFullscreen(root) {

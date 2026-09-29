@@ -249,27 +249,6 @@
       transform: translateY(-2px);
     }
 
-    .btn-play {
-      background: linear-gradient(135deg, #8B00FF, #00BFFF);
-      color: #fff;
-      font-family: 'Orbitron', sans-serif;
-      font-size: 0.7rem;
-      padding: 0.5rem 1.1rem;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      width: 100%;
-      margin-top: auto;
-      box-shadow: 0 0 10px rgba(139,0,255,0.5);
-      transition: box-shadow 0.2s, transform 0.2s;
-      overflow: hidden;
-      position: relative;
-    }
-    .btn-play:hover {
-      box-shadow: 0 0 20px var(--purple-1), 0 0 35px var(--blue-1);
-      transform: scale(1.03);
-    }
-
     /* ============================================================
        HEADER / NAV
     ============================================================ */
@@ -741,8 +720,7 @@
       padding: 5rem 2rem;
       position: relative;
       z-index: 2;
-      max-width: 1300px;
-      margin: 0 auto;
+      width: 100%;
     }
 
     /* Filter tabs */
@@ -820,48 +798,20 @@
 
     .games-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, clamp(9.5rem, 16vw, 15rem)), 1fr));
       gap: 1.2rem;
     }
 
-    /* Game card */
+    /* Game tile */
     .game-card {
-      background: var(--glass);
-      border: 2px solid var(--glass-border);
-      border-radius: 12px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      backdrop-filter: blur(12px);
-      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
-      position: relative;
+      min-width: 0;
+      display: grid;
+      align-content: start;
+      gap: 0.45rem;
+      color: inherit;
       cursor: pointer;
-      min-height: 0;
-      animation: card-in 0.4s ease both;
       contain: content;
     }
-    @keyframes card-in {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .game-card:hover {
-      transform: translateY(-8px) scale(1.04);
-      box-shadow: 0 0 22px rgba(139,0,255,0.55), 0 0 46px rgba(0,191,255,0.25);
-      border-color: var(--blue-1);
-    }
-    .game-card.hidden { display: none; }
-
-    /* Shimmer overlay on hover */
-    .game-card::after {
-      content: '';
-      position: absolute;
-      top: 0; left: -100%;
-      width: 60%; height: 100%;
-      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.06), transparent);
-      transition: left 0.5s;
-      pointer-events: none;
-    }
-    .game-card:hover::after { left: 140%; }
 
     .game-thumb {
       width: 100%;
@@ -911,33 +861,12 @@
       object-fit: cover;
     }
 
-    .game-info { padding: 1rem; display: flex; flex-direction: column; flex: 1; gap: 0.75rem; }
-
     .game-name {
       font-family: 'Orbitron', sans-serif;
       font-size: 1rem;
       font-weight: 700;
       color: var(--text);
       line-height: 1.2;
-    }
-
-    .fullscreen-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin-top: 1rem;
-      padding: 0.65rem 1rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(255,255,255,0.05);
-      color: var(--text);
-      cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
-    }
-    .fullscreen-btn:hover {
-      background: rgba(0,191,255,0.12);
-      transform: translateY(-1px);
-      box-shadow: 0 0 16px rgba(0,191,255,0.2);
     }
 
     .no-results {
@@ -1104,12 +1033,8 @@
       border-radius: 10px;
       font-weight: 700;
       box-shadow: 0 0 10px #ff4500;
-      animation: fire-pulse 1.5s ease-in-out infinite;
       z-index: 1;
-    }
-    @keyframes fire-pulse {
-      0%,100% { box-shadow: 0 0 6px #ff4500; }
-      50% { box-shadow: 0 0 18px #ff4500, 0 0 30px #ff8c00; }
+      box-shadow: 0 0 8px #ff4500;
     }
 
     .trending-thumb {
@@ -1157,36 +1082,6 @@
       line-height: 1.3;
     }
 
-    .game-card-actions {
-      display: flex;
-      align-items: center;
-      justify-content: stretch;
-      margin-top: auto;
-    }
-
-    .game-modal-preferences {
-      display: flex;
-      align-items: center;
-      gap: 0.35rem;
-      margin-left: auto;
-      margin-right: 0.75rem;
-    }
-
-    .game-modal-preferences button {
-      width: 34px;
-      height: 34px;
-      border: 1px solid rgba(255,255,255,0.16);
-      border-radius: 7px;
-      background: rgba(255,255,255,0.05);
-      color: var(--text-dim);
-      cursor: pointer;
-    }
-
-    .game-modal-preferences button.active,
-    .game-modal-preferences button:hover {
-      color: var(--blue-1);
-      border-color: var(--blue-1);
-    }
     .trending-players {
       font-size: 0.72rem;
       color: var(--text-dim);
@@ -1205,114 +1100,6 @@
       letter-spacing: 0.15em;
       text-transform: uppercase;
       color: rgba(255,255,255,0.65);
-    }
-
-    .recommendation-shell {
-      display: grid;
-      grid-template-columns: minmax(0, 1.8fr) minmax(0, 0.9fr);
-      gap: 1rem;
-      align-items: stretch;
-      margin: 0 0 1.4rem;
-    }
-    .recommendation-featured {
-      position: relative;
-      min-height: 340px;
-      border-radius: 22px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.1);
-      background: rgba(5,7,18,0.9);
-      box-shadow: 0 18px 40px rgba(26,16,54,0.45);
-    }
-    .recommendation-featured iframe {
-      width: 100%;
-      height: 100%;
-      min-height: 340px;
-      border: 0;
-      display: block;
-      background: #000;
-    }
-    .recommendation-featured-content {
-      min-height: 340px;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      gap: 0.8rem;
-      padding: 1.5rem;
-      background-position: center;
-      background-size: cover;
-      position: relative;
-    }
-    .recommendation-featured-content::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(5,7,18,0.05), rgba(5,7,18,0.92));
-    }
-    .recommendation-featured-content > * { position: relative; z-index: 1; }
-    .recommendation-featured-content h3 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: clamp(1.1rem, 2.5vw, 1.7rem);
-      color: #fff;
-    }
-    .recommendation-featured-content p {
-      color: rgba(255,255,255,0.78);
-      max-width: 520px;
-    }
-    .recommendation-side {
-      display: grid;
-      gap: 0.75rem;
-    }
-    .recommendation-card {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      width: 100%;
-      padding: 0.6rem 0.7rem;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.04);
-      color: var(--text);
-      cursor: pointer;
-      text-align: left;
-      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
-    }
-    .recommendation-card:hover {
-      transform: translateX(2px);
-      border-color: rgba(0,191,255,0.32);
-      background: rgba(255,255,255,0.06);
-    }
-    .recommendation-card img {
-      width: 86px;
-      height: 70px;
-      object-fit: cover;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.08);
-      flex-shrink: 0;
-      background: rgba(255,255,255,0.04);
-    }
-    .recommendation-card strong {
-      display: block;
-      font-size: 0.84rem;
-      line-height: 1.2;
-      margin-bottom: 0.18rem;
-    }
-    .recommendation-card small {
-      display: block;
-      color: var(--text-dim);
-      font-size: 0.68rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-    @media (max-width: 860px) {
-      .recommendation-shell {
-        grid-template-columns: 1fr;
-      }
-      .recommendation-featured,
-      .recommendation-featured iframe,
-      .recommendation-featured-content {
-        min-height: 260px;
-      }
     }
 
     /* ============================================================
@@ -1537,97 +1324,16 @@
       box-shadow: 0 0 12px rgba(139,0,255,0.3);
     }
 
-    /* Game modal */
-    .game-modal-box {
-      width: min(700px, 95vw);
-      padding: 1.5rem;
-      max-height: 95vh;
-      overflow-y: auto;
-    }
-    .game-modal-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 1rem;
-    }
-    #game-frame-wrap {
-      position: relative;
-      width: 100%;
-      background: #050510;
-      border-radius: 16px;
-      border: 1px solid rgba(139,0,255,0.3);
-      overflow: hidden;
-      min-height: 420px;
-    }
-    #game-frame {
-      width: 100%;
-      min-height: 420px;
-      border: none;
-      display: block;
-      background: #050510;
-    }
-    #game-frame-wrap:fullscreen,
-    #game-frame-wrap:-webkit-full-screen {
-      width: 100vw;
-      height: 100vh;
-      min-height: 100vh;
-      border: 0;
-      border-radius: 0;
-      background: #000;
-    }
-    #game-frame-wrap:fullscreen #game-frame,
-    #game-frame-wrap:-webkit-full-screen #game-frame {
-      width: 100vw;
-      height: 100vh;
-      min-height: 100vh;
-    }
-    #game-frame-wrap:fullscreen .fullscreen-btn,
-    #game-frame-wrap:-webkit-full-screen .fullscreen-btn {
-      position: fixed;
-      right: 1rem;
-      bottom: 1rem;
-      z-index: 10;
-      margin: 0;
-      background: rgba(0,0,0,0.7);
-    }
-    .game-hud {
-      display: none;
-      gap: 2rem;
-      margin-top: 0.8rem;
-      font-family: 'Orbitron', sans-serif;
-      font-size: 0.75rem;
-    }
-    .hud-item span { color: var(--blue-1); text-shadow: 0 0 6px var(--blue-1); }
-    .game-instructions { font-size: 0.9rem; color: var(--text-dim); margin-top: 0.8rem; }
-
     /* ============================================================
        SECTION PADDING / WRAPPER
     ============================================================ */
     section { position: relative; z-index: 2; }
     .ad-wrap { padding: 1.5rem 2rem; }
 
-    @media (min-width: 1600px) {
-      .games-grid { grid-template-columns: repeat(7, minmax(0, 1fr)); }
-      .game-card { min-height: 340px; }
-    }
-    @media (min-width: 1400px) and (max-width: 1599px) {
-      .games-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
-    }
-    @media (min-width: 1100px) and (max-width: 1399px) {
-      .games-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
-    }
-    @media (min-width: 860px) and (max-width: 1099px) {
-      .games-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-    }
-    @media (max-width: 860px) {
-      .games-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-      .game-card { min-height: 340px; }
-    }
     @media (max-width: 768px) {
       #bg-canvas,
       #particle-canvas { opacity: 0.45; }
 
-      .game-card,
       .trending-card { backdrop-filter: none; }
 
       header { padding: 0 0.8rem; height: 58px; }
@@ -1638,20 +1344,12 @@
       .leaderboard-table td { padding: 0.65rem 0.7rem; }
       .ad-wrap { padding: 1rem 1.2rem; }
       .games-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 0.75rem;
-      }
-      .game-card {
-        min-height: 0;
-        border-radius: 12px;
-      }
-      .game-card:hover {
-        transform: translateY(-4px) scale(1.02);
       }
       .game-thumb { height: clamp(104px, 31vw, 150px); }
       .game-thumb img { width: 72px; height: 72px; border-radius: 16px; }
-      .game-info { padding: 0.65rem; gap: 0.5rem; }
       .game-name {
+        margin: 0;
         font-size: 0.78rem;
         min-height: 1.9rem;
         display: -webkit-box;
@@ -1664,11 +1362,6 @@
         font-size: 0.5rem;
         padding: 2px 6px;
       }
-      .btn-play {
-        padding: 0.48rem 0.55rem;
-        font-size: 0.58rem;
-      }
-      .game-modal-box { width: min(92vw, 95vw); padding: 1.2rem; }
       .auth-modal-box {
         width: min(92vw, 420px);
         padding: 1.35rem;
@@ -1678,8 +1371,6 @@
       .auth-modal-box .form-group { gap: 0.25rem; margin-bottom: 0.75rem; }
       .auth-modal-box .form-note { margin-bottom: 0.85rem; line-height: 1.25; }
       .auth-modal-box .form-note:last-child { display: none; }
-      #game-frame-wrap { min-height: 320px; }
-      #game-frame { min-height: 320px; }
       .game-search-wrap { margin-bottom: 1rem; }
       .filter-tabs { gap: 0.5rem; }
       .filter-tab { font-size: 0.75rem; padding: 0.4rem 1rem; }
@@ -1689,9 +1380,7 @@
       #games { padding-left: 0.8rem; padding-right: 0.8rem; }
       .games-grid { gap: 0.6rem; }
       .game-thumb { height: 96px; }
-      .game-info { padding: 0.58rem; }
       .game-name { font-size: 0.72rem; }
-      .btn-play { font-size: 0.54rem; }
     }
 
     /* ============================================================
@@ -1703,23 +1392,6 @@
     }
     .fade-in { animation: fade-in-up 0.7s ease both; }
 
-    /* Loading animation in game modal */
-    .loading-anim {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      padding: 3rem;
-    }
-    .loading-spinner {
-      width: 50px; height: 50px;
-      border: 3px solid rgba(139,0,255,0.2);
-      border-top-color: var(--purple-1);
-      border-right-color: var(--blue-1);
-      border-radius: 50%;
-      animation: spin 0.8s linear infinite;
-    }
     .submit-game-banner {
     width: 100%;
     background: linear-gradient(135deg, #1f1f1f, #2f2f2f);
@@ -2010,8 +1682,8 @@ animate();
       </div>
     </div>
 
-    <button id="user-display" type="button" onclick="openProfileModal()" style="display:none; margin-right:0.6rem; font-weight:600; color:var(--text); background:none; border:0; cursor:pointer;"></button>
-    <button id="profile-avatar-button" type="button" onclick="openPleyzModal(true)" aria-label="Open my PleyZ score and leaderboard" title="PleyZ score and leaderboard"></button>
+    <button id="user-display" type="button" onclick="openAccountPage()" style="display:none; margin-right:0.6rem; font-weight:600; color:var(--text); background:none; border:0; cursor:pointer;"></button>
+    <button id="profile-avatar-button" type="button" onclick="openAccountPage()" aria-label="Open my PleyZ account" title="PleyZ account"></button>
     <button class="btn btn-outline" id="auth-action-button" onclick="openLoginModal()">
       <i class="fas fa-user"></i> Login
     </button>
@@ -2049,6 +1721,8 @@ animate();
   <div class="hero-content fade-in">
 
     <h1 class="hero-title">PleyZ: Games Worth Playing</h1>
+    <p class="hero-tagline">A sharp, curated universe of browser games. Find your next favorite and <span>jump straight in.</span></p>
+    <a class="hero-explore" href="#trending">Explore what's trending <i class="fas fa-arrow-down" aria-hidden="true"></i></a>
   </div>
 </section>
 
@@ -2077,6 +1751,25 @@ animate();
       <!-- Trending cards injected by JS -->
     </div>
   </div>
+</section>
+
+<section id="recommendations" aria-labelledby="recommendations-heading">
+  <div class="discovery-heading">
+    <div>
+      <div class="section-title" id="recommendations-heading">PleyZ Picks</div>
+      <div class="section-underline"></div>
+      <p class="discovery-copy" id="recommendations-caption">A fresh mix from across the PleyZ library.</p>
+    </div>
+    <button class="mood-trigger" type="button" id="mood-trigger" aria-haspopup="dialog" aria-controls="mood-popup">Choose a mood</button>
+  </div>
+  <div class="games-grid discovery-grid" id="recommended-grid" aria-live="polite"></div>
+</section>
+
+<section id="popular-games" aria-labelledby="popular-games-heading">
+  <div class="section-title" id="popular-games-heading">Popular on PleyZ</div>
+  <div class="section-underline"></div>
+  <p class="discovery-copy">Trending picks for logged-out players and anyone looking beyond their usual genres.</p>
+  <div class="games-grid discovery-grid" id="popular-grid"></div>
 </section>
 
 <!-- ============================================================
@@ -2110,6 +1803,7 @@ animate();
     <button class="filter-tab" data-cat="parkour">Parkour</button>
   </div>
 
+  <h2 class="category-discovery-title">Explore PleyZ categories</h2>
   <nav class="category-directory" aria-label="Browse game categories">
     <a href="/action-games/">Action</a>
     <a href="/adventure-games/">Adventure</a>
@@ -2119,6 +1813,27 @@ animate();
     <a href="/sports-games/">Sports</a>
     <a href="/boys-games/">Boys</a>
     <a href="/girls-games/">Girls</a>
+    <a href="/arcade-games/">Arcade</a>
+    <a href="/cars-games/">Cars</a>
+    <a href="/endless-games/">Endless</a>
+    <a href="/io-games/">IO</a>
+    <a href="/nostalgia-games/">Retro</a>
+    <a href="/parkour-games/">Parkour</a>
+    <a href="/shooting-games/">Shooting</a>
+    <a href="/simulation-games/">Simulation</a>
+    <a href="/strategy-games/">Strategy</a>
+    <a href="/two-player-games/">Two Player</a>
+    <a href="/brain-training-games/">Brain Training</a>
+    <a href="/skill-games/">Skill</a>
+    <a href="/heavy-duty-fps-games/">Heavy-Duty FPS</a>
+    <a href="/fighting-games/">Fighting</a>
+    <a href="/survival-games/">Survival</a>
+    <a href="/weird-experimental-games/">Weird &amp; Experimental</a>
+    <a href="/chill-casual-games/">Chill &amp; Casual</a>
+    <a href="/quick-sessions-games/">Quick Sessions</a>
+    <a href="/tactical-strategy-games/">Tactical Strategy</a>
+    <a href="/spooky-games/">Spooky</a>
+    <a href="/hidden-gems-games/">Hidden Gems</a>
   </nav>
 
   <div class="games-grid" id="games-grid">
@@ -2224,7 +1939,7 @@ animate();
 
 <div class="pleyz-about-section">
 
-<h2>Free Online Games on PleyZ</h2>
+<h2>Free Premium Games on PleyZ</h2>
 
 <p>Welcome to PleyZ, a gaming platform for discovering and playing free, curated, premium-quality browser games. PleyZ brings together handpicked games across different genres, with a focus on providing an enjoyable gaming experience without constantly dragging players into irritating or disruptive ads.</p>
 
@@ -2379,6 +2094,7 @@ animate();
         <li><a href="#home">Home</a></li>
         <li><a href="#games">Games</a></li>
         <li><a href="#leaderboard">Leaderboard</a></li>
+        <li><button class="footer-auth-button" id="footer-auth-button" type="button" onclick="openLoginModal()">Login</button></li>
         <li><a href="about-us.html">About</a></li>
       </ul>
     </div>
@@ -2438,17 +2154,6 @@ animate();
   </div>
 </div>
 
-<div class="modal-overlay" id="profile-modal">
-  <div class="modal-box">
-    <button class="modal-close" onclick="closeProfileModal()">&times;</button>
-    <div class="modal-title">Player Profile</div>
-    <div class="modal-subtitle" id="profile-email">Signed-in account</div>
-    <div id="profile-stats" class="trending-copy">Loading your PleyZ profile...</div>
-    <a href="about-us.html" class="form-note" style="display:inline-block; margin-top:0.8rem; color:var(--blue-1); text-decoration:underline;">Learn more about PleyZ Score</a>
-    <button class="btn btn-primary" style="margin-top:1.2rem; width:100%; justify-content:center;" onclick="closeProfileModal()">Close</button>
-  </div>
-</div>
-
   <!-- PLEYZ SCORE CHECK MODAL -->
   <div class="modal-overlay" id="pleyz-modal">
     <div class="modal-box">
@@ -2469,40 +2174,6 @@ animate();
       </div>
     </div>
   </div>
-
-<!-- ============================================================
-     GAME MODAL
-============================================================ -->
-<div class="modal-overlay" id="game-modal">
-  <div class="modal-box game-modal-box">
-    <div class="game-modal-header">
-      <div class="modal-title" id="game-modal-title">Game Title</div>
-      <div class="game-modal-preferences" aria-label="Game preference">
-        <button type="button" id="modal-like-button" aria-label="Like game" onclick="setModalGamePreference('like')"><i class="fas fa-thumbs-up"></i></button>
-        <button type="button" id="modal-dislike-button" aria-label="Dislike game" onclick="setModalGamePreference('dislike')"><i class="fas fa-thumbs-down"></i></button>
-      </div>
-      <button class="modal-close" style="position:relative;top:auto;right:auto;" onclick="closeGameModal()">&times;</button>
-    </div>
-
-    <!-- Loading state -->
-    <div id="game-loading" class="loading-anim">
-      <div class="loading-spinner"></div>
-      <div style="font-family:'Orbitron',sans-serif; font-size:0.8rem; color:var(--blue-1);">Loading Game...</div>
-    </div>
-
-    <!-- Iframe game -->
-    <div id="game-frame-wrap" style="display:none; position:relative;">
-      <div class="game-shell"><div class="game-toolbar"><button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button></div><div class="game-frame"><iframe id="game-frame"
-        src=""
-        allow="fullscreen; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-        frameborder="0"
-        title="Game Preview"></iframe></div></div>
-      <button class="fullscreen-btn" onclick="requestGameFullscreen()"><i class="fas fa-expand"></i> Fullscreen</button>
-    </div>
-    <div class="game-instructions" id="game-instructions" style="margin-top:1rem; color:var(--text-dim);"></div>
-  </div>
-</div>
 
 <!-- ============================================================
      JAVASCRIPT
@@ -2738,9 +2409,10 @@ animate();
 ============================================================ */
 (function() {
   const canvas = document.getElementById('particle-canvas');
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   const ctx = canvas.getContext('2d');
   let particles = [];
-  const COUNT = window.matchMedia('(max-width: 768px)').matches ? 35 : 70;
+  const COUNT = window.matchMedia('(max-width: 768px)').matches ? 18 : 36;
 
   function resize() {
     canvas.width  = window.innerWidth;
@@ -2767,7 +2439,8 @@ animate();
   let lastFrameTime = 0;
 
   function draw(timestamp = 0) {
-    if (document.hidden || timestamp - lastFrameTime < 33) {
+    if (document.hidden) return;
+    if (timestamp - lastFrameTime < 50) {
       requestAnimationFrame(draw);
       return;
     }
@@ -2784,7 +2457,7 @@ animate();
       ctx.fillStyle = p.color;
       ctx.globalAlpha = alpha;
       ctx.shadowColor = p.color;
-      ctx.shadowBlur = 10;
+      ctx.shadowBlur = 6;
       ctx.fill();
       ctx.globalAlpha = 1;
       ctx.shadowBlur = 0;
@@ -2802,6 +2475,9 @@ animate();
   }
 
   window.addEventListener('resize', resize);
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) requestAnimationFrame(draw);
+  });
   resize();
   draw();
 })();
@@ -3689,14 +3365,6 @@ const TRENDING = [
   { id:41, name:'DNA Evolution 3D', color:'#22C55E', gradient:'linear-gradient(135deg,#062b1d,#22c55e)', players:'13.4K' },
 ];
 
-const SEEDED_LEADERBOARD = [
-  { rank:1,  name:'ProGamer_X',    score:342, games:342 },
-  { rank:2,  name:'NeonBlaster99', score:289, games:289 },
-  { rank:3,  name:'CyberNinja',    score:245, games:245 },
-  { rank:4,  name:'StarHunter',    score:198, games:198 },
-  { rank:5,  name:'VoltStrike',    score:92, games:92 }
-];
-
 function createGameIconUrl(game) {
   const label = game.name.split(' ').slice(0, 2).map(word => word[0]).join('').toUpperCase();
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="140" height="140"><defs><linearGradient id="iconGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="${game.color}"/><stop offset="100%" stop-color="#09091a"/></linearGradient></defs><rect x="0" y="0" width="140" height="140" rx="28" fill="url(%23iconGrad)"/><text x="50%" y="56%" text-anchor="middle" dominant-baseline="middle" font-family="Orbitron, sans-serif" font-size="44" fill="#fff">${label}</text></svg>`;
@@ -3786,6 +3454,54 @@ function createGameVideoMarkup(game) {
   return `<video class="game-hover-video" muted autoplay loop playsinline preload="metadata" src="${safeVideoUrl}"></video>`;
 }
 
+function createGameTile(game) {
+  const card = document.createElement('div');
+  const category = game.cat || getGameCategories(game)[0] || 'game';
+  card.className = 'game-card';
+  card.dataset.id = String(game.id);
+  card.dataset.cat = category;
+  card.tabIndex = 0;
+  card.setAttribute('role', 'button');
+  card.setAttribute('aria-label', `Play ${game.name}`);
+  card.innerHTML = `
+    <div class="game-thumb" style="background:${game.gradient || '#171322'};">
+      ${createGameImageMarkup(game)}
+    </div>
+    <h3 class="game-name">${game.name}</h3>
+    <span class="cat-badge cat-${category}">${category.toUpperCase()}</span>
+  `;
+  return card;
+}
+
+function bindGameGrid(grid) {
+  if (grid.dataset.eventsBound === 'true') return;
+  grid.dataset.eventsBound = 'true';
+  grid.addEventListener('click', event => {
+    const card = event.target.closest('.game-card');
+    if (card && grid.contains(card) && !event.target.closest('iframe, video')) openGame(Number(card.dataset.id));
+  });
+  grid.addEventListener('keydown', event => {
+    if ((event.key === 'Enter' || event.key === ' ') && event.target.matches('.game-card')) {
+      event.preventDefault();
+      openGame(Number(event.target.dataset.id));
+    }
+  });
+  grid.addEventListener('pointerover', event => {
+    if (event.pointerType !== 'mouse') return;
+    const thumb = event.target.closest('.game-thumb');
+    if (!thumb || !grid.contains(thumb) || thumb.contains(event.relatedTarget)) return;
+    const gameId = Number(thumb.closest('.game-card')?.dataset.id);
+    const game = GAMES.find(item => item.id === gameId);
+    const preview = game && createGameVideoMarkup(game);
+    if (preview) thumb.insertAdjacentHTML('beforeend', preview);
+  });
+  grid.addEventListener('pointerout', event => {
+    const thumb = event.target.closest('.game-thumb');
+    if (!thumb || !grid.contains(thumb) || thumb.contains(event.relatedTarget)) return;
+    thumb.querySelector('.game-hover-video')?.remove();
+  });
+}
+
 function createGameFrameUrl(game) {
   if (game.iframeUrl && game.iframeUrl.trim()) {
     return game.iframeUrl.trim();
@@ -3828,20 +3544,7 @@ function setGamePreference(event, gameId, preference) {
   localStorage.setItem(getPreferenceKey(), JSON.stringify(preferences));
   const activeTab = document.querySelector('.filter-tab.active');
   renderGames(activeTab?.dataset.cat || 'all');
-}
-
-function setModalGamePreference(preference) {
-  if (!currentOpenGame) return;
-  const preferences = getGamePreferences();
-  preferences[currentOpenGame.id] = preferences[currentOpenGame.id] === preference ? '' : preference;
-  localStorage.setItem(getPreferenceKey(), JSON.stringify(preferences));
-  updateModalPreferenceButtons();
-}
-
-function updateModalPreferenceButtons() {
-  const preference = currentOpenGame ? getGamePreference(currentOpenGame.id) : '';
-  document.getElementById('modal-like-button')?.classList.toggle('active', preference === 'like');
-  document.getElementById('modal-dislike-button')?.classList.toggle('active', preference === 'dislike');
+  renderRecommendedGames();
 }
 
 function rankGamesForUser(games) {
@@ -3871,6 +3574,36 @@ let gamesObserver = null;
 
 function renderGames(filter = 'all', reset = true) {
   const grid = document.getElementById('games-grid');
+  if (!grid) return;
+
+  if (grid.dataset.eventsBound !== 'true') {
+    grid.dataset.eventsBound = 'true';
+    grid.addEventListener('click', event => {
+      const card = event.target.closest('.game-card');
+      if (card && !event.target.closest('iframe, video')) openGame(Number(card.dataset.id));
+    });
+    grid.addEventListener('keydown', event => {
+      if ((event.key === 'Enter' || event.key === ' ') && event.target.matches('.game-card')) {
+        event.preventDefault();
+        openGame(Number(event.target.dataset.id));
+      }
+    });
+    grid.addEventListener('pointerover', event => {
+      if (event.pointerType !== 'mouse') return;
+      const thumb = event.target.closest('.game-thumb');
+      if (!thumb || !grid.contains(thumb) || thumb.contains(event.relatedTarget)) return;
+      const gameId = Number(thumb.closest('.game-card')?.dataset.id);
+      const game = GAMES.find(item => item.id === gameId);
+      const preview = game && createGameVideoMarkup(game);
+      if (preview) thumb.insertAdjacentHTML('beforeend', preview);
+    });
+    grid.addEventListener('pointerout', event => {
+      const thumb = event.target.closest('.game-thumb');
+      if (!thumb || !grid.contains(thumb) || thumb.contains(event.relatedTarget)) return;
+      thumb.querySelector('.game-hover-video')?.remove();
+    });
+  }
+
   const searchValue =
     document.getElementById('game-search')?.value.trim().toLowerCase() || '';
 
@@ -3916,51 +3649,9 @@ function renderGames(filter = 'all', reset = true) {
 
   const gamesToRender = currentFilteredGames.slice(start, end);
 
-  gamesToRender.forEach((g, i) => {
-    const card = document.createElement('div');
-
-    card.className = 'game-card';
-    card.style.animationDelay = `${i * 0.05}s`;
-    card.dataset.cat = g.cat;
-
-    card.innerHTML = `
-      <div class="game-thumb" style="background:${g.gradient};">
-        ${createGameImageMarkup(g)}
-        ${createGameVideoMarkup(g)}
-      </div>
-
-      <div class="game-info">
-        <div class="game-name">${g.name}</div>
-
-        <span class="cat-badge cat-${g.cat}">
-          ${g.cat.toUpperCase()}
-        </span>
-
-        <div class="game-card-actions">
-          <button class="btn-play" type="button">
-            <i class="fas fa-play"></i> Play Now
-          </button>
-        </div>
-      </div>
-    `;
-
-    // Keep the Play button as the single launch handler for each card.
-    card.addEventListener('click', event => {
-      if (!event.target.closest('.btn-play')) openGame(g.id);
-    });
-
-// Keep the Play Now button working too
-const playButton = card.querySelector('.btn-play');
-
-if (playButton) {
-  playButton.addEventListener('click', (event) => {
-    event.stopPropagation();
-    openGame(g.id);
-  });
-}
-
-grid.appendChild(card);
-  });
+  const fragment = document.createDocumentFragment();
+  gamesToRender.forEach(game => fragment.appendChild(createGameTile(game)));
+  grid.appendChild(fragment);
 
   currentGameBatch++;
 
@@ -3987,38 +3678,173 @@ grid.appendChild(card);
     gamesObserver.observe(loader);
   }
 }
+const PLAY_MOODS = {
+  intense: { label: 'Intense', terms: ['action', 'shooting', 'fighting', 'survival', 'fps', 'battle', 'combat'] },
+  think: { label: 'Make Me Think', terms: ['puzzle', 'strategy', 'logic', 'brain', 'chess'] },
+  tired: { label: "I'm Tired", terms: ['chill', 'casual', 'simulation', 'relax', 'easy'] },
+  chaos: { label: 'Something Chaotic', terms: ['io', 'arcade', 'multiplayer', 'crowd', 'chaos'] },
+  challenge: { label: 'Challenge Me', terms: ['skill', 'parkour', 'racing', 'sports', 'hard', 'challenge'] },
+  weird: { label: 'Something Weird', terms: ['weird', 'experimental', 'simulation', 'adventure', 'odd'] },
+  surprise: { label: 'Surprise Me', terms: [] }
+};
+
+function getSelectedMood() {
+  try { return sessionStorage.getItem('pleyz_play_mood') || ''; } catch (_) { return ''; }
+}
+
+function getPlayHistory(username) {
+  if (!username) return {};
+  try { return JSON.parse(localStorage.getItem(`pleyz_play_history_${username}`) || '{}'); }
+  catch (_) { return {}; }
+}
+
+function getSurpriseHistory(username) {
+  try {
+    const storage = username ? localStorage : sessionStorage;
+    const key = username ? `pleyz_surprise_history_${username}` : 'pleyz_surprise_history_guest';
+    return JSON.parse(storage.getItem(key) || '[]');
+  } catch (_) {
+    return [];
+  }
+}
+
 function renderRecommendedGames() {
-  const featuredFrame = document.getElementById('recommended-featured-frame');
-  const side = document.getElementById('recommended-side');
-  if (!featuredFrame || !side) return;
+  const grid = document.getElementById('recommended-grid');
+  const popularGrid = document.getElementById('popular-grid');
+  if (!grid || !popularGrid) return;
+  bindGameGrid(grid);
+  bindGameGrid(popularGrid);
 
-  const primaryGame = GAMES.find(game => game.id === 94) || GAMES[0];
-  const sideGames = [95, 6, 9, 30, 1].map(id => GAMES.find(game => game.id === id)).filter(Boolean);
+  const username = getCurrentUser();
+  const recent = username ? getRecentGamesForUser(username) : [];
+  const preferences = username ? getGamePreferences() : {};
+  const history = getPlayHistory(username);
+  const recentGames = recent.map(entry => GAMES.find(game => game.id === entry.id)).filter(Boolean);
+  const categoryAffinity = new Map();
+  const dnaAffinity = new Map();
 
-  if (primaryGame) {
-    const imageUrl = (primaryGame.imageUrl || '').trim() || createGameIconUrl(primaryGame);
-    featuredFrame.innerHTML = `
-      <div class="recommendation-featured-content" style="background-image:url('${imageUrl.replace(/'/g, '%27')}');">
-        <h3>${primaryGame.name}</h3>
-        <p>Jump into a featured PleyZ game directly from its dedicated game page.</p>
-        <button class="btn btn-primary" type="button" data-featured-game="${primaryGame.id}" style="width:fit-content;">Play featured game</button>
-      </div>`;
-    featuredFrame.querySelector('[data-featured-game]')?.addEventListener('click', () => openGame(primaryGame.id));
+  recentGames.forEach((game, index) => {
+    const weight = Math.max(1, 4 - index * 0.6);
+    getGameCategories(game).forEach(category => categoryAffinity.set(category, (categoryAffinity.get(category) || 0) + weight));
+    (game.gameDna || game.tags || []).forEach(tag => dnaAffinity.set(String(tag).toLowerCase(), (dnaAffinity.get(String(tag).toLowerCase()) || 0) + weight));
+  });
+  Object.entries(history).forEach(([id, data]) => {
+    const game = GAMES.find(candidate => candidate.id === Number(id));
+    if (!game) return;
+    const weight = Math.min(4, Math.log2(Number(data.plays || 0) + 1));
+    getGameCategories(game).forEach(category => categoryAffinity.set(category, (categoryAffinity.get(category) || 0) + weight));
+    (game.gameDna || game.tags || []).forEach(tag => dnaAffinity.set(String(tag).toLowerCase(), (dnaAffinity.get(String(tag).toLowerCase()) || 0) + weight));
+  });
+
+  const moodKey = getSelectedMood();
+  const mood = PLAY_MOODS[moodKey];
+  const surpriseHistory = new Set(getSurpriseHistory(username));
+  const trendingRank = new Map(TRENDING.map((entry, index) => [entry.id, index]));
+  let previouslyShown = new Set();
+  try { previouslyShown = new Set(JSON.parse(sessionStorage.getItem('pleyz_recommendations_shown') || '[]')); } catch (_) {}
+
+  const ranked = GAMES.map(game => {
+    const categories = getGameCategories(game);
+    const dna = (game.gameDna || game.tags || []).map(tag => String(tag).toLowerCase());
+    const preference = preferences[game.id];
+    const text = `${game.name} ${categories.join(' ')} ${dna.join(' ')}`.toLowerCase();
+    let score = 0;
+    categories.forEach(category => { score += categoryAffinity.get(category) || 0; });
+    dna.forEach(tag => { score += (dnaAffinity.get(tag) || 0) * 0.35; });
+    if (preference === 'like') score += 2.5;
+    if (preference === 'dislike') score -= 30;
+    if (trendingRank.has(game.id)) score += Math.max(0.4, 2 - trendingRank.get(game.id) * 0.18);
+    if (previouslyShown.has(game.id)) score -= 0.65;
+    if (recent.some(entry => entry.id === game.id)) score -= 2.5;
+    if (moodKey === 'surprise' && surpriseHistory.has(game.id)) score -= 1.8;
+    if (mood?.terms.length) score += mood.terms.some(term => text.includes(term)) ? 5 : -1.5;
+    if (moodKey === 'surprise') score += (game.id * 17 % 11) / 10;
+    return { game, score, categories };
+  }).filter(item => preferences[item.game.id] !== 'dislike');
+
+  const recommendations = [];
+  const categoryUse = new Map();
+  while (ranked.length && recommendations.length < 14) {
+    let bestIndex = 0;
+    let bestScore = -Infinity;
+    ranked.forEach((item, index) => {
+      const varietyPenalty = item.categories.reduce((total, category) => total + (categoryUse.get(category) || 0), 0) * 0.8;
+      const adjusted = item.score - varietyPenalty;
+      if (adjusted > bestScore) { bestScore = adjusted; bestIndex = index; }
+    });
+    const [chosen] = ranked.splice(bestIndex, 1);
+    recommendations.push(chosen.game);
+    chosen.categories.forEach(category => categoryUse.set(category, (categoryUse.get(category) || 0) + 1));
   }
 
-  side.innerHTML = sideGames.map(game => `
-    <button class="recommendation-card" type="button" data-id="${game.id}">
-      <img src="${(game.imageUrl || '').trim() || createGameIconUrl(game)}" alt="${game.name}" loading="lazy" />
-      <div>
-        <strong>${game.name}</strong>
-        <small>Click to play</small>
-      </div>
-    </button>
-  `).join('');
+  const heading = document.getElementById('recommendations-heading');
+  const caption = document.getElementById('recommendations-caption');
+  if (mood && heading) heading.textContent = `${mood.label} picks`;
+  else if (heading) heading.textContent = username && (recent.length || Object.keys(history).length || Object.keys(preferences).length) ? 'Picked for your play style' : 'PleyZ Picks';
+  if (caption) {
+    caption.textContent = mood
+      ? `A varied mix matched to ${mood.label.toLowerCase()}. Change your mood any time.`
+      : username && (recent.length || Object.keys(history).length || Object.keys(preferences).length)
+        ? 'Balanced from your recent plays, genre patterns, feedback, and PleyZ trends.'
+        : 'A rotating mix of curated discoveries. Personal picks build from your play history when signed in.';
+  }
 
-  side.querySelectorAll('.recommendation-card').forEach(button => {
-    button.addEventListener('click', () => openGame(Number(button.dataset.id)));
+  const recommendationFragment = document.createDocumentFragment();
+  recommendations.forEach(game => recommendationFragment.appendChild(createGameTile(game)));
+  grid.replaceChildren(recommendationFragment);
+  try {
+    const shown = new Set([...previouslyShown, ...recommendations.map(game => game.id)]);
+    sessionStorage.setItem('pleyz_recommendations_shown', JSON.stringify([...shown].slice(-80)));
+  } catch (_) {}
+
+  const popularGames = [...new Set(TRENDING.map(entry => entry.id))]
+    .map(id => GAMES.find(game => game.id === id)).filter(Boolean).slice(0, 10);
+  const popularFragment = document.createDocumentFragment();
+  popularGames.forEach(game => popularFragment.appendChild(createGameTile(game)));
+  popularGrid.replaceChildren(popularFragment);
+}
+
+function initializeMoodDiscovery() {
+  const popup = document.getElementById('mood-popup');
+  const trigger = document.getElementById('mood-trigger');
+  if (!popup || !trigger) return;
+
+  const setOpen = (open, returnFocus = false) => {
+    popup.classList.toggle('open', open);
+    popup.setAttribute('aria-hidden', open ? 'false' : 'true');
+    trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (!open && returnFocus) trigger.focus();
+  };
+
+  trigger.addEventListener('click', () => setOpen(!popup.classList.contains('open')));
+  popup.querySelector('.mood-close')?.addEventListener('click', () => setOpen(false, true));
+  popup.addEventListener('click', event => {
+    const choice = event.target.closest('[data-mood]');
+    if (!choice) return;
+    try { sessionStorage.setItem('pleyz_play_mood', choice.dataset.mood); } catch (_) {}
+    if (choice.dataset.mood === 'surprise') {
+      const username = getCurrentUser();
+      const storage = username ? localStorage : sessionStorage;
+      const key = username ? `pleyz_surprise_history_${username}` : 'pleyz_surprise_history_guest';
+      const shownIds = [...document.querySelectorAll('#recommended-grid .game-card')].map(card => Number(card.dataset.id));
+      storage.setItem(key, JSON.stringify([...new Set([...getSurpriseHistory(username), ...shownIds])].slice(-60)));
+    }
+    trigger.textContent = `Mood: ${PLAY_MOODS[choice.dataset.mood]?.label || 'Surprise Me'}`;
+    renderRecommendedGames();
+    setOpen(false, true);
   });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && popup.classList.contains('open')) setOpen(false, true);
+  });
+
+  const selectedMood = getSelectedMood();
+  if (selectedMood && PLAY_MOODS[selectedMood]) trigger.textContent = `Mood: ${PLAY_MOODS[selectedMood].label}`;
+  let lastPrompt = 0;
+  try { lastPrompt = Number(localStorage.getItem('pleyz_mood_prompted_at') || 0); } catch (_) {}
+  if (Date.now() - lastPrompt > 7 * 24 * 60 * 60 * 1000) {
+    try { localStorage.setItem('pleyz_mood_prompted_at', String(Date.now())); } catch (_) {}
+    window.setTimeout(() => setOpen(true), 1200);
+  }
 }
 
 function renderTrending() {
@@ -4065,24 +3891,18 @@ function renderTrending() {
 async function renderLeaderboard() {
   const tbody = document.getElementById('leaderboard-body');
   if (!tbody) return;
-  tbody.innerHTML = '<tr><td colspan="4" style="text-align:center; padding:1.5rem; color:var(--text-dim);">Loading leaderboard...</td></tr>';
+  const row = document.createElement('tr');
+  const cell = document.createElement('td');
+  cell.colSpan = 4;
+  cell.style.cssText = 'text-align:center;padding:1.5rem;color:var(--text-dim)';
 
   if (window.firebaseFetchLeaderboard) {
     return window.firebaseFetchLeaderboard();
   }
 
-  tbody.innerHTML = '';
-  SEEDED_LEADERBOARD.slice(0, 10).forEach(p => {
-    const tr = document.createElement('tr');
-    if (p.rank <= 3) tr.className = `rank-${p.rank}`;
-    const icon = p.rank === 1 ? '<i class="fas fa-trophy"></i>' : p.rank === 2 ? '<i class="fas fa-medal"></i>' : p.rank === 3 ? '<i class="fas fa-award"></i>' : `#${p.rank}`;
-    tr.innerHTML = `
-      <td><span class="rank-icon">${icon}</span></td>
-      <td>${p.name}</td>
-      <td class="score-cell">${p.score.toLocaleString()}</td>
-      <td>${p.games}</td>`;
-    tbody.appendChild(tr);
-  });
+  cell.textContent = 'Connecting to the PleyZ leaderboard...';
+  row.appendChild(cell);
+  tbody.replaceChildren(row);
 }
 
 /* ============================================================
@@ -4238,6 +4058,19 @@ function saveRecentGame(gameId) {
   const game = GAMES.find(g => g.id === gameId);
   if (!game) return;
 
+  const playHistory = getPlayHistory(username);
+  const previousPlay = playHistory[gameId] || {};
+  playHistory[gameId] = {
+    plays: Number(previousPlay.plays || 0) + 1,
+    lastPlayed: Date.now()
+  };
+  const boundedHistory = Object.fromEntries(
+    Object.entries(playHistory)
+      .sort((a, b) => Number(b[1].lastPlayed || 0) - Number(a[1].lastPlayed || 0))
+      .slice(0, 100)
+  );
+  localStorage.setItem(`pleyz_play_history_${username}`, JSON.stringify(boundedHistory));
+
   const recent = getRecentGamesForUser(username);
   const existingIndex = recent.findIndex(item => item.id === gameId);
   if (existingIndex !== -1) recent.splice(existingIndex, 1);
@@ -4245,6 +4078,7 @@ function saveRecentGame(gameId) {
   if (recent.length > 5) recent.length = 5;
   setRecentGamesForUser(username, recent);
   renderRecentGamesPanel();
+  renderRecommendedGames();
   // increment local PleyZ for non-Firebase users
   if (!window.firebaseAuth || !window.firebaseAuth.currentUser) {
     try { incrementLocalPleyz(username); } catch (e) { }
@@ -4342,6 +4176,7 @@ function updateAuthUI() {
   const userDisplay = document.getElementById('user-display');
   const avatarButton = document.getElementById('profile-avatar-button');
   const authButton = document.getElementById('auth-action-button');
+  const footerAuthButton = document.getElementById('footer-auth-button');
 
   if (username) {
     userDisplay.textContent = `Welcome, ${username}`;
@@ -4358,6 +4193,10 @@ function updateAuthUI() {
     authButton.classList.remove('btn-outline');
     authButton.classList.add('btn-primary');
     authButton.onclick = handleLogout;
+    if (footerAuthButton) {
+      footerAuthButton.textContent = 'Account / Profile';
+      footerAuthButton.onclick = openAccountPage;
+    }
   } else {
     userDisplay.textContent = '';
     userDisplay.style.display = 'none';
@@ -4369,33 +4208,21 @@ function updateAuthUI() {
     authButton.classList.remove('btn-primary');
     authButton.classList.add('btn-outline');
     authButton.onclick = openLoginModal;
+    if (footerAuthButton) {
+      footerAuthButton.textContent = 'Login';
+      footerAuthButton.onclick = openLoginModal;
+    }
   }
   renderRecentGamesPanel();
+  renderRecommendedGames();
 }
 
-async function openProfileModal() {
-  const modal = document.getElementById('profile-modal');
-  const stats = document.getElementById('profile-stats');
-  const email = document.getElementById('profile-email');
-  const user = window.firebaseAuth?.currentUser;
-  if (!modal || !stats || !user) return;
-
-  modal.classList.add('open');
-  email.textContent = user.email || 'Signed-in account';
-  stats.textContent = 'Loading your PleyZ profile...';
-
-  try {
-    const { doc, getDoc } = await import('https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js');
-    const snapshot = await getDoc(doc(window.firebaseDb, 'users', user.uid));
-    const data = snapshot.exists() ? snapshot.data() : {};
-    stats.textContent = `PleyZ score: ${Number(data.pleyzScore || 0).toLocaleString()} | Games played: ${Number(data.gamesPlayed || 0).toLocaleString()} | Email verified: ${user.emailVerified ? 'Yes' : 'No'}`;
-  } catch (_) {
-    stats.textContent = 'Profile details are temporarily unavailable.';
+function openAccountPage() {
+  if (!getCurrentUser()) {
+    openLoginModal();
+    return;
   }
-}
-
-function closeProfileModal() {
-  document.getElementById('profile-modal')?.classList.remove('open');
+  window.location.href = 'account.html';
 }
 
 async function handleLogout() {
@@ -4518,107 +4345,28 @@ setAuthMode('login');
 updateAuthUI();
 
 /* ============================================================
-   GAME MODAL + MINI-GAME (Click-the-target)
+  DIRECT GAME LAUNCH
 ============================================================ */
-let gameLoop = null;
-let gameState = {};
-let gameLoadTimer = null;
-let pleyzSessionTimer = null;
-let currentOpenGame = null; // Track the current game for fullscreen redirect
-
-function showGameFrame() {
-  document.getElementById('game-loading').style.display = 'none';
-  document.getElementById('game-frame-wrap').style.display = 'block';
-}
-
-function openGame(id) {
+async function openGame(id) {
   const game = GAMES.find(g => g.id === id);
   if (!game) return;
 
-  currentOpenGame = game; // Store the current game for fullscreen redirect
-  updateModalPreferenceButtons();
-
   saveRecentGame(game.id);
   if (window.firebaseAuth?.currentUser && window.firebaseOnGameOpened) {
-    window.firebaseOnGameOpened().catch(err => console.warn('PleyZ score update failed', err));
-  }
-  document.getElementById('game-modal-title').textContent = game.name;
-  const iframe = document.getElementById('game-frame');
-  document.getElementById('game-modal').classList.add('open');
-  document.getElementById('game-loading').style.display = 'flex';
-  document.getElementById('game-frame-wrap').style.display = 'none';
-  document.getElementById('game-instructions').textContent = 'Click the fullscreen button to play in a separate tab for the best performance!';
-
-  if (gameLoadTimer) clearTimeout(gameLoadTimer);
-  iframe.onload = showGameFrame;
-  iframe.src = createGameFrameUrl(game);
-
-  document.getElementById('game-instructions').textContent = 'Click Fullscreen to play in a separate tab for the best performance!';
-  gameLoadTimer = setTimeout(showGameFrame, 2500);
-}
-
-function requestGameFullscreen() {
-  if (currentOpenGame && currentOpenGame.iframeUrl) {
-    const src = encodeURI(currentOpenGame.iframeUrl);
-    window.open(src, '_blank');
-  }
-}
-
-function closeGameModal() {
-  document.getElementById('game-modal').classList.remove('open');
-  if (pleyzSessionTimer) {
-    clearTimeout(pleyzSessionTimer);
-    pleyzSessionTimer = null;
-  }
-  if (gameLoadTimer) {
-    clearTimeout(gameLoadTimer);
-    gameLoadTimer = null;
-  }
-  const iframe = document.getElementById('game-frame');
-  if (iframe) {
-    iframe.src = '';
-    iframe.onload = null;
-  }
-  currentOpenGame = null; // Clear the current game when modal closes
-}
-document.getElementById('game-modal').addEventListener('click', e => {
-  if (e.target === document.getElementById('game-modal')) closeGameModal();
-});
-
-/* ============================================================
-   FULLSCREEN HELPERS & SIDEBAR INITIALIZATION
-============================================================ */
-function toggleGameFullscreen() {
-  const wrap = document.getElementById('game-frame-wrap');
-  if (!wrap) return;
-  const isFull = document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
-  if (isFull) {
-    (document.exitFullscreen || document.webkitExitFullscreen || document.msExitFullscreen).call(document).catch(() => {});
-  } else {
-    const req = wrap.requestFullscreen || wrap.webkitRequestFullScreen || wrap.msRequestFullscreen;
-    if (req) {
-      req.call(wrap).catch(() => {
-        if (currentOpenGame && currentOpenGame.iframeUrl) {
-          const src = encodeURI(currentOpenGame.iframeUrl);
-          window.open(src, '_blank');
-        }
-      });
-    } else if (currentOpenGame && currentOpenGame.iframeUrl) {
-      const src = encodeURI(currentOpenGame.iframeUrl);
-      window.open(src, '_blank');
+    try {
+      await window.firebaseOnGameOpened();
+    } catch (err) {
+      console.warn('PleyZ score update failed', err);
+      try { incrementLocalPleyz(getCurrentUser()); } catch (_) {}
     }
   }
+  const launchUrl = game.iframeUrl?.trim() || (game.slug ? `/games/${game.slug}.html` : '');
+  if (launchUrl) window.location.assign(new URL(launchUrl, window.location.origin).href);
 }
 
-// legacy: keep function name but make it open the game directly
-function requestGameFullscreenModal() {
-  if (currentOpenGame && currentOpenGame.iframeUrl) {
-    const src = encodeURI(currentOpenGame.iframeUrl);
-    window.open(src, '_blank');
-  }
-}
-
-// Build the left sidebar categories and wire clicks to filterGames
+/* ============================================================
+   SIDEBAR INITIALIZATION
+============================================================ */
 const SIDEBAR_CATEGORIES = [
   {cat: 'all', label: 'All'},
   {cat: 'action', label: 'Action'},
@@ -4663,218 +4411,6 @@ function initSidebar() {
 // Initialize sidebar right away
 initSidebar();
 
-function startMiniGame() {
-  stopMiniGame();
-
-  const canvas = document.getElementById('game-canvas');
-  const ctx = canvas.getContext('2d');
-  const W = canvas.width;
-  const H = canvas.height;
-
-  gameState = {
-    score: 0,
-    lives: 3,
-    level: 1,
-    targets: [],
-    particles: [],
-    elapsed: 0,
-    nextSpawn: 60,
-    spawnInterval: 90,
-    running: true,
-  };
-
-  updateHUD();
-
-  function spawnTarget() {
-    const margin = 40;
-    const r = 22 + Math.random() * 14;
-    const colors = ['#8B00FF','#00BFFF','#ff00aa','#ffcc00','#00ff88'];
-    gameState.targets.push({
-      x: margin + Math.random() * (W - 2*margin),
-      y: margin + Math.random() * (H - 2*margin),
-      r,
-      maxLife: 120 - gameState.level * 5,
-      life: 120 - gameState.level * 5,
-      color: colors[Math.floor(Math.random() * colors.length)],
-      pulse: 0,
-    });
-  }
-
-  function spawnParticles(x, y, color) {
-    for (let i = 0; i < 10; i++) {
-      const angle = Math.random() * Math.PI * 2;
-      const speed = 2 + Math.random() * 4;
-      gameState.particles.push({
-        x, y,
-        vx: Math.cos(angle) * speed,
-        vy: Math.sin(angle) * speed,
-        r: 3 + Math.random() * 3,
-        alpha: 1,
-        color,
-      });
-    }
-  }
-
-  canvas.onclick = function(e) {
-    if (!gameState.running) return;
-    const rect = canvas.getBoundingClientRect();
-    const scaleX = W / rect.width;
-    const scaleY = H / rect.height;
-    const mx = (e.clientX - rect.left) * scaleX;
-    const my = (e.clientY - rect.top) * scaleY;
-
-    for (let i = gameState.targets.length - 1; i >= 0; i--) {
-      const t = gameState.targets[i];
-      const dist = Math.hypot(mx - t.x, my - t.y);
-      if (dist <= t.r + 6) {
-        spawnParticles(t.x, t.y, t.color);
-        gameState.targets.splice(i, 1);
-        gameState.score += 10;
-        if (gameState.score % 100 === 0) gameState.level++;
-        updateHUD();
-        break;
-      }
-    }
-  };
-
-  function updateHUD() {
-    document.getElementById('hud-score').textContent = gameState.score;
-    document.getElementById('hud-lives').textContent = gameState.lives;
-    document.getElementById('hud-level').textContent = gameState.level;
-  }
-
-  function tick() {
-    if (!gameState.running) return;
-
-    // Background
-    ctx.fillStyle = '#050510';
-    ctx.fillRect(0, 0, W, H);
-
-    // Grid lines
-    ctx.strokeStyle = 'rgba(139,0,255,0.07)';
-    ctx.lineWidth = 1;
-    for (let x = 0; x < W; x += 40) { ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,H); ctx.stroke(); }
-    for (let y = 0; y < H; y += 40) { ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(W,y); ctx.stroke(); }
-
-    gameState.elapsed++;
-
-    // Spawn
-    if (gameState.elapsed >= gameState.nextSpawn) {
-      spawnTarget();
-      gameState.nextSpawn = gameState.elapsed + Math.max(30, gameState.spawnInterval - gameState.level * 4);
-    }
-
-    // Update & draw targets
-    for (let i = gameState.targets.length - 1; i >= 0; i--) {
-      const t = gameState.targets[i];
-      t.life--;
-      t.pulse += 0.12;
-
-      if (t.life <= 0) {
-        gameState.targets.splice(i, 1);
-        gameState.lives--;
-        updateHUD();
-        if (gameState.lives <= 0) {
-          gameState.running = false;
-          drawGameOver(ctx, W, H);
-          return;
-        }
-        continue;
-      }
-
-      const lifeRatio = t.life / t.maxLife;
-      const glow = 8 + 10 * Math.sin(t.pulse);
-      const alpha = Math.min(1, lifeRatio * 3);
-
-      ctx.save();
-      ctx.globalAlpha = alpha;
-      ctx.shadowColor = t.color;
-      ctx.shadowBlur = glow;
-
-      // Outer ring
-      ctx.beginPath();
-      ctx.arc(t.x, t.y, t.r + 4, 0, Math.PI * 2);
-      ctx.strokeStyle = t.color;
-      ctx.lineWidth = 1.5;
-      ctx.stroke();
-
-      // Core
-      const grad = ctx.createRadialGradient(t.x, t.y, 0, t.x, t.y, t.r);
-      grad.addColorStop(0, '#ffffff');
-      grad.addColorStop(0.4, t.color);
-      grad.addColorStop(1, 'transparent');
-      ctx.beginPath();
-      ctx.arc(t.x, t.y, t.r, 0, Math.PI * 2);
-      ctx.fillStyle = grad;
-      ctx.fill();
-
-      // Life bar
-      ctx.globalAlpha = 0.6;
-      ctx.fillStyle = 'rgba(255,255,255,0.15)';
-      ctx.fillRect(t.x - t.r, t.y + t.r + 6, t.r*2, 4);
-      ctx.fillStyle = lifeRatio > 0.5 ? '#00ff88' : lifeRatio > 0.25 ? '#ffcc00' : '#ff4444';
-      ctx.fillRect(t.x - t.r, t.y + t.r + 6, t.r*2 * lifeRatio, 4);
-
-      ctx.restore();
-    }
-
-    // Particles
-    for (let i = gameState.particles.length - 1; i >= 0; i--) {
-      const p = gameState.particles[i];
-      p.x += p.vx; p.y += p.vy; p.vy += 0.1; p.alpha -= 0.05;
-      if (p.alpha <= 0) { gameState.particles.splice(i, 1); continue; }
-      ctx.save();
-      ctx.globalAlpha = p.alpha;
-      ctx.fillStyle = p.color;
-      ctx.shadowColor = p.color;
-      ctx.shadowBlur = 6;
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.restore();
-    }
-
-    // HUD overlay
-    ctx.fillStyle = 'rgba(0,191,255,0.7)';
-    ctx.font = '600 13px Orbitron, monospace';
-    ctx.fillText(`SCORE: ${gameState.score}`, 12, 22);
-
-    gameLoop = requestAnimationFrame(tick);
-  }
-
-  gameLoop = requestAnimationFrame(tick);
-}
-
-function drawGameOver(ctx, W, H) {
-  ctx.fillStyle = 'rgba(0,0,0,0.65)';
-  ctx.fillRect(0, 0, W, H);
-  ctx.font = 'bold 36px Orbitron, monospace';
-  ctx.fillStyle = '#ff4444';
-  ctx.shadowColor = '#ff4444';
-  ctx.shadowBlur = 20;
-  ctx.textAlign = 'center';
-  ctx.fillText('GAME OVER', W/2, H/2 - 20);
-  ctx.font = '20px Orbitron, monospace';
-  ctx.fillStyle = '#00BFFF';
-  ctx.shadowColor = '#00BFFF';
-  ctx.fillText(`Final Score: ${gameState.score}`, W/2, H/2 + 24);
-  ctx.font = '14px Orbitron, monospace';
-  ctx.fillStyle = '#9999bb';
-  ctx.shadowBlur = 0;
-  ctx.fillText('Close and reopen to play again', W/2, H/2 + 60);
-  ctx.textAlign = 'left';
-}
-
-function stopMiniGame() {
-  if (gameLoop) { cancelAnimationFrame(gameLoop); gameLoop = null; }
-  if (gameState) { gameState.running = false; }
-  const canvas = document.getElementById('game-canvas');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  if (canvas.onclick) canvas.onclick = null;
-}
-
 /* ============================================================
    INIT
 ============================================================ */
@@ -4911,6 +4447,7 @@ try {
   renderRecommendedGames();
   renderTrending();
   renderLeaderboard();
+  if (new URLSearchParams(location.search).get('signin') === '1') openLoginModal();
 } catch (err) {
   // Avoid halting the rest of the script — try again shortly
   console.warn('Initial render failed, retrying shortly', err);
@@ -4926,10 +4463,14 @@ try {
     grid.innerHTML = '';
     GAMES.slice(0, 50).forEach(g => {
       try {
-        const div = document.createElement('div');
-        div.className = 'game-card';
-        div.innerHTML = `<div class="game-thumb" style="background:${g.gradient};">${createGameImageMarkup(g)}</div><div class="game-info"><div class="game-name">${g.name}</div><button class="btn-play" onclick="openGame(${g.id})"><i class="fas fa-play"></i> Play</button></div>`;
-        grid.appendChild(div);
+        const card = document.createElement('div');
+        card.className = 'game-card';
+        card.dataset.id = String(g.id);
+        card.tabIndex = 0;
+        card.setAttribute('role', 'button');
+        card.setAttribute('aria-label', `Play ${g.name}`);
+        card.innerHTML = `<div class="game-thumb" style="background:${g.gradient};">${createGameImageMarkup(g)}</div><h3 class="game-name">${g.name}</h3><span class="cat-badge cat-${g.cat}">${String(g.cat || 'game').toUpperCase()}</span>`;
+        grid.appendChild(card);
       } catch (inner) { /* ignore individual item render failures */ }
     });
   }
@@ -4969,7 +4510,8 @@ try {
       const safeUsername = (usernameOverride || cred.user.displayName || (email.split('@')[0] || 'Player')).trim();
       if (safeUsername) setCurrentUser(safeUsername);
       if (window.firebaseEnsureUserDoc) {
-        await window.firebaseEnsureUserDoc(cred.user, safeUsername);
+        try { await window.firebaseEnsureUserDoc(cred.user, safeUsername); }
+        catch (error) { console.warn('PleyZ profile sync failed:', error); }
       }
       return cred.user;
     };
@@ -4978,7 +4520,8 @@ try {
       const safeUsername = (usernameOverride || cred.user.displayName || (email.split('@')[0] || 'Player')).trim();
       // create user document in Firestore when created
       if (window.firebaseEnsureUserDoc) {
-        await window.firebaseEnsureUserDoc(cred.user, safeUsername);
+        try { await window.firebaseEnsureUserDoc(cred.user, safeUsername); }
+        catch (error) { console.warn('PleyZ profile sync failed:', error); }
       }
       return cred.user;
     };
@@ -4992,7 +4535,7 @@ try {
   });
 
   import("https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js").then(m => {
-    const { getFirestore, doc, setDoc, updateDoc, serverTimestamp, collection, query, orderBy, limit, getDocs, increment, getDoc } = m;
+    const { getFirestore, doc, setDoc, serverTimestamp, collection, query, orderBy, limit, getDocs, getDoc, runTransaction } = m;
     const db = getFirestore(app);
     window.firebaseDb = db;
 
@@ -5001,57 +4544,76 @@ try {
       const email = user.email || '';
       const username = String(usernameOverride || user.displayName || (email.split('@')[0] || 'Player')).trim() || 'Player';
       const ref = doc(db, 'users', user.uid);
-      try { await setDoc(ref, { email, username, createdAt: serverTimestamp(), pleyzScore: 0, gamesPlayed: 0 }, { merge: true }); } catch (e) { }
+      const leaderboardRef = doc(db, 'leaderboard', user.uid);
+      const snapshot = await getDoc(ref);
+      const existing = snapshot.exists() ? snapshot.data() : {};
+      const profile = {
+        email,
+        username,
+        pleyzScore: Number(existing.pleyzScore || 0),
+        gamesPlayed: Number(existing.gamesPlayed || 0)
+      };
+      if (!snapshot.exists()) profile.createdAt = serverTimestamp();
+      await setDoc(ref, profile, { merge: true });
+      await setDoc(leaderboardRef, {
+        uid: user.uid,
+        username,
+        pleyzScore: profile.pleyzScore,
+        gamesPlayed: profile.gamesPlayed,
+        updatedAt: serverTimestamp()
+      }, { merge: true });
     };
 
 window.firebaseOnGameOpened = async () => {
   const auth = window.firebaseAuth;
   if (!auth || !auth.currentUser) return;
 
-  const uid = auth.currentUser.uid;
+  const user = auth.currentUser;
+  const uid = user.uid;
+  const username = getCurrentUser() || (user.email || 'Player').split('@')[0];
+  await window.firebaseEnsureUserDoc(user, username);
   const userRef = doc(db, 'users', uid);
+  const leaderboardRef = doc(db, 'leaderboard', uid);
 
-  try {
-    await updateDoc(userRef, {
-      pleyzScore: increment(1),
-      gamesPlayed: increment(1),
+  await runTransaction(db, async transaction => {
+    const snapshot = await transaction.get(userRef);
+    const existing = snapshot.exists() ? snapshot.data() : {};
+    const pleyzScore = Number(existing.pleyzScore || 0) + 1;
+    const gamesPlayed = Number(existing.gamesPlayed || 0) + 1;
+    transaction.set(userRef, {
+      username,
+      pleyzScore,
+      gamesPlayed,
       lastPlayed: serverTimestamp()
-    });
-  } catch (e) {
-    // if user doc doesn't exist or update failed, create with initial values
-    try {
-      await setDoc(userRef, {
-        pleyzScore: 1,
-        gamesPlayed: 1,
-        email: auth.currentUser.email,
-        username: getCurrentUser() || (auth.currentUser.email || 'Player').split('@')[0],
-        createdAt: serverTimestamp(),
-        lastPlayed: serverTimestamp()
-      }, { merge: true });
-    } catch (_) {}
-  }
+    }, { merge: true });
+    transaction.set(leaderboardRef, {
+      uid,
+      username,
+      pleyzScore,
+      gamesPlayed,
+      updatedAt: serverTimestamp()
+    }, { merge: true });
+  });
 };
 
 window.firebaseFetchLeaderboard = async () => {
   const tbody = document.getElementById('leaderboard-body');
   if (!tbody) return;
-
-  tbody.innerHTML =
-    '<tr><td colspan="4" style="text-align:center; padding:1.5rem; color:var(--text-dim);">Loading leaderboard...</td></tr>';
-
-  const seededRows = [
-    { name: 'ProGamer_X', score: 342, games: 342 },
-    { name: 'NeonBlaster99', score: 289, games: 289 },
-    { name: 'CyberNinja', score: 143, games: 143 },
-    { name: 'StarHunter', score: 124, games: 124 },
-    { name: 'VoltStrike', score: 73, games: 73 }
-  ];
+  const statusRow = message => {
+    const row = document.createElement('tr');
+    const cell = document.createElement('td');
+    cell.colSpan = 4;
+    cell.style.cssText = 'text-align:center;padding:1.5rem;color:var(--text-dim)';
+    cell.textContent = message;
+    row.appendChild(cell);
+    tbody.replaceChildren(row);
+  };
+  statusRow('Loading leaderboard...');
 
   const buildRow = (rank, name, score, games, isYou = false) => {
     const tr = document.createElement('tr');
     if (!isYou && rank <= 3) tr.className = `rank-${rank}`;
     if (isYou) tr.className = 'you';
-
     const icon =
       rank === 1
         ? '<i class="fas fa-trophy"></i>'
@@ -5061,76 +4623,39 @@ window.firebaseFetchLeaderboard = async () => {
         ? '<i class="fas fa-award"></i>'
         : `#${rank}`;
 
-    tr.innerHTML =
-      `<td><span class="rank-icon">${icon}</span></td>` +
-      `<td>${name}</td>` +
-      `<td class="score-cell">${Number(score || 0).toLocaleString()}</td>` +
-      `<td>${Number(games || 0).toLocaleString()}</td>`;
-
+    const rankCell = document.createElement('td');
+    const rankIcon = document.createElement('span');
+    rankIcon.className = 'rank-icon';
+    rankIcon.innerHTML = icon;
+    rankCell.appendChild(rankIcon);
+    const nameCell = document.createElement('td');
+    nameCell.textContent = name;
+    const scoreCell = document.createElement('td');
+    scoreCell.className = 'score-cell';
+    scoreCell.textContent = Number(score || 0).toLocaleString();
+    const gamesCell = document.createElement('td');
+    gamesCell.textContent = Number(games || 0).toLocaleString();
+    tr.append(rankCell, nameCell, scoreCell, gamesCell);
     return tr;
   };
 
   try {
-    const usersCol = collection(db, 'users');
-    const q = query(usersCol, orderBy('pleyzScore', 'desc'), limit(50));
-    const snap = await getDocs(q);
-
-    tbody.innerHTML = '';
-
-    const seenNames = new Set();
-    seededRows.forEach((player, index) => {
-      const rank = index + 1;
-      const name = player.name;
-      seenNames.add(String(name).trim().toLowerCase());
-      tbody.appendChild(buildRow(rank, name, player.score, player.games));
-    });
-
-    const realEntries = [];
-    snap.forEach(docSnap => {
-      const d = docSnap.data();
-      const username = String(d.username || d.displayName || (d.email || 'Player')).trim();
-      const safeUsername = username || ((d.email || 'Player').split('@')[0] || 'Player');
-      const normalized = safeUsername.toLowerCase();
-      if (seenNames.has(normalized) || !safeUsername || safeUsername === 'Player') return;
-      realEntries.push({
-        name: safeUsername,
-        score: Number(d.pleyzScore || 0),
-        games: Number(d.gamesPlayed || 0)
-      });
-      seenNames.add(normalized);
-    });
-
-    const leaderboardEntries = seededRows
-      .concat(realEntries)
-      .sort((a, b) => Number(b.score || 0) - Number(a.score || 0))
-      .slice(0, 10);
-
-    tbody.innerHTML = '';
-    leaderboardEntries.forEach((player, index) => {
-      tbody.appendChild(buildRow(index + 1, player.name, player.score, player.games));
-    });
-
-    const auth = window.firebaseAuth;
-    if (auth && auth.currentUser) {
-      const meRef = doc(db, 'users', auth.currentUser.uid);
-      try {
-        const meSnap = await getDoc(meRef);
-        if (meSnap.exists()) {
-          const d = meSnap.data();
-          const name = String(d.username || d.displayName || (d.email || 'You')).trim() || 'You';
-          const hasBeenShown = [...tbody.children].some(row => row.textContent && row.textContent.toLowerCase().includes(name.toLowerCase()));
-          if (hasBeenShown) return;
-        }
-      } catch (_) {}
+    const leaderboardQuery = query(collection(db, 'leaderboard'), orderBy('pleyzScore', 'desc'), limit(10));
+    const snapshot = await getDocs(leaderboardQuery);
+    const entries = snapshot.docs.map(docSnapshot => docSnapshot.data());
+    if (!entries.length) {
+      statusRow('No players have earned PleyZ Score yet. Sign in and play to claim the first spot.');
+      return;
     }
-
-  } catch (err) {
-    console.error('Leaderboard error:', err);
-
-    tbody.innerHTML = '';
-    seededRows.forEach((player, index) => {
-      tbody.appendChild(buildRow(index + 1, player.name, player.score, player.games));
+    const currentUid = window.firebaseAuth?.currentUser?.uid;
+    const fragment = document.createDocumentFragment();
+    entries.forEach((entry, index) => {
+      fragment.appendChild(buildRow(index + 1, String(entry.username || 'Player'), entry.pleyzScore, entry.gamesPlayed, entry.uid === currentUid));
     });
+    tbody.replaceChildren(fragment);
+  } catch (err) {
+    console.warn('Leaderboard unavailable:', err);
+    statusRow('The live leaderboard is temporarily unavailable. Please try again later.');
   }
 };
 
@@ -5240,40 +4765,25 @@ window.lookupPleyz = async function() {
 
   res.textContent = 'Searching...';
 
-  // If firebase available, scan users for match
+  // Public lookup reads only the email-free leaderboard projection.
   if (window.firebaseDb) {
     try {
       const {
         collection,
-        getDocs
+        getDocs,
+        query,
+        where,
+        limit
       } = await import(
         'https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js'
       );
 
       const db = window.firebaseDb;
-      const usersCol = collection(db, 'users');
-      const snap = await getDocs(usersCol);
-
-      let found = null;
-
-      snap.forEach(s => {
-        const d = s.data();
-        const username = String(d.username || d.displayName || (d.email || 'Player')).trim();
-        const email = (d.email || '').toLowerCase();
-        const emailUser = (email.split('@')[0] || '').toLowerCase();
-        const query = q.toLowerCase();
-
-        if (
-          username.toLowerCase() === query ||
-          email === query ||
-          emailUser === query
-        ) {
-          found = d;
-        }
-      });
+      const snap = await getDocs(query(collection(db, 'leaderboard'), where('username', '==', q), limit(1)));
+      const found = snap.empty ? null : snap.docs[0].data();
 
       if (found) {
-        const username = String(found.username || found.displayName || (found.email || 'Player')).trim() || 'Player';
+        const username = String(found.username || 'Player').trim() || 'Player';
         res.textContent =
           `${username} — ` +
           `PleyZ ${Number(found.pleyzScore || 0).toLocaleString()} | ` +
@@ -5378,24 +4888,16 @@ setTimeout(() => {
   .trending-intro .section-title { text-align: left; font-size: clamp(1.4rem, 3vw, 2rem); }
   .trending-intro .section-underline { margin: 0.45rem 0 0.7rem; height: 2px; }
   .trending-copy { font-size: 0.95rem; }
-  .games-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 1.25rem 1rem; }
-  .game-card { background: transparent; border: 0; border-radius: 0; backdrop-filter: none; }
-  .game-card:hover { transform: translateY(-5px); box-shadow: none; border-color: transparent; }
+  .games-grid { gap: 1.25rem 1rem; }
+  .game-card { text-align: left; }
+  .game-card:focus-visible { outline: 2px solid var(--blue-1); outline-offset: 4px; }
   .game-thumb { aspect-ratio: 4 / 3; border: 1px solid rgba(255,255,255,0.12); border-radius: 16px; box-shadow: 0 12px 28px rgba(0,0,0,0.24); }
   .game-thumb img.custom-game-image { border-radius: 16px; }
   .game-thumb img:not(.custom-game-image) { width: 72%; height: 72%; border-radius: 18px; }
-  .game-info { padding: 0.7rem 0.15rem 0; gap: 0.35rem; }
-  .game-name { font-size: 0.82rem; line-height: 1.25; }
+  .game-name { margin: 0; font-size: 0.82rem; line-height: 1.25; }
   .cat-badge { border: 0; background: transparent; padding: 0; font-size: 0.56rem; opacity: 0.8; }
-  .game-card-actions { display: none; }
   .mobile-bottom-nav { display: none; }
 
-  @media (min-width: 1100px) and (max-width: 1399px) {
-    .games-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
-  }
-  @media (min-width: 861px) and (max-width: 1099px) {
-    .games-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-  }
   @media (max-width: 768px) {
     body { padding-bottom: 76px; }
     .hamburger { display: none !important; }
@@ -5409,10 +4911,9 @@ setTimeout(() => {
     #games { padding: 2.2rem 1.2rem 3rem; }
     #games > .section-title { text-align: left; font-size: 1.45rem; }
     #games > .section-underline { margin-left: 0; margin-bottom: 1.2rem; }
-    .games-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem 0.8rem; }
+    .games-grid { gap: 1.25rem 0.8rem; }
     .game-thumb { border-radius: 14px; }
     .game-thumb img.custom-game-image { border-radius: 14px; }
-    .game-info { padding-top: 0.55rem; }
     .game-name { font-size: 0.76rem; }
     .filter-tabs { justify-content: flex-start; overflow-x: auto; flex-wrap: nowrap; padding-bottom: 0.3rem; scrollbar-width: none; }
     .filter-tabs::-webkit-scrollbar { display: none; }
@@ -5426,6 +4927,72 @@ setTimeout(() => {
     #trending, #games { padding-left: 0.9rem; padding-right: 0.9rem; }
     .games-grid { gap: 1rem 0.65rem; }
   }
+
+  #recommendations, #popular-games { padding: 2.6rem 2rem; }
+  .discovery-heading { display: flex; justify-content: space-between; align-items: end; gap: 1rem; margin-bottom: 1rem; }
+  .discovery-heading .section-title, #popular-games > .section-title { text-align: left; font-size: clamp(1.35rem, 2vw, 1.8rem); }
+  .discovery-heading .section-underline, #popular-games > .section-underline { margin: 0.45rem 0 0.6rem; height: 2px; }
+  .discovery-copy { max-width: 680px; margin: 0.4rem 0 1rem; color: var(--text-dim); font-size: 0.9rem; line-height: 1.45; }
+  .discovery-heading .discovery-copy { margin-bottom: 0; }
+  .category-discovery-title { margin: 1.8rem 0 0.9rem; font: 700 1rem 'Orbitron', sans-serif; color: var(--text); }
+  .footer-auth-button { padding: 0; border: 0; background: transparent; color: var(--text-dim); font: inherit; text-align: left; cursor: pointer; }
+  .footer-auth-button:hover { color: var(--blue-1); }
+  .discovery-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, clamp(9.5rem, 16vw, 15rem)), 1fr)); }
+  .mood-trigger { flex: 0 0 auto; border: 1px solid rgba(0,191,255,0.45); border-radius: 999px; padding: 0.65rem 1rem; background: rgba(0,191,255,0.08); color: var(--text); font: 700 0.72rem 'Orbitron', sans-serif; cursor: pointer; }
+  .mood-trigger:hover { border-color: var(--blue-1); color: var(--blue-1); }
+  .mood-popup { position: fixed; z-index: 1500; top: 78px; right: clamp(1rem, 4vw, 3.5rem); width: min(440px, calc(100vw - 2rem)); padding: 1.2rem; border: 1px solid rgba(176,112,255,0.55); border-radius: 14px; background: rgba(13,10,24,0.97); box-shadow: 0 20px 70px rgba(0,0,0,0.55), 0 0 36px rgba(139,0,255,0.18); opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(-10px) scale(0.98); transition: opacity 180ms ease, transform 180ms ease, visibility 180ms; }
+  .mood-popup.open { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0) scale(1); }
+  .mood-popup-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; }
+  .mood-popup-header h2 { margin: 0.2rem 0 0; font: 700 1.05rem 'Orbitron', sans-serif; color: #fff; }
+  .mood-eyebrow { color: var(--blue-1); font-size: 0.63rem; letter-spacing: 0.14em; text-transform: uppercase; }
+  .mood-close { border: 0; background: transparent; color: var(--text-dim); font-size: 1.35rem; line-height: 1; cursor: pointer; }
+  .mood-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.5rem; }
+  .mood-option { display: flex; align-items: center; gap: 0.6rem; min-height: 48px; padding: 0.55rem 0.7rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; background: rgba(255,255,255,0.035); color: var(--text); font: 600 0.86rem 'Rajdhani', sans-serif; text-align: left; cursor: pointer; }
+  .mood-option:hover, .mood-option:focus-visible { border-color: var(--blue-1); background: rgba(0,191,255,0.1); outline: none; }
+  .mood-option span:first-child { font-size: 1.15rem; }
+  @media (min-width: 1800px) { .mood-popup { width: min(500px, calc(100vw - 4rem)); padding: 1.5rem; } }
+  @media (max-width: 768px) {
+    #recommendations, #popular-games { padding: 2rem 1.2rem; }
+    .trending-card { width: 156px; min-width: 156px; }
+    .trending-card.featured { width: 184px; }
+    .trending-thumb { height: 96px; }
+    .trending-card.featured .trending-thumb { height: 106px; }
+    .trending-info { padding: 0.7rem; gap: 0.42rem; }
+    .trending-players { font-size: 0.64rem; }
+    .discovery-heading { align-items: flex-start; }
+    .games-grid, .discovery-grid { column-gap: 0.65rem; row-gap: 0.72rem; }
+    .mood-popup { top: 68px; right: 0.75rem; width: calc(100vw - 1.5rem); padding: 1rem; }
+    .mood-option { min-height: 52px; }
+  }
+  @media (max-width: 420px) {
+    .discovery-heading { flex-direction: column; align-items: stretch; }
+    .mood-trigger { align-self: flex-start; }
+    .mood-options { grid-template-columns: 1fr; max-height: min(58vh, 390px); overflow-y: auto; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .mood-popup { transition: none; }
+  }
 </style>
+<aside class="mood-popup" id="mood-popup" role="dialog" aria-modal="false" aria-labelledby="mood-popup-title" aria-hidden="true">
+  <div class="mood-popup-header">
+    <div>
+      <span class="mood-eyebrow">PleyZ mood discovery</span>
+      <h2 id="mood-popup-title">What are you in the mood to play?</h2>
+    </div>
+    <button class="mood-close" type="button" aria-label="Close mood discovery">&times;</button>
+  </div>
+  <div class="mood-options">
+    <button class="mood-option" type="button" data-mood="intense"><span>⚡</span><span>Intense</span></button>
+    <button class="mood-option" type="button" data-mood="think"><span>🧠</span><span>Make Me Think</span></button>
+    <button class="mood-option" type="button" data-mood="tired"><span>😴</span><span>I'm Tired</span></button>
+    <button class="mood-option" type="button" data-mood="chaos"><span>😂</span><span>Something Chaotic</span></button>
+    <button class="mood-option" type="button" data-mood="challenge"><span>🏆</span><span>Challenge Me</span></button>
+    <button class="mood-option" type="button" data-mood="weird"><span>🌌</span><span>Something Weird</span></button>
+    <button class="mood-option" type="button" data-mood="surprise"><span>🎲</span><span>Surprise Me</span></button>
+  </div>
+</aside>
+<script>
+  document.addEventListener('DOMContentLoaded', initializeMoodDiscovery, { once: true });
+</script>
 </body>
 </html>

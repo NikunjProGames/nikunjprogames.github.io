@@ -54,6 +54,7 @@
       box-shadow: 0 10px 30px rgba(0,0,0,0.25);
     }
     .topbar h1 { font-family: 'Orbitron', sans-serif; margin: 0; font-size: clamp(1.1rem, 2vw, 1.5rem); }
+    .site-brand { color: var(--text); font: 700 0.92rem 'Orbitron', sans-serif; white-space: nowrap; }
     .topbar .actions { display: flex; gap: 8px; flex-wrap: wrap; }
     .profile-score-link {
       display: inline-flex; align-items: center; gap: 8px;
@@ -121,6 +122,8 @@
     .video-card-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
     .video-card-header h3 { margin: 0; }
     .video-card-header span { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
+    .site-footer { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--panel-border); color: var(--muted); }
+    .site-footer a:hover { color: var(--accent); }
     @media (max-width: 700px) {
       .page-shell { padding: 12px 12px 24px; }
       .topbar { flex-direction: column; align-items: flex-start; }
@@ -136,6 +139,7 @@
   <a class="skip-link" href="#main-content">Skip to game content</a>
   <div class="page-shell">
     <header class="topbar">
+      <a class="site-brand" href="/">PleyZ Games</a>
       <h1>+1 Speed: Escape Prison</h1>
       <div class="actions">
         <a class="profile-score-link" href="../index.html#leaderboard" title="View PleyZ score and leaderboard">
@@ -143,6 +147,7 @@
           <span id="profile-score-label">PleyZ Score</span>
         </a>
         <a class="btn" href="../index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a class="btn" href="/account.html">Account</a>
         <a class="btn primary" href="https://nikunjprogames.github.io/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i> Play More Games </a>
       </div>
     </header>
@@ -198,6 +203,14 @@
     </section>
 
   </div>
+  <footer class="site-footer page-shell">
+    <a href="/">PleyZ Home</a>
+    <a href="/account.html">Account</a>
+    <a href="/about-us.html">About</a>
+    <a href="/privacy-policy.html">Privacy</a>
+    <a href="/termsandconditions.html">Terms</a>
+    <a href="/contact-us.html">Contact</a>
+  </footer>
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/1-speed-escape-prison.html#game","name":"+1 Speed: Escape Prison","description":"Get ready for a wild prison break in this dynamic obstacle parkour game with +1 Speed boosts! Your goal is to escape from prison by navigating challenging obstacles and accelerating with each level. This is a real escape where every mistake can set you back! Level up your speed, complete obstacle courses, and master parkour to find the best escape route. The further you go, the faster you get—feel the thrill of increasing speed and overcoming obstacles! The prison is full of traps, guards, and dangerous zones. Can you pull off the perfect prison break and escape faster than anyone else? Game Features: 🔶 A thrilling prison break 🔶 Dynamic parkour-style gameplay +1 to speed 🔶 Gradual acceleration and challenging trials 🔶 Diverse levels and obstacles 🔶 Ability to level up your character Start your escape right now and prove you can break out of prison! Core Gameplay & Story Q: What is the game about? What needs to be done? A: You need to escape from prison by overcoming obstacles, jumping, running, and doing parkour. It is important to improve your movement speed and stamina because stamina affects movement speed during the escape levels. Q: Is there a storyline in the game? A: No. Q: What is the unique feature of the game? How can it engage players? A: There are various features like pets that provide bonuses to movement speed and stamina, a wheel of fortune, leaderboards, and character customization. Mechanics & Progression Q: Are there bosses in the game, and how are they different? A: No. Q: How does leveling up work? What needs to be done to level up faster? A: You need to train in the gym and improve your movement speed and stamina. Economy & Customization Q: What currencies are available and what can they be spent on (regular - gold, premium - crystals, etc.)? A: There are regular money and diamonds that can be spent on different skins, faster movement speed and stamina upgrades, and the ability to return to the last checkpoint upon losing. Q: Is there in-game purchases? What can be bought and what does it affect? Does making a donation speed up game progress? A: You can buy skins and in-game currency. Q: Is there a leaderboard? How to access it? What types are there (weekly, monthly, all-time, etc.)? A: There are three different leaderboards: one for the highest stamina, one for the highest movement speed, and one for the player who has progressed the furthest during the escape. Retention & Engagement Q: What are some engaging elements of the content (weapons, cars, locations, skills, references to famous franchises, etc.)? A: There are many cool skins and epic music during the escape. Q: Is there customization in the game? Can the appearance of the hero be customized, location editor, car tuning, etc.? A: Yes, you can buy clothes and accessories. Q: Are there daily rewards or something similar to encourage players to return? A: There are daily rewards as well as rewards based on gameplay time. Q: Is it preferable to play with sound to better immerse in the atmosphere, or will there be difficulties in passing without sound? A: It is preferable to play with sound as the music is very cool and epic during the escape.","url":"https://nikunjprogames.github.io/games/1-speed-escape-prison.html","image":"https://static.playgama.com/p-img/pg/1-speed-escape-prison/big-preview/415c3326c7724e6cae83d74990cc3020?width=448","gamePlatform":["Web browser"],"genre":["Action"],"keywords":["action","skill","running","obby","trial-games","obstacles-games","challenging-games","speed-games","agility-games","action-adventure"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Action Games","item":"https://nikunjprogames.github.io/action-games/"},{"@type":"ListItem","position":3,"name":"+1 Speed: Escape Prison","item":"https://nikunjprogames.github.io/games/1-speed-escape-prison.html"}]}]}</script>
   <script>
     function toggleGameFullscreen(root) {

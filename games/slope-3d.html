@@ -54,6 +54,7 @@
       box-shadow: 0 10px 30px rgba(0,0,0,0.25);
     }
     .topbar h1 { font-family: 'Orbitron', sans-serif; margin: 0; font-size: clamp(1.1rem, 2vw, 1.5rem); }
+    .site-brand { color: var(--text); font: 700 0.92rem 'Orbitron', sans-serif; white-space: nowrap; }
     .topbar .actions { display: flex; gap: 8px; flex-wrap: wrap; }
     .profile-score-link {
       display: inline-flex; align-items: center; gap: 8px;
@@ -121,6 +122,8 @@
     .video-card-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
     .video-card-header h3 { margin: 0; }
     .video-card-header span { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
+    .site-footer { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--panel-border); color: var(--muted); }
+    .site-footer a:hover { color: var(--accent); }
     @media (max-width: 700px) {
       .page-shell { padding: 12px 12px 24px; }
       .topbar { flex-direction: column; align-items: flex-start; }
@@ -136,6 +139,7 @@
   <a class="skip-link" href="#main-content">Skip to game content</a>
   <div class="page-shell">
     <header class="topbar">
+      <a class="site-brand" href="/">PleyZ Games</a>
       <h1>Slope 3D</h1>
       <div class="actions">
         <a class="profile-score-link" href="../index.html#leaderboard" title="View PleyZ score and leaderboard">
@@ -143,6 +147,7 @@
           <span id="profile-score-label">PleyZ Score</span>
         </a>
         <a class="btn" href="../index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a class="btn" href="/account.html">Account</a>
         <a class="btn primary" href="https://nikunjprogames.github.io/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i> Play More Games </a>
       </div>
     </header>
@@ -198,6 +203,14 @@
     </section>
 
   </div>
+  <footer class="site-footer page-shell">
+    <a href="/">PleyZ Home</a>
+    <a href="/account.html">Account</a>
+    <a href="/about-us.html">About</a>
+    <a href="/privacy-policy.html">Privacy</a>
+    <a href="/termsandconditions.html">Terms</a>
+    <a href="/contact-us.html">Contact</a>
+  </footer>
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/slope-3d.html#game","name":"Slope 3D","description":"Slope 3D sends you down a steep neon track where quick reactions and precise movement decide how long your run will last. Guide the rolling ball through narrow platforms, sharp turns, sudden drops, and dangerous red obstacles while the speed continues to increase. The controls are simple to learn, but staying on the course becomes harder with every passing second. Game Overview Your objective in Slope 3D is to keep the ball on the track for as long as possible and achieve the highest score. The ball rolls forward automatically, leaving you responsible for steering it away from barriers, gaps, and the edges of the platform. The slope changes constantly as you progress. Wide paths can quickly become narrow lanes, while sudden turns and uneven platforms force you to adjust your position without losing control. Red blocks are especially dangerous because touching one ends the current run immediately. Speed is one of the biggest challenges. The farther you travel, the faster the ball moves, giving you less time to react to what appears ahead. A small steering mistake that seems harmless early in the run can send the ball off the track once the pace increases. Key Features - Fast-paced 3D endless runner gameplay - Futuristic neon environment - Simple left-and-right steering controls - Increasing speed and difficulty - Narrow tracks, sharp turns, and sudden gaps - Dangerous red obstacles to avoid - Score-based progression with no fixed finish line - Keyboard controls for desktop players - Swipe and tilt controls for mobile devices - Quick rounds designed for repeated high-score attempts Tips for Beginners - Use short taps instead of holding a direction for too long. - Try to keep the ball near the center of the track. - Look ahead rather than focusing only on the ball. - Begin steering before reaching sharp turns. - Avoid unnecessary movement on narrow platforms. Advanced Tips - Plan your position based on the next section of the course. - Use gentle corrections when the ball reaches higher speeds. - Enter narrow paths from the center whenever possible. - Move early when several obstacles appear close together. - Stay calm after sudden drops and regain control gradually. Common Mistakes - Making large steering movements at high speed. - Waiting until the last moment to avoid an obstacle. - Staying too close to the edge of the platform. - Watching the current position instead of the upcoming track. - Trying to correct one mistake with another sudden turn. Slope 3D game turns a simple steering mechanic into a demanding test of focus, balance, and reflexes. Its endless course means every run offers another opportunity to travel farther and improve your score. Stay centered, react smoothly, and see how long you can survive as the neon slope becomes faster and more difficult.","url":"https://nikunjprogames.github.io/games/slope-3d.html","image":"https://static.playgama.com/p-img/pg/slope-3d/big_preview/6031cc0ff00947dda0627af51b3316de?width=448","gamePlatform":["Web browser"],"genre":["Arcade"],"keywords":["arcade","skill","3d","running","platform","ball","physics","unblocked","reaction-games","fast-paced-games","hyper-casual-games","avoid-games","endless-games","speed-games","agility-games","rolling-games","1-player-games"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Arcade Games","item":"https://nikunjprogames.github.io/arcade-games/"},{"@type":"ListItem","position":3,"name":"Slope 3D","item":"https://nikunjprogames.github.io/games/slope-3d.html"}]}]}</script>
   <script>
     function toggleGameFullscreen(root) {

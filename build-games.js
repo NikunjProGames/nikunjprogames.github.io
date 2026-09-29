@@ -266,6 +266,7 @@ function loadHomepageGames() {
 
 function buildCategoryPages(feedGames) {
   const legacyGames = loadHomepageGames().map(game => ({
+    id: game.id,
     name: game.name,
     slug: game.iframeUrl && game.iframeUrl.startsWith('/games/')
       ? game.iframeUrl.split('/').pop().replace(/\.html$/, '')
@@ -275,6 +276,7 @@ function buildCategoryPages(feedGames) {
       : `/${String(game.iframeUrl || `${slugify(game.name)}.html`).replace(/^\/+/, '')}`,
     image: game.imageUrl || '',
     categories: [...new Set([...(Array.isArray(game.categories) ? game.categories : []), game.cat].filter(Boolean))],
+    tags: [...(Array.isArray(game.tags) ? game.tags : []), ...(Array.isArray(game.gameDna) ? game.gameDna : [])],
     width: Number(game.width) || 0,
     height: Number(game.height) || 0
   }));
@@ -284,17 +286,57 @@ function buildCategoryPages(feedGames) {
     href: `/games/${game.slug}.html`,
     image: game.thumb,
     categories: game.categories,
+    tags: game.tags,
     width: game.imageWidth,
     height: game.imageHeight
   }));
   const categories = new Map();
 
-  [...legacyGames, ...catalogGames].forEach(game => {
+  const libraryGames = [...legacyGames, ...catalogGames];
+  const categoryThemes = {
+    action: 'intense', adventure: 'weird', arcade: 'arcade', boys: 'intense',
+    cars: 'intense', endless: 'skill', girls: 'chill', io: 'weird',
+    multiplayer: 'intense', nostalgia: 'retro', parkour: 'skill', puzzle: 'brain',
+    racing: 'intense', shooting: 'tactical', simulation: 'weird', sports: 'skill',
+    strategy: 'tactical', 'two player': 'intense'
+  };
+  libraryGames.forEach(game => {
     game.categories.forEach(category => {
       const key = toPlainText(category).toLowerCase();
       if (!key) return;
-      if (!categories.has(key)) categories.set(key, { name: formatCategory(category), games: new Map() });
+      if (!categories.has(key)) categories.set(key, { name: formatCategory(category), games: new Map(), theme: categoryThemes[key] || 'default' });
       categories.get(key).games.set(game.href, game);
+    });
+  });
+
+  const homepage = fs.readFileSync(path.join(__dirname, 'index.html'), 'utf8');
+  const trendingMatch = homepage.match(/const TRENDING = (\[[\s\S]*?\n\]);/);
+  const trendingIds = new Set(trendingMatch ? vm.runInNewContext(`(${trendingMatch[1]})`).map(game => game.id) : []);
+  const curatedCategories = [
+    { name: 'Brain Training', theme: 'brain', description: 'Build focus with PleyZ brain-training games built around memory, words, quizzes, and logic.', pattern: /brain|mind|memory|logic|quiz|word|trivia/i },
+    { name: 'Skill', theme: 'skill', description: 'Test timing, precision, and quick reactions with skill games selected from the PleyZ library.', pattern: /skill|precision|obstacle|parkour|reflex|aim/i },
+    { name: 'Heavy-Duty FPS', theme: 'tactical', description: 'Find first-person shooters and fast-paced shooting games available to play in your browser.', pattern: /fps|shooter|shooting|first.?person/i },
+    { name: 'Fighting', theme: 'intense', description: 'Jump into fighting and battle games with direct competition, combat, and quick rounds.', pattern: /fight|combat|brawler|battle/i },
+    { name: 'Survival', theme: 'intense', description: 'Explore survival challenges, zombie encounters, and tense games where every move matters.', pattern: /survival|zombie|horror|battle royale/i },
+    { name: 'Weird & Experimental', theme: 'weird', description: 'Browse unusual, playful, and experimental games that take the PleyZ library somewhere unexpected.', pattern: /weird|experimental|brainrot|odd|chaos|physics|meme|strange|unusual/i },
+    { name: 'Chill & Casual', theme: 'chill', description: 'Take a slower route through casual, relaxing, and low-pressure browser games on PleyZ.', pattern: /chill|casual|cozy|relax|idle/i },
+    { name: 'Quick Sessions', theme: 'arcade', description: 'Pick up a game for a short break: these arcade and casual favorites are easy to start quickly.', pattern: /quick|casual|arcade|mini.?game/i },
+    { name: 'Tactical Strategy', theme: 'tactical', description: 'Plan ahead with strategy, defense, and tactical games that reward deliberate decisions.', pattern: /tactical|strategy|defense|tower/i },
+    { name: 'Spooky', theme: 'spooky', description: 'Find eerie browser games with spooky settings, ghosts, horror, and zombie challenges.', pattern: /spooky|horror|ghost|scary|zombie/i },
+    { name: 'Hidden Gems', theme: 'hidden', description: 'Explore games beyond the current PleyZ trending lineup, with fresh discoveries selected across genres.', select: game => !trendingIds.has(game.id), maxGames: 24 }
+  ];
+
+  curatedCategories.forEach(category => {
+    const selectedGames = libraryGames.filter(game => {
+      if (category.select) return category.select(game);
+      return category.pattern.test(`${game.name} ${(game.categories || []).join(' ')} ${(game.tags || []).join(' ')}`);
+    }).slice(0, category.maxGames || 100);
+    if (selectedGames.length < 4) return;
+    categories.set(`editorial-${slugify(category.name)}`, {
+      name: category.name,
+      games: new Map(selectedGames.map(game => [game.href, game])),
+      description: category.description,
+      theme: category.theme
     });
   });
 
@@ -303,7 +345,7 @@ function buildCategoryPages(feedGames) {
     const slug = slugify(category.name);
     const categoryUrl = `/${slug}-games/`;
     const gameList = [...category.games.values()];
-    const description = `Browse ${category.name.toLowerCase()} browser games on PleyZ. Open a game page for its description, available instructions, and related titles.`;
+    const description = category.description || `Browse ${category.name.toLowerCase()} browser games on PleyZ. Open a game page for its description, available instructions, and related titles.`;
     const cards = gameList.map((game, index) => {
       const imageUrl = game.image && !/^(?:https?:|\/|data:)/i.test(game.image) ? `/${game.image}` : game.image;
       const imageDimensions = game.width && game.height ? ` width="${game.width}" height="${game.height}"` : '';
@@ -337,6 +379,7 @@ function buildCategoryPages(feedGames) {
     const html = categoryTemplate
       .replaceAll('{{CATEGORY}}', escapeHtml(category.name))
       .replaceAll('{{CATEGORY_SLUG}}', slug)
+      .replaceAll('{{CATEGORY_THEME}}', category.theme || 'default')
       .replaceAll('{{DESCRIPTION}}', escapeHtml(description))
       .replaceAll('{{GAME_COUNT}}', String(gameList.length))
       .replaceAll('{{GAME_CARDS}}', cards)
@@ -373,6 +416,10 @@ function generateGamePages() {
   const gamesData = fs.readFileSync(FEED_FILE, 'utf8');
   const games = JSON.parse(gamesData).map(normalizeGame);
   const template = fs.readFileSync('template.html', 'utf8');
+  const homepageIdBySlug = new Map(loadHomepageGames().flatMap(game => {
+    const match = String(game.iframeUrl || '').match(/^\/?games\/([^/]+)\.html$/);
+    return match ? [[match[1], game.id]] : [];
+  }));
 
   // Create the output directory
   const outputDir = path.join(__dirname, 'games');
@@ -395,6 +442,7 @@ function generateGamePages() {
 
     let htmlContent = template
       .replaceAll('{{TITLE}}', escapeHtml(game.title))
+      .replaceAll('{{GAME_ID}}', escapeHtml(String(homepageIdBySlug.get(game.slug) ?? game.id)))
       .replaceAll('{{SEO_TITLE}}', escapeHtml(game.seoTitle))
       .replaceAll('{{DESCRIPTION}}', escapeHtml(game.seoDescription))
       .replaceAll('{{SLUG}}', game.slug)
@@ -418,4 +466,9 @@ function generateGamePages() {
   console.log(`Success! ${buildCategoryPages(games)} category pages generated.`);
 }
 
-generateGamePages();
+if (process.argv.includes('--categories-only')) {
+  const games = JSON.parse(fs.readFileSync(FEED_FILE, 'utf8')).map(normalizeGame);
+  console.log(`Success! ${buildCategoryPages(games)} category pages generated.`);
+} else {
+  generateGamePages();
+}

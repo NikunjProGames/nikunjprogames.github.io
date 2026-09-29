@@ -54,7 +54,11 @@
       box-shadow: 0 10px 30px rgba(0,0,0,0.25);
     }
     .topbar h1 { font-family: 'Orbitron', sans-serif; margin: 0; font-size: clamp(1.1rem, 2vw, 1.5rem); }
+    .site-brand { color: var(--text); font: 700 0.92rem 'Orbitron', sans-serif; white-space: nowrap; }
     .topbar .actions { display: flex; gap: 8px; flex-wrap: wrap; }
+    .game-preferences { display: flex; gap: 6px; }
+    .game-preferences button { width: 36px; height: 36px; border: 1px solid var(--panel-border); border-radius: 7px; background: var(--panel); color: var(--muted); cursor: pointer; }
+    .game-preferences button[aria-pressed="true"], .game-preferences button:hover { border-color: var(--accent); color: var(--accent); }
     .profile-score-link {
       display: inline-flex; align-items: center; gap: 8px;
       padding: 6px 10px 6px 6px; border-radius: 999px;
@@ -121,6 +125,8 @@
     .video-card-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
     .video-card-header h3 { margin: 0; }
     .video-card-header span { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
+    .site-footer { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--panel-border); color: var(--muted); }
+    .site-footer a:hover { color: var(--accent); }
     @media (max-width: 700px) {
       .page-shell { padding: 12px 12px 24px; }
       .topbar { flex-direction: column; align-items: flex-start; }
@@ -136,13 +142,19 @@
   <a class="skip-link" href="#main-content">Skip to game content</a>
   <div class="page-shell">
     <header class="topbar">
+      <a class="site-brand" href="/">PleyZ Games</a>
       <h1>{{TITLE}}</h1>
       <div class="actions">
+        <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="{{GAME_ID}}">
+          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><i class="fa-solid fa-thumbs-up"></i></button>
+          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><i class="fa-solid fa-thumbs-down"></i></button>
+        </div>
         <a class="profile-score-link" href="../index.html#leaderboard" title="View PleyZ score and leaderboard">
           <span class="profile-score-avatar" id="profile-score-avatar">PZ</span>
           <span id="profile-score-label">PleyZ Score</span>
         </a>
         <a class="btn" href="../index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a class="btn" href="/account.html">Account</a>
         <a class="btn primary" href="https://nikunjprogames.github.io/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i> Play More Games </a>
       </div>
     </header>
@@ -186,6 +198,14 @@
     </section>
 
   </div>
+  <footer class="site-footer page-shell">
+    <a href="/">PleyZ Home</a>
+    <a href="/account.html">Account</a>
+    <a href="/about-us.html">About</a>
+    <a href="/privacy-policy.html">Privacy</a>
+    <a href="/termsandconditions.html">Terms</a>
+    <a href="/contact-us.html">Contact</a>
+  </footer>
   <script type="application/ld+json">{{JSON_LD}}</script>
   <script>
     function toggleGameFullscreen(root) {
@@ -212,6 +232,28 @@
       const score = Number(localStorage.getItem(`nikunj_pleyz_${username}`) || 0).toLocaleString();
       avatar.textContent = initials || 'PZ';
       label.textContent = `PleyZ ${score}`;
+    }());
+  </script>
+  <script>
+    (function () {
+      const controls = document.querySelector('.game-preferences');
+      if (!controls) return;
+      const username = (localStorage.getItem('nikunj_current_username') || '').trim();
+      const key = username ? `nikunj_game_preferences_${username}` : 'nikunj_game_preferences_guest';
+      const gameId = controls.dataset.gameId;
+      let preferences = {};
+      try { preferences = JSON.parse(localStorage.getItem(key) || '{}'); } catch (_) {}
+      const updateButtons = () => controls.querySelectorAll('[data-game-preference]').forEach(button => {
+        button.setAttribute('aria-pressed', preferences[gameId] === button.dataset.gamePreference ? 'true' : 'false');
+      });
+      controls.addEventListener('click', event => {
+        const button = event.target.closest('[data-game-preference]');
+        if (!button) return;
+        preferences[gameId] = preferences[gameId] === button.dataset.gamePreference ? '' : button.dataset.gamePreference;
+        localStorage.setItem(key, JSON.stringify(preferences));
+        updateButtons();
+      });
+      updateButtons();
     }());
   </script>
 </body>
