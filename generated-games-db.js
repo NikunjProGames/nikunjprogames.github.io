@@ -1578,5 +1578,145 @@ const NEW_GAMES = [
     iframeUrl: "/games/hedgies.html",
     fullscreen: true,
     videoUrl: ""
+  },
+  {
+    id: 123,
+    name: "Sorcerers Refuge",
+    cat: "adventure",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/sorcerers-refuge/big-preview/23c5e2a2597e4b71b1a01fc457170af8?width=448",
+    width: "800",
+    height: "450",
+    description: "You wake up in a strange living room. There are no doors. Only whispers behind the wall and darkness in the eyes. Welcome to the Sorcerer’s Hideout, a dark adventure with elements of magic, riddles, and quests.\nIn this confusing and dangerous place, you will find:\nWhat Awaits You\nMysterious corridors, hidden rooms, and sudden traps\nThe magic of ice, fire, transformation, and true vision\nMysterious creatures, demons, and a strange Buffoon with his own motives\nIntense dialogues, unexpected outcomes, and choices that affect the story\nBattles, puzzles, and ancient Contracts made with powerful forces\nYou are trapped by a Sorcerer who has subjugated four demons. Will you be able to escape, or will you become another soul in his collection?\n\nCore Gameplay & Story\n\nQ: What is the game about? What do you need to do?\nA: It's a horror game where you need to solve a mystery and fight for your life.\n\nQ: Is there a storyline in the game?\nA: Yes, it's very intricate, interesting, and complex.\n\nQ: What is the unique feature of the game? What can hook players?\nA: The storyline, atmosphere, spells, and interesting mechanics.\n\nQ: Are there bosses in the game and how are they different?\nA: There are bosses with increased difficulty and behavior that depends on the player's actions.\n\nQ: Are there any mini-games within the main storyline? For example, match-three puzzles within a strategy game.\nA: Yes, there are. Collecting special seals.\n\nMechanics & Progression\n\nQ: How does leveling up work exactly? What needs to be done to level up faster?\nA: Collecting spells related to the storyline.\n\nEconomy & Customization\n\nQ: What engaging content elements are there (weapons, vehicles, locations, skills, references to famous franchises, etc.)?\nA: Complex mechanics and traps, a well-developed storyline.\n\nRetention & Engagement\n\nQ: Is it preferable to play with sound to better immerse yourself in the atmosphere, or will there be difficulties in passing without sound?\nA: It is necessary to play with sound.\n\nQ: Is there a system of achievements (achievements)? What are they and what can you get them for?\nA: Yes, they are obtained as quests and tasks are completed.",
+    instructions: "Desktop\nWASD = move\nQ = open diary\nH = hint\nC = shop\nTAB = inventory\nF = heal\n1/2/3/4 = skills\nE or Left Mouse Button = use combat magic\n\nMobile\nSwipe from the right side of the screen = character rotation\nVirtual joystick on the left = move\nTap the icon in the center of the screen = interact with objects\nTap on the menu buttons = menu navigation",
+    categories: [
+      "adventure"
+    ],
+    tags: "adventure, story, scary, horror, 3d, ghost, logic, action-adventure, challenging-games, fantasy-games, mystery-games, quests-games, wizard-games",
+    iframeUrl: "/games/sorcerers-refuge.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
+  {
+    id: 124,
+    name: "Imposter 3D online horror",
+    cat: "horror",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/imposter-3d-online-horror/big_preview/c4a268f6d7234acaaebdd4a300253cf4?width=448",
+    width: "800",
+    height: "450",
+    description: "Save all the mini-crewmates from the traitor in single player or online. \n\nPlay online with other players, or with friends by creating your own room! \n \nThe horror game \"Imposter 3D online horror\" features 7 online multiplayer game modes and 8 unique maps!  \n \n\"Mafia\" - up to 10 players, including an impostor who looks like the other players. But at any moment he can turn into an imposter and catch the other players! Use a vote to identify the imposter and shout \"Impostor among us!\". Be careful and collect all the little ones. \n\"PvE\" - play with friends against an imposter controlled by the computer. \n\"PvP\" - spacemen against imposter, players play for impostors. \n\"Zombie\" - Infection mode, who has been caught by the imposter, he also becomes an impostor.  \n\"Hide and Seek\" - In this mode, you have to hide, playing as an astronaut, and hold out until the end of the round. Collecting babies in this mode is optional!\n\"Hunt\" - collect most babies in time!\n\"Rescue\" - Imposters can get astronauts in a cage!\n\"Lava\" - Lava rises periodically! Complete objectives and escape to high ground while imps hunt the astronauts.",
+    instructions: "For the imposter and crewmate:\n\nWASD keys - player control.\nMouse - camera rotation\n\"Tab\" - hide/show cursor\nSpace - to jump\n\nPlaying as an crewmate:\n\"E\" - use.\n\"F\" - turn on/off flashlight\n\"G\" - throw batteries\n\"R\" - to use batteries (restore flashlight charge)\n\nPlaying as an imposter:\n\"R\" - use shout.\n\"E\" - use, to catch the player, to hide in the vent\n\nIn Mafia mode for the imposter:\n\"2\" - turn into an imposter",
+    categories: [
+      "horror"
+    ],
+    tags: "horror, 3d, multiplayer, scary, 3d-horror, fps-horror, stealth-games, sci-fi-games, space-horror, multiplayer-horror, imposter-games, gam-supported-games, hide-and-seek-games",
+    iframeUrl: "/games/imposter-3d-online-horror.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
+  {
+    id: 125,
+    name: "The Tall Man",
+    cat: "horror",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/the-tall-man/big_preview/cad21af835d348db83f9aace4ccca043?width=448",
+    width: "800",
+    height: "450",
+    description: "The Tall Man is a horror game where you explore darkness, searching for clues with only a weak light to guide you. But something is watching, always, just out of sight.\n\nIn this first-person horror survival game, the player navigates a dark, desolate forest at night with the primary objective of collecting nine mysterious pages scattered across the environment before a supernatural entity arrives. Movement is cautious and tense, utilizing a flashlight with a depleting battery to illuminate looming pine trees, abandoned structures, and rusted vehicles. The core gameplay loop focuses on exploration and stealth, where success depends on finding all collectibles while managing limited light sources to avoid the looming threat. The visual style is rooted in a gritty, realistic 3D aesthetic featuring a high-contrast palette of deep blacks, navy blues, and cold grays, creating a chilling atmosphere punctured only by the harsh yellow glow of the flashlight. A persistent HUD displays a countdown timer for the Slender-inspired Tallman, a page counter, a flashlight battery indicator, and a mini-map for navigation. The setting is a classic horror woodland characterized by tall, spindly trees and foggy patches, evoking a sense of isolation and vulnerability. The protagonist appears as a generic human figure in a pinkish sleeve, seen only via their hand clutching the light. The emotional tone is high-tension and creepy, targeting teens and adult fans of the urban legend horror genre who enjoy skill-heavy survival mechanics and jumpscares. Progression is measured by the increasing number of pages found, which heightens the difficulty and atmospheric soundscapes as the player nears the final objective.",
+    instructions: "The controls are similar to any first person game with:\nW / A / S / D – Move\nMouse – Look around\nShift – Run\n",
+    categories: [
+      "horror"
+    ],
+    tags: "horror, survival, 3d, adventure, 3d-horror, survival-horror, psychological-horror, 1-player-games, horror-escape, stealth-action, single-player-horror",
+    iframeUrl: "/games/the-tall-man.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
+  {
+    id: 126,
+    name: "The Secret of the Toy Factory",
+    cat: "horror",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/the-secret-of-the-toy-factory/big_preview/ce41b593f2044ba197bc73f83d7cfc41?width=448",
+    width: "800",
+    height: "450",
+    description: "An atmospheric first-person horror game where you must explore an abandoned factory and uncover its dark secrets. Solve puzzles, search for useful items, and carefully investigate the dark rooms—danger can appear at any moment.\nThe factory is filled with intense chases, unexpected jump scares, and encounters with Plush and BOTY. Hide, run, and use your surroundings to survive. Every corridor hides a new mystery, while strange notes and traces of the past gradually reveal what happened at the factory and why its toys came to life.",
+    instructions: "A keyboard and mouse are required to play on PC:\nWASD — Move\nE — Read notes\nTab — Return to the main menu\n\nFor mobile devices:\nOn-screen joystick — Move\n“Main Menu” button — Return to the main menu\n“Read Note” button — Read notes",
+    categories: [
+      "horror"
+    ],
+    tags: "horror, adventure, scary, escape, 1-player-games, 3d-horror, dungeon-games, fps-horror, horror-escape, single-player-horror",
+    iframeUrl: "/games/the-secret-of-the-toy-factory.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
+  {
+    id: 127,
+    name: "Backrooms: Exit Protocol 0",
+    cat: "horror",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/backrooms-exit-protocol-0/big_preview/4f691ad7fdbb4ec3a0a45c781c0feea7?width=448",
+    width: "800",
+    height: "450",
+    description: "Backrooms: Exit Protocol 0 — a terrifying horror survival game! Explore Level 0, find the keycard, solve puzzles, avoid the monster, and escape the backrooms!",
+    instructions: "PC Controls:\nMove — W, A, S, D or Arrow Keys;\nJump — Space;\nRun — Shift;\nCrouch — C;\nInteract — E;\nDrop item — R;\nOpen Menu — Tab;\nZoom Camera — Right Mouse Button (RMB);\n\nMobile Controls:\nMove — Joystick;\nJump — Jump Button;\nRun — Run Button;\nDrop item - Drop Button;\nCrouch — Crouch Button;\nRotate Camera — Right side of the screen;\nInteract — Button with the \"E\" icon;\nOpen Menu — Button in the top-right corner.",
+    categories: [
+      "horror"
+    ],
+    tags: "horror, adventure, running, survival, puzzle, monster, escape, scary, 1-player-games, 3d-horror, backrooms, horror-escape, survival-horror, webgl-games, desktop-games, action-adventure, brain-training-games",
+    iframeUrl: "/games/backrooms-exit-protocol-0.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
+  {
+    id: 128,
+    name: "Five Nights at Christmas",
+    cat: "scary",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/five-nights-at-christmas/big-preview/ff5f8b877e88481da903a946bc4eb1ff?width=448",
+    width: "800",
+    height: "450",
+    description: "Five Nights at Christmas - Is Horror Survival game where you have to survive the nights in a snowy forest there will be \nsome tasks that you need todo remember don't get cold and don't forget about the Snowman.",
+    instructions: "[ WASD ] - Move\n[ Mouse ] - Look\n[ E ] - Intract\n\nJust survive as many days as you can and make sure you didn't get freezed up!",
+    categories: [
+      "scary"
+    ],
+    tags: "scary, horror, christmas, survival, survival-horror, jump-scare-games, holiday-games, single-player-horror",
+    iframeUrl: "/games/five-nights-at-christmas.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
+  {
+    id: 129,
+    name: " Car Destruction King",
+    cat: "car",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/car-destruction-king/big_preview/0ca8f4094cfd4826b9888ea1d094bdd7?width=448",
+    width: "800",
+    height: "450",
+    description: "Drive different cars, test your strength with rotating hammers, presses, catapults and other obstacles!\nTake part in the races and set new records.\nSlow down time for a more realistic crash.\nChoose different maps and different game modes!",
+    instructions: "Controls:\nTAB - pause menu (or Escape)\n\nDriving - WASD.\nSpacebar - handbrake.\nShift - nitro.\nC - change camera.\nR - reset car.\nK - restore car.\nN - switch car.\nB - slow motion.\n\nFor mobile devices, use the game interface.",
+    categories: [
+      "car"
+    ],
+    tags: "car, driving, racing, simulation, 3d, action, physics, unity, boys, car-crash-games, crash-games, destroy-games, destruction-games, demolition-cars-games",
+    iframeUrl: "/games/car-destruction-king.html",
+    fullscreen: true,
+    videoUrl: ""
   }
 ];

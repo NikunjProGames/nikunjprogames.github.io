@@ -115,7 +115,12 @@
       border: 1px solid var(--panel-border); border-radius: 12px; padding: 8px; transition: transform 0.2s ease, border-color 0.2s ease;
     }
     .related-game:hover { transform: translateY(-2px); border-color: rgba(0,191,255,0.45); }
-    .related-game img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 10px; background: #05070d; }
+    .related-game-media { display: block; position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 8px; background: #05070d; }
+    .related-game-media img, .related-game-preview { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .related-game-media img { transition: opacity 0.2s ease; }
+    .related-game-preview { opacity: 0; pointer-events: none; transition: opacity 0.2s ease; }
+    .related-game:hover .related-game-preview, .related-game:focus-visible .related-game-preview { opacity: 1; }
+    .related-game:hover .related-game-media img, .related-game:focus-visible .related-game-media img { opacity: 0; }
     .related-game span { font-size: 0.9rem; line-height: 1.2; }
     .chip-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
     .chip { padding: 6px 10px; border-radius: 999px; background: rgba(0,191,255,0.14); border: 1px solid rgba(0,191,255,0.26); color: #bfeeff; font-size: 0.9rem; }
@@ -174,11 +179,11 @@
 
       <section class="info-card related-games" aria-label="Related games">
         <h2>Games You Might Like</h2>
-        <div class="related-grid"><a class="related-game" href="driver-club-highway-racing.html"><img src="https://static.playgama.com/p-img/pg/driver-club-highway-racing/big-preview/037ce11afe4f4d58a0f93a6339db96b5?width=448" alt="" width="800" height="450" loading="eager" fetchpriority="high" decoding="async" /><span>Driver Club: Highway Racing</span></a>
-        <a class="related-game" href="basketball-stars.html"><img src="https://static.playgama.com/p-img/pg/basketball-stars/big_preview/2e0653c710ad43e09c40d1ba5968e447?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><span>Basketball Stars</span></a>
-        <a class="related-game" href="ragdoll-crash-test-throw-and-break.html"><img src="https://static.playgama.com/p-img/pg/ragdoll-crashtest-throw-and-break/big-preview/806817717e62466a83cb4377d0fa92eb?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><span>Ragdoll Crash-Test: Throw and Break!</span></a>
-        <a class="related-game" href="special-ops-go.html"><img src="https://static.playgama.com/p-img/pg/special-ops/big_preview/379c25433de24d13afadf693d918e11e?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><span>Special Ops: GO</span></a>
-        <a class="related-game" href="1-speed-escape-prison.html"><img src="https://static.playgama.com/p-img/pg/1-speed-escape-prison/big-preview/415c3326c7724e6cae83d74990cc3020?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><span>+1 Speed: Escape Prison</span></a></div>
+        <div class="related-grid"><a class="related-game" href="driver-club-highway-racing.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/driver-club-highway-racing/big-preview/037ce11afe4f4d58a0f93a6339db96b5?width=448" alt="" width="800" height="450" loading="eager" fetchpriority="high" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/2bc9523376aa46139c01c868d86cbb68/orig_length_h320.mp4"></video></span><span>Driver Club: Highway Racing</span></a>
+        <a class="related-game" href="basketball-stars.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/basketball-stars/big_preview/2e0653c710ad43e09c40d1ba5968e447?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/c7ae7f11ad0f1a1178788aaa188f4508/orig_length_h320.mp4"></video></span><span>Basketball Stars</span></a>
+        <a class="related-game" href="ragdoll-crash-test-throw-and-break.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/ragdoll-crashtest-throw-and-break/big-preview/806817717e62466a83cb4377d0fa92eb?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/1cbe32ecf2444651a508c985b8360784/orig_length_h320.mp4"></video></span><span>Ragdoll Crash-Test: Throw and Break!</span></a>
+        <a class="related-game" href="special-ops-go.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/special-ops/big_preview/379c25433de24d13afadf693d918e11e?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/cca4b40c9b6c4877a294c337ef342280/orig_length_h320.mp4"></video></span><span>Special Ops: GO</span></a>
+        <a class="related-game" href="1-speed-escape-prison.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/1-speed-escape-prison/big-preview/415c3326c7724e6cae83d74990cc3020?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/32247dbeba054937adf4fe6321dabfb3/orig_length_h320.mp4"></video></span><span>+1 Speed: Escape Prison</span></a></div>
       </section>
     </div>
 
@@ -243,6 +248,32 @@
         document.exitFullscreen();
       }
     }
+  </script>
+  <script>
+    (function () {
+      const grid = document.querySelector('.related-grid');
+      if (!grid) return;
+      const setPreview = (link, playing) => {
+        const video = link?.querySelector('.related-game-preview');
+        if (!video) return;
+        if (playing) video.play().catch(() => {});
+        else { video.pause(); video.currentTime = 0; }
+      };
+      grid.addEventListener('pointerover', event => {
+        if (event.pointerType !== 'mouse') return;
+        const link = event.target.closest('.related-game');
+        if (link && !link.contains(event.relatedTarget)) setPreview(link, true);
+      });
+      grid.addEventListener('pointerout', event => {
+        const link = event.target.closest('.related-game');
+        if (link && !link.contains(event.relatedTarget)) setPreview(link, false);
+      });
+      grid.addEventListener('focusin', event => setPreview(event.target.closest('.related-game'), true));
+      grid.addEventListener('focusout', event => {
+        const link = event.target.closest('.related-game');
+        if (link && !link.contains(event.relatedTarget)) setPreview(link, false);
+      });
+    }());
   </script>
   <script>
     (function () {

@@ -1,0 +1,76 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "115594",
+          "slug": "imposter-3d-online-horror",
+          "title": "Imposter 3D online horror",
+          "description": "Save all the mini-crewmates from the traitor in single player or online. \n\nPlay online with other players, or with friends by creating your own room! \n \nThe horror game \"Imposter 3D online horror\" features 7 online multiplayer game modes and 8 unique maps!  \n \n\"Mafia\" - up to 10 players, including an impostor who looks like the other players. But at any moment he can turn into an imposter and catch the other players! Use a vote to identify the imposter and shout \"Impostor among us!\". Be careful and collect all the little ones. \n\"PvE\" - play with friends against an imposter controlled by the computer. \n\"PvP\" - spacemen against imposter, players play for impostors. \n\"Zombie\" - Infection mode, who has been caught by the imposter, he also becomes an impostor.  \n\"Hide and Seek\" - In this mode, you have to hide, playing as an astronaut, and hold out until the end of the round. Collecting babies in this mode is optional!\n\"Hunt\" - collect most babies in time!\n\"Rescue\" - Imposters can get astronauts in a cage!\n\"Lava\" - Lava rises periodically! Complete objectives and escape to high ground while imps hunt the astronauts.",
+          "howToPlayText": "For the imposter and crewmate:\n\nWASD keys - player control.\nMouse - camera rotation\n\"Tab\" - hide/show cursor\nSpace - to jump\n\nPlaying as an crewmate:\n\"E\" - use.\n\"F\" - turn on/off flashlight\n\"G\" - throw batteries\n\"R\" - to use batteries (restore flashlight charge)\n\nPlaying as an imposter:\n\"R\" - use shout.\n\"E\" - use, to catch the player, to hide in the vent\n\nIn Mafia mode for the imposter:\n\"2\" - turn into an imposter",
+          "gameURL": "https://playgama.com/export/game/imposter-3d-online-horror?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/imposter-3d-online-horror",
+          "genres": [
+            "horror",
+            "3d",
+            "multiplayer",
+            "scary"
+          ],
+          "tags": [
+            "3d-horror",
+            "fps-horror",
+            "stealth-games",
+            "sci-fi-games",
+            "space-horror",
+            "multiplayer-horror",
+            "imposter-games",
+            "gam-supported-games",
+            "hide-and-seek-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/imposter-3d-online-horror/big_preview/c4a268f6d7234acaaebdd4a300253cf4?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-115594/icon/a5338de0dafc30a8a3ee01158515271824ca9c3611aa8d7a67b8a08cedf71ed1?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "ce9c9c3686363232dab69f88b265cf44",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "ce9c9c3686363232dab69f88b265cf44",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/imposter-3d-online-horror/big_preview/c4a268f6d7234acaaebdd4a300253cf4?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/backfill/game-115594/icon/a5338de0dafc30a8a3ee01158515271824ca9c3611aa8d7a67b8a08cedf71ed1?width=448",
+          "inGamePurchases": "Yes",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "supportedLanguages": [
+            "en-US",
+            "de-DE",
+            "es-ES",
+            "id-ID",
+            "pt-PT",
+            "ru-RU",
+            "tr-TR"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/imposter-3d-online-horror?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

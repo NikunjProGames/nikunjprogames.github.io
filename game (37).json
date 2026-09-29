@@ -1,0 +1,71 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "120327",
+          "slug": "sorcerers-refuge",
+          "title": "Sorcerers Refuge",
+          "description": "You wake up in a strange living room. There are no doors. Only whispers behind the wall and darkness in the eyes. Welcome to the Sorcerer’s Hideout, a dark adventure with elements of magic, riddles, and quests.\nIn this confusing and dangerous place, you will find:\nWhat Awaits You\nMysterious corridors, hidden rooms, and sudden traps\nThe magic of ice, fire, transformation, and true vision\nMysterious creatures, demons, and a strange Buffoon with his own motives\nIntense dialogues, unexpected outcomes, and choices that affect the story\nBattles, puzzles, and ancient Contracts made with powerful forces\nYou are trapped by a Sorcerer who has subjugated four demons. Will you be able to escape, or will you become another soul in his collection?\n\nCore Gameplay & Story\n\nQ: What is the game about? What do you need to do?\nA: It's a horror game where you need to solve a mystery and fight for your life.\n\nQ: Is there a storyline in the game?\nA: Yes, it's very intricate, interesting, and complex.\n\nQ: What is the unique feature of the game? What can hook players?\nA: The storyline, atmosphere, spells, and interesting mechanics.\n\nQ: Are there bosses in the game and how are they different?\nA: There are bosses with increased difficulty and behavior that depends on the player's actions.\n\nQ: Are there any mini-games within the main storyline? For example, match-three puzzles within a strategy game.\nA: Yes, there are. Collecting special seals.\n\nMechanics & Progression\n\nQ: How does leveling up work exactly? What needs to be done to level up faster?\nA: Collecting spells related to the storyline.\n\nEconomy & Customization\n\nQ: What engaging content elements are there (weapons, vehicles, locations, skills, references to famous franchises, etc.)?\nA: Complex mechanics and traps, a well-developed storyline.\n\nRetention & Engagement\n\nQ: Is it preferable to play with sound to better immerse yourself in the atmosphere, or will there be difficulties in passing without sound?\nA: It is necessary to play with sound.\n\nQ: Is there a system of achievements (achievements)? What are they and what can you get them for?\nA: Yes, they are obtained as quests and tasks are completed.",
+          "howToPlayText": "Desktop\nWASD = move\nQ = open diary\nH = hint\nC = shop\nTAB = inventory\nF = heal\n1/2/3/4 = skills\nE or Left Mouse Button = use combat magic\n\nMobile\nSwipe from the right side of the screen = character rotation\nVirtual joystick on the left = move\nTap the icon in the center of the screen = interact with objects\nTap on the menu buttons = menu navigation",
+          "gameURL": "https://playgama.com/export/game/sorcerers-refuge?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/sorcerers-refuge",
+          "genres": [
+            "adventure",
+            "story",
+            "scary",
+            "horror",
+            "3d",
+            "ghost",
+            "logic"
+          ],
+          "tags": [
+            "action-adventure",
+            "challenging-games",
+            "fantasy-games",
+            "mystery-games",
+            "quests-games",
+            "wizard-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/sorcerers-refuge/big-preview/23c5e2a2597e4b71b1a01fc457170af8?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-120327/icon/71c21193646a00ee2b9ff650212fb02b7b93de62eaec131ade7dca4d9c9e0d7b?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "6f0fa1935227461bb6875c0f3be95664",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "6f0fa1935227461bb6875c0f3be95664",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/sorcerers-refuge/big-preview/23c5e2a2597e4b71b1a01fc457170af8?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/backfill/game-120327/icon/71c21193646a00ee2b9ff650212fb02b7b93de62eaec131ade7dca4d9c9e0d7b?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "supportedLanguages": [
+            "en-US",
+            "ru-RU"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/sorcerers-refuge?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

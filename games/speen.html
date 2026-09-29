@@ -115,7 +115,12 @@
       border: 1px solid var(--panel-border); border-radius: 12px; padding: 8px; transition: transform 0.2s ease, border-color 0.2s ease;
     }
     .related-game:hover { transform: translateY(-2px); border-color: rgba(0,191,255,0.45); }
-    .related-game img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 10px; background: #05070d; }
+    .related-game-media { display: block; position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 8px; background: #05070d; }
+    .related-game-media img, .related-game-preview { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .related-game-media img { transition: opacity 0.2s ease; }
+    .related-game-preview { opacity: 0; pointer-events: none; transition: opacity 0.2s ease; }
+    .related-game:hover .related-game-preview, .related-game:focus-visible .related-game-preview { opacity: 1; }
+    .related-game:hover .related-game-media img, .related-game:focus-visible .related-game-media img { opacity: 0; }
     .related-game span { font-size: 0.9rem; line-height: 1.2; }
     .chip-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
     .chip { padding: 6px 10px; border-radius: 999px; background: rgba(0,191,255,0.14); border: 1px solid rgba(0,191,255,0.26); color: #bfeeff; font-size: 0.9rem; }
@@ -174,11 +179,11 @@
 
       <section class="info-card related-games" aria-label="Related games">
         <h2>Games You Might Like</h2>
-        <div class="related-grid"><a class="related-game" href="blockscape-io.html"><img src="https://img.gamemonetize.com/z41q0ycg5i8u33rqy7sfjcedpak3e7zz/512x384.jpg" alt="" width="900" height="600" loading="eager" fetchpriority="high" decoding="async" /><span>blockscape.io</span></a>
-        <a class="related-game" href="guardz-io.html"><img src="https://img.gamemonetize.com/f1e896emfy104h8j8higjjdkcqeqvtau/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async" /><span>Guardz IO</span></a>
-        <a class="related-game" href="quiz-runner-io.html"><img src="https://img.gamemonetize.com/o265mdiouhnx82t87q3p0t5jgspwsdoy/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async" /><span>Quiz Runner.io</span></a>
-        <a class="related-game" href="stickman-trivia-fall-io.html"><img src="https://img.gamemonetize.com/cybh6ym22ww2ehlpu23d6azrudls31ar/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async" /><span>Stickman Trivia Fall IO</span></a>
-        <a class="related-game" href="popaloon.html"><img src="https://img.gamemonetize.com/l28ng8jar2mopyfsls1ufwi7zm9ml4zi/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async" /><span>popaloon</span></a></div>
+        <div class="related-grid"><a class="related-game" href="blockscape-io.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/z41q0ycg5i8u33rqy7sfjcedpak3e7zz/512x384.jpg" alt="" width="900" height="600" loading="eager" fetchpriority="high" decoding="async" /></span><span>blockscape.io</span></a>
+        <a class="related-game" href="guardz-io.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/f1e896emfy104h8j8higjjdkcqeqvtau/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async" /></span><span>Guardz IO</span></a>
+        <a class="related-game" href="quiz-runner-io.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/o265mdiouhnx82t87q3p0t5jgspwsdoy/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async" /></span><span>Quiz Runner.io</span></a>
+        <a class="related-game" href="stickman-trivia-fall-io.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/cybh6ym22ww2ehlpu23d6azrudls31ar/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async" /></span><span>Stickman Trivia Fall IO</span></a>
+        <a class="related-game" href="popaloon.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/l28ng8jar2mopyfsls1ufwi7zm9ml4zi/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async" /></span><span>popaloon</span></a></div>
       </section>
     </div>
 
@@ -243,6 +248,32 @@
         document.exitFullscreen();
       }
     }
+  </script>
+  <script>
+    (function () {
+      const grid = document.querySelector('.related-grid');
+      if (!grid) return;
+      const setPreview = (link, playing) => {
+        const video = link?.querySelector('.related-game-preview');
+        if (!video) return;
+        if (playing) video.play().catch(() => {});
+        else { video.pause(); video.currentTime = 0; }
+      };
+      grid.addEventListener('pointerover', event => {
+        if (event.pointerType !== 'mouse') return;
+        const link = event.target.closest('.related-game');
+        if (link && !link.contains(event.relatedTarget)) setPreview(link, true);
+      });
+      grid.addEventListener('pointerout', event => {
+        const link = event.target.closest('.related-game');
+        if (link && !link.contains(event.relatedTarget)) setPreview(link, false);
+      });
+      grid.addEventListener('focusin', event => setPreview(event.target.closest('.related-game'), true));
+      grid.addEventListener('focusout', event => {
+        const link = event.target.closest('.related-game');
+        if (link && !link.contains(event.relatedTarget)) setPreview(link, false);
+      });
+    }());
   </script>
   <script>
     (function () {

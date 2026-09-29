@@ -1,0 +1,63 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "118485",
+          "slug": "five-nights-at-christmas",
+          "title": "Five Nights at Christmas",
+          "description": "Five Nights at Christmas - Is Horror Survival game where you have to survive the nights in a snowy forest there will be \nsome tasks that you need todo remember don't get cold and don't forget about the Snowman.",
+          "howToPlayText": "[ WASD ] - Move\n[ Mouse ] - Look\n[ E ] - Intract\n\nJust survive as many days as you can and make sure you didn't get freezed up!",
+          "gameURL": "https://playgama.com/export/game/five-nights-at-christmas?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/five-nights-at-christmas",
+          "genres": [
+            "scary",
+            "horror",
+            "christmas",
+            "survival"
+          ],
+          "tags": [
+            "survival-horror",
+            "jump-scare-games",
+            "holiday-games",
+            "single-player-horror"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/five-nights-at-christmas/big-preview/ff5f8b877e88481da903a946bc4eb1ff?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-118485/icon/775e31a1bbdcbf14b32c4db6bfb7962e262ce9f78179aa35426cbcc0e45a4435?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "8214c0be049547e381d024d3fc4b4bba",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "8214c0be049547e381d024d3fc4b4bba",
+          "mobileReady": [
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/five-nights-at-christmas/big-preview/ff5f8b877e88481da903a946bc4eb1ff?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/backfill/game-118485/icon/775e31a1bbdcbf14b32c4db6bfb7962e262ce9f78179aa35426cbcc0e45a4435?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "supportedLanguages": [
+            "en-US"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/five-nights-at-christmas?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

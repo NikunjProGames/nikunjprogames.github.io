@@ -1,0 +1,61 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "123229",
+          "slug": "the-tall-man",
+          "title": "The Tall Man",
+          "description": "The Tall Man is a horror game where you explore darkness, searching for clues with only a weak light to guide you. But something is watching, always, just out of sight.\n\nIn this first-person horror survival game, the player navigates a dark, desolate forest at night with the primary objective of collecting nine mysterious pages scattered across the environment before a supernatural entity arrives. Movement is cautious and tense, utilizing a flashlight with a depleting battery to illuminate looming pine trees, abandoned structures, and rusted vehicles. The core gameplay loop focuses on exploration and stealth, where success depends on finding all collectibles while managing limited light sources to avoid the looming threat. The visual style is rooted in a gritty, realistic 3D aesthetic featuring a high-contrast palette of deep blacks, navy blues, and cold grays, creating a chilling atmosphere punctured only by the harsh yellow glow of the flashlight. A persistent HUD displays a countdown timer for the Slender-inspired Tallman, a page counter, a flashlight battery indicator, and a mini-map for navigation. The setting is a classic horror woodland characterized by tall, spindly trees and foggy patches, evoking a sense of isolation and vulnerability. The protagonist appears as a generic human figure in a pinkish sleeve, seen only via their hand clutching the light. The emotional tone is high-tension and creepy, targeting teens and adult fans of the urban legend horror genre who enjoy skill-heavy survival mechanics and jumpscares. Progression is measured by the increasing number of pages found, which heightens the difficulty and atmospheric soundscapes as the player nears the final objective.",
+          "howToPlayText": "The controls are similar to any first person game with:\nW / A / S / D – Move\nMouse – Look around\nShift – Run\n",
+          "gameURL": "https://playgama.com/export/game/the-tall-man?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/the-tall-man",
+          "genres": [
+            "horror",
+            "survival",
+            "3d",
+            "adventure"
+          ],
+          "tags": [
+            "3d-horror",
+            "survival-horror",
+            "psychological-horror",
+            "1-player-games",
+            "horror-escape",
+            "stealth-action",
+            "single-player-horror"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/the-tall-man/big_preview/cad21af835d348db83f9aace4ccca043?width=448",
+            "https://static.playgama.com/p-img/pg/the-tall-man/icon/2273553b6282464ca5d9ed962482fa96?width=448"
+          ],
+          "videos": [],
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/the-tall-man/big_preview/cad21af835d348db83f9aace4ccca043?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/the-tall-man/icon/2273553b6282464ca5d9ed962482fa96?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": true
+          },
+          "supportedLanguages": [
+            "en-US"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/the-tall-man?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

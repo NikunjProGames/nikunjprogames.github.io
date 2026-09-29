@@ -1,0 +1,75 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "125633",
+          "slug": "backrooms-exit-protocol-0",
+          "title": "Backrooms: Exit Protocol 0",
+          "description": "Backrooms: Exit Protocol 0 — a terrifying horror survival game! Explore Level 0, find the keycard, solve puzzles, avoid the monster, and escape the backrooms!",
+          "howToPlayText": "PC Controls:\nMove — W, A, S, D or Arrow Keys;\nJump — Space;\nRun — Shift;\nCrouch — C;\nInteract — E;\nDrop item — R;\nOpen Menu — Tab;\nZoom Camera — Right Mouse Button (RMB);\n\nMobile Controls:\nMove — Joystick;\nJump — Jump Button;\nRun — Run Button;\nDrop item - Drop Button;\nCrouch — Crouch Button;\nRotate Camera — Right side of the screen;\nInteract — Button with the \"E\" icon;\nOpen Menu — Button in the top-right corner.",
+          "gameURL": "https://playgama.com/export/game/backrooms-exit-protocol-0?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/backrooms-exit-protocol-0",
+          "genres": [
+            "horror",
+            "adventure",
+            "running",
+            "survival",
+            "puzzle",
+            "monster",
+            "escape",
+            "scary"
+          ],
+          "tags": [
+            "1-player-games",
+            "3d-horror",
+            "backrooms",
+            "horror-escape",
+            "survival-horror",
+            "webgl-games",
+            "desktop-games",
+            "action-adventure",
+            "brain-training-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/backrooms-exit-protocol-0/big_preview/4f691ad7fdbb4ec3a0a45c781c0feea7?width=448",
+            "https://static.playgama.com/p-img/pg/backrooms-exit-protocol-0/icon/fc9ad24bf5164259a21dc9ad61d78d25?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "60c9d220c3d84df194de4368f427a1dd",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "60c9d220c3d84df194de4368f427a1dd",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/backrooms-exit-protocol-0/big_preview/4f691ad7fdbb4ec3a0a45c781c0feea7?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/backrooms-exit-protocol-0/icon/fc9ad24bf5164259a21dc9ad61d78d25?width=448",
+          "inGamePurchases": "Yes",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "supportedLanguages": [
+            "en-US",
+            "ru-RU"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/backrooms-exit-protocol-0?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

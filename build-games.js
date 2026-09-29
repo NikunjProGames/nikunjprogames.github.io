@@ -50,7 +50,7 @@ function listFrom(value) {
 function normalizeGame(game) {
   const description = toPlainText(game.description);
   const instructions = toPlainText(game.instructions);
-  const categories = listFrom(game.categories || game.category);
+  const categories = [...new Set([...listFrom(game.categories), ...listFrom(game.category)])];
   const tags = listFrom(game.tags);
   const shortDescription = toPlainText(game.shortDescription) || description.slice(0, 155).replace(/\s+\S*$/, '');
 
@@ -145,7 +145,38 @@ function getVideoHtml(game) {
     </section>`;
 }
 
-function getRecommendationsHtml(game, games) {
+function getRecommendationVideoUrl(game, homepageVideosBySlug) {
+  const directCandidates = [
+    game.videoUrl,
+    game.video_url,
+    game.video,
+    game.videoURL,
+    game.previewVideoUrl,
+    game.preview_url,
+    game.external_url,
+    game.videos?.[0]?.external_url,
+    game.videos?.[0]?.url,
+    game.video_metadata?.[0]?.external_url,
+    game.video_metadata?.[0]?.url
+  ].filter(Boolean);
+  const directVideoUrl = directCandidates.find(value =>
+    /\.(?:mp4|webm)(?:\?|$)/i.test(value) || /static\.playgama\.com\/p-video\//i.test(value)
+  );
+  if (directVideoUrl) return directVideoUrl;
+
+  const playgamaId = [
+    game.videoId,
+    game.playgama_id,
+    game.playgamaId,
+    game.videos?.[0]?.playgama_id,
+    game.video_metadata?.[0]?.playgama_id
+  ].find(value => typeof value === 'string' && value.trim());
+  return playgamaId
+    ? `https://static.playgama.com/p-video/${String(playgamaId).trim()}/orig_length_h640_6so.mp4`
+    : homepageVideosBySlug.get(game.slug) || '';
+}
+
+function getRecommendationsHtml(game, games, homepageVideosBySlug) {
   const gameCategories = new Set(game.categories.map(category => category.toLowerCase()));
   const gameTags = new Set(game.tags.map(tag => tag.toLowerCase()));
   const recommendations = games
@@ -161,7 +192,12 @@ function getRecommendationsHtml(game, games) {
       const image = candidate.thumb
         ? `<img src="${escapeHtml(candidate.thumb)}" alt="" width="${candidate.imageWidth}" height="${candidate.imageHeight}" loading="${index === 0 ? 'eager' : 'lazy'}"${index === 0 ? ' fetchpriority="high"' : ''} decoding="async" />`
         : '';
-      return `<a class="related-game" href="${candidate.slug}.html">${image}<span>${escapeHtml(candidate.title)}</span></a>`;
+      const videoUrl = getRecommendationVideoUrl(candidate, homepageVideosBySlug);
+      const video = /\.(?:mp4|webm)(?:\?|$)/i.test(videoUrl)
+        ? `<video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="${escapeHtml(videoUrl)}"></video>`
+        : '';
+      const media = image || video ? `<span class="related-game-media">${image}${video}</span>` : '';
+      return `<a class="related-game" href="${candidate.slug}.html">${media}<span>${escapeHtml(candidate.title)}</span></a>`;
     })
     .join('\n        ');
   return recommendations;
@@ -440,6 +476,10 @@ function generateGamePages() {
     const match = String(game.iframeUrl || '').match(/^\/?games\/([^/]+)\.html$/);
     return match ? [[match[1], game.id]] : [];
   }));
+  const homepageVideosBySlug = new Map(loadHomepageGames().flatMap(game => {
+    const match = String(game.iframeUrl || '').match(/^\/?games\/([^/]+)\.html$/);
+    return match && game.videoUrl ? [[match[1], game.videoUrl]] : [];
+  }));
 
   // Create the output directory
   const outputDir = path.join(__dirname, 'games');
@@ -474,7 +514,7 @@ function generateGamePages() {
       .replaceAll('{{RELATED_CATEGORIES_HTML}}', categoryLinks)
       .replaceAll('{{JSON_LD}}', getGameSchema(game))
       .replaceAll('{{VIDEO_HTML}}', videoHtml)
-      .replaceAll('{{RECOMMENDATIONS_HTML}}', getRecommendationsHtml(game, games))
+      .replaceAll('{{RECOMMENDATIONS_HTML}}', getRecommendationsHtml(game, games, homepageVideosBySlug))
       .replaceAll('{{IMAGE_WIDTH}}', String(game.imageWidth))
       .replaceAll('{{IMAGE_HEIGHT}}', String(game.imageHeight));
 

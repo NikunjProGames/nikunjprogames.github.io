@@ -1,0 +1,81 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "110692",
+          "slug": "car-destruction-king",
+          "title": " Car Destruction King",
+          "description": "Drive different cars, test your strength with rotating hammers, presses, catapults and other obstacles!\nTake part in the races and set new records.\nSlow down time for a more realistic crash.\nChoose different maps and different game modes!",
+          "howToPlayText": "Controls:\nTAB - pause menu (or Escape)\n\nDriving - WASD.\nSpacebar - handbrake.\nShift - nitro.\nC - change camera.\nR - reset car.\nK - restore car.\nN - switch car.\nB - slow motion.\n\nFor mobile devices, use the game interface.",
+          "gameURL": "https://playgama.com/export/game/car-destruction-king?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/car-destruction-king",
+          "genres": [
+            "car",
+            "driving",
+            "racing",
+            "simulation",
+            "3d",
+            "action",
+            "physics",
+            "unity",
+            "boys"
+          ],
+          "tags": [
+            "car-crash-games",
+            "crash-games",
+            "destroy-games",
+            "destruction-games",
+            "demolition-cars-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/car-destruction-king/big_preview/0ca8f4094cfd4826b9888ea1d094bdd7?width=448",
+            "https://static.playgama.com/p-img/pg/car-destruction-king/icon/7c3dafed564a4a4b866d1eba937d92e0?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "cdac251fb08c4fafb7bb056eadfa2623",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "cdac251fb08c4fafb7bb056eadfa2623",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/car-destruction-king/big_preview/0ca8f4094cfd4826b9888ea1d094bdd7?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/car-destruction-king/icon/7c3dafed564a4a4b866d1eba937d92e0?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": true
+          },
+          "supportedLanguages": [
+            "en-US",
+            "zh-CN",
+            "de-DE",
+            "es-ES",
+            "fr-FR",
+            "hi-IN",
+            "id-ID",
+            "it-IT",
+            "ja-JP",
+            "ko-KR",
+            "pt-PT",
+            "ru-RU"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/car-destruction-king?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}
