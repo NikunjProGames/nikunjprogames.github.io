@@ -3,12 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Play Master Chess for FREE on PleyZ</title>
-  <meta name="description" content="Sharpen your tactics to defeat the king in this classic game. Compete online with either the AI or players from around the world. Aim for victory!" />
-  <meta name="keywords" content="two-player, multiplayer, chess, classic, board, turnbased-games, rts-games, mind-games, desktop-games, 1-player-games, indie-games, borwser-games, online puzzle game, free puzzle games, PleyZ" />
+  <title>Play Master Chess Online | PleyZ</title>
+  <meta name="description" content="Sharpen your tactics to defeat the king in this classic game. Compete online with either the AI or players from around the world. Aim for" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://nikunjprogames.github.io/games/master-chess.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Play Master Chess Online | PleyZ" />
+  <meta property="og:description" content="Sharpen your tactics to defeat the king in this classic game. Compete online with either the AI or players from around the world. Aim for" />
+  <meta property="og:url" content="https://nikunjprogames.github.io/games/master-chess.html" />
+  <meta property="og:site_name" content="PleyZ" />
+  <meta property="og:image" content="https://static.playgama.com/p-img/pg/master-chess/big-preview/52cdd471a5044f1e94c36787ee523746?width=448" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Play Master Chess Online | PleyZ" />
+  <meta name="twitter:description" content="Sharpen your tactics to defeat the king in this classic game. Compete online with either the AI or players from around the world. Aim for" />
+  <meta name="twitter:image" content="https://static.playgama.com/p-img/pg/master-chess/big-preview/52cdd471a5044f1e94c36787ee523746?width=448" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3172987137389272" crossorigin="anonymous"></script>
   <style>
     :root {
@@ -30,6 +41,12 @@
     }
     a { color: inherit; text-decoration: none; }
     .page-shell { max-width: 1280px; margin: 0 auto; padding: 20px 16px 40px; }
+    .skip-link { position: absolute; left: 12px; top: -60px; z-index: 10; padding: 10px 14px; background: #fff; color: #111; }
+    .skip-link:focus { top: 12px; }
+    .breadcrumbs ol { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0 0 16px; color: var(--muted); }
+    .breadcrumbs li + li::before { content: "/"; margin-right: 8px; color: var(--muted); }
+    .breadcrumbs a, .related-categories a { color: #bfeeff; text-decoration: underline; text-underline-offset: 3px; }
+    main { min-width: 0; }
     .topbar {
       display: flex; justify-content: space-between; align-items: center; gap: 12px;
       padding: 16px 20px; border: 1px solid var(--panel-border); border-radius: 16px;
@@ -83,6 +100,9 @@
     }
     .info-card h2 { margin: 0 0 10px; font-family: 'Orbitron', sans-serif; font-size: 1.1rem; }
     .info-card p, .info-card li { color: var(--muted); line-height: 1.6; }
+    .info-card p + p { margin-top: 10px; }
+    .info-card h3 { margin: 16px 0 6px; font-family: 'Orbitron', sans-serif; font-size: 0.95rem; }
+    .related-categories { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 12px; }
     .related-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
     .related-games { margin-top: 0; position: sticky; top: 16px; max-height: 70vh; overflow-y: auto; }
     .related-game {
@@ -113,6 +133,7 @@
 <!-- ads.txt: google.com, pub-3172987137389272, DIRECT, f08c47fec0942fa0 -->
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to game content</a>
   <div class="page-shell">
     <header class="topbar">
       <h1>Master Chess</h1>
@@ -122,10 +143,12 @@
           <span id="profile-score-label">PleyZ Score</span>
         </a>
         <a class="btn" href="../index.html"><i class="fa-solid fa-house"></i> Home</a>
-        <a class="btn primary" href="https://nikunjprogames.github.io/" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Play More Games </a>
+        <a class="btn primary" href="https://nikunjprogames.github.io/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i> Play More Games </a>
       </div>
     </header>
 
+    <main id="main-content">
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="../">Home</a></li><li><a href="/two-player-games/">Two Player Games</a></li><li aria-current="page">Master Chess</li></ol></nav>
     <div class="game-layout">
       <div class="game-shell">
         <div class="game-toolbar">
@@ -139,71 +162,29 @@
 
       <section class="info-card related-games" aria-label="Related games">
         <h2>Games You Might Like</h2>
-        <div class="related-grid"><a class="related-game" href="speen.html"><img src="https://img.gamemonetize.com/fwiozook1vr9lw7duxy81zup5676u7bj/512x384.jpg" alt="Speen" loading="lazy" /><span>Speen</span></a>
-        <a class="related-game" href="music-night-battle-rhythm-game.html"><img src="https://img.gamemonetize.com/gpnthl10ris6862m1lrywpqk8gc4zk4v/512x384.jpg" alt="Music Night Battle: Rhythm Game" loading="lazy" /><span>Music Night Battle: Rhythm Game</span></a>
-        <a class="related-game" href="wiggly-worm-race.html"><img src="https://img.gamemonetize.com/l0nqbs09szfpxezuy44h886ecqpomll5/512x384.jpg" alt="Wiggly Worm Race" loading="lazy" /><span>Wiggly Worm Race</span></a>
-        <a class="related-game" href="stickman-trivia-fall-io.html"><img src="https://img.gamemonetize.com/cybh6ym22ww2ehlpu23d6azrudls31ar/512x384.jpg" alt="Stickman Trivia Fall IO" loading="lazy" /><span>Stickman Trivia Fall IO</span></a>
-        <a class="related-game" href="castle-wars-legacy.html"><img src="https://img.gamemonetize.com/f6ung9e7lfninu1957spejeihzprdusb/512x384.jpg" alt="Castle Wars: Legacy" loading="lazy" /><span>Castle Wars: Legacy</span></a></div>
+        <div class="related-grid">undefined</div>
       </section>
     </div>
 
-    <section class="info-card" aria-label="Game information">
-<h2>How to Play</h2>
-
-<p><strong>Controls:</strong> On desktop: click the piece you want to move and then click the square on the board where you want to positionate the piece.</p>
-
-<p>On mobile: tap the piece you want to move and then tap the square on the board where you want to positionate the piece.</p>
-
-<p>Sharpen your tactics to defeat the king in this classic game. Compete online with either the AI or players from around the world. Aim for victory!</p>
-
-<p>Master the timeless strategy of Chess directly in your web browser! Whether you are a beginner learning basic moves or an experienced grandmaster testing deep positional play, this game delivers a smooth and competitive chess experience. Play at your own pace against dynamic AI difficulty levels, or test your skills in real-time online matches against players worldwide.</p>
-
-<p>Analyze your moves, control the center, execute castling, and set clever traps to capture your opponent's pieces. Every match offers a fresh tactical challenge that builds critical thinking, spatial awareness, and foresight. Jump onto the board, open with your favorite strategy, and achieve checkmate!</p>
-
-<h2>✨ Key Features</h2>
-
-<p>✅ <strong>Multiple Game Modes:</strong> Challenge smart AI bots or play online multiplayer matches against live opponents across the globe.</p>
-<p>✅ <strong>Intuitive Cross-Platform Controls:</strong> Seamless tap-to-move input on mobile and smooth click-to-move navigation on PC desktop browsers.</p>
-<p>✅ <strong>Brain-Boosting Strategy:</strong> Enhance your problem-solving abilities, tactical pattern recognition, and long-term planning skills.</p>
-<p>✅ <strong>Instant Web Play:</strong> Jump straight into the match with zero downloads, installs, or registration required.</p>
-
-<h2>Frequently Asked Questions (FAQ)</h2>
-
-<h3>Core Gameplay & Rules</h3>
-
-<p><strong>Q: What is the main objective of Chess?</strong><br>
-A: The primary goal in Chess is to checkmate your opponent's king. This means placing the king in a position where it is under attack and has no legal moves to escape.</p>
-
-<p><strong>Q: Is this chess game free to play online?</strong><br>
-A: Yes! You can play this game for free in any modern web browser on PC, tablet, or mobile phone without installing any app.</p>
-
-<h3>Features & Matchmaking</h3>
-
-<p><strong>Q: Can I play against my friends or an AI computer?</strong><br>
-A: Absolutely. You can choose to play offline against customizable AI difficulty levels for practice, or jump online to match against human players worldwide.</p>
-
-<p><strong>Q: Are legal moves highlighted on the board?</strong><br>
-A: Yes, when you tap or click a piece, the board highlights all valid squares where that piece can legally move.</p>
-
-<h3>Tips & Strategy</h3>
-
-<p><strong>Q: What is a good opening strategy for beginners?</strong><br>
-A: Focus on controlling the central squares (d4, d5, e4, e5), developing your knights and bishops early, and protecting your king by castling as soon as it is safe to do so.</p>
-      <div class="chip-list">
-        <span class="chip">two-player</span>
-        <span class="chip">multiplayer</span>
-        <span class="chip">chess</span>
-        <span class="chip">classic</span>
-        <span class="chip">board</span>
-        <span class="chip">turnbased-games</span>
-        <span class="chip">rts-games</span>
-        <span class="chip">mind-games</span>
-        <span class="chip">desktop-games</span>
-        <span class="chip">1-player-games</span>
-        <span class="chip">indie-games</span>
-        <span class="chip">borwser-games</span>
-      </div>
+    <section class="info-card" aria-labelledby="game-description-heading">
+      <h2 id="game-description-heading">About Master Chess</h2>
+      <p>Sharpen your tactics to defeat the king in this classic game. Compete online with either the AI or players from around the world. Aim for victory!</p>
     </section>
+<section class="info-card" aria-labelledby="how-to-play-heading">
+      <h2 id="how-to-play-heading">How to Play</h2>
+      <p>On desktop: click the piece you want to move and then click the square on the board where you want to positionate the piece. On mobile: tap the piece you want to move and then tap the square on the board where you want to positionate the piece.</p>
+    </section>
+<section class="info-card" aria-labelledby="game-dna-heading">
+      <h2 id="game-dna-heading">Game DNA</h2>
+      <div class="chip-list"><span class="chip">Two Player</span><span class="chip">two-player</span><span class="chip">multiplayer</span><span class="chip">chess</span><span class="chip">classic</span><span class="chip">board</span><span class="chip">turnbased-games</span><span class="chip">rts-games</span><span class="chip">mind-games</span><span class="chip">desktop-games</span><span class="chip">1-player-games</span><span class="chip">indie-games</span></div>
+    </section>
+<section class="info-card" aria-label="Game details"><p><strong>Platform:</strong> Web browser</p></section>
+
+    <section class="info-card" aria-labelledby="related-categories-heading">
+      <h2 id="related-categories-heading">Related Categories</h2>
+      <nav class="related-categories" aria-label="Related categories"><a href="/two-player-games/">Two Player Games</a></nav>
+    </section>
+    </main>
 
     <section class="page-ad-section" aria-label="Sponsored content">
       <div class="ad-label">Sponsored</div>
@@ -217,6 +198,7 @@ A: Focus on controlling the central squares (d4, d5, e4, e5), developing your kn
     </section>
 
   </div>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/master-chess.html#game","name":"Master Chess","description":"Sharpen your tactics to defeat the king in this classic game. Compete online with either the AI or players from around the world. Aim for victory!","url":"https://nikunjprogames.github.io/games/master-chess.html","image":"https://static.playgama.com/p-img/pg/master-chess/big-preview/52cdd471a5044f1e94c36787ee523746?width=448","gamePlatform":["Web browser"],"genre":["Two Player"],"keywords":["two-player","multiplayer","chess","classic","board","turnbased-games","rts-games","mind-games","desktop-games","1-player-games","indie-games","borwser-games"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Two Player Games","item":"https://nikunjprogames.github.io/two-player-games/"},{"@type":"ListItem","position":3,"name":"Master Chess","item":"https://nikunjprogames.github.io/games/master-chess.html"}]}]}</script>
   <script>
     function toggleGameFullscreen(root) {
       const target = root ? root.querySelector('.game-frame') : null;
@@ -231,59 +213,6 @@ A: Focus on controlling the central squares (d4, d5, e4, e5), developing your kn
         document.exitFullscreen();
       }
     }
-  </script>
-  <script id="npg-fullscreen-snippet">
-  (function(){
-    if(window.__npgFullscreenSnippetLoaded) return; window.__npgFullscreenSnippetLoaded = true;
-
-    // remove legacy duplicate buttons if present
-    document.querySelectorAll('#npg-fullscreen-btn, .npg-fullscreen-btn').forEach((el,i)=>{ if(i>0) el.remove(); });
-
-    // inject minimal styles used while in fullscreen
-    function ensureStyles(){
-      if(document.getElementById('npg-fullscreen-styles')) return;
-      const css = `
-      .npg-fullscreen-active, .npg-fullscreen-active html, .npg-fullscreen-active body { height:100% !important; width:100% !important; margin:0 !important; padding:0 !important; background:#000 !important; }
-      .npg-fullscreen-active .game-frame, .npg-fullscreen-active iframe { height:100vh !important; min-height:100vh !important; width:100% !important; }
-      .npg-fullscreen-btn { position: fixed; right: 18px; bottom: 18px; z-index:2147483647; padding:10px 14px; border-radius:8px; background:#8B00FF; color:#fff; border:none; font-weight:700; box-shadow:0 6px 18px rgba(0,0,0,0.4); cursor:pointer; }
-      `;
-      const s = document.createElement('style'); s.id = 'npg-fullscreen-styles'; s.appendChild(document.createTextNode(css)); document.head.appendChild(s);
-    }
-
-    ensureStyles();
-
-    document.addEventListener('fullscreenchange', ()=>{
-      if(document.fullscreenElement) document.documentElement.classList.add('npg-fullscreen-active');
-      else document.documentElement.classList.remove('npg-fullscreen-active');
-    });
-
-    // If the page already has a fullscreen toolbar button, don't add a floating control
-    const hasToolbar = !!document.querySelector('.game-toolbar button') || !!document.querySelector('[onclick*="toggleGameFullscreen"]');
-    if(hasToolbar) return;
-
-    // If button already exists (maybe added by another pass), keep the first and exit
-    if(document.querySelector('.npg-fullscreen-btn')) return;
-
-    const btn = document.createElement('button');
-    btn.className = 'npg-fullscreen-btn';
-    btn.id = 'npg-fullscreen-btn';
-    btn.textContent = 'Fullscreen';
-    btn.addEventListener('click', function(){
-      // prefer the iframe element when present
-      const iframe = document.querySelector('iframe') || document.querySelector('.game-frame') || document.documentElement;
-      const el = (iframe && iframe.tagName === 'IFRAME') ? iframe : (iframe && iframe.querySelector ? (iframe.querySelector('iframe') || iframe) : document.documentElement);
-      const target = el || document.documentElement;
-      const req = target.requestFullscreen || target.webkitRequestFullscreen || target.msRequestFullscreen;
-      if(req){
-        try{ req.call(target); }catch(e){ window.open(location.href, '_blank'); }
-      } else {
-        window.open(location.href, '_blank');
-      }
-    });
-
-    // append at end so it doesn't conflict with page layout
-    document.body.appendChild(btn);
-  })();
   </script>
   <script>
     (function () {

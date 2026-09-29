@@ -7,6 +7,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/fwiozook1vr9lw7duxy81zup5676u7bj/512x384.jpg",
+    width: "800",
+    height: "600",
+    description: "Swing one circle around the other, plant a leg to switch which ones spinning, and use momentum as your only weapon. Collect glowing pickups to fill your meters, smash through spike balls and rival spinners with a charged leg, and take down a boss bumper to unlock home decoration. Then head into the shared multiplayer world &mdash; paint your territory, duel other players, and chase a set of achievements as you go. Simple to pick up, with a genuinely different feel than anything else in the genre.",
+    instructions: "- Tap click to swap which circle is planted pivot and which one swings around it Thats the whole control scheme - Swing over green pickups with your orbiting circle plant a leg on pink pickups with your standing one fill both meters then head h",
+    categories: [
+      "multiplayer"
+    ],
+    tags: ".io, .io Games, 2026 games, Casual, Multiplayer",
     iframeUrl: "/games/speen.html",
     fullscreen: true,
     videoUrl: ""
@@ -19,6 +27,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/gpnthl10ris6862m1lrywpqk8gc4zk4v/512x384.jpg",
+    width: "960",
+    height: "600",
+    description: "Music Night Battle is a fast rhythm battle game where you tap arrows in time with the beat and fight in music duels. Play solo or compete in online multiplayer matches, improve your timing skills, build combos, and climb the leaderboard. Enjoy neon arcade visuals, fast reaction gameplay, and addictive rhythm challenges with arrow-based music mechanics. Defeat opponents, unlock new challenges, and test your reflexes in competitive rhythm battles designed for casual and hardcore players.",
+    instructions: "Tap the arrows Up Down Left Right in perfect timing with the music beat to hit notes build combos and defeat your opponent ",
+    categories: [
+      "multiplayer"
+    ],
+    tags: "Arcade, Music",
     iframeUrl: "/games/music-night-battle-rhythm-game.html",
     fullscreen: true,
     videoUrl: ""
@@ -31,6 +47,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/l0nqbs09szfpxezuy44h886ecqpomll5/512x384.jpg",
+    width: "800",
+    height: "480",
+    description: "Wiggly Worm Race is a simple and super fun racing game for kids! Pick your worm, tap your button as fast as you can, and be the first to cross the finish line. Choose between 3 levels and Play solo or race against up to 3 friends on the same screen. Whos the fastest worm in town? Thankyou very much for playing. Feedbacks are always welcome!",
+    instructions: "Player 1 Arrow Keys Touch Right and Left Side Player 2 A amp S Keys Player 3 V amp B Keys Player 4 L amp K Keys",
+    categories: [
+      "sports"
+    ],
+    tags: "1 Player, 2 Player, 2 Player Games, 2026 games, Fun, Funny, Race, Racing, Retro",
     iframeUrl: "/games/wiggly-worm-race.html",
     fullscreen: true,
     videoUrl: ""
@@ -43,6 +67,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/cybh6ym22ww2ehlpu23d6azrudls31ar/512x384.jpg",
+    width: "800",
+    height: "600",
+    description: "Stickman Trivia Fall io takes your trivia skills to the next level! Challenge your brain and reflexes as you compete against friends and players worldwide. Test your knowledge in Solo Mode, progress through fun quests, and beat the Boss to earn rewards. Love multiplayer? Jump into the Arena to battle up to four players, climb leaderboards, and score big! Play Classic one-on-one matches, enjoy weekly and monthly special quizzes, and customize your stickman avatar. Hundreds of trivia questions across multiple categories make this the ultimate addictive quiz &amp; trivia game!",
+    instructions: "Double left-click on the correct answer text to move your stickman there ",
+    categories: [
+      "multiplayer"
+    ],
+    tags: ".io Games, 2026 games, Arcade, Brain, Fall Guys, Fun, html games for your website, Multiplayer, Obstacle, Quiz, Skill, Stickman",
     iframeUrl: "/games/stickman-trivia-fall-io.html",
     fullscreen: true,
     videoUrl: ""
@@ -55,6 +87,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/f6ung9e7lfninu1957spejeihzprdusb/512x384.jpg",
+    width: "800",
+    height: "600",
+    description: "Castle Wars: Legacy is a tactical multiplayer card game where you build your deck, defend your castle, and break through enemy walls. Stack resources, summon armies, cast spells, and outsmart your opponent in fast-paced strategic duels. Battle friends online, climb daily tournaments, conquer the campaign, or fight AI in quick matches. Collect dozens of unique cards, build custom decks, and unlock new castle skins. Easy to learn, deep to master.",
+    instructions: "Click or tap",
+    categories: [
+      "multiplayer"
+    ],
+    tags: ".io, Castle, Defense, Strategy, two player games",
     iframeUrl: "/games/castle-wars-legacy.html",
     fullscreen: true,
     videoUrl: ""
@@ -67,6 +107,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/f1e896emfy104h8j8higjjdkcqeqvtau/512x384.jpg",
+    width: "800",
+    height: "600",
+    description: "Guardz.io is a free medieval knight .io game with fast-paced multiplayer sword combat. Start as a humble Page and evolve through 12 ranks &mdash; Squire, Knight, Templar, Paladin &mdash; up to the Kings Champion. Slay enemies, collect XP orbs, and climb the global leaderboard. No download needed &mdash; play instantly in your browser and become the ultimate knight in this free-for-all deathmatch!",
+    instructions: "Mouse click or tap to play",
+    categories: [
+      "multiplayer"
+    ],
+    tags: ".io, .io Games, 2026 games, Action, amazing, Highscore, Shooter, Shooting",
     iframeUrl: "/games/guardz-io.html",
     fullscreen: true,
     videoUrl: ""
@@ -79,6 +127,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/iv0siadzdl75mq4brnh2p63bjdomi3jt/512x384.jpg",
+    width: "1336",
+    height: "540",
+    description: "In the Robot Astro Party, the fast-paced multiplayer running game puts you in hilarious and unpredictable scenarios. Each match is a new adventure. Master different strategies for each racing and running map.",
+    instructions: "Mouse click or tap to play ",
+    categories: [
+      "racing"
+    ],
+    tags: "Adventure, Funny, Robot, running",
     iframeUrl: "/games/robot-astro-party.html",
     fullscreen: true,
     videoUrl: ""
@@ -91,6 +147,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/y4wmrpbd3v374mr8z6vtd97bwbo4kc82/512x384.jpg",
+    width: "800",
+    height: "600",
+    description: "INCOWORD is a fun and challenging word guessing game based on sounds. Read the gibberish phrase on the white card out loud to figure out the hidden word. Click the card to flip it for a helpful hint! Use your physical keyboard or the on-screen virtual keyboard to type your guesses and press Enter. Play solo from 5 to 10 letter levels, or join a multiplayer room to race against your friends in real-time!",
+    instructions: "Desktop Keyboard Type letters to guess the word Backspace Delete a letter Left Click Flip the card for a hint or toggle the virtual keyboard Mobile Tap Show Keyboard Open the on-screen keyboard to type Tap Backspace Delete a letter Tap the card ",
+    categories: [
+      "puzzle"
+    ],
+    tags: "2 Player, 2 Player Games, Brain, Puzzle, Word",
     iframeUrl: "/games/incoword.html",
     fullscreen: true,
     videoUrl: ""
@@ -103,6 +167,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/z41q0ycg5i8u33rqy7sfjcedpak3e7zz/512x384.jpg",
+    width: "900",
+    height: "600",
+    description: "Blockscape.io is a free browser-based voxel MMO. Mine ores, chop trees, fight monsters, and smith powerful weapons as you train 4 skills and level up. Collect rare gems, trade with other players, and explore a 3D multiplayer world &mdash; no download required.",
+    instructions: "WASD - Move Space - Jump Left Click - Mine Attack V - Toggle camera perspective T - Open chat Tab - Open inventory 1-9 - Select hotbar slot E - Interact Sell Esc - Settings menu",
+    categories: [
+      "multiplayer"
+    ],
+    tags: ".io, .io Games, 2026 games, 3D, Action, Block, blocky, Jumping, mineblock, Minecraft, Multiplayer, Online, onlinegames io",
     iframeUrl: "/games/blockscape-io.html",
     fullscreen: true,
     videoUrl: ""
@@ -115,6 +187,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/o265mdiouhnx82t87q3p0t5jgspwsdoy/512x384.jpg",
+    width: "800",
+    height: "600",
+    description: "Quiz Runner.io &ndash; Trivia &amp; Multiplayer Quiz Battle Think fast, play smart, and rule the leaderboard in Quiz Runner.io, the ultimate online quiz game! Enjoy solo quiz mode to improve knowledge, custom quizzes to test your favorite topics, or upload your notes and PDFs to play interactive learning games. Join real-time multiplayer quiz battles, friend duels, and tournaments to compete globally. Track progress with levels, achievements, and power-ups. With daily quiz challenges, fast-paced timed games, smooth addictive gameplay, and support for 12+ languages, Quiz Runner.io is perfect for students, teachers, and trivia lovers worldwide!",
+    instructions: "W rarr Move Forward A rarr Move Left D rarr Move Right Double Left-Click Mouse rarr Move left or right",
+    categories: [
+      "multiplayer"
+    ],
+    tags: ".io Games, 2026 games, Arcade, Brain, Educational, Fun, html5 games, Multiplayer, Online, Quiz",
     iframeUrl: "/games/quiz-runner-io.html",
     fullscreen: true,
     videoUrl: ""
@@ -127,6 +207,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/7zwgvkvq609jq0jk7tpfe10bncofyj5o/512x384.jpg",
+    width: "800",
+    height: "600",
+    description: "Xmas Matching is a delightful, holiday-themed memory puzzle game designed for friends and family to enjoy together. Set against a snowy winter night, players take turns flipping cards to find matching pairs of iconic Christmas symbols, including Santa Claus, warm cocoa, festive candles, and gingerbread cookies. Challenge your brain across multiple levels of increasing difficulty. Whether you are playing solo to beat your best score or competing in the Battle Mode with up to 4 players, the goal remains the same: remember the positions, find the matches, and clear the board to become the ultimate Holiday Match Master!",
+    instructions: "Xmas Matching Select Flip Left-Click or Tap Navigate Left-Click or Tap buttons to start or progress levels Input Use Keyboard to type player names during setup ",
+    categories: [
+      "multiplayer"
+    ],
+    tags: "amazing, Brain, Christmas, Fun, Matching, Memory, Mind, Multiplayer, Santa, Santa Claus",
     iframeUrl: "/games/santa-matching-game.html",
     fullscreen: true,
     videoUrl: ""
@@ -139,6 +227,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/e27ezlhh5edki5wv0aad96d8w3g1l1bf/512x384.jpg",
+    width: "1334",
+    height: "750",
+    description: "This is not just a simple running and racing game. It&rsquo;s a brainrot-style 3D battle where speed and strategy collide! Your goal is to collect as many bananas as possible while sprinting through hilarious obstacle courses. Collect more bananas to evolve your form.",
+    instructions: "Mouse click or tap to play ",
+    categories: [
+      "multiplayer"
+    ],
+    tags: "Battle, Brainrot, Racing, running",
     iframeUrl: "/games/brainrot-bridge-race-3d.html",
     fullscreen: true,
     videoUrl: ""
@@ -151,6 +247,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/ts6iu4xqkctvpkau5yk4hwdkr3nwbsn7/512x384.jpg",
+    width: "800",
+    height: "600",
+    description: "Experience the ultimate digital adaptation of the classic Carrom board game! Carrom Pro blends realistic physics with modern arcade aesthetics for a smooth, competitive experience. Game Modes: Classic Carrom: Traditional rules with the Queen. Disc Pool: Fast-paced action, clear your pucks first. Freestyle: Point-based arcade scoring. Features: Global Arenas: Progress from Dhaka to NYC. Realistic Physics: Smooth controls and collisions. Pass &amp; Play: Offline local multiplayer. Daily Rewards: Lucky spins and quests. Leaderboards: Climb the ranks! Download Carrom Pro now and become the King of the Board!",
+    instructions: "How to Play Aiming Drag your finger anywhere on the screen or the striker baseline to position your Striker Shooting Pull back on the Striker to set power and direction Release to shoot Objective Carrom Disc Pool Pot all your colored pieces Whit",
+    categories: [
+      "multiplayer"
+    ],
+    tags: "2 Player, Board, Multiplayer",
     iframeUrl: "/games/carrom-pro.html",
     fullscreen: true,
     videoUrl: ""
@@ -163,6 +267,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/at7gjto5axuv0mv7m4ain5pll3qmutcz/512x384.jpg",
+    width: "800",
+    height: "650",
+    description: "Experience the classic African card game WHOT! Play solo against AI or challenge friends in real-time multiplayer. Features stunning neon graphics, background music, and smooth gameplay. Free to play! GAMEPLAY: 1. On your turn, play a card that matches either: - The SHAPE of the top card (circle, triangle, cross, square, star) - The NUMBER of the top card 2. If you cant play, draw one card from the pile - If the drawn card is playable, you may play it - Otherwise, click SKIP TURN 3. WHOT cards (20) are wild - play them anytime and choose any shape",
+    instructions: " HOW TO PLAY WHOT OBJECTIVE Be the first player to play all your cards from your hand GAME SETUP bull Each player starts with 6 cards bull One card is placed face-up as the starting card bull Remaining cards form the draw pile CONTROLS bull C",
+    categories: [
+      "multiplayer"
+    ],
+    tags: "1 Player, 2 Player Games, 2025 games",
     iframeUrl: "/games/whot-the-ultimate-nigerian-card-game.html",
     fullscreen: true,
     videoUrl: ""
@@ -175,6 +287,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/pir55cwoygvsus9az7d5zyxd6gra48dh/512x384.jpg",
+    width: "1920",
+    height: "1080",
+    description: "Immerse yourself in the exciting world of Checkers English, where every game is a test of your tactics and foresight! Also this game is known by name Draughts Here, you dont just play - you build a career as a draughts strategist: - The rating system allows you to track your progress and compete for a place in the leaderboard. - Your personal profile stores complete statistics of your games, including the number of wins and losses, the percentage of successful captures, and the average rating of your opponents. Analyze the dynamics and set new goals - Search for opponents via the built-in chat - find like-minded people, discuss strategy",
+    instructions: "Mouse for desktop touch for mobile Click on checker and then clik on target cell on the board ",
+    categories: [
+      "sports"
+    ],
+    tags: "2 Player, Board, Brain, HTML5, Logic, Mobile, Multiplayer, Online, Puzzle, PvP, Relaxation, Strategy, Turn Based",
     iframeUrl: "/games/english-checkers.html",
     fullscreen: true,
     videoUrl: ""
@@ -187,6 +307,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/cx9ykv4xl6wlfq6vd9odkn68e6zenz7s/512x384.jpg",
+    width: "800",
+    height: "600",
+    description: "Capture your opponents cells, think through every move, and use strategy to be the last one standing. The more explosions, the more spectacular the game! Simple rules, but an endless number of combinations and tactics make Clonium incredibly addictive.",
+    instructions: "The board is divided into cells each capable of holding multiple pieces - Players take turns filling their cell - When a cell is full it explodes scattering the pieces into adjacent cells - If the pieces land in your opponents cells they become you",
+    categories: [
+      "multiplayer"
+    ],
+    tags: "1 Player, 2 Player, 2 Player Games, 2025 games, 2D, Ai Games, Android, Arcade, Best Games, Clash, free html5 games for your website, Skills, unity games for your site, unity games for your website",
     iframeUrl: "/games/clonium.html",
     fullscreen: true,
     videoUrl: ""
@@ -199,6 +327,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/7o8qtn59e5ejushl2s6bp52nbcgiu44x/512x384.jpg",
+    width: "800",
+    height: "600",
+    description: "Fall Guys Unblocked Web Multiplayer drops you into fast, chaotic obstacle courses right in your browser, no installs. Built with WebGL, it runs smoothly on modern devices while you dodge swinging hammers, tilting platforms, and grabby beans. Web Dev <a href='https://www.crazygamesfree.com/.'>https://www.crazygamesfree.com/.</a> Jump in solo or queue with friends, race, survive, and outlast the crowd across bite-size rounds. Quick matches, bright physics, and hilarious wipeouts make it perfect for study breaks, school Chromebooks, or evenings.",
+    instructions: "Mouse click or tap to play WASD TO walk juml on Space",
+    categories: [
+      "multiplayer"
+    ],
+    tags: "2025 games, Fall Boys, Fall Guys, jump, Mentolatux, Multiplayer, Obstacle, unity games, WebGL",
     iframeUrl: "/games/fall-guys-unblocked-web-multiplayer.html",
     fullscreen: true,
     videoUrl: ""
@@ -211,6 +347,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/np11v2111dvriy3bgljgr99a8qo2l8vi/512x384.jpg",
+    width: "800",
+    height: "600",
+    description: "Battle SWAT vs Mercenary throws you into intense first-person shooter action where you pick a side and fight for dominance. Choose to fight as a skilled SWAT soldier or a ruthless mercenary in thrilling multiplayer battles. The game also features a zombie mode, where you can rise from the dead and hunt down your enemies. With fast-paced combat and diverse modes, every match is packed with adrenaline and chaos. Web Dev <a href='https://www.crazygamesx.com/.'>https://www.crazygamesx.com/.</a> Mouse to aim, shooting, change gun, Tab for menu, WASD to walk-run.",
+    instructions: "Mouse to aim shooting change gun Tab for menu WASD to walk-run ",
+    categories: [
+      "multiplayer"
+    ],
+    tags: "Mentolatux, Multiplayer, Shooting, unblocked, unblocked games, unity, WebGL, Zombie",
     iframeUrl: "/games/battle-swat-vs-mercenary-remaster.html",
     fullscreen: true,
     videoUrl: ""
@@ -223,6 +367,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/gw00mqn2tqrl78k76v4bug5o2ho9qng8/512x384.jpg",
+    width: "800",
+    height: "600",
+    description: "Lock and load in a vibrant voxel world where every corner is a playground and every jump can win the round. PGA Toons blends classic arena shooting with modern movement and snappy controls. Parkour across rooftops, slide through alleys, bounce off jump pads, and jetpack into mid-air duels. Web Dev <a href='https://www.poki76.com/'>https://www.poki76.com/</a> .Whether you&rsquo;re clutching a round in Team Deathmatch or snatching the flag with a last-second dash, the action stays tight, readable, and gloriously cartoonish.",
+    instructions: "Mouse click to shoot aim change gun Tab to menu",
+    categories: [
+      "multiplayer"
+    ],
+    tags: "fps, Mentolatux, Multiplayer, Pixel, Shooting, unity games, WebGL",
     iframeUrl: "/games/pga-toons.html",
     fullscreen: true,
     videoUrl: ""
@@ -235,6 +387,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/tg44gsgkrah9ash957sdnj6jg2oeyn75/512x384.jpg",
+    width: "800",
+    height: "600",
+    description: "PGA3 Zombie Mode: hold the line or join the horde. Survive endless voxel hordes in solo or 4-player co-op&mdash;board up, upgrade guns, trigger traps, and drop bosses. Web Dev <a href='https://www.crazygamesonline.com/'>https://www.crazygamesonline.com/</a> Wave-based zombie chaos with fast rounds, cash-for-perks, craftable gear, deadly map traps, and escalating boss fights. How long can you last?",
+    instructions: "Mouse click to shoot aim Tba to menu",
+    categories: [
+      "multiplayer"
+    ],
+    tags: "Mentolatux, Multiplayer, Pixel, Shooting, unity, WebGL, Zombie",
     iframeUrl: "/games/pga3-zombie.html",
     fullscreen: true,
     videoUrl: ""
@@ -247,6 +407,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/u1n5ttd87g2a326o5b2pn1wb9ntpx33f/512x384.jpg",
+    width: "800",
+    height: "600",
+    description: "Explore unique locations filled with hidden objects and unexpected mysteries. From sunny beaches to the ancient ruins of Persia, every corner of this fluffy world comes to life as you hunt for hidden treasures. Watch as the cats go about their lives, adding charm and humor to the atmosphere, while you search through their delightful mess. Solve puzzles, progress through levels, and become the ultimate hidden object master!",
+    instructions: "Choose a level from the vibrant and detailed locations Carefully scan the screen to spot hidden objects Complete the level by finding all listed items and move on to the next exciting scene ",
+    categories: [
+      "multiplayer"
+    ],
+    tags: "Cat, Hidden",
     iframeUrl: "/games/paws-off-my-clues.html",
     fullscreen: true,
     videoUrl: ""
@@ -259,6 +427,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/yek6als54qfbxd4vx2h26nuq55rt7gt8/512x384.jpg",
+    width: "800",
+    height: "600",
+    description: "Tic Tac Toe is a classic strategy-based HTML5 game built with pure HTML5, CSS3, and JavaScript, designed for desktop and mobile browsers. This lightweight game is responsive, fast-loading, and fully customizable, making it perfect for websites, blogs, and game portals. Players can challenge the computer (AI) or play with a friend in 2-player mode. The game features clean UI, smooth animations, and modern design, ensuring a great user experience across all devices. Whether you&rsquo;re a developer, game publisher, or looking to add engagement to your site, this Tic Tac Toe game is an easy-to-integrate, monetizable, and timeless classic.",
+    instructions: "Mouse click or tap to play",
+    categories: [
+      "multiplayer"
+    ],
+    tags: "2 Player, 2D",
     iframeUrl: "/games/tic-tac-toe-with-ai-and-multiplayer.html",
     fullscreen: true,
     videoUrl: ""
@@ -271,6 +447,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/vlhloqzu0cvn1apzoyq9vwycgddt3fxn/512x384.jpg",
+    width: "350",
+    height: "600",
+    description: "Balloon Heroes: Run &amp; Rise is a fast-paced racing game where you compete in thrilling obstacle courses. Collect balloons to power high jumps, avoid falling into water, and race to the finish line ahead of rivals. Earn coins to unlock skins and customize your hero. With tons of challenging levels, this game offers nonstop action, strategy, and fun as you run, jump, and outsmart opponents to claim victory!",
+    instructions: "Tap or mouse click to play ",
+    categories: [
+      "racing"
+    ],
+    tags: "Multiplayer, Race, run, running",
     iframeUrl: "/games/balloon-heroes-run-and-rise.html",
     fullscreen: true,
     videoUrl: ""
@@ -283,6 +467,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/gkeofcoqengjzxlw0b09f2qrng35egbi/512x384.jpg",
+    width: "800",
+    height: "600",
+    description: "Iron Legion Dive into epic tank battles of the modern era! Iron Legion is an exciting online action game where you become the commander of a formidable combat vehicle. Game features: * More than 10 models of legendary classic tanks * Unique maps with detailed terrain * Vehicle development and upgrade system with realistic damage mechanics * Team battles for up to 20 players in real time Gameplay: * Choose your path - from light reconnaissance vehicles to heavy assault tanks * Complete exciting combat missions and tasks",
+    instructions: "Desktop controls movement - WASD arrow keys on the keyboard camera rotation - mouse shooting - left mouse button aim - right mouse button",
+    categories: [
+      "multiplayer"
+    ],
+    tags: "3D, Action, Battle, Driving, military, Multiplayer, Online, PvP, Shooter, Tank, Tanks, War",
     iframeUrl: "/games/iron-legion.html",
     fullscreen: true,
     videoUrl: ""
@@ -295,6 +487,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/bcs4hy6efm4uqx1qacogniq5xvn9jzhe/512x384.jpg",
+    width: "800",
+    height: "600",
+    description: "&ldquo;Poker Online&rdquo; is a fun and easy way to enjoy classic Texas Holdem online. No real-money betting &mdash; just pure fun and strategy! Play against real players, feel the thrill, build strong hands, and become the best at the virtual table. With a user-friendly interface and quick matchmaking, it&rsquo;s everything you need for the perfect poker night. Features: Classic Texas Holdem rules Real-time matches with live opponents Colorful and intuitive interface",
+    instructions: "Mouse click or tap to play",
+    categories: [
+      "sports"
+    ],
+    tags: "Card, Poker",
     iframeUrl: "/games/casual-poker-online.html",
     fullscreen: true,
     videoUrl: ""
@@ -307,6 +507,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/yh0n2bobl4i5wdm0z43l7rhow2nk62qy/512x384.jpg",
+    width: "960",
+    height: "600",
+    description: "super sprunki adventure game - Jungle Adventure - Classic Run Game gives you the chance to step back in time to your childhood. Bobby World has been nothing but empties since the Princess got kidnapped into the jungle. But then, the adventure begins! Your task is to help Bobby run through the mysterious jungle, jump over the obstacles, and super evil monsters save the beautiful Princess at the final destination of the adventure. This Game is free, and you can play Bob offline! [Features]: + More than 240 levels. + Challenging boss fights + Beautiful high-resolution graphics, drawn in a modern style mixed with a bit of classic. + Smooth us",
+    instructions: "Mouse click or tap to play",
+    categories: [
+      "multiplayer"
+    ],
+    tags: "Mario, Sprunki",
     iframeUrl: "/games/super-sprunki-adventure-game.html",
     fullscreen: true,
     videoUrl: ""
@@ -319,6 +527,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/bivqu9s6efq0gk7rknnqlad3qw0ncizt/512x384.jpg",
+    width: "1334",
+    height: "750",
+    description: "Enjoy chaos, laughter, and action in Run Guys: Knockout Royale. A running and multiplayer royale game. In seesaw mode, run over one seesaw after another, keep balance and rush to the finish line. Racing at breakneck speeds through spinning wooden columns, trap floors and trap obstacles. Each level will knock out the slowest players. In mountain climbing, be the first to reach the summit and jump onto the crown.",
+    instructions: "Mouse click or tap to play ",
+    categories: [
+      "racing"
+    ],
+    tags: "Funny, jump, running",
     iframeUrl: "/games/run-guys-knockout-royale.html",
     fullscreen: true,
     videoUrl: ""
@@ -331,6 +547,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/2zzd4eaozs2hipxphec84xoac3sagofk/512x384.jpg",
+    width: "1280",
+    height: "720",
+    description: "Come to run, jump, guess, and race as a cute but competitive kitty in Online Cats - Multiplayer Park. It&rsquo;s a real-time multiplayer chaos arena. Here are seven modes you can choose from. In Grab A Shabby Ball, for example, you will have to compete with your opponents and try to touch the ball to get points.",
+    instructions: "Mouse click or tap to play ",
+    categories: [
+      "racing"
+    ],
+    tags: "Arcade, Cat, jump, running",
     iframeUrl: "/games/online-cats-multiplayer-park.html",
     fullscreen: true,
     videoUrl: ""
@@ -343,6 +567,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/oddet3vf59i0den8dikuc3us81aby79z/512x384.jpg",
+    width: "800",
+    height: "600",
+    description: "Join up to 100 players in this hilarious viral meme-inspired multiplayer mayhem! Start as an innocent school kid, but watch out, the legendary Tung Sahur infection is spreading fast! Experience tiktoks most beloved bombardino crocodilo and tung tung tung sahur memes come to life in an epic infection game that will have you laughing and screaming at the same time along with your friends. Play as a school kid trying to survive the chaos, or get infected and join the Tung Sahur army to hunt down your former classmates.",
+    instructions: "WASD Arrow keys Move your character LEFT MOUSE Action jump as a kid or attack as a Tung Sahur MOUSE Move camera Mobile DRAG with your LEFT FINGER to move around DRAG with your right finger to look around TAP the GREEN BUTTON to Action jum",
+    categories: [
+      "multiplayer"
+    ],
+    tags: "airplane, Avoid, Battle, Collecting, Escape, fly, Helicopter, jump, run",
     iframeUrl: "/games/tung-sahur-io.html",
     fullscreen: true,
     videoUrl: ""
@@ -355,6 +587,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/e8vfdarke5qjx5uemefer4jtnbo3dc01/512x384.jpg",
+    width: "600",
+    height: "960",
+    description: "Dive into the world of Ludo Super, an all-in-one board game experience featuring Ludo, Bead 16, Tic Tac Toe, and Snakes &amp; Ladders! Connect with friends and family from around the globe, and engage in real-time voice chats for a truly interactive gaming experience. Whether youre a fan of classic board games or looking to make new friends through gaming, Ludo Super has something for everyone.",
+    instructions: "Mouse Controls",
+    categories: [
+      "multiplayer"
+    ],
+    tags: "2 Player, 2 Player Games, 3D Games, Best Games, Board, free games for your site, free games for your website, free html5 games for your website, Games, Multiplayer, onlinegames io",
     iframeUrl: "/games/ludo-king-offline-ludo-game.html",
     fullscreen: true,
     videoUrl: ""
@@ -367,6 +607,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/qf4hzartah4bf6ewbpelfx4dmz1qql4a/512x384.jpg",
+    width: "800",
+    height: "600",
+    description: "Enter the arena in Slither Battle: Snake War, the ultimate snake survival game! Start as a small slither and eat glowing orbs to grow larger. Outsmart other snakes, trap them, and collect everything they drop. But be careful, one wrong move and it&rsquo;s game over! Whether youre a casual player or competitive survivor, this addictive snake war will test your reflexes, strategy, and speed! Key Features: - Eat and grow to dominate &bull; Outsmart and trap enemy snakes &bull; Simple, smooth controls &bull; Fast-paced slither gameplay &bull; Offline mode and daily rewards &bull; No time limits &ndash; play your way!",
+    instructions: "Mouse click or tap to play",
+    categories: [
+      "multiplayer"
+    ],
+    tags: ".io, 3D Games, Action, Arcade, Best Games, Mobile, Slither, Snake, unity games",
     iframeUrl: "/games/snake-war-multiplayer.html",
     fullscreen: true,
     videoUrl: ""
@@ -379,6 +627,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/lbj1gbsu0l7j8jdaih6a3yqibr9xtgu2/512x384.jpg",
+    width: "900",
+    height: "550",
+    description: "Dive into the action-packed world of Counter Terror, a game that blends the excitement of CS with high-speed car battles. With over 10 types of weapons, 8 dynamic maps, and 4 customizable cars, the adrenaline never stops! Choose your side in thrilling game modes like DeathMatch and Team DeathMatch, and climb the military ranks from a common soldier to the prestigious General, unlocking more powerful weapons with each promotion. Explore the urban chaos in maps like Big City and GTA SA, where you can spawn cars from the garage, turning the battlefield into a vehicular warzone.",
+    instructions: "Tab - Open Menu P - Full Screen E Q - Change Weapon 1 2 3 Mouse Wheel - Change Weapon Chat - T Enter Send To Chat H - Show Hide Chat C - Crouch Left Ctrl - Lie LMB - Fire RMB - Aim F - Pick Up Weapon R - Reload Left Shift - Run Space - Jump ",
+    categories: [
+      "shooting"
+    ],
+    tags: "CSGO",
     iframeUrl: "/games/counter-terror-3d.html",
     fullscreen: true,
     videoUrl: ""
@@ -391,6 +647,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/s0e0jqx8z8e8s5n9dshww2gexamrw0cm/512x384.jpg",
+    width: "800",
+    height: "500",
+    description: "Sure Shot is the online multiplayer in which you are a soldier dropped into the madness of warfare. Lace up your boots and get ready soldier as you will be pitted against another special ops team where you will play different game modes to find the ultimate squadron across the globe. You can choose to play with your friends in team deathmatch or play on your own in a free for all type mode. Web Dev <a href='https://www.toyourlead.com/'>https://www.toyourlead.com/</a> Objective of both is to defeat as many enemies as possible to finish with the highest score. There are plenty of big maps to play on. Good luck!",
+    instructions: "Movements A W D S Jump Space Long Jump Space Button Twice Run Left Shift Fire Left Mouse Button Change weapon Mouse Wheel 1 2 3 4 Pause Menu P Score Tab Pick Up E Interaction F Spawn Med Kit H Spawn Amo Kit J Change Amo Mode B",
+    categories: [
+      "shooting"
+    ],
+    tags: "CSGO, Gun, Multiplayer, Shooter, Sniper",
     iframeUrl: "/games/sure-shot.html",
     fullscreen: true,
     videoUrl: ""
@@ -403,6 +667,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/dx1obtwhyn14plnk6inxzny5295onzl5/512x384.jpg",
+    width: "800",
+    height: "500",
+    description: "Free Rally: Vice is a modification of the Free Rally multiplayer series. In this mode, new cars and a huge city are added. Also made a view from the third person. You can control your car as a driver and get into someones car as a passenger. There are also places on the map where you can call a helicopter, as well as some garages to repair cars.",
+    instructions: "P- show hide car selector WASD ARROWS - drive on car heli and to move 3d person SPACE - use the handbrake E - exit enter from car F - getin getout in car like passenger Q - pause play radio SHIFT - use nitro G - get car up R - signal V - seeking rockets",
+    categories: [
+      "racing"
+    ],
+    tags: "Cars, city, Driving, gta, Helicopter",
     iframeUrl: "/games/free-rally-vice.html",
     fullscreen: true,
     videoUrl: ""
@@ -415,6 +687,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/i5povrpxi9gwdyq2d9zr1haw3cm0il6h/512x384.jpg",
+    width: "800",
+    height: "600",
+    description: "Gorilla Multiplayer Unleash your inner primate in Gorilla Multiplayer, an exhilarating online adventure! Join players worldwide in dynamic, fast-paced environments where agility, strategy, and teamwork reign supreme. Climb, swing, and jump your way through challenging terrains, all while competing or collaborating with friends. With customizable avatars, thrilling game modes, and a lively community, the jungle has never been this fun. Are you ready to go bananas?",
+    instructions: "On PC Use the Arrow Keys to move your gorilla Control the camera and aim with the Mouse On Mobile Use the on-screen Joystick to move Tap the Jump Button to leap into action ",
+    categories: [
+      "multiplayer"
+    ],
+    tags: "Animal, Online, Word",
     iframeUrl: "/games/gorilla-multiplayer.html",
     fullscreen: true,
     videoUrl: ""
@@ -427,6 +707,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/d2gokou3otdsj4x3y2l09gxx4ktk1okw/512x384.jpg",
+    width: "800",
+    height: "600",
+    description: "The main feature is that moves and captures with checkers are made horizontally and vertically, and not diagonally, as in most popular types of checkers. Accordingly, the initial arrangement of checkers is different. On a 64-cell board, opponents place their 16 checkers on all cells of the second and third horizontals. You can play the game with artificial intelligence, with another person on one device, or with an opponent online in multiplayer mode. You can also watch other players play, act as a spectator, or suggest your own version of the next move to the player by making it on the board.",
+    instructions: "Mouse click or tap to play",
+    categories: [
+      "multiplayer"
+    ],
+    tags: "2 Player Games, Board, Brain, Classic, Multiplayer, two player games",
     iframeUrl: "/games/turkish-draughts.html",
     fullscreen: true,
     videoUrl: ""
@@ -439,6 +727,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/6677ao3k189n72jdo2h94kdvvkmo6c72/512x384.jpg",
+    width: "1280",
+    height: "720",
+    description: "Welcome to a vibrant farming adventure! Build and expand your own farm by purchasing animals and structures. Produce goods like milk and eggs with cows and chickens, then pack and sell them to earn coins. Test your skills by completing matching levels or by efficiently packaging products. Beware of spoiled items &ndash; discard them for bonuses or risk losing gold. Exchange collected goods for coins and climb the competitive leaderboards, tracking your wealth. Upgrade your farm, unlock new animals, and become the top producer. The more you play, the more you grow! Dive into this relaxing farm journey, earn rewards, and see how high you can rise!",
+    instructions: "Match cards to earn coins and unlock rewards Pack milk and eggs into boxes to maximize space and profit Build your farm by buying cows chickens and pets Upgrade buildings to boost production Compete in leaderboards by earning the most gold and produ",
+    categories: [
+      "multiplayer"
+    ],
+    tags: "Arcade, Balance, Best Games, Brain, build, builder, building, Business, Card, Casual, Collecting, Farm, Highscore, Relaxation",
     iframeUrl: "/games/sunny-fields.html",
     fullscreen: true,
     videoUrl: ""
@@ -451,6 +747,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/iquipc0k9ijyjxw1pxc0q271kxb4t7gn/512x384.jpg",
+    width: "800",
+    height: "600",
+    description: "Race against other players in the room and be the first to get to the finish line. Be careful with many obstacles down the road, it will hurt you and will reset your position to the start.",
+    instructions: "Mouse",
+    categories: [
+      "multiplayer"
+    ],
+    tags: ".io Games, 2 Player Games, Adventure, Jumping, Mouse, Platform",
     iframeUrl: "/games/jump-race.html",
     fullscreen: true,
     videoUrl: ""
@@ -463,6 +767,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/3e4hk4zpotozwuy9ehh5uy0xzeaabp3k/512x384.jpg",
+    width: "800",
+    height: "600",
+    description: "Slide into the addictive chaos of 2048! Merge tiles, double up, and chase that elusive 2048 in a sleek 4x4 grid. Simple moves, big thrills",
+    instructions: "For Desktop Use Arrow Keys-Up Down Left Right For Mobile Swipe-Left Right Up Down",
+    categories: [
+      "puzzle"
+    ],
+    tags: "1 Player, 2 Player, 2048, Block, Brain, Puzzle",
     iframeUrl: "/games/qolor-2048.html",
     fullscreen: true,
     videoUrl: ""
@@ -475,6 +787,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/l3njgmefn0e3h9ih3zyhyctgjj2jlpsv/512x384.jpg",
+    width: "800",
+    height: "600",
+    description: "A board game in which a chain of dominoes (bones, stones) is built, touching halves with the same number of dots indicating the number of points. You can play the game with artificial intelligence or with an opponent online in multiplayer mode. A classic set has 28 dominoes, they are also called stones or bones. These rectangles are divided into 2 parts, each with dots from 0 to 6. Two players play the game. At the beginning of the game, 7 bones are dealt to each player. The remaining ones are kept aside in reserve, with the clean side up (on the market). The player who has a double 6-6 starts, he puts up a bone. The next players place",
+    instructions: "Mouse click or tap to play",
+    categories: [
+      "multiplayer"
+    ],
+    tags: "2 Player, 2 Player Games, Board, Classic, Multiplayer, two player games",
     iframeUrl: "/games/dominoes-classic-duel.html",
     fullscreen: true,
     videoUrl: ""
@@ -487,6 +807,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/8g5l1zycbzl4d95ho3kztawxu1cjrz0a/512x384.jpg",
+    width: "1280",
+    height: "720",
+    description: "Animerge is a twist to the famous Watermelon Suika game. It is a fun and relaxing casual game where players merge cute adorable animals, starting from the tiniest mouse, all the way to the majestic elephant! Merging these animals, while listening to cozy Lo-Fi music and hand drawn art, creates the perfect atmosphere for unwinding. Strategize, and relax in this fun and laid-back adventure while choosing from a list of LoFi music to create your own cozy vibe while merging the cute little animals. P.S. - much more is on the way...!",
+    instructions: "LMB or Tap - Drop",
+    categories: [
+      "puzzle"
+    ],
+    tags: "1 Player, 2D, Animal, Classic, watermelon, WebGL",
     iframeUrl: "/games/animerge.html",
     fullscreen: true,
     videoUrl: ""
@@ -499,6 +827,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/h5hc9ltwjo3sk2g2upo4su465kf1kkgz/512x384.jpg",
+    width: "900",
+    height: "900",
+    description: "Hello Dear players in this game you will challenge your friends in multiplayer team death match, hope you enjoy this game and thanks",
+    instructions: "WASD Movement LMB amp RMB Aim and Shoot R Reload LShift Run Space Jump",
+    categories: [
+      "shooting"
+    ],
+    tags: "3D Games, Action, Battle, Fighting, firefighters, Gun, html5 games, Matching, Multiplayer, Online, PvP, RPG, Shooter, two player games",
     iframeUrl: "/games/multiplayer-team-death-match.html",
     fullscreen: true,
     videoUrl: ""
@@ -511,6 +847,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/9dfjnm3ihlvt9h0yxblmdflszkbanpc2/512x384.jpg",
+    width: "800",
+    height: "600",
+    description: "A Scandinavian strategy board game that was popular in the Middle Ages. In Scandinavian society, it was comparable to chess. The game has game variants that differ in: - board size: 7, 9, 11, 13 - victory conditions: bring the king to the edge or corner of the board. - king encirclement conditions: from two or four sides. - the number of attacking (black) and defending (white) pieces. You can play the game with artificial intelligence, with another person on one device, or with an opponent online in multiplayer mode. The attacking black pieces move first. Then the players move in turns. All pieces move vertically or horizontally to any num",
+    instructions: "Mouse click or tap to play",
+    categories: [
+      "puzzle"
+    ],
+    tags: "Board",
     iframeUrl: "/games/tafl-viking-chess.html",
     fullscreen: true,
     videoUrl: ""
@@ -523,6 +867,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/l28ng8jar2mopyfsls1ufwi7zm9ml4zi/512x384.jpg",
+    width: "800",
+    height: "600",
+    description: "POP-A-LOON is an addictive shooter-style game with a limited violence cartoon vibe.Tired of games where your favorite stuff isn&rsquo;t viable? In POP-A-LOON, each weapon has its own challenges, strengths, weaknesses, and silly lore. All weapons are unique and viable depending on your objective. Need loot? Use Clover. Want to taste latex? Try Fork. Struggling with bosses? Use Slowleak. Enjoy skill and timing? There&rsquo;s Pen and many more! Each balloon brings a new challenge, with some trading health for speed and others the opposite.Try quickmatch for nonstop action, VIB mode to put your memory/reflexes to the test, and many other unique modes!",
+    instructions: "Mouse click or tap to play Dont let balloons escape off your screen or you will take damage ",
+    categories: [
+      "multiplayer"
+    ],
+    tags: "2 Player, Action, Best, Cartoon, Casual, Defense, endless, First Person Shooter, fps, Multiplayer, Shoot 'Em Up, Shooter, Strategy, Subway Surfers",
     iframeUrl: "/games/popaloon.html",
     fullscreen: true,
     videoUrl: ""
@@ -535,6 +887,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/c8p1307f1u9vsd1njv8qswqfomtayqgl/512x384.jpg",
+    width: "960",
+    height: "600",
+    description: "Sprunki Drift Multiplayer is a car-driving game with fantastic races, epic stunts, and awesome supercars. Gear up for heart-pounding races and wild challenges that will test your skills! Rack up cash as you speed through the tracks and use it to upgrade to flashy, jaw-dropping cars. Whether you&rsquo;re showing off your racing skills in epic two-player mode or going for solo glory, the trophy is yours for the taking. So buckle up, race hard, and let everyone know you&rsquo;re the ultimate speed demon!",
+    instructions: "Arrow key to move",
+    categories: [
+      "racing"
+    ],
+    tags: "drift, drifting, Driving, Multiplayer, Racing, Sprunki",
     iframeUrl: "/games/sprunki-drift-multiplayer.html",
     fullscreen: true,
     videoUrl: ""
@@ -547,6 +907,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/fzxidkarnp7ykiii4mot05y6nfwt8h3w/512x384.jpg",
+    width: "800",
+    height: "600",
+    description: "This is a very classic and fun Snake game. With Q Mengs lovely cartoon style, players can experience new interfaces and new Snake game playing methods, more vivid and interesting snake shapes and more mode levels. You can play anytime, anywhere. Its very suitable for killing time. Dont miss it!",
+    instructions: "Mouse click or tap to play",
+    categories: [
+      "multiplayer"
+    ],
+    tags: ".io, Battle, Best Games",
     iframeUrl: "/games/greedy-snake-multiplayer-duel.html",
     fullscreen: true,
     videoUrl: ""
@@ -559,6 +927,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/slrxe38x6845ol68bkcrtet7yqe728g9/512x384.jpg",
+    width: "800",
+    height: "600",
+    description: "Gomoku: Five Stones in a Row is a board logic game for two players. On a square board measuring 19x19 (in the traditional version) or 15x15 (in the modern sports version) points, players alternately place stones of two colors. The winner is the one who is the first to build a continuous row of five stones of his color vertically, horizontally or diagonally. It has many options, differing in individual details of the rules. The game is believed to have been invented in China more than two thousand years ago. Currently, the game is known all over the world; sporting competitions are held based on it.",
+    instructions: "Mouse click or tap to play",
+    categories: [
+      "puzzle"
+    ],
+    tags: "Board",
     iframeUrl: "/games/gomoku-five-stones-in-a-row.html",
     fullscreen: true,
     videoUrl: ""
@@ -571,6 +947,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/q9xrmuceu30pey8llzop5cr0p1p2fbx9/512x384.jpg",
+    width: "800",
+    height: "600",
+    description: "Survev.io Battle Royale is a thrilling multiplayer game where you fight to be the last character standing on a shrinking island. Start with nothing but your fists, scavenge for weapons and supplies, and stay within the safe zone. Choose between solo, duo, or squad modes, and use strategy and skills to outlast up to 50 opponents.",
+    instructions: "Movement W A S D Aim Mouse Melee Shoot Left-Click Change Weapons 1 through 4 or Scroll Wheel Stow Weapons Melee Mode 3 or E Swap to Previous Weapon Q Switch Gun Slots T or drag gun to other slot Reload R Scope Zoom Left-click on Zoo",
+    categories: [
+      "multiplayer"
+    ],
+    tags: ".io, Battle, Multiplayer, Shoot 'Em Up, Shooter",
     iframeUrl: "/games/survev-io.html",
     fullscreen: true,
     videoUrl: ""
@@ -583,6 +967,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/cxu4dpr5uspgzim70lf6t4p6milazwr0/512x384.jpg",
+    width: "800",
+    height: "600",
+    description: "In Battle Jitsu, you enter intense multiplayer online battles where strategy is everything. Carefully choose your cards and play the right element to beat your opponent. Fire, water, and ice face each other in a fast and dynamic duel. Master the elements, predict your opponents movements and prove yourself to be the true master of Battle Jitsu!",
+    instructions: "Use the mouse to select the cards fire beats snow snow beats water and water beats fire ",
+    categories: [
+      "multiplayer"
+    ],
+    tags: "Battle, Card, Multiplayer",
     iframeUrl: "/games/battle-jitsu.html",
     fullscreen: true,
     videoUrl: ""
@@ -595,6 +987,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://img.gamemonetize.com/594795s0fh64izkmnelrpracbmz1we3t/512x384.jpg",
+    width: "1920",
+    height: "1080",
+    description: "Giveaway Checkers or AntiCheckers or Reversed Checkers. Play with computer, online with friends, or together on same screen. - Selection of time control modes: unlimited, bullet, blitz, rapid, classic - 8 difficulty levels from Beginner to World Champion - Display of possible moves when choosing a piece - Interactive tips on how to play better during the game - Cancel the move, if there was a yawn, you can go back - The ability to replay the game from the right place - Interact with the opponent through funny cartoon emotions - Real live players - Saving the rating, you can compete with leaders",
+    instructions: "Mouse click or tap to play",
+    categories: [
+      "puzzle"
+    ],
+    tags: "2 Player, 2 Player Games, Board, Logic, Logical, Multiplayer, Puzzle, PvP, Sport, Turn Based, two player games",
     iframeUrl: "/games/giveaway-checkers.html",
     fullscreen: true,
     videoUrl: ""
@@ -607,6 +1007,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/rivals-fps-online-shooter/preview/2203a049014e4f6eaa4038ab696f6afa?width=448",
+    width: "800",
+    height: "450",
+    description: "💥Welcome to the world of \"RIVALS FPS: Online Shooter\" — a new free multiplayer online shooter where fun battles, cool guns, and a real arena of clashes await you!\n\n🎮 The game is inspired by top shooters like Star Wars Battlefront and Battlefield. Here you can dive into dynamic online battles, team up with friends, and show your shooting skills in the arena.\n\n⚙️ Features:\n- Online multiplayer with friends\n- First-person shooter\n- Bright 3D graphics in a colorful style\n- Lots of interesting maps\n- Different game modes and leaderboards\n- Play for free right in the browser from your mobile phone or computer\n\nFight, upgrade, change weapons and take rewards in epic online battles! ",
+    instructions: "To start a game, create a map or join other players.\n\nThe controls are the same as in many top shooters.\n\nOn PC:\n- Movement - WASD\n- Camera rotation - Using the mouse\n- Jump - Space\n- Crouch - C\n- Interact with objects - E\n\nOn mobile:\n- Movement - Virtual joystick on the left\n- Camera rotation - Swipes on the right side of the screen\n- Jump, reload using virtual buttons",
+    categories: [
+      "action"
+    ],
+    tags: "action, arcade, boys, 3d, multiplayer, shooting, co-op, first-person-shooter, 3rd-person-shooter-games, competitive-games, arena-games, combat-games, 2-player-gun, arcade-shooter, multiplayer-horror",
     iframeUrl: "/games/rivals-fps-online-shooter.html",
     fullscreen: true,
     videoUrl: ""
@@ -619,6 +1027,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/hazmob-fps-online-shooter/preview/76a02c8e7dbd4bd3a87bc87d868d6158?width=448",
+    width: "800",
+    height: "450",
+    description: "Hazmob FPS is a multiplayer shooting FPS game where every second counts! Play against other players across multiple game modes in non-stop combat. This first-person shooter game is ideal for those seeking a bit of thrill.\n\nSkilled FPS players will love Hazmob FPS. The game features excellent, clean 3D graphics with a fluid and intuitive control system that allows you to maneuver quickly and tactically. The maps are designed for fast-paced battles in a close-quarters setting, leaving it down to pure reflex and skill to get the job done.\n\nPlay various game modes\n\nTeam Deathmatch\nSearch and Destroy\nCapture the flag\nDomination\nFree for all\nElimination\nGun race\n",
+    instructions: "Controls\n\nWASD = move\nSpace = jump\nLeft mouse = shoot\nRight mouse / V = aim\nP = leaderboard, pause, and settings\nG = pick up the gun\nC = crouch\nShift = run\n1, 2, 3 = switch weapons\n4, 5, 6 = skills\nE = alternative skills\nQ = alternative skills",
+    categories: [
+      "action"
+    ],
+    tags: "action, 3d, multiplayer, shooting, gun, cool-games, popular, first-person-shooter, sniper, reaction-games, iphone-games, exciting-games, competitive-games, military-games, combat-games, agility-games, teams-games, android-games, sniper-shooter, action-fighting",
     iframeUrl: "/games/hazmob-fps-online-shooter.html",
     fullscreen: true,
     videoUrl: ""
@@ -631,6 +1047,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/backfill/game-99645/preview/90df3206f7f0c706e6431b9ae58fc331d0ed13a11e547ce0271b720ff82e6b21?width=448",
+    width: "800",
+    height: "450",
+    description: "Geometry Arrow 2 ─ sequel of the game about the arrow in the cave.\n\nThe goal of the game is to reach the end of the cave (the portal) alive. Along the way, you need to dodge unique obstacles.\n\nIn the new part, a new game character has been added ─ the \"Wheel\"\nAnd now you can customize your arrow and ball looks, change game particles and blocks textures.\n\nThe game has 13 levels of varying difficulty. Each level consists of \"Arrow\" segments and new \"Wheel\" segments.",
+    instructions: "Choose one of the 13 levels in the menu and start the game by clicking it with the left mouse button, the SPACEBAR or your finger.\n\nPC controls:\n\n─ LEFT MOUSE BUTTON or SPACEBAR ─ arrow movement;\n─ ESCAPE ─ exit the level.\n\nMOBILE controls:\n\n─ TOUCHING THE SCREEN ─ movement of the arrow.",
+    categories: [
+      "arcade"
+    ],
+    tags: "arcade, skill, popular, reaction-games, avoid-games, challenging-games, jumping-games, timing-games, geometry-games, rhythm-games, godot-games-online, fast-paced-action, space-waves",
     iframeUrl: "/games/geometry-arrow-2.html",
     fullscreen: true,
     videoUrl: ""
@@ -643,6 +1067,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/basket-random/preview/fec7a407ebd246d8a893abaf7801622c?width=448",
+    width: "800",
+    height: "450",
+    description: "Basket Random is a chaotic arcade basketball game where every match turns into a funny test of timing, luck, and unpredictable physics. Instead of giving players a serious sports simulation, it focuses on quick rounds, simple controls, and hilarious ragdoll movement. You control your team with one key, jump toward the ball, block your opponent, and try to score before the other side reaches the winning point. The idea is easy to understand, but the random physics make every attempt feel different.\n\nWhat makes Basket Random stand out is the way it changes after almost every score. One round may take place on a normal court, while the next may throw you into a completely different setup with unusual players, strange body proportions, or a ball that behaves in an unexpected way. Sometimes the characters have long arms, sometimes their movement feels heavier, and sometimes the ball bounces in a way that makes even a simple shot difficult to predict. This constant variety keeps the game fresh without making it complicated.\n\nThe controls are intentionally simple, which makes the game accessible for almost anyone. In single-player mode, you can play against the CPU and practice your timing. In 2-player mode, the game becomes even more entertaining because both players share the same device and compete in fast, messy basketball duels. Since both sides are dealing with the same strange physics, every point feels like a mix of skill, reaction, and comedy.\n\nBasket Random is especially enjoyable for players who like short sports games with instant action. You do not need to learn complex moves, manage a team, or follow advanced basketball rules. The goal is clear: jump, reach the ball, defend your basket, and score. However, the challenge comes from reading the movement of your characters and adapting quickly when the game changes the court, the players, or the ball behavior.\n\nThe pixel-style visuals give the game a clean and playful look, while the ragdoll animation creates many unexpected moments. A missed jump can turn into a lucky block. A bad shot can bounce into the basket. A perfect attack can fail because your player lands in the wrong position. These small surprises are the reason Basket Random feels fun even after many rounds.\n\nFor fans of funny basketball games, local 2-player games, and physics-based sports challenges, Basket Random offers a simple but highly replayable experience. It is easy to start, fast to understand, and unpredictable enough to keep every match exciting. Whether you are playing alone or challenging a friend, each round brings a new chance to score a ridiculous basket, make a surprising comeback, or laugh at a completely unexpected play.",
+    instructions: "Player 1: W\nPlayer 2: UP ARROW\n\nJump, block, and shoot with one key. Time your moves well and score before your opponent.",
+    categories: [
+      "action"
+    ],
+    tags: "action, arcade, sports, two-player, ragdoll, basketball, physics, fast-paced-games, addictive-games, competitive-games, agility-games, 1-player-games, 2-player-sports, 2-player-party, action-adventure, fast-paced-action, 2-player-basketball",
     iframeUrl: "/games/basket-random.html",
     fullscreen: true,
     videoUrl: ""
@@ -655,6 +1087,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/backfill/game-86496/preview/57449a8aeb08b058814fb911b0c15014c583f10801e7fa2f4c986e6743c4913c?width=448",
+    width: "800",
+    height: "450",
+    description: "Dive into the exhilarating world of car crashes with the Beam Drive Car Crash Test Simulator. Perfect for those who love realistic car destruction and high-speed racing, this free online game is accessible on both mobile and PC. Prepare for an entertaining experience filled with destruction physics!\n\nControls:\nDesktop: WASD — movement, right mouse button to click buttons, ZX — left and right turn signals. Mouse wheel — zoom in/out camera, left mouse button — rotate camera.\nMobile: Tap the buttons. Left/right buttons, accelerate forward, reverse.\n\nKey Features:\n• Realistic controls: The game features highly accurate controls, along with vehicle destructibility. Watch as cars crumple, tear apart, and explode into pieces!\n• Create your own levels: If the basic maps aren't enough for you, create your own — you decide what will be on your map and how it will look!\n• Choose your car: Pick the car you like and hit the road! Wonder how long your journey will be.\n\nGame Modes:\n• Classic mode: A classic mode where you can play on 8 ready-made maps and test the cars!\n• Map Editor: A separate large world where you can create your own maps as your heart desires. Come up with your own challenges and obstacles or just create something unique.\n\nVehicles / Cars:\n• Caro: A powerful muscle car. It will impress you with its speed and power. See how it withstands obstacles in its path!\n• Flash: The futuristic electric car! Powerful and fast enough. Watch how it takes a hit!\n• Syper: A sports car designed specifically for speed. Street racing is its forte, but how will it perform on the map? Find out!\n\nCore Gameplay & Story\nQ: What is the goal of the game?\nA: Test the cars' durability by completing challenges, or create your own! It's your sandbox where you can play as you wish! Choose a car and go racing on the map! You can complete challenges or immediately destroy your car on the first obstacle! Watch as cars turn into heaps of metal, or try to keep them intact. The choice is yours!\n\nQ: How do you win / what counts as losing?\nA: This is your sandbox where you set the rules. Destroy cars and enjoy watching them explode, or try to keep them whole!\n\nQ: What grabs attention in the first minutes?\nA: Realistic controls and driving physics allow for realistic scenarios. You can turn on the turn signal, honk, and even get out of the car or drive from a first-person perspective, witnessing all the chaos from inside! A wide selection of maps lets you play out numerous scenarios!\n\nMechanics & Progression\nQ: How many levels are there / is the structure clear?\nA: There are 8 maps in the game, each differing in challenges and content. But if that's not enough, you can create your own map in the map editor! You're not limited in possible scenarios!\n\nQ: What unlocks as you play?\nA: Unlock new cars and test their durability! See how many challenges they can withstand.\n\nEconomy & Customization\nQ: Are there skins / customization?\nA: Paint the cars in your desired color and see how they perform on the map!\n\nQ: What is available from the start?\nA: Most cars in the game are available from the start. Begin your journey with the car you like!\n\nRetention & Engagement\nQ: Is sound necessary?\nA: Sound is not mandatory, but it can enhance the emotional experience!\n\nQ: Is there onboarding in the game? What does it entail?\nA: At the beginning of the game, you'll be taught how to control the car, and from the first seconds, you'll understand what to do!",
+    instructions: "Driving/Walking/Flying - WASD\nRight mouse button - Rotate camera\nSpace - Handbrake\nC - Change camera\nB - Look back\nH - Horn\nJ - Hazard lights\nZ - Left turn signal\nX - Right turn signal\n\nFor mobile devices, use the in-game interface.",
+    categories: [
+      "simulation"
+    ],
+    tags: "simulation, destruction-games, car-crash-games, desktop-games, sandbox-games, borwser-games, unity-games-online",
     iframeUrl: "/games/beam-drive-car-crash-test-simulator.html",
     fullscreen: true,
     videoUrl: ""
@@ -667,6 +1107,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/backfill/game-109351/preview/b0afdef34402ca9cc780be5207be4cbfe8b640b6cd70d6626c7cec02741a4e3c?width=448",
+    width: "800",
+    height: "450",
+    description: "A great Cube Snake 2048 game begins with cube snakes and cubes in a huge arena. You will start with a low number of snakes, collect lower numbered cubes around the map, and try to make your snake bigger by combining numbers. Collect power-ups and give your snake more advantages.",
+    instructions: "Move: \"MOUSE\" or \"LEFT-RIGHT ARROWS\" or \"A, D\" Keys.\nBoost: \"LEFT-CLICK\" or \"SPACE\"\n\nTry to collect lower or equal cubes around.",
+    categories: [
+      "arcade"
+    ],
+    tags: "arcade, snake, number, merge, classic, cube-games, arena-games, collecting-games",
     iframeUrl: "/games/cube-snake-2048.html",
     fullscreen: true,
     videoUrl: ""
@@ -679,6 +1127,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/piece-of-cake-merge--bake/big-preview/4124b3ce37ab4b92b6a8ff1332c9eee8?width=448",
+    width: "800",
+    height: "450",
+    description: "Join the enchanting world of Piece of Cake: Merge & Bake, an engaging game that combines puzzle-solving with café management. Explore a beautiful mansion, uncover family secrets, and help Emily grow her café into a culinary empire. Enjoy this unique experience for free on your phone or computer.\n\nControls:\nDesktop: Right-click on buttons, drag items.\nMobile: Tap buttons, drag items with your finger.\n\nKey Features:\n• Expand your cooking table! : Combine ingredients and find matches on the table. Merge and expand your territory! This way, you can cook more masterpieces!\n• Combine ingredients! : Want to create something more complex than a sandwich? Great! Combine ingredients to unlock increasingly complex dishes.\n• Restore the café! : Restore the café and other areas with the money you earn. An incredibly engaging process where you’ll see progress at every stage!\n\nLevels / Maps / Worlds:\n• 21 maps\n• Café. : Your grandfather's café has fallen into disrepair. Why be sad when you can restore it and make it better than before? Get to work!\n• Café facade. : You've done well inside the café, great! But the facade also needs repairs, it's time to work on that too!\n\nStory / Setting:\nYou've come to your grandfather's café in the countryside. Unfortunately, it has long been abandoned. Once a popular spot, it's now your task to restore it and make it even better!\n\nCore Gameplay & Story\nQ: What is the goal of the game?\nA: Revive your grandfather's café and breathe new life into its walls! Cook delicacies for visitors and develop your kitchen by unlocking new dishes!\n\nQ: Is there a story?\nA: You lived in a big city, but you had to return. Your grandfather had an old café, but sadly, it has fallen into disrepair. Help restore it and make it better than before! You will encounter new characters—delight them with your tasty treats!\n\nQ: What grabs you in the first minutes?\nA: Pleasant graphics, everything looks cozy and warm. It's especially satisfying to watch the progress of the café's reconstruction. With each amount earned, you can repair and upgrade your café and move on to other locations! With each new stage, you will see progress.\n\nMechanics & Progression\nQ: How many levels are there / is the structure clear?\nA: The game features a total of 21 locations! You will restore them one by one, cooking food and drinks. Each location is unique with its own distinct style and theme.\n\nQ: How can I level up faster?\nA: Combine ingredients to get new ones. Expand your cooking table to hold more ingredients. Upgrade your kitchen tools to cook more efficiently!\n\nQ: What unlocks as you progress?\nA: As you play, you will expand your table, allowing you to accommodate more ingredients for cooking. You will also upgrade your kitchen setup, receiving new equipment. But you won't be limited to just the kitchen. New locations will unlock as you progress through the game!\n\nEconomy & Customization\nQ: What can be bought/upgraded?\nA: Upgrade the café and other locations. And don't forget about kitchen tools. With them, you can cook more delicious food!\n\nQ: What is available from the start?\nA: You start with an abandoned coffee shop and gradually, step by step, restore it. It's very engaging to watch life return to a once-popular place!\n\nRetention & Engagement\nQ: Is sound necessary?\nA: You can play anywhere and even without sound if that suits you better.\n\nQ: Is there onboarding in the game? What is it like?\nA: From the first missions, the game will show you what to do and how to do it. Additionally, hints will guide you in moments where you might miss something. But don’t worry, you’ll understand everything quickly!",
+    instructions: "Use mouse or your finger tap for navigation in this game.",
+    categories: [
+      "puzzle"
+    ],
+    tags: "puzzle, story, merge, cozy, cooking, mystery-games, relaxing-games, android-games, defold-games-online, gam-supported-games",
     iframeUrl: "/games/piece-of-cake-merge-bake.html",
     fullscreen: true,
     videoUrl: ""
@@ -691,6 +1147,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/mahjong-classic/big-preview/730f65084d864a9baffefa86e110b106?width=448",
+    width: "800",
+    height: "450",
+    description: "\"Mahjong Classic\" is a classic mahjong solitaire with a unique algorithm for generating levels - a random layout of chips always has a solution! Each playthrough becomes unique, allowing you to play your favorite fields an unlimited amount of times!\nIn the game you will find popular fields: Turtle, Fort, Crab, Spider, Cat, Dragon and many others.",
+    instructions: "The goal of the game is to clear the field of chips. Choose chips with the same symbols to remove them. Special chips \"flowers\" are considered paired, and \"seasons\" are paired. A chip can be selected if it is not blocked by other chips.\nIf there are no available pairs left on the field, you have lost.\nBoosters will help solve solitaire:\n1) \"Undo\" - return the last pair.\n2) \"Hint\" - show a pair.\n3) \"Spotlight\" - simplify the search of chips available for selection.",
+    categories: [
+      "puzzle"
+    ],
+    tags: "puzzle, mahjong, classic, casual-games, brain-training-games, addictive-games, 1-player-games, mahjong-solitaire-online, pyramid-mahjong",
     iframeUrl: "/games/mahjong-classic.html",
     fullscreen: true,
     videoUrl: ""
@@ -703,6 +1167,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/numicolor/big-preview/ad1c290e65cb4e1b8a747cb2b51de044?width=448",
+    width: "800",
+    height: "450",
+    description: "Discover a creative way to relax. Coloring by number helps you focus and switch off from daily worries. Many find it an excellent tool for stress relief and finding harmony.\n\nKey features:\n\nGrowing image collection: Dive into popular categories like peaceful nature, stylish anime, fashion, and charming animals. Our collection is regularly updated with new works!\n\nFlexible filter system: Find the perfect image quickly and easily. Use detailed filters by theme and difficulty to choose a coloring page for any mood.\n\nVariety of game modes: Tired of the classic mode? Try the unique \"Reveal\" and \"Mystery\" modes to add a touch of intrigue to your coloring process.\n\nFor the whole family: The perfect app for adults looking to relax and for kids developing attention and creative skills.",
+    instructions: "Choose a color from the palette.\n\nTap on the highlighted areas whose number corresponds to the selected color.\n\nUse a hint to find an uncolored detail ",
+    categories: [
+      "puzzle"
+    ],
+    tags: "puzzle, color, relaxing-games, addictive-games, art-games, children-games",
     iframeUrl: "/games/numicolor.html",
     fullscreen: true,
     videoUrl: ""
@@ -715,6 +1187,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/basketball-stars/big_preview/2e0653c710ad43e09c40d1ba5968e447?width=448",
+    width: "800",
+    height: "450",
+    description: "Basketball Stars is a cool 2-player basketball game by MadPuffers. Prepared for the 2025 basketball season. Choose your team and enter a challenging tournament. Control your player to perform awesome dunks and 3-pointers to win the game. Feel free to block and slap your opponent to knock him out and get the ball, and pay attention to the supershot bar on the top of the screen. Once fully loaded, you can use the hot special dunk from wherever you stand; it never fails. Be the best player!",
+    instructions: "1 player controls\nWASD or arrow keys to move\nX/L to shoot/steal\nS to pump/block\nA+A or D+D or left/right arrow twice to dash\nK/Z to super shot\n\n2 player controls\nTo move, player 1 use the WASD keys and player 2 use arrow keys\nTo shoot/steal, player 1 use B and player 2 use L\nTo pump, player 1 use S and player 2 use down arrow\nTo dash, player 1 use A/D twice and player 2 use left/right arrow twice\nK to super shot",
+    categories: [
+      "arcade"
+    ],
+    tags: "arcade, sports, two-player, popular, basketball, pvp, reaction-games, iphone-games, casual-games, competitive-games, desktop-games, 1-player-games, timing-games, dunking-games, android-games, 2-player-basketball, 2-player-arcade",
     iframeUrl: "/games/basketball-stars.html",
     fullscreen: true,
     videoUrl: ""
@@ -727,6 +1207,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/1-speed-escape-prison/big-preview/415c3326c7724e6cae83d74990cc3020?width=448",
+    width: "800",
+    height: "450",
+    description: "Get ready for a wild prison break in this dynamic obstacle parkour game with +1 Speed boosts! Your goal is to escape from prison by navigating challenging obstacles and accelerating with each level. This is a real escape where every mistake can set you back!\n\nLevel up your speed, complete obstacle courses, and master parkour to find the best escape route. The further you go, the faster you get—feel the thrill of increasing speed and overcoming obstacles!\n\nThe prison is full of traps, guards, and dangerous zones. Can you pull off the perfect prison break and escape faster than anyone else?\n\nGame Features:\n\n🔶 A thrilling prison break\n\n🔶 Dynamic parkour-style gameplay +1 to speed\n\n🔶 Gradual acceleration and challenging trials\n\n🔶 Diverse levels and obstacles\n\n🔶 Ability to level up your character\n\nStart your escape right now and prove you can break out of prison!\n\nCore Gameplay & Story\n\nQ: What is the game about? What needs to be done?\nA: You need to escape from prison by overcoming obstacles, jumping, running, and doing parkour. It is important to improve your movement speed and stamina because stamina affects movement speed during the escape levels.\n\nQ: Is there a storyline in the game?\nA: No.\n\nQ: What is the unique feature of the game? How can it engage players?\nA: There are various features like pets that provide bonuses to movement speed and stamina, a wheel of fortune, leaderboards, and character customization.\n\nMechanics & Progression\n\nQ: Are there bosses in the game, and how are they different?\nA: No.\n\nQ: How does leveling up work? What needs to be done to level up faster?\nA: You need to train in the gym and improve your movement speed and stamina.\n\nEconomy & Customization\n\nQ: What currencies are available and what can they be spent on (regular - gold, premium - crystals, etc.)?\nA: There are regular money and diamonds that can be spent on different skins, faster movement speed and stamina upgrades, and the ability to return to the last checkpoint upon losing.\n\nQ: Is there in-game purchases? What can be bought and what does it affect? Does making a donation speed up game progress?\nA: You can buy skins and in-game currency.\n\nQ: Is there a leaderboard? How to access it? What types are there (weekly, monthly, all-time, etc.)?\nA: There are three different leaderboards: one for the highest stamina, one for the highest movement speed, and one for the player who has progressed the furthest during the escape.\n\nRetention & Engagement\n\nQ: What are some engaging elements of the content (weapons, cars, locations, skills, references to famous franchises, etc.)?\nA: There are many cool skins and epic music during the escape.\n\nQ: Is there customization in the game? Can the appearance of the hero be customized, location editor, car tuning, etc.?\nA: Yes, you can buy clothes and accessories.\n\nQ: Are there daily rewards or something similar to encourage players to return?\nA: There are daily rewards as well as rewards based on gameplay time.\n\nQ: Is it preferable to play with sound to better immerse in the atmosphere, or will there be difficulties in passing without sound?\nA: It is preferable to play with sound as the music is very cool and epic during the escape.",
+    instructions: "✅ Controls\n\nOn PC:\n\nRight-click - rotate camera\nWASD / arrow keys - move character\nSpacebar - jump\n\nOn mobile:\nControls via interface elements\nRotate camera — swipe on the right side of the screen\n\n✅ Gameplay\n\n🔶 Upgrade your stats in the prison cell. Collect energy or work out on the exercise machines\n\n🔶 For every step you take, you gain a speed boost; the more you move, the faster you become\n\n🔶 Complete levels, collect money, and get closer to your main goal—escaping from prison! (Trust me, you’ll love the final level)\n\n🔶 Boost your upgrades using the “Upgrades” button—it appears when you have enough money\n\n🔶 Overcome obstacles, avoid traps, and find hidden paths\n\n🔶 As your speed increases, the challenges get tougher—test your reflexes and agility\n\n🔶 Compete with other players and climb the leaderboard\n\n🔶 Your main goal is to pull off the perfect prison break and set a new record 🚀",
+    categories: [
+      "action"
+    ],
+    tags: "action, skill, running, obby, trial-games, obstacles-games, challenging-games, speed-games, agility-games, action-adventure",
     iframeUrl: "/games/1-speed-escape-prison.html",
     fullscreen: true,
     videoUrl: ""
@@ -739,6 +1227,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/solar-smash/big-preview/678db982b1364f018e7c4fac3b1f4a44?width=448",
+    width: "800",
+    height: "450",
+    description: "Solar Smash is a fun game that allows you to fully embrace cosmic power and create or destroy planets as you wish. You can choose from a variety of different weapons and use them to destroy planets and moons. Additionally, you can create your own planetary systems and customize them as you wish.\n\nSolar Smash is also an opportunity to unleash your creativity and create worlds or destroy them in your hands. You can tear apart planets, cause supernovas and create black holes that consume everything in their path. The game has intuitive controls that are suitable for both beginners and experienced players.\n\nOverall, Solar Smash is an addictive game that allows you to harness cosmic power and create or destroy planets at will. If you love physics simulators and space, then this game is definitely for you!",
+    instructions: "The goal of the game is to destroy all planets using a variety of weapons.\nControl on a mobile device: touch/swipe.\nControl on desktop: left mouse button.",
+    categories: [
+      "simulation"
+    ],
+    tags: "simulation, physics, unblocked, destruction-games, destroy-games, addictive-games, creativity-games, space-shooter, space-io",
     iframeUrl: "/games/solar-smash.html",
     fullscreen: true,
     videoUrl: ""
@@ -751,6 +1247,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/plants-vs-zombies-fusion-edition/big_preview/0a3f694494fd4b469429f9c8baf0cb93?width=448",
+    width: "800",
+    height: "450",
+    description: "Check out the new version of Plants vs Zombies – everything is new here, but the classics are still there!\n\nNow you can not only fight off zombies with the help of your green friends, but also make cool hybrid plants. These are plants that combine the powers of two or even more ordinary plants.\n\nWith these hybrids, you'll get a bunch of new chips to deal with zombies that have become even cooler, smarter, and more cunning!\n\nControls:\nDesktop: Mouse: select plants, click buttons, place plants, use bonuses, collect items.  \nMobile: Finger: select plants, click buttons, place plants, use bonuses, collect items.\n\nKey Features:\n• Selection: Combine plants to create unique species with their own abilities and appearances.  \n• Challenges: Test your skills in various challenges that will provide new experiences and challenge your tactics.  \n• Cheats: Cheats let you go wild: take as many sun points as you want and plant as many plants as you can.  \n• Skins: You can purchase skins for your plants themed around popular memes.\n\nUpgrades / Progression / Economy:\n• Sun Points: The in-game currency that allows you to buy plants and place them in your garden. Sometimes they may fall from the sky, or sunflowers may give them to you. You can also obtain them by pressing the cheats button.  \n• Dollars: In-game currency that can be spent on bonuses (e.g., cooldown-free gloves) or to buy new challenges. You can earn dollars by completing levels, from daily rewards, or by purchasing them with Gam.  \n• Gam: Premium currency used to buy dollars or skins.\n\nGame Modes:\n• Adventure: A more classic mode with basic challenges. Completing a level in this mode unlocks a new one with tougher opponents and possibly a different appearance.  \n• Challenges: A mode that offers new experiences. Each challenge can surprise you. For example, in one challenge, you can play as a zombie.\n\nCharacters / Heroes / Skins:\n• Nut: Holds back zombies in front of you, buying time to fend off the attack.  \n• It's fine Nut: A skin inspired by the \"It's fine\" meme.\n\nStory / Setting:\nThe setting is a zombie apocalypse where hordes of zombies are trying to break into your home.\n\nCore Gameplay & Story\nQ: What is the goal of the game?  \nA: The game is about defending your garden from hordes of zombies. Build defenses with various plants, devise unique tactics, and protect your garden from waves of monsters.\n\nQ: How do you win / what counts as losing?  \nA: Do not let the zombies break into your home. You need to prepare to fend off all waves and achieve victory.\n\nQ: What grabs you in the first minutes?  \nA: You can start combining plants right from the first minutes of the game, creating unique combinations. Each one can produce a special plant with its own abilities and distinctive traits.\n\nMechanics & Progression\nQ: How many levels are there / is the structure clear?  \nA: You will find many levels: from quite familiar to levels with special challenges. Completing a level unlocks a new one, and so on.\n\nQ: What unlocks as you play?  \nA: As you progress through the game, new levels with tougher opponents become available.\n\nQ: Does the difficulty change?  \nA: Yes, you can adjust the difficulty in the game based on your readiness.\n\nQ: How can I level up faster?  \nA: The game features free progression. Thanks to the cheat feature, you can give yourself as much currency as you want. With it, you can buy plants to defend your garden, so there are no barriers to how many plants you want to purchase.\n\nEconomy & Customization\nQ: What can you buy/improve?  \nA: You can buy bonuses and skins in the game. For example, a time acceleration x3 or a skin for a plant.\n\nQ: Are there skins / customization?  \nA: Yes, you can purchase various skins for your plants in the game.\n\nQ: What is available from the start?  \nA: Most plants in the game are available from the start, allowing for great opportunities for unique combinations from the first levels.\n\nRetention & Engagement\nQ: Is sound necessary?  \nA: You can play without sound. The game is intuitive, so sound is not essential. However, with sound, you will immerse yourself better in the world.\n\nQ: Is there onboarding in the game? What is it like?  \nA: Yes, there is a brief tutorial at the beginning that provides basic knowledge. It does not overwhelm with information. After that, you immediately start playing a level, testing your knowledge in practice and discovering new possibilities.",
+    instructions: "Put hybrids and other plants on the field to protect yourself from zombies. See how much they cost and how fast they recharge. Zombies are getting cooler, so change tactics, combine plants and come up with new strategies.",
+    categories: [
+      "strategy"
+    ],
+    tags: "strategy, zombie, tower-defense, addictive-games, defense-games, combat-games, 1-player-games, action-adventure",
     iframeUrl: "/games/pvz-fusion-cheats.html",
     fullscreen: true,
     videoUrl: ""
@@ -763,6 +1267,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/ragdoll-crashtest-throw-and-break/big-preview/806817717e62466a83cb4377d0fa92eb?width=448",
+    width: "800",
+    height: "450",
+    description: "«Ragdoll Crash-Test: Throw and Break!» is a casual puzzle game with physics and action destruction, where the challenge is to break a ragdoll stickman and plunge into a ragdoll simulator!\n\nDive into a world of chaotic destruction and fun with the game «Ragdoll Crash-Test: Throw and Break!». Throw your stickman and smash it to pieces. The game in the best traditions of Ragdoll physics will give you hours of fun, where every hit and every fall turns into a show of destruction! Ready to cope with the challenges?\n\nComplete all the tests, smash and break!",
+    instructions: "🕹Drag the stickman onto the selected objects and watch the chaos unfold. Try to experiment with different objects to maximize damage.\n\n🎯 Choose from a variety of objects to smash, hit, and drag the stickman. Each object has unique properties for maximum impact.",
+    categories: [
+      "action"
+    ],
+    tags: "action, ragdoll, 2d-games, destruction-games, addictive-games, crash-games, desktop-games, 1-player-games, simple-games, throwing-games, borwser-games, unity-games-online",
     iframeUrl: "/games/ragdoll-crash-test-throw-and-break.html",
     fullscreen: true,
     videoUrl: ""
@@ -775,6 +1287,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/geometry-vibes/big-preview/cd0c9c56e9e54948b7eca6c49ef590b5?width=448",
+    width: "800",
+    height: "450",
+    description: "Geometry Vibes is a reaction-based arcade game where you avoid obstacles, traps and spikes that come at you in waves. Your goal in the game is to keep your arrow on the route and take it as far as possible. Geometry Vibes, where the excitement never ends, invites you to challenge.",
+    instructions: "How to Play Geometry Vibes?\n\nThe game is quite simple to play, but difficult to master.\nTry to continue without hitting obstacles.\n\nClick to \"MOUSE LEFT-CLICK\" or \"UP ARROW\" and hold to fly up.\n\nRelease the button to dive down.\n\nIn 2,3,4 Player game modes, players are controlled with \"UP ARROW\", \"H\" and \"L\". (MOUSE LEFT-CLICK and SPACE keys can also be used instead of W.)",
+    categories: [
+      "arcade"
+    ],
+    tags: "arcade, skill, 3d, multiplayer, platform, popular, music, mobile, reaction-games, fast-paced-games, dodge-games, endless-games, geometry-games, space-waves",
     iframeUrl: "/games/geometry-vibes.html",
     fullscreen: true,
     videoUrl: ""
@@ -787,6 +1307,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/slope-3d/big_preview/6031cc0ff00947dda0627af51b3316de?width=448",
+    width: "800",
+    height: "450",
+    description: "Slope 3D sends you down a steep neon track where quick reactions and precise movement decide how long your run will last. Guide the rolling ball through narrow platforms, sharp turns, sudden drops, and dangerous red obstacles while the speed continues to increase. The controls are simple to learn, but staying on the course becomes harder with every passing second.\n\nGame Overview\nYour objective in Slope 3D is to keep the ball on the track for as long as possible and achieve the highest score. The ball rolls forward automatically, leaving you responsible for steering it away from barriers, gaps, and the edges of the platform.\n\nThe slope changes constantly as you progress. Wide paths can quickly become narrow lanes, while sudden turns and uneven platforms force you to adjust your position without losing control. Red blocks are especially dangerous because touching one ends the current run immediately.\n\nSpeed is one of the biggest challenges. The farther you travel, the faster the ball moves, giving you less time to react to what appears ahead. A small steering mistake that seems harmless early in the run can send the ball off the track once the pace increases.\n\nKey Features\n- Fast-paced 3D endless runner gameplay\n- Futuristic neon environment\n- Simple left-and-right steering controls\n- Increasing speed and difficulty\n- Narrow tracks, sharp turns, and sudden gaps\n- Dangerous red obstacles to avoid\n- Score-based progression with no fixed finish line\n- Keyboard controls for desktop players \n- Swipe and tilt controls for mobile devices\n- Quick rounds designed for repeated high-score attempts\n\nTips for Beginners\n- Use short taps instead of holding a direction for too long.\n- Try to keep the ball near the center of the track.\n- Look ahead rather than focusing only on the ball.\n- Begin steering before reaching sharp turns.\n- Avoid unnecessary movement on narrow platforms.\n\nAdvanced Tips\n- Plan your position based on the next section of the course.\n- Use gentle corrections when the ball reaches higher speeds.\n- Enter narrow paths from the center whenever possible.\n- Move early when several obstacles appear close together.\n- Stay calm after sudden drops and regain control gradually.\n\nCommon Mistakes\n- Making large steering movements at high speed.\n- Waiting until the last moment to avoid an obstacle.\n- Staying too close to the edge of the platform.\n- Watching the current position instead of the upcoming track.\n- Trying to correct one mistake with another sudden turn.\n\nSlope 3D game turns a simple steering mechanic into a demanding test of focus, balance, and reflexes. Its endless course means every run offers another opportunity to travel farther and improve your score. Stay centered, react smoothly, and see how long you can survive as the neon slope becomes faster and more difficult.",
+    instructions: "PC Controls\nMove Left: Left Arrow or A\nMove Right: Right Arrow or D\n\nMobile Controls\nSteer: Swipe left or right",
+    categories: [
+      "arcade"
+    ],
+    tags: "arcade, skill, 3d, running, platform, ball, physics, unblocked, reaction-games, fast-paced-games, hyper-casual-games, avoid-games, endless-games, speed-games, agility-games, rolling-games, 1-player-games",
     iframeUrl: "/games/slope-3d.html",
     fullscreen: true,
     videoUrl: ""
@@ -799,6 +1327,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/idle-airport-tycoon/big-preview/cf42eed8120a4f3f9fa4d25809bc4ab1?width=448",
+    width: "800",
+    height: "450",
+    description: "Idle Airport Tycoon is a casual simulation game that puts you in charge of building and managing your very own bustling airport. Start with a humble airstrip and turn it into a world-class travel hub—move over Atlanta airport; we're looking to be the busiest airport in the world now! Upgrade everything from planes to terminals, unlock new revenue streams, and watch your profits soar! Are you ready to take on the challenge and become the ultimate airport tycoon?",
+    instructions: "Controls:\nUse the left mouse button = interact with the in-game UI+/- keys = change the size of the camera",
+    categories: [
+      "strategy"
+    ],
+    tags: "strategy, simulation, tycoon, mouse, management, idle, business-games, time-management-games, 1-player-games, incremental-games, building-games, aviation-games, resource-management-games, airport-games, gam-supported-games",
     iframeUrl: "/games/idle-airport-tycoon.html",
     fullscreen: true,
     videoUrl: ""
@@ -811,6 +1347,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/diy-phone-case-maker/big-preview/041992ee7d4b4937b7758c8d1ab8c438?width=448",
+    width: "800",
+    height: "450",
+    description: "DIY Phone Case Maker\nAbout this game\nWelcome to DIY Phone Case Maker, the ultimate playground for those who love to personalize, design, and express their unique style! Dive into the colorful world of custom art and transform ordinary phone cases into extraordinary masterpieces. Whether you're a seasoned artist or just looking for a fun way to unleash your creative side, this game offers endless possibilities to craft the phone case of your dreams.",
+    instructions: "PAINTING: Bring your ideas to life with a palette of vibrant colors. From soft pastels to electric neons, paint your way to a phone case that screams 'you'.\nACRYLIC ART: Delve into the trendy world of acrylic art. Swirl, mix, and pour your way to stunning abstract designs that stand out in any crowd.\nSTICKERS: Add personality and flair with an array of whimsical and edgy stickers. From quotes to quirky characters, the perfect sticker is waiting to be placed.\nPOP IT: Embrace the satisfying trend of pop it and fidget toys by incorporating them into your designs. Why not have a phone case that's as fun to play with as it is to look at?\nKEYCHAINS: Accessorize your custom case with adorable keychains that dangle and dance with every move. Choose from a variety of designs to add that perfect finishing touch.",
+    categories: [
+      "girls"
+    ],
+    tags: "girls, mouse, decoration, crafting, color, easy, customization-games, creativity-games, painting-games, cute-games, art-games, cartoons-games",
     iframeUrl: "/games/diy-phone-case-maker.html",
     fullscreen: true,
     videoUrl: ""
@@ -823,6 +1367,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/golf-orbit/big-preview/e7f203e28b0745d880d1c0a995e9b213?width=448",
+    width: "800",
+    height: "450",
+    description: "Golf Orbit is an exciting golf simulator game within sports category where you aim to launch golf balls to incredible heights, even reaching Mars. Have fun in one-shot golf battles, complete challenging levels, and master the art of the perfect shot. Compete to become the golf king in this entertaining and unique golfing adventure.\n\nCore: A vibrant and highly accessible casual sports title centered on the fundamentals of golf.\nLoop: Player skill is directly rewarded with in-game currency for successful long-range shots, facilitating a clear progression path through continuous gear upgrades.\nStart: The game features highly intuitive controls and is immediately engaging, supported by a robust system of mini-quests to drive early-game retention.\nPlaygama Fact: The game is fully integrated with Playgama SDK: instant login and cross-device saves between PC and mobile. HTML5. Stable performance regardless of internet quality.\nVisual: Features a polished Stylized / Cartoon art direction, providing an appealing and universally pleasant visual experience.\nKey Feature: Offers an enjoyable blend of satisfying gameplay challenge coupled with eye-catching, high-quality graphics.\n\nControls:\nDesktop: Right-click on buttons and move the cursor.\nMobile: Tap buttons with your finger, drag your finger across the screen.\n\nKey Features:\n• Hit Accurately! : Try to hit the green indicator for a stronger shot and to make the ball fly further!\n• Hit the Green Zones! : Did you hit the green zone? Great! Now take another shot!\n• Obstacles on the Field! : Hit harder to make the ball fly higher! There can be various obstacles on the field, like trees, rocks, or even someone's house...\n\nCore Gameplay & Story\nQ: What is the goal of the game?\nA: Go play golf! Hit the ball as far as possible and try to get it into the holes.\n\nQ: How do you win / what counts as losing?\nA: Get the ball into the holes or the green zones, then take another shot. Aim more accurately to avoid missing, or you'll have to start over!\n\nQ: What grabs attention in the first few minutes?\nA: Try to hit the green section on the indicator when you take a shot. This way, you can hit harder, and your ball will fly further!\n\nEconomy & Customization\nQ: What can you buy/improve?\nA: Upgrade your abilities: ball flight speed, shot power, and more. Get better and hit the target directly!\n\nRetention & Engagement\nQ: Are there daily rewards / a wheel of fortune / achievements / tasks?\nA: Spin the wheel of fortune to earn more rewards. Test your luck!\n\nQ: Is sound necessary?\nA: Play however you feel comfortable! You can choose to turn off the sound.\n\nQ: Is there onboarding in the game? What is it like?\nA: From the first moments of the game, you'll immediately understand how to play! Improve your skills shot by shot!",
+    instructions: "The key to Golf Orbit is to aim and hit the golf ball as far as possible. This one-button game has relatively easy gameplay, but getting that perfect shot can be challenging. Tap and hold your left mouse button to set the power and release to hit the ball. As the ball soars, it bounces off various objects, gaining extra distance but, if you hit a perfect shot, the ball can destroy the obstacles it faces, including trees and buildings.\n\nAs in regular golf, if your ball ends in water or in sand bunkers\n\nYour distance will be recorded with each shot, keeping you accountable for your progress. The goal is to achieve the longest distance possible with each swing.\n\nCollect coins during the flight to upgrade your equipment and improve your shots. The goal is to achieve the longest distance possible with each swing. Points can be accumulated in various ways. The longer the distance you shoot, the more points you get. You can also unlock points with a surprise spin.\n\nIf you score a birdie (hole in 2 shots) or an eagle (hole in one), you'll amass way more points and will be able to improve the features of your future shots.\n\nThere are three elements to a perfect shot: strength, speed, and bounce. You can give each one of these a boost with reward points.",
+    categories: [
+      "arcade"
+    ],
+    tags: "arcade, sports, mouse, ball, physics, easy, golf, casual-games, hyper-casual-games, addictive-games, one-button-games, amazing-games, timing-games",
     iframeUrl: "/games/golf-orbit.html",
     fullscreen: true,
     videoUrl: ""
@@ -835,6 +1387,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/plants-vs-zombies-hybrids/big_preview/f760a2d2906a4e8e93795c3e674d5c4f?width=448",
+    width: "800",
+    height: "450",
+    description: "A new era of Plants vs. Zombies has arrived — blending the best of the old with exciting new mechanics.\n\nBuild your defenses like never before by creating hybrid plants, each combining the abilities of multiple classic plants. With these powerful crossbreeds at your command, you'll face smarter, stronger, and more devious zombie hordes.\n\nControls:\nDesktop: Mouse — select plants, click buttons, place plants, use bonuses, collect items.  \nMobile: Finger — select plants, click buttons, place plants, use bonuses, collect items.\n\nKey Features:\n• Combine Plants: Merge different plants to create unique species with their own abilities and appearances. This will significantly boost your defense against the undead!\n• Cheats!: You can purchase plants for your defense during gameplay using sun points. Don’t worry about running out of plants. Just hit the Cheats button and get a ton of sun points instantly without limits!\n• Various Zombies: You will face many zombies, and some may surprise you. Be well-prepared for their arrival!\n\nUpgrades / Progression / Economy:\n• Sun Points: Earn them from sunflowers or simply collect them during levels. You can use them to buy plants during battles. Press the Cheats button to get an unlimited amount!\n• Dollars: Collect them during levels and purchase items in the shop or new challenges!\n\nGame Modes:\n• Adventure: The basic mode. Here, you will progress through levels one after another, fending off waves of zombies eager to invade your home. Each level will be more challenging, with larger and more dangerous waves of the undead!\n• Challenges: Test yourself in various challenges! Play as a zombie or, for example, take on the glove challenge! And that’s not all. You can also buy new challenges with in-game currency.\n\nCharacters / Heroes / Skins:\n• Cactus: The sniper in your garden! Shoots spikes directly at zombies. A fantastic marksman!\n• Squash: One jump on a zombie — and it’s gone! A great option for quickly eliminating the undead!\n\nEnemies / Bosses:\n• Backup Dancer: He runs straight for the plants with a pole and jumps over the first plants. This could be a problem for you!\n• Pea Shooter: Zombies can shoot too! Instead of a head, he has a living pea, and this plant is definitely not on your side. Destroy this zombie quickly!\n\nStory / Setting:\nThe world is overrun by zombies! They are everywhere. Only your home and garden remain safe, but the zombies won’t let that stand. Protect your home from the undead with living plants!\n\nCore Gameplay & Story  \nQ: What is the goal of the game?  \nA: Build a defense with living plants and protect your home from hordes of zombies that have taken over this world! Combine plants to create an effective defense and merge them together to obtain unique species!\n\nQ: How do you win / what constitutes a loss?  \nA: Don’t let the zombies breach your defense and invade your home! Destroy all waves of the undead attacking you!\n\nQ: What grabs attention in the first few minutes?  \nA: A vast array of plants and different types of zombies! Each plant has its own abilities and unique appearance! Meanwhile, zombies can have their own capabilities too. An epic battle will unfold right in your garden!\n\nMechanics & Progression  \nQ: How many levels are there / is the structure clear?  \nA: Levels follow one after another, and each can differ in features and appearance. In some, you will even have to fight at night!\n\nQ: Does the difficulty change?  \nA: Each level will be harder. Zombies will be better prepared, and with each new wave, there will be more of them! Combine plants, strategize, and fend off the attacks!\n\nQ: How can I level up faster?  \nA: You have a Cheats button. Press it and get as many sun points as you want! With sun points, you can buy plants for defense right in the level. Build your defense without limits!\n\nQ: What unlocks as you play?  \nA: New levels with different conditions and constantly increasing difficulty will unlock for you, and you will also be able to open new levels in challenge mode!\n\nEconomy & Customization  \nQ: What can be bought/upgraded?  \nA: Head to the shop and purchase bonuses, such as a shovel — with it, you can dig up unwanted plants, a skin pack for plants, and other useful bonuses and items!\n\nQ: Are there skins / customization?  \nA: Dress your plants in skins. Defending against the undead should also be stylish!\n\nQ: What is available from the start?  \nA: Most plants in the game are available from the start. You can immediately build a powerful defense with strong plants and merge them together!\n\nRetention & Engagement  \nQ: Are there daily rewards / a wheel of fortune / achievements / tasks?  \nA: Collect daily rewards for a full 50 days! Each day in the game, you will be delighted with new rewards for an extended period. It’s always nice to return to the game when a gift awaits you!\n\nQ: Is sound necessary?  \nA: Sound is not mandatory, but if you turn it on, you can hear the legendary music and immerse yourself in the zombie apocalypse world.\n\nQ: Is there onboarding in the game? What is it like?  \nA: Everything will become clear right away. You will be taught how to play, and you will quickly get into the process.",
+    instructions: "Strategically place hybrids alongside other plants to hold back zombie waves — always keeping an eye on cost and recharge time. Zombies grow stronger over time, so adapt, mix your plants, and refine your tactics.",
+    categories: [
+      "strategy"
+    ],
+    tags: "strategy, zombie, tower-defense, brain-training-games, addictive-games, defense-games, plant-games, 1-player-games, action-adventure",
     iframeUrl: "/games/plants-vs-zombies-hybrids.html",
     fullscreen: true,
     videoUrl: ""
@@ -847,6 +1407,14 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/burger-restaurant-simulator-3d/big_preview/b4cbcd2693594ae1a4e6aa672025365c?width=448",
+    width: "800",
+    height: "450",
+    description: "Lead your own burger adventure!\n\nDive into the exciting world of restaurant management, where you will cook delicious dishes, expand your business and delight customers in this exciting simulation game.\n\nFrom frying juicy burgers to managing staff, every decision you make is important on the way to creating a real culinary empire!\n\n🔑 Key features:\n🍔 Cook and serve: Create a variety of burgers, crispy fries, juicy nuggets, refreshing drinks and aromatic coffee.\n\n💰 Burger tycoon: Manage finances, upgrade equipment and hire employees.\n✨ Expand and decorate: Use profits to create a unique interior.\n🚀 Develop a network: Open new branches with car services!\n⏰ New horizons: Launch a trendy cafe or food truck!",
+    instructions: "Desktop:\nWASD - move;\nE - interact;\nMouse - camera rotate;\nM - shop;\nJ - daily tasks;\nH - daily reward;\nTab - show/hide cursor;\nP - pause;\n\nOpen a restaurant and create a unique design.\nTake orders and cook in a realistic kitchen simulator.\nDiscover new dishes: milkshakes, desserts, snacks.\nImprove the kitchen, hire chefs and train staff.\nHappy customers = tips + reputation!",
+    categories: [
+      "arcade"
+    ],
+    tags: "arcade, simulation, kids, 3d, tycoon, food, management, logic, restaurant, cooking, idle, casual-games, business-games, life-simulation-games, burger-games, time-management-games, 1-player-games, timing-games, resource-management-games",
     iframeUrl: "/games/burger-restaurant-simulator-3d.html",
     fullscreen: true,
     videoUrl: ""
@@ -859,9 +1427,17 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/good-sort-master/big-preview/87153c5702e14ce994b208df2c0a5f61?width=448",
+    width: "800",
+    height: "450",
+    description: "Arrange items on shelves, place identical items next to each other in order to connect 3 of the same items on the shelf. A relaxing game where you have to organize objects on shelves. Cleaning has never been so interesting and fun! A simple and relaxing game for women and men alike!",
+    instructions: "1. Drag items to place 3 identical items on the same shelf.\n2. Remove all items on the shelves to complete the level.\n3. Complete levels to discover more of your favorite items!",
+    categories: [
+      "puzzle"
+    ],
+    tags: "puzzle, matching, iphone-games, relaxing-games, addictive-games, memory-games, sorting-games, desktop-games, simple-games, borwser-games, android-games, unity-games-online",
     iframeUrl: "/games/good-sort-master-triple-match.html",
     fullscreen: true,
-    videoUrl: "https://static.playgama.com/p-video/bde42b101df64dfd9bbc5fca8bd9cb96/orig_length_h320.mp4"
+    videoUrl: ""
   },
   {
     id: 116,
@@ -871,9 +1447,17 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/master-chess/big-preview/52cdd471a5044f1e94c36787ee523746?width=448",
+    width: "800",
+    height: "450",
+    description: "Sharpen your tactics to defeat the king in this classic game. Compete online with either the AI or players from around the world. Aim for victory!",
+    instructions: "On desktop: click the piece you want to move and then click the square on the board where you want to positionate the piece.\n\nOn mobile: tap the piece you want to move and then tap the square on the board where you want to positionate the piece.",
+    categories: [
+      "two player"
+    ],
+    tags: "two-player, multiplayer, chess, classic, board, turnbased-games, rts-games, mind-games, desktop-games, 1-player-games, indie-games, borwser-games",
     iframeUrl: "/games/master-chess.html",
     fullscreen: true,
-    videoUrl: "https://static.playgama.com/p-video/066b3bab8a1c460cbc5d057dbbe37125/orig_length_h320.mp4"
+    videoUrl: ""
   },
   {
     id: 117,
@@ -883,9 +1467,17 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/find-the-frog--hidden-objects/big_preview/541792f4c5354ef88be0646eb9be4b1b?width=448",
+    width: "800",
+    height: "450",
+    description: "Find the Frog - Hidden Objects\n\nExplore thematic worlds: from cozy farms and mysterious swamps to bustling cities, enchanted forests, sunny beaches, pirate islands, and beyond!\n\nEach world contains 3 levels with unique frogs to discover.\n\nCollect all the frogs to complete your album - they're so adorable you'll want to find every single one!\n\n✨ Game Features:\n\n✅ Relaxing gameplay - perfect for stress relief\n✅ Simple controls - suitable for all ages\n✅ Striking visuals - black-and-white backgrounds with colorful frogs\n✅ Frog collection - motivation to complete all levels\n✅ Varied difficulty - from beginner to expert challenges\n\nPerfect for evening relaxation.\n\n\"Find the Frog\" isn't just a game - it's a meditative journey into a hidden object world that will bring you hours of enjoyment.\n\n🐸 Find them all, Ribbit!",
+    instructions: "Search for hidden frogs across beautifully drawn black-and-white scenes! Simply tap them with your finger (on mobile) or click with your mouse (on PC) to reveal their vibrant colors. Find all frogs to complete each level, and finish entire worlds to add special location-themed frogs to your personal collection!\n\nStuck? Use our handy Magnifying Glass power-up! When those green tricksters hide too well, this helpful tool will reveal where they're lurking.\n\nGood luck and happy hunting - Ribbit!",
+    categories: [
+      "puzzle"
+    ],
+    tags: "puzzle, animals, hidden-object, point-and-click, brain, classic, mobile, casual-games, collecting-games, search-games, frog-games, construct-games-online",
     iframeUrl: "/games/find-the-frog-hidden-objects.html",
     fullscreen: true,
-    videoUrl: "https://static.playgama.com/p-video/61541049fc244131805e9e1abfcbb54c/orig_length_h320.mp4"
+    videoUrl: ""
   },
   {
     id: 118,
@@ -895,9 +1487,17 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/driver-club-highway-racing/big-preview/037ce11afe4f4d58a0f93a6339db96b5?width=448",
+    width: "800",
+    height: "450",
+    description: "Driver Club: Highway Racing is a high speed driving game where you dodge traffic, overtake vehicles, and put your reflexes to the test.\n\nRace through a variety of dynamic environments\nUnlock and drive a range of powerful cars\nSmooth, responsive controls for an immersive experience\nStunning visuals that enhance the thrill of the ride\nPush your limits and dominate the highway leaderboard\n\n\nCore Gameplay & Story\n\nQ: What is the game about? What do you need to do?\nA: It's a racing game in the traffic racer genre. You need to overtake other cars to pass the section as quickly as possible. There is also a racing mode where a strong opponent is added to this process.\n\nQ: What is the unique feature of the game? What can hook players?\nA: There are not many high-quality and realistic races like this one.\n\nQ: Are there bosses and how are they different?\nA: There are faster opponents in the Race mode.\n\nMechanics & Progression\n\nQ: What currencies are there and what can they be spent on (regular - gold, premium - crystals, etc.)?\nA: Money is earned for victories and can be spent on new cars and upgrades for them.\n\nQ: How does leveling up work exactly? What needs to be done to level up faster?\nA: You need to win races and upgrade your car.\n\nEconomy & Customization\n\nQ: Is there customization in the game? Can you customize the appearance of the hero, location editor, car tuning, etc.?\nA: Yes, you can change the color of cars and rims. Change rims.\n\nRetention & Engagement\n\nQ: Is it preferable to play with sound to better immerse yourself in the atmosphere, or will there be difficulties in passing without sound?\nA: The sound is done excellently, but it is not necessary for the game.",
+    instructions: "Controls\nW / up arrow key = accelerate\nS / down arrow key = brake\nA / left arrow key = move left\nD / right arrow key = move right\nC = change camera view\nP = pause",
+    categories: [
+      "action"
+    ],
+    tags: "action, racing, arcade, simulation, skill, boys, 3d, car, car-racing, driving, easy, unity, race-games, fast-paced-games, customization-games, vehicles-games, speed-games, car-tuning-games, car-crash-games, arcade-car, realistic-car, action-adventure, fast-paced-action",
     iframeUrl: "/games/driver-club-highway-racing.html",
     fullscreen: true,
-    videoUrl: "https://static.playgama.com/p-video/2bc9523376aa46139c01c868d86cbb68/orig_length_h320.mp4"
+    videoUrl: ""
   },
   {
     id: 119,
@@ -907,9 +1507,17 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/nuts-puzzle-sort-by-color/big_preview/faab3ed519024179b5a31afb72cdf675?width=448",
+    width: "800",
+    height: "450",
+    description: "Nuts Puzzle: Sort by Color is a classic puzzle game where you sort various colored nuts onto screws until they are all the same color.\n\nAs you progress through the levels, the puzzles get trickier, requiring you to plan your moves carefully and think several steps ahead. With each successful sort, you'll feel a satisfying sense of accomplishment. Get ready to test your strategy and problem-solving skills as you work your way through increasingly complex and colorful challenges!\n[Core Gameplay & Story]\n\nQ: What is the game about? What do players need to do?\nA: It is a puzzle game where players sort color-coded nuts onto matching bolts.\n\nQ: What is the unique selling point of the game? What makes it engaging for players?\nA: The beautiful, vibrant visuals and a progression system where players not only sort nuts but also fix their garden by gradually \"\"repairing\"\" the flowers.\n\nQ: What are the engaging content elements (weapons, vehicles, locations, skills, references to famous franchises, etc.)?\nA: The beautiful, vibrant visuals and a progression system where players not only sort nuts but also fix their garden by gradually \"\"repairing\"\" the flowers.\n\n[Economy & Customization]\n\nQ: What are the currencies and what are they spent on (standard - gold, premium - crystals, etc.)?\nA: There are Coins, which can be spent on in-game power-ups, such as an extra bolt for sorting nuts. There is also a separate currency, Nuts, which can be spent on \"\"repairing\"\" the garden.\n\n[Retention & Engagement]\n\nQ: Are there daily rewards or anything similar that encourages players to return?\nA: There is a money piggy bank, and Coins are collected while the player is away from the game. Additionally, there is a Chest that can be opened upon reaching certain in-game levels, which can drop rewards like game bonuses and in-game currency.\n\nQ: Is it preferable to play with sound to better immerse in the atmosphere, or will playing without sound cause difficulties in completing levels?\nA: It is not necessary.",
+    instructions: "Organize the nuts\n\nTo play Nuts Puzzle: Sort by Color, start by tapping on the nut you want to move, then select the screw where you want to place it. You can only place a nut on another screw if it’s either empty or if the top nut on that screw matches the color of the nut you’re moving. This simple rule sets the stage for the puzzle-solving challenge, as you’ll need to strategically plan your moves to ensure each screw ends up with nuts of a single color.\nAs you progress, the game introduces more nuts and a wider range of colors, making the puzzles increasingly complex. New challenges, such as hard mode levels, add an extra layer of difficulty by hiding the color of nuts until you move a piece from above them. These added twists will test your strategic thinking and problem-solving skills as you work through each level, striving to complete the puzzle with fewer moves and greater efficiency.\n\nUse helpers\n\nIt’s at this point that you may need to use the undo, reset, and extra screw options, which are available on every level. However, you can only win extra screws from chests and from the winner's wheel. Clicking the screw icon adds an extra screw to free up more space. The undo button has a finite number of uses, but these are restored on each level. You can use the reset button to start the level over from scratch if you have no choice.",
+    categories: [
+      "puzzle"
+    ],
+    tags: "puzzle, matching, brain, logic, color, casual-games, brain-training-games, sorting-games, color-matching-games, 1-player-games",
     iframeUrl: "/games/nuts-puzzle-sort-by-color.html",
     fullscreen: true,
-    videoUrl: "https://static.playgama.com/p-video/8157a03153474f7bb4a7529f3d5c355e/orig_length_h320.mp4"
+    videoUrl: ""
   },
   {
     id: 120,
@@ -919,9 +1527,17 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/special-ops/big_preview/379c25433de24d13afadf693d918e11e?width=448",
+    width: "800",
+    height: "450",
+    description: "Play instantly in your browser. Jump into fast 5v5 PvP firefights, climb the ranks, and dominate with modern weapons in Special Ops: FPS PvP War.\nFull description\nSpecial Ops: FPS PvP War is a modern online FPS built for quick, competitive matches — now playable directly in your browser with no download. Lock in your loadout, enter the arena, and prove yourself in intense real-time PvP battles.\nFight across multiple maps designed for close-quarters chaos and long-range sniper duels. Prefer to play solo? Jump into single-player missions and survive relentless enemies. Whether you’re here for ranked glory or casual fun with friends, every match is about sharp aim, movement, and smart decisions.\nKey features\n\nInstant browser play (WebGL): no install, jump straight into action\nOnline PvP: up to 5v5 real-time battles\nMultiple game modes: Deathmatch, Team Deathmatch, Ranked, and Custom Rooms\nSingle-player mode: missions and survival-style challenges\nBig arsenal: 20+ modern weapons including pistols, SMGs, rifles, and sniper rifles\nCustomization: unlock weapon skins and personalize your style\nProgression: daily rewards, quests, ranks, and credits\nSniper-friendly maps: long sightlines + high-stakes duels\nOptimized performance: smooth controls and responsive gunplay in the browser",
+    instructions: "WASD = move\nSpace = jump\nLeft mouse = shoot\nRight mouse  = aim\nP = pause, and settings\nTAB= leaderboard,\n1, 2, 3 = switch weapons\nH= Health Kit",
+    categories: [
+      "action"
+    ],
+    tags: "action, boys, 3d, multiplayer, shooting, gun, pve, pvp, army, first-person-shooter, sniper, competitive-games, collecting-games, desktop-games, 1-player-games, shoot-em-up-games, arcade-shooter, military-shooter, action-adventure, 2d-action, survival-horror",
     iframeUrl: "/games/special-ops-go.html",
     fullscreen: true,
-    videoUrl: "https://static.playgama.com/p-video/cca4b40c9b6c4877a294c337ef342280/orig_length_h320.mp4"
+    videoUrl: ""
   },
   {
     id: 121,
@@ -931,9 +1547,17 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/plants-vs-zombies-fusion-mode/big-preview/df5ba67f240a40b18d46d2d3d57b8400?width=448",
+    width: "800",
+    height: "450",
+    description: "Welcome to the updated world of Plants vs. Zombies, where innovation is intertwined with tradition!\n\nIn this game, you have the opportunity not only to defend your home from zombies with the help of an army of plants, but also to create unique hybrid plants that combine the abilities of two or more original plants.\n\nThese hybrids give you unlimited tactical options to fight new waves of zombies that have become smarter, stronger, and more cunning!\n\nControls:\nDesktop: Mouse: select plants, click buttons, place plants, use bonuses, collect items.  \nMobile: Finger: select plants, click buttons, place plants, use bonuses, collect items.\n\nKey Features:\n• Crossbreed Plants!: Combine plants to create unique specimens! They will surprise you with their appearance and abilities, and can pose a serious threat to zombies!  \n• Meme Skins.: Dress your plants in skins. Some are inspired by popular memes!\n\nUpgrades / Progression / Economy:\n• Sun Points.: Earn them through sunflowers and purchase plants in-game to strengthen your defense!  \n• Dollars.: Earn them by completing levels! You can use them to buy bonuses, challenges, and special plants in the shop!  \n• Premium Currency.: Purchase special skins for your favorite plants!\n\nGame Modes:\n• Adventure: Defend your home by fending off waves, level by level, and defeat bosses by planting an unbreakable defense with your plants!  \n• Challenges: Special levels with unique trials. Play as zombies or fend off monster attacks using only plants from gifts — you never know which plant you’ll get! There are challenges for every taste.\n\nCharacters / Heroes / Skins:\n• Cabbage Pult: A plant that launches a cabbage head straight at zombies. The enemy won't know what hit them when it lands on their head!  \n• Torch Wood: Helps turn projectiles launched by other plants into fiery ones! Roast those monsters!\n\nEnemies / Bosses:\n• Zombie Door.: Look out. This zombie had the clever idea to take a door and use it as a shield! I wonder what he'll do when your plants break it.  \n• Super Driver Zombie.: Beware! This zombie is charging straight at you. Destroy him quickly before he crushes your plants! Deal as much damage as you can, and fast!\n\nStory / Setting:\nThe zombie apocalypse has begun. The world is crawling with monsters eager for brains! Protect your home by planting living plants!\n\nCore Gameplay & Story  \nQ: What is the goal of the game?  \nA: The zombie apocalypse has arrived! Zombies are taking over this world. Your plants can stop them! Plant your backyard defense to keep them from reaching your home!\n\nQ: How do you win / what counts as losing?  \nA: Don’t let the zombies into the house! Plant lines of defense with different plants to stop them and destroy all waves of monsters!\n\nQ: What hooks you in the first few minutes?  \nA: The pleasant music immerses you in this world. And if you find yourself short on plants, you can create unique species by combining them! They will differ not only in appearance but also in abilities!\n\nMechanics & Progression  \nQ: How many levels are there / is the structure clear?  \nA: Levels follow one after another, keeping boredom at bay. Each new level will introduce you to new plants and enemies!\n\nQ: Does the difficulty change?  \nA: Each subsequent level is harder than the last. You’ll need to strategize your defense and crossbreed plants to withstand the zombie onslaught!\n\nQ: How can you level up faster?  \nA: Plant more sunflowers! They give you sun points, which you can use to buy plants for your defense. Don’t hold back. Zombies won’t spare any effort to break through to you!\n\nQ: What unlocks as you progress?  \nA: New plants, along with new combinations, which will give you unique species with their own abilities.\n\nEconomy & Customization  \nQ: What can you buy/improve?  \nA: Purchase bonuses that will help you in the game. For example, speed up the game by 3 times if you want a faster pace. Special plants are also available in the shop.\n\nQ: Are there skins / customization?  \nA: Unlock skins for your plants! Many of them are themed around popular memes. Even zombies won’t be indifferent to them!\n\nQ: What is available from the start?  \nA: The Peashooter and Sunflower. The most basic plants, but indispensable in battle. Sunflowers will provide you with sun points to buy new plants, while the Peashooter is your loyal and brave guardian. It shoots peas and stops zombies trying to get into the house.\n\nRetention & Engagement  \nQ: Are there daily rewards / a wheel of fortune / achievements / tasks?  \nA: Earn daily rewards for logging in! It’s always nice to return, as a surprise awaits you!\n\nQ: Is sound necessary?  \nA: Want to play in silence? No one will stop you from doing that.\n\nQ: Is there onboarding in the game? What is it like?  \nA: The first levels of the game will introduce you to all the mechanics and plants, so you can quickly understand how to build your defense effectively. You’ll grasp everything within the first levels!",
+    instructions: "Place hybrids and other plants on the field to defend against waves of zombies. Considering their cost and recharge.\nZombies are getting stronger, so adapt, combine plants, and develop your strategy.",
+    categories: [
+      "strategy"
+    ],
+    tags: "strategy, funny, zombie, pve, tower-defense, casual-games, addictive-games, defense-games, plant-games, building-games, resource-management-games",
     iframeUrl: "/games/plants-vs-zombies-fusion-mode.html",
     fullscreen: true,
-    videoUrl: "https://static.playgama.com/p-video/9bc8ad41499c4002aa3e17049bb4f3bc/orig_length_h320.mp4"
+    videoUrl: ""
   },
   {
     id: 122,
@@ -943,8 +1567,16 @@ const NEW_GAMES = [
     gradient: "linear-gradient(135deg,#001530,#003080)",
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/hedgies/big_preview/82348afa3e7b4db0bf915c835c40a8bd?width=448",
+    width: "800",
+    height: "450",
+    description: "A single Hedgehog is capable of turning a desolate and abandoned household on plot of land into a bustling and flourishing farm. Only a few of us, people, are aware of the fact that Hedgies are great cooks, fishermen, craftsmen and last, but not the least, fabulously hospitable types! Come and see for yourself, plunge into ‘Hedgies’ game and contribute to the beautification of the Valley.\n",
+    instructions: "Hedgies is a charming farming game where a hardworking hedgehog transforms an abandoned plot into a thriving homestead. Grow crops, craft goods, and master skills like cooking and fishing. With a warm and welcoming spirit, your hedgehog will turn the valley into a lively community. Step in and help bring this enchanting world to life!",
+    categories: [
+      "adventure"
+    ],
+    tags: "adventure, funny, animals, cool-games, management, cozy, farm, crafting, cooking, casual-games, 1-player-games, building-games, resource-management-games, animal-io, gam-supported-games",
     iframeUrl: "/games/hedgies.html",
     fullscreen: true,
-    videoUrl: "https://static.playgama.com/p-video/5190b1fcdbba4021a45c3930c54161e2/orig_length_h320.mp4"
-  },
+    videoUrl: ""
+  }
 ];
