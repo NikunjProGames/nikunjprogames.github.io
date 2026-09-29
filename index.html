@@ -3451,6 +3451,13 @@ function getGameCategories(game) {
   return game.cat ? [game.cat] : [];
 }
 
+function getGameTags(game) {
+  const tags = Array.isArray(game.gameDna) ? game.gameDna : game.tags;
+  if (Array.isArray(tags)) return tags;
+  if (typeof tags === 'string') return tags.split(',').map(tag => tag.trim()).filter(Boolean);
+  return [];
+}
+
 function getPreferenceKey() {
   const username = getCurrentUser();
   return username ? `nikunj_game_preferences_${username}` : 'nikunj_game_preferences_guest';
@@ -3616,14 +3623,14 @@ function renderRecommendedGames() {
   recentGames.forEach((game, index) => {
     const weight = Math.max(1, 4 - index * 0.6);
     getGameCategories(game).forEach(category => categoryAffinity.set(category, (categoryAffinity.get(category) || 0) + weight));
-    (game.gameDna || game.tags || []).forEach(tag => dnaAffinity.set(String(tag).toLowerCase(), (dnaAffinity.get(String(tag).toLowerCase()) || 0) + weight));
+    getGameTags(game).forEach(tag => dnaAffinity.set(String(tag).toLowerCase(), (dnaAffinity.get(String(tag).toLowerCase()) || 0) + weight));
   });
   Object.entries(history).forEach(([id, data]) => {
     const game = GAMES.find(candidate => candidate.id === Number(id));
     if (!game) return;
     const weight = Math.min(4, Math.log2(Number(data.plays || 0) + 1));
     getGameCategories(game).forEach(category => categoryAffinity.set(category, (categoryAffinity.get(category) || 0) + weight));
-    (game.gameDna || game.tags || []).forEach(tag => dnaAffinity.set(String(tag).toLowerCase(), (dnaAffinity.get(String(tag).toLowerCase()) || 0) + weight));
+    getGameTags(game).forEach(tag => dnaAffinity.set(String(tag).toLowerCase(), (dnaAffinity.get(String(tag).toLowerCase()) || 0) + weight));
   });
 
   const moodKey = getSelectedMood();
@@ -3635,7 +3642,7 @@ function renderRecommendedGames() {
 
   const ranked = GAMES.map(game => {
     const categories = getGameCategories(game);
-    const dna = (game.gameDna || game.tags || []).map(tag => String(tag).toLowerCase());
+    const dna = getGameTags(game).map(tag => String(tag).toLowerCase());
     const preference = preferences[game.id];
     const text = `${game.name} ${categories.join(' ')} ${dna.join(' ')}`.toLowerCase();
     const moodMatch = !mood?.terms.length || mood.terms.some(term => text.includes(term));
