@@ -723,38 +723,6 @@
       width: 100%;
     }
 
-    /* Filter tabs */
-    .filter-tabs {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      justify-content: center;
-      margin-bottom: 2.5rem;
-    }
-    .filter-tab {
-      padding: 0.45rem 1.2rem;
-      border-radius: 20px;
-      border: 1.5px solid rgba(139,0,255,0.35);
-      background: transparent;
-      color: var(--text-dim);
-      font-family: 'Orbitron', sans-serif;
-      font-size: 0.65rem;
-      letter-spacing: 1px;
-      cursor: pointer;
-      transition: all 0.25s;
-    }
-    .filter-tab:hover {
-      border-color: var(--blue-1);
-      color: var(--blue-1);
-      box-shadow: 0 0 10px rgba(0,191,255,0.3);
-    }
-    .filter-tab.active {
-      background: linear-gradient(135deg, var(--purple-1), var(--blue-2));
-      border-color: transparent;
-      color: #fff;
-      box-shadow: 0 0 14px var(--purple-1);
-    }
-
     /* Games grid */
     .game-search-wrap {
       display: flex;
@@ -790,9 +758,9 @@
       box-shadow: 0 0 18px rgba(0,191,255,0.18);
     }
 
-    .category-directory { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem 1rem; margin: 0 auto 1.25rem; }
-    .category-directory a { color: var(--text-dim); text-decoration: underline; text-underline-offset: 3px; }
-    .category-directory a:hover { color: var(--blue-1); }
+    .category-directory { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 0.5rem; margin: 0 0 1.25rem; }
+    .category-directory a { display: inline-flex; align-items: center; min-height: 36px; padding: 0.4rem 0.8rem; border: 1px solid rgba(139,0,255,0.35); border-radius: 999px; background: rgba(255,255,255,0.025); color: var(--text-dim); font-size: 0.78rem; text-decoration: none; white-space: nowrap; }
+    .category-directory a:hover, .category-directory a:focus-visible { border-color: var(--blue-1); color: var(--blue-1); outline: none; }
     .skip-link { position: absolute; left: 12px; top: -60px; z-index: 20; padding: 10px 14px; background: #fff; color: #111; }
     .skip-link:focus { top: 12px; }
 
@@ -1372,8 +1340,8 @@
       .auth-modal-box .form-note { margin-bottom: 0.85rem; line-height: 1.25; }
       .auth-modal-box .form-note:last-child { display: none; }
       .game-search-wrap { margin-bottom: 1rem; }
-      .filter-tabs { gap: 0.5rem; }
-      .filter-tab { font-size: 0.75rem; padding: 0.4rem 1rem; }
+      .category-directory { flex-wrap: nowrap; overflow-x: auto; padding: 0.15rem 0.1rem 0.45rem; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+      .category-directory::-webkit-scrollbar { display: none; }
     }
 
     @media (max-width: 380px) {
@@ -1704,7 +1672,7 @@ animate();
   <button type="button" class="mobile-nav-item" onclick="mobileNavRecent(this)">
     <i class="fas fa-bookmark"></i><span>My Games</span>
   </button>
-  <button type="button" class="mobile-nav-item" onclick="mobileNavLogin(this)">
+  <button type="button" class="mobile-nav-item" id="mobile-auth-action" onclick="mobileNavAuth(this)">
     <i class="fas fa-user"></i><span>Login</span>
   </button>
 </nav>
@@ -1786,23 +1754,6 @@ animate();
     </div>
   </div>
 
-  <div class="filter-tabs" id="filter-tabs">
-    <button class="filter-tab active" data-cat="all">All</button>
-    <button class="filter-tab" data-cat="action">Action</button>
-    <button class="filter-tab" data-cat="boys">Boys</button>
-    <button class="filter-tab" data-cat="girls">Girls</button>
-    <button class="filter-tab" data-cat="puzzle">Puzzle</button>
-    <button class="filter-tab" data-cat="racing">Racing</button>
-    <button class="filter-tab" data-cat="sports">Sports</button>
-    <button class="filter-tab" data-cat="arcade">Arcade</button>
-    <button class="filter-tab" data-cat="io">IO</button>
-    <button class="filter-tab" data-cat="endless">Endless Runner</button>
-    <button class="filter-tab" data-cat="strategy">Strategy</button>
-    <button class="filter-tab" data-cat="nostalgia">Nostalgia</button>
-    <button class="filter-tab" data-cat="cars">Car Games</button>
-    <button class="filter-tab" data-cat="parkour">Parkour</button>
-  </div>
-
   <h2 class="category-discovery-title">Explore PleyZ categories</h2>
   <nav class="category-directory" aria-label="Browse game categories">
     <a href="/action-games/">Action</a>
@@ -1825,15 +1776,13 @@ animate();
     <a href="/two-player-games/">Two Player</a>
     <a href="/brain-training-games/">Brain Training</a>
     <a href="/skill-games/">Skill</a>
-    <a href="/heavy-duty-fps-games/">Heavy-Duty FPS</a>
-    <a href="/fighting-games/">Fighting</a>
-    <a href="/survival-games/">Survival</a>
-    <a href="/weird-experimental-games/">Weird &amp; Experimental</a>
+    <a href="/fps-shooting-games/">FPS &amp; Shooting</a>
+    <a href="/survival-zombies-games/">Survival &amp; Zombies</a>
+    <a href="/physics-oddities-games/">Physics &amp; Oddities</a>
     <a href="/chill-casual-games/">Chill &amp; Casual</a>
-    <a href="/quick-sessions-games/">Quick Sessions</a>
     <a href="/tactical-strategy-games/">Tactical Strategy</a>
-    <a href="/spooky-games/">Spooky</a>
-    <a href="/hidden-gems-games/">Hidden Gems</a>
+    <a href="/new-in-2026-games/">New in 2026</a>
+    <a href="/pleyz-picks-games/">PleyZ Picks</a>
   </nav>
 
   <div class="games-grid" id="games-grid">
@@ -1882,194 +1831,44 @@ animate();
 <!-- ==================================================
      ABOUT SECTION 
 =================================================-->
-<section id="about" style="padding:6rem 2rem; max-width:700px; margin:0 auto; text-align:center;"></section>
 <style>
 .pleyz-about-section {
     width: 100%;
-    max-width: 1200px;
-    margin: 50px auto;
-    padding: 45px 55px;
-    background: #eeeeee0d;
-    border-radius: 18px;
+  max-width: 1000px;
+  margin: 2.5rem auto;
+  padding: 0 2rem;
     box-sizing: border-box;
-    text-align: left;
-    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI",
-                 Roboto, Arial, sans-serif;
     color: #fffefe;
-    line-height: 1.75;
+  font-family: 'Rajdhani', sans-serif;
+  line-height: 1.55;
 }
 
 .pleyz-about-section h2 {
-    font-size: 28px;
-    margin: 30px 0 12px;
+  font: 700 1.15rem 'Orbitron', sans-serif;
+  margin: 0 0 0.7rem;
     font-weight: 700;
 }
 
-.pleyz-about-section h3 {
-    font-size: 20px;
-    margin: 22px 0 8px;
-    color: #5c9ac7;
-    font-weight: 600;
-}
-
 .pleyz-about-section p {
-    font-size: 16px;
-    margin: 0 0 18px;
+  max-width: 820px;
+  font-size: 1rem;
+  margin: 0 0 0.75rem;
+  color: var(--text-dim);
 }
 
 @media (max-width: 768px) {
     .pleyz-about-section {
-        padding: 30px 22px;
-        margin: 30px auto;
-    }
-
-    .pleyz-about-section h2 {
-        font-size: 24px;
-    }
-
-    .pleyz-about-section h3 {
-        font-size: 18px;
-    }
-
-    .pleyz-about-section p {
-        font-size: 15px;
+    padding: 0 1.2rem;
+    margin: 2rem auto;
     }
 }
 </style>
 
-<div class="pleyz-about-section">
-
-<h2>Free Premium Games on PleyZ</h2>
-
-<p>Welcome to PleyZ, a gaming platform for discovering and playing free, curated, premium-quality browser games. PleyZ brings together handpicked games across different genres, with a focus on providing an enjoyable gaming experience without constantly dragging players into irritating or disruptive ads.</p>
-
-<p>From action and arcade games to racing, puzzles, multiplayer experiences, and more, PleyZ makes it easy to discover games worth playing. Our goal is to build a gaming platform where players can spend less time searching and more time playing.</p>
-
-<p>PleyZ is more than just a collection of browser games. With <strong>PleyZ Score</strong> and an active <strong>leaderboard system</strong>, players can track their progress, compete for higher positions, and make their gaming activity part of the PleyZ experience.</p>
-
-<p>With Smooth neon animations, gameplay videos, and curated games sections, PleyZ Games, makes gameplay easier and better for everyone </p>
-
-
-<h2>Discover Curated Games on PleyZ</h2>
-
-<p>PleyZ focuses on carefully selected games rather than simply filling a library with anything available. Our collection includes free browser games chosen to give players a variety of enjoyable experiences across different genres and play styles.</p>
-
-
-<h3>Action and Arcade Games</h3>
-
-<p>Take on fast-paced challenges with action and arcade games that test your reactions, timing, and skills. Discover quick games that are easy to start and challenging to master.</p>
-
-
-<h3>Racing Games</h3>
-
-<p>Get behind the wheel and explore racing games featuring different tracks, vehicles, challenges, and driving styles. Whether you prefer fast races or skill-based driving, there are racing experiences to discover on PleyZ.</p>
-
-
-<h3>Puzzle Games</h3>
-
-<p>Challenge your thinking with puzzle games that require logic, observation, planning, and quick decisions. Explore different types of puzzles and find a challenge that matches your play style.</p>
-
-
-<h3>Multiplayer Games</h3>
-
-<p>Play multiplayer games and compete or cooperate with other players where supported. Multiplayer games on PleyZ offer different ways to challenge yourself and enjoy gaming with others.</p>
-
-
-<h2>Premium Gaming, Without the Irritating Experience</h2>
-
-<p>PleyZ aims to provide a cleaner and more enjoyable way to play free online games. We believe players should be able to focus on the game instead of constantly being interrupted by irritating or excessive advertising.</p>
-
-<p>Our curated collection focuses on premium-quality gaming experiences that are easy to discover and play in your browser. While individual games may have their own advertising or loading requirements, PleyZ's goal is to keep the overall platform experience as smooth and player-friendly as possible.</p>
-
-
-<h2>PleyZ Originals</h2>
-
-<p>PleyZ Originals are games created or developed specifically for the PleyZ platform. They represent PleyZ's own approach to browser gaming and are part of the platform's growing collection of original experiences.</p>
-
-<p>As PleyZ continues to grow, PleyZ Originals can become a place to discover games that are unique to the platform.</p>
-
-
-<h2>PleyZ Score</h2>
-
-<p>PleyZ Score is PleyZ's player scoring system, designed to make gaming activity more meaningful by giving players a way to track their progress and build their score on the platform.</p>
-
-<p>Players can build their PleyZ Score through eligible activity on PleyZ, making the score part of the platform's identity and giving players another reason to keep exploring games and improving their performance.</p>
-
-
-<h2>Active PleyZ Leaderboards</h2>
-
-<p>PleyZ features an active leaderboard system where players can see how they rank and compete for higher positions. Leaderboards add a competitive element to PleyZ and give players a way to compare their progress within the platform.</p>
-
-<p>As the PleyZ community grows, the leaderboard system can become an important part of the platform's competitive gaming experience.</p>
-
-
-<h2>Play Free Browser Games</h2>
-
-<p>PleyZ is designed to make browser gaming simple and accessible. Open a supported game, start playing, discover new titles, and keep building your PleyZ gaming journey.</p>
-
-<p>Whether you're looking for a quick arcade challenge, a racing game, a puzzle, a multiplayer experience, or a PleyZ Original, PleyZ gives you different ways to discover and enjoy free online games.</p>
-
-
-<h2>Frequently Asked Questions</h2>
-
-<h3>What is PleyZ?</h3>
-
-<p>PleyZ is an online gaming platform where players can discover and play free, curated browser games. PleyZ focuses on premium-quality gaming experiences and also features PleyZ Score and an active leaderboard system.</p>
-
-
-<h3>Are the games on PleyZ free to play?</h3>
-
-<p>Yes. PleyZ focuses on free-to-play browser games that can be played online through a supported web browser.</p>
-
-
-<h3>What makes PleyZ different from other gaming websites?</h3>
-
-<p>PleyZ focuses on curated, premium-quality games and a player-friendly experience. The platform also includes features such as PleyZ Score, active leaderboards, and PleyZ Originals.</p>
-
-
-<h3>Does PleyZ have annoying ads?</h3>
-
-<p>PleyZ aims to provide a cleaner gaming experience without constantly interrupting players with irritating or excessive advertising. However, individual games may have their own advertising or loading requirements.</p>
-
-
-<h3>What types of games are available on PleyZ?</h3>
-
-<p>PleyZ includes games from a variety of genres, including action, arcade, puzzle, racing, multiplayer, casual, and other browser game categories.</p>
-
-
-<h3>What is PleyZ Score?</h3>
-
-<p>PleyZ Score is PleyZ's player scoring system for tracking gaming activity and progress on the platform.</p>
-
-
-<h3>What are the PleyZ leaderboards?</h3>
-
-<p>The PleyZ leaderboards are an active ranking system that allows players to see their position and compete for higher rankings based on eligible PleyZ activity.</p>
-
-
-<h3>What are PleyZ Originals?</h3>
-
-<p>PleyZ Originals are games created or developed specifically for the PleyZ platform and form part of PleyZ's original gaming collection.</p>
-
-
-<h3>Can I play PleyZ games on mobile?</h3>
-
-<p>Many PleyZ games support mobile play, although compatibility can vary depending on the individual game.</p>
-
-
-<h3>Do I need to install games to play on PleyZ?</h3>
-
-<p>PleyZ features browser games that can be played online, so supported games can be started directly through a web browser without a traditional game installation.</p>
-
-<h3>How can I submit my game to PleyZ?</h3>
-
-<p>If you're a developer with a game you'd like to feature on PleyZ, you can submit it through the button below to the thousands of players who visit our site.</p>
-
-<h3>Does PleyZ also have FPS Games ?</h3>
-<p>Yes, PleyZ features a selection of first-person shooter games that can be played directly in your web browser.</p>
-
-
-</div>
+<section id="about" class="pleyz-about-section" aria-labelledby="about-heading">
+  <h2 id="about-heading">Free Online Browser Games on PleyZ</h2>
+  <p>PleyZ is a curated online gaming platform where you can discover and play free browser games. Explore action, arcade, puzzle, racing, strategy, simulation, and multiplayer games, then open supported titles directly in your browser.</p>
+  <p>Browse our game categories to find your next favorite. Sign in to save game preferences and track eligible play with PleyZ Score. Games are provided by their developers and may have individual device, loading, or advertising requirements.</p>
+</section>
 
 
 <section class="submit-game-banner">
@@ -3502,15 +3301,6 @@ function bindGameGrid(grid) {
   });
 }
 
-function createGameFrameUrl(game) {
-  if (game.iframeUrl && game.iframeUrl.trim()) {
-    return game.iframeUrl.trim();
-  }
-
-  const html = `<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>${game.name}</title><style>body{margin:0;height:100vh;display:flex;align-items:center;justify-content:center;background:${game.gradient};color:#fff;font-family:Arial,sans-serif;text-align:center;} .card{padding:32px;border-radius:30px;background:rgba(0,0,0,0.35);box-shadow:0 0 60px rgba(0,0,0,0.35);} h1{font-size:2.4rem;margin:0 0 0.6rem;} p{font-size:1rem;opacity:0.85;line-height:1.6;max-width:420px;margin:0 auto;}<\/style><\/head><body><div class="card"><h1>${game.name}</h1><p>This preview iframe is styled for the embedded game experience. Replace the URL with your actual game source for production.</p></div><\/body><\/html>`;
-  return 'data:text/html;charset=utf-8,' + encodeURIComponent(html);
-}
-
 /* ============================================================
    RENDER FUNCTIONS
 ============================================================ */
@@ -3531,20 +3321,6 @@ function getGamePreferences() {
   } catch (_) {
     return {};
   }
-}
-
-function getGamePreference(gameId) {
-  return getGamePreferences()[gameId] || '';
-}
-
-function setGamePreference(event, gameId, preference) {
-  event.stopPropagation();
-  const preferences = getGamePreferences();
-  preferences[gameId] = preferences[gameId] === preference ? '' : preference;
-  localStorage.setItem(getPreferenceKey(), JSON.stringify(preferences));
-  const activeTab = document.querySelector('.filter-tab.active');
-  renderGames(activeTab?.dataset.cat || 'all');
-  renderRecommendedGames();
 }
 
 function rankGamesForUser(games) {
@@ -3575,34 +3351,7 @@ let gamesObserver = null;
 function renderGames(filter = 'all', reset = true) {
   const grid = document.getElementById('games-grid');
   if (!grid) return;
-
-  if (grid.dataset.eventsBound !== 'true') {
-    grid.dataset.eventsBound = 'true';
-    grid.addEventListener('click', event => {
-      const card = event.target.closest('.game-card');
-      if (card && !event.target.closest('iframe, video')) openGame(Number(card.dataset.id));
-    });
-    grid.addEventListener('keydown', event => {
-      if ((event.key === 'Enter' || event.key === ' ') && event.target.matches('.game-card')) {
-        event.preventDefault();
-        openGame(Number(event.target.dataset.id));
-      }
-    });
-    grid.addEventListener('pointerover', event => {
-      if (event.pointerType !== 'mouse') return;
-      const thumb = event.target.closest('.game-thumb');
-      if (!thumb || !grid.contains(thumb) || thumb.contains(event.relatedTarget)) return;
-      const gameId = Number(thumb.closest('.game-card')?.dataset.id);
-      const game = GAMES.find(item => item.id === gameId);
-      const preview = game && createGameVideoMarkup(game);
-      if (preview) thumb.insertAdjacentHTML('beforeend', preview);
-    });
-    grid.addEventListener('pointerout', event => {
-      const thumb = event.target.closest('.game-thumb');
-      if (!thumb || !grid.contains(thumb) || thumb.contains(event.relatedTarget)) return;
-      thumb.querySelector('.game-hover-video')?.remove();
-    });
-  }
+  bindGameGrid(grid);
 
   const searchValue =
     document.getElementById('game-search')?.value.trim().toLowerCase() || '';
@@ -3717,7 +3466,7 @@ function renderRecommendedGames() {
 
   const username = getCurrentUser();
   const recent = username ? getRecentGamesForUser(username) : [];
-  const preferences = username ? getGamePreferences() : {};
+  const preferences = getGamePreferences();
   const history = getPlayHistory(username);
   const recentGames = recent.map(entry => GAMES.find(game => game.id === entry.id)).filter(Boolean);
   const categoryAffinity = new Map();
@@ -3748,6 +3497,7 @@ function renderRecommendedGames() {
     const dna = (game.gameDna || game.tags || []).map(tag => String(tag).toLowerCase());
     const preference = preferences[game.id];
     const text = `${game.name} ${categories.join(' ')} ${dna.join(' ')}`.toLowerCase();
+    const moodMatch = !mood?.terms.length || mood.terms.some(term => text.includes(term));
     let score = 0;
     categories.forEach(category => { score += categoryAffinity.get(category) || 0; });
     dna.forEach(tag => { score += (dnaAffinity.get(tag) || 0) * 0.35; });
@@ -3757,22 +3507,24 @@ function renderRecommendedGames() {
     if (previouslyShown.has(game.id)) score -= 0.65;
     if (recent.some(entry => entry.id === game.id)) score -= 2.5;
     if (moodKey === 'surprise' && surpriseHistory.has(game.id)) score -= 1.8;
-    if (mood?.terms.length) score += mood.terms.some(term => text.includes(term)) ? 5 : -1.5;
+    if (mood?.terms.length) score += moodMatch ? 5 : -1.5;
     if (moodKey === 'surprise') score += (game.id * 17 % 11) / 10;
-    return { game, score, categories };
+    return { game, score, categories, moodMatch };
   }).filter(item => preferences[item.game.id] !== 'dislike');
 
+  const matchingMoodGames = mood?.terms.length ? ranked.filter(item => item.moodMatch) : [];
+  const recommendationPool = matchingMoodGames.length >= 10 ? matchingMoodGames : ranked;
   const recommendations = [];
   const categoryUse = new Map();
-  while (ranked.length && recommendations.length < 14) {
+  while (recommendationPool.length && recommendations.length < 14) {
     let bestIndex = 0;
     let bestScore = -Infinity;
-    ranked.forEach((item, index) => {
+    recommendationPool.forEach((item, index) => {
       const varietyPenalty = item.categories.reduce((total, category) => total + (categoryUse.get(category) || 0), 0) * 0.8;
       const adjusted = item.score - varietyPenalty;
       if (adjusted > bestScore) { bestScore = adjusted; bestIndex = index; }
     });
-    const [chosen] = ranked.splice(bestIndex, 1);
+    const [chosen] = recommendationPool.splice(bestIndex, 1);
     recommendations.push(chosen.game);
     chosen.categories.forEach(category => categoryUse.set(category, (categoryUse.get(category) || 0) + 1));
   }
@@ -3906,19 +3658,10 @@ async function renderLeaderboard() {
 }
 
 /* ============================================================
-   FILTER TABS
+   GAME SEARCH
 ============================================================ */
-document.getElementById('filter-tabs').addEventListener('click', e => {
-  const tab = e.target.closest('.filter-tab');
-  if (!tab) return;
-  document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
-  tab.classList.add('active');
-  renderGames(tab.dataset.cat);
-});
-
 document.getElementById('game-search').addEventListener('input', () => {
-  const activeTab = document.querySelector('.filter-tab.active');
-  renderGames(activeTab?.dataset.cat || 'all');
+  renderGames('all');
 });
 
 /* ============================================================
@@ -3945,9 +3688,10 @@ function mobileNavRecent(button) {
   setMobileNavActive(button);
   toggleRecentPanel(true);
 }
-function mobileNavLogin(button) {
+function mobileNavAuth(button) {
   setMobileNavActive(button);
-  openLoginModal();
+  if (getCurrentUser()) openAccountPage();
+  else openLoginModal();
 }
 window.addEventListener('scroll', () => {
   document.querySelector('header').classList.toggle('scrolled', window.scrollY > 18);
@@ -3992,25 +3736,6 @@ function closeLoginModal() {
 document.getElementById('login-modal').addEventListener('click', e => {
   if (e.target === document.getElementById('login-modal')) closeLoginModal();
 });
-
-async function hashPassword(password) {
-  const encoder = new TextEncoder();
-  const data = encoder.encode(password);
-  const hashBuffer = await crypto.subtle.digest('SHA-256', data);
-  return Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('');
-}
-
-function getStoredAccounts() {
-  try {
-    return JSON.parse(localStorage.getItem('nikunj_auth_accounts') || '{}');
-  } catch (e) {
-    return {};
-  }
-}
-
-function setStoredAccounts(accounts) {
-  localStorage.setItem('nikunj_auth_accounts', JSON.stringify(accounts));
-}
 
 function getCurrentUser() {
   const saved = localStorage.getItem('nikunj_current_username');
@@ -4177,6 +3902,7 @@ function updateAuthUI() {
   const avatarButton = document.getElementById('profile-avatar-button');
   const authButton = document.getElementById('auth-action-button');
   const footerAuthButton = document.getElementById('footer-auth-button');
+  const mobileAuthButton = document.getElementById('mobile-auth-action');
 
   if (username) {
     userDisplay.textContent = `Welcome, ${username}`;
@@ -4197,6 +3923,7 @@ function updateAuthUI() {
       footerAuthButton.textContent = 'Account / Profile';
       footerAuthButton.onclick = openAccountPage;
     }
+    if (mobileAuthButton) mobileAuthButton.innerHTML = '<i class="fas fa-user"></i><span>Account</span>';
   } else {
     userDisplay.textContent = '';
     userDisplay.style.display = 'none';
@@ -4212,6 +3939,7 @@ function updateAuthUI() {
       footerAuthButton.textContent = 'Login';
       footerAuthButton.onclick = openLoginModal;
     }
+    if (mobileAuthButton) mobileAuthButton.innerHTML = '<i class="fas fa-user"></i><span>Login</span>';
   }
   renderRecentGamesPanel();
   renderRecommendedGames();
@@ -4425,12 +4153,6 @@ function applyUrlCategoryFilter(){
     if (base && base.endsWith('-games')) cat = base.replace('-games', '');
   }
   if (cat) {
-    // set active tab & sidebar
-    const tab = document.querySelector(`.filter-tab[data-cat="${cat}"]`);
-    if (tab) {
-      document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-    }
     document.querySelectorAll('#sidebar-cats a').forEach(x => x.classList.toggle('active', x.dataset.cat === cat));
     renderGames(cat);
     // scroll to games section
@@ -4901,6 +4623,7 @@ setTimeout(() => {
   @media (max-width: 768px) {
     body { padding-bottom: 76px; }
     .hamburger { display: none !important; }
+    .hero-tagline, .discovery-copy { display: none; }
     #home { padding: 6.8rem 1.2rem 1.5rem; }
     .hero-title { font-size: clamp(2rem, 11vw, 3rem); }
     .hero-badge { font-size: 0.4rem; letter-spacing: 2px; }
@@ -4915,8 +4638,6 @@ setTimeout(() => {
     .game-thumb { border-radius: 14px; }
     .game-thumb img.custom-game-image { border-radius: 14px; }
     .game-name { font-size: 0.76rem; }
-    .filter-tabs { justify-content: flex-start; overflow-x: auto; flex-wrap: nowrap; padding-bottom: 0.3rem; scrollbar-width: none; }
-    .filter-tabs::-webkit-scrollbar { display: none; }
     .mobile-bottom-nav { position: fixed; display: flex; left: 0; right: 0; bottom: 0; z-index: 1100; justify-content: space-around; padding: 0.55rem 0.35rem calc(0.55rem + env(safe-area-inset-bottom)); background: rgba(8,8,15,0.96); border-top: 1px solid rgba(139,0,255,0.35); box-shadow: 0 -10px 30px rgba(0,0,0,0.28); backdrop-filter: blur(18px); }
     .mobile-nav-item { display: grid; gap: 0.28rem; min-width: 70px; border: 0; background: transparent; color: var(--text-dim); font: 600 0.66rem 'Rajdhani', sans-serif; cursor: pointer; text-align: center; }
     .mobile-nav-item i { font-size: 1rem; }
@@ -4925,7 +4646,7 @@ setTimeout(() => {
   @media (max-width: 380px) {
     #home { padding-left: 0.9rem; padding-right: 0.9rem; }
     #trending, #games { padding-left: 0.9rem; padding-right: 0.9rem; }
-    .games-grid { gap: 1rem 0.65rem; }
+    .games-grid, .discovery-grid { column-gap: 0.55rem; row-gap: 0.6rem; }
   }
 
   #recommendations, #popular-games { padding: 2.6rem 2rem; }

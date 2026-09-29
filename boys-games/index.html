@@ -6,6 +6,7 @@
   <title>Boys Games Online | PleyZ</title>
   <meta name="description" content="Browse boys browser games on PleyZ. Open a game page for its description, available instructions, and related titles.">
   <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="generator" content="PleyZ static category generator">
   <link rel="canonical" href="https://nikunjprogames.github.io/boys-games/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Boys Games Online | PleyZ">
@@ -41,9 +42,9 @@
     .catalog-heading h2 { margin: 0; font-size: 1.15rem; }
     .catalog-heading p { margin: 0; color: var(--muted); }
     .game-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr)); gap: 14px; }
-    .game-item { min-width: 0; overflow: hidden; border: 1px solid var(--border); border-radius: 8px; background: var(--panel); text-decoration: none; }
-    .game-item img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; background: #05070d; }
-    .game-item span { display: block; padding: 10px 12px; font-weight: 700; }
+    .game-item { min-width: 0; display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--border); border-radius: 8px; background: var(--panel); text-decoration: none; }
+    .game-item img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; background: #05070d; }
+    .game-item span { display: -webkit-box; min-height: 2.6em; padding: 10px 12px; overflow: hidden; font-weight: 700; line-height: 1.3; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; }
     .game-item:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     .category-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 14px; }
     .site-footer { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--border); color: var(--muted); }
@@ -56,8 +57,7 @@
     body.theme-chill { --accent: #80e5bf; --border: rgba(128,229,191,.3); }
     body.theme-arcade { --accent: #ffd369; --border: rgba(255,211,105,.32); }
     body.theme-retro { --accent: #ffca7a; --border: rgba(255,172,91,.34); background: radial-gradient(ellipse at 85% 4%, rgba(125,67,22,.2), transparent 38%), var(--bg); }
-    body.theme-spooky { --accent: #c39bff; --border: rgba(132,93,192,.38); background: radial-gradient(ellipse at 85% 4%, rgba(38,79,66,.22), transparent 38%), var(--bg); }
-    body.theme-hidden { --accent: #d2a3ff; --border: rgba(178,106,255,.38); background: radial-gradient(ellipse at 85% 4%, rgba(81,37,121,.24), transparent 38%), var(--bg); }
+    body.theme-fresh { --accent: #8affbb; --border: rgba(138,255,187,.34); background: radial-gradient(ellipse at 85% 4%, rgba(35,130,82,.19), transparent 38%), var(--bg); }
     @media (max-width: 520px) { .page { width: min(100% - 24px, 1200px); } header { align-items: flex-start; flex-direction: column; } }
   </style>
 </head>
@@ -164,10 +164,10 @@
       <section aria-labelledby="related-categories-heading">
         <h2 id="related-categories-heading">Explore more categories</h2>
         <nav class="category-links" aria-label="Related categories"><a href="/multiplayer-games/">Multiplayer Games</a>
-<a href="/quick-sessions-games/">Quick Sessions Games</a>
-<a href="/hidden-gems-games/">Hidden Gems Games</a>
 <a href="/puzzle-games/">Puzzle Games</a>
-<a href="/brain-training-games/">Brain Training Games</a></nav>
+<a href="/girls-games/">Girls Games</a>
+<a href="/brain-training-games/">Brain Training Games</a>
+<a href="/fps-shooting-games/">FPS &amp; Shooting Games</a></nav>
       </section>
     </main>
     <footer class="site-footer">

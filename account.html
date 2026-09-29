@@ -88,6 +88,7 @@
           <div class="metric-list">
             <div class="metric"><span>PleyZ Score</span><strong id="account-score">0</strong></div>
             <div class="metric"><span>Games played</span><strong id="account-games">0</strong></div>
+            <div class="metric"><span>Leaderboard rank</span><strong id="account-rank">Unranked</strong></div>
           </div>
           <p class="account-note">Your leaderboard position is available on the <a class="text-link" href="/#leaderboard">PleyZ leaderboard</a>.</p>
         </section>
@@ -140,14 +141,18 @@
       document.getElementById('account-score').textContent = number(localStorage.getItem(`nikunj_pleyz_${username}`));
       document.getElementById('account-games').textContent = number(localStorage.getItem(`nikunj_games_${username}`));
       try {
-        const { getFirestore, doc, getDoc } = await import('https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js');
-        const snapshot = await getDoc(doc(getFirestore(app), 'users', user.uid));
+        const { getFirestore, doc, getDoc, collection, query, orderBy, limit, getDocs } = await import('https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js');
+        const db = getFirestore(app);
+        const snapshot = await getDoc(doc(db, 'users', user.uid));
         if (snapshot.exists()) {
           const data = snapshot.data();
           document.getElementById('account-score').textContent = number(data.pleyzScore);
           document.getElementById('account-games').textContent = number(data.gamesPlayed);
           document.getElementById('account-sync-status').textContent = 'Cloud profile synced.';
         }
+        const ranking = await getDocs(query(collection(db, 'leaderboard'), orderBy('pleyzScore', 'desc'), limit(500)));
+        const rankIndex = ranking.docs.findIndex(entry => entry.id === user.uid);
+        document.getElementById('account-rank').textContent = rankIndex >= 0 ? `#${rankIndex + 1}` : ranking.size === 500 ? '500+' : 'Unranked';
       } catch (_) {
         document.getElementById('account-sync-status').textContent = 'Cloud stats are temporarily unavailable; showing progress saved on this device.';
       }

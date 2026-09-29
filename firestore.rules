@@ -39,7 +39,9 @@ service cloud.firestore {
           (request.resource.data.diff(resource.data).affectedKeys().hasOnly(['username', 'pleyzScore', 'gamesPlayed', 'lastPlayed'])
             && request.resource.data.pleyzScore == resource.data.pleyzScore + 1
             && request.resource.data.gamesPlayed == resource.data.gamesPlayed + 1
-            && request.resource.data.lastPlayed is timestamp)
+            && request.resource.data.lastPlayed is timestamp
+            && getAfter(/databases/$(database)/documents/leaderboard/$(uid)).data.pleyzScore == request.resource.data.pleyzScore
+            && getAfter(/databases/$(database)/documents/leaderboard/$(uid)).data.gamesPlayed == request.resource.data.gamesPlayed)
         );
       allow delete: if false;
     }
@@ -53,8 +55,8 @@ service cloud.firestore {
         && validUsername(request.resource.data.username)
         && validCounts(request.resource.data)
         && request.resource.data.updatedAt is timestamp
-        && request.resource.data.pleyzScore == get(/databases/$(database)/documents/users/$(uid)).data.pleyzScore
-        && request.resource.data.gamesPlayed == get(/databases/$(database)/documents/users/$(uid)).data.gamesPlayed;
+        && request.resource.data.pleyzScore == getAfter(/databases/$(database)/documents/users/$(uid)).data.pleyzScore
+        && request.resource.data.gamesPlayed == getAfter(/databases/$(database)/documents/users/$(uid)).data.gamesPlayed;
       allow update: if owns(uid)
         && request.resource.data.keys().hasOnly(['uid', 'username', 'pleyzScore', 'gamesPlayed', 'updatedAt'])
         && request.resource.data.uid == uid
@@ -62,6 +64,8 @@ service cloud.firestore {
         && validCounts(request.resource.data)
         && request.resource.data.updatedAt is timestamp
         && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['username', 'pleyzScore', 'gamesPlayed', 'updatedAt'])
+        && request.resource.data.pleyzScore == getAfter(/databases/$(database)/documents/users/$(uid)).data.pleyzScore
+        && request.resource.data.gamesPlayed == getAfter(/databases/$(database)/documents/users/$(uid)).data.gamesPlayed
         && (
           (request.resource.data.pleyzScore == resource.data.pleyzScore
             && request.resource.data.gamesPlayed == resource.data.gamesPlayed)
@@ -74,7 +78,6 @@ service cloud.firestore {
 
     match /{document=**} {
       allow read, write: if false;
-    }
     }
   }
 }

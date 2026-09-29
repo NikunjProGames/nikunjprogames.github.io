@@ -56,6 +56,9 @@
     .topbar h1 { font-family: 'Orbitron', sans-serif; margin: 0; font-size: clamp(1.1rem, 2vw, 1.5rem); }
     .site-brand { color: var(--text); font: 700 0.92rem 'Orbitron', sans-serif; white-space: nowrap; }
     .topbar .actions { display: flex; gap: 8px; flex-wrap: wrap; }
+    .game-preferences { display: flex; gap: 6px; }
+    .game-preferences button { width: 36px; height: 36px; border: 1px solid var(--panel-border); border-radius: 7px; background: var(--panel); color: var(--muted); cursor: pointer; }
+    .game-preferences button[aria-pressed="true"], .game-preferences button:hover { border-color: var(--accent); color: var(--accent); }
     .profile-score-link {
       display: inline-flex; align-items: center; gap: 8px;
       padding: 6px 10px 6px 6px; border-radius: 999px;
@@ -142,6 +145,10 @@
       <a class="site-brand" href="/">PleyZ Games</a>
       <h1>Numicolor</h1>
       <div class="actions">
+        <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="102">
+          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><i class="fa-solid fa-thumbs-up"></i></button>
+          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><i class="fa-solid fa-thumbs-down"></i></button>
+        </div>
         <a class="profile-score-link" href="../index.html#leaderboard" title="View PleyZ score and leaderboard">
           <span class="profile-score-avatar" id="profile-score-avatar">PZ</span>
           <span id="profile-score-label">PleyZ Score</span>
@@ -167,7 +174,11 @@
 
       <section class="info-card related-games" aria-label="Related games">
         <h2>Games You Might Like</h2>
-        <div class="related-grid">undefined</div>
+        <div class="related-grid"><a class="related-game" href="good-sort-master-triple-match.html"><img src="https://static.playgama.com/p-img/pg/good-sort-master/big-preview/87153c5702e14ce994b208df2c0a5f61?width=448" alt="" width="800" height="450" loading="eager" fetchpriority="high" decoding="async" /><span>Good Sort Master: Triple Match</span></a>
+        <a class="related-game" href="mahjong-classic.html"><img src="https://static.playgama.com/p-img/pg/mahjong-classic/big-preview/730f65084d864a9baffefa86e110b106?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><span>Mahjong Classic</span></a>
+        <a class="related-game" href="nuts-puzzle-sort-by-color.html"><img src="https://static.playgama.com/p-img/pg/nuts-puzzle-sort-by-color/big_preview/faab3ed519024179b5a31afb72cdf675?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><span>Nuts Puzzle: Sort By Color</span></a>
+        <a class="related-game" href="piece-of-cake-merge-bake.html"><img src="https://static.playgama.com/p-img/pg/piece-of-cake-merge--bake/big-preview/4124b3ce37ab4b92b6a8ff1332c9eee8?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><span>Piece of Cake: Merge &amp; Bake</span></a>
+        <a class="related-game" href="find-the-frog-hidden-objects.html"><img src="https://static.playgama.com/p-img/pg/find-the-frog--hidden-objects/big_preview/541792f4c5354ef88be0646eb9be4b1b?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><span>Find the Frog - Hidden Objects</span></a></div>
       </section>
     </div>
 
@@ -199,7 +210,13 @@
            data-ad-slot="1234567890"
            data-ad-format="auto"
            data-full-width-responsive="true"></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      <script>
+        (function () {
+          const slot = document.querySelector('.adsbygoogle');
+          if (!slot || slot.dataset.adSlot === '1234567890' || slot.getBoundingClientRect().width === 0) return;
+          (window.adsbygoogle = window.adsbygoogle || []).push({});
+        }());
+      </script>
     </section>
 
   </div>
@@ -237,6 +254,28 @@
       const score = Number(localStorage.getItem(`nikunj_pleyz_${username}`) || 0).toLocaleString();
       avatar.textContent = initials || 'PZ';
       label.textContent = `PleyZ ${score}`;
+    }());
+  </script>
+  <script>
+    (function () {
+      const controls = document.querySelector('.game-preferences');
+      if (!controls) return;
+      const username = (localStorage.getItem('nikunj_current_username') || '').trim();
+      const key = username ? `nikunj_game_preferences_${username}` : 'nikunj_game_preferences_guest';
+      const gameId = controls.dataset.gameId;
+      let preferences = {};
+      try { preferences = JSON.parse(localStorage.getItem(key) || '{}'); } catch (_) {}
+      const updateButtons = () => controls.querySelectorAll('[data-game-preference]').forEach(button => {
+        button.setAttribute('aria-pressed', preferences[gameId] === button.dataset.gamePreference ? 'true' : 'false');
+      });
+      controls.addEventListener('click', event => {
+        const button = event.target.closest('[data-game-preference]');
+        if (!button) return;
+        preferences[gameId] = preferences[gameId] === button.dataset.gamePreference ? '' : button.dataset.gamePreference;
+        localStorage.setItem(key, JSON.stringify(preferences));
+        updateButtons();
+      });
+      updateButtons();
     }());
   </script>
 </body>

@@ -1,4 +1,13 @@
 .env
+.env.*
+secrets/
+credentials/
+firebase-adminsdk*.json
+service-account*.json
+*.pem
+*.key
+firebase-debug.log
+firestore-debug.log
 node_modules
 dist
 build

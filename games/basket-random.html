@@ -56,6 +56,9 @@
     .topbar h1 { font-family: 'Orbitron', sans-serif; margin: 0; font-size: clamp(1.1rem, 2vw, 1.5rem); }
     .site-brand { color: var(--text); font: 700 0.92rem 'Orbitron', sans-serif; white-space: nowrap; }
     .topbar .actions { display: flex; gap: 8px; flex-wrap: wrap; }
+    .game-preferences { display: flex; gap: 6px; }
+    .game-preferences button { width: 36px; height: 36px; border: 1px solid var(--panel-border); border-radius: 7px; background: var(--panel); color: var(--muted); cursor: pointer; }
+    .game-preferences button[aria-pressed="true"], .game-preferences button:hover { border-color: var(--accent); color: var(--accent); }
     .profile-score-link {
       display: inline-flex; align-items: center; gap: 8px;
       padding: 6px 10px 6px 6px; border-radius: 999px;
@@ -142,6 +145,10 @@
       <a class="site-brand" href="/">PleyZ Games</a>
       <h1>Basket Random</h1>
       <div class="actions">
+        <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="97">
+          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><i class="fa-solid fa-thumbs-up"></i></button>
+          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><i class="fa-solid fa-thumbs-down"></i></button>
+        </div>
         <a class="profile-score-link" href="../index.html#leaderboard" title="View PleyZ score and leaderboard">
           <span class="profile-score-avatar" id="profile-score-avatar">PZ</span>
           <span id="profile-score-label">PleyZ Score</span>
@@ -167,7 +174,11 @@
 
       <section class="info-card related-games" aria-label="Related games">
         <h2>Games You Might Like</h2>
-        <div class="related-grid">undefined</div>
+        <div class="related-grid"><a class="related-game" href="driver-club-highway-racing.html"><img src="https://static.playgama.com/p-img/pg/driver-club-highway-racing/big-preview/037ce11afe4f4d58a0f93a6339db96b5?width=448" alt="" width="800" height="450" loading="eager" fetchpriority="high" decoding="async" /><span>Driver Club: Highway Racing</span></a>
+        <a class="related-game" href="basketball-stars.html"><img src="https://static.playgama.com/p-img/pg/basketball-stars/big_preview/2e0653c710ad43e09c40d1ba5968e447?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><span>Basketball Stars</span></a>
+        <a class="related-game" href="ragdoll-crash-test-throw-and-break.html"><img src="https://static.playgama.com/p-img/pg/ragdoll-crashtest-throw-and-break/big-preview/806817717e62466a83cb4377d0fa92eb?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><span>Ragdoll Crash-Test: Throw and Break!</span></a>
+        <a class="related-game" href="special-ops-go.html"><img src="https://static.playgama.com/p-img/pg/special-ops/big_preview/379c25433de24d13afadf693d918e11e?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><span>Special Ops: GO</span></a>
+        <a class="related-game" href="1-speed-escape-prison.html"><img src="https://static.playgama.com/p-img/pg/1-speed-escape-prison/big-preview/415c3326c7724e6cae83d74990cc3020?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><span>+1 Speed: Escape Prison</span></a></div>
       </section>
     </div>
 
@@ -199,7 +210,13 @@
            data-ad-slot="1234567890"
            data-ad-format="auto"
            data-full-width-responsive="true"></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      <script>
+        (function () {
+          const slot = document.querySelector('.adsbygoogle');
+          if (!slot || slot.dataset.adSlot === '1234567890' || slot.getBoundingClientRect().width === 0) return;
+          (window.adsbygoogle = window.adsbygoogle || []).push({});
+        }());
+      </script>
     </section>
 
   </div>
@@ -237,6 +254,28 @@
       const score = Number(localStorage.getItem(`nikunj_pleyz_${username}`) || 0).toLocaleString();
       avatar.textContent = initials || 'PZ';
       label.textContent = `PleyZ ${score}`;
+    }());
+  </script>
+  <script>
+    (function () {
+      const controls = document.querySelector('.game-preferences');
+      if (!controls) return;
+      const username = (localStorage.getItem('nikunj_current_username') || '').trim();
+      const key = username ? `nikunj_game_preferences_${username}` : 'nikunj_game_preferences_guest';
+      const gameId = controls.dataset.gameId;
+      let preferences = {};
+      try { preferences = JSON.parse(localStorage.getItem(key) || '{}'); } catch (_) {}
+      const updateButtons = () => controls.querySelectorAll('[data-game-preference]').forEach(button => {
+        button.setAttribute('aria-pressed', preferences[gameId] === button.dataset.gamePreference ? 'true' : 'false');
+      });
+      controls.addEventListener('click', event => {
+        const button = event.target.closest('[data-game-preference]');
+        if (!button) return;
+        preferences[gameId] = preferences[gameId] === button.dataset.gamePreference ? '' : button.dataset.gamePreference;
+        localStorage.setItem(key, JSON.stringify(preferences));
+        updateButtons();
+      });
+      updateButtons();
     }());
   </script>
 </body>
