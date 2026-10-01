@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Strategy Games","description":"Browse strategy browser games on PleyZ. Open a game page for its description, available instructions, and related titles.","url":"https://nikunjprogames.github.io/strategy-games/","mainEntity":{"@type":"ItemList","numberOfItems":6,"itemListElement":[{"@type":"ListItem","position":1,"name":"Color Line","url":"https://nikunjprogames.github.io/color-line.html"},{"@type":"ListItem","position":2,"name":"FireBoy And WaterGirl-1","url":"https://nikunjprogames.github.io/fireboyandwatergirl.html"},{"@type":"ListItem","position":3,"name":"PVZ Fusion Cheats","url":"https://nikunjprogames.github.io/games/pvz-fusion-cheats.html"},{"@type":"ListItem","position":4,"name":"Idle Airport Tycoon","url":"https://nikunjprogames.github.io/games/idle-airport-tycoon.html"},{"@type":"ListItem","position":5,"name":"Plants vs Zombies Hybrids","url":"https://nikunjprogames.github.io/games/plants-vs-zombies-hybrids.html"},{"@type":"ListItem","position":6,"name":"Plants vs Zombies Fusion Mode","url":"https://nikunjprogames.github.io/games/plants-vs-zombies-fusion-mode.html"}]}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Strategy Games","description":"Browse strategy browser games on PleyZ. Open a game page for its description, available instructions, and related titles.","url":"https://nikunjprogames.github.io/strategy-games/","mainEntity":{"@type":"ItemList","numberOfItems":11,"itemListElement":[{"@type":"ListItem","position":1,"name":"Color Line","url":"https://nikunjprogames.github.io/color-line.html"},{"@type":"ListItem","position":2,"name":"FireBoy And WaterGirl-1","url":"https://nikunjprogames.github.io/fireboyandwatergirl.html"},{"@type":"ListItem","position":3,"name":"Far Orion: New worlds","url":"https://nikunjprogames.github.io/games/far-orion-new-worlds.html"},{"@type":"ListItem","position":4,"name":"PVZ Fusion Cheats","url":"https://nikunjprogames.github.io/games/pvz-fusion-cheats.html"},{"@type":"ListItem","position":5,"name":"Idle Airport Tycoon","url":"https://nikunjprogames.github.io/games/idle-airport-tycoon.html"},{"@type":"ListItem","position":6,"name":"Plants vs Zombies Hybrids","url":"https://nikunjprogames.github.io/games/plants-vs-zombies-hybrids.html"},{"@type":"ListItem","position":7,"name":"Plants vs Zombies Fusion Mode","url":"https://nikunjprogames.github.io/games/plants-vs-zombies-fusion-mode.html"},{"@type":"ListItem","position":8,"name":"Castle Wars: Legacy","url":"https://nikunjprogames.github.io/games/castle-wars-legacy.html"},{"@type":"ListItem","position":9,"name":"English Checkers","url":"https://nikunjprogames.github.io/games/english-checkers.html"},{"@type":"ListItem","position":10,"name":"popaloon","url":"https://nikunjprogames.github.io/games/popaloon.html"},{"@type":"ListItem","position":11,"name":"AOD - Art Of Defense","url":"https://nikunjprogames.github.io/games/aod-art-of-defense.html"}]}}</script>
   <style>
     :root { color-scheme: dark; --bg: #0a0a0f; --panel: #11131c; --text: #eeeefe; --muted: #b1b5c8; --accent: #00bfff; --border: rgba(139,0,255,.35); }
     * { box-sizing: border-box; }
@@ -33,22 +33,38 @@
     header { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
     .brand { font: 700 1.3rem 'Orbitron', sans-serif; text-decoration: none; }
     nav { display: flex; flex-wrap: wrap; gap: 16px; }
-    .breadcrumbs { margin: 20px 0 10px; color: var(--muted); }
+    .breadcrumbs { margin: 20px 0 14px; color: var(--muted); }
     .breadcrumbs a, .category-links a { color: #8cddff; }
     h1, h2 { font-family: 'Orbitron', sans-serif; }
-    h1 { margin: 16px 0 8px; font-size: clamp(1.7rem, 5vw, 2.8rem); }
-    .intro { max-width: 720px; color: var(--muted); line-height: 1.5; }
+    .category-hero { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(260px, .9fr); align-items: center; gap: clamp(22px, 4vw, 52px); min-height: 310px; margin: 0 0 38px; padding: clamp(22px, 4vw, 42px); overflow: hidden; border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 14px; background: linear-gradient(125deg, rgba(255,255,255,.07), transparent 58%), repeating-linear-gradient(135deg, rgba(255,255,255,.018) 0 1px, transparent 1px 14px), #11131c; }
+    .category-kicker { margin-bottom: 12px; color: var(--accent); font: 700 .7rem 'Orbitron', sans-serif; letter-spacing: .12em; text-transform: uppercase; }
+    h1 { margin: 0 0 12px; font-size: clamp(1.8rem, 4.6vw, 3.2rem); line-height: 1.08; }
+    .intro { max-width: 620px; margin: 0; color: var(--muted); font-size: 1.05rem; line-height: 1.55; }
+    .category-hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 18px; margin-top: 24px; }
+    .category-count { color: var(--muted); }
+    .category-count strong { margin-right: 5px; color: var(--text); font: 700 1.15rem 'Orbitron', sans-serif; }
+    .category-jump { display: inline-flex; align-items: center; gap: 8px; padding: 9px 13px; border: 1px solid var(--border); border-radius: 7px; color: var(--text); font-weight: 700; text-decoration: none; }
+    .category-jump:hover { border-color: var(--accent); color: var(--accent); }
+    .category-visual { position: relative; min-width: 0; aspect-ratio: 16 / 10; overflow: hidden; border: 1px solid rgba(255,255,255,.18); border-radius: 10px; background: #05070d; box-shadow: 0 18px 38px rgba(0,0,0,.35); }
+    .category-visual img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .category-visual-label { position: absolute; right: 10px; bottom: 10px; padding: 7px 10px; border: 1px solid rgba(255,255,255,.22); border-radius: 6px; background: rgba(7,9,17,.88); color: #fff; font: 700 .65rem 'Orbitron', sans-serif; }
+    .category-visual-fallback { display: grid; width: 100%; height: 100%; place-items: center; color: var(--accent); font: 900 7rem 'Orbitron', sans-serif; }
     .catalog-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin: 32px 0 14px; }
     .catalog-heading h2 { margin: 0; font-size: 1.15rem; }
     .catalog-heading p { margin: 0; color: var(--muted); }
-    .game-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr)); gap: 14px; }
-    .game-item { min-width: 0; display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--border); border-radius: 8px; background: var(--panel); text-decoration: none; }
-    .game-item img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; background: #05070d; }
+    .game-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 190px), 1fr)); gap: 16px; }
+    .game-item { min-width: 0; display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--border); border-radius: 8px; background: linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.018)); text-decoration: none; transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease; }
+    .game-item:hover { transform: translateY(-4px); border-color: var(--accent); box-shadow: 0 12px 26px rgba(0,0,0,.26); }
+    .game-item img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; background: #05070d; transition: transform .22s ease; }
+    .game-item:hover img { transform: scale(1.035); }
     .game-item span { display: -webkit-box; min-height: 2.6em; padding: 10px 12px; overflow: hidden; font-weight: 700; line-height: 1.3; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; }
     .game-item:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     .category-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 14px; }
     .site-footer { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--border); color: var(--muted); }
     .site-footer a { text-decoration: none; }
+    .category-links a { padding: 7px 10px; border: 1px solid var(--border); border-radius: 6px; text-decoration: none; transition: border-color .18s ease, color .18s ease; }
+    .category-links a:hover { border-color: var(--accent); color: var(--accent); }
+    @media (max-width: 700px) { .category-hero { grid-template-columns: 1fr; gap: 22px; min-height: 0; } .category-visual { max-height: 240px; } }
     body.theme-brain { --accent: #68dfff; --border: rgba(104,223,255,.34); background: radial-gradient(ellipse at 85% 4%, rgba(0,111,170,.2), transparent 38%), var(--bg); }
     body.theme-skill { --accent: #a7f36b; --border: rgba(167,243,107,.3); }
     body.theme-tactical { --accent: #ff765f; --border: rgba(255,118,95,.32); background: radial-gradient(ellipse at 85% 4%, rgba(143,37,33,.18), transparent 38%), var(--bg); }
@@ -58,7 +74,7 @@
     body.theme-arcade { --accent: #ffd369; --border: rgba(255,211,105,.32); }
     body.theme-retro { --accent: #ffca7a; --border: rgba(255,172,91,.34); background: radial-gradient(ellipse at 85% 4%, rgba(125,67,22,.2), transparent 38%), var(--bg); }
     body.theme-fresh { --accent: #8affbb; --border: rgba(138,255,187,.34); background: radial-gradient(ellipse at 85% 4%, rgba(35,130,82,.19), transparent 38%), var(--bg); }
-    @media (max-width: 520px) { .page { width: min(100% - 24px, 1200px); } header { align-items: flex-start; flex-direction: column; } }
+    @media (max-width: 520px) { .page { width: min(100% - 24px, 1200px); } header { align-items: flex-start; flex-direction: column; } .category-hero { padding: 20px; margin-bottom: 28px; } .category-hero-actions { gap: 12px; } .catalog-heading { align-items: flex-start; flex-direction: column; gap: 4px; } .game-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; } .game-item span { padding: 9px; font-size: .92rem; } }
   </style>
 </head>
 <body class="theme-tactical">
@@ -70,16 +86,28 @@
     </header>
     <main id="main-content">
       <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a> / Strategy Games</nav>
-      <h1>Strategy Games</h1>
-      <p class="intro">Browse strategy browser games on PleyZ. Open a game page for its description, available instructions, and related titles.</p>
-      <div class="catalog-heading"><h2>Strategy browser games</h2><p>6 games</p></div>
-      <div class="game-list"><a class="game-item" href="/color-line.html">
+      <section class="category-hero" aria-labelledby="category-heading">
+        <div class="category-hero-copy">
+          <p class="category-kicker">PleyZ game collection</p>
+          <h1 id="category-heading">Strategy Games</h1>
+          <p class="intro">Browse strategy browser games on PleyZ. Open a game page for its description, available instructions, and related titles.</p>
+          <div class="category-hero-actions"><span class="category-count"><strong>11</strong> games to explore</span><a class="category-jump" href="#game-library">Browse games <span aria-hidden="true">&rarr;</span></a></div>
+        </div>
+        <div class="category-visual" aria-hidden="true"><img src="/color_line.png" alt="" loading="eager" fetchpriority="high" decoding="async"><span class="category-visual-label">Featured in Strategy</span></div>
+      </section>
+      <section id="game-library" aria-labelledby="game-library-heading">
+        <div class="catalog-heading"><h2 id="game-library-heading">Strategy browser games</h2><p>11 games</p></div>
+        <div class="game-list"><a class="game-item" href="/color-line.html">
       <img src="/color_line.png" alt="" loading="eager" fetchpriority="high" decoding="async">
       <span>Color Line</span>
     </a>
 <a class="game-item" href="/fireboyandwatergirl.html">
       <img src="/fireboy-and-watergirl.png" alt="" loading="lazy" decoding="async">
       <span>FireBoy And WaterGirl-1</span>
+    </a>
+<a class="game-item" href="/games/far-orion-new-worlds.html">
+      <img src="https://static.playgama.com/p-img/pg/far-orion-new-worlds/big-preview/fcd5f2452bba4a86ae4d6176d707c03c?width=448" alt="" width="800" height="450" loading="lazy" decoding="async">
+      <span>Far Orion: New worlds</span>
     </a>
 <a class="game-item" href="/games/pvz-fusion-cheats.html">
       <img src="https://static.playgama.com/p-img/pg/plants-vs-zombies-fusion-edition/big_preview/0a3f694494fd4b469429f9c8baf0cb93?width=448" alt="" width="800" height="450" loading="lazy" decoding="async">
@@ -96,14 +124,31 @@
 <a class="game-item" href="/games/plants-vs-zombies-fusion-mode.html">
       <img src="https://static.playgama.com/p-img/pg/plants-vs-zombies-fusion-mode/big-preview/df5ba67f240a40b18d46d2d3d57b8400?width=448" alt="" width="800" height="450" loading="lazy" decoding="async">
       <span>Plants vs Zombies Fusion Mode</span>
+    </a>
+<a class="game-item" href="/games/castle-wars-legacy.html">
+      <img src="https://img.gamemonetize.com/f6ung9e7lfninu1957spejeihzprdusb/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async">
+      <span>Castle Wars: Legacy</span>
+    </a>
+<a class="game-item" href="/games/english-checkers.html">
+      <img src="https://img.gamemonetize.com/pir55cwoygvsus9az7d5zyxd6gra48dh/512x384.jpg" alt="" width="1920" height="1080" loading="lazy" decoding="async">
+      <span>English Checkers</span>
+    </a>
+<a class="game-item" href="/games/popaloon.html">
+      <img src="https://img.gamemonetize.com/l28ng8jar2mopyfsls1ufwi7zm9ml4zi/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async">
+      <span>popaloon</span>
+    </a>
+<a class="game-item" href="/games/aod-art-of-defense.html">
+      <img src="https://static.playgama.com/p-img/pg/aod--art-of-defense/big_preview/748d6b91ce3c4a309fd6df323115b434?width=448" alt="" width="800" height="450" loading="lazy" decoding="async">
+      <span>AOD - Art Of Defense</span>
     </a></div>
+      </section>
       <section aria-labelledby="related-categories-heading">
         <h2 id="related-categories-heading">Explore more categories</h2>
         <nav class="category-links" aria-label="Related categories"><a href="/multiplayer-games/">Multiplayer Games</a>
-<a href="/boys-games/">Boys Games</a>
+<a href="/action-games/">Action Games</a>
 <a href="/puzzle-games/">Puzzle Games</a>
-<a href="/brain-training-games/">Brain Training Games</a>
-<a href="/girls-games/">Girls Games</a></nav>
+<a href="/boys-games/">Boys Games</a>
+<a href="/adventure-games/">Adventure Games</a></nav>
       </section>
     </main>
     <footer class="site-footer">

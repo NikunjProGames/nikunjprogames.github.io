@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Play Five Nights at Christmas Online | PleyZ</title>
-  <meta name="description" content="Five Nights at Christmas - Is Horror Survival game where you have to survive the nights in a snowy forest there will be some tasks that you need todo" />
+  <title>Play Five Nights at Christmas | PleyZ</title>
+  <meta name="description" content="Survive the night in a snowy forest, complete objectives, and watch for the Snowman in Five Nights at Christmas." />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <link rel="canonical" href="https://nikunjprogames.github.io/games/five-nights-at-christmas.html" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Play Five Nights at Christmas Online | PleyZ" />
-  <meta property="og:description" content="Five Nights at Christmas - Is Horror Survival game where you have to survive the nights in a snowy forest there will be some tasks that you need todo" />
+  <meta property="og:title" content="Play Five Nights at Christmas | PleyZ" />
+  <meta property="og:description" content="Survive the night in a snowy forest, complete objectives, and watch for the Snowman in Five Nights at Christmas." />
   <meta property="og:url" content="https://nikunjprogames.github.io/games/five-nights-at-christmas.html" />
   <meta property="og:site_name" content="PleyZ" />
   <meta property="og:image" content="https://static.playgama.com/p-img/pg/five-nights-at-christmas/big-preview/ff5f8b877e88481da903a946bc4eb1ff?width=448" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Play Five Nights at Christmas Online | PleyZ" />
-  <meta name="twitter:description" content="Five Nights at Christmas - Is Horror Survival game where you have to survive the nights in a snowy forest there will be some tasks that you need todo" />
+  <meta name="twitter:title" content="Play Five Nights at Christmas | PleyZ" />
+  <meta name="twitter:description" content="Survive the night in a snowy forest, complete objectives, and watch for the Snowman in Five Nights at Christmas." />
   <meta name="twitter:image" content="https://static.playgama.com/p-img/pg/five-nights-at-christmas/big-preview/ff5f8b877e88481da903a946bc4eb1ff?width=448" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -57,7 +57,7 @@
     .site-brand { color: var(--text); font: 700 0.92rem 'Orbitron', sans-serif; white-space: nowrap; }
     .topbar .actions { display: flex; gap: 8px; flex-wrap: wrap; }
     .game-preferences { display: flex; gap: 6px; }
-    .game-preferences button { width: 36px; height: 36px; border: 1px solid var(--panel-border); border-radius: 7px; background: var(--panel); color: var(--muted); cursor: pointer; }
+    .game-preferences button { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--panel-border); border-radius: 7px; background: var(--panel); color: var(--muted); font-size: 1.1rem; line-height: 1; cursor: pointer; }
     .game-preferences button[aria-pressed="true"], .game-preferences button:hover { border-color: var(--accent); color: var(--accent); }
     .profile-score-link {
       display: inline-flex; align-items: center; gap: 8px;
@@ -158,9 +158,9 @@
       <a class="site-brand" href="/">PleyZ Games</a>
       <h1>Five Nights at Christmas</h1>
       <div class="actions">
-        <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="118485">
-          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><i class="fa-solid fa-thumbs-up"></i></button>
-          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><i class="fa-solid fa-thumbs-down"></i></button>
+        <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="128">
+          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><span aria-hidden="true">👍</span></button>
+          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><span aria-hidden="true">👎</span></button>
         </div>
         <a class="profile-score-link" href="../index.html#leaderboard" title="View PleyZ score and leaderboard">
           <span class="profile-score-avatar" id="profile-score-avatar">PZ</span>
@@ -180,9 +180,9 @@
           <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
         </div>
         <div class="game-frame">
-          <iframe src="https://playgama.com/export/game/five-nights-at-christmas?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487" allowfullscreen loading="lazy" title="Five Nights at Christmas"></iframe>
+          <iframe src="https://playgama.com/export/game/five-nights-at-christmas?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487" allowfullscreen loading="eager" title="Five Nights at Christmas"></iframe>
         </div>
-        
+
       </div>
 
       <section class="info-card related-games" aria-label="Related games">
@@ -190,8 +190,8 @@
         <div class="related-grid"><a class="related-game" href="backrooms-exit-protocol-0.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/backrooms-exit-protocol-0/big_preview/4f691ad7fdbb4ec3a0a45c781c0feea7?width=448" alt="" width="800" height="450" loading="eager" fetchpriority="high" decoding="async" /></span><span>Backrooms: Exit Protocol 0</span></a>
         <a class="related-game" href="the-tall-man.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/the-tall-man/big_preview/cad21af835d348db83f9aace4ccca043?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>The Tall Man</span></a>
         <a class="related-game" href="the-secret-of-the-toy-factory.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/the-secret-of-the-toy-factory/big_preview/ce41b593f2044ba197bc73f83d7cfc41?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>The Secret of the Toy Factory</span></a>
-        <a class="related-game" href="imposter-3d-online-horror.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/imposter-3d-online-horror/big_preview/c4a268f6d7234acaaebdd4a300253cf4?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Imposter 3D online horror</span></a>
-        <a class="related-game" href="sorcerers-refuge.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/sorcerers-refuge/big-preview/23c5e2a2597e4b71b1a01fc457170af8?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Sorcerers Refuge</span></a></div>
+        <a class="related-game" href="the-warlock-s-prisoner.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/the-warlocks-prisoner/big-preview/7ca7579a0daa42f19382b84c761966c4?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>The Warlock&#39;s Prisoner</span></a>
+        <a class="related-game" href="imposter-3d-online-horror.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/imposter-3d-online-horror/big_preview/c4a268f6d7234acaaebdd4a300253cf4?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Imposter 3D online horror</span></a></div>
       </section>
     </div>
 
@@ -205,13 +205,13 @@
     </section>
 <section class="info-card" aria-labelledby="game-dna-heading">
       <h2 id="game-dna-heading">Game DNA</h2>
-      <div class="chip-list"><span class="chip">Scary</span><span class="chip">scary</span><span class="chip">horror</span><span class="chip">christmas</span><span class="chip">survival</span><span class="chip">survival-horror</span><span class="chip">jump-scare-games</span><span class="chip">holiday-games</span><span class="chip">single-player-horror</span></div>
+      <div class="chip-list"><span class="chip">Scary</span><span class="chip">Action</span><span class="chip">Horror</span><span class="chip">scary</span><span class="chip">horror</span><span class="chip">christmas</span><span class="chip">survival</span><span class="chip">survival-horror</span><span class="chip">jump-scare-games</span><span class="chip">holiday-games</span><span class="chip">single-player-horror</span></div>
     </section>
 <section class="info-card" aria-label="Game details"><p><strong>Platform:</strong> Web browser</p></section>
 
     <section class="info-card" aria-labelledby="related-categories-heading">
       <h2 id="related-categories-heading">Related Categories</h2>
-      <nav class="related-categories" aria-label="Related categories"><a href="/scary-games/">Scary Games</a></nav>
+      <nav class="related-categories" aria-label="Related categories"><a href="/scary-games/">Scary Games</a><a href="/action-games/">Action Games</a><a href="/horror-games/">Horror Games</a></nav>
     </section>
     </main>
 
@@ -241,7 +241,8 @@
     <a href="/termsandconditions.html">Terms</a>
     <a href="/contact-us.html">Contact</a>
   </footer>
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/five-nights-at-christmas.html#game","name":"Five Nights at Christmas","description":"Five Nights at Christmas - Is Horror Survival game where you have to survive the nights in a snowy forest there will be some tasks that you need todo remember don't get cold and don't forget about the Snowman.","url":"https://nikunjprogames.github.io/games/five-nights-at-christmas.html","image":"https://static.playgama.com/p-img/pg/five-nights-at-christmas/big-preview/ff5f8b877e88481da903a946bc4eb1ff?width=448","gamePlatform":["Web browser"],"genre":["Scary"],"keywords":["scary","horror","christmas","survival","survival-horror","jump-scare-games","holiday-games","single-player-horror"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Scary Games","item":"https://nikunjprogames.github.io/scary-games/"},{"@type":"ListItem","position":3,"name":"Five Nights at Christmas","item":"https://nikunjprogames.github.io/games/five-nights-at-christmas.html"}]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/five-nights-at-christmas.html#game","name":"Five Nights at Christmas","description":"Five Nights at Christmas - Is Horror Survival game where you have to survive the nights in a snowy forest there will be some tasks that you need todo remember don't get cold and don't forget about the Snowman.","url":"https://nikunjprogames.github.io/games/five-nights-at-christmas.html","image":"https://static.playgama.com/p-img/pg/five-nights-at-christmas/big-preview/ff5f8b877e88481da903a946bc4eb1ff?width=448","gamePlatform":["Web browser"],"genre":["Scary","Action","Horror"],"keywords":["scary","horror","christmas","survival","survival-horror","jump-scare-games","holiday-games","single-player-horror"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Scary Games","item":"https://nikunjprogames.github.io/scary-games/"},{"@type":"ListItem","position":3,"name":"Five Nights at Christmas","item":"https://nikunjprogames.github.io/games/five-nights-at-christmas.html"}]}]}</script>
+  <script src="/game-loading.js" defer></script>
   <script>
     function toggleGameFullscreen(root) {
       const target = root ? root.querySelector('.game-frame') : null;

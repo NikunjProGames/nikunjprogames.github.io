@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Play Multiplayer Team Death Match Online | PleyZ</title>
-  <meta name="description" content="Hello Dear players in this game you will challenge your friends in multiplayer team death match, hope you enjoy this game and" />
+  <title>Play Multiplayer Team Death Match | PleyZ</title>
+  <meta name="description" content="Move, aim, and shoot with your team in Multiplayer Team Death Match, a 3D player-versus-player arena shooter." />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <link rel="canonical" href="https://nikunjprogames.github.io/games/multiplayer-team-death-match.html" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Play Multiplayer Team Death Match Online | PleyZ" />
-  <meta property="og:description" content="Hello Dear players in this game you will challenge your friends in multiplayer team death match, hope you enjoy this game and" />
+  <meta property="og:title" content="Play Multiplayer Team Death Match | PleyZ" />
+  <meta property="og:description" content="Move, aim, and shoot with your team in Multiplayer Team Death Match, a 3D player-versus-player arena shooter." />
   <meta property="og:url" content="https://nikunjprogames.github.io/games/multiplayer-team-death-match.html" />
   <meta property="og:site_name" content="PleyZ" />
   <meta property="og:image" content="https://img.gamemonetize.com/h5hc9ltwjo3sk2g2upo4su465kf1kkgz/512x384.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Play Multiplayer Team Death Match Online | PleyZ" />
-  <meta name="twitter:description" content="Hello Dear players in this game you will challenge your friends in multiplayer team death match, hope you enjoy this game and" />
+  <meta name="twitter:title" content="Play Multiplayer Team Death Match | PleyZ" />
+  <meta name="twitter:description" content="Move, aim, and shoot with your team in Multiplayer Team Death Match, a 3D player-versus-player arena shooter." />
   <meta name="twitter:image" content="https://img.gamemonetize.com/h5hc9ltwjo3sk2g2upo4su465kf1kkgz/512x384.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -57,7 +57,7 @@
     .site-brand { color: var(--text); font: 700 0.92rem 'Orbitron', sans-serif; white-space: nowrap; }
     .topbar .actions { display: flex; gap: 8px; flex-wrap: wrap; }
     .game-preferences { display: flex; gap: 6px; }
-    .game-preferences button { width: 36px; height: 36px; border: 1px solid var(--panel-border); border-radius: 7px; background: var(--panel); color: var(--muted); cursor: pointer; }
+    .game-preferences button { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--panel-border); border-radius: 7px; background: var(--panel); color: var(--muted); font-size: 1.1rem; line-height: 1; cursor: pointer; }
     .game-preferences button[aria-pressed="true"], .game-preferences button:hover { border-color: var(--accent); color: var(--accent); }
     .profile-score-link {
       display: inline-flex; align-items: center; gap: 8px;
@@ -159,8 +159,8 @@
       <h1>Multiplayer Team Death Match</h1>
       <div class="actions">
         <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="85">
-          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><i class="fa-solid fa-thumbs-up"></i></button>
-          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><i class="fa-solid fa-thumbs-down"></i></button>
+          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><span aria-hidden="true">👍</span></button>
+          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><span aria-hidden="true">👎</span></button>
         </div>
         <a class="profile-score-link" href="../index.html#leaderboard" title="View PleyZ score and leaderboard">
           <span class="profile-score-avatar" id="profile-score-avatar">PZ</span>
@@ -180,18 +180,18 @@
           <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
         </div>
         <div class="game-frame">
-          <iframe src="https://html5.gamemonetize.co/h5hc9ltwjo3sk2g2upo4su465kf1kkgz/" allowfullscreen loading="lazy" title="Multiplayer Team Death Match"></iframe>
+          <iframe src="https://html5.gamemonetize.co/h5hc9ltwjo3sk2g2upo4su465kf1kkgz/" allowfullscreen loading="eager" title="Multiplayer Team Death Match"></iframe>
         </div>
-        
+
       </div>
 
       <section class="info-card related-games" aria-label="Related games">
         <h2>Games You Might Like</h2>
-        <div class="related-grid"><a class="related-game" href="iron-legion.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/gkeofcoqengjzxlw0b09f2qrng35egbi/512x384.jpg" alt="" width="800" height="600" loading="eager" fetchpriority="high" decoding="async" /></span><span>Iron Legion</span></a>
-        <a class="related-game" href="sure-shot.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/s0e0jqx8z8e8s5n9dshww2gexamrw0cm/512x384.jpg" alt="" width="800" height="500" loading="lazy" decoding="async" /></span><span>Sure Shot</span></a>
-        <a class="related-game" href="special-ops-go.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/special-ops/big_preview/379c25433de24d13afadf693d918e11e?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/cca4b40c9b6c4877a294c337ef342280/orig_length_h320.mp4"></video></span><span>Special Ops: GO</span></a>
-        <a class="related-game" href="blockscape-io.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/z41q0ycg5i8u33rqy7sfjcedpak3e7zz/512x384.jpg" alt="" width="900" height="600" loading="lazy" decoding="async" /></span><span>blockscape.io</span></a>
-        <a class="related-game" href="counter-terror-3d.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/lbj1gbsu0l7j8jdaih6a3yqibr9xtgu2/512x384.jpg" alt="" width="900" height="550" loading="lazy" decoding="async" /></span><span>Counter Terror 3d</span></a></div>
+        <div class="related-grid"><a class="related-game" href="special-ops-go.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/special-ops/big_preview/379c25433de24d13afadf693d918e11e?width=448" alt="" width="800" height="450" loading="eager" fetchpriority="high" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/cca4b40c9b6c4877a294c337ef342280/orig_length_h320.mp4"></video></span><span>Special Ops: GO</span></a>
+        <a class="related-game" href="english-checkers.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/pir55cwoygvsus9az7d5zyxd6gra48dh/512x384.jpg" alt="" width="1920" height="1080" loading="lazy" decoding="async" /></span><span>English Checkers</span></a>
+        <a class="related-game" href="giveaway-checkers.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/594795s0fh64izkmnelrpracbmz1we3t/512x384.jpg" alt="" width="1920" height="1080" loading="lazy" decoding="async" /></span><span>Giveaway Checkers</span></a>
+        <a class="related-game" href="iron-legion.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/gkeofcoqengjzxlw0b09f2qrng35egbi/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async" /></span><span>Iron Legion</span></a>
+        <a class="related-game" href="popaloon.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/l28ng8jar2mopyfsls1ufwi7zm9ml4zi/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async" /></span><span>popaloon</span></a></div>
       </section>
     </div>
 
@@ -205,13 +205,13 @@
     </section>
 <section class="info-card" aria-labelledby="game-dna-heading">
       <h2 id="game-dna-heading">Game DNA</h2>
-      <div class="chip-list"><span class="chip">Shooting</span><span class="chip">3D Games</span><span class="chip">Action</span><span class="chip">Battle</span><span class="chip">Fighting</span><span class="chip">firefighters</span><span class="chip">Gun</span><span class="chip">html5 games</span><span class="chip">Matching</span><span class="chip">Multiplayer</span><span class="chip">Online</span><span class="chip">PvP</span></div>
+      <div class="chip-list"><span class="chip">Shooting</span><span class="chip">Action</span><span class="chip">Adventure</span><span class="chip">Puzzle</span><span class="chip">Multiplayer</span><span class="chip">Two Player</span><span class="chip">3D Games</span><span class="chip">Battle</span><span class="chip">Fighting</span><span class="chip">firefighters</span><span class="chip">Gun</span><span class="chip">html5 games</span></div>
     </section>
 <section class="info-card" aria-label="Game details"><p><strong>Platform:</strong> Web browser</p></section>
 
     <section class="info-card" aria-labelledby="related-categories-heading">
       <h2 id="related-categories-heading">Related Categories</h2>
-      <nav class="related-categories" aria-label="Related categories"><a href="/shooting-games/">Shooting Games</a></nav>
+      <nav class="related-categories" aria-label="Related categories"><a href="/shooting-games/">Shooting Games</a><a href="/action-games/">Action Games</a><a href="/adventure-games/">Adventure Games</a><a href="/puzzle-games/">Puzzle Games</a><a href="/multiplayer-games/">Multiplayer Games</a><a href="/two-player-games/">Two Player Games</a></nav>
     </section>
     </main>
 
@@ -241,7 +241,8 @@
     <a href="/termsandconditions.html">Terms</a>
     <a href="/contact-us.html">Contact</a>
   </footer>
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/multiplayer-team-death-match.html#game","name":"Multiplayer Team Death Match","description":"Hello Dear players in this game you will challenge your friends in multiplayer team death match, hope you enjoy this game and thanks","url":"https://nikunjprogames.github.io/games/multiplayer-team-death-match.html","image":"https://img.gamemonetize.com/h5hc9ltwjo3sk2g2upo4su465kf1kkgz/512x384.jpg","gamePlatform":["Web browser"],"genre":["Shooting"],"keywords":["3D Games","Action","Battle","Fighting","firefighters","Gun","html5 games","Matching","Multiplayer","Online","PvP","RPG","Shooter","two player games"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Shooting Games","item":"https://nikunjprogames.github.io/shooting-games/"},{"@type":"ListItem","position":3,"name":"Multiplayer Team Death Match","item":"https://nikunjprogames.github.io/games/multiplayer-team-death-match.html"}]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/multiplayer-team-death-match.html#game","name":"Multiplayer Team Death Match","description":"Hello Dear players in this game you will challenge your friends in multiplayer team death match, hope you enjoy this game and thanks","url":"https://nikunjprogames.github.io/games/multiplayer-team-death-match.html","image":"https://img.gamemonetize.com/h5hc9ltwjo3sk2g2upo4su465kf1kkgz/512x384.jpg","gamePlatform":["Web browser"],"genre":["Shooting","Action","Adventure","Puzzle","Multiplayer","Two Player"],"keywords":["3D Games","Action","Battle","Fighting","firefighters","Gun","html5 games","Matching","Multiplayer","Online","PvP","RPG","Shooter","two player games"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Shooting Games","item":"https://nikunjprogames.github.io/shooting-games/"},{"@type":"ListItem","position":3,"name":"Multiplayer Team Death Match","item":"https://nikunjprogames.github.io/games/multiplayer-team-death-match.html"}]}]}</script>
+  <script src="/game-loading.js" defer></script>
   <script>
     function toggleGameFullscreen(root) {
       const target = root ? root.querySelector('.game-frame') : null;

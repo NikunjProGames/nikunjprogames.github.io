@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Play Music Night Battle: Rhythm Game Online | PleyZ</title>
-  <meta name="description" content="Music Night Battle is a fast rhythm battle game where you tap arrows in time with the beat and fight in music duels. Play solo or compete in online" />
+  <title>Play Music Night Battle: Rhythm Game | PleyZ</title>
+  <meta name="description" content="Music Night Battle is a fast rhythm battle game where you tap arrows in time with the beat and fight in music duels." />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <link rel="canonical" href="https://nikunjprogames.github.io/games/music-night-battle-rhythm-game.html" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Play Music Night Battle: Rhythm Game Online | PleyZ" />
-  <meta property="og:description" content="Music Night Battle is a fast rhythm battle game where you tap arrows in time with the beat and fight in music duels. Play solo or compete in online" />
+  <meta property="og:title" content="Play Music Night Battle: Rhythm Game | PleyZ" />
+  <meta property="og:description" content="Music Night Battle is a fast rhythm battle game where you tap arrows in time with the beat and fight in music duels." />
   <meta property="og:url" content="https://nikunjprogames.github.io/games/music-night-battle-rhythm-game.html" />
   <meta property="og:site_name" content="PleyZ" />
   <meta property="og:image" content="https://img.gamemonetize.com/gpnthl10ris6862m1lrywpqk8gc4zk4v/512x384.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Play Music Night Battle: Rhythm Game Online | PleyZ" />
-  <meta name="twitter:description" content="Music Night Battle is a fast rhythm battle game where you tap arrows in time with the beat and fight in music duels. Play solo or compete in online" />
+  <meta name="twitter:title" content="Play Music Night Battle: Rhythm Game | PleyZ" />
+  <meta name="twitter:description" content="Music Night Battle is a fast rhythm battle game where you tap arrows in time with the beat and fight in music duels." />
   <meta name="twitter:image" content="https://img.gamemonetize.com/gpnthl10ris6862m1lrywpqk8gc4zk4v/512x384.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -57,7 +57,7 @@
     .site-brand { color: var(--text); font: 700 0.92rem 'Orbitron', sans-serif; white-space: nowrap; }
     .topbar .actions { display: flex; gap: 8px; flex-wrap: wrap; }
     .game-preferences { display: flex; gap: 6px; }
-    .game-preferences button { width: 36px; height: 36px; border: 1px solid var(--panel-border); border-radius: 7px; background: var(--panel); color: var(--muted); cursor: pointer; }
+    .game-preferences button { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--panel-border); border-radius: 7px; background: var(--panel); color: var(--muted); font-size: 1.1rem; line-height: 1; cursor: pointer; }
     .game-preferences button[aria-pressed="true"], .game-preferences button:hover { border-color: var(--accent); color: var(--accent); }
     .profile-score-link {
       display: inline-flex; align-items: center; gap: 8px;
@@ -159,8 +159,8 @@
       <h1>Music Night Battle: Rhythm Game</h1>
       <div class="actions">
         <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="45">
-          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><i class="fa-solid fa-thumbs-up"></i></button>
-          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><i class="fa-solid fa-thumbs-down"></i></button>
+          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><span aria-hidden="true">👍</span></button>
+          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><span aria-hidden="true">👎</span></button>
         </div>
         <a class="profile-score-link" href="../index.html#leaderboard" title="View PleyZ score and leaderboard">
           <span class="profile-score-avatar" id="profile-score-avatar">PZ</span>
@@ -180,18 +180,18 @@
           <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
         </div>
         <div class="game-frame">
-          <iframe src="https://html5.gamemonetize.co/gpnthl10ris6862m1lrywpqk8gc4zk4v/" allowfullscreen loading="lazy" title="Music Night Battle: Rhythm Game"></iframe>
+          <iframe src="https://html5.gamemonetize.co/gpnthl10ris6862m1lrywpqk8gc4zk4v/" allowfullscreen loading="eager" title="Music Night Battle: Rhythm Game"></iframe>
         </div>
-        
+
       </div>
 
       <section class="info-card related-games" aria-label="Related games">
         <h2>Games You Might Like</h2>
-        <div class="related-grid"><a class="related-game" href="clonium.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/cx9ykv4xl6wlfq6vd9odkn68e6zenz7s/512x384.jpg" alt="" width="800" height="600" loading="eager" fetchpriority="high" decoding="async" /></span><span>Clonium</span></a>
+        <div class="related-grid"><a class="related-game" href="geometry-vibes.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/geometry-vibes/big-preview/cd0c9c56e9e54948b7eca6c49ef590b5?width=448" alt="" width="800" height="450" loading="eager" fetchpriority="high" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/6a23eda4fac74d23848658c3fd75e2de/orig_length_h320.mp4"></video></span><span>Geometry Vibes </span></a>
+        <a class="related-game" href="basketball-stars.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/basketball-stars/big_preview/2e0653c710ad43e09c40d1ba5968e447?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/c7ae7f11ad0f1a1178788aaa188f4508/orig_length_h320.mp4"></video></span><span>Basketball Stars</span></a>
+        <a class="related-game" href="clonium.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/cx9ykv4xl6wlfq6vd9odkn68e6zenz7s/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async" /></span><span>Clonium</span></a>
         <a class="related-game" href="quiz-runner-io.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/o265mdiouhnx82t87q3p0t5jgspwsdoy/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async" /></span><span>Quiz Runner.io</span></a>
-        <a class="related-game" href="snake-war-multiplayer.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/qf4hzartah4bf6ewbpelfx4dmz1qql4a/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async" /></span><span>Snake War Multiplayer</span></a>
-        <a class="related-game" href="stickman-trivia-fall-io.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/cybh6ym22ww2ehlpu23d6azrudls31ar/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async" /></span><span>Stickman Trivia Fall IO</span></a>
-        <a class="related-game" href="sunny-fields.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/6677ao3k189n72jdo2h94kdvvkmo6c72/512x384.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async" /></span><span>Sunny Fields</span></a></div>
+        <a class="related-game" href="rivals-fps-online-shooter.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/rivals-fps-online-shooter/preview/2203a049014e4f6eaa4038ab696f6afa?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/519f0e08d9764b25aea0b93699671b44/orig_length_h640_6so.mp4"></video></span><span>RIVALS FPS: Online Shooter</span></a></div>
       </section>
     </div>
 
@@ -211,7 +211,7 @@
 
     <section class="info-card" aria-labelledby="related-categories-heading">
       <h2 id="related-categories-heading">Related Categories</h2>
-      <nav class="related-categories" aria-label="Related categories"><a href="/multiplayer-games/">Multiplayer Games</a></nav>
+      <nav class="related-categories" aria-label="Related categories"><a href="/multiplayer-games/">Multiplayer Games</a><a href="/arcade-games/">Arcade Games</a></nav>
     </section>
     </main>
 
@@ -241,7 +241,8 @@
     <a href="/termsandconditions.html">Terms</a>
     <a href="/contact-us.html">Contact</a>
   </footer>
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/music-night-battle-rhythm-game.html#game","name":"Music Night Battle: Rhythm Game","description":"Music Night Battle is a fast rhythm battle game where you tap arrows in time with the beat and fight in music duels. Play solo or compete in online multiplayer matches, improve your timing skills, build combos, and climb the leaderboard. Enjoy neon arcade visuals, fast reaction gameplay, and addictive rhythm challenges with arrow-based music mechanics. Defeat opponents, unlock new challenges, and test your reflexes in competitive rhythm battles designed for casual and hardcore players.","url":"https://nikunjprogames.github.io/games/music-night-battle-rhythm-game.html","image":"https://img.gamemonetize.com/gpnthl10ris6862m1lrywpqk8gc4zk4v/512x384.jpg","gamePlatform":["Web browser"],"genre":["Multiplayer"],"keywords":["Arcade","Music"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Multiplayer Games","item":"https://nikunjprogames.github.io/multiplayer-games/"},{"@type":"ListItem","position":3,"name":"Music Night Battle: Rhythm Game","item":"https://nikunjprogames.github.io/games/music-night-battle-rhythm-game.html"}]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/music-night-battle-rhythm-game.html#game","name":"Music Night Battle: Rhythm Game","description":"Music Night Battle is a fast rhythm battle game where you tap arrows in time with the beat and fight in music duels. Play solo or compete in online multiplayer matches, improve your timing skills, build combos, and climb the leaderboard. Enjoy neon arcade visuals, fast reaction gameplay, and addictive rhythm challenges with arrow-based music mechanics. Defeat opponents, unlock new challenges, and test your reflexes in competitive rhythm battles designed for casual and hardcore players.","url":"https://nikunjprogames.github.io/games/music-night-battle-rhythm-game.html","image":"https://img.gamemonetize.com/gpnthl10ris6862m1lrywpqk8gc4zk4v/512x384.jpg","gamePlatform":["Web browser"],"genre":["Multiplayer","Arcade"],"keywords":["Arcade","Music"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Multiplayer Games","item":"https://nikunjprogames.github.io/multiplayer-games/"},{"@type":"ListItem","position":3,"name":"Music Night Battle: Rhythm Game","item":"https://nikunjprogames.github.io/games/music-night-battle-rhythm-game.html"}]}]}</script>
+  <script src="/game-loading.js" defer></script>
   <script>
     function toggleGameFullscreen(root) {
       const target = root ? root.querySelector('.game-frame') : null;

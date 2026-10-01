@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Play Sorcerers Refuge Online | PleyZ</title>
-  <meta name="description" content="You wake up in a strange living room. There are no doors. Only whispers behind the wall and darkness in the eyes. Welcome to the Sorcerer’s Hideout, a" />
+  <title>Play Sorcerers Refuge | PleyZ</title>
+  <meta name="description" content="You wake up in a strange living room. There are no doors. Only whispers behind the wall and darkness in the eyes." />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <link rel="canonical" href="https://nikunjprogames.github.io/games/sorcerers-refuge.html" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Play Sorcerers Refuge Online | PleyZ" />
-  <meta property="og:description" content="You wake up in a strange living room. There are no doors. Only whispers behind the wall and darkness in the eyes. Welcome to the Sorcerer’s Hideout, a" />
+  <meta property="og:title" content="Play Sorcerers Refuge | PleyZ" />
+  <meta property="og:description" content="You wake up in a strange living room. There are no doors. Only whispers behind the wall and darkness in the eyes." />
   <meta property="og:url" content="https://nikunjprogames.github.io/games/sorcerers-refuge.html" />
   <meta property="og:site_name" content="PleyZ" />
   <meta property="og:image" content="https://static.playgama.com/p-img/pg/sorcerers-refuge/big-preview/23c5e2a2597e4b71b1a01fc457170af8?width=448" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Play Sorcerers Refuge Online | PleyZ" />
-  <meta name="twitter:description" content="You wake up in a strange living room. There are no doors. Only whispers behind the wall and darkness in the eyes. Welcome to the Sorcerer’s Hideout, a" />
+  <meta name="twitter:title" content="Play Sorcerers Refuge | PleyZ" />
+  <meta name="twitter:description" content="You wake up in a strange living room. There are no doors. Only whispers behind the wall and darkness in the eyes." />
   <meta name="twitter:image" content="https://static.playgama.com/p-img/pg/sorcerers-refuge/big-preview/23c5e2a2597e4b71b1a01fc457170af8?width=448" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -57,7 +57,7 @@
     .site-brand { color: var(--text); font: 700 0.92rem 'Orbitron', sans-serif; white-space: nowrap; }
     .topbar .actions { display: flex; gap: 8px; flex-wrap: wrap; }
     .game-preferences { display: flex; gap: 6px; }
-    .game-preferences button { width: 36px; height: 36px; border: 1px solid var(--panel-border); border-radius: 7px; background: var(--panel); color: var(--muted); cursor: pointer; }
+    .game-preferences button { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--panel-border); border-radius: 7px; background: var(--panel); color: var(--muted); font-size: 1.1rem; line-height: 1; cursor: pointer; }
     .game-preferences button[aria-pressed="true"], .game-preferences button:hover { border-color: var(--accent); color: var(--accent); }
     .profile-score-link {
       display: inline-flex; align-items: center; gap: 8px;
@@ -158,9 +158,9 @@
       <a class="site-brand" href="/">PleyZ Games</a>
       <h1>Sorcerers Refuge</h1>
       <div class="actions">
-        <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="120327">
-          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><i class="fa-solid fa-thumbs-up"></i></button>
-          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><i class="fa-solid fa-thumbs-down"></i></button>
+        <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="123">
+          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><span aria-hidden="true">👍</span></button>
+          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><span aria-hidden="true">👎</span></button>
         </div>
         <a class="profile-score-link" href="../index.html#leaderboard" title="View PleyZ score and leaderboard">
           <span class="profile-score-avatar" id="profile-score-avatar">PZ</span>
@@ -180,16 +180,16 @@
           <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
         </div>
         <div class="game-frame">
-          <iframe src="https://playgama.com/export/game/sorcerers-refuge?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487" allowfullscreen loading="lazy" title="Sorcerers Refuge"></iframe>
+          <iframe src="https://playgama.com/export/game/sorcerers-refuge?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487" allowfullscreen loading="eager" title="Sorcerers Refuge"></iframe>
         </div>
-        
+
       </div>
 
       <section class="info-card related-games" aria-label="Related games">
         <h2>Games You Might Like</h2>
         <div class="related-grid"><a class="related-game" href="backrooms-exit-protocol-0.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/backrooms-exit-protocol-0/big_preview/4f691ad7fdbb4ec3a0a45c781c0feea7?width=448" alt="" width="800" height="450" loading="eager" fetchpriority="high" decoding="async" /></span><span>Backrooms: Exit Protocol 0</span></a>
-        <a class="related-game" href="hedgies.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/hedgies/big_preview/82348afa3e7b4db0bf915c835c40a8bd?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/5190b1fcdbba4021a45c3930c54161e2/orig_length_h320.mp4"></video></span><span>Hedgies</span></a>
-        <a class="related-game" href="imposter-3d-online-horror.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/imposter-3d-online-horror/big_preview/c4a268f6d7234acaaebdd4a300253cf4?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Imposter 3D online horror</span></a>
+        <a class="related-game" href="the-warlock-s-prisoner.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/the-warlocks-prisoner/big-preview/7ca7579a0daa42f19382b84c761966c4?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>The Warlock&#39;s Prisoner</span></a>
+        <a class="related-game" href="plants-vs-zombies-hybrids.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/plants-vs-zombies-hybrids/big_preview/f760a2d2906a4e8e93795c3e674d5c4f?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Plants vs Zombies Hybrids</span></a>
         <a class="related-game" href="the-secret-of-the-toy-factory.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/the-secret-of-the-toy-factory/big_preview/ce41b593f2044ba197bc73f83d7cfc41?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>The Secret of the Toy Factory</span></a>
         <a class="related-game" href="the-tall-man.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/the-tall-man/big_preview/cad21af835d348db83f9aace4ccca043?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>The Tall Man</span></a></div>
       </section>
@@ -205,13 +205,13 @@
     </section>
 <section class="info-card" aria-labelledby="game-dna-heading">
       <h2 id="game-dna-heading">Game DNA</h2>
-      <div class="chip-list"><span class="chip">Adventure</span><span class="chip">adventure</span><span class="chip">story</span><span class="chip">scary</span><span class="chip">horror</span><span class="chip">3d</span><span class="chip">ghost</span><span class="chip">logic</span><span class="chip">action-adventure</span><span class="chip">challenging-games</span><span class="chip">fantasy-games</span><span class="chip">mystery-games</span></div>
+      <div class="chip-list"><span class="chip">Adventure</span><span class="chip">Action</span><span class="chip">Puzzle</span><span class="chip">Horror</span><span class="chip">adventure</span><span class="chip">story</span><span class="chip">scary</span><span class="chip">horror</span><span class="chip">3d</span><span class="chip">ghost</span><span class="chip">logic</span><span class="chip">action-adventure</span></div>
     </section>
 <section class="info-card" aria-label="Game details"><p><strong>Platform:</strong> Web browser</p></section>
 
     <section class="info-card" aria-labelledby="related-categories-heading">
       <h2 id="related-categories-heading">Related Categories</h2>
-      <nav class="related-categories" aria-label="Related categories"><a href="/adventure-games/">Adventure Games</a></nav>
+      <nav class="related-categories" aria-label="Related categories"><a href="/adventure-games/">Adventure Games</a><a href="/action-games/">Action Games</a><a href="/puzzle-games/">Puzzle Games</a><a href="/horror-games/">Horror Games</a></nav>
     </section>
     </main>
 
@@ -241,7 +241,8 @@
     <a href="/termsandconditions.html">Terms</a>
     <a href="/contact-us.html">Contact</a>
   </footer>
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/sorcerers-refuge.html#game","name":"Sorcerers Refuge","description":"You wake up in a strange living room. There are no doors. Only whispers behind the wall and darkness in the eyes. Welcome to the Sorcerer’s Hideout, a dark adventure with elements of magic, riddles, and quests. In this confusing and dangerous place, you will find: What Awaits You Mysterious corridors, hidden rooms, and sudden traps The magic of ice, fire, transformation, and true vision Mysterious creatures, demons, and a strange Buffoon with his own motives Intense dialogues, unexpected outcomes, and choices that affect the story Battles, puzzles, and ancient Contracts made with powerful forces You are trapped by a Sorcerer who has subjugated four demons. Will you be able to escape, or will you become another soul in his collection? Core Gameplay & Story Q: What is the game about? What do you need to do? A: It's a horror game where you need to solve a mystery and fight for your life. Q: Is there a storyline in the game? A: Yes, it's very intricate, interesting, and complex. Q: What is the unique feature of the game? What can hook players? A: The storyline, atmosphere, spells, and interesting mechanics. Q: Are there bosses in the game and how are they different? A: There are bosses with increased difficulty and behavior that depends on the player's actions. Q: Are there any mini-games within the main storyline? For example, match-three puzzles within a strategy game. A: Yes, there are. Collecting special seals. Mechanics & Progression Q: How does leveling up work exactly? What needs to be done to level up faster? A: Collecting spells related to the storyline. Economy & Customization Q: What engaging content elements are there (weapons, vehicles, locations, skills, references to famous franchises, etc.)? A: Complex mechanics and traps, a well-developed storyline. Retention & Engagement Q: Is it preferable to play with sound to better immerse yourself in the atmosphere, or will there be difficulties in passing without sound? A: It is necessary to play with sound. Q: Is there a system of achievements (achievements)? What are they and what can you get them for? A: Yes, they are obtained as quests and tasks are completed.","url":"https://nikunjprogames.github.io/games/sorcerers-refuge.html","image":"https://static.playgama.com/p-img/pg/sorcerers-refuge/big-preview/23c5e2a2597e4b71b1a01fc457170af8?width=448","gamePlatform":["Web browser"],"genre":["Adventure"],"keywords":["adventure","story","scary","horror","3d","ghost","logic","action-adventure","challenging-games","fantasy-games","mystery-games","quests-games","wizard-games"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Adventure Games","item":"https://nikunjprogames.github.io/adventure-games/"},{"@type":"ListItem","position":3,"name":"Sorcerers Refuge","item":"https://nikunjprogames.github.io/games/sorcerers-refuge.html"}]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/sorcerers-refuge.html#game","name":"Sorcerers Refuge","description":"You wake up in a strange living room. There are no doors. Only whispers behind the wall and darkness in the eyes. Welcome to the Sorcerer’s Hideout, a dark adventure with elements of magic, riddles, and quests. In this confusing and dangerous place, you will find: What Awaits You Mysterious corridors, hidden rooms, and sudden traps The magic of ice, fire, transformation, and true vision Mysterious creatures, demons, and a strange Buffoon with his own motives Intense dialogues, unexpected outcomes, and choices that affect the story Battles, puzzles, and ancient Contracts made with powerful forces You are trapped by a Sorcerer who has subjugated four demons. Will you be able to escape, or will you become another soul in his collection? Core Gameplay & Story Q: What is the game about? What do you need to do? A: It's a horror game where you need to solve a mystery and fight for your life. Q: Is there a storyline in the game? A: Yes, it's very intricate, interesting, and complex. Q: What is the unique feature of the game? What can hook players? A: The storyline, atmosphere, spells, and interesting mechanics. Q: Are there bosses in the game and how are they different? A: There are bosses with increased difficulty and behavior that depends on the player's actions. Q: Are there any mini-games within the main storyline? For example, match-three puzzles within a strategy game. A: Yes, there are. Collecting special seals. Mechanics & Progression Q: How does leveling up work exactly? What needs to be done to level up faster? A: Collecting spells related to the storyline. Economy & Customization Q: What engaging content elements are there (weapons, vehicles, locations, skills, references to famous franchises, etc.)? A: Complex mechanics and traps, a well-developed storyline. Retention & Engagement Q: Is it preferable to play with sound to better immerse yourself in the atmosphere, or will there be difficulties in passing without sound? A: It is necessary to play with sound. Q: Is there a system of achievements (achievements)? What are they and what can you get them for? A: Yes, they are obtained as quests and tasks are completed.","url":"https://nikunjprogames.github.io/games/sorcerers-refuge.html","image":"https://static.playgama.com/p-img/pg/sorcerers-refuge/big-preview/23c5e2a2597e4b71b1a01fc457170af8?width=448","gamePlatform":["Web browser"],"genre":["Adventure","Action","Puzzle","Horror"],"keywords":["adventure","story","scary","horror","3d","ghost","logic","action-adventure","challenging-games","fantasy-games","mystery-games","quests-games","wizard-games"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Adventure Games","item":"https://nikunjprogames.github.io/adventure-games/"},{"@type":"ListItem","position":3,"name":"Sorcerers Refuge","item":"https://nikunjprogames.github.io/games/sorcerers-refuge.html"}]}]}</script>
+  <script src="/game-loading.js" defer></script>
   <script>
     function toggleGameFullscreen(root) {
       const target = root ? root.querySelector('.game-frame') : null;

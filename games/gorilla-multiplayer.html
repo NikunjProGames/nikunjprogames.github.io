@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Play Gorilla Multiplayer Online | PleyZ</title>
-  <meta name="description" content="Gorilla Multiplayer Unleash your inner primate in Gorilla Multiplayer, an exhilarating online adventure! Join players worldwide in dynamic, fast-paced" />
+  <title>Play Gorilla Multiplayer | PleyZ</title>
+  <meta name="description" content="Gorilla Multiplayer Unleash your inner primate in Gorilla Multiplayer, an exhilarating online adventure!" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <link rel="canonical" href="https://nikunjprogames.github.io/games/gorilla-multiplayer.html" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Play Gorilla Multiplayer Online | PleyZ" />
-  <meta property="og:description" content="Gorilla Multiplayer Unleash your inner primate in Gorilla Multiplayer, an exhilarating online adventure! Join players worldwide in dynamic, fast-paced" />
+  <meta property="og:title" content="Play Gorilla Multiplayer | PleyZ" />
+  <meta property="og:description" content="Gorilla Multiplayer Unleash your inner primate in Gorilla Multiplayer, an exhilarating online adventure!" />
   <meta property="og:url" content="https://nikunjprogames.github.io/games/gorilla-multiplayer.html" />
   <meta property="og:site_name" content="PleyZ" />
   <meta property="og:image" content="https://img.gamemonetize.com/i5povrpxi9gwdyq2d9zr1haw3cm0il6h/512x384.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Play Gorilla Multiplayer Online | PleyZ" />
-  <meta name="twitter:description" content="Gorilla Multiplayer Unleash your inner primate in Gorilla Multiplayer, an exhilarating online adventure! Join players worldwide in dynamic, fast-paced" />
+  <meta name="twitter:title" content="Play Gorilla Multiplayer | PleyZ" />
+  <meta name="twitter:description" content="Gorilla Multiplayer Unleash your inner primate in Gorilla Multiplayer, an exhilarating online adventure!" />
   <meta name="twitter:image" content="https://img.gamemonetize.com/i5povrpxi9gwdyq2d9zr1haw3cm0il6h/512x384.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -57,7 +57,7 @@
     .site-brand { color: var(--text); font: 700 0.92rem 'Orbitron', sans-serif; white-space: nowrap; }
     .topbar .actions { display: flex; gap: 8px; flex-wrap: wrap; }
     .game-preferences { display: flex; gap: 6px; }
-    .game-preferences button { width: 36px; height: 36px; border: 1px solid var(--panel-border); border-radius: 7px; background: var(--panel); color: var(--muted); cursor: pointer; }
+    .game-preferences button { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--panel-border); border-radius: 7px; background: var(--panel); color: var(--muted); font-size: 1.1rem; line-height: 1; cursor: pointer; }
     .game-preferences button[aria-pressed="true"], .game-preferences button:hover { border-color: var(--accent); color: var(--accent); }
     .profile-score-link {
       display: inline-flex; align-items: center; gap: 8px;
@@ -159,8 +159,8 @@
       <h1>Gorilla Multiplayer</h1>
       <div class="actions">
         <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="78">
-          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><i class="fa-solid fa-thumbs-up"></i></button>
-          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><i class="fa-solid fa-thumbs-down"></i></button>
+          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><span aria-hidden="true">👍</span></button>
+          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><span aria-hidden="true">👎</span></button>
         </div>
         <a class="profile-score-link" href="../index.html#leaderboard" title="View PleyZ score and leaderboard">
           <span class="profile-score-avatar" id="profile-score-avatar">PZ</span>
@@ -180,18 +180,18 @@
           <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
         </div>
         <div class="game-frame">
-          <iframe src="https://html5.gamemonetize.co/i5povrpxi9gwdyq2d9zr1haw3cm0il6h/" allowfullscreen loading="lazy" title="Gorilla Multiplayer"></iframe>
+          <iframe src="https://html5.gamemonetize.co/i5povrpxi9gwdyq2d9zr1haw3cm0il6h/" allowfullscreen loading="eager" title="Gorilla Multiplayer"></iframe>
         </div>
-        
+
       </div>
 
       <section class="info-card related-games" aria-label="Related games">
         <h2>Games You Might Like</h2>
-        <div class="related-grid"><a class="related-game" href="blockscape-io.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/z41q0ycg5i8u33rqy7sfjcedpak3e7zz/512x384.jpg" alt="" width="900" height="600" loading="eager" fetchpriority="high" decoding="async" /></span><span>blockscape.io</span></a>
-        <a class="related-game" href="iron-legion.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/gkeofcoqengjzxlw0b09f2qrng35egbi/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async" /></span><span>Iron Legion</span></a>
+        <div class="related-grid"><a class="related-game" href="english-checkers.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/pir55cwoygvsus9az7d5zyxd6gra48dh/512x384.jpg" alt="" width="1920" height="1080" loading="eager" fetchpriority="high" decoding="async" /></span><span>English Checkers</span></a>
+        <a class="related-game" href="multiplayer-team-death-match.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/h5hc9ltwjo3sk2g2upo4su465kf1kkgz/512x384.jpg" alt="" width="900" height="900" loading="lazy" decoding="async" /></span><span>Multiplayer Team Death Match</span></a>
         <a class="related-game" href="quiz-runner-io.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/o265mdiouhnx82t87q3p0t5jgspwsdoy/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async" /></span><span>Quiz Runner.io</span></a>
-        <a class="related-game" href="battle-jitsu.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/cxu4dpr5uspgzim70lf6t4p6milazwr0/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async" /></span><span>Battle Jitsu</span></a>
-        <a class="related-game" href="battle-swat-vs-mercenary-remaster.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/np11v2111dvriy3bgljgr99a8qo2l8vi/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async" /></span><span>Battle SWAT vs Mercenary Remaster</span></a></div>
+        <a class="related-game" href="giveaway-checkers.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/594795s0fh64izkmnelrpracbmz1we3t/512x384.jpg" alt="" width="1920" height="1080" loading="lazy" decoding="async" /></span><span>Giveaway Checkers</span></a>
+        <a class="related-game" href="master-chess.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/master-chess/big-preview/52cdd471a5044f1e94c36787ee523746?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/066b3bab8a1c460cbc5d057dbbe37125/orig_length_h320.mp4"></video></span><span>Master Chess</span></a></div>
       </section>
     </div>
 
@@ -205,13 +205,13 @@
     </section>
 <section class="info-card" aria-labelledby="game-dna-heading">
       <h2 id="game-dna-heading">Game DNA</h2>
-      <div class="chip-list"><span class="chip">Multiplayer</span><span class="chip">Animal</span><span class="chip">Online</span><span class="chip">Word</span></div>
+      <div class="chip-list"><span class="chip">Multiplayer</span><span class="chip">Puzzle</span><span class="chip">Animal</span><span class="chip">Online</span><span class="chip">Word</span></div>
     </section>
 <section class="info-card" aria-label="Game details"><p><strong>Platform:</strong> Web browser</p></section>
 
     <section class="info-card" aria-labelledby="related-categories-heading">
       <h2 id="related-categories-heading">Related Categories</h2>
-      <nav class="related-categories" aria-label="Related categories"><a href="/multiplayer-games/">Multiplayer Games</a></nav>
+      <nav class="related-categories" aria-label="Related categories"><a href="/multiplayer-games/">Multiplayer Games</a><a href="/puzzle-games/">Puzzle Games</a></nav>
     </section>
     </main>
 
@@ -241,7 +241,8 @@
     <a href="/termsandconditions.html">Terms</a>
     <a href="/contact-us.html">Contact</a>
   </footer>
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/gorilla-multiplayer.html#game","name":"Gorilla Multiplayer","description":"Gorilla Multiplayer Unleash your inner primate in Gorilla Multiplayer, an exhilarating online adventure! Join players worldwide in dynamic, fast-paced environments where agility, strategy, and teamwork reign supreme. Climb, swing, and jump your way through challenging terrains, all while competing or collaborating with friends. With customizable avatars, thrilling game modes, and a lively community, the jungle has never been this fun. Are you ready to go bananas?","url":"https://nikunjprogames.github.io/games/gorilla-multiplayer.html","image":"https://img.gamemonetize.com/i5povrpxi9gwdyq2d9zr1haw3cm0il6h/512x384.jpg","gamePlatform":["Web browser"],"genre":["Multiplayer"],"keywords":["Animal","Online","Word"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Multiplayer Games","item":"https://nikunjprogames.github.io/multiplayer-games/"},{"@type":"ListItem","position":3,"name":"Gorilla Multiplayer","item":"https://nikunjprogames.github.io/games/gorilla-multiplayer.html"}]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/gorilla-multiplayer.html#game","name":"Gorilla Multiplayer","description":"Gorilla Multiplayer Unleash your inner primate in Gorilla Multiplayer, an exhilarating online adventure! Join players worldwide in dynamic, fast-paced environments where agility, strategy, and teamwork reign supreme. Climb, swing, and jump your way through challenging terrains, all while competing or collaborating with friends. With customizable avatars, thrilling game modes, and a lively community, the jungle has never been this fun. Are you ready to go bananas?","url":"https://nikunjprogames.github.io/games/gorilla-multiplayer.html","image":"https://img.gamemonetize.com/i5povrpxi9gwdyq2d9zr1haw3cm0il6h/512x384.jpg","gamePlatform":["Web browser"],"genre":["Multiplayer","Puzzle"],"keywords":["Animal","Online","Word"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Multiplayer Games","item":"https://nikunjprogames.github.io/multiplayer-games/"},{"@type":"ListItem","position":3,"name":"Gorilla Multiplayer","item":"https://nikunjprogames.github.io/games/gorilla-multiplayer.html"}]}]}</script>
+  <script src="/game-loading.js" defer></script>
   <script>
     function toggleGameFullscreen(root) {
       const target = root ? root.querySelector('.game-frame') : null;

@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Play Cube Snake 2048 Online | PleyZ</title>
-  <meta name="description" content="A great Cube Snake 2048 game begins with cube snakes and cubes in a huge arena. You will start with a low number of snakes, collect lower numbered cubes" />
+  <title>Play Cube Snake 2048 | PleyZ</title>
+  <meta name="description" content="Collect numbered cubes, merge them to grow your snake, and use power-ups to gain an edge in Cube Snake 2048." />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <link rel="canonical" href="https://nikunjprogames.github.io/games/cube-snake-2048.html" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Play Cube Snake 2048 Online | PleyZ" />
-  <meta property="og:description" content="A great Cube Snake 2048 game begins with cube snakes and cubes in a huge arena. You will start with a low number of snakes, collect lower numbered cubes" />
+  <meta property="og:title" content="Play Cube Snake 2048 | PleyZ" />
+  <meta property="og:description" content="Collect numbered cubes, merge them to grow your snake, and use power-ups to gain an edge in Cube Snake 2048." />
   <meta property="og:url" content="https://nikunjprogames.github.io/games/cube-snake-2048.html" />
   <meta property="og:site_name" content="PleyZ" />
   <meta property="og:image" content="https://static.playgama.com/p-img/pg/backfill/game-109351/preview/b0afdef34402ca9cc780be5207be4cbfe8b640b6cd70d6626c7cec02741a4e3c?width=448" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Play Cube Snake 2048 Online | PleyZ" />
-  <meta name="twitter:description" content="A great Cube Snake 2048 game begins with cube snakes and cubes in a huge arena. You will start with a low number of snakes, collect lower numbered cubes" />
+  <meta name="twitter:title" content="Play Cube Snake 2048 | PleyZ" />
+  <meta name="twitter:description" content="Collect numbered cubes, merge them to grow your snake, and use power-ups to gain an edge in Cube Snake 2048." />
   <meta name="twitter:image" content="https://static.playgama.com/p-img/pg/backfill/game-109351/preview/b0afdef34402ca9cc780be5207be4cbfe8b640b6cd70d6626c7cec02741a4e3c?width=448" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -57,7 +57,7 @@
     .site-brand { color: var(--text); font: 700 0.92rem 'Orbitron', sans-serif; white-space: nowrap; }
     .topbar .actions { display: flex; gap: 8px; flex-wrap: wrap; }
     .game-preferences { display: flex; gap: 6px; }
-    .game-preferences button { width: 36px; height: 36px; border: 1px solid var(--panel-border); border-radius: 7px; background: var(--panel); color: var(--muted); cursor: pointer; }
+    .game-preferences button { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--panel-border); border-radius: 7px; background: var(--panel); color: var(--muted); font-size: 1.1rem; line-height: 1; cursor: pointer; }
     .game-preferences button[aria-pressed="true"], .game-preferences button:hover { border-color: var(--accent); color: var(--accent); }
     .profile-score-link {
       display: inline-flex; align-items: center; gap: 8px;
@@ -159,8 +159,8 @@
       <h1>Cube Snake 2048</h1>
       <div class="actions">
         <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="99">
-          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><i class="fa-solid fa-thumbs-up"></i></button>
-          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><i class="fa-solid fa-thumbs-down"></i></button>
+          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><span aria-hidden="true">👍</span></button>
+          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><span aria-hidden="true">👎</span></button>
         </div>
         <a class="profile-score-link" href="../index.html#leaderboard" title="View PleyZ score and leaderboard">
           <span class="profile-score-avatar" id="profile-score-avatar">PZ</span>
@@ -180,18 +180,18 @@
           <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
         </div>
         <div class="game-frame">
-          <iframe src="https://playgama.com/export/game/cube-snake-2048?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487" allowfullscreen loading="lazy" title="Cube Snake 2048"></iframe>
+          <iframe src="https://playgama.com/export/game/cube-snake-2048?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487" allowfullscreen loading="eager" title="Cube Snake 2048"></iframe>
         </div>
-        
+
       </div>
 
       <section class="info-card related-games" aria-label="Related games">
         <h2>Games You Might Like</h2>
-        <div class="related-grid"><a class="related-game" href="basketball-stars.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/basketball-stars/big_preview/2e0653c710ad43e09c40d1ba5968e447?width=448" alt="" width="800" height="450" loading="eager" fetchpriority="high" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/c7ae7f11ad0f1a1178788aaa188f4508/orig_length_h320.mp4"></video></span><span>Basketball Stars</span></a>
+        <div class="related-grid"><a class="related-game" href="find-the-frog-hidden-objects.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/find-the-frog--hidden-objects/big_preview/541792f4c5354ef88be0646eb9be4b1b?width=448" alt="" width="800" height="450" loading="eager" fetchpriority="high" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/61541049fc244131805e9e1abfcbb54c/orig_length_h320.mp4"></video></span><span>Find the Frog - Hidden Objects</span></a>
+        <a class="related-game" href="basketball-stars.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/basketball-stars/big_preview/2e0653c710ad43e09c40d1ba5968e447?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/c7ae7f11ad0f1a1178788aaa188f4508/orig_length_h320.mp4"></video></span><span>Basketball Stars</span></a>
         <a class="related-game" href="burger-restaurant-simulator-3d.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/burger-restaurant-simulator-3d/big_preview/b4cbcd2693594ae1a4e6aa672025365c?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Burger Restaurant Simulator 3D</span></a>
-        <a class="related-game" href="geometry-arrow-2.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/backfill/game-99645/preview/90df3206f7f0c706e6431b9ae58fc331d0ed13a11e547ce0271b720ff82e6b21?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/5b84237660d746b7bd76be4e60bdba3a/orig_length_h320.mp4"></video></span><span>Geometry Arrow 2</span></a>
-        <a class="related-game" href="geometry-vibes.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/geometry-vibes/big-preview/cd0c9c56e9e54948b7eca6c49ef590b5?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/6a23eda4fac74d23848658c3fd75e2de/orig_length_h320.mp4"></video></span><span>Geometry Vibes </span></a>
-        <a class="related-game" href="golf-orbit.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/golf-orbit/big-preview/e7f203e28b0745d880d1c0a995e9b213?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Golf Orbit</span></a></div>
+        <a class="related-game" href="golf-orbit.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/golf-orbit/big-preview/e7f203e28b0745d880d1c0a995e9b213?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Golf Orbit</span></a>
+        <a class="related-game" href="mahjong-classic.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/mahjong-classic/big-preview/730f65084d864a9baffefa86e110b106?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/e1239d526cff4df79172804cabe8304a/orig_length_h320.mp4"></video></span><span>Mahjong Classic</span></a></div>
       </section>
     </div>
 
@@ -205,13 +205,13 @@
     </section>
 <section class="info-card" aria-labelledby="game-dna-heading">
       <h2 id="game-dna-heading">Game DNA</h2>
-      <div class="chip-list"><span class="chip">Arcade</span><span class="chip">arcade</span><span class="chip">snake</span><span class="chip">number</span><span class="chip">merge</span><span class="chip">classic</span><span class="chip">cube-games</span><span class="chip">arena-games</span><span class="chip">collecting-games</span></div>
+      <div class="chip-list"><span class="chip">Arcade</span><span class="chip">Nostalgia</span><span class="chip">Casual</span><span class="chip">arcade</span><span class="chip">snake</span><span class="chip">number</span><span class="chip">merge</span><span class="chip">classic</span><span class="chip">cube-games</span><span class="chip">arena-games</span><span class="chip">collecting-games</span></div>
     </section>
 <section class="info-card" aria-label="Game details"><p><strong>Platform:</strong> Web browser</p></section>
 
     <section class="info-card" aria-labelledby="related-categories-heading">
       <h2 id="related-categories-heading">Related Categories</h2>
-      <nav class="related-categories" aria-label="Related categories"><a href="/arcade-games/">Arcade Games</a></nav>
+      <nav class="related-categories" aria-label="Related categories"><a href="/arcade-games/">Arcade Games</a><a href="/nostalgia-games/">Nostalgia Games</a><a href="/casual-games/">Casual Games</a></nav>
     </section>
     </main>
 
@@ -241,7 +241,8 @@
     <a href="/termsandconditions.html">Terms</a>
     <a href="/contact-us.html">Contact</a>
   </footer>
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/cube-snake-2048.html#game","name":"Cube Snake 2048","description":"A great Cube Snake 2048 game begins with cube snakes and cubes in a huge arena. You will start with a low number of snakes, collect lower numbered cubes around the map, and try to make your snake bigger by combining numbers. Collect power-ups and give your snake more advantages.","url":"https://nikunjprogames.github.io/games/cube-snake-2048.html","image":"https://static.playgama.com/p-img/pg/backfill/game-109351/preview/b0afdef34402ca9cc780be5207be4cbfe8b640b6cd70d6626c7cec02741a4e3c?width=448","gamePlatform":["Web browser"],"genre":["Arcade"],"keywords":["arcade","snake","number","merge","classic","cube-games","arena-games","collecting-games"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Arcade Games","item":"https://nikunjprogames.github.io/arcade-games/"},{"@type":"ListItem","position":3,"name":"Cube Snake 2048","item":"https://nikunjprogames.github.io/games/cube-snake-2048.html"}]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/cube-snake-2048.html#game","name":"Cube Snake 2048","description":"A great Cube Snake 2048 game begins with cube snakes and cubes in a huge arena. You will start with a low number of snakes, collect lower numbered cubes around the map, and try to make your snake bigger by combining numbers. Collect power-ups and give your snake more advantages.","url":"https://nikunjprogames.github.io/games/cube-snake-2048.html","image":"https://static.playgama.com/p-img/pg/backfill/game-109351/preview/b0afdef34402ca9cc780be5207be4cbfe8b640b6cd70d6626c7cec02741a4e3c?width=448","gamePlatform":["Web browser"],"genre":["Arcade","Nostalgia","Casual"],"keywords":["arcade","snake","number","merge","classic","cube-games","arena-games","collecting-games"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Arcade Games","item":"https://nikunjprogames.github.io/arcade-games/"},{"@type":"ListItem","position":3,"name":"Cube Snake 2048","item":"https://nikunjprogames.github.io/games/cube-snake-2048.html"}]}]}</script>
+  <script src="/game-loading.js" defer></script>
   <script>
     function toggleGameFullscreen(root) {
       const target = root ? root.querySelector('.game-frame') : null;

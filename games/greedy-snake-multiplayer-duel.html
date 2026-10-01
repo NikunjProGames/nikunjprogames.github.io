@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Play Greedy Snake Multiplayer Duel Online | PleyZ</title>
-  <meta name="description" content="This is a very classic and fun Snake game. With Q Mengs lovely cartoon style, players can experience new interfaces and new Snake game playing methods," />
+  <title>Play Greedy Snake Multiplayer Duel | PleyZ</title>
+  <meta name="description" content="Steer a growing snake around the arena, collect items, and compete in multiplayer duels in Greedy Snake Multiplayer Duel." />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <link rel="canonical" href="https://nikunjprogames.github.io/games/greedy-snake-multiplayer-duel.html" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Play Greedy Snake Multiplayer Duel Online | PleyZ" />
-  <meta property="og:description" content="This is a very classic and fun Snake game. With Q Mengs lovely cartoon style, players can experience new interfaces and new Snake game playing methods," />
+  <meta property="og:title" content="Play Greedy Snake Multiplayer Duel | PleyZ" />
+  <meta property="og:description" content="Steer a growing snake around the arena, collect items, and compete in multiplayer duels in Greedy Snake Multiplayer Duel." />
   <meta property="og:url" content="https://nikunjprogames.github.io/games/greedy-snake-multiplayer-duel.html" />
   <meta property="og:site_name" content="PleyZ" />
   <meta property="og:image" content="https://img.gamemonetize.com/fzxidkarnp7ykiii4mot05y6nfwt8h3w/512x384.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Play Greedy Snake Multiplayer Duel Online | PleyZ" />
-  <meta name="twitter:description" content="This is a very classic and fun Snake game. With Q Mengs lovely cartoon style, players can experience new interfaces and new Snake game playing methods," />
+  <meta name="twitter:title" content="Play Greedy Snake Multiplayer Duel | PleyZ" />
+  <meta name="twitter:description" content="Steer a growing snake around the arena, collect items, and compete in multiplayer duels in Greedy Snake Multiplayer Duel." />
   <meta name="twitter:image" content="https://img.gamemonetize.com/fzxidkarnp7ykiii4mot05y6nfwt8h3w/512x384.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -57,7 +57,7 @@
     .site-brand { color: var(--text); font: 700 0.92rem 'Orbitron', sans-serif; white-space: nowrap; }
     .topbar .actions { display: flex; gap: 8px; flex-wrap: wrap; }
     .game-preferences { display: flex; gap: 6px; }
-    .game-preferences button { width: 36px; height: 36px; border: 1px solid var(--panel-border); border-radius: 7px; background: var(--panel); color: var(--muted); cursor: pointer; }
+    .game-preferences button { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--panel-border); border-radius: 7px; background: var(--panel); color: var(--muted); font-size: 1.1rem; line-height: 1; cursor: pointer; }
     .game-preferences button[aria-pressed="true"], .game-preferences button:hover { border-color: var(--accent); color: var(--accent); }
     .profile-score-link {
       display: inline-flex; align-items: center; gap: 8px;
@@ -159,8 +159,8 @@
       <h1>Greedy Snake Multiplayer Duel</h1>
       <div class="actions">
         <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="89">
-          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><i class="fa-solid fa-thumbs-up"></i></button>
-          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><i class="fa-solid fa-thumbs-down"></i></button>
+          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><span aria-hidden="true">👍</span></button>
+          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><span aria-hidden="true">👎</span></button>
         </div>
         <a class="profile-score-link" href="../index.html#leaderboard" title="View PleyZ score and leaderboard">
           <span class="profile-score-avatar" id="profile-score-avatar">PZ</span>
@@ -180,9 +180,9 @@
           <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
         </div>
         <div class="game-frame">
-          <iframe src="https://html5.gamemonetize.co/fzxidkarnp7ykiii4mot05y6nfwt8h3w/" allowfullscreen loading="lazy" title="Greedy Snake Multiplayer Duel"></iframe>
+          <iframe src="https://html5.gamemonetize.co/fzxidkarnp7ykiii4mot05y6nfwt8h3w/" allowfullscreen loading="eager" title="Greedy Snake Multiplayer Duel"></iframe>
         </div>
-        
+
       </div>
 
       <section class="info-card related-games" aria-label="Related games">
@@ -205,13 +205,13 @@
     </section>
 <section class="info-card" aria-labelledby="game-dna-heading">
       <h2 id="game-dna-heading">Game DNA</h2>
-      <div class="chip-list"><span class="chip">Multiplayer</span><span class="chip">.io</span><span class="chip">Battle</span><span class="chip">Best Games</span></div>
+      <div class="chip-list"><span class="chip">Multiplayer</span><span class="chip">Action</span><span class="chip">.io</span><span class="chip">Battle</span><span class="chip">Best Games</span></div>
     </section>
 <section class="info-card" aria-label="Game details"><p><strong>Platform:</strong> Web browser</p></section>
 
     <section class="info-card" aria-labelledby="related-categories-heading">
       <h2 id="related-categories-heading">Related Categories</h2>
-      <nav class="related-categories" aria-label="Related categories"><a href="/multiplayer-games/">Multiplayer Games</a></nav>
+      <nav class="related-categories" aria-label="Related categories"><a href="/multiplayer-games/">Multiplayer Games</a><a href="/action-games/">Action Games</a></nav>
     </section>
     </main>
 
@@ -241,7 +241,8 @@
     <a href="/termsandconditions.html">Terms</a>
     <a href="/contact-us.html">Contact</a>
   </footer>
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/greedy-snake-multiplayer-duel.html#game","name":"Greedy Snake Multiplayer Duel","description":"This is a very classic and fun Snake game. With Q Mengs lovely cartoon style, players can experience new interfaces and new Snake game playing methods, more vivid and interesting snake shapes and more mode levels. You can play anytime, anywhere. Its very suitable for killing time. Dont miss it!","url":"https://nikunjprogames.github.io/games/greedy-snake-multiplayer-duel.html","image":"https://img.gamemonetize.com/fzxidkarnp7ykiii4mot05y6nfwt8h3w/512x384.jpg","gamePlatform":["Web browser"],"genre":["Multiplayer"],"keywords":[".io","Battle","Best Games"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Multiplayer Games","item":"https://nikunjprogames.github.io/multiplayer-games/"},{"@type":"ListItem","position":3,"name":"Greedy Snake Multiplayer Duel","item":"https://nikunjprogames.github.io/games/greedy-snake-multiplayer-duel.html"}]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/greedy-snake-multiplayer-duel.html#game","name":"Greedy Snake Multiplayer Duel","description":"This is a very classic and fun Snake game. With Q Mengs lovely cartoon style, players can experience new interfaces and new Snake game playing methods, more vivid and interesting snake shapes and more mode levels. You can play anytime, anywhere. Its very suitable for killing time. Dont miss it!","url":"https://nikunjprogames.github.io/games/greedy-snake-multiplayer-duel.html","image":"https://img.gamemonetize.com/fzxidkarnp7ykiii4mot05y6nfwt8h3w/512x384.jpg","gamePlatform":["Web browser"],"genre":["Multiplayer","Action"],"keywords":[".io","Battle","Best Games"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Multiplayer Games","item":"https://nikunjprogames.github.io/multiplayer-games/"},{"@type":"ListItem","position":3,"name":"Greedy Snake Multiplayer Duel","item":"https://nikunjprogames.github.io/games/greedy-snake-multiplayer-duel.html"}]}]}</script>
+  <script src="/game-loading.js" defer></script>
   <script>
     function toggleGameFullscreen(root) {
       const target = root ? root.querySelector('.game-frame') : null;

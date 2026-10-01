@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Play popaloon Online | PleyZ</title>
-  <meta name="description" content="POP-A-LOON is an addictive shooter-style game with a limited violence cartoon vibe.Tired of games where your favorite stuff isn’t viable? In POP-A-LOON," />
+  <title>Play popaloon | PleyZ</title>
+  <meta name="description" content="POP-A-LOON is an addictive shooter-style game with a limited violence cartoon vibe. Tired of games where your favorite stuff isn’t viable?" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <link rel="canonical" href="https://nikunjprogames.github.io/games/popaloon.html" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Play popaloon Online | PleyZ" />
-  <meta property="og:description" content="POP-A-LOON is an addictive shooter-style game with a limited violence cartoon vibe.Tired of games where your favorite stuff isn’t viable? In POP-A-LOON," />
+  <meta property="og:title" content="Play popaloon | PleyZ" />
+  <meta property="og:description" content="POP-A-LOON is an addictive shooter-style game with a limited violence cartoon vibe. Tired of games where your favorite stuff isn’t viable?" />
   <meta property="og:url" content="https://nikunjprogames.github.io/games/popaloon.html" />
   <meta property="og:site_name" content="PleyZ" />
   <meta property="og:image" content="https://img.gamemonetize.com/l28ng8jar2mopyfsls1ufwi7zm9ml4zi/512x384.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Play popaloon Online | PleyZ" />
-  <meta name="twitter:description" content="POP-A-LOON is an addictive shooter-style game with a limited violence cartoon vibe.Tired of games where your favorite stuff isn’t viable? In POP-A-LOON," />
+  <meta name="twitter:title" content="Play popaloon | PleyZ" />
+  <meta name="twitter:description" content="POP-A-LOON is an addictive shooter-style game with a limited violence cartoon vibe. Tired of games where your favorite stuff isn’t viable?" />
   <meta name="twitter:image" content="https://img.gamemonetize.com/l28ng8jar2mopyfsls1ufwi7zm9ml4zi/512x384.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -57,7 +57,7 @@
     .site-brand { color: var(--text); font: 700 0.92rem 'Orbitron', sans-serif; white-space: nowrap; }
     .topbar .actions { display: flex; gap: 8px; flex-wrap: wrap; }
     .game-preferences { display: flex; gap: 6px; }
-    .game-preferences button { width: 36px; height: 36px; border: 1px solid var(--panel-border); border-radius: 7px; background: var(--panel); color: var(--muted); cursor: pointer; }
+    .game-preferences button { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--panel-border); border-radius: 7px; background: var(--panel); color: var(--muted); font-size: 1.1rem; line-height: 1; cursor: pointer; }
     .game-preferences button[aria-pressed="true"], .game-preferences button:hover { border-color: var(--accent); color: var(--accent); }
     .profile-score-link {
       display: inline-flex; align-items: center; gap: 8px;
@@ -159,8 +159,8 @@
       <h1>popaloon</h1>
       <div class="actions">
         <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="87">
-          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><i class="fa-solid fa-thumbs-up"></i></button>
-          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><i class="fa-solid fa-thumbs-down"></i></button>
+          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><span aria-hidden="true">👍</span></button>
+          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><span aria-hidden="true">👎</span></button>
         </div>
         <a class="profile-score-link" href="../index.html#leaderboard" title="View PleyZ score and leaderboard">
           <span class="profile-score-avatar" id="profile-score-avatar">PZ</span>
@@ -180,18 +180,18 @@
           <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
         </div>
         <div class="game-frame">
-          <iframe src="https://html5.gamemonetize.co/l28ng8jar2mopyfsls1ufwi7zm9ml4zi/" allowfullscreen loading="lazy" title="popaloon"></iframe>
+          <iframe src="https://html5.gamemonetize.co/l28ng8jar2mopyfsls1ufwi7zm9ml4zi/" allowfullscreen loading="eager" title="popaloon"></iframe>
         </div>
-        
+
       </div>
 
       <section class="info-card related-games" aria-label="Related games">
         <h2>Games You Might Like</h2>
-        <div class="related-grid"><a class="related-game" href="iron-legion.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/gkeofcoqengjzxlw0b09f2qrng35egbi/512x384.jpg" alt="" width="800" height="600" loading="eager" fetchpriority="high" decoding="async" /></span><span>Iron Legion</span></a>
-        <a class="related-game" href="survev-io.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/q9xrmuceu30pey8llzop5cr0p1p2fbx9/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async" /></span><span>Survev.io</span></a>
-        <a class="related-game" href="blockscape-io.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/z41q0ycg5i8u33rqy7sfjcedpak3e7zz/512x384.jpg" alt="" width="900" height="600" loading="lazy" decoding="async" /></span><span>blockscape.io</span></a>
-        <a class="related-game" href="carrom-pro.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/ts6iu4xqkctvpkau5yk4hwdkr3nwbsn7/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async" /></span><span>carrom pro</span></a>
-        <a class="related-game" href="castle-wars-legacy.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/f6ung9e7lfninu1957spejeihzprdusb/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async" /></span><span>Castle Wars: Legacy</span></a></div>
+        <div class="related-grid"><a class="related-game" href="english-checkers.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/pir55cwoygvsus9az7d5zyxd6gra48dh/512x384.jpg" alt="" width="1920" height="1080" loading="eager" fetchpriority="high" decoding="async" /></span><span>English Checkers</span></a>
+        <a class="related-game" href="multiplayer-team-death-match.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/h5hc9ltwjo3sk2g2upo4su465kf1kkgz/512x384.jpg" alt="" width="900" height="900" loading="lazy" decoding="async" /></span><span>Multiplayer Team Death Match</span></a>
+        <a class="related-game" href="castle-wars-legacy.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/f6ung9e7lfninu1957spejeihzprdusb/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async" /></span><span>Castle Wars: Legacy</span></a>
+        <a class="related-game" href="rivals-fps-online-shooter.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/rivals-fps-online-shooter/preview/2203a049014e4f6eaa4038ab696f6afa?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/519f0e08d9764b25aea0b93699671b44/orig_length_h640_6so.mp4"></video></span><span>RIVALS FPS: Online Shooter</span></a>
+        <a class="related-game" href="basketball-stars.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/basketball-stars/big_preview/2e0653c710ad43e09c40d1ba5968e447?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/c7ae7f11ad0f1a1178788aaa188f4508/orig_length_h320.mp4"></video></span><span>Basketball Stars</span></a></div>
       </section>
     </div>
 
@@ -205,13 +205,13 @@
     </section>
 <section class="info-card" aria-labelledby="game-dna-heading">
       <h2 id="game-dna-heading">Game DNA</h2>
-      <div class="chip-list"><span class="chip">Multiplayer</span><span class="chip">2 Player</span><span class="chip">Action</span><span class="chip">Best</span><span class="chip">Cartoon</span><span class="chip">Casual</span><span class="chip">Defense</span><span class="chip">endless</span><span class="chip">First Person Shooter</span><span class="chip">fps</span><span class="chip">Shoot &#39;Em Up</span><span class="chip">Shooter</span></div>
+      <div class="chip-list"><span class="chip">Multiplayer</span><span class="chip">Action</span><span class="chip">Strategy</span><span class="chip">Two Player</span><span class="chip">Endless</span><span class="chip">Casual</span><span class="chip">2 Player</span><span class="chip">Best</span><span class="chip">Cartoon</span><span class="chip">Defense</span><span class="chip">endless</span><span class="chip">First Person Shooter</span></div>
     </section>
 <section class="info-card" aria-label="Game details"><p><strong>Platform:</strong> Web browser</p></section>
 
     <section class="info-card" aria-labelledby="related-categories-heading">
       <h2 id="related-categories-heading">Related Categories</h2>
-      <nav class="related-categories" aria-label="Related categories"><a href="/multiplayer-games/">Multiplayer Games</a></nav>
+      <nav class="related-categories" aria-label="Related categories"><a href="/multiplayer-games/">Multiplayer Games</a><a href="/action-games/">Action Games</a><a href="/strategy-games/">Strategy Games</a><a href="/two-player-games/">Two Player Games</a><a href="/endless-games/">Endless Games</a><a href="/casual-games/">Casual Games</a></nav>
     </section>
     </main>
 
@@ -241,7 +241,8 @@
     <a href="/termsandconditions.html">Terms</a>
     <a href="/contact-us.html">Contact</a>
   </footer>
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/popaloon.html#game","name":"popaloon","description":"POP-A-LOON is an addictive shooter-style game with a limited violence cartoon vibe.Tired of games where your favorite stuff isn’t viable? In POP-A-LOON, each weapon has its own challenges, strengths, weaknesses, and silly lore. All weapons are unique and viable depending on your objective. Need loot? Use Clover. Want to taste latex? Try Fork. Struggling with bosses? Use Slowleak. Enjoy skill and timing? There’s Pen and many more! Each balloon brings a new challenge, with some trading health for speed and others the opposite.Try quickmatch for nonstop action, VIB mode to put your memory/reflexes to the test, and many other unique modes!","url":"https://nikunjprogames.github.io/games/popaloon.html","image":"https://img.gamemonetize.com/l28ng8jar2mopyfsls1ufwi7zm9ml4zi/512x384.jpg","gamePlatform":["Web browser"],"genre":["Multiplayer"],"keywords":["2 Player","Action","Best","Cartoon","Casual","Defense","endless","First Person Shooter","fps","Multiplayer","Shoot 'Em Up","Shooter","Strategy","Subway Surfers"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Multiplayer Games","item":"https://nikunjprogames.github.io/multiplayer-games/"},{"@type":"ListItem","position":3,"name":"popaloon","item":"https://nikunjprogames.github.io/games/popaloon.html"}]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/popaloon.html#game","name":"popaloon","description":"POP-A-LOON is an addictive shooter-style game with a limited violence cartoon vibe.Tired of games where your favorite stuff isn’t viable? In POP-A-LOON, each weapon has its own challenges, strengths, weaknesses, and silly lore. All weapons are unique and viable depending on your objective. Need loot? Use Clover. Want to taste latex? Try Fork. Struggling with bosses? Use Slowleak. Enjoy skill and timing? There’s Pen and many more! Each balloon brings a new challenge, with some trading health for speed and others the opposite.Try quickmatch for nonstop action, VIB mode to put your memory/reflexes to the test, and many other unique modes!","url":"https://nikunjprogames.github.io/games/popaloon.html","image":"https://img.gamemonetize.com/l28ng8jar2mopyfsls1ufwi7zm9ml4zi/512x384.jpg","gamePlatform":["Web browser"],"genre":["Multiplayer","Action","Strategy","Two Player","Endless","Casual"],"keywords":["2 Player","Action","Best","Cartoon","Casual","Defense","endless","First Person Shooter","fps","Multiplayer","Shoot 'Em Up","Shooter","Strategy","Subway Surfers"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Multiplayer Games","item":"https://nikunjprogames.github.io/multiplayer-games/"},{"@type":"ListItem","position":3,"name":"popaloon","item":"https://nikunjprogames.github.io/games/popaloon.html"}]}]}</script>
+  <script src="/game-loading.js" defer></script>
   <script>
     function toggleGameFullscreen(root) {
       const target = root ? root.querySelector('.game-frame') : null;

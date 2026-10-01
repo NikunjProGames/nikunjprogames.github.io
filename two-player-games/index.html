@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Two Player Games","description":"Browse two player browser games on PleyZ. Open a game page for its description, available instructions, and related titles.","url":"https://nikunjprogames.github.io/two-player-games/","mainEntity":{"@type":"ItemList","numberOfItems":1,"itemListElement":[{"@type":"ListItem","position":1,"name":"Master Chess","url":"https://nikunjprogames.github.io/games/master-chess.html"}]}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Two Player Games","description":"Browse two player browser games on PleyZ. Open a game page for its description, available instructions, and related titles.","url":"https://nikunjprogames.github.io/two-player-games/","mainEntity":{"@type":"ItemList","numberOfItems":20,"itemListElement":[{"@type":"ListItem","position":1,"name":"Master Chess","url":"https://nikunjprogames.github.io/games/master-chess.html"},{"@type":"ListItem","position":2,"name":"Wiggly Worm Race","url":"https://nikunjprogames.github.io/games/wiggly-worm-race.html"},{"@type":"ListItem","position":3,"name":"Castle Wars: Legacy","url":"https://nikunjprogames.github.io/games/castle-wars-legacy.html"},{"@type":"ListItem","position":4,"name":"INCOWORD","url":"https://nikunjprogames.github.io/games/incoword.html"},{"@type":"ListItem","position":5,"name":"carrom pro","url":"https://nikunjprogames.github.io/games/carrom-pro.html"},{"@type":"ListItem","position":6,"name":"WHOT The Ultimate Nigerian Card Game","url":"https://nikunjprogames.github.io/games/whot-the-ultimate-nigerian-card-game.html"},{"@type":"ListItem","position":7,"name":"English Checkers","url":"https://nikunjprogames.github.io/games/english-checkers.html"},{"@type":"ListItem","position":8,"name":"Clonium","url":"https://nikunjprogames.github.io/games/clonium.html"},{"@type":"ListItem","position":9,"name":"Tic tac toe   with AI and multiplayer","url":"https://nikunjprogames.github.io/games/tic-tac-toe-with-ai-and-multiplayer.html"},{"@type":"ListItem","position":10,"name":"Ludo King   offline Ludo Game","url":"https://nikunjprogames.github.io/games/ludo-king-offline-ludo-game.html"},{"@type":"ListItem","position":11,"name":"Turkish draughts","url":"https://nikunjprogames.github.io/games/turkish-draughts.html"},{"@type":"ListItem","position":12,"name":"Jump Race","url":"https://nikunjprogames.github.io/games/jump-race.html"},{"@type":"ListItem","position":13,"name":"Qolor 2048","url":"https://nikunjprogames.github.io/games/qolor-2048.html"},{"@type":"ListItem","position":14,"name":"Dominoes classic duel","url":"https://nikunjprogames.github.io/games/dominoes-classic-duel.html"},{"@type":"ListItem","position":15,"name":"Multiplayer Team Death Match","url":"https://nikunjprogames.github.io/games/multiplayer-team-death-match.html"},{"@type":"ListItem","position":16,"name":"popaloon","url":"https://nikunjprogames.github.io/games/popaloon.html"},{"@type":"ListItem","position":17,"name":"Giveaway Checkers","url":"https://nikunjprogames.github.io/games/giveaway-checkers.html"},{"@type":"ListItem","position":18,"name":"RIVALS FPS: Online Shooter","url":"https://nikunjprogames.github.io/games/rivals-fps-online-shooter.html"},{"@type":"ListItem","position":19,"name":"Basket Random","url":"https://nikunjprogames.github.io/games/basket-random.html"},{"@type":"ListItem","position":20,"name":"Basketball Stars","url":"https://nikunjprogames.github.io/games/basketball-stars.html"}]}}</script>
   <style>
     :root { color-scheme: dark; --bg: #0a0a0f; --panel: #11131c; --text: #eeeefe; --muted: #b1b5c8; --accent: #00bfff; --border: rgba(139,0,255,.35); }
     * { box-sizing: border-box; }
@@ -33,22 +33,38 @@
     header { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
     .brand { font: 700 1.3rem 'Orbitron', sans-serif; text-decoration: none; }
     nav { display: flex; flex-wrap: wrap; gap: 16px; }
-    .breadcrumbs { margin: 20px 0 10px; color: var(--muted); }
+    .breadcrumbs { margin: 20px 0 14px; color: var(--muted); }
     .breadcrumbs a, .category-links a { color: #8cddff; }
     h1, h2 { font-family: 'Orbitron', sans-serif; }
-    h1 { margin: 16px 0 8px; font-size: clamp(1.7rem, 5vw, 2.8rem); }
-    .intro { max-width: 720px; color: var(--muted); line-height: 1.5; }
+    .category-hero { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(260px, .9fr); align-items: center; gap: clamp(22px, 4vw, 52px); min-height: 310px; margin: 0 0 38px; padding: clamp(22px, 4vw, 42px); overflow: hidden; border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 14px; background: linear-gradient(125deg, rgba(255,255,255,.07), transparent 58%), repeating-linear-gradient(135deg, rgba(255,255,255,.018) 0 1px, transparent 1px 14px), #11131c; }
+    .category-kicker { margin-bottom: 12px; color: var(--accent); font: 700 .7rem 'Orbitron', sans-serif; letter-spacing: .12em; text-transform: uppercase; }
+    h1 { margin: 0 0 12px; font-size: clamp(1.8rem, 4.6vw, 3.2rem); line-height: 1.08; }
+    .intro { max-width: 620px; margin: 0; color: var(--muted); font-size: 1.05rem; line-height: 1.55; }
+    .category-hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 18px; margin-top: 24px; }
+    .category-count { color: var(--muted); }
+    .category-count strong { margin-right: 5px; color: var(--text); font: 700 1.15rem 'Orbitron', sans-serif; }
+    .category-jump { display: inline-flex; align-items: center; gap: 8px; padding: 9px 13px; border: 1px solid var(--border); border-radius: 7px; color: var(--text); font-weight: 700; text-decoration: none; }
+    .category-jump:hover { border-color: var(--accent); color: var(--accent); }
+    .category-visual { position: relative; min-width: 0; aspect-ratio: 16 / 10; overflow: hidden; border: 1px solid rgba(255,255,255,.18); border-radius: 10px; background: #05070d; box-shadow: 0 18px 38px rgba(0,0,0,.35); }
+    .category-visual img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .category-visual-label { position: absolute; right: 10px; bottom: 10px; padding: 7px 10px; border: 1px solid rgba(255,255,255,.22); border-radius: 6px; background: rgba(7,9,17,.88); color: #fff; font: 700 .65rem 'Orbitron', sans-serif; }
+    .category-visual-fallback { display: grid; width: 100%; height: 100%; place-items: center; color: var(--accent); font: 900 7rem 'Orbitron', sans-serif; }
     .catalog-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin: 32px 0 14px; }
     .catalog-heading h2 { margin: 0; font-size: 1.15rem; }
     .catalog-heading p { margin: 0; color: var(--muted); }
-    .game-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr)); gap: 14px; }
-    .game-item { min-width: 0; display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--border); border-radius: 8px; background: var(--panel); text-decoration: none; }
-    .game-item img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; background: #05070d; }
+    .game-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 190px), 1fr)); gap: 16px; }
+    .game-item { min-width: 0; display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--border); border-radius: 8px; background: linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.018)); text-decoration: none; transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease; }
+    .game-item:hover { transform: translateY(-4px); border-color: var(--accent); box-shadow: 0 12px 26px rgba(0,0,0,.26); }
+    .game-item img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; background: #05070d; transition: transform .22s ease; }
+    .game-item:hover img { transform: scale(1.035); }
     .game-item span { display: -webkit-box; min-height: 2.6em; padding: 10px 12px; overflow: hidden; font-weight: 700; line-height: 1.3; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; }
     .game-item:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     .category-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 14px; }
     .site-footer { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--border); color: var(--muted); }
     .site-footer a { text-decoration: none; }
+    .category-links a { padding: 7px 10px; border: 1px solid var(--border); border-radius: 6px; text-decoration: none; transition: border-color .18s ease, color .18s ease; }
+    .category-links a:hover { border-color: var(--accent); color: var(--accent); }
+    @media (max-width: 700px) { .category-hero { grid-template-columns: 1fr; gap: 22px; min-height: 0; } .category-visual { max-height: 240px; } }
     body.theme-brain { --accent: #68dfff; --border: rgba(104,223,255,.34); background: radial-gradient(ellipse at 85% 4%, rgba(0,111,170,.2), transparent 38%), var(--bg); }
     body.theme-skill { --accent: #a7f36b; --border: rgba(167,243,107,.3); }
     body.theme-tactical { --accent: #ff765f; --border: rgba(255,118,95,.32); background: radial-gradient(ellipse at 85% 4%, rgba(143,37,33,.18), transparent 38%), var(--bg); }
@@ -58,7 +74,7 @@
     body.theme-arcade { --accent: #ffd369; --border: rgba(255,211,105,.32); }
     body.theme-retro { --accent: #ffca7a; --border: rgba(255,172,91,.34); background: radial-gradient(ellipse at 85% 4%, rgba(125,67,22,.2), transparent 38%), var(--bg); }
     body.theme-fresh { --accent: #8affbb; --border: rgba(138,255,187,.34); background: radial-gradient(ellipse at 85% 4%, rgba(35,130,82,.19), transparent 38%), var(--bg); }
-    @media (max-width: 520px) { .page { width: min(100% - 24px, 1200px); } header { align-items: flex-start; flex-direction: column; } }
+    @media (max-width: 520px) { .page { width: min(100% - 24px, 1200px); } header { align-items: flex-start; flex-direction: column; } .category-hero { padding: 20px; margin-bottom: 28px; } .category-hero-actions { gap: 12px; } .catalog-heading { align-items: flex-start; flex-direction: column; gap: 4px; } .game-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; } .game-item span { padding: 9px; font-size: .92rem; } }
   </style>
 </head>
 <body class="theme-intense">
@@ -70,20 +86,105 @@
     </header>
     <main id="main-content">
       <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a> / Two Player Games</nav>
-      <h1>Two Player Games</h1>
-      <p class="intro">Browse two player browser games on PleyZ. Open a game page for its description, available instructions, and related titles.</p>
-      <div class="catalog-heading"><h2>Two Player browser games</h2><p>1 games</p></div>
-      <div class="game-list"><a class="game-item" href="/games/master-chess.html">
+      <section class="category-hero" aria-labelledby="category-heading">
+        <div class="category-hero-copy">
+          <p class="category-kicker">PleyZ game collection</p>
+          <h1 id="category-heading">Two Player Games</h1>
+          <p class="intro">Browse two player browser games on PleyZ. Open a game page for its description, available instructions, and related titles.</p>
+          <div class="category-hero-actions"><span class="category-count"><strong>20</strong> games to explore</span><a class="category-jump" href="#game-library">Browse games <span aria-hidden="true">&rarr;</span></a></div>
+        </div>
+        <div class="category-visual" aria-hidden="true"><img src="https://static.playgama.com/p-img/pg/master-chess/big-preview/52cdd471a5044f1e94c36787ee523746?width=448" alt="" loading="eager" fetchpriority="high" decoding="async"><span class="category-visual-label">Featured in Two Player</span></div>
+      </section>
+      <section id="game-library" aria-labelledby="game-library-heading">
+        <div class="catalog-heading"><h2 id="game-library-heading">Two Player browser games</h2><p>20 games</p></div>
+        <div class="game-list"><a class="game-item" href="/games/master-chess.html">
       <img src="https://static.playgama.com/p-img/pg/master-chess/big-preview/52cdd471a5044f1e94c36787ee523746?width=448" alt="" width="800" height="450" loading="eager" fetchpriority="high" decoding="async">
       <span>Master Chess</span>
+    </a>
+<a class="game-item" href="/games/wiggly-worm-race.html">
+      <img src="https://img.gamemonetize.com/l0nqbs09szfpxezuy44h886ecqpomll5/512x384.jpg" alt="" width="800" height="480" loading="lazy" decoding="async">
+      <span>Wiggly Worm Race</span>
+    </a>
+<a class="game-item" href="/games/castle-wars-legacy.html">
+      <img src="https://img.gamemonetize.com/f6ung9e7lfninu1957spejeihzprdusb/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async">
+      <span>Castle Wars: Legacy</span>
+    </a>
+<a class="game-item" href="/games/incoword.html">
+      <img src="https://img.gamemonetize.com/y4wmrpbd3v374mr8z6vtd97bwbo4kc82/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async">
+      <span>INCOWORD</span>
+    </a>
+<a class="game-item" href="/games/carrom-pro.html">
+      <img src="https://img.gamemonetize.com/ts6iu4xqkctvpkau5yk4hwdkr3nwbsn7/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async">
+      <span>carrom pro</span>
+    </a>
+<a class="game-item" href="/games/whot-the-ultimate-nigerian-card-game.html">
+      <img src="https://img.gamemonetize.com/at7gjto5axuv0mv7m4ain5pll3qmutcz/512x384.jpg" alt="" width="800" height="650" loading="lazy" decoding="async">
+      <span>WHOT The Ultimate Nigerian Card Game</span>
+    </a>
+<a class="game-item" href="/games/english-checkers.html">
+      <img src="https://img.gamemonetize.com/pir55cwoygvsus9az7d5zyxd6gra48dh/512x384.jpg" alt="" width="1920" height="1080" loading="lazy" decoding="async">
+      <span>English Checkers</span>
+    </a>
+<a class="game-item" href="/games/clonium.html">
+      <img src="https://img.gamemonetize.com/cx9ykv4xl6wlfq6vd9odkn68e6zenz7s/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async">
+      <span>Clonium</span>
+    </a>
+<a class="game-item" href="/games/tic-tac-toe-with-ai-and-multiplayer.html">
+      <img src="https://img.gamemonetize.com/yek6als54qfbxd4vx2h26nuq55rt7gt8/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async">
+      <span>Tic tac toe   with AI and multiplayer</span>
+    </a>
+<a class="game-item" href="/games/ludo-king-offline-ludo-game.html">
+      <img src="https://img.gamemonetize.com/e8vfdarke5qjx5uemefer4jtnbo3dc01/512x384.jpg" alt="" width="600" height="960" loading="lazy" decoding="async">
+      <span>Ludo King   offline Ludo Game</span>
+    </a>
+<a class="game-item" href="/games/turkish-draughts.html">
+      <img src="https://img.gamemonetize.com/d2gokou3otdsj4x3y2l09gxx4ktk1okw/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async">
+      <span>Turkish draughts</span>
+    </a>
+<a class="game-item" href="/games/jump-race.html">
+      <img src="https://img.gamemonetize.com/iquipc0k9ijyjxw1pxc0q271kxb4t7gn/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async">
+      <span>Jump Race</span>
+    </a>
+<a class="game-item" href="/games/qolor-2048.html">
+      <img src="https://img.gamemonetize.com/3e4hk4zpotozwuy9ehh5uy0xzeaabp3k/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async">
+      <span>Qolor 2048</span>
+    </a>
+<a class="game-item" href="/games/dominoes-classic-duel.html">
+      <img src="https://img.gamemonetize.com/l3njgmefn0e3h9ih3zyhyctgjj2jlpsv/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async">
+      <span>Dominoes classic duel</span>
+    </a>
+<a class="game-item" href="/games/multiplayer-team-death-match.html">
+      <img src="https://img.gamemonetize.com/h5hc9ltwjo3sk2g2upo4su465kf1kkgz/512x384.jpg" alt="" width="900" height="900" loading="lazy" decoding="async">
+      <span>Multiplayer Team Death Match</span>
+    </a>
+<a class="game-item" href="/games/popaloon.html">
+      <img src="https://img.gamemonetize.com/l28ng8jar2mopyfsls1ufwi7zm9ml4zi/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async">
+      <span>popaloon</span>
+    </a>
+<a class="game-item" href="/games/giveaway-checkers.html">
+      <img src="https://img.gamemonetize.com/594795s0fh64izkmnelrpracbmz1we3t/512x384.jpg" alt="" width="1920" height="1080" loading="lazy" decoding="async">
+      <span>Giveaway Checkers</span>
+    </a>
+<a class="game-item" href="/games/rivals-fps-online-shooter.html">
+      <img src="https://static.playgama.com/p-img/pg/rivals-fps-online-shooter/preview/2203a049014e4f6eaa4038ab696f6afa?width=448" alt="" width="800" height="450" loading="lazy" decoding="async">
+      <span>RIVALS FPS: Online Shooter</span>
+    </a>
+<a class="game-item" href="/games/basket-random.html">
+      <img src="https://static.playgama.com/p-img/pg/basket-random/preview/fec7a407ebd246d8a893abaf7801622c?width=448" alt="" width="800" height="450" loading="lazy" decoding="async">
+      <span>Basket Random</span>
+    </a>
+<a class="game-item" href="/games/basketball-stars.html">
+      <img src="https://static.playgama.com/p-img/pg/basketball-stars/big_preview/2e0653c710ad43e09c40d1ba5968e447?width=448" alt="" width="800" height="450" loading="lazy" decoding="async">
+      <span>Basketball Stars</span>
     </a></div>
+      </section>
       <section aria-labelledby="related-categories-heading">
         <h2 id="related-categories-heading">Explore more categories</h2>
         <nav class="category-links" aria-label="Related categories"><a href="/multiplayer-games/">Multiplayer Games</a>
-<a href="/boys-games/">Boys Games</a>
+<a href="/action-games/">Action Games</a>
 <a href="/puzzle-games/">Puzzle Games</a>
-<a href="/brain-training-games/">Brain Training Games</a>
-<a href="/girls-games/">Girls Games</a></nav>
+<a href="/boys-games/">Boys Games</a>
+<a href="/adventure-games/">Adventure Games</a></nav>
       </section>
     </main>
     <footer class="site-footer">

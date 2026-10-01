@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Play Basketball Stars Online | PleyZ</title>
-  <meta name="description" content="Basketball Stars is a cool 2-player basketball game by MadPuffers. Prepared for the 2025 basketball season. Choose your team and enter a challenging" />
+  <title>Play Basketball Stars | PleyZ</title>
+  <meta name="description" content="Basketball Stars is a cool 2-player basketball game by MadPuffers. Prepared for the 2025 basketball season." />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <link rel="canonical" href="https://nikunjprogames.github.io/games/basketball-stars.html" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Play Basketball Stars Online | PleyZ" />
-  <meta property="og:description" content="Basketball Stars is a cool 2-player basketball game by MadPuffers. Prepared for the 2025 basketball season. Choose your team and enter a challenging" />
+  <meta property="og:title" content="Play Basketball Stars | PleyZ" />
+  <meta property="og:description" content="Basketball Stars is a cool 2-player basketball game by MadPuffers. Prepared for the 2025 basketball season." />
   <meta property="og:url" content="https://nikunjprogames.github.io/games/basketball-stars.html" />
   <meta property="og:site_name" content="PleyZ" />
   <meta property="og:image" content="https://static.playgama.com/p-img/pg/basketball-stars/big_preview/2e0653c710ad43e09c40d1ba5968e447?width=448" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Play Basketball Stars Online | PleyZ" />
-  <meta name="twitter:description" content="Basketball Stars is a cool 2-player basketball game by MadPuffers. Prepared for the 2025 basketball season. Choose your team and enter a challenging" />
+  <meta name="twitter:title" content="Play Basketball Stars | PleyZ" />
+  <meta name="twitter:description" content="Basketball Stars is a cool 2-player basketball game by MadPuffers. Prepared for the 2025 basketball season." />
   <meta name="twitter:image" content="https://static.playgama.com/p-img/pg/basketball-stars/big_preview/2e0653c710ad43e09c40d1ba5968e447?width=448" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -57,7 +57,7 @@
     .site-brand { color: var(--text); font: 700 0.92rem 'Orbitron', sans-serif; white-space: nowrap; }
     .topbar .actions { display: flex; gap: 8px; flex-wrap: wrap; }
     .game-preferences { display: flex; gap: 6px; }
-    .game-preferences button { width: 36px; height: 36px; border: 1px solid var(--panel-border); border-radius: 7px; background: var(--panel); color: var(--muted); cursor: pointer; }
+    .game-preferences button { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--panel-border); border-radius: 7px; background: var(--panel); color: var(--muted); font-size: 1.1rem; line-height: 1; cursor: pointer; }
     .game-preferences button[aria-pressed="true"], .game-preferences button:hover { border-color: var(--accent); color: var(--accent); }
     .profile-score-link {
       display: inline-flex; align-items: center; gap: 8px;
@@ -159,8 +159,8 @@
       <h1>Basketball Stars</h1>
       <div class="actions">
         <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="103">
-          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><i class="fa-solid fa-thumbs-up"></i></button>
-          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><i class="fa-solid fa-thumbs-down"></i></button>
+          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><span aria-hidden="true">👍</span></button>
+          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><span aria-hidden="true">👎</span></button>
         </div>
         <a class="profile-score-link" href="../index.html#leaderboard" title="View PleyZ score and leaderboard">
           <span class="profile-score-avatar" id="profile-score-avatar">PZ</span>
@@ -180,17 +180,17 @@
           <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
         </div>
         <div class="game-frame">
-          <iframe src="https://playgama.com/export/game/basketball-stars?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487" allowfullscreen loading="lazy" title="Basketball Stars"></iframe>
+          <iframe src="https://playgama.com/export/game/basketball-stars?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487" allowfullscreen loading="eager" title="Basketball Stars"></iframe>
         </div>
-        
+
       </div>
 
       <section class="info-card related-games" aria-label="Related games">
         <h2>Games You Might Like</h2>
         <div class="related-grid"><a class="related-game" href="basket-random.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/basket-random/preview/fec7a407ebd246d8a893abaf7801622c?width=448" alt="" width="800" height="450" loading="eager" fetchpriority="high" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/cbc801637e5c42c88a4ed95bc33c2564/orig_length_h320.mp4"></video></span><span>Basket Random</span></a>
-        <a class="related-game" href="burger-restaurant-simulator-3d.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/burger-restaurant-simulator-3d/big_preview/b4cbcd2693594ae1a4e6aa672025365c?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Burger Restaurant Simulator 3D</span></a>
-        <a class="related-game" href="geometry-arrow-2.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/backfill/game-99645/preview/90df3206f7f0c706e6431b9ae58fc331d0ed13a11e547ce0271b720ff82e6b21?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/5b84237660d746b7bd76be4e60bdba3a/orig_length_h320.mp4"></video></span><span>Geometry Arrow 2</span></a>
         <a class="related-game" href="golf-orbit.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/golf-orbit/big-preview/e7f203e28b0745d880d1c0a995e9b213?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Golf Orbit</span></a>
+        <a class="related-game" href="burger-restaurant-simulator-3d.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/burger-restaurant-simulator-3d/big_preview/b4cbcd2693594ae1a4e6aa672025365c?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Burger Restaurant Simulator 3D</span></a>
+        <a class="related-game" href="clonium.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/cx9ykv4xl6wlfq6vd9odkn68e6zenz7s/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async" /></span><span>Clonium</span></a>
         <a class="related-game" href="geometry-vibes.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/geometry-vibes/big-preview/cd0c9c56e9e54948b7eca6c49ef590b5?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/6a23eda4fac74d23848658c3fd75e2de/orig_length_h320.mp4"></video></span><span>Geometry Vibes </span></a></div>
       </section>
     </div>
@@ -205,13 +205,13 @@
     </section>
 <section class="info-card" aria-labelledby="game-dna-heading">
       <h2 id="game-dna-heading">Game DNA</h2>
-      <div class="chip-list"><span class="chip">Arcade</span><span class="chip">arcade</span><span class="chip">sports</span><span class="chip">two-player</span><span class="chip">popular</span><span class="chip">basketball</span><span class="chip">pvp</span><span class="chip">reaction-games</span><span class="chip">iphone-games</span><span class="chip">casual-games</span><span class="chip">competitive-games</span><span class="chip">desktop-games</span></div>
+      <div class="chip-list"><span class="chip">Arcade</span><span class="chip">Sports</span><span class="chip">Multiplayer</span><span class="chip">Two Player</span><span class="chip">Skill</span><span class="chip">Casual</span><span class="chip">arcade</span><span class="chip">sports</span><span class="chip">two-player</span><span class="chip">popular</span><span class="chip">basketball</span><span class="chip">pvp</span></div>
     </section>
 <section class="info-card" aria-label="Game details"><p><strong>Platform:</strong> Web browser</p></section>
 
     <section class="info-card" aria-labelledby="related-categories-heading">
       <h2 id="related-categories-heading">Related Categories</h2>
-      <nav class="related-categories" aria-label="Related categories"><a href="/arcade-games/">Arcade Games</a></nav>
+      <nav class="related-categories" aria-label="Related categories"><a href="/arcade-games/">Arcade Games</a><a href="/sports-games/">Sports Games</a><a href="/multiplayer-games/">Multiplayer Games</a><a href="/two-player-games/">Two Player Games</a><a href="/skill-games/">Skill Games</a><a href="/casual-games/">Casual Games</a></nav>
     </section>
     </main>
 
@@ -241,7 +241,8 @@
     <a href="/termsandconditions.html">Terms</a>
     <a href="/contact-us.html">Contact</a>
   </footer>
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/basketball-stars.html#game","name":"Basketball Stars","description":"Basketball Stars is a cool 2-player basketball game by MadPuffers. Prepared for the 2025 basketball season. Choose your team and enter a challenging tournament. Control your player to perform awesome dunks and 3-pointers to win the game. Feel free to block and slap your opponent to knock him out and get the ball, and pay attention to the supershot bar on the top of the screen. Once fully loaded, you can use the hot special dunk from wherever you stand; it never fails. Be the best player!","url":"https://nikunjprogames.github.io/games/basketball-stars.html","image":"https://static.playgama.com/p-img/pg/basketball-stars/big_preview/2e0653c710ad43e09c40d1ba5968e447?width=448","gamePlatform":["Web browser"],"genre":["Arcade"],"keywords":["arcade","sports","two-player","popular","basketball","pvp","reaction-games","iphone-games","casual-games","competitive-games","desktop-games","1-player-games","timing-games","dunking-games","android-games","2-player-basketball","2-player-arcade"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Arcade Games","item":"https://nikunjprogames.github.io/arcade-games/"},{"@type":"ListItem","position":3,"name":"Basketball Stars","item":"https://nikunjprogames.github.io/games/basketball-stars.html"}]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/basketball-stars.html#game","name":"Basketball Stars","description":"Basketball Stars is a cool 2-player basketball game by MadPuffers. Prepared for the 2025 basketball season. Choose your team and enter a challenging tournament. Control your player to perform awesome dunks and 3-pointers to win the game. Feel free to block and slap your opponent to knock him out and get the ball, and pay attention to the supershot bar on the top of the screen. Once fully loaded, you can use the hot special dunk from wherever you stand; it never fails. Be the best player!","url":"https://nikunjprogames.github.io/games/basketball-stars.html","image":"https://static.playgama.com/p-img/pg/basketball-stars/big_preview/2e0653c710ad43e09c40d1ba5968e447?width=448","gamePlatform":["Web browser"],"genre":["Arcade","Sports","Multiplayer","Two Player","Skill","Casual"],"keywords":["arcade","sports","two-player","popular","basketball","pvp","reaction-games","iphone-games","casual-games","competitive-games","desktop-games","1-player-games","timing-games","dunking-games","android-games","2-player-basketball","2-player-arcade"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Arcade Games","item":"https://nikunjprogames.github.io/arcade-games/"},{"@type":"ListItem","position":3,"name":"Basketball Stars","item":"https://nikunjprogames.github.io/games/basketball-stars.html"}]}]}</script>
+  <script src="/game-loading.js" defer></script>
   <script>
     function toggleGameFullscreen(root) {
       const target = root ? root.querySelector('.game-frame') : null;

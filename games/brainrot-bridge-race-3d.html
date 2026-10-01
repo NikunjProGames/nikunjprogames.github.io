@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Play Brainrot Bridge Race 3D Online | PleyZ</title>
-  <meta name="description" content="This is not just a simple running and racing game. It’s a brainrot-style 3D battle where speed and strategy collide! Your goal is to collect as many" />
+  <title>Play Brainrot Bridge Race 3D | PleyZ</title>
+  <meta name="description" content="This is not just a simple running and racing game. It’s a brainrot-style 3D battle where speed and strategy collide!" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <link rel="canonical" href="https://nikunjprogames.github.io/games/brainrot-bridge-race-3d.html" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Play Brainrot Bridge Race 3D Online | PleyZ" />
-  <meta property="og:description" content="This is not just a simple running and racing game. It’s a brainrot-style 3D battle where speed and strategy collide! Your goal is to collect as many" />
+  <meta property="og:title" content="Play Brainrot Bridge Race 3D | PleyZ" />
+  <meta property="og:description" content="This is not just a simple running and racing game. It’s a brainrot-style 3D battle where speed and strategy collide!" />
   <meta property="og:url" content="https://nikunjprogames.github.io/games/brainrot-bridge-race-3d.html" />
   <meta property="og:site_name" content="PleyZ" />
   <meta property="og:image" content="https://img.gamemonetize.com/e27ezlhh5edki5wv0aad96d8w3g1l1bf/512x384.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Play Brainrot Bridge Race 3D Online | PleyZ" />
-  <meta name="twitter:description" content="This is not just a simple running and racing game. It’s a brainrot-style 3D battle where speed and strategy collide! Your goal is to collect as many" />
+  <meta name="twitter:title" content="Play Brainrot Bridge Race 3D | PleyZ" />
+  <meta name="twitter:description" content="This is not just a simple running and racing game. It’s a brainrot-style 3D battle where speed and strategy collide!" />
   <meta name="twitter:image" content="https://img.gamemonetize.com/e27ezlhh5edki5wv0aad96d8w3g1l1bf/512x384.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -57,7 +57,7 @@
     .site-brand { color: var(--text); font: 700 0.92rem 'Orbitron', sans-serif; white-space: nowrap; }
     .topbar .actions { display: flex; gap: 8px; flex-wrap: wrap; }
     .game-preferences { display: flex; gap: 6px; }
-    .game-preferences button { width: 36px; height: 36px; border: 1px solid var(--panel-border); border-radius: 7px; background: var(--panel); color: var(--muted); cursor: pointer; }
+    .game-preferences button { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--panel-border); border-radius: 7px; background: var(--panel); color: var(--muted); font-size: 1.1rem; line-height: 1; cursor: pointer; }
     .game-preferences button[aria-pressed="true"], .game-preferences button:hover { border-color: var(--accent); color: var(--accent); }
     .profile-score-link {
       display: inline-flex; align-items: center; gap: 8px;
@@ -159,8 +159,8 @@
       <h1>Brainrot Bridge Race 3D</h1>
       <div class="actions">
         <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="74347">
-          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><i class="fa-solid fa-thumbs-up"></i></button>
-          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><i class="fa-solid fa-thumbs-down"></i></button>
+          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><span aria-hidden="true">👍</span></button>
+          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><span aria-hidden="true">👎</span></button>
         </div>
         <a class="profile-score-link" href="../index.html#leaderboard" title="View PleyZ score and leaderboard">
           <span class="profile-score-avatar" id="profile-score-avatar">PZ</span>
@@ -180,18 +180,18 @@
           <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
         </div>
         <div class="game-frame">
-          <iframe src="https://html5.gamemonetize.co/e27ezlhh5edki5wv0aad96d8w3g1l1bf/" allowfullscreen loading="lazy" title="Brainrot Bridge Race 3D"></iframe>
+          <iframe src="https://html5.gamemonetize.co/e27ezlhh5edki5wv0aad96d8w3g1l1bf/" allowfullscreen loading="eager" title="Brainrot Bridge Race 3D"></iframe>
         </div>
-        
+
       </div>
 
       <section class="info-card related-games" aria-label="Related games">
         <h2>Games You Might Like</h2>
-        <div class="related-grid"><a class="related-game" href="battle-jitsu.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/cxu4dpr5uspgzim70lf6t4p6milazwr0/512x384.jpg" alt="" width="800" height="600" loading="eager" fetchpriority="high" decoding="async" /></span><span>Battle Jitsu</span></a>
-        <a class="related-game" href="greedy-snake-multiplayer-duel.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/fzxidkarnp7ykiii4mot05y6nfwt8h3w/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async" /></span><span>Greedy Snake Multiplayer Duel</span></a>
-        <a class="related-game" href="iron-legion.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/gkeofcoqengjzxlw0b09f2qrng35egbi/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async" /></span><span>Iron Legion</span></a>
-        <a class="related-game" href="survev-io.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/q9xrmuceu30pey8llzop5cr0p1p2fbx9/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async" /></span><span>Survev.io</span></a>
-        <a class="related-game" href="tung-sahur-io.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/oddet3vf59i0den8dikuc3us81aby79z/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async" /></span><span>Tung Sahur IO</span></a></div>
+        <div class="related-grid"><a class="related-game" href="1-speed-escape-prison.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/1-speed-escape-prison/big-preview/415c3326c7724e6cae83d74990cc3020?width=448" alt="" width="800" height="450" loading="eager" fetchpriority="high" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/32247dbeba054937adf4fe6321dabfb3/orig_length_h320.mp4"></video></span><span>+1 Speed: Escape Prison</span></a>
+        <a class="related-game" href="balloon-heroes-run-and-rise.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/vlhloqzu0cvn1apzoyq9vwycgddt3fxn/512x384.jpg" alt="" width="350" height="600" loading="lazy" decoding="async" /></span><span>Balloon Heroes Run and Rise</span></a>
+        <a class="related-game" href="popaloon.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/l28ng8jar2mopyfsls1ufwi7zm9ml4zi/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async" /></span><span>popaloon</span></a>
+        <a class="related-game" href="car-destruction-king.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/car-destruction-king/big_preview/0ca8f4094cfd4826b9888ea1d094bdd7?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span> Car Destruction King</span></a>
+        <a class="related-game" href="backrooms-exit-protocol-0.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/backrooms-exit-protocol-0/big_preview/4f691ad7fdbb4ec3a0a45c781c0feea7?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Backrooms: Exit Protocol 0</span></a></div>
       </section>
     </div>
 
@@ -205,13 +205,13 @@
     </section>
 <section class="info-card" aria-labelledby="game-dna-heading">
       <h2 id="game-dna-heading">Game DNA</h2>
-      <div class="chip-list"><span class="chip">Multiplayer</span><span class="chip">Battle</span><span class="chip">Brainrot</span><span class="chip">Racing</span><span class="chip">running</span></div>
+      <div class="chip-list"><span class="chip">Multiplayer</span><span class="chip">Action</span><span class="chip">Racing</span><span class="chip">Endless</span><span class="chip">Battle</span><span class="chip">Brainrot</span><span class="chip">running</span></div>
     </section>
 <section class="info-card" aria-label="Game details"><p><strong>Platform:</strong> Web browser</p></section>
 
     <section class="info-card" aria-labelledby="related-categories-heading">
       <h2 id="related-categories-heading">Related Categories</h2>
-      <nav class="related-categories" aria-label="Related categories"><a href="/multiplayer-games/">Multiplayer Games</a></nav>
+      <nav class="related-categories" aria-label="Related categories"><a href="/multiplayer-games/">Multiplayer Games</a><a href="/action-games/">Action Games</a><a href="/racing-games/">Racing Games</a><a href="/endless-games/">Endless Games</a></nav>
     </section>
     </main>
 
@@ -241,7 +241,8 @@
     <a href="/termsandconditions.html">Terms</a>
     <a href="/contact-us.html">Contact</a>
   </footer>
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/brainrot-bridge-race-3d.html#game","name":"Brainrot Bridge Race 3D","description":"This is not just a simple running and racing game. It’s a brainrot-style 3D battle where speed and strategy collide! Your goal is to collect as many bananas as possible while sprinting through hilarious obstacle courses. Collect more bananas to evolve your form.","url":"https://nikunjprogames.github.io/games/brainrot-bridge-race-3d.html","image":"https://img.gamemonetize.com/e27ezlhh5edki5wv0aad96d8w3g1l1bf/512x384.jpg","gamePlatform":["Web browser"],"genre":["Multiplayer"],"keywords":["Battle","Brainrot","Racing","running"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Multiplayer Games","item":"https://nikunjprogames.github.io/multiplayer-games/"},{"@type":"ListItem","position":3,"name":"Brainrot Bridge Race 3D","item":"https://nikunjprogames.github.io/games/brainrot-bridge-race-3d.html"}]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/brainrot-bridge-race-3d.html#game","name":"Brainrot Bridge Race 3D","description":"This is not just a simple running and racing game. It’s a brainrot-style 3D battle where speed and strategy collide! Your goal is to collect as many bananas as possible while sprinting through hilarious obstacle courses. Collect more bananas to evolve your form.","url":"https://nikunjprogames.github.io/games/brainrot-bridge-race-3d.html","image":"https://img.gamemonetize.com/e27ezlhh5edki5wv0aad96d8w3g1l1bf/512x384.jpg","gamePlatform":["Web browser"],"genre":["Multiplayer","Action","Racing","Endless"],"keywords":["Battle","Brainrot","Racing","running"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Multiplayer Games","item":"https://nikunjprogames.github.io/multiplayer-games/"},{"@type":"ListItem","position":3,"name":"Brainrot Bridge Race 3D","item":"https://nikunjprogames.github.io/games/brainrot-bridge-race-3d.html"}]}]}</script>
+  <script src="/game-loading.js" defer></script>
   <script>
     function toggleGameFullscreen(root) {
       const target = root ? root.querySelector('.game-frame') : null;

@@ -1718,5 +1718,105 @@ const NEW_GAMES = [
     iframeUrl: "/games/car-destruction-king.html",
     fullscreen: true,
     videoUrl: ""
-  }
+  },
+  {
+    id: 130,
+    name: "Far Orion: New worlds",
+    cat: "strategy",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/far-orion-new-worlds/big-preview/fcd5f2452bba4a86ae4d6176d707c03c?width=448",
+    width: "800",
+    height: "450",
+    description: "The year is 2121. Technology has advanced far beyond the bounds of our wildest fantasies, but great progress demands great sacrifice... \nExplore other worlds in the search for treasure and limitless power! \nCommand a team of brave heroes and lead your world to victory!  \nGame features: \n- several dozen unique heroes and battle cards \n- dozens of missions on every world \n- no irritating ads \n- PvP arena \n- tower mode \n- clans and clan wars\n[Core Gameplay & Story]\n\nQ: What is the game about? What do you need to do?\nA: It's an action strategy game where you complete levels (missions) and fight enemies.\n\nQ: Does the game have a storyline?\nA: Yes, there is a story. It's a sci-fi setting in the year 2121 with advanced technology, but something went wrong, and the heroes want to save the world.\n\nQ: What is the game's unique selling point? What can hook players?\nA: There are many different heroes with an upgrade system, a large number of missions, a PvP arena, a leaderboard, and clan wars. You can also upgrade attack cards.\n\nQ: What are the engaging content elements (weapons, vehicles, locations, skills, references to famous franchises, etc.)?\nA: A huge variety of heroes, many different and interesting abilities for these heroes, an engaging story, clear objectives, and simple in-game mechanics.\n\n[Mechanics & Progression]\n\nQ: Are there bosses and how do they differ?\nA: There are bosses throughout the storyline, and they differ in design, attack types, and HP amount.\n\nQ: How exactly does progression work? What should you do to level up faster?\nA: To level up faster, you need to play well to earn enough in-game currency. The game is easy to play.\n\nQ: Are there mini-games within the main story? For example, 'match-three' puzzles within the strategy game.\nA: No.\n\n[Economy & Customization]\n\nQ: What are the currencies and what are they spent on (standard - gold, premium - crystals, etc.)?\nA: Money is spent on upgrading heroes, upgrading cards, and buying hero cards to unlock them.\n\nQ: Are there in-game purchases? What can you buy and what does it affect? Does spending money speed up game progress?\nA: Yes, microtransactions will speed up game progress, as you can buy in-game currency with real money and spend that currency on upgrades and cards.\n\nQ: Is there customization in the game? Can you customize a hero's appearance, location editor, vehicle tuning, etc.?\nA: You can only upgrade the heroes' levels and abilities, which also changes their appearance.\n\n[Retention & Engagement]\n\nQ: Are there leaderboards? How do you get on them? What types are there (weekly, monthly, all-time, etc.)?\nA: There are various leaderboards depending on the different game modes, as well as a clan leaderboard. You need to play and gain levels.\n\nQ: Are there daily rewards or something similar that encourages the player to return?\nA: Yes, logging into the game every day provides various bonuses: cards, chests, and in-game currency.\n\nQ: Is it advisable to play with sound to better immerse yourself in the atmosphere, or will playing without sound cause difficulties?\nA: The music is good and complements the game, but it is not essential for completing the game.\n\nQ: Is there an achievement system? What are they and what can you get them for?\nA: Achievements are awarded for daily logins, reaching a certain level in a specific mode, and completing certain objectives, such as collecting 6 heroes in total. Rewards include chests, in-game currency, and cards.",
+    instructions: "Gather a squad of heroes and a deck of cards and complete missions. \nUse the money you receive to unlock new heroes and upgrade your cards.  \n\nWhich heroes should I take into battle? \n- those that complement each other and are stronger together, like a healer and a tank.  \nWhat cards should I fight with?\n- those that can strengthen your squad of heroes, or basic cards for healing and damage to enemies\n How do I earn gold?\n- by completing missions and daily quests, and fighting in the tower and the aren",
+    categories: [
+      "strategy"
+    ],
+    tags: "strategy, rpg, action, story, adventure, pve, video, sci-fi-games, arena-games, action-rpg, combat-games, competitive-games, fantasy-games, collecting-games, gam-supported-games, action-adventure, mmo-games, sandbox-games",
+    iframeUrl: "/games/far-orion-new-worlds.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
+  {
+    id: 131,
+    name: "LAST NIGHT!",
+    cat: "scary",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/last-night/big-preview/ecab9c788b4a4c678edaccc4bc9e46ea?width=448",
+    width: "800",
+    height: "450",
+    description: "A Story Line Game about a YOUTUBER struggling to get GOLD PLAY BUTTON but there are something strange happens to his PC and want to take a Survey?\n\n  ●  3 Different Endings.\n  ●  Storyline.\n  ●  High Quality Gameplay.\n  ●  Playtime:   30  - 60 mins! ( Maximum ).\n",
+    instructions: "  ●  Control:   [ WASD ].\n  ●  Interaction:  [ E ].\n  ●  In-Game tutorial.\n\nThis is a linear game so the game will tell what you need to do!",
+    categories: [
+      "scary"
+    ],
+    tags: "scary, horror, story, keyboard, adventure, choice-games, 1-player-games, psychological-horror",
+    iframeUrl: "/games/last-night.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
+  {
+    id: 132,
+    name: "The Warlock's Prisoner",
+    cat: "horror",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/the-warlocks-prisoner/big-preview/7ca7579a0daa42f19382b84c761966c4?width=448",
+    width: "800",
+    height: "450",
+    description: "The Warlock's Prisoner is a dark adventure with elements of horror, survival, and puzzles.\nYou wake up imprisoned, deep within the lair of a mysterious warlock. All around you lies darkness, traps, and an army of zombies. To escape, you'll have to explore dangerous corridors, search for items, gather clues, solve puzzles, and fight for your life.\nWill you escape the lair alive—or will you remain a prisoner of darkness forever?\n\n- Exploration and Puzzles\n- Battles with the Dead\n- Mysterious Looking Glass\n- Atmosphere, Tension, and Story",
+    instructions: "On a mobile device:\n- Character rotation - swipe from the right side of the screen;\n- Character movement - virtual joystick on the left;\n- Interact with items - tap the icon in the center of the screen;\n- Menu navigation - tap the buttons.\n\nOn a desktop:\n- Character rotation - mouse movement;\n- Character movement - WASD keys;\n- Interact with items - E key or left mouse button;\n- Hint - H key;\n- Inventory - TAB key.",
+    categories: [
+      "horror"
+    ],
+    tags: "horror, survival, adventure, story, escape, action-adventure, horror-escape, survival-horror, 1-player-games, brain-training-games, 3d-horror, fps-horror, dungeon-games, retro-horror",
+    iframeUrl: "/games/the-warlock-s-prisoner.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
+  {
+    id: 133,
+    name: " Car Sales Empire Simulator",
+    cat: "simulation",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/car-sales-empire-simulator/big_preview/c91ce59d4b5248f2b2631185c4ffd384?width=448",
+    width: "800",
+    height: "450",
+    description: "Step into the dynamic realm of Car Sales Empire Simulator, where you can build a successful automotive business. Master car trading and repairs, hone your strategy, and enjoy smooth gameplay on any device while fostering your enterprise and enjoying thrilling negotiations.\n\nControls:\nDesktop: WASD, arrow keys, click mouse to select an option, C to crouch.  \nMobile: built-in joystick, tap to select an option.\n\nGame Modes:\n• Graphics: Low: A less resource-intensive mode for the device, with fewer details, nuances, and volume in light-shadow rendering.  \n• Graphics: High: A deeper contrast of light and shadow, more details, and greater load on the device.\n\nCore Gameplay & Story  \nQ: What is the goal of the game?  \nA: Buy cars and upgrade them to sell later. The higher the sales, the more opportunities arise. It's a great chance to showcase creativity by choosing designs and tuning, improve your online driving skills by maneuvering cars through the city without accidents, and develop the best sales strategy to expand your dealership.\n\nQ: What grabs your attention in the first few minutes?  \nA: The atmosphere of the city, the ability to not just move between locations but to weave through the hustle of urban traffic, and the vast opportunities for growth and creativity captivate from the very start.\n\nMechanics & Progression  \nQ: What opens up as you progress in the game?  \nA: As you play, more opportunities arise to purchase more expensive cars and parts. There’s always a chance to find a true rare gem of the automotive industry.\n\nQ: How can you level up faster?  \nA: Lower the price when buying to maximize your profit from deals.\n\nEconomy & Customization  \nQ: What is available from the very start?  \nA: Buying your first car is easy! 7000 in-game dollars await you upon your first launch. Don’t forget to keep a little reserve for tuning.\n\nRetention & Engagement  \nQ: Is there onboarding in the game? What does it include?  \nA: The onboarding guides you through all the necessary scenarios, immersing you in the game in a careful and clear manner.\n\nQ: Are there daily quests / a wheel of fortune / achievements / tasks?  \nA: Complete quests and earn rewards in the form of in-game dollars to buy the most interesting cars faster.",
+    instructions: "Buy cars at markets, bargain and resell cars to earn more money and develop better!\n\nWASD - control the car and the character\nC - change camera\nTab - pause\nSpacebar - handbrake\nF - get in the car\nEnter - get out of the car",
+    categories: [
+      "simulation"
+    ],
+    tags: "simulation, unity-games-online, business-games, desktop-games, borwser-games",
+    iframeUrl: "/games/car-sales-empire-simulator.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
+  {
+    id: 134,
+    name: "AOD - Art Of Defense",
+    cat: "cool games",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/aod--art-of-defense/big_preview/748d6b91ce3c4a309fd6df323115b434?width=448",
+    width: "800",
+    height: "450",
+    description: "AOD - Art Of Defense is a dynamic tower defense game with elements of strategy and RPG in a post-apocalyptic world.",
+    instructions: "AOD - Art Of Defense is a dynamic tower defense game set in a post-apocalyptic world. As the commander of the A.O.D squad, you lead the fight against the ruthless cutthroats of Mr. Evil, who are seeking to find the lost Project Inola. With stunning isometric graphics, build your tech kingdoms and thwart the destructive ambitions of your enemy. Can you save humanity or will you succumb to darkness?\n\nGame Features:\n\n* Dynamic battles to keep you engaged.\n* Elements of tower defense, RPG, and tactical strategy.\n* Over 500 sectors for real-time battles.\n* Various locations from small villages to huge metropolises.\n* New tower defense modes: escape, fog, survival.\n* Over 1000 unique upgrades for towers (tanks, miniguns, AA, etc.)\n* 6 unique heroes to explore and level up.\n* Nuclear bombs, ion satellite attacks, ballistic barrages, and more.\n* Hundreds of upgrade cards for each tower.\n\n\nBuild towers! Protect your base! Use tanks, machine guns, and rockets (even nuclear). Upgrade and use heroes. Fight powerful enemies and formidable bosses! Protect your base and save the world!\n\nUse the left mouse button to place a tower.\nUse the scroll wheel/pinch to zoom on a touchpad to zoom in or out.",
+    categories: [
+      "cool games"
+    ],
+    tags: "cool-games, tower-defense, strategy, mobile, popular, boys, unity-games-online, gam-supported-games, defense-games, tactical-games, apocalypse-games, military-games, isometric-games, top-down-games",
+    iframeUrl: "/games/aod-art-of-defense.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
 ];

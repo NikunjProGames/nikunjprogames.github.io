@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Play Driver Club: Highway Racing Online | PleyZ</title>
-  <meta name="description" content="Driver Club: Highway Racing is a high speed driving game where you dodge traffic, overtake vehicles, and put your reflexes to the test. Race through a" />
+  <title>Play Driver Club: Highway Racing | PleyZ</title>
+  <meta name="description" content="Driver Club: Highway Racing is a high speed driving game where you dodge traffic, overtake vehicles, and put your reflexes to the test." />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <link rel="canonical" href="https://nikunjprogames.github.io/games/driver-club-highway-racing.html" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Play Driver Club: Highway Racing Online | PleyZ" />
-  <meta property="og:description" content="Driver Club: Highway Racing is a high speed driving game where you dodge traffic, overtake vehicles, and put your reflexes to the test. Race through a" />
+  <meta property="og:title" content="Play Driver Club: Highway Racing | PleyZ" />
+  <meta property="og:description" content="Driver Club: Highway Racing is a high speed driving game where you dodge traffic, overtake vehicles, and put your reflexes to the test." />
   <meta property="og:url" content="https://nikunjprogames.github.io/games/driver-club-highway-racing.html" />
   <meta property="og:site_name" content="PleyZ" />
   <meta property="og:image" content="https://static.playgama.com/p-img/pg/driver-club-highway-racing/big-preview/037ce11afe4f4d58a0f93a6339db96b5?width=448" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Play Driver Club: Highway Racing Online | PleyZ" />
-  <meta name="twitter:description" content="Driver Club: Highway Racing is a high speed driving game where you dodge traffic, overtake vehicles, and put your reflexes to the test. Race through a" />
+  <meta name="twitter:title" content="Play Driver Club: Highway Racing | PleyZ" />
+  <meta name="twitter:description" content="Driver Club: Highway Racing is a high speed driving game where you dodge traffic, overtake vehicles, and put your reflexes to the test." />
   <meta name="twitter:image" content="https://static.playgama.com/p-img/pg/driver-club-highway-racing/big-preview/037ce11afe4f4d58a0f93a6339db96b5?width=448" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -57,7 +57,7 @@
     .site-brand { color: var(--text); font: 700 0.92rem 'Orbitron', sans-serif; white-space: nowrap; }
     .topbar .actions { display: flex; gap: 8px; flex-wrap: wrap; }
     .game-preferences { display: flex; gap: 6px; }
-    .game-preferences button { width: 36px; height: 36px; border: 1px solid var(--panel-border); border-radius: 7px; background: var(--panel); color: var(--muted); cursor: pointer; }
+    .game-preferences button { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--panel-border); border-radius: 7px; background: var(--panel); color: var(--muted); font-size: 1.1rem; line-height: 1; cursor: pointer; }
     .game-preferences button[aria-pressed="true"], .game-preferences button:hover { border-color: var(--accent); color: var(--accent); }
     .profile-score-link {
       display: inline-flex; align-items: center; gap: 8px;
@@ -159,8 +159,8 @@
       <h1>Driver Club: Highway Racing</h1>
       <div class="actions">
         <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="118">
-          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><i class="fa-solid fa-thumbs-up"></i></button>
-          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><i class="fa-solid fa-thumbs-down"></i></button>
+          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><span aria-hidden="true">👍</span></button>
+          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><span aria-hidden="true">👎</span></button>
         </div>
         <a class="profile-score-link" href="../index.html#leaderboard" title="View PleyZ score and leaderboard">
           <span class="profile-score-avatar" id="profile-score-avatar">PZ</span>
@@ -180,18 +180,18 @@
           <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
         </div>
         <div class="game-frame">
-          <iframe src="https://playgama.com/export/game/driver-club-highway-racing?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487" allowfullscreen loading="lazy" title="Driver Club: Highway Racing"></iframe>
+          <iframe src="https://playgama.com/export/game/driver-club-highway-racing?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487" allowfullscreen loading="eager" title="Driver Club: Highway Racing"></iframe>
         </div>
-        
+
       </div>
 
       <section class="info-card related-games" aria-label="Related games">
         <h2>Games You Might Like</h2>
         <div class="related-grid"><a class="related-game" href="car-destruction-king.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/car-destruction-king/big_preview/0ca8f4094cfd4826b9888ea1d094bdd7?width=448" alt="" width="800" height="450" loading="eager" fetchpriority="high" decoding="async" /></span><span> Car Destruction King</span></a>
-        <a class="related-game" href="basket-random.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/basket-random/preview/fec7a407ebd246d8a893abaf7801622c?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/cbc801637e5c42c88a4ed95bc33c2564/orig_length_h320.mp4"></video></span><span>Basket Random</span></a>
         <a class="related-game" href="1-speed-escape-prison.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/1-speed-escape-prison/big-preview/415c3326c7724e6cae83d74990cc3020?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/32247dbeba054937adf4fe6321dabfb3/orig_length_h320.mp4"></video></span><span>+1 Speed: Escape Prison</span></a>
-        <a class="related-game" href="rivals-fps-online-shooter.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/rivals-fps-online-shooter/preview/2203a049014e4f6eaa4038ab696f6afa?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/519f0e08d9764b25aea0b93699671b44/orig_length_h640_6so.mp4"></video></span><span>RIVALS FPS: Online Shooter</span></a>
-        <a class="related-game" href="special-ops-go.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/special-ops/big_preview/379c25433de24d13afadf693d918e11e?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/cca4b40c9b6c4877a294c337ef342280/orig_length_h320.mp4"></video></span><span>Special Ops: GO</span></a></div>
+        <a class="related-game" href="special-ops-go.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/special-ops/big_preview/379c25433de24d13afadf693d918e11e?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/cca4b40c9b6c4877a294c337ef342280/orig_length_h320.mp4"></video></span><span>Special Ops: GO</span></a>
+        <a class="related-game" href="basket-random.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/basket-random/preview/fec7a407ebd246d8a893abaf7801622c?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/cbc801637e5c42c88a4ed95bc33c2564/orig_length_h320.mp4"></video></span><span>Basket Random</span></a>
+        <a class="related-game" href="slope-3d.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/slope-3d/big_preview/6031cc0ff00947dda0627af51b3316de?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Slope 3D</span></a></div>
       </section>
     </div>
 
@@ -205,13 +205,13 @@
     </section>
 <section class="info-card" aria-labelledby="game-dna-heading">
       <h2 id="game-dna-heading">Game DNA</h2>
-      <div class="chip-list"><span class="chip">Action</span><span class="chip">action</span><span class="chip">racing</span><span class="chip">arcade</span><span class="chip">simulation</span><span class="chip">skill</span><span class="chip">boys</span><span class="chip">3d</span><span class="chip">car</span><span class="chip">car-racing</span><span class="chip">driving</span><span class="chip">easy</span></div>
+      <div class="chip-list"><span class="chip">Action</span><span class="chip">Adventure</span><span class="chip">Arcade</span><span class="chip">Boys</span><span class="chip">Cars</span><span class="chip">Racing</span><span class="chip">Simulation</span><span class="chip">Skill</span><span class="chip">action</span><span class="chip">racing</span><span class="chip">arcade</span><span class="chip">simulation</span></div>
     </section>
 <section class="info-card" aria-label="Game details"><p><strong>Platform:</strong> Web browser</p></section>
 
     <section class="info-card" aria-labelledby="related-categories-heading">
       <h2 id="related-categories-heading">Related Categories</h2>
-      <nav class="related-categories" aria-label="Related categories"><a href="/action-games/">Action Games</a></nav>
+      <nav class="related-categories" aria-label="Related categories"><a href="/action-games/">Action Games</a><a href="/adventure-games/">Adventure Games</a><a href="/arcade-games/">Arcade Games</a><a href="/boys-games/">Boys Games</a><a href="/cars-games/">Cars Games</a><a href="/racing-games/">Racing Games</a><a href="/simulation-games/">Simulation Games</a><a href="/skill-games/">Skill Games</a></nav>
     </section>
     </main>
 
@@ -241,7 +241,8 @@
     <a href="/termsandconditions.html">Terms</a>
     <a href="/contact-us.html">Contact</a>
   </footer>
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/driver-club-highway-racing.html#game","name":"Driver Club: Highway Racing","description":"Driver Club: Highway Racing is a high speed driving game where you dodge traffic, overtake vehicles, and put your reflexes to the test. Race through a variety of dynamic environments Unlock and drive a range of powerful cars Smooth, responsive controls for an immersive experience Stunning visuals that enhance the thrill of the ride Push your limits and dominate the highway leaderboard Core Gameplay & Story Q: What is the game about? What do you need to do? A: It's a racing game in the traffic racer genre. You need to overtake other cars to pass the section as quickly as possible. There is also a racing mode where a strong opponent is added to this process. Q: What is the unique feature of the game? What can hook players? A: There are not many high-quality and realistic races like this one. Q: Are there bosses and how are they different? A: There are faster opponents in the Race mode. Mechanics & Progression Q: What currencies are there and what can they be spent on (regular - gold, premium - crystals, etc.)? A: Money is earned for victories and can be spent on new cars and upgrades for them. Q: How does leveling up work exactly? What needs to be done to level up faster? A: You need to win races and upgrade your car. Economy & Customization Q: Is there customization in the game? Can you customize the appearance of the hero, location editor, car tuning, etc.? A: Yes, you can change the color of cars and rims. Change rims. Retention & Engagement Q: Is it preferable to play with sound to better immerse yourself in the atmosphere, or will there be difficulties in passing without sound? A: The sound is done excellently, but it is not necessary for the game.","url":"https://nikunjprogames.github.io/games/driver-club-highway-racing.html","image":"https://static.playgama.com/p-img/pg/driver-club-highway-racing/big-preview/037ce11afe4f4d58a0f93a6339db96b5?width=448","gamePlatform":["Web browser"],"genre":["Action"],"keywords":["action","racing","arcade","simulation","skill","boys","3d","car","car-racing","driving","easy","unity","race-games","fast-paced-games","customization-games","vehicles-games","speed-games","car-tuning-games","car-crash-games","arcade-car","realistic-car","action-adventure","fast-paced-action"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Action Games","item":"https://nikunjprogames.github.io/action-games/"},{"@type":"ListItem","position":3,"name":"Driver Club: Highway Racing","item":"https://nikunjprogames.github.io/games/driver-club-highway-racing.html"}]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/driver-club-highway-racing.html#game","name":"Driver Club: Highway Racing","description":"Driver Club: Highway Racing is a high speed driving game where you dodge traffic, overtake vehicles, and put your reflexes to the test. Race through a variety of dynamic environments Unlock and drive a range of powerful cars Smooth, responsive controls for an immersive experience Stunning visuals that enhance the thrill of the ride Push your limits and dominate the highway leaderboard Core Gameplay & Story Q: What is the game about? What do you need to do? A: It's a racing game in the traffic racer genre. You need to overtake other cars to pass the section as quickly as possible. There is also a racing mode where a strong opponent is added to this process. Q: What is the unique feature of the game? What can hook players? A: There are not many high-quality and realistic races like this one. Q: Are there bosses and how are they different? A: There are faster opponents in the Race mode. Mechanics & Progression Q: What currencies are there and what can they be spent on (regular - gold, premium - crystals, etc.)? A: Money is earned for victories and can be spent on new cars and upgrades for them. Q: How does leveling up work exactly? What needs to be done to level up faster? A: You need to win races and upgrade your car. Economy & Customization Q: Is there customization in the game? Can you customize the appearance of the hero, location editor, car tuning, etc.? A: Yes, you can change the color of cars and rims. Change rims. Retention & Engagement Q: Is it preferable to play with sound to better immerse yourself in the atmosphere, or will there be difficulties in passing without sound? A: The sound is done excellently, but it is not necessary for the game.","url":"https://nikunjprogames.github.io/games/driver-club-highway-racing.html","image":"https://static.playgama.com/p-img/pg/driver-club-highway-racing/big-preview/037ce11afe4f4d58a0f93a6339db96b5?width=448","gamePlatform":["Web browser"],"genre":["Action","Adventure","Arcade","Boys","Cars","Racing","Simulation","Skill"],"keywords":["action","racing","arcade","simulation","skill","boys","3d","car","car-racing","driving","easy","unity","race-games","fast-paced-games","customization-games","vehicles-games","speed-games","car-tuning-games","car-crash-games","arcade-car","realistic-car","action-adventure","fast-paced-action"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Action Games","item":"https://nikunjprogames.github.io/action-games/"},{"@type":"ListItem","position":3,"name":"Driver Club: Highway Racing","item":"https://nikunjprogames.github.io/games/driver-club-highway-racing.html"}]}]}</script>
+  <script src="/game-loading.js" defer></script>
   <script>
     function toggleGameFullscreen(root) {
       const target = root ? root.querySelector('.game-frame') : null;

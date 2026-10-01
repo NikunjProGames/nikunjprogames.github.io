@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Play Turkish draughts Online | PleyZ</title>
+  <title>Play Turkish draughts | PleyZ</title>
   <meta name="description" content="The main feature is that moves and captures with checkers are made horizontally and vertically, and not diagonally, as in most popular types of checkers." />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <link rel="canonical" href="https://nikunjprogames.github.io/games/turkish-draughts.html" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Play Turkish draughts Online | PleyZ" />
+  <meta property="og:title" content="Play Turkish draughts | PleyZ" />
   <meta property="og:description" content="The main feature is that moves and captures with checkers are made horizontally and vertically, and not diagonally, as in most popular types of checkers." />
   <meta property="og:url" content="https://nikunjprogames.github.io/games/turkish-draughts.html" />
   <meta property="og:site_name" content="PleyZ" />
   <meta property="og:image" content="https://img.gamemonetize.com/d2gokou3otdsj4x3y2l09gxx4ktk1okw/512x384.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Play Turkish draughts Online | PleyZ" />
+  <meta name="twitter:title" content="Play Turkish draughts | PleyZ" />
   <meta name="twitter:description" content="The main feature is that moves and captures with checkers are made horizontally and vertically, and not diagonally, as in most popular types of checkers." />
   <meta name="twitter:image" content="https://img.gamemonetize.com/d2gokou3otdsj4x3y2l09gxx4ktk1okw/512x384.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -57,7 +57,7 @@
     .site-brand { color: var(--text); font: 700 0.92rem 'Orbitron', sans-serif; white-space: nowrap; }
     .topbar .actions { display: flex; gap: 8px; flex-wrap: wrap; }
     .game-preferences { display: flex; gap: 6px; }
-    .game-preferences button { width: 36px; height: 36px; border: 1px solid var(--panel-border); border-radius: 7px; background: var(--panel); color: var(--muted); cursor: pointer; }
+    .game-preferences button { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--panel-border); border-radius: 7px; background: var(--panel); color: var(--muted); font-size: 1.1rem; line-height: 1; cursor: pointer; }
     .game-preferences button[aria-pressed="true"], .game-preferences button:hover { border-color: var(--accent); color: var(--accent); }
     .profile-score-link {
       display: inline-flex; align-items: center; gap: 8px;
@@ -159,8 +159,8 @@
       <h1>Turkish draughts</h1>
       <div class="actions">
         <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="79">
-          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><i class="fa-solid fa-thumbs-up"></i></button>
-          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><i class="fa-solid fa-thumbs-down"></i></button>
+          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><span aria-hidden="true">👍</span></button>
+          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><span aria-hidden="true">👎</span></button>
         </div>
         <a class="profile-score-link" href="../index.html#leaderboard" title="View PleyZ score and leaderboard">
           <span class="profile-score-avatar" id="profile-score-avatar">PZ</span>
@@ -180,18 +180,18 @@
           <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
         </div>
         <div class="game-frame">
-          <iframe src="https://html5.gamemonetize.co/d2gokou3otdsj4x3y2l09gxx4ktk1okw/" allowfullscreen loading="lazy" title="Turkish draughts"></iframe>
+          <iframe src="https://html5.gamemonetize.co/d2gokou3otdsj4x3y2l09gxx4ktk1okw/" allowfullscreen loading="eager" title="Turkish draughts"></iframe>
         </div>
-        
+
       </div>
 
       <section class="info-card related-games" aria-label="Related games">
         <h2>Games You Might Like</h2>
-        <div class="related-grid"><a class="related-game" href="dominoes-classic-duel.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/l3njgmefn0e3h9ih3zyhyctgjj2jlpsv/512x384.jpg" alt="" width="800" height="600" loading="eager" fetchpriority="high" decoding="async" /></span><span>Dominoes classic duel</span></a>
-        <a class="related-game" href="ludo-king-offline-ludo-game.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/e8vfdarke5qjx5uemefer4jtnbo3dc01/512x384.jpg" alt="" width="600" height="960" loading="lazy" decoding="async" /></span><span>Ludo King   offline Ludo Game</span></a>
-        <a class="related-game" href="carrom-pro.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/ts6iu4xqkctvpkau5yk4hwdkr3nwbsn7/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async" /></span><span>carrom pro</span></a>
-        <a class="related-game" href="quiz-runner-io.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/o265mdiouhnx82t87q3p0t5jgspwsdoy/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async" /></span><span>Quiz Runner.io</span></a>
-        <a class="related-game" href="santa-matching-game.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/7zwgvkvq609jq0jk7tpfe10bncofyj5o/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async" /></span><span>Santa Matching Game</span></a></div>
+        <div class="related-grid"><a class="related-game" href="master-chess.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/master-chess/big-preview/52cdd471a5044f1e94c36787ee523746?width=448" alt="" width="800" height="450" loading="eager" fetchpriority="high" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/066b3bab8a1c460cbc5d057dbbe37125/orig_length_h320.mp4"></video></span><span>Master Chess</span></a>
+        <a class="related-game" href="dominoes-classic-duel.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/l3njgmefn0e3h9ih3zyhyctgjj2jlpsv/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async" /></span><span>Dominoes classic duel</span></a>
+        <a class="related-game" href="giveaway-checkers.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/594795s0fh64izkmnelrpracbmz1we3t/512x384.jpg" alt="" width="1920" height="1080" loading="lazy" decoding="async" /></span><span>Giveaway Checkers</span></a>
+        <a class="related-game" href="english-checkers.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/pir55cwoygvsus9az7d5zyxd6gra48dh/512x384.jpg" alt="" width="1920" height="1080" loading="lazy" decoding="async" /></span><span>English Checkers</span></a>
+        <a class="related-game" href="multiplayer-team-death-match.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/h5hc9ltwjo3sk2g2upo4su465kf1kkgz/512x384.jpg" alt="" width="900" height="900" loading="lazy" decoding="async" /></span><span>Multiplayer Team Death Match</span></a></div>
       </section>
     </div>
 
@@ -205,13 +205,13 @@
     </section>
 <section class="info-card" aria-labelledby="game-dna-heading">
       <h2 id="game-dna-heading">Game DNA</h2>
-      <div class="chip-list"><span class="chip">Multiplayer</span><span class="chip">2 Player Games</span><span class="chip">Board</span><span class="chip">Brain</span><span class="chip">Classic</span><span class="chip">two player games</span></div>
+      <div class="chip-list"><span class="chip">Multiplayer</span><span class="chip">Puzzle</span><span class="chip">Two Player</span><span class="chip">Nostalgia</span><span class="chip">2 Player Games</span><span class="chip">Board</span><span class="chip">Brain</span><span class="chip">Classic</span><span class="chip">two player games</span></div>
     </section>
 <section class="info-card" aria-label="Game details"><p><strong>Platform:</strong> Web browser</p></section>
 
     <section class="info-card" aria-labelledby="related-categories-heading">
       <h2 id="related-categories-heading">Related Categories</h2>
-      <nav class="related-categories" aria-label="Related categories"><a href="/multiplayer-games/">Multiplayer Games</a></nav>
+      <nav class="related-categories" aria-label="Related categories"><a href="/multiplayer-games/">Multiplayer Games</a><a href="/puzzle-games/">Puzzle Games</a><a href="/two-player-games/">Two Player Games</a><a href="/nostalgia-games/">Nostalgia Games</a></nav>
     </section>
     </main>
 
@@ -241,7 +241,8 @@
     <a href="/termsandconditions.html">Terms</a>
     <a href="/contact-us.html">Contact</a>
   </footer>
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/turkish-draughts.html#game","name":"Turkish draughts","description":"The main feature is that moves and captures with checkers are made horizontally and vertically, and not diagonally, as in most popular types of checkers. Accordingly, the initial arrangement of checkers is different. On a 64-cell board, opponents place their 16 checkers on all cells of the second and third horizontals. You can play the game with artificial intelligence, with another person on one device, or with an opponent online in multiplayer mode. You can also watch other players play, act as a spectator, or suggest your own version of the next move to the player by making it on the board.","url":"https://nikunjprogames.github.io/games/turkish-draughts.html","image":"https://img.gamemonetize.com/d2gokou3otdsj4x3y2l09gxx4ktk1okw/512x384.jpg","gamePlatform":["Web browser"],"genre":["Multiplayer"],"keywords":["2 Player Games","Board","Brain","Classic","Multiplayer","two player games"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Multiplayer Games","item":"https://nikunjprogames.github.io/multiplayer-games/"},{"@type":"ListItem","position":3,"name":"Turkish draughts","item":"https://nikunjprogames.github.io/games/turkish-draughts.html"}]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/turkish-draughts.html#game","name":"Turkish draughts","description":"The main feature is that moves and captures with checkers are made horizontally and vertically, and not diagonally, as in most popular types of checkers. Accordingly, the initial arrangement of checkers is different. On a 64-cell board, opponents place their 16 checkers on all cells of the second and third horizontals. You can play the game with artificial intelligence, with another person on one device, or with an opponent online in multiplayer mode. You can also watch other players play, act as a spectator, or suggest your own version of the next move to the player by making it on the board.","url":"https://nikunjprogames.github.io/games/turkish-draughts.html","image":"https://img.gamemonetize.com/d2gokou3otdsj4x3y2l09gxx4ktk1okw/512x384.jpg","gamePlatform":["Web browser"],"genre":["Multiplayer","Puzzle","Two Player","Nostalgia"],"keywords":["2 Player Games","Board","Brain","Classic","Multiplayer","two player games"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Multiplayer Games","item":"https://nikunjprogames.github.io/multiplayer-games/"},{"@type":"ListItem","position":3,"name":"Turkish draughts","item":"https://nikunjprogames.github.io/games/turkish-draughts.html"}]}]}</script>
+  <script src="/game-loading.js" defer></script>
   <script>
     function toggleGameFullscreen(root) {
       const target = root ? root.querySelector('.game-frame') : null;

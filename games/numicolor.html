@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Play Numicolor Online | PleyZ</title>
-  <meta name="description" content="Discover a creative way to relax. Coloring by number helps you focus and switch off from daily worries. Many find it an excellent tool for stress relief" />
+  <title>Play Numicolor | PleyZ</title>
+  <meta name="description" content="Discover a creative way to relax. Coloring by number helps you focus and switch off from daily worries." />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <link rel="canonical" href="https://nikunjprogames.github.io/games/numicolor.html" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Play Numicolor Online | PleyZ" />
-  <meta property="og:description" content="Discover a creative way to relax. Coloring by number helps you focus and switch off from daily worries. Many find it an excellent tool for stress relief" />
+  <meta property="og:title" content="Play Numicolor | PleyZ" />
+  <meta property="og:description" content="Discover a creative way to relax. Coloring by number helps you focus and switch off from daily worries." />
   <meta property="og:url" content="https://nikunjprogames.github.io/games/numicolor.html" />
   <meta property="og:site_name" content="PleyZ" />
   <meta property="og:image" content="https://static.playgama.com/p-img/pg/numicolor/big-preview/ad1c290e65cb4e1b8a747cb2b51de044?width=448" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Play Numicolor Online | PleyZ" />
-  <meta name="twitter:description" content="Discover a creative way to relax. Coloring by number helps you focus and switch off from daily worries. Many find it an excellent tool for stress relief" />
+  <meta name="twitter:title" content="Play Numicolor | PleyZ" />
+  <meta name="twitter:description" content="Discover a creative way to relax. Coloring by number helps you focus and switch off from daily worries." />
   <meta name="twitter:image" content="https://static.playgama.com/p-img/pg/numicolor/big-preview/ad1c290e65cb4e1b8a747cb2b51de044?width=448" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -57,7 +57,7 @@
     .site-brand { color: var(--text); font: 700 0.92rem 'Orbitron', sans-serif; white-space: nowrap; }
     .topbar .actions { display: flex; gap: 8px; flex-wrap: wrap; }
     .game-preferences { display: flex; gap: 6px; }
-    .game-preferences button { width: 36px; height: 36px; border: 1px solid var(--panel-border); border-radius: 7px; background: var(--panel); color: var(--muted); cursor: pointer; }
+    .game-preferences button { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--panel-border); border-radius: 7px; background: var(--panel); color: var(--muted); font-size: 1.1rem; line-height: 1; cursor: pointer; }
     .game-preferences button[aria-pressed="true"], .game-preferences button:hover { border-color: var(--accent); color: var(--accent); }
     .profile-score-link {
       display: inline-flex; align-items: center; gap: 8px;
@@ -159,8 +159,8 @@
       <h1>Numicolor</h1>
       <div class="actions">
         <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="102">
-          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><i class="fa-solid fa-thumbs-up"></i></button>
-          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><i class="fa-solid fa-thumbs-down"></i></button>
+          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><span aria-hidden="true">👍</span></button>
+          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><span aria-hidden="true">👎</span></button>
         </div>
         <a class="profile-score-link" href="../index.html#leaderboard" title="View PleyZ score and leaderboard">
           <span class="profile-score-avatar" id="profile-score-avatar">PZ</span>
@@ -180,9 +180,9 @@
           <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
         </div>
         <div class="game-frame">
-          <iframe src="https://numicolor.com/export?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487" allowfullscreen loading="lazy" title="Numicolor"></iframe>
+          <iframe src="https://numicolor.com/export?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487" allowfullscreen loading="eager" title="Numicolor"></iframe>
         </div>
-        
+
       </div>
 
       <section class="info-card related-games" aria-label="Related games">
@@ -205,13 +205,13 @@
     </section>
 <section class="info-card" aria-labelledby="game-dna-heading">
       <h2 id="game-dna-heading">Game DNA</h2>
-      <div class="chip-list"><span class="chip">Puzzle</span><span class="chip">puzzle</span><span class="chip">color</span><span class="chip">relaxing-games</span><span class="chip">addictive-games</span><span class="chip">art-games</span><span class="chip">children-games</span></div>
+      <div class="chip-list"><span class="chip">Puzzle</span><span class="chip">Casual</span><span class="chip">puzzle</span><span class="chip">color</span><span class="chip">relaxing-games</span><span class="chip">addictive-games</span><span class="chip">art-games</span><span class="chip">children-games</span></div>
     </section>
 <section class="info-card" aria-label="Game details"><p><strong>Platform:</strong> Web browser</p></section>
 
     <section class="info-card" aria-labelledby="related-categories-heading">
       <h2 id="related-categories-heading">Related Categories</h2>
-      <nav class="related-categories" aria-label="Related categories"><a href="/puzzle-games/">Puzzle Games</a></nav>
+      <nav class="related-categories" aria-label="Related categories"><a href="/puzzle-games/">Puzzle Games</a><a href="/casual-games/">Casual Games</a></nav>
     </section>
     </main>
 
@@ -241,7 +241,8 @@
     <a href="/termsandconditions.html">Terms</a>
     <a href="/contact-us.html">Contact</a>
   </footer>
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/numicolor.html#game","name":"Numicolor","description":"Discover a creative way to relax. Coloring by number helps you focus and switch off from daily worries. Many find it an excellent tool for stress relief and finding harmony. Key features: Growing image collection: Dive into popular categories like peaceful nature, stylish anime, fashion, and charming animals. Our collection is regularly updated with new works! Flexible filter system: Find the perfect image quickly and easily. Use detailed filters by theme and difficulty to choose a coloring page for any mood. Variety of game modes: Tired of the classic mode? Try the unique \"Reveal\" and \"Mystery\" modes to add a touch of intrigue to your coloring process. For the whole family: The perfect app for adults looking to relax and for kids developing attention and creative skills.","url":"https://nikunjprogames.github.io/games/numicolor.html","image":"https://static.playgama.com/p-img/pg/numicolor/big-preview/ad1c290e65cb4e1b8a747cb2b51de044?width=448","gamePlatform":["Web browser"],"genre":["Puzzle"],"keywords":["puzzle","color","relaxing-games","addictive-games","art-games","children-games"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Puzzle Games","item":"https://nikunjprogames.github.io/puzzle-games/"},{"@type":"ListItem","position":3,"name":"Numicolor","item":"https://nikunjprogames.github.io/games/numicolor.html"}]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/numicolor.html#game","name":"Numicolor","description":"Discover a creative way to relax. Coloring by number helps you focus and switch off from daily worries. Many find it an excellent tool for stress relief and finding harmony. Key features: Growing image collection: Dive into popular categories like peaceful nature, stylish anime, fashion, and charming animals. Our collection is regularly updated with new works! Flexible filter system: Find the perfect image quickly and easily. Use detailed filters by theme and difficulty to choose a coloring page for any mood. Variety of game modes: Tired of the classic mode? Try the unique \"Reveal\" and \"Mystery\" modes to add a touch of intrigue to your coloring process. For the whole family: The perfect app for adults looking to relax and for kids developing attention and creative skills.","url":"https://nikunjprogames.github.io/games/numicolor.html","image":"https://static.playgama.com/p-img/pg/numicolor/big-preview/ad1c290e65cb4e1b8a747cb2b51de044?width=448","gamePlatform":["Web browser"],"genre":["Puzzle","Casual"],"keywords":["puzzle","color","relaxing-games","addictive-games","art-games","children-games"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Puzzle Games","item":"https://nikunjprogames.github.io/puzzle-games/"},{"@type":"ListItem","position":3,"name":"Numicolor","item":"https://nikunjprogames.github.io/games/numicolor.html"}]}]}</script>
+  <script src="/game-loading.js" defer></script>
   <script>
     function toggleGameFullscreen(root) {
       const target = root ? root.querySelector('.game-frame') : null;

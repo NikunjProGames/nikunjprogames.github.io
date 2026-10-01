@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Play Good Sort Master: Triple Match Online | PleyZ</title>
-  <meta name="description" content="Arrange items on shelves, place identical items next to each other in order to connect 3 of the same items on the shelf. A relaxing game where you have to" />
+  <title>Play Good Sort Master: Triple Match | PleyZ</title>
+  <meta name="description" content="Arrange items on shelves, place identical items next to each other in order to connect 3 of the same items on the shelf." />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <link rel="canonical" href="https://nikunjprogames.github.io/games/good-sort-master-triple-match.html" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Play Good Sort Master: Triple Match Online | PleyZ" />
-  <meta property="og:description" content="Arrange items on shelves, place identical items next to each other in order to connect 3 of the same items on the shelf. A relaxing game where you have to" />
+  <meta property="og:title" content="Play Good Sort Master: Triple Match | PleyZ" />
+  <meta property="og:description" content="Arrange items on shelves, place identical items next to each other in order to connect 3 of the same items on the shelf." />
   <meta property="og:url" content="https://nikunjprogames.github.io/games/good-sort-master-triple-match.html" />
   <meta property="og:site_name" content="PleyZ" />
   <meta property="og:image" content="https://static.playgama.com/p-img/pg/good-sort-master/big-preview/87153c5702e14ce994b208df2c0a5f61?width=448" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Play Good Sort Master: Triple Match Online | PleyZ" />
-  <meta name="twitter:description" content="Arrange items on shelves, place identical items next to each other in order to connect 3 of the same items on the shelf. A relaxing game where you have to" />
+  <meta name="twitter:title" content="Play Good Sort Master: Triple Match | PleyZ" />
+  <meta name="twitter:description" content="Arrange items on shelves, place identical items next to each other in order to connect 3 of the same items on the shelf." />
   <meta name="twitter:image" content="https://static.playgama.com/p-img/pg/good-sort-master/big-preview/87153c5702e14ce994b208df2c0a5f61?width=448" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -57,7 +57,7 @@
     .site-brand { color: var(--text); font: 700 0.92rem 'Orbitron', sans-serif; white-space: nowrap; }
     .topbar .actions { display: flex; gap: 8px; flex-wrap: wrap; }
     .game-preferences { display: flex; gap: 6px; }
-    .game-preferences button { width: 36px; height: 36px; border: 1px solid var(--panel-border); border-radius: 7px; background: var(--panel); color: var(--muted); cursor: pointer; }
+    .game-preferences button { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--panel-border); border-radius: 7px; background: var(--panel); color: var(--muted); font-size: 1.1rem; line-height: 1; cursor: pointer; }
     .game-preferences button[aria-pressed="true"], .game-preferences button:hover { border-color: var(--accent); color: var(--accent); }
     .profile-score-link {
       display: inline-flex; align-items: center; gap: 8px;
@@ -159,8 +159,8 @@
       <h1>Good Sort Master: Triple Match</h1>
       <div class="actions">
         <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="115">
-          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><i class="fa-solid fa-thumbs-up"></i></button>
-          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><i class="fa-solid fa-thumbs-down"></i></button>
+          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><span aria-hidden="true">👍</span></button>
+          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><span aria-hidden="true">👎</span></button>
         </div>
         <a class="profile-score-link" href="../index.html#leaderboard" title="View PleyZ score and leaderboard">
           <span class="profile-score-avatar" id="profile-score-avatar">PZ</span>
@@ -180,18 +180,18 @@
           <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
         </div>
         <div class="game-frame">
-          <iframe src="https://playgama.com/export/game/good-sort-master?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487" allowfullscreen loading="lazy" title="Good Sort Master: Triple Match"></iframe>
+          <iframe src="https://playgama.com/export/game/good-sort-master?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487" allowfullscreen loading="eager" title="Good Sort Master: Triple Match"></iframe>
         </div>
-        
+
       </div>
 
       <section class="info-card related-games" aria-label="Related games">
         <h2>Games You Might Like</h2>
-        <div class="related-grid"><a class="related-game" href="numicolor.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/numicolor/big-preview/ad1c290e65cb4e1b8a747cb2b51de044?width=448" alt="" width="800" height="450" loading="eager" fetchpriority="high" decoding="async" /></span><span>Numicolor</span></a>
-        <a class="related-game" href="nuts-puzzle-sort-by-color.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/nuts-puzzle-sort-by-color/big_preview/faab3ed519024179b5a31afb72cdf675?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/8157a03153474f7bb4a7529f3d5c355e/orig_length_h320.mp4"></video></span><span>Nuts Puzzle: Sort By Color</span></a>
-        <a class="related-game" href="piece-of-cake-merge-bake.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/piece-of-cake-merge--bake/big-preview/4124b3ce37ab4b92b6a8ff1332c9eee8?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/73b06d463c9141eb802f8f79f75d208c/orig_length_h320.mp4"></video></span><span>Piece of Cake: Merge &amp; Bake</span></a>
+        <div class="related-grid"><a class="related-game" href="nuts-puzzle-sort-by-color.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/nuts-puzzle-sort-by-color/big_preview/faab3ed519024179b5a31afb72cdf675?width=448" alt="" width="800" height="450" loading="eager" fetchpriority="high" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/8157a03153474f7bb4a7529f3d5c355e/orig_length_h320.mp4"></video></span><span>Nuts Puzzle: Sort By Color</span></a>
         <a class="related-game" href="mahjong-classic.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/mahjong-classic/big-preview/730f65084d864a9baffefa86e110b106?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/e1239d526cff4df79172804cabe8304a/orig_length_h320.mp4"></video></span><span>Mahjong Classic</span></a>
-        <a class="related-game" href="ragdoll-crash-test-throw-and-break.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/ragdoll-crashtest-throw-and-break/big-preview/806817717e62466a83cb4377d0fa92eb?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/1cbe32ecf2444651a508c985b8360784/orig_length_h320.mp4"></video></span><span>Ragdoll Crash-Test: Throw and Break!</span></a></div>
+        <a class="related-game" href="numicolor.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/numicolor/big-preview/ad1c290e65cb4e1b8a747cb2b51de044?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Numicolor</span></a>
+        <a class="related-game" href="piece-of-cake-merge-bake.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/piece-of-cake-merge--bake/big-preview/4124b3ce37ab4b92b6a8ff1332c9eee8?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/73b06d463c9141eb802f8f79f75d208c/orig_length_h320.mp4"></video></span><span>Piece of Cake: Merge &amp; Bake</span></a>
+        <a class="related-game" href="backrooms-exit-protocol-0.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/backrooms-exit-protocol-0/big_preview/4f691ad7fdbb4ec3a0a45c781c0feea7?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Backrooms: Exit Protocol 0</span></a></div>
       </section>
     </div>
 
@@ -205,13 +205,13 @@
     </section>
 <section class="info-card" aria-labelledby="game-dna-heading">
       <h2 id="game-dna-heading">Game DNA</h2>
-      <div class="chip-list"><span class="chip">Puzzle</span><span class="chip">puzzle</span><span class="chip">matching</span><span class="chip">iphone-games</span><span class="chip">relaxing-games</span><span class="chip">addictive-games</span><span class="chip">memory-games</span><span class="chip">sorting-games</span><span class="chip">desktop-games</span><span class="chip">simple-games</span><span class="chip">borwser-games</span><span class="chip">android-games</span></div>
+      <div class="chip-list"><span class="chip">Puzzle</span><span class="chip">Casual</span><span class="chip">Brain Training</span><span class="chip">puzzle</span><span class="chip">matching</span><span class="chip">iphone-games</span><span class="chip">relaxing-games</span><span class="chip">addictive-games</span><span class="chip">memory-games</span><span class="chip">sorting-games</span><span class="chip">desktop-games</span><span class="chip">simple-games</span></div>
     </section>
 <section class="info-card" aria-label="Game details"><p><strong>Platform:</strong> Web browser</p></section>
 
     <section class="info-card" aria-labelledby="related-categories-heading">
       <h2 id="related-categories-heading">Related Categories</h2>
-      <nav class="related-categories" aria-label="Related categories"><a href="/puzzle-games/">Puzzle Games</a></nav>
+      <nav class="related-categories" aria-label="Related categories"><a href="/puzzle-games/">Puzzle Games</a><a href="/casual-games/">Casual Games</a><a href="/brain-training-games/">Brain Training Games</a></nav>
     </section>
     </main>
 
@@ -241,7 +241,8 @@
     <a href="/termsandconditions.html">Terms</a>
     <a href="/contact-us.html">Contact</a>
   </footer>
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/good-sort-master-triple-match.html#game","name":"Good Sort Master: Triple Match","description":"Arrange items on shelves, place identical items next to each other in order to connect 3 of the same items on the shelf. A relaxing game where you have to organize objects on shelves. Cleaning has never been so interesting and fun! A simple and relaxing game for women and men alike!","url":"https://nikunjprogames.github.io/games/good-sort-master-triple-match.html","image":"https://static.playgama.com/p-img/pg/good-sort-master/big-preview/87153c5702e14ce994b208df2c0a5f61?width=448","gamePlatform":["Web browser"],"genre":["Puzzle"],"keywords":["puzzle","matching","iphone-games","relaxing-games","addictive-games","memory-games","sorting-games","desktop-games","simple-games","borwser-games","android-games","unity-games-online"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Puzzle Games","item":"https://nikunjprogames.github.io/puzzle-games/"},{"@type":"ListItem","position":3,"name":"Good Sort Master: Triple Match","item":"https://nikunjprogames.github.io/games/good-sort-master-triple-match.html"}]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/good-sort-master-triple-match.html#game","name":"Good Sort Master: Triple Match","description":"Arrange items on shelves, place identical items next to each other in order to connect 3 of the same items on the shelf. A relaxing game where you have to organize objects on shelves. Cleaning has never been so interesting and fun! A simple and relaxing game for women and men alike!","url":"https://nikunjprogames.github.io/games/good-sort-master-triple-match.html","image":"https://static.playgama.com/p-img/pg/good-sort-master/big-preview/87153c5702e14ce994b208df2c0a5f61?width=448","gamePlatform":["Web browser"],"genre":["Puzzle","Casual","Brain Training"],"keywords":["puzzle","matching","iphone-games","relaxing-games","addictive-games","memory-games","sorting-games","desktop-games","simple-games","borwser-games","android-games","unity-games-online"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Puzzle Games","item":"https://nikunjprogames.github.io/puzzle-games/"},{"@type":"ListItem","position":3,"name":"Good Sort Master: Triple Match","item":"https://nikunjprogames.github.io/games/good-sort-master-triple-match.html"}]}]}</script>
+  <script src="/game-loading.js" defer></script>
   <script>
     function toggleGameFullscreen(root) {
       const target = root ? root.querySelector('.game-frame') : null;

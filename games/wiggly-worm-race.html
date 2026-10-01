@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Play Wiggly Worm Race Online | PleyZ</title>
-  <meta name="description" content="Wiggly Worm Race is a simple and super fun racing game for kids! Pick your worm, tap your button as fast as you can, and be the first to cross the finish" />
+  <title>Play Wiggly Worm Race | PleyZ</title>
+  <meta name="description" content="Wiggly Worm Race is a simple and super fun racing game for kids! Pick your worm, tap your button as fast as you can, and be the first to cross the finish line." />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <link rel="canonical" href="https://nikunjprogames.github.io/games/wiggly-worm-race.html" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Play Wiggly Worm Race Online | PleyZ" />
-  <meta property="og:description" content="Wiggly Worm Race is a simple and super fun racing game for kids! Pick your worm, tap your button as fast as you can, and be the first to cross the finish" />
+  <meta property="og:title" content="Play Wiggly Worm Race | PleyZ" />
+  <meta property="og:description" content="Wiggly Worm Race is a simple and super fun racing game for kids! Pick your worm, tap your button as fast as you can, and be the first to cross the finish line." />
   <meta property="og:url" content="https://nikunjprogames.github.io/games/wiggly-worm-race.html" />
   <meta property="og:site_name" content="PleyZ" />
   <meta property="og:image" content="https://img.gamemonetize.com/l0nqbs09szfpxezuy44h886ecqpomll5/512x384.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Play Wiggly Worm Race Online | PleyZ" />
-  <meta name="twitter:description" content="Wiggly Worm Race is a simple and super fun racing game for kids! Pick your worm, tap your button as fast as you can, and be the first to cross the finish" />
+  <meta name="twitter:title" content="Play Wiggly Worm Race | PleyZ" />
+  <meta name="twitter:description" content="Wiggly Worm Race is a simple and super fun racing game for kids! Pick your worm, tap your button as fast as you can, and be the first to cross the finish line." />
   <meta name="twitter:image" content="https://img.gamemonetize.com/l0nqbs09szfpxezuy44h886ecqpomll5/512x384.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -57,7 +57,7 @@
     .site-brand { color: var(--text); font: 700 0.92rem 'Orbitron', sans-serif; white-space: nowrap; }
     .topbar .actions { display: flex; gap: 8px; flex-wrap: wrap; }
     .game-preferences { display: flex; gap: 6px; }
-    .game-preferences button { width: 36px; height: 36px; border: 1px solid var(--panel-border); border-radius: 7px; background: var(--panel); color: var(--muted); cursor: pointer; }
+    .game-preferences button { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--panel-border); border-radius: 7px; background: var(--panel); color: var(--muted); font-size: 1.1rem; line-height: 1; cursor: pointer; }
     .game-preferences button[aria-pressed="true"], .game-preferences button:hover { border-color: var(--accent); color: var(--accent); }
     .profile-score-link {
       display: inline-flex; align-items: center; gap: 8px;
@@ -159,8 +159,8 @@
       <h1>Wiggly Worm Race</h1>
       <div class="actions">
         <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="46">
-          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><i class="fa-solid fa-thumbs-up"></i></button>
-          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><i class="fa-solid fa-thumbs-down"></i></button>
+          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><span aria-hidden="true">👍</span></button>
+          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><span aria-hidden="true">👎</span></button>
         </div>
         <a class="profile-score-link" href="../index.html#leaderboard" title="View PleyZ score and leaderboard">
           <span class="profile-score-avatar" id="profile-score-avatar">PZ</span>
@@ -180,18 +180,18 @@
           <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
         </div>
         <div class="game-frame">
-          <iframe src="https://html5.gamemonetize.co/l0nqbs09szfpxezuy44h886ecqpomll5/" allowfullscreen loading="lazy" title="Wiggly Worm Race"></iframe>
+          <iframe src="https://html5.gamemonetize.co/l0nqbs09szfpxezuy44h886ecqpomll5/" allowfullscreen loading="eager" title="Wiggly Worm Race"></iframe>
         </div>
-        
+
       </div>
 
       <section class="info-card related-games" aria-label="Related games">
         <h2>Games You Might Like</h2>
-        <div class="related-grid"><a class="related-game" href="english-checkers.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/pir55cwoygvsus9az7d5zyxd6gra48dh/512x384.jpg" alt="" width="1920" height="1080" loading="eager" fetchpriority="high" decoding="async" /></span><span>English Checkers</span></a>
-        <a class="related-game" href="casual-poker-online.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/bcs4hy6efm4uqx1qacogniq5xvn9jzhe/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async" /></span><span>Casual Poker Online</span></a>
-        <a class="related-game" href="clonium.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/cx9ykv4xl6wlfq6vd9odkn68e6zenz7s/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async" /></span><span>Clonium</span></a>
-        <a class="related-game" href="dominoes-classic-duel.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/l3njgmefn0e3h9ih3zyhyctgjj2jlpsv/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async" /></span><span>Dominoes classic duel</span></a>
-        <a class="related-game" href="giveaway-checkers.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/594795s0fh64izkmnelrpracbmz1we3t/512x384.jpg" alt="" width="1920" height="1080" loading="lazy" decoding="async" /></span><span>Giveaway Checkers</span></a></div>
+        <div class="related-grid"><a class="related-game" href="dominoes-classic-duel.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/l3njgmefn0e3h9ih3zyhyctgjj2jlpsv/512x384.jpg" alt="" width="800" height="600" loading="eager" fetchpriority="high" decoding="async" /></span><span>Dominoes classic duel</span></a>
+        <a class="related-game" href="giveaway-checkers.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/594795s0fh64izkmnelrpracbmz1we3t/512x384.jpg" alt="" width="1920" height="1080" loading="lazy" decoding="async" /></span><span>Giveaway Checkers</span></a>
+        <a class="related-game" href="english-checkers.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/pir55cwoygvsus9az7d5zyxd6gra48dh/512x384.jpg" alt="" width="1920" height="1080" loading="lazy" decoding="async" /></span><span>English Checkers</span></a>
+        <a class="related-game" href="turkish-draughts.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/d2gokou3otdsj4x3y2l09gxx4ktk1okw/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async" /></span><span>Turkish draughts</span></a>
+        <a class="related-game" href="basket-random.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/basket-random/preview/fec7a407ebd246d8a893abaf7801622c?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/cbc801637e5c42c88a4ed95bc33c2564/orig_length_h320.mp4"></video></span><span>Basket Random</span></a></div>
       </section>
     </div>
 
@@ -205,13 +205,13 @@
     </section>
 <section class="info-card" aria-labelledby="game-dna-heading">
       <h2 id="game-dna-heading">Game DNA</h2>
-      <div class="chip-list"><span class="chip">Sports</span><span class="chip">1 Player</span><span class="chip">2 Player</span><span class="chip">2 Player Games</span><span class="chip">2026 games</span><span class="chip">Fun</span><span class="chip">Funny</span><span class="chip">Race</span><span class="chip">Racing</span><span class="chip">Retro</span></div>
+      <div class="chip-list"><span class="chip">Sports</span><span class="chip">Racing</span><span class="chip">Two Player</span><span class="chip">Nostalgia</span><span class="chip">1 Player</span><span class="chip">2 Player</span><span class="chip">2 Player Games</span><span class="chip">2026 games</span><span class="chip">Fun</span><span class="chip">Funny</span><span class="chip">Race</span><span class="chip">Retro</span></div>
     </section>
 <section class="info-card" aria-label="Game details"><p><strong>Platform:</strong> Web browser</p></section>
 
     <section class="info-card" aria-labelledby="related-categories-heading">
       <h2 id="related-categories-heading">Related Categories</h2>
-      <nav class="related-categories" aria-label="Related categories"><a href="/sports-games/">Sports Games</a></nav>
+      <nav class="related-categories" aria-label="Related categories"><a href="/sports-games/">Sports Games</a><a href="/racing-games/">Racing Games</a><a href="/two-player-games/">Two Player Games</a><a href="/nostalgia-games/">Nostalgia Games</a></nav>
     </section>
     </main>
 
@@ -241,7 +241,8 @@
     <a href="/termsandconditions.html">Terms</a>
     <a href="/contact-us.html">Contact</a>
   </footer>
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/wiggly-worm-race.html#game","name":"Wiggly Worm Race","description":"Wiggly Worm Race is a simple and super fun racing game for kids! Pick your worm, tap your button as fast as you can, and be the first to cross the finish line. Choose between 3 levels and Play solo or race against up to 3 friends on the same screen. Whos the fastest worm in town? Thankyou very much for playing. Feedbacks are always welcome!","url":"https://nikunjprogames.github.io/games/wiggly-worm-race.html","image":"https://img.gamemonetize.com/l0nqbs09szfpxezuy44h886ecqpomll5/512x384.jpg","gamePlatform":["Web browser"],"genre":["Sports"],"keywords":["1 Player","2 Player","2 Player Games","2026 games","Fun","Funny","Race","Racing","Retro"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Sports Games","item":"https://nikunjprogames.github.io/sports-games/"},{"@type":"ListItem","position":3,"name":"Wiggly Worm Race","item":"https://nikunjprogames.github.io/games/wiggly-worm-race.html"}]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/wiggly-worm-race.html#game","name":"Wiggly Worm Race","description":"Wiggly Worm Race is a simple and super fun racing game for kids! Pick your worm, tap your button as fast as you can, and be the first to cross the finish line. Choose between 3 levels and Play solo or race against up to 3 friends on the same screen. Whos the fastest worm in town? Thankyou very much for playing. Feedbacks are always welcome!","url":"https://nikunjprogames.github.io/games/wiggly-worm-race.html","image":"https://img.gamemonetize.com/l0nqbs09szfpxezuy44h886ecqpomll5/512x384.jpg","gamePlatform":["Web browser"],"genre":["Sports","Racing","Two Player","Nostalgia"],"keywords":["1 Player","2 Player","2 Player Games","2026 games","Fun","Funny","Race","Racing","Retro"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Sports Games","item":"https://nikunjprogames.github.io/sports-games/"},{"@type":"ListItem","position":3,"name":"Wiggly Worm Race","item":"https://nikunjprogames.github.io/games/wiggly-worm-race.html"}]}]}</script>
+  <script src="/game-loading.js" defer></script>
   <script>
     function toggleGameFullscreen(root) {
       const target = root ? root.querySelector('.game-frame') : null;

@@ -1,0 +1,62 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "90513",
+          "slug": "car-sales-empire-simulator",
+          "title": " Car Sales Empire Simulator",
+          "description": "Step into the dynamic realm of Car Sales Empire Simulator, where you can build a successful automotive business. Master car trading and repairs, hone your strategy, and enjoy smooth gameplay on any device while fostering your enterprise and enjoying thrilling negotiations.\n\nControls:\nDesktop: WASD, arrow keys, click mouse to select an option, C to crouch.  \nMobile: built-in joystick, tap to select an option.\n\nGame Modes:\n• Graphics: Low: A less resource-intensive mode for the device, with fewer details, nuances, and volume in light-shadow rendering.  \n• Graphics: High: A deeper contrast of light and shadow, more details, and greater load on the device.\n\nCore Gameplay & Story  \nQ: What is the goal of the game?  \nA: Buy cars and upgrade them to sell later. The higher the sales, the more opportunities arise. It's a great chance to showcase creativity by choosing designs and tuning, improve your online driving skills by maneuvering cars through the city without accidents, and develop the best sales strategy to expand your dealership.\n\nQ: What grabs your attention in the first few minutes?  \nA: The atmosphere of the city, the ability to not just move between locations but to weave through the hustle of urban traffic, and the vast opportunities for growth and creativity captivate from the very start.\n\nMechanics & Progression  \nQ: What opens up as you progress in the game?  \nA: As you play, more opportunities arise to purchase more expensive cars and parts. There’s always a chance to find a true rare gem of the automotive industry.\n\nQ: How can you level up faster?  \nA: Lower the price when buying to maximize your profit from deals.\n\nEconomy & Customization  \nQ: What is available from the very start?  \nA: Buying your first car is easy! 7000 in-game dollars await you upon your first launch. Don’t forget to keep a little reserve for tuning.\n\nRetention & Engagement  \nQ: Is there onboarding in the game? What does it include?  \nA: The onboarding guides you through all the necessary scenarios, immersing you in the game in a careful and clear manner.\n\nQ: Are there daily quests / a wheel of fortune / achievements / tasks?  \nA: Complete quests and earn rewards in the form of in-game dollars to buy the most interesting cars faster.",
+          "howToPlayText": "Buy cars at markets, bargain and resell cars to earn more money and develop better!\n\nWASD - control the car and the character\nC - change camera\nTab - pause\nSpacebar - handbrake\nF - get in the car\nEnter - get out of the car",
+          "gameURL": "https://playgama.com/export/game/car-sales-empire-simulator?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/car-sales-empire-simulator",
+          "genres": [
+            "simulation"
+          ],
+          "tags": [
+            "unity-games-online",
+            "business-games",
+            "desktop-games",
+            "borwser-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/car-sales-empire-simulator/big_preview/c91ce59d4b5248f2b2631185c4ffd384?width=448",
+            "https://static.playgama.com/p-img/pg/car-sales-empire-simulator/icon/0ec66ab5ef134077ab0daeeb18f6bd54?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "cea4e609256d46049786ca2b2ed7b1d2",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "cea4e609256d46049786ca2b2ed7b1d2",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/car-sales-empire-simulator/big_preview/c91ce59d4b5248f2b2631185c4ffd384?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/car-sales-empire-simulator/icon/0ec66ab5ef134077ab0daeeb18f6bd54?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "supportedLanguages": [
+            "en-US"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/car-sales-empire-simulator?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

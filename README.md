@@ -40,3 +40,9 @@ Designed with a futuristic neon-cyberpunk aesthetic, it features an amazing boot
 * **Box Tower:** Test your precision reflexes by stacking boxes as high as humanly possible to build the ultimate tower.
 * **Color Line:** Guide a traveling cube along intricate neon paths without striking unpredictable obstacles.
 * **Go to the End:** A physics-based puzzle obstacle course challenging you to navigate carefully to the finish line.
+
+## Adding games and SEO
+
+Add a game to `feed.json` with its title, description, embed URL, thumbnail, category, and tags. During a full build, `build-games.js` keeps the supplied category and adds matching categories inferred from the tags; games with no recognized category are placed in **Other**. Add an optional `seoDescription` when the source description does not provide a concise, complete search snippet.
+
+Run `node build-games.js` to regenerate game pages, category pages, and legacy game metadata. Run `node build-games.js --categories-only` when only category pages need rebuilding. Page-specific overrides for older root-level game pages live in `legacy-game-seo.json`.

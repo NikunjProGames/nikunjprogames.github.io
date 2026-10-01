@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Play Counter Terror 3d Online | PleyZ</title>
-  <meta name="description" content="Dive into the action-packed world of Counter Terror, a game that blends the excitement of CS with high-speed car battles. With over 10 types of weapons, 8" />
+  <title>Play Counter Terror 3d | PleyZ</title>
+  <meta name="description" content="Dive into the action-packed world of Counter Terror, a game that blends the excitement of CS with high-speed car battles." />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <link rel="canonical" href="https://nikunjprogames.github.io/games/counter-terror-3d.html" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Play Counter Terror 3d Online | PleyZ" />
-  <meta property="og:description" content="Dive into the action-packed world of Counter Terror, a game that blends the excitement of CS with high-speed car battles. With over 10 types of weapons, 8" />
+  <meta property="og:title" content="Play Counter Terror 3d | PleyZ" />
+  <meta property="og:description" content="Dive into the action-packed world of Counter Terror, a game that blends the excitement of CS with high-speed car battles." />
   <meta property="og:url" content="https://nikunjprogames.github.io/games/counter-terror-3d.html" />
   <meta property="og:site_name" content="PleyZ" />
   <meta property="og:image" content="https://img.gamemonetize.com/lbj1gbsu0l7j8jdaih6a3yqibr9xtgu2/512x384.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Play Counter Terror 3d Online | PleyZ" />
-  <meta name="twitter:description" content="Dive into the action-packed world of Counter Terror, a game that blends the excitement of CS with high-speed car battles. With over 10 types of weapons, 8" />
+  <meta name="twitter:title" content="Play Counter Terror 3d | PleyZ" />
+  <meta name="twitter:description" content="Dive into the action-packed world of Counter Terror, a game that blends the excitement of CS with high-speed car battles." />
   <meta name="twitter:image" content="https://img.gamemonetize.com/lbj1gbsu0l7j8jdaih6a3yqibr9xtgu2/512x384.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -57,7 +57,7 @@
     .site-brand { color: var(--text); font: 700 0.92rem 'Orbitron', sans-serif; white-space: nowrap; }
     .topbar .actions { display: flex; gap: 8px; flex-wrap: wrap; }
     .game-preferences { display: flex; gap: 6px; }
-    .game-preferences button { width: 36px; height: 36px; border: 1px solid var(--panel-border); border-radius: 7px; background: var(--panel); color: var(--muted); cursor: pointer; }
+    .game-preferences button { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--panel-border); border-radius: 7px; background: var(--panel); color: var(--muted); font-size: 1.1rem; line-height: 1; cursor: pointer; }
     .game-preferences button[aria-pressed="true"], .game-preferences button:hover { border-color: var(--accent); color: var(--accent); }
     .profile-score-link {
       display: inline-flex; align-items: center; gap: 8px;
@@ -159,8 +159,8 @@
       <h1>Counter Terror 3d</h1>
       <div class="actions">
         <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="75">
-          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><i class="fa-solid fa-thumbs-up"></i></button>
-          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><i class="fa-solid fa-thumbs-down"></i></button>
+          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><span aria-hidden="true">👍</span></button>
+          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><span aria-hidden="true">👎</span></button>
         </div>
         <a class="profile-score-link" href="../index.html#leaderboard" title="View PleyZ score and leaderboard">
           <span class="profile-score-avatar" id="profile-score-avatar">PZ</span>
@@ -180,9 +180,9 @@
           <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
         </div>
         <div class="game-frame">
-          <iframe src="https://html5.gamemonetize.co/lbj1gbsu0l7j8jdaih6a3yqibr9xtgu2/" allowfullscreen loading="lazy" title="Counter Terror 3d"></iframe>
+          <iframe src="https://html5.gamemonetize.co/lbj1gbsu0l7j8jdaih6a3yqibr9xtgu2/" allowfullscreen loading="eager" title="Counter Terror 3d"></iframe>
         </div>
-        
+
       </div>
 
       <section class="info-card related-games" aria-label="Related games">
@@ -190,8 +190,8 @@
         <div class="related-grid"><a class="related-game" href="sure-shot.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/s0e0jqx8z8e8s5n9dshww2gexamrw0cm/512x384.jpg" alt="" width="800" height="500" loading="eager" fetchpriority="high" decoding="async" /></span><span>Sure Shot</span></a>
         <a class="related-game" href="multiplayer-team-death-match.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/h5hc9ltwjo3sk2g2upo4su465kf1kkgz/512x384.jpg" alt="" width="900" height="900" loading="lazy" decoding="async" /></span><span>Multiplayer Team Death Match</span></a>
         <a class="related-game" href="car-destruction-king.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/car-destruction-king/big_preview/0ca8f4094cfd4826b9888ea1d094bdd7?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span> Car Destruction King</span></a>
-        <a class="related-game" href="1-speed-escape-prison.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/1-speed-escape-prison/big-preview/415c3326c7724e6cae83d74990cc3020?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/32247dbeba054937adf4fe6321dabfb3/orig_length_h320.mp4"></video></span><span>+1 Speed: Escape Prison</span></a>
-        <a class="related-game" href="animerge.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/8g5l1zycbzl4d95ho3kztawxu1cjrz0a/512x384.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async" /></span><span>Animerge</span></a></div>
+        <a class="related-game" href="car-sales-empire-simulator.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/car-sales-empire-simulator/big_preview/c91ce59d4b5248f2b2631185c4ffd384?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span> Car Sales Empire Simulator</span></a>
+        <a class="related-game" href="1-speed-escape-prison.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/1-speed-escape-prison/big-preview/415c3326c7724e6cae83d74990cc3020?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/32247dbeba054937adf4fe6321dabfb3/orig_length_h320.mp4"></video></span><span>+1 Speed: Escape Prison</span></a></div>
       </section>
     </div>
 
@@ -242,6 +242,7 @@
     <a href="/contact-us.html">Contact</a>
   </footer>
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/counter-terror-3d.html#game","name":"Counter Terror 3d","description":"Dive into the action-packed world of Counter Terror, a game that blends the excitement of CS with high-speed car battles. With over 10 types of weapons, 8 dynamic maps, and 4 customizable cars, the adrenaline never stops! Choose your side in thrilling game modes like DeathMatch and Team DeathMatch, and climb the military ranks from a common soldier to the prestigious General, unlocking more powerful weapons with each promotion. Explore the urban chaos in maps like Big City and GTA SA, where you can spawn cars from the garage, turning the battlefield into a vehicular warzone.","url":"https://nikunjprogames.github.io/games/counter-terror-3d.html","image":"https://img.gamemonetize.com/lbj1gbsu0l7j8jdaih6a3yqibr9xtgu2/512x384.jpg","gamePlatform":["Web browser"],"genre":["Shooting"],"keywords":["CSGO"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Shooting Games","item":"https://nikunjprogames.github.io/shooting-games/"},{"@type":"ListItem","position":3,"name":"Counter Terror 3d","item":"https://nikunjprogames.github.io/games/counter-terror-3d.html"}]}]}</script>
+  <script src="/game-loading.js" defer></script>
   <script>
     function toggleGameFullscreen(root) {
       const target = root ? root.querySelector('.game-frame') : null;

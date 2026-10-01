@@ -1,0 +1,72 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "120333",
+          "slug": "the-warlocks-prisoner",
+          "title": "The Warlock's Prisoner",
+          "description": "The Warlock's Prisoner is a dark adventure with elements of horror, survival, and puzzles.\nYou wake up imprisoned, deep within the lair of a mysterious warlock. All around you lies darkness, traps, and an army of zombies. To escape, you'll have to explore dangerous corridors, search for items, gather clues, solve puzzles, and fight for your life.\nWill you escape the lair alive—or will you remain a prisoner of darkness forever?\n\n- Exploration and Puzzles\n- Battles with the Dead\n- Mysterious Looking Glass\n- Atmosphere, Tension, and Story",
+          "howToPlayText": "On a mobile device:\n- Character rotation - swipe from the right side of the screen;\n- Character movement - virtual joystick on the left;\n- Interact with items - tap the icon in the center of the screen;\n- Menu navigation - tap the buttons.\n\nOn a desktop:\n- Character rotation - mouse movement;\n- Character movement - WASD keys;\n- Interact with items - E key or left mouse button;\n- Hint - H key;\n- Inventory - TAB key.",
+          "gameURL": "https://playgama.com/export/game/the-warlocks-prisoner?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/the-warlocks-prisoner",
+          "genres": [
+            "horror",
+            "survival",
+            "adventure",
+            "story",
+            "escape"
+          ],
+          "tags": [
+            "action-adventure",
+            "horror-escape",
+            "survival-horror",
+            "1-player-games",
+            "brain-training-games",
+            "3d-horror",
+            "fps-horror",
+            "dungeon-games",
+            "retro-horror"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/the-warlocks-prisoner/big-preview/7ca7579a0daa42f19382b84c761966c4?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-120333/icon/0a215adb80b2110c753f6dbd6d7fd2ae07a3d1fb0286ed1269747b5b46d9780e?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "0b8656475e8441d392be5e024a514e88",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "0b8656475e8441d392be5e024a514e88",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/the-warlocks-prisoner/big-preview/7ca7579a0daa42f19382b84c761966c4?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/backfill/game-120333/icon/0a215adb80b2110c753f6dbd6d7fd2ae07a3d1fb0286ed1269747b5b46d9780e?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "supportedLanguages": [
+            "en-US",
+            "ru-RU"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/the-warlocks-prisoner?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

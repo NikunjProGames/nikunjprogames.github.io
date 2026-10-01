@@ -1,0 +1,63 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "118428",
+          "slug": "last-night",
+          "title": "LAST NIGHT!",
+          "description": "A Story Line Game about a YOUTUBER struggling to get GOLD PLAY BUTTON but there are something strange happens to his PC and want to take a Survey?\n\n  ●  3 Different Endings.\n  ●  Storyline.\n  ●  High Quality Gameplay.\n  ●  Playtime:   30  - 60 mins! ( Maximum ).\n",
+          "howToPlayText": "  ●  Control:   [ WASD ].\n  ●  Interaction:  [ E ].\n  ●  In-Game tutorial.\n\nThis is a linear game so the game will tell what you need to do!",
+          "gameURL": "https://playgama.com/export/game/last-night?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/last-night",
+          "genres": [
+            "scary",
+            "horror",
+            "story",
+            "keyboard",
+            "adventure"
+          ],
+          "tags": [
+            "choice-games",
+            "1-player-games",
+            "psychological-horror"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/last-night/big-preview/ecab9c788b4a4c678edaccc4bc9e46ea?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-118428/icon/f924aff8ac3ce3dc672704dc2dc21346f94db0c8e8e334185ef5b1823e03a2fa?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "77642c7a0185497ebcfd948210260ea0",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "77642c7a0185497ebcfd948210260ea0",
+          "mobileReady": [
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/last-night/big-preview/ecab9c788b4a4c678edaccc4bc9e46ea?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/backfill/game-118428/icon/f924aff8ac3ce3dc672704dc2dc21346f94db0c8e8e334185ef5b1823e03a2fa?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "supportedLanguages": [
+            "en-US"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/last-night?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Play Ragdoll Crash-Test: Throw and Break! Online | PleyZ</title>
-  <meta name="description" content="«Ragdoll Crash-Test: Throw and Break!» is a casual puzzle game with physics and action destruction, where the challenge is to break a ragdoll stickman and" />
+  <title>Play Ragdoll Crash-Test: Throw and Break! | PleyZ</title>
+  <meta name="description" content="«Ragdoll Crash-Test: Throw and Break! » is a casual puzzle game with physics and action destruction, where the challenge is to break a ragdoll stickman and plunge into a ragdoll simulator!" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <link rel="canonical" href="https://nikunjprogames.github.io/games/ragdoll-crash-test-throw-and-break.html" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Play Ragdoll Crash-Test: Throw and Break! Online | PleyZ" />
-  <meta property="og:description" content="«Ragdoll Crash-Test: Throw and Break!» is a casual puzzle game with physics and action destruction, where the challenge is to break a ragdoll stickman and" />
+  <meta property="og:title" content="Play Ragdoll Crash-Test: Throw and Break! | PleyZ" />
+  <meta property="og:description" content="«Ragdoll Crash-Test: Throw and Break! » is a casual puzzle game with physics and action destruction, where the challenge is to break a ragdoll stickman and plunge into a ragdoll simulator!" />
   <meta property="og:url" content="https://nikunjprogames.github.io/games/ragdoll-crash-test-throw-and-break.html" />
   <meta property="og:site_name" content="PleyZ" />
   <meta property="og:image" content="https://static.playgama.com/p-img/pg/ragdoll-crashtest-throw-and-break/big-preview/806817717e62466a83cb4377d0fa92eb?width=448" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Play Ragdoll Crash-Test: Throw and Break! Online | PleyZ" />
-  <meta name="twitter:description" content="«Ragdoll Crash-Test: Throw and Break!» is a casual puzzle game with physics and action destruction, where the challenge is to break a ragdoll stickman and" />
+  <meta name="twitter:title" content="Play Ragdoll Crash-Test: Throw and Break! | PleyZ" />
+  <meta name="twitter:description" content="«Ragdoll Crash-Test: Throw and Break! » is a casual puzzle game with physics and action destruction, where the challenge is to break a ragdoll stickman and plunge into a ragdoll simulator!" />
   <meta name="twitter:image" content="https://static.playgama.com/p-img/pg/ragdoll-crashtest-throw-and-break/big-preview/806817717e62466a83cb4377d0fa92eb?width=448" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -57,7 +57,7 @@
     .site-brand { color: var(--text); font: 700 0.92rem 'Orbitron', sans-serif; white-space: nowrap; }
     .topbar .actions { display: flex; gap: 8px; flex-wrap: wrap; }
     .game-preferences { display: flex; gap: 6px; }
-    .game-preferences button { width: 36px; height: 36px; border: 1px solid var(--panel-border); border-radius: 7px; background: var(--panel); color: var(--muted); cursor: pointer; }
+    .game-preferences button { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--panel-border); border-radius: 7px; background: var(--panel); color: var(--muted); font-size: 1.1rem; line-height: 1; cursor: pointer; }
     .game-preferences button[aria-pressed="true"], .game-preferences button:hover { border-color: var(--accent); color: var(--accent); }
     .profile-score-link {
       display: inline-flex; align-items: center; gap: 8px;
@@ -159,8 +159,8 @@
       <h1>Ragdoll Crash-Test: Throw and Break!</h1>
       <div class="actions">
         <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="107">
-          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><i class="fa-solid fa-thumbs-up"></i></button>
-          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><i class="fa-solid fa-thumbs-down"></i></button>
+          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><span aria-hidden="true">👍</span></button>
+          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><span aria-hidden="true">👎</span></button>
         </div>
         <a class="profile-score-link" href="../index.html#leaderboard" title="View PleyZ score and leaderboard">
           <span class="profile-score-avatar" id="profile-score-avatar">PZ</span>
@@ -180,18 +180,18 @@
           <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
         </div>
         <div class="game-frame">
-          <iframe src="https://playgama.com/export/game/ragdoll-crashtest-throw-and-break?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487" allowfullscreen loading="lazy" title="Ragdoll Crash-Test: Throw and Break!"></iframe>
+          <iframe src="https://playgama.com/export/game/ragdoll-crashtest-throw-and-break?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487" allowfullscreen loading="eager" title="Ragdoll Crash-Test: Throw and Break!"></iframe>
         </div>
-        
+
       </div>
 
       <section class="info-card related-games" aria-label="Related games">
         <h2>Games You Might Like</h2>
         <div class="related-grid"><a class="related-game" href="basket-random.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/basket-random/preview/fec7a407ebd246d8a893abaf7801622c?width=448" alt="" width="800" height="450" loading="eager" fetchpriority="high" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/cbc801637e5c42c88a4ed95bc33c2564/orig_length_h320.mp4"></video></span><span>Basket Random</span></a>
+        <a class="related-game" href="car-destruction-king.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/car-destruction-king/big_preview/0ca8f4094cfd4826b9888ea1d094bdd7?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span> Car Destruction King</span></a>
         <a class="related-game" href="special-ops-go.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/special-ops/big_preview/379c25433de24d13afadf693d918e11e?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/cca4b40c9b6c4877a294c337ef342280/orig_length_h320.mp4"></video></span><span>Special Ops: GO</span></a>
-        <a class="related-game" href="good-sort-master-triple-match.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/good-sort-master/big-preview/87153c5702e14ce994b208df2c0a5f61?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/bde42b101df64dfd9bbc5fca8bd9cb96/orig_length_h320.mp4"></video></span><span>Good Sort Master: Triple Match</span></a>
-        <a class="related-game" href="1-speed-escape-prison.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/1-speed-escape-prison/big-preview/415c3326c7724e6cae83d74990cc3020?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/32247dbeba054937adf4fe6321dabfb3/orig_length_h320.mp4"></video></span><span>+1 Speed: Escape Prison</span></a>
-        <a class="related-game" href="beam-drive-car-crash-test-simulator.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/backfill/game-86496/preview/57449a8aeb08b058814fb911b0c15014c583f10801e7fa2f4c986e6743c4913c?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Beam Drive Car Crash Test Simulator</span></a></div>
+        <a class="related-game" href="backrooms-exit-protocol-0.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/backrooms-exit-protocol-0/big_preview/4f691ad7fdbb4ec3a0a45c781c0feea7?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Backrooms: Exit Protocol 0</span></a>
+        <a class="related-game" href="good-sort-master-triple-match.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/good-sort-master/big-preview/87153c5702e14ce994b208df2c0a5f61?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/bde42b101df64dfd9bbc5fca8bd9cb96/orig_length_h320.mp4"></video></span><span>Good Sort Master: Triple Match</span></a></div>
       </section>
     </div>
 
@@ -242,6 +242,7 @@
     <a href="/contact-us.html">Contact</a>
   </footer>
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/ragdoll-crash-test-throw-and-break.html#game","name":"Ragdoll Crash-Test: Throw and Break!","description":"«Ragdoll Crash-Test: Throw and Break!» is a casual puzzle game with physics and action destruction, where the challenge is to break a ragdoll stickman and plunge into a ragdoll simulator! Dive into a world of chaotic destruction and fun with the game «Ragdoll Crash-Test: Throw and Break!». Throw your stickman and smash it to pieces. The game in the best traditions of Ragdoll physics will give you hours of fun, where every hit and every fall turns into a show of destruction! Ready to cope with the challenges? Complete all the tests, smash and break!","url":"https://nikunjprogames.github.io/games/ragdoll-crash-test-throw-and-break.html","image":"https://static.playgama.com/p-img/pg/ragdoll-crashtest-throw-and-break/big-preview/806817717e62466a83cb4377d0fa92eb?width=448","gamePlatform":["Web browser"],"genre":["Action"],"keywords":["action","ragdoll","2d-games","destruction-games","addictive-games","crash-games","desktop-games","1-player-games","simple-games","throwing-games","borwser-games","unity-games-online"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Action Games","item":"https://nikunjprogames.github.io/action-games/"},{"@type":"ListItem","position":3,"name":"Ragdoll Crash-Test: Throw and Break!","item":"https://nikunjprogames.github.io/games/ragdoll-crash-test-throw-and-break.html"}]}]}</script>
+  <script src="/game-loading.js" defer></script>
   <script>
     function toggleGameFullscreen(root) {
       const target = root ? root.querySelector('.game-frame') : null;

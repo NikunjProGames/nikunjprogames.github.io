@@ -1,0 +1,81 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "99617",
+          "slug": "aod--art-of-defense",
+          "title": "AOD - Art Of Defense",
+          "description": "AOD - Art Of Defense is a dynamic tower defense game with elements of strategy and RPG in a post-apocalyptic world.",
+          "howToPlayText": "AOD - Art Of Defense is a dynamic tower defense game set in a post-apocalyptic world. As the commander of the A.O.D squad, you lead the fight against the ruthless cutthroats of Mr. Evil, who are seeking to find the lost Project Inola. With stunning isometric graphics, build your tech kingdoms and thwart the destructive ambitions of your enemy. Can you save humanity or will you succumb to darkness?\n\nGame Features:\n\n* Dynamic battles to keep you engaged.\n* Elements of tower defense, RPG, and tactical strategy.\n* Over 500 sectors for real-time battles.\n* Various locations from small villages to huge metropolises.\n* New tower defense modes: escape, fog, survival.\n* Over 1000 unique upgrades for towers (tanks, miniguns, AA, etc.)\n* 6 unique heroes to explore and level up.\n* Nuclear bombs, ion satellite attacks, ballistic barrages, and more.\n* Hundreds of upgrade cards for each tower.\n\n\nBuild towers! Protect your base! Use tanks, machine guns, and rockets (even nuclear). Upgrade and use heroes. Fight powerful enemies and formidable bosses! Protect your base and save the world!\n\nUse the left mouse button to place a tower.\nUse the scroll wheel/pinch to zoom on a touchpad to zoom in or out.",
+          "gameURL": "https://playgama.com/export/game/aod--art-of-defense?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/aod--art-of-defense",
+          "genres": [
+            "cool-games",
+            "tower-defense",
+            "strategy",
+            "mobile",
+            "popular",
+            "boys"
+          ],
+          "tags": [
+            "unity-games-online",
+            "gam-supported-games",
+            "defense-games",
+            "tactical-games",
+            "apocalypse-games",
+            "military-games",
+            "isometric-games",
+            "top-down-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/aod--art-of-defense/big_preview/748d6b91ce3c4a309fd6df323115b434?width=448",
+            "https://static.playgama.com/p-img/pg/aod--art-of-defense/icon/01ed7544e47a43fc9daffd45b0d23c26?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "85dab689ee56444196a4391ca16773de",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "85dab689ee56444196a4391ca16773de",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/aod--art-of-defense/big_preview/748d6b91ce3c4a309fd6df323115b434?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/aod--art-of-defense/icon/01ed7544e47a43fc9daffd45b0d23c26?width=448",
+          "inGamePurchases": "Yes",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "supportedLanguages": [
+            "en-US",
+            "es-ES",
+            "ja-JP",
+            "it-IT",
+            "fr-FR",
+            "pt-PT",
+            "ar-EG",
+            "id-ID",
+            "de-DE",
+            "ru-RU",
+            "zh-CN",
+            "tr-TR"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/aod--art-of-defense?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

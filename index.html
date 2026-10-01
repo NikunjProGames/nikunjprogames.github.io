@@ -1625,11 +1625,11 @@ animate();
      HEADER
 ============================================================ -->
 <header>
-  <a href="#home" class="logo">PleyZ</a>
+  <a href="#trending" class="logo">PleyZ</a>
 
   <nav id="main-nav">
     <ul>
-      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#trending" class="active">Home</a></li>
       <li><a href="#games">Games</a></li>
       <li><a href="#about">About</a></li>
     </ul>
@@ -1642,8 +1642,8 @@ animate();
       </button>
       <div class="recent-panel" id="recent-panel" data-open="false">
         <div class="recent-panel-header">
-          <span>Recent games</span>
-          <button type="button" class="close-panel" onclick="toggleRecentPanel(false)" aria-label="Close recent games"><i class="fas fa-times"></i></button>
+          <span id="recent-panel-title">Recent games</span>
+          <button type="button" class="close-panel" onclick="toggleRecentPanel(false)" aria-label="Close games panel"><i class="fas fa-times"></i></button>
         </div>
         <div id="recent-list" class="recent-list"></div>
         <div class="recent-empty">No recent games yet. Play a game to add it here.</div>
@@ -1663,43 +1663,17 @@ animate();
 </header>
 
 <nav class="mobile-bottom-nav" aria-label="Mobile navigation">
-  <button type="button" class="mobile-nav-item active" onclick="mobileNavGo('home', this)">
+  <button type="button" class="mobile-nav-item active" onclick="mobileNavGo('trending', this)">
     <i class="fas fa-house"></i><span>Home</span>
   </button>
   <button type="button" class="mobile-nav-item" onclick="mobileNavSearch(this)">
     <i class="fas fa-search"></i><span>Search</span>
   </button>
-  <button type="button" class="mobile-nav-item" onclick="mobileNavRecent(this)">
-    <i class="fas fa-bookmark"></i><span>My Games</span>
-  </button>
+  <a class="mobile-nav-item" href="/liked-games.html"><i class="fas fa-heart" aria-hidden="true"></i><span>Liked Games</span></a>
   <button type="button" class="mobile-nav-item" id="mobile-auth-action" onclick="mobileNavAuth(this)">
     <i class="fas fa-user"></i><span>Login</span>
   </button>
 </nav>
-
-<!-- ============================================================
-     HERO SECTION
-============================================================ -->
-<section id="home">
-  <div class="hero-rings">
-    <div class="ring ring-1"></div>
-    <div class="ring ring-2"></div>
-    <div class="ring ring-3"></div>
-  </div>
-  <div class="hero-content fade-in">
-
-    <h1 class="hero-title">PleyZ: Games Worth Playing</h1>
-    <p class="hero-tagline">A sharp, curated universe of browser games. Find your next favorite and <span>jump straight in.</span></p>
-    <a class="hero-explore" href="#trending">Explore what's trending <i class="fas fa-arrow-down" aria-hidden="true"></i></a>
-  </div>
-</section>
-
-<!-- Ad Banner 1 -->
-<div class="ad-wrap" id="top-ad">
-  <div class="ad-banner">
-    <span>[ Advertisement ]</span>
-  </div>
-</div>
 
 <!-- ============================================================
      TRENDING SECTION
@@ -1707,17 +1681,20 @@ animate();
 <section id="trending">
   <div class="trending-intro">
     <div>
-      <div class="section-title">Trending Games</div>
+      <div class="section-title">Your Next Pick</div>
       <div class="section-underline"></div>
     
     </div>
-    <div class="trending-badge"><i class="fas fa-bolt"></i> Live • 24/7 hits</div>
+    <div class="trending-badge"><i class="fas fa-bolt"></i> Popular on PleyZ</div>
   </div>
-
-  <div class="trending-scroll-wrap" id="trending-scroll">
-    <div class="trending-row" id="trending-row">
-      <!-- Trending cards injected by JS -->
+  <div class="trending-slider">
+    <button class="trending-arrow trending-arrow-previous" id="trending-previous" type="button" data-trending-direction="-1" aria-label="Show previous games" title="Previous games"><span aria-hidden="true">←</span></button>
+    <div class="trending-scroll-wrap" id="trending-scroll">
+      <div class="trending-row" id="trending-row">
+        <!-- Trending cards injected by JS -->
+      </div>
     </div>
+    <button class="trending-arrow trending-arrow-next" id="trending-next" type="button" data-trending-direction="1" aria-label="Show next games" title="Next games"><span aria-hidden="true">→</span></button>
   </div>
 </section>
 
@@ -1733,11 +1710,11 @@ animate();
   <div class="games-grid discovery-grid" id="recommended-grid" aria-live="polite"></div>
 </section>
 
-<section id="popular-games" aria-labelledby="popular-games-heading">
-  <div class="section-title" id="popular-games-heading">Popular on PleyZ</div>
+<section id="popular-country" aria-labelledby="popular-country-heading">
+  <div class="section-title" id="popular-country-heading">Popular in <span id="popular-country-name">your country</span> <span id="popular-country-flag" aria-hidden="true"></span></div>
   <div class="section-underline"></div>
-  <p class="discovery-copy">Trending picks for logged-out players and anyone looking beyond their usual genres.</p>
-  <div class="games-grid discovery-grid" id="popular-grid"></div>
+  <p class="discovery-copy">Popular games from PleyZ's current player trends.</p>
+  <div class="games-grid discovery-grid country-feature-grid" id="popular-country-grid"></div>
 </section>
 
 <!-- ============================================================
@@ -1787,6 +1764,9 @@ animate();
 
   <div class="games-grid" id="games-grid">
     <!-- Cards injected by JS -->
+  </div>
+  <div class="load-more-wrap">
+    <button class="load-more-button" id="load-more-games" type="button">Load More</button>
   </div>
 
 
@@ -1865,9 +1845,13 @@ animate();
 </style>
 
 <section id="about" class="pleyz-about-section" aria-labelledby="about-heading">
-  <h2 id="about-heading">Free Online Browser Games on PleyZ</h2>
-  <p>PleyZ is a curated online gaming platform where you can discover and play free browser games. Explore action, arcade, puzzle, racing, strategy, simulation, and multiplayer games, then open supported titles directly in your browser.</p>
-  <p>Browse our game categories to find your next favorite. Sign in to save game preferences and track eligible play with PleyZ Score. Games are provided by their developers and may have individual device, loading, or advertising requirements.</p>
+  <h2 id="about-heading">About PleyZ</h2>
+  <p>PleyZ is a browser-gaming destination built around one simple idea: finding a game should be as enjoyable as playing it. The homepage brings together current picks, popular games, and a searchable library, with categories that make it easier to move between different kinds of play. Whether you have a few minutes for a quick arcade round or want to explore a longer adventure, you can browse at your own pace and open games directly from your browser.</p>
+  <p>The library spans action, arcade, puzzle, racing, sports, strategy, simulation, casual, and multiplayer experiences. Game pages include the details available for each title, such as controls, instructions, and related games, so you can decide what to try before launching. Many games can be played without downloading a separate app; individual titles may have their own requirements, loading times, advertisements, or device limitations.</p>
+  <p>PleyZ also includes optional account features. Players can save game preferences, track eligible activity through PleyZ Score, and see personalized recommendations informed by their play history. These tools are meant to make it easier to return to favorites and discover something new. You can still browse the catalog whether or not you sign in.</p>
+  <p>PleyZ is independently developed and continues to evolve. The collection and discovery tools change as games are added and features improve. Players can explore the categories to find a next pick, while browser-game developers can use the submission link to share work for consideration. The goal is a clear, accessible place to discover worthwhile games and get into the action without unnecessary friction.</p>
+  <p>Because it is not just about a list of games, its an experience. We find the hidden gems waiting to be played not the games that everyone has but the games That are <strong>Worth Playing</strong></p>
+  <p>For More Information, please visit our <a href="about-us.html">About Us</a> page.</p>
 </section>
 
 
@@ -1890,9 +1874,10 @@ animate();
     <div class="footer-links">
       <h4>Navigation</h4>
       <ul>
-        <li><a href="#home">Home</a></li>
+        <li><a href="#trending">Home</a></li>
         <li><a href="#games">Games</a></li>
         <li><a href="#leaderboard">Leaderboard</a></li>
+        <li><a href="/liked-games.html">Liked Games</a></li>
         <li><button class="footer-auth-button" id="footer-auth-button" type="button" onclick="openLoginModal()">Login</button></li>
         <li><a href="about-us.html">About</a></li>
       </ul>
@@ -1914,6 +1899,11 @@ animate();
     &copy; 2026 PleyZ. All Rights Reserved.
   </div>
 </footer>
+
+<div class="game-launch-loader" id="game-launch-loader" role="status" aria-live="polite" hidden>
+  <span class="game-launch-spinner" aria-hidden="true"></span>
+  <span>Opening game...</span>
+</div>
 
 <!-- LOGIN MODAL -->
 <div class="modal-overlay" id="login-modal">
@@ -2455,6 +2445,106 @@ const GAMES = [
     ],
     tags: "horror, adventure, running, survival, puzzle, monster, escape, scary, 1-player-games, 3d-horror, backrooms, horror-escape, survival-horror, webgl-games, desktop-games, action-adventure, brain-training-games",
     iframeUrl: "/games/backrooms-exit-protocol-0.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
+    {
+    id: 130,
+    name: "Far Orion: New worlds",
+    cat: "strategy",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/far-orion-new-worlds/big-preview/fcd5f2452bba4a86ae4d6176d707c03c?width=448",
+    width: "800",
+    height: "450",
+    description: "The year is 2121. Technology has advanced far beyond the bounds of our wildest fantasies, but great progress demands great sacrifice... \nExplore other worlds in the search for treasure and limitless power! \nCommand a team of brave heroes and lead your world to victory!  \nGame features: \n- several dozen unique heroes and battle cards \n- dozens of missions on every world \n- no irritating ads \n- PvP arena \n- tower mode \n- clans and clan wars\n[Core Gameplay & Story]\n\nQ: What is the game about? What do you need to do?\nA: It's an action strategy game where you complete levels (missions) and fight enemies.\n\nQ: Does the game have a storyline?\nA: Yes, there is a story. It's a sci-fi setting in the year 2121 with advanced technology, but something went wrong, and the heroes want to save the world.\n\nQ: What is the game's unique selling point? What can hook players?\nA: There are many different heroes with an upgrade system, a large number of missions, a PvP arena, a leaderboard, and clan wars. You can also upgrade attack cards.\n\nQ: What are the engaging content elements (weapons, vehicles, locations, skills, references to famous franchises, etc.)?\nA: A huge variety of heroes, many different and interesting abilities for these heroes, an engaging story, clear objectives, and simple in-game mechanics.\n\n[Mechanics & Progression]\n\nQ: Are there bosses and how do they differ?\nA: There are bosses throughout the storyline, and they differ in design, attack types, and HP amount.\n\nQ: How exactly does progression work? What should you do to level up faster?\nA: To level up faster, you need to play well to earn enough in-game currency. The game is easy to play.\n\nQ: Are there mini-games within the main story? For example, 'match-three' puzzles within the strategy game.\nA: No.\n\n[Economy & Customization]\n\nQ: What are the currencies and what are they spent on (standard - gold, premium - crystals, etc.)?\nA: Money is spent on upgrading heroes, upgrading cards, and buying hero cards to unlock them.\n\nQ: Are there in-game purchases? What can you buy and what does it affect? Does spending money speed up game progress?\nA: Yes, microtransactions will speed up game progress, as you can buy in-game currency with real money and spend that currency on upgrades and cards.\n\nQ: Is there customization in the game? Can you customize a hero's appearance, location editor, vehicle tuning, etc.?\nA: You can only upgrade the heroes' levels and abilities, which also changes their appearance.\n\n[Retention & Engagement]\n\nQ: Are there leaderboards? How do you get on them? What types are there (weekly, monthly, all-time, etc.)?\nA: There are various leaderboards depending on the different game modes, as well as a clan leaderboard. You need to play and gain levels.\n\nQ: Are there daily rewards or something similar that encourages the player to return?\nA: Yes, logging into the game every day provides various bonuses: cards, chests, and in-game currency.\n\nQ: Is it advisable to play with sound to better immerse yourself in the atmosphere, or will playing without sound cause difficulties?\nA: The music is good and complements the game, but it is not essential for completing the game.\n\nQ: Is there an achievement system? What are they and what can you get them for?\nA: Achievements are awarded for daily logins, reaching a certain level in a specific mode, and completing certain objectives, such as collecting 6 heroes in total. Rewards include chests, in-game currency, and cards.",
+    instructions: "Gather a squad of heroes and a deck of cards and complete missions. \nUse the money you receive to unlock new heroes and upgrade your cards.  \n\nWhich heroes should I take into battle? \n- those that complement each other and are stronger together, like a healer and a tank.  \nWhat cards should I fight with?\n- those that can strengthen your squad of heroes, or basic cards for healing and damage to enemies\n How do I earn gold?\n- by completing missions and daily quests, and fighting in the tower and the aren",
+    categories: [
+      "strategy"
+    ],
+    tags: "strategy, rpg, action, story, adventure, pve, video, sci-fi-games, arena-games, action-rpg, combat-games, competitive-games, fantasy-games, collecting-games, gam-supported-games, action-adventure, mmo-games, sandbox-games",
+    iframeUrl: "/games/far-orion-new-worlds.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
+  {
+    id: 131,
+    name: "LAST NIGHT!",
+    cat: "scary",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/last-night/big-preview/ecab9c788b4a4c678edaccc4bc9e46ea?width=448",
+    width: "800",
+    height: "450",
+    description: "A Story Line Game about a YOUTUBER struggling to get GOLD PLAY BUTTON but there are something strange happens to his PC and want to take a Survey?\n\n  ●  3 Different Endings.\n  ●  Storyline.\n  ●  High Quality Gameplay.\n  ●  Playtime:   30  - 60 mins! ( Maximum ).\n",
+    instructions: "  ●  Control:   [ WASD ].\n  ●  Interaction:  [ E ].\n  ●  In-Game tutorial.\n\nThis is a linear game so the game will tell what you need to do!",
+    categories: [
+      "scary"
+    ],
+    tags: "scary, horror, story, keyboard, adventure, choice-games, 1-player-games, psychological-horror",
+    iframeUrl: "/games/last-night.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
+  {
+    id: 132,
+    name: "The Warlock's Prisoner",
+    cat: "horror",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/the-warlocks-prisoner/big-preview/7ca7579a0daa42f19382b84c761966c4?width=448",
+    width: "800",
+    height: "450",
+    description: "The Warlock's Prisoner is a dark adventure with elements of horror, survival, and puzzles.\nYou wake up imprisoned, deep within the lair of a mysterious warlock. All around you lies darkness, traps, and an army of zombies. To escape, you'll have to explore dangerous corridors, search for items, gather clues, solve puzzles, and fight for your life.\nWill you escape the lair alive—or will you remain a prisoner of darkness forever?\n\n- Exploration and Puzzles\n- Battles with the Dead\n- Mysterious Looking Glass\n- Atmosphere, Tension, and Story",
+    instructions: "On a mobile device:\n- Character rotation - swipe from the right side of the screen;\n- Character movement - virtual joystick on the left;\n- Interact with items - tap the icon in the center of the screen;\n- Menu navigation - tap the buttons.\n\nOn a desktop:\n- Character rotation - mouse movement;\n- Character movement - WASD keys;\n- Interact with items - E key or left mouse button;\n- Hint - H key;\n- Inventory - TAB key.",
+    categories: [
+      "horror"
+    ],
+    tags: "horror, survival, adventure, story, escape, action-adventure, horror-escape, survival-horror, 1-player-games, brain-training-games, 3d-horror, fps-horror, dungeon-games, retro-horror",
+    iframeUrl: "/games/the-warlock-s-prisoner.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
+  {
+    id: 133,
+    name: " Car Sales Empire Simulator",
+    cat: "simulation",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/car-sales-empire-simulator/big_preview/c91ce59d4b5248f2b2631185c4ffd384?width=448",
+    width: "800",
+    height: "450",
+    description: "Step into the dynamic realm of Car Sales Empire Simulator, where you can build a successful automotive business. Master car trading and repairs, hone your strategy, and enjoy smooth gameplay on any device while fostering your enterprise and enjoying thrilling negotiations.\n\nControls:\nDesktop: WASD, arrow keys, click mouse to select an option, C to crouch.  \nMobile: built-in joystick, tap to select an option.\n\nGame Modes:\n• Graphics: Low: A less resource-intensive mode for the device, with fewer details, nuances, and volume in light-shadow rendering.  \n• Graphics: High: A deeper contrast of light and shadow, more details, and greater load on the device.\n\nCore Gameplay & Story  \nQ: What is the goal of the game?  \nA: Buy cars and upgrade them to sell later. The higher the sales, the more opportunities arise. It's a great chance to showcase creativity by choosing designs and tuning, improve your online driving skills by maneuvering cars through the city without accidents, and develop the best sales strategy to expand your dealership.\n\nQ: What grabs your attention in the first few minutes?  \nA: The atmosphere of the city, the ability to not just move between locations but to weave through the hustle of urban traffic, and the vast opportunities for growth and creativity captivate from the very start.\n\nMechanics & Progression  \nQ: What opens up as you progress in the game?  \nA: As you play, more opportunities arise to purchase more expensive cars and parts. There’s always a chance to find a true rare gem of the automotive industry.\n\nQ: How can you level up faster?  \nA: Lower the price when buying to maximize your profit from deals.\n\nEconomy & Customization  \nQ: What is available from the very start?  \nA: Buying your first car is easy! 7000 in-game dollars await you upon your first launch. Don’t forget to keep a little reserve for tuning.\n\nRetention & Engagement  \nQ: Is there onboarding in the game? What does it include?  \nA: The onboarding guides you through all the necessary scenarios, immersing you in the game in a careful and clear manner.\n\nQ: Are there daily quests / a wheel of fortune / achievements / tasks?  \nA: Complete quests and earn rewards in the form of in-game dollars to buy the most interesting cars faster.",
+    instructions: "Buy cars at markets, bargain and resell cars to earn more money and develop better!\n\nWASD - control the car and the character\nC - change camera\nTab - pause\nSpacebar - handbrake\nF - get in the car\nEnter - get out of the car",
+    categories: [
+      "simulation"
+    ],
+    tags: "simulation, unity-games-online, business-games, desktop-games, borwser-games",
+    iframeUrl: "/games/car-sales-empire-simulator.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
+  {
+    id: 134,
+    name: "AOD - Art Of Defense",
+    cat: "cool games",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/aod--art-of-defense/big_preview/748d6b91ce3c4a309fd6df323115b434?width=448",
+    width: "800",
+    height: "450",
+    description: "AOD - Art Of Defense is a dynamic tower defense game with elements of strategy and RPG in a post-apocalyptic world.",
+    instructions: "AOD - Art Of Defense is a dynamic tower defense game set in a post-apocalyptic world. As the commander of the A.O.D squad, you lead the fight against the ruthless cutthroats of Mr. Evil, who are seeking to find the lost Project Inola. With stunning isometric graphics, build your tech kingdoms and thwart the destructive ambitions of your enemy. Can you save humanity or will you succumb to darkness?\n\nGame Features:\n\n* Dynamic battles to keep you engaged.\n* Elements of tower defense, RPG, and tactical strategy.\n* Over 500 sectors for real-time battles.\n* Various locations from small villages to huge metropolises.\n* New tower defense modes: escape, fog, survival.\n* Over 1000 unique upgrades for towers (tanks, miniguns, AA, etc.)\n* 6 unique heroes to explore and level up.\n* Nuclear bombs, ion satellite attacks, ballistic barrages, and more.\n* Hundreds of upgrade cards for each tower.\n\n\nBuild towers! Protect your base! Use tanks, machine guns, and rockets (even nuclear). Upgrade and use heroes. Fight powerful enemies and formidable bosses! Protect your base and save the world!\n\nUse the left mouse button to place a tower.\nUse the scroll wheel/pinch to zoom on a touchpad to zoom in or out.",
+    categories: [
+      "cool games"
+    ],
+    tags: "cool-games, tower-defense, strategy, mobile, popular, boys, unity-games-online, gam-supported-games, defense-games, tactical-games, apocalypse-games, military-games, isometric-games, top-down-games",
+    iframeUrl: "/games/aod-art-of-defense.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -3491,15 +3581,20 @@ function rankGamesForUser(games) {
   });
 }
 
-const GAMES_PER_BATCH = 12;
+const GAMES_PER_BATCH = 24;
 let currentGameBatch = 0;
 let currentFilteredGames = [];
-let gamesObserver = null;
+let currentGameFilter = 'all';
 
 function renderGames(filter = 'all', reset = true) {
   const grid = document.getElementById('games-grid');
   if (!grid) return;
   bindGameGrid(grid);
+  const loadMoreButton = document.getElementById('load-more-games');
+  if (loadMoreButton && loadMoreButton.dataset.eventsBound !== 'true') {
+    loadMoreButton.dataset.eventsBound = 'true';
+    loadMoreButton.addEventListener('click', () => renderGames(currentGameFilter, false));
+  }
 
   const searchValue =
     document.getElementById('game-search')?.value.trim().toLowerCase() || '';
@@ -3507,6 +3602,8 @@ function renderGames(filter = 'all', reset = true) {
   // Recalculate the filtered game list when starting a new render
   if (reset) {
     currentGameBatch = 0;
+    currentGameFilter = filter;
+    if (loadMoreButton) loadMoreButton.hidden = true;
 
     currentFilteredGames = rankGamesForUser(GAMES.filter(g => {
       const categories = getGameCategories(g);
@@ -3521,12 +3618,6 @@ function renderGames(filter = 'all', reset = true) {
     }));
 
     grid.innerHTML = '';
-
-    // Disconnect old observer
-    if (gamesObserver) {
-      gamesObserver.disconnect();
-      gamesObserver = null;
-    }
   }
 
   if (!currentFilteredGames.length) {
@@ -3534,6 +3625,7 @@ function renderGames(filter = 'all', reset = true) {
       `<div class="no-results">
         No games match your search. Try a different keyword or category.
       </div>`;
+    if (loadMoreButton) loadMoreButton.hidden = true;
     return;
   }
 
@@ -3551,37 +3643,15 @@ function renderGames(filter = 'all', reset = true) {
   grid.appendChild(fragment);
 
   currentGameBatch++;
-
-  // If there are more games, create a loading trigger
-  if (end < currentFilteredGames.length) {
-    const loader = document.createElement('div');
-
-    loader.id = 'games-loader';
-    loader.style.height = '1px';
-    loader.style.width = '100%';
-
-    grid.appendChild(loader);
-
-    gamesObserver = new IntersectionObserver(entries => {
-      if (entries[0].isIntersecting) {
-        loader.remove();
-        gamesObserver.disconnect();
-        renderGames(filter, false);
-      }
-    }, {
-      rootMargin: '500px'
-    });
-
-    gamesObserver.observe(loader);
-  }
+  if (loadMoreButton) loadMoreButton.hidden = end >= currentFilteredGames.length;
 }
 const PLAY_MOODS = {
-  intense: { label: 'Intense', terms: ['action', 'shooting', 'fighting', 'survival', 'fps', 'battle', 'combat'] },
-  think: { label: 'Make Me Think', terms: ['puzzle', 'strategy', 'logic', 'brain', 'chess'] },
-  tired: { label: "I'm Tired", terms: ['chill', 'casual', 'simulation', 'relax', 'easy'] },
-  chaos: { label: 'Something Chaotic', terms: ['io', 'arcade', 'multiplayer', 'crowd', 'chaos'] },
-  challenge: { label: 'Challenge Me', terms: ['skill', 'parkour', 'racing', 'sports', 'hard', 'challenge'] },
-  weird: { label: 'Something Weird', terms: ['weird', 'experimental', 'simulation', 'adventure', 'odd'] },
+  intense: { label: 'Intense', terms: ['action', 'shooter', 'shooting', 'fighting', 'combat', 'survival', 'battle', 'fps', 'horror', 'war'], exclude: ['casual', 'cozy', 'chill', 'relax', 'idle', 'merge', 'dress up', 'simulation', 'puzzle'] },
+  think: { label: 'Make Me Think', terms: ['puzzle', 'strategy', 'logic', 'brain', 'chess', 'quiz', 'trivia', 'word', 'mahjong', 'checkers'], exclude: ['shooter', 'shooting', 'combat', 'racing'] },
+  tired: { label: "I'm Tired", terms: ['casual', 'cozy', 'chill', 'relax', 'idle', 'merge', 'dress up', 'simulation', 'easy', 'cooking', 'tycoon'], exclude: ['action', 'shooter', 'shooting', 'fighting', 'combat', 'survival', 'battle', 'fps', 'horror', 'war'] },
+  chaos: { label: 'Something Chaotic', terms: ['io', 'arcade', 'multiplayer', 'crowd', 'chaos', 'ragdoll', 'party', 'race'], exclude: ['cozy', 'relax', 'idle'] },
+  challenge: { label: 'Challenge Me', terms: ['skill', 'parkour', 'racing', 'sports', 'hard', 'challenge', 'precision', 'reflex'], exclude: ['idle', 'cozy', 'relax'] },
+  weird: { label: 'Something Weird', terms: ['weird', 'experimental', 'physics', 'brainrot', 'odd', 'meme', 'bizarre'], exclude: ['cozy', 'relax', 'idle'] },
   surprise: { label: 'Surprise Me', terms: [] }
 };
 
@@ -3607,10 +3677,8 @@ function getSurpriseHistory(username) {
 
 function renderRecommendedGames() {
   const grid = document.getElementById('recommended-grid');
-  const popularGrid = document.getElementById('popular-grid');
-  if (!grid || !popularGrid) return;
+  if (!grid) return;
   bindGameGrid(grid);
-  bindGameGrid(popularGrid);
 
   const username = getCurrentUser();
   const recent = username ? getRecentGamesForUser(username) : [];
@@ -3644,15 +3712,18 @@ function renderRecommendedGames() {
     const categories = getGameCategories(game);
     const dna = getGameTags(game).map(tag => String(tag).toLowerCase());
     const preference = preferences[game.id];
-    const text = `${game.name} ${categories.join(' ')} ${dna.join(' ')}`.toLowerCase();
-    const moodMatch = !mood?.terms.length || mood.terms.some(term => text.includes(term));
+    const text = ` ${`${game.name} ${categories.join(' ')} ${dna.join(' ')}`.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim()} `;
+    const matchesMoodTerm = terms => terms.some(term => text.includes(` ${term.toLowerCase()} `));
+    const moodMatch = !mood?.terms.length || (
+      matchesMoodTerm(mood.terms) && !matchesMoodTerm(mood.exclude || [])
+    );
     let score = 0;
     categories.forEach(category => { score += categoryAffinity.get(category) || 0; });
     dna.forEach(tag => { score += (dnaAffinity.get(tag) || 0) * 0.35; });
     if (preference === 'like') score += 2.5;
     if (preference === 'dislike') score -= 30;
     if (trendingRank.has(game.id)) score += Math.max(0.4, 2 - trendingRank.get(game.id) * 0.18);
-    if (previouslyShown.has(game.id)) score -= 0.65;
+    if (previouslyShown.has(game.id)) score -= mood ? 4 : 0.65;
     if (recent.some(entry => entry.id === game.id)) score -= 2.5;
     if (moodKey === 'surprise' && surpriseHistory.has(game.id)) score -= 1.8;
     if (mood?.terms.length) score += moodMatch ? 5 : -1.5;
@@ -3661,7 +3732,7 @@ function renderRecommendedGames() {
   }).filter(item => preferences[item.game.id] !== 'dislike');
 
   const matchingMoodGames = mood?.terms.length ? ranked.filter(item => item.moodMatch) : [];
-  const recommendationPool = matchingMoodGames.length >= 10 ? matchingMoodGames : ranked;
+  const recommendationPool = mood?.terms.length ? matchingMoodGames : ranked;
   const recommendations = [];
   const categoryUse = new Map();
   while (recommendationPool.length && recommendations.length < 14) {
@@ -3690,18 +3761,89 @@ function renderRecommendedGames() {
   }
 
   const recommendationFragment = document.createDocumentFragment();
-  recommendations.forEach(game => recommendationFragment.appendChild(createGameTile(game)));
+  if (mood?.terms.length && !recommendations.length) {
+    const empty = document.createElement('div');
+    empty.className = 'no-results';
+    empty.textContent = `No clearly tagged ${mood.label.toLowerCase()} games yet. Try another mood.`;
+    recommendationFragment.appendChild(empty);
+  } else {
+    recommendations.forEach((game, index) => {
+      const card = createGameTile(game);
+      if (index === 0) card.classList.add('pick-featured');
+      recommendationFragment.appendChild(card);
+    });
+  }
   grid.replaceChildren(recommendationFragment);
   try {
     const shown = new Set([...previouslyShown, ...recommendations.map(game => game.id)]);
     sessionStorage.setItem('pleyz_recommendations_shown', JSON.stringify([...shown].slice(-80)));
   } catch (_) {}
+}
 
-  const popularGames = [...new Set(TRENDING.map(entry => entry.id))]
-    .map(id => GAMES.find(game => game.id === id)).filter(Boolean).slice(0, 10);
-  const popularFragment = document.createDocumentFragment();
-  popularGames.forEach(game => popularFragment.appendChild(createGameTile(game)));
-  popularGrid.replaceChildren(popularFragment);
+function renderPopularCountryGames() {
+  const grid = document.getElementById('popular-country-grid');
+  if (!grid) return;
+  bindGameGrid(grid);
+  const featuredGames = TRENDING
+    .map(entry => GAMES.find(game => game.id === entry.id))
+    .filter((game, index, games) => game && games.findIndex(item => item.id === game.id) === index)
+    .slice(0, 16);
+  const featuredIds = new Set(featuredGames.map(game => game.id));
+  featuredGames.push(...GAMES.filter(game => !featuredIds.has(game.id)).slice(0, 16 - featuredGames.length));
+  const fragment = document.createDocumentFragment();
+  featuredGames.forEach((game, index) => {
+    const card = createGameTile(game);
+    if (index === 0) card.classList.add('country-featured');
+    if (index === 1) card.classList.add('country-wide');
+    fragment.appendChild(card);
+  });
+  grid.replaceChildren(fragment);
+}
+
+function renderPopularCountryLabel(countryName, countryCode) {
+  const name = document.getElementById('popular-country-name');
+  const flag = document.getElementById('popular-country-flag');
+  const code = String(countryCode || '').toUpperCase();
+  if (!name || !flag || !/^[A-Z]{2}$/.test(code) || !countryName) return;
+  name.textContent = countryName;
+  flag.textContent = String.fromCodePoint(...[...code].map(character => 127397 + character.charCodeAt(0)));
+}
+
+function updatePopularCountryHeading() {
+  const cacheKey = 'pleyz_country_display';
+  const cacheDuration = 24 * 60 * 60 * 1000;
+  try {
+    const cached = JSON.parse(localStorage.getItem(cacheKey) || 'null');
+    if (cached && Date.now() - cached.savedAt < cacheDuration) {
+      renderPopularCountryLabel(cached.name, cached.code);
+      return;
+    }
+  } catch (_) {}
+
+  try {
+    const region = new Intl.Locale(navigator.language).region;
+    if (region && /^[A-Z]{2}$/.test(region)) {
+      const countryName = new Intl.DisplayNames([navigator.language], { type: 'region' }).of(region);
+      renderPopularCountryLabel(countryName, region);
+    }
+  } catch (_) {}
+
+  const controller = new AbortController();
+  const timeout = window.setTimeout(() => controller.abort(), 3000);
+  fetch('https://ipapi.co/json/', { signal: controller.signal })
+    .then(response => {
+      if (!response.ok) throw new Error('Country lookup failed');
+      return response.json();
+    })
+    .then(location => {
+      const countryName = String(location.country_name || '').trim();
+      const countryCode = String(location.country_code || '').toUpperCase();
+      if (!countryName || countryName.length > 80 || !/^[A-Z]{2}$/.test(countryCode)) return;
+      renderPopularCountryLabel(countryName, countryCode);
+      try { localStorage.setItem(cacheKey, JSON.stringify({ name: countryName, code: countryCode, savedAt: Date.now() })); } catch (_) {}
+    })
+    .catch(() => {})
+    .finally(() => window.clearTimeout(timeout));
 }
 
 function initializeMoodDiscovery() {
@@ -3749,6 +3891,7 @@ function initializeMoodDiscovery() {
 
 function renderTrending() {
   const row = document.getElementById('trending-row');
+  if (!row) return;
   row.innerHTML = '';
   TRENDING.forEach((g, index) => {
     const game = GAMES.find(item => item.id === g.id) || g;
@@ -3777,14 +3920,47 @@ function renderTrending() {
 
   const wrap = document.getElementById('trending-scroll');
   if (!wrap) return;
-  let isDragging = false, startX, scrollLeft;
-  wrap.addEventListener('mousedown', e => { isDragging = true; startX = e.pageX - wrap.offsetLeft; scrollLeft = wrap.scrollLeft; });
-  wrap.addEventListener('mouseleave', () => isDragging = false);
-  wrap.addEventListener('mouseup', () => isDragging = false);
-  wrap.addEventListener('mousemove', e => {
-    if (!isDragging) return;
-    e.preventDefault();
-    wrap.scrollLeft = scrollLeft - (e.pageX - wrap.offsetLeft - startX);
+  if (wrap.dataset.eventsBound !== 'true') {
+    wrap.dataset.eventsBound = 'true';
+    let isDragging = false, startX, scrollLeft;
+    wrap.addEventListener('mousedown', e => {
+      isDragging = true;
+      wrap.dataset.dragging = 'true';
+      startX = e.pageX - wrap.offsetLeft;
+      scrollLeft = wrap.scrollLeft;
+    });
+    const stopDragging = () => {
+      isDragging = false;
+      wrap.dataset.dragging = 'false';
+    };
+    wrap.addEventListener('mouseleave', stopDragging);
+    wrap.addEventListener('mouseup', stopDragging);
+    wrap.addEventListener('mousemove', e => {
+      if (!isDragging) return;
+      e.preventDefault();
+      wrap.scrollLeft = scrollLeft - (e.pageX - wrap.offsetLeft - startX);
+    });
+    wrap.addEventListener('pointerdown', () => { wrap.dataset.dragging = 'true'; });
+    window.addEventListener('pointerup', stopDragging);
+  }
+  if (!wrap.dataset.autoplayBound) {
+    wrap.dataset.autoplayBound = 'true';
+    window.setInterval(() => {
+      if (document.hidden || wrap.dataset.dragging === 'true' || wrap.matches(':hover') || wrap.contains(document.activeElement)) return;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      const maxScroll = wrap.scrollWidth - wrap.clientWidth;
+      if (maxScroll <= 1) return;
+      const nextScroll = wrap.scrollLeft + wrap.clientWidth;
+      wrap.scrollTo({ left: nextScroll >= maxScroll - 8 ? 0 : nextScroll, behavior: 'smooth' });
+    }, 5000);
+  }
+  document.querySelectorAll('.trending-arrow').forEach(button => {
+    if (button.dataset.eventsBound === 'true') return;
+    button.dataset.eventsBound = 'true';
+    button.addEventListener('click', () => {
+      const direction = Number(button.dataset.trendingDirection) || 1;
+      wrap.scrollBy({ left: direction * Math.max(220, wrap.clientWidth * 0.75), behavior: 'smooth' });
+    });
   });
 }
 
@@ -3832,9 +4008,9 @@ function mobileNavSearch(button) {
   document.getElementById('games')?.scrollIntoView({ behavior: 'smooth' });
   window.setTimeout(() => document.getElementById('game-search')?.focus(), 350);
 }
-function mobileNavRecent(button) {
+function mobileNavLiked(button) {
   setMobileNavActive(button);
-  toggleRecentPanel(true);
+  toggleRecentPanel(true, 'liked');
 }
 function mobileNavAuth(button) {
   setMobileNavActive(button);
@@ -3968,46 +4144,62 @@ function incrementLocalPleyz(username) {
   localStorage.setItem(keyGames, String(games));
 }
 
-function renderRecentGamesPanel() {
+function renderRecentGamesPanel(mode = 'recent') {
   const username = getCurrentUser();
   const listEl = document.getElementById('recent-list');
   const emptyEl = document.querySelector('.recent-empty');
   if (!listEl || !emptyEl) return;
 
   listEl.innerHTML = '';
-  if (!username) {
-    emptyEl.textContent = 'Log in to save recent games and view them here.';
-    return;
-  }
+  const titleEl = document.getElementById('recent-panel-title');
+  if (titleEl) titleEl.textContent = mode === 'liked' ? 'Liked games' : 'Recent games';
 
-  const recent = getRecentGamesForUser(username);
-  if (!recent.length) {
-    emptyEl.textContent = `No recent games yet, ${username}. Play a game to add it here.`;
-    return;
+  let panelGames = [];
+  if (mode === 'liked') {
+    panelGames = Object.entries(getGamePreferences())
+      .filter(([, preference]) => preference === 'like')
+      .map(([id]) => GAMES.find(game => game.id === Number(id)))
+      .filter(Boolean)
+      .map(game => ({ id: game.id, name: game.name, color: game.color || '#8B00FF', label: 'Liked game' }));
+    if (!panelGames.length) {
+      emptyEl.textContent = 'No liked games yet. Like a game to save it here.';
+      return;
+    }
+  } else {
+    if (!username) {
+      emptyEl.textContent = 'Log in to save recent games and view them here.';
+      return;
+    }
+
+    const recent = getRecentGamesForUser(username);
+    if (!recent.length) {
+      emptyEl.textContent = `No recent games yet, ${username}. Play a game to add it here.`;
+      return;
+    }
+
+    const recentIds = new Set(recent.map(entry => entry.id));
+    const recentGames = recent
+      .map(entry => GAMES.find(game => game.id === entry.id))
+      .filter(Boolean);
+    const relatedGames = rankGamesForUser(GAMES.filter(game => {
+      if (recentIds.has(game.id)) return false;
+      return recentGames.some(recentGame =>
+        getGameCategories(game).some(category => getGameCategories(recentGame).includes(category))
+      );
+    })).slice(0, 3);
+
+    panelGames = [
+      ...recent.slice(0, 2).map(entry => ({ ...entry, label: 'Recently played' })),
+      ...relatedGames.map(game => ({
+        id: game.id,
+        name: game.name,
+        color: game.color || '#8B00FF',
+        label: 'Recommended for you'
+      }))
+    ];
   }
 
   emptyEl.textContent = '';
-  const recentIds = new Set(recent.map(entry => entry.id));
-  const recentGames = recent
-    .map(entry => GAMES.find(game => game.id === entry.id))
-    .filter(Boolean);
-  const relatedGames = rankGamesForUser(GAMES.filter(game => {
-    if (recentIds.has(game.id)) return false;
-    return recentGames.some(recentGame =>
-      getGameCategories(game).some(category => getGameCategories(recentGame).includes(category))
-    );
-  })).slice(0, 3);
-
-  const panelGames = [
-    ...recent.slice(0, 2).map(entry => ({ ...entry, label: 'Recently played' })),
-    ...relatedGames.map(game => ({
-      id: game.id,
-      name: game.name,
-      color: game.color || '#8B00FF',
-      label: 'Recommended for you'
-    }))
-  ];
-
   panelGames.forEach(entry => {
     const item = document.createElement('button');
     item.type = 'button';
@@ -4021,7 +4213,7 @@ function renderRecentGamesPanel() {
   });
 }
 
-function toggleRecentPanel(forceOpen) {
+function toggleRecentPanel(forceOpen, mode = 'recent') {
   const panel = document.getElementById('recent-panel');
   const button = document.getElementById('recent-toggle-button');
   if (!panel || !button) return false;
@@ -4030,7 +4222,8 @@ function toggleRecentPanel(forceOpen) {
   const open = forceOpen === undefined ? !isOpen : Boolean(forceOpen);
   panel.setAttribute('data-open', open ? 'true' : 'false');
   button.setAttribute('aria-expanded', open ? 'true' : 'false');
-  if (open) renderRecentGamesPanel();
+  panel.dataset.mode = mode;
+  if (open) renderRecentGamesPanel(mode);
   return open;
 }
 
@@ -4039,7 +4232,7 @@ function closeRecentPanel() {
 }
 
 document.addEventListener('click', event => {
-  if (!event.target.closest('.recent-games-wrapper')) {
+  if (!event.target.closest('.recent-games-wrapper, #mobile-liked-games-button')) {
     closeRecentPanel();
   }
 });
@@ -4223,21 +4416,30 @@ updateAuthUI();
 /* ============================================================
   DIRECT GAME LAUNCH
 ============================================================ */
-async function openGame(id) {
+let gameLaunchPending = false;
+function openGame(id) {
   const game = GAMES.find(g => g.id === id);
-  if (!game) return;
+  if (!game || gameLaunchPending) return;
 
+  const launchUrl = game.iframeUrl?.trim() || (game.slug ? `/games/${game.slug}.html` : '');
+  if (!launchUrl) return;
+
+  gameLaunchPending = true;
+  const loader = document.getElementById('game-launch-loader');
+  if (loader) loader.hidden = false;
   saveRecentGame(game.id);
   if (window.firebaseAuth?.currentUser && window.firebaseOnGameOpened) {
     try {
-      await window.firebaseOnGameOpened();
+      Promise.resolve(window.firebaseOnGameOpened()).catch(err => {
+        console.warn('PleyZ score update failed', err);
+        try { incrementLocalPleyz(getCurrentUser()); } catch (_) {}
+      });
     } catch (err) {
       console.warn('PleyZ score update failed', err);
       try { incrementLocalPleyz(getCurrentUser()); } catch (_) {}
     }
   }
-  const launchUrl = game.iframeUrl?.trim() || (game.slug ? `/games/${game.slug}.html` : '');
-  if (launchUrl) window.location.assign(new URL(launchUrl, window.location.origin).href);
+  window.location.assign(new URL(launchUrl, window.location.origin).href);
 }
 
 /* ============================================================
@@ -4315,6 +4517,8 @@ try {
   const applied = applyUrlCategoryFilter();
   if (!applied) renderGames();
   renderRecommendedGames();
+  renderPopularCountryGames();
+  updatePopularCountryHeading();
   renderTrending();
   renderLeaderboard();
   if (new URLSearchParams(location.search).get('signin') === '1') openLoginModal();
@@ -4322,7 +4526,7 @@ try {
   // Avoid halting the rest of the script — try again shortly
   console.warn('Initial render failed, retrying shortly', err);
   setTimeout(() => {
-    try { renderGames(); renderRecommendedGames(); renderTrending(); renderLeaderboard(); } catch (e) { console.error('Retry failed', e); }
+    try { renderGames(); renderRecommendedGames(); renderPopularCountryGames(); updatePopularCountryHeading(); renderTrending(); renderLeaderboard(); } catch (e) { console.error('Retry failed', e); }
   }, 200);
 }
 
@@ -4752,7 +4956,7 @@ setTimeout(() => {
   .hero-tagline { margin-bottom: 1rem; }
   .hero-explore { color: var(--blue-1); font-family: 'Orbitron', sans-serif; font-size: 0.76rem; font-weight: 700; letter-spacing: 1px; text-decoration: none; }
   .hero-explore:hover { color: #fff; text-shadow: 0 0 12px var(--blue-1); }
-  #trending { padding-top: 1rem; }
+  #trending { padding-top: calc(5.5rem + env(safe-area-inset-top)); }
   #trending::before { inset: 0; border-radius: 0; border-left: 0; border-right: 0; }
   .trending-intro { margin-bottom: 1.1rem; }
   .trending-intro .section-title { text-align: left; font-size: clamp(1.4rem, 3vw, 2rem); }
@@ -4775,7 +4979,7 @@ setTimeout(() => {
     #home { padding: 6.8rem 1.2rem 1.5rem; }
     .hero-title { font-size: clamp(2rem, 11vw, 3rem); }
     .hero-badge { font-size: 0.4rem; letter-spacing: 2px; }
-    #trending { padding: 1rem 1.2rem 2.2rem; }
+    #trending { padding: calc(4.8rem + env(safe-area-inset-top)) 1.2rem 2.2rem; }
     #trending::before { display: none; }
     .trending-intro .section-title { font-size: 1.45rem; }
     .trending-badge { display: none; }
@@ -4797,16 +5001,24 @@ setTimeout(() => {
     .games-grid, .discovery-grid { column-gap: 0.55rem; row-gap: 0.6rem; }
   }
 
-  #recommendations, #popular-games { padding: 2.6rem 2rem; }
+  #recommendations, #popular-country { padding: 2.6rem 2rem; }
   .discovery-heading { display: flex; justify-content: space-between; align-items: end; gap: 1rem; margin-bottom: 1rem; }
-  .discovery-heading .section-title, #popular-games > .section-title { text-align: left; font-size: clamp(1.35rem, 2vw, 1.8rem); }
-  .discovery-heading .section-underline, #popular-games > .section-underline { margin: 0.45rem 0 0.6rem; height: 2px; }
+  .discovery-heading .section-title, #popular-country > .section-title { text-align: left; font-size: clamp(1.35rem, 2vw, 1.8rem); }
+  .discovery-heading .section-underline, #popular-country > .section-underline { margin: 0.45rem 0 0.6rem; height: 2px; }
   .discovery-copy { max-width: 680px; margin: 0.4rem 0 1rem; color: var(--text-dim); font-size: 0.9rem; line-height: 1.45; }
   .discovery-heading .discovery-copy { margin-bottom: 0; }
   .category-discovery-title { margin: 1.8rem 0 0.9rem; font: 700 1rem 'Orbitron', sans-serif; color: var(--text); }
   .footer-auth-button { padding: 0; border: 0; background: transparent; color: var(--text-dim); font: inherit; text-align: left; cursor: pointer; }
   .footer-auth-button:hover { color: var(--blue-1); }
   .discovery-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, clamp(9.5rem, 16vw, 15rem)), 1fr)); }
+  .country-feature-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); grid-auto-rows: minmax(160px, auto); grid-auto-flow: dense; }
+  .country-feature-grid .country-featured { grid-column: span 2; grid-row: span 2; }
+  .country-feature-grid .country-featured .game-thumb { min-height: 220px; aspect-ratio: auto; }
+  .country-feature-grid .country-wide { grid-column: span 2; }
+  .load-more-wrap { display: flex; justify-content: center; padding-top: 1.5rem; }
+  .load-more-button { min-width: 150px; min-height: 44px; padding: 0.7rem 1.2rem; border: 1px solid rgba(0,191,255,0.45); border-radius: 8px; background: rgba(0,191,255,0.08); color: var(--text); font: 700 0.78rem 'Orbitron', sans-serif; cursor: pointer; }
+  .load-more-button:hover, .load-more-button:focus-visible { border-color: var(--blue-1); color: var(--blue-1); outline: none; }
+  .load-more-button[hidden] { display: none; }
   .mood-trigger { flex: 0 0 auto; border: 1px solid rgba(0,191,255,0.45); border-radius: 999px; padding: 0.65rem 1rem; background: rgba(0,191,255,0.08); color: var(--text); font: 700 0.72rem 'Orbitron', sans-serif; cursor: pointer; }
   .mood-trigger:hover { border-color: var(--blue-1); color: var(--blue-1); }
   .mood-popup { position: fixed; z-index: 1500; top: 78px; right: clamp(1rem, 4vw, 3.5rem); width: min(440px, calc(100vw - 2rem)); padding: 1.2rem; border: 1px solid rgba(176,112,255,0.55); border-radius: 14px; background: rgba(13,10,24,0.97); box-shadow: 0 20px 70px rgba(0,0,0,0.55), 0 0 36px rgba(139,0,255,0.18); opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(-10px) scale(0.98); transition: opacity 180ms ease, transform 180ms ease, visibility 180ms; }
@@ -4821,11 +5033,11 @@ setTimeout(() => {
   .mood-option span:first-child { font-size: 1.15rem; }
   @media (min-width: 1800px) { .mood-popup { width: min(500px, calc(100vw - 4rem)); padding: 1.5rem; } }
   @media (max-width: 768px) {
-    #recommendations, #popular-games { padding: 2rem 1.2rem; }
+    #recommendations, #popular-country { padding: 2rem 1.2rem; }
     .trending-card { width: 156px; min-width: 156px; }
     .trending-card.featured { width: 184px; }
-    .trending-thumb { height: 96px; }
-    .trending-card.featured .trending-thumb { height: 106px; }
+    .trending-thumb { height: 112px; }
+    .trending-card.featured .trending-thumb { height: 124px; }
     .trending-info { padding: 0.7rem; gap: 0.42rem; }
     .trending-players { font-size: 0.64rem; }
     .discovery-heading { align-items: flex-start; }
@@ -4841,6 +5053,46 @@ setTimeout(() => {
   @media (prefers-reduced-motion: reduce) {
     .mood-popup { transition: none; }
   }
+  .trending-row { width: 100%; min-width: 100%; }
+  .trending-slider { position: relative; }
+  .trending-scroll-wrap { scroll-behavior: smooth; }
+  .trending-arrow { position: absolute; top: 50%; z-index: 4; display: grid; place-items: center; width: 38px; height: 38px; padding: 0; border: 1px solid rgba(0,191,255,0.45); border-radius: 50%; background: rgba(8,10,18,0.94); color: var(--text); font-size: 1.2rem; line-height: 1; cursor: pointer; transform: translateY(-50%); box-shadow: 0 6px 18px rgba(0,0,0,0.35); }
+  .trending-arrow:hover, .trending-arrow:focus-visible { border-color: var(--blue-1); color: var(--blue-1); outline: none; }
+  .trending-arrow-previous { left: 6px; }
+  .trending-arrow-next { right: 6px; }
+  .trending-card, .trending-card.featured { width: calc((100% - 4.4rem) / 5); min-width: 0; flex: 0 0 calc((100% - 4.4rem) / 5); }
+  .game-launch-loader { position: fixed; z-index: 2200; left: 50%; bottom: 24px; display: inline-flex; align-items: center; gap: 0.7rem; padding: 0.75rem 1rem; border: 1px solid rgba(0,191,255,0.35); border-radius: 10px; background: rgba(8,10,18,0.96); color: var(--text); font: 700 0.84rem 'Rajdhani', sans-serif; box-shadow: 0 12px 36px rgba(0,0,0,0.4); transform: translateX(-50%); }
+  .game-launch-loader[hidden] { display: none; }
+  .game-launch-spinner { width: 16px; height: 16px; flex: 0 0 16px; border: 2px solid rgba(255,255,255,0.24); border-top-color: var(--blue-1); border-radius: 50%; animation: game-launch-spin 0.7s linear infinite; }
+  @keyframes game-launch-spin { to { transform: rotate(360deg); } }
+  @media (max-width: 1024px) {
+    .trending-card, .trending-card.featured { width: calc((100% - 3.3rem) / 4); flex-basis: calc((100% - 3.3rem) / 4); }
+    .country-feature-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+  @media (max-width: 768px) {
+    .trending-card, .trending-card.featured { width: calc((100% - 2.2rem) / 3); flex-basis: calc((100% - 2.2rem) / 3); }
+    .country-feature-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 600px) {
+    .trending-card, .trending-card.featured { width: min(78vw, 290px); min-width: min(78vw, 290px); flex-basis: min(78vw, 290px); }
+    .trending-thumb { height: clamp(132px, 40vw, 156px); }
+    .trending-card.featured .trending-thumb { height: clamp(144px, 44vw, 170px); }
+    .game-launch-loader { bottom: calc(86px + env(safe-area-inset-bottom)); }
+    .games-grid .game-thumb { height: auto; aspect-ratio: 1 / 1; }
+    .country-feature-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: minmax(120px, auto); }
+    .country-feature-grid .country-featured .game-thumb { height: auto; min-height: 0; aspect-ratio: 1 / 1; }
+    .country-feature-grid .country-wide .game-thumb { aspect-ratio: 16 / 9; }
+  }
+  #recommended-grid { grid-auto-flow: dense; }
+  #recommended-grid .pick-featured { grid-column: span 2; grid-row: span 2; }
+  #recommended-grid .pick-featured .game-thumb { aspect-ratio: 4 / 3; }
+  @media (max-width: 600px) {
+    #recommended-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: minmax(110px, auto); }
+    #recommended-grid .pick-featured { grid-column: span 1; grid-row: span 2; }
+    #recommended-grid .pick-featured .game-thumb { aspect-ratio: 3 / 4; }
+  }
+  header .logo { font-size: clamp(1.25rem, 2.4vw, 1.65rem); }
+  @media (max-width: 768px) { header .logo { font-size: 1.3rem; } }
 </style>
 <aside class="mood-popup" id="mood-popup" role="dialog" aria-modal="false" aria-labelledby="mood-popup-title" aria-hidden="true">
   <div class="mood-popup-header">

@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Play Hedgies Online | PleyZ</title>
-  <meta name="description" content="A single Hedgehog is capable of turning a desolate and abandoned household on plot of land into a bustling and flourishing farm. Only a few of us, people," />
+  <title>Play Hedgies | PleyZ</title>
+  <meta name="description" content="A single Hedgehog is capable of turning a desolate and abandoned household on plot of land into a bustling and flourishing farm." />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <link rel="canonical" href="https://nikunjprogames.github.io/games/hedgies.html" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Play Hedgies Online | PleyZ" />
-  <meta property="og:description" content="A single Hedgehog is capable of turning a desolate and abandoned household on plot of land into a bustling and flourishing farm. Only a few of us, people," />
+  <meta property="og:title" content="Play Hedgies | PleyZ" />
+  <meta property="og:description" content="A single Hedgehog is capable of turning a desolate and abandoned household on plot of land into a bustling and flourishing farm." />
   <meta property="og:url" content="https://nikunjprogames.github.io/games/hedgies.html" />
   <meta property="og:site_name" content="PleyZ" />
   <meta property="og:image" content="https://static.playgama.com/p-img/pg/hedgies/big_preview/82348afa3e7b4db0bf915c835c40a8bd?width=448" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Play Hedgies Online | PleyZ" />
-  <meta name="twitter:description" content="A single Hedgehog is capable of turning a desolate and abandoned household on plot of land into a bustling and flourishing farm. Only a few of us, people," />
+  <meta name="twitter:title" content="Play Hedgies | PleyZ" />
+  <meta name="twitter:description" content="A single Hedgehog is capable of turning a desolate and abandoned household on plot of land into a bustling and flourishing farm." />
   <meta name="twitter:image" content="https://static.playgama.com/p-img/pg/hedgies/big_preview/82348afa3e7b4db0bf915c835c40a8bd?width=448" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -57,7 +57,7 @@
     .site-brand { color: var(--text); font: 700 0.92rem 'Orbitron', sans-serif; white-space: nowrap; }
     .topbar .actions { display: flex; gap: 8px; flex-wrap: wrap; }
     .game-preferences { display: flex; gap: 6px; }
-    .game-preferences button { width: 36px; height: 36px; border: 1px solid var(--panel-border); border-radius: 7px; background: var(--panel); color: var(--muted); cursor: pointer; }
+    .game-preferences button { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--panel-border); border-radius: 7px; background: var(--panel); color: var(--muted); font-size: 1.1rem; line-height: 1; cursor: pointer; }
     .game-preferences button[aria-pressed="true"], .game-preferences button:hover { border-color: var(--accent); color: var(--accent); }
     .profile-score-link {
       display: inline-flex; align-items: center; gap: 8px;
@@ -159,8 +159,8 @@
       <h1>Hedgies</h1>
       <div class="actions">
         <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="122">
-          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><i class="fa-solid fa-thumbs-up"></i></button>
-          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><i class="fa-solid fa-thumbs-down"></i></button>
+          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><span aria-hidden="true">👍</span></button>
+          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><span aria-hidden="true">👎</span></button>
         </div>
         <a class="profile-score-link" href="../index.html#leaderboard" title="View PleyZ score and leaderboard">
           <span class="profile-score-avatar" id="profile-score-avatar">PZ</span>
@@ -180,18 +180,18 @@
           <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
         </div>
         <div class="game-frame">
-          <iframe src="https://playgama.com/export/game/hedgies?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487" allowfullscreen loading="lazy" title="Hedgies"></iframe>
+          <iframe src="https://playgama.com/export/game/hedgies?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487" allowfullscreen loading="eager" title="Hedgies"></iframe>
         </div>
-        
+
       </div>
 
       <section class="info-card related-games" aria-label="Related games">
         <h2>Games You Might Like</h2>
-        <div class="related-grid"><a class="related-game" href="burger-restaurant-simulator-3d.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/burger-restaurant-simulator-3d/big_preview/b4cbcd2693594ae1a4e6aa672025365c?width=448" alt="" width="800" height="450" loading="eager" fetchpriority="high" decoding="async" /></span><span>Burger Restaurant Simulator 3D</span></a>
+        <div class="related-grid"><a class="related-game" href="piece-of-cake-merge-bake.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/piece-of-cake-merge--bake/big-preview/4124b3ce37ab4b92b6a8ff1332c9eee8?width=448" alt="" width="800" height="450" loading="eager" fetchpriority="high" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/73b06d463c9141eb802f8f79f75d208c/orig_length_h320.mp4"></video></span><span>Piece of Cake: Merge &amp; Bake</span></a>
+        <a class="related-game" href="burger-restaurant-simulator-3d.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/burger-restaurant-simulator-3d/big_preview/b4cbcd2693594ae1a4e6aa672025365c?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Burger Restaurant Simulator 3D</span></a>
         <a class="related-game" href="idle-airport-tycoon.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/idle-airport-tycoon/big-preview/cf42eed8120a4f3f9fa4d25809bc4ab1?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Idle Airport Tycoon</span></a>
         <a class="related-game" href="plants-vs-zombies-fusion-mode.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/plants-vs-zombies-fusion-mode/big-preview/df5ba67f240a40b18d46d2d3d57b8400?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/9bc8ad41499c4002aa3e17049bb4f3bc/orig_length_h320.mp4"></video></span><span>Plants vs Zombies Fusion Mode</span></a>
-        <a class="related-game" href="sorcerers-refuge.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/sorcerers-refuge/big-preview/23c5e2a2597e4b71b1a01fc457170af8?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Sorcerers Refuge</span></a>
-        <a class="related-game" href="piece-of-cake-merge-bake.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/piece-of-cake-merge--bake/big-preview/4124b3ce37ab4b92b6a8ff1332c9eee8?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/73b06d463c9141eb802f8f79f75d208c/orig_length_h320.mp4"></video></span><span>Piece of Cake: Merge &amp; Bake</span></a></div>
+        <a class="related-game" href="basketball-stars.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/basketball-stars/big_preview/2e0653c710ad43e09c40d1ba5968e447?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/c7ae7f11ad0f1a1178788aaa188f4508/orig_length_h320.mp4"></video></span><span>Basketball Stars</span></a></div>
       </section>
     </div>
 
@@ -205,13 +205,13 @@
     </section>
 <section class="info-card" aria-labelledby="game-dna-heading">
       <h2 id="game-dna-heading">Game DNA</h2>
-      <div class="chip-list"><span class="chip">Adventure</span><span class="chip">adventure</span><span class="chip">funny</span><span class="chip">animals</span><span class="chip">cool-games</span><span class="chip">management</span><span class="chip">cozy</span><span class="chip">farm</span><span class="chip">crafting</span><span class="chip">cooking</span><span class="chip">casual-games</span><span class="chip">1-player-games</span></div>
+      <div class="chip-list"><span class="chip">Adventure</span><span class="chip">Simulation</span><span class="chip">Multiplayer</span><span class="chip">Casual</span><span class="chip">adventure</span><span class="chip">funny</span><span class="chip">animals</span><span class="chip">cool-games</span><span class="chip">management</span><span class="chip">cozy</span><span class="chip">farm</span><span class="chip">crafting</span></div>
     </section>
 <section class="info-card" aria-label="Game details"><p><strong>Platform:</strong> Web browser</p></section>
 
     <section class="info-card" aria-labelledby="related-categories-heading">
       <h2 id="related-categories-heading">Related Categories</h2>
-      <nav class="related-categories" aria-label="Related categories"><a href="/adventure-games/">Adventure Games</a></nav>
+      <nav class="related-categories" aria-label="Related categories"><a href="/adventure-games/">Adventure Games</a><a href="/simulation-games/">Simulation Games</a><a href="/multiplayer-games/">Multiplayer Games</a><a href="/casual-games/">Casual Games</a></nav>
     </section>
     </main>
 
@@ -241,7 +241,8 @@
     <a href="/termsandconditions.html">Terms</a>
     <a href="/contact-us.html">Contact</a>
   </footer>
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/hedgies.html#game","name":"Hedgies","description":"A single Hedgehog is capable of turning a desolate and abandoned household on plot of land into a bustling and flourishing farm. Only a few of us, people, are aware of the fact that Hedgies are great cooks, fishermen, craftsmen and last, but not the least, fabulously hospitable types! Come and see for yourself, plunge into ‘Hedgies’ game and contribute to the beautification of the Valley.","url":"https://nikunjprogames.github.io/games/hedgies.html","image":"https://static.playgama.com/p-img/pg/hedgies/big_preview/82348afa3e7b4db0bf915c835c40a8bd?width=448","gamePlatform":["Web browser"],"genre":["Adventure"],"keywords":["adventure","funny","animals","cool-games","management","cozy","farm","crafting","cooking","casual-games","1-player-games","building-games","resource-management-games","animal-io","gam-supported-games"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Adventure Games","item":"https://nikunjprogames.github.io/adventure-games/"},{"@type":"ListItem","position":3,"name":"Hedgies","item":"https://nikunjprogames.github.io/games/hedgies.html"}]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/hedgies.html#game","name":"Hedgies","description":"A single Hedgehog is capable of turning a desolate and abandoned household on plot of land into a bustling and flourishing farm. Only a few of us, people, are aware of the fact that Hedgies are great cooks, fishermen, craftsmen and last, but not the least, fabulously hospitable types! Come and see for yourself, plunge into ‘Hedgies’ game and contribute to the beautification of the Valley.","url":"https://nikunjprogames.github.io/games/hedgies.html","image":"https://static.playgama.com/p-img/pg/hedgies/big_preview/82348afa3e7b4db0bf915c835c40a8bd?width=448","gamePlatform":["Web browser"],"genre":["Adventure","Simulation","Multiplayer","Casual"],"keywords":["adventure","funny","animals","cool-games","management","cozy","farm","crafting","cooking","casual-games","1-player-games","building-games","resource-management-games","animal-io","gam-supported-games"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Adventure Games","item":"https://nikunjprogames.github.io/adventure-games/"},{"@type":"ListItem","position":3,"name":"Hedgies","item":"https://nikunjprogames.github.io/games/hedgies.html"}]}]}</script>
+  <script src="/game-loading.js" defer></script>
   <script>
     function toggleGameFullscreen(root) {
       const target = root ? root.querySelector('.game-frame') : null;

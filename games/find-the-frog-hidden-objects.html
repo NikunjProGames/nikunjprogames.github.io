@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Play Find the Frog - Hidden Objects Online | PleyZ</title>
-  <meta name="description" content="Find the Frog - Hidden Objects Explore thematic worlds: from cozy farms and mysterious swamps to bustling cities, enchanted forests, sunny beaches, pirate" />
+  <title>Play Find the Frog - Hidden Objects | PleyZ</title>
+  <meta name="description" content="Find the Frog - Hidden Objects Explore thematic worlds: from cozy farms and mysterious swamps to bustling cities, enchanted forests, sunny beaches, pirate islands, and beyond!" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <link rel="canonical" href="https://nikunjprogames.github.io/games/find-the-frog-hidden-objects.html" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Play Find the Frog - Hidden Objects Online | PleyZ" />
-  <meta property="og:description" content="Find the Frog - Hidden Objects Explore thematic worlds: from cozy farms and mysterious swamps to bustling cities, enchanted forests, sunny beaches, pirate" />
+  <meta property="og:title" content="Play Find the Frog - Hidden Objects | PleyZ" />
+  <meta property="og:description" content="Find the Frog - Hidden Objects Explore thematic worlds: from cozy farms and mysterious swamps to bustling cities, enchanted forests, sunny beaches, pirate islands, and beyond!" />
   <meta property="og:url" content="https://nikunjprogames.github.io/games/find-the-frog-hidden-objects.html" />
   <meta property="og:site_name" content="PleyZ" />
   <meta property="og:image" content="https://static.playgama.com/p-img/pg/find-the-frog--hidden-objects/big_preview/541792f4c5354ef88be0646eb9be4b1b?width=448" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Play Find the Frog - Hidden Objects Online | PleyZ" />
-  <meta name="twitter:description" content="Find the Frog - Hidden Objects Explore thematic worlds: from cozy farms and mysterious swamps to bustling cities, enchanted forests, sunny beaches, pirate" />
+  <meta name="twitter:title" content="Play Find the Frog - Hidden Objects | PleyZ" />
+  <meta name="twitter:description" content="Find the Frog - Hidden Objects Explore thematic worlds: from cozy farms and mysterious swamps to bustling cities, enchanted forests, sunny beaches, pirate islands, and beyond!" />
   <meta name="twitter:image" content="https://static.playgama.com/p-img/pg/find-the-frog--hidden-objects/big_preview/541792f4c5354ef88be0646eb9be4b1b?width=448" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -57,7 +57,7 @@
     .site-brand { color: var(--text); font: 700 0.92rem 'Orbitron', sans-serif; white-space: nowrap; }
     .topbar .actions { display: flex; gap: 8px; flex-wrap: wrap; }
     .game-preferences { display: flex; gap: 6px; }
-    .game-preferences button { width: 36px; height: 36px; border: 1px solid var(--panel-border); border-radius: 7px; background: var(--panel); color: var(--muted); cursor: pointer; }
+    .game-preferences button { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--panel-border); border-radius: 7px; background: var(--panel); color: var(--muted); font-size: 1.1rem; line-height: 1; cursor: pointer; }
     .game-preferences button[aria-pressed="true"], .game-preferences button:hover { border-color: var(--accent); color: var(--accent); }
     .profile-score-link {
       display: inline-flex; align-items: center; gap: 8px;
@@ -159,8 +159,8 @@
       <h1>Find the Frog - Hidden Objects</h1>
       <div class="actions">
         <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="117">
-          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><i class="fa-solid fa-thumbs-up"></i></button>
-          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><i class="fa-solid fa-thumbs-down"></i></button>
+          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><span aria-hidden="true">👍</span></button>
+          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><span aria-hidden="true">👎</span></button>
         </div>
         <a class="profile-score-link" href="../index.html#leaderboard" title="View PleyZ score and leaderboard">
           <span class="profile-score-avatar" id="profile-score-avatar">PZ</span>
@@ -180,17 +180,17 @@
           <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
         </div>
         <div class="game-frame">
-          <iframe src="https://playgama.com/export/game/find-the-frog--hidden-objects?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487" allowfullscreen loading="lazy" title="Find the Frog - Hidden Objects"></iframe>
+          <iframe src="https://playgama.com/export/game/find-the-frog--hidden-objects?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487" allowfullscreen loading="eager" title="Find the Frog - Hidden Objects"></iframe>
         </div>
-        
+
       </div>
 
       <section class="info-card related-games" aria-label="Related games">
         <h2>Games You Might Like</h2>
         <div class="related-grid"><a class="related-game" href="mahjong-classic.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/mahjong-classic/big-preview/730f65084d864a9baffefa86e110b106?width=448" alt="" width="800" height="450" loading="eager" fetchpriority="high" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/e1239d526cff4df79172804cabe8304a/orig_length_h320.mp4"></video></span><span>Mahjong Classic</span></a>
         <a class="related-game" href="nuts-puzzle-sort-by-color.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/nuts-puzzle-sort-by-color/big_preview/faab3ed519024179b5a31afb72cdf675?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/8157a03153474f7bb4a7529f3d5c355e/orig_length_h320.mp4"></video></span><span>Nuts Puzzle: Sort By Color</span></a>
-        <a class="related-game" href="incoword.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/y4wmrpbd3v374mr8z6vtd97bwbo4kc82/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async" /></span><span>INCOWORD</span></a>
-        <a class="related-game" href="qolor-2048.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/3e4hk4zpotozwuy9ehh5uy0xzeaabp3k/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async" /></span><span>Qolor 2048</span></a>
+        <a class="related-game" href="cube-snake-2048.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/backfill/game-109351/preview/b0afdef34402ca9cc780be5207be4cbfe8b640b6cd70d6626c7cec02741a4e3c?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/c8ec011435b84bb3921bb39ff64b0973/orig_length_h320.mp4"></video></span><span>Cube Snake 2048</span></a>
+        <a class="related-game" href="turkish-draughts.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/d2gokou3otdsj4x3y2l09gxx4ktk1okw/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async" /></span><span>Turkish draughts</span></a>
         <a class="related-game" href="animerge.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/8g5l1zycbzl4d95ho3kztawxu1cjrz0a/512x384.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async" /></span><span>Animerge</span></a></div>
       </section>
     </div>
@@ -205,13 +205,13 @@
     </section>
 <section class="info-card" aria-labelledby="game-dna-heading">
       <h2 id="game-dna-heading">Game DNA</h2>
-      <div class="chip-list"><span class="chip">Puzzle</span><span class="chip">puzzle</span><span class="chip">animals</span><span class="chip">hidden-object</span><span class="chip">point-and-click</span><span class="chip">brain</span><span class="chip">classic</span><span class="chip">mobile</span><span class="chip">casual-games</span><span class="chip">collecting-games</span><span class="chip">search-games</span><span class="chip">frog-games</span></div>
+      <div class="chip-list"><span class="chip">Puzzle</span><span class="chip">Nostalgia</span><span class="chip">Casual</span><span class="chip">puzzle</span><span class="chip">animals</span><span class="chip">hidden-object</span><span class="chip">point-and-click</span><span class="chip">brain</span><span class="chip">classic</span><span class="chip">mobile</span><span class="chip">casual-games</span><span class="chip">collecting-games</span></div>
     </section>
 <section class="info-card" aria-label="Game details"><p><strong>Platform:</strong> Web browser</p></section>
 
     <section class="info-card" aria-labelledby="related-categories-heading">
       <h2 id="related-categories-heading">Related Categories</h2>
-      <nav class="related-categories" aria-label="Related categories"><a href="/puzzle-games/">Puzzle Games</a></nav>
+      <nav class="related-categories" aria-label="Related categories"><a href="/puzzle-games/">Puzzle Games</a><a href="/nostalgia-games/">Nostalgia Games</a><a href="/casual-games/">Casual Games</a></nav>
     </section>
     </main>
 
@@ -241,7 +241,8 @@
     <a href="/termsandconditions.html">Terms</a>
     <a href="/contact-us.html">Contact</a>
   </footer>
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/find-the-frog-hidden-objects.html#game","name":"Find the Frog - Hidden Objects","description":"Find the Frog - Hidden Objects Explore thematic worlds: from cozy farms and mysterious swamps to bustling cities, enchanted forests, sunny beaches, pirate islands, and beyond! Each world contains 3 levels with unique frogs to discover. Collect all the frogs to complete your album - they're so adorable you'll want to find every single one! ✨ Game Features: ✅ Relaxing gameplay - perfect for stress relief ✅ Simple controls - suitable for all ages ✅ Striking visuals - black-and-white backgrounds with colorful frogs ✅ Frog collection - motivation to complete all levels ✅ Varied difficulty - from beginner to expert challenges Perfect for evening relaxation. \"Find the Frog\" isn't just a game - it's a meditative journey into a hidden object world that will bring you hours of enjoyment. 🐸 Find them all, Ribbit!","url":"https://nikunjprogames.github.io/games/find-the-frog-hidden-objects.html","image":"https://static.playgama.com/p-img/pg/find-the-frog--hidden-objects/big_preview/541792f4c5354ef88be0646eb9be4b1b?width=448","gamePlatform":["Web browser"],"genre":["Puzzle"],"keywords":["puzzle","animals","hidden-object","point-and-click","brain","classic","mobile","casual-games","collecting-games","search-games","frog-games","construct-games-online"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Puzzle Games","item":"https://nikunjprogames.github.io/puzzle-games/"},{"@type":"ListItem","position":3,"name":"Find the Frog - Hidden Objects","item":"https://nikunjprogames.github.io/games/find-the-frog-hidden-objects.html"}]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/find-the-frog-hidden-objects.html#game","name":"Find the Frog - Hidden Objects","description":"Find the Frog - Hidden Objects Explore thematic worlds: from cozy farms and mysterious swamps to bustling cities, enchanted forests, sunny beaches, pirate islands, and beyond! Each world contains 3 levels with unique frogs to discover. Collect all the frogs to complete your album - they're so adorable you'll want to find every single one! ✨ Game Features: ✅ Relaxing gameplay - perfect for stress relief ✅ Simple controls - suitable for all ages ✅ Striking visuals - black-and-white backgrounds with colorful frogs ✅ Frog collection - motivation to complete all levels ✅ Varied difficulty - from beginner to expert challenges Perfect for evening relaxation. \"Find the Frog\" isn't just a game - it's a meditative journey into a hidden object world that will bring you hours of enjoyment. 🐸 Find them all, Ribbit!","url":"https://nikunjprogames.github.io/games/find-the-frog-hidden-objects.html","image":"https://static.playgama.com/p-img/pg/find-the-frog--hidden-objects/big_preview/541792f4c5354ef88be0646eb9be4b1b?width=448","gamePlatform":["Web browser"],"genre":["Puzzle","Nostalgia","Casual"],"keywords":["puzzle","animals","hidden-object","point-and-click","brain","classic","mobile","casual-games","collecting-games","search-games","frog-games","construct-games-online"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Puzzle Games","item":"https://nikunjprogames.github.io/puzzle-games/"},{"@type":"ListItem","position":3,"name":"Find the Frog - Hidden Objects","item":"https://nikunjprogames.github.io/games/find-the-frog-hidden-objects.html"}]}]}</script>
+  <script src="/game-loading.js" defer></script>
   <script>
     function toggleGameFullscreen(root) {
       const target = root ? root.querySelector('.game-frame') : null;

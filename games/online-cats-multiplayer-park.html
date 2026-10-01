@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Play Online Cats Multiplayer Park Online | PleyZ</title>
-  <meta name="description" content="Come to run, jump, guess, and race as a cute but competitive kitty in Online Cats - Multiplayer Park. It’s a real-time multiplayer chaos arena. Here are" />
+  <title>Play Online Cats Multiplayer Park | PleyZ</title>
+  <meta name="description" content="Come to run, jump, guess, and race as a cute but competitive kitty in Online Cats - Multiplayer Park." />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <link rel="canonical" href="https://nikunjprogames.github.io/games/online-cats-multiplayer-park.html" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Play Online Cats Multiplayer Park Online | PleyZ" />
-  <meta property="og:description" content="Come to run, jump, guess, and race as a cute but competitive kitty in Online Cats - Multiplayer Park. It’s a real-time multiplayer chaos arena. Here are" />
+  <meta property="og:title" content="Play Online Cats Multiplayer Park | PleyZ" />
+  <meta property="og:description" content="Come to run, jump, guess, and race as a cute but competitive kitty in Online Cats - Multiplayer Park." />
   <meta property="og:url" content="https://nikunjprogames.github.io/games/online-cats-multiplayer-park.html" />
   <meta property="og:site_name" content="PleyZ" />
   <meta property="og:image" content="https://img.gamemonetize.com/2zzd4eaozs2hipxphec84xoac3sagofk/512x384.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Play Online Cats Multiplayer Park Online | PleyZ" />
-  <meta name="twitter:description" content="Come to run, jump, guess, and race as a cute but competitive kitty in Online Cats - Multiplayer Park. It’s a real-time multiplayer chaos arena. Here are" />
+  <meta name="twitter:title" content="Play Online Cats Multiplayer Park | PleyZ" />
+  <meta name="twitter:description" content="Come to run, jump, guess, and race as a cute but competitive kitty in Online Cats - Multiplayer Park." />
   <meta name="twitter:image" content="https://img.gamemonetize.com/2zzd4eaozs2hipxphec84xoac3sagofk/512x384.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -57,7 +57,7 @@
     .site-brand { color: var(--text); font: 700 0.92rem 'Orbitron', sans-serif; white-space: nowrap; }
     .topbar .actions { display: flex; gap: 8px; flex-wrap: wrap; }
     .game-preferences { display: flex; gap: 6px; }
-    .game-preferences button { width: 36px; height: 36px; border: 1px solid var(--panel-border); border-radius: 7px; background: var(--panel); color: var(--muted); cursor: pointer; }
+    .game-preferences button { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--panel-border); border-radius: 7px; background: var(--panel); color: var(--muted); font-size: 1.1rem; line-height: 1; cursor: pointer; }
     .game-preferences button[aria-pressed="true"], .game-preferences button:hover { border-color: var(--accent); color: var(--accent); }
     .profile-score-link {
       display: inline-flex; align-items: center; gap: 8px;
@@ -159,8 +159,8 @@
       <h1>Online Cats Multiplayer Park</h1>
       <div class="actions">
         <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="71">
-          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><i class="fa-solid fa-thumbs-up"></i></button>
-          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><i class="fa-solid fa-thumbs-down"></i></button>
+          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><span aria-hidden="true">👍</span></button>
+          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><span aria-hidden="true">👎</span></button>
         </div>
         <a class="profile-score-link" href="../index.html#leaderboard" title="View PleyZ score and leaderboard">
           <span class="profile-score-avatar" id="profile-score-avatar">PZ</span>
@@ -180,18 +180,18 @@
           <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
         </div>
         <div class="game-frame">
-          <iframe src="https://html5.gamemonetize.co/2zzd4eaozs2hipxphec84xoac3sagofk/" allowfullscreen loading="lazy" title="Online Cats Multiplayer Park"></iframe>
+          <iframe src="https://html5.gamemonetize.co/2zzd4eaozs2hipxphec84xoac3sagofk/" allowfullscreen loading="eager" title="Online Cats Multiplayer Park"></iframe>
         </div>
-        
+
       </div>
 
       <section class="info-card related-games" aria-label="Related games">
         <h2>Games You Might Like</h2>
-        <div class="related-grid"><a class="related-game" href="run-guys-knockout-royale.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/bivqu9s6efq0gk7rknnqlad3qw0ncizt/512x384.jpg" alt="" width="1334" height="750" loading="eager" fetchpriority="high" decoding="async" /></span><span>Run Guys: Knockout Royale</span></a>
+        <div class="related-grid"><a class="related-game" href="slope-3d.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/slope-3d/big_preview/6031cc0ff00947dda0627af51b3316de?width=448" alt="" width="800" height="450" loading="eager" fetchpriority="high" decoding="async" /></span><span>Slope 3D</span></a>
+        <a class="related-game" href="run-guys-knockout-royale.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/bivqu9s6efq0gk7rknnqlad3qw0ncizt/512x384.jpg" alt="" width="1334" height="750" loading="lazy" decoding="async" /></span><span>Run Guys: Knockout Royale</span></a>
+        <a class="related-game" href="1-speed-escape-prison.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/1-speed-escape-prison/big-preview/415c3326c7724e6cae83d74990cc3020?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/32247dbeba054937adf4fe6321dabfb3/orig_length_h320.mp4"></video></span><span>+1 Speed: Escape Prison</span></a>
         <a class="related-game" href="balloon-heroes-run-and-rise.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/vlhloqzu0cvn1apzoyq9vwycgddt3fxn/512x384.jpg" alt="" width="350" height="600" loading="lazy" decoding="async" /></span><span>Balloon Heroes Run and Rise</span></a>
-        <a class="related-game" href="robot-astro-party.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/iv0siadzdl75mq4brnh2p63bjdomi3jt/512x384.jpg" alt="" width="1336" height="540" loading="lazy" decoding="async" /></span><span>Robot Astro Party</span></a>
-        <a class="related-game" href="free-rally-vice.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/dx1obtwhyn14plnk6inxzny5295onzl5/512x384.jpg" alt="" width="800" height="500" loading="lazy" decoding="async" /></span><span>Free Rally: Vice</span></a>
-        <a class="related-game" href="sprunki-drift-multiplayer.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/c8p1307f1u9vsd1njv8qswqfomtayqgl/512x384.jpg" alt="" width="960" height="600" loading="lazy" decoding="async" /></span><span>Sprunki Drift Multiplayer</span></a></div>
+        <a class="related-game" href="brainrot-bridge-race-3d.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/e27ezlhh5edki5wv0aad96d8w3g1l1bf/512x384.jpg" alt="" width="1334" height="750" loading="lazy" decoding="async" /></span><span>Brainrot Bridge Race 3D</span></a></div>
       </section>
     </div>
 
@@ -205,13 +205,13 @@
     </section>
 <section class="info-card" aria-labelledby="game-dna-heading">
       <h2 id="game-dna-heading">Game DNA</h2>
-      <div class="chip-list"><span class="chip">Racing</span><span class="chip">Arcade</span><span class="chip">Cat</span><span class="chip">jump</span><span class="chip">running</span></div>
+      <div class="chip-list"><span class="chip">Racing</span><span class="chip">Arcade</span><span class="chip">Endless</span><span class="chip">Cat</span><span class="chip">jump</span><span class="chip">running</span></div>
     </section>
 <section class="info-card" aria-label="Game details"><p><strong>Platform:</strong> Web browser</p></section>
 
     <section class="info-card" aria-labelledby="related-categories-heading">
       <h2 id="related-categories-heading">Related Categories</h2>
-      <nav class="related-categories" aria-label="Related categories"><a href="/racing-games/">Racing Games</a></nav>
+      <nav class="related-categories" aria-label="Related categories"><a href="/racing-games/">Racing Games</a><a href="/arcade-games/">Arcade Games</a><a href="/endless-games/">Endless Games</a></nav>
     </section>
     </main>
 
@@ -241,7 +241,8 @@
     <a href="/termsandconditions.html">Terms</a>
     <a href="/contact-us.html">Contact</a>
   </footer>
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/online-cats-multiplayer-park.html#game","name":"Online Cats Multiplayer Park","description":"Come to run, jump, guess, and race as a cute but competitive kitty in Online Cats - Multiplayer Park. It’s a real-time multiplayer chaos arena. Here are seven modes you can choose from. In Grab A Shabby Ball, for example, you will have to compete with your opponents and try to touch the ball to get points.","url":"https://nikunjprogames.github.io/games/online-cats-multiplayer-park.html","image":"https://img.gamemonetize.com/2zzd4eaozs2hipxphec84xoac3sagofk/512x384.jpg","gamePlatform":["Web browser"],"genre":["Racing"],"keywords":["Arcade","Cat","jump","running"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Racing Games","item":"https://nikunjprogames.github.io/racing-games/"},{"@type":"ListItem","position":3,"name":"Online Cats Multiplayer Park","item":"https://nikunjprogames.github.io/games/online-cats-multiplayer-park.html"}]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/online-cats-multiplayer-park.html#game","name":"Online Cats Multiplayer Park","description":"Come to run, jump, guess, and race as a cute but competitive kitty in Online Cats - Multiplayer Park. It’s a real-time multiplayer chaos arena. Here are seven modes you can choose from. In Grab A Shabby Ball, for example, you will have to compete with your opponents and try to touch the ball to get points.","url":"https://nikunjprogames.github.io/games/online-cats-multiplayer-park.html","image":"https://img.gamemonetize.com/2zzd4eaozs2hipxphec84xoac3sagofk/512x384.jpg","gamePlatform":["Web browser"],"genre":["Racing","Arcade","Endless"],"keywords":["Arcade","Cat","jump","running"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Racing Games","item":"https://nikunjprogames.github.io/racing-games/"},{"@type":"ListItem","position":3,"name":"Online Cats Multiplayer Park","item":"https://nikunjprogames.github.io/games/online-cats-multiplayer-park.html"}]}]}</script>
+  <script src="/game-loading.js" defer></script>
   <script>
     function toggleGameFullscreen(root) {
       const target = root ? root.querySelector('.game-frame') : null;

@@ -47,11 +47,86 @@ function listFrom(value) {
   return String(value || '').split(',').map(item => toPlainText(item)).filter(Boolean);
 }
 
+const CATEGORY_TAG_RULES = {
+  Action: ['action', 'combat', 'fighting', 'fighter', 'shooter', 'shooting', 'battle', 'survival', 'fps', 'war'],
+  Adventure: ['adventure', 'adventures', 'quest', 'exploration', 'explore', 'story', 'rpg'],
+  Arcade: ['arcade', 'arcades'],
+  Boys: ['boys', 'games for boys'],
+  Girls: ['girls', 'games for girls'],
+  Cars: ['car', 'cars', 'driving', 'vehicle', 'vehicles', 'motorcycle', 'bike'],
+  Racing: ['race', 'races', 'racing', 'speed'],
+  Puzzle: ['puzzle', 'puzzles', 'logic', 'brain', 'word', 'quiz', 'trivia', 'jigsaw', 'match 3', 'matching', 'mahjong', 'chess', 'checkers', 'sudoku', 'sort'],
+  Strategy: ['strategy', 'strategies', 'tactical', 'tower defense', 'defense'],
+  Simulation: ['simulation', 'simulations', 'simulator', 'simulators', 'management', 'tycoon', 'cooking', 'restaurant'],
+  Sports: ['sport', 'sports', 'basketball', 'football', 'soccer', 'tennis', 'golf', 'baseball', 'volleyball', 'bowling', 'archery', 'carrom', 'ping pong'],
+  Multiplayer: ['multiplayer', 'online multiplayer', 'pvp', 'co op', 'coop', 'io'],
+  'Two Player': ['2 player', 'two player', '2 players', 'local multiplayer'],
+  Endless: ['endless', 'runner', 'runners', 'running'],
+  Parkour: ['parkour', 'obby', 'platformer', 'platforming'],
+  Skill: ['skill', 'skills', 'precision', 'reflex', 'timing', 'reaction'],
+  Horror: ['horror', 'scary', 'zombie'],
+  Nostalgia: ['retro', 'classic', 'old school', 'nostalgia'],
+  Casual: ['casual', 'cozy', 'relaxing', 'idle', 'merge'],
+  'Brain Training': ['brain training', 'memory', 'educational']
+};
+
+function inferCategoriesFromTags(tags) {
+  const normalizedTags = tags.map(tag => ` ${slugify(tag).replace(/-/g, ' ')} `);
+  return Object.entries(CATEGORY_TAG_RULES)
+    .filter(([, terms]) => terms.some(term => {
+      const normalizedTerm = ` ${slugify(term).replace(/-/g, ' ')} `;
+      return normalizedTags.some(tag => tag.includes(normalizedTerm));
+    }))
+    .map(([category]) => category);
+}
+
+function getCompleteSentences(text) {
+  const sentences = [];
+  let start = 0;
+  for (let index = 0; index < text.length; index++) {
+    if (!'.!?'.includes(text[index])) continue;
+    const next = text.slice(index + 1).trimStart()[0];
+    if (next && /[a-z]/.test(next)) continue;
+    if (next === '\u2013' || next === '\u2014' || next === '-') continue;
+    const sentence = text.slice(start, index + 1).trim();
+    if (sentence) sentences.push(sentence);
+    start = index + 1;
+  }
+  if (!sentences.length && text.trim()) sentences.push(text.trim());
+  return sentences;
+}
+
+function getSeoDescription(title, description, providedSeoDescription, shortDescription) {
+  const supplied = toPlainText(providedSeoDescription);
+  const unfinishedEnding = /\b(?:and|or|with|to|of|for|in|a|an|the|instead|where|when|by|as|because|while|from|on|into|over|that|which)$/i;
+  if (supplied && !unfinishedEnding.test(supplied.trim())) {
+    return /[.!?…]$/.test(supplied) ? supplied : `${supplied}.`;
+  }
+
+  const sentences = getCompleteSentences(description);
+  const suppliedShort = toPlainText(shortDescription);
+  let summary = suppliedShort && !unfinishedEnding.test(suppliedShort.trim()) ? suppliedShort : '';
+  for (const sentence of sentences) {
+    if (summary.includes(sentence)) continue;
+    if (summary && summary.length >= 100) break;
+    if (summary && summary.length + sentence.length + 1 > 210) break;
+    summary = summary ? `${summary} ${sentence}` : sentence;
+  }
+  if (summary) return /[.!?…]$/.test(summary) ? summary : `${summary}...`;
+
+  const shortened = description.slice(0, 155).replace(/\s+\S*$/, '').replace(/[,:;\u2013\u2014-]+$/, '').trim();
+  return shortened ? `${shortened}...` : `Play ${title} on PleyZ.`;
+}
+
 function normalizeGame(game) {
   const description = toPlainText(game.description);
   const instructions = toPlainText(game.instructions);
-  const categories = [...new Set([...listFrom(game.categories), ...listFrom(game.category)])];
   const tags = listFrom(game.tags);
+  const categories = [...new Map(
+    [...listFrom(game.categories), ...listFrom(game.category), ...inferCategoriesFromTags(tags)]
+      .map(category => [toPlainText(category).toLowerCase(), toPlainText(category)])
+  ).values()];
+  if (!categories.length) categories.push('Other');
   const shortDescription = toPlainText(game.shortDescription) || description.slice(0, 155).replace(/\s+\S*$/, '');
 
   return {
@@ -71,8 +146,8 @@ function normalizeGame(game) {
     faqs: Array.isArray(game.faqs) ? game.faqs : [],
     relatedGames: Array.isArray(game.relatedGames) ? game.relatedGames : [],
     relatedCategories: Array.isArray(game.relatedCategories) ? game.relatedCategories : [],
-    seoTitle: toPlainText(game.seoTitle) || `Play ${toPlainText(game.title)} Online | PleyZ`,
-    seoDescription: toPlainText(game.seoDescription) || shortDescription,
+    seoTitle: toPlainText(game.seoTitle) || `Play ${toPlainText(game.title)} | PleyZ`,
+    seoDescription: getSeoDescription(game.title, description, game.seoDescription, game.shortDescription),
     imageWidth: Number(game.width) || 448,
     imageHeight: Number(game.height) || 336
   };
@@ -302,7 +377,12 @@ function loadHomepageGames() {
 }
 
 function buildCategoryPages(feedGames) {
-  const legacyGames = loadHomepageGames().map(game => ({
+  const homepageGames = loadHomepageGames();
+  const homepageIdBySlug = new Map(homepageGames.flatMap(game => {
+    const match = String(game.iframeUrl || '').match(/^\/?games\/([^/]+)\.html$/);
+    return match ? [[match[1], Number(game.id)]] : [];
+  }));
+  const legacyGames = homepageGames.map(game => ({
     id: game.id,
     name: game.name,
     slug: game.iframeUrl && game.iframeUrl.startsWith('/games/')
@@ -318,7 +398,7 @@ function buildCategoryPages(feedGames) {
     height: Number(game.height) || 0
   }));
   const catalogGames = feedGames.map(game => ({
-    id: Number(game.id),
+    id: homepageIdBySlug.get(game.slug) ?? Number(game.id),
     name: game.title,
     slug: game.slug,
     href: `/games/${game.slug}.html`,
@@ -331,6 +411,24 @@ function buildCategoryPages(feedGames) {
   const categories = new Map();
 
   const libraryGames = [...legacyGames, ...catalogGames];
+  const likedCatalog = new Map();
+  libraryGames.forEach(game => {
+    const id = Number(game.id);
+    if (!Number.isFinite(id) || !game.name || !game.href) return;
+    const entry = likedCatalog.get(id);
+    if (entry) {
+      if (!entry.image && game.image) entry.image = game.image;
+      return;
+    }
+    likedCatalog.set(id, {
+      id,
+      name: game.name,
+      href: game.href,
+      image: game.image || '',
+      category: game.categories[0] || ''
+    });
+  });
+  fs.writeFileSync(path.join(__dirname, 'liked-games-data.json'), JSON.stringify([...likedCatalog.values()]));
   const categoryThemes = {
     action: 'intense', adventure: 'weird', arcade: 'arcade', boys: 'intense',
     cars: 'intense', endless: 'skill', girls: 'chill', io: 'weird',
@@ -377,9 +475,25 @@ function buildCategoryPages(feedGames) {
     });
   });
 
-  const categoryTemplate = fs.readFileSync(path.join(__dirname, 'category-template.html'), 'utf8');
-  const pages = [...categories.entries()].map(([key, category]) => {
+  const uniqueCategories = new Map();
+  categories.forEach(category => {
     const slug = slugify(category.name);
+    const existing = uniqueCategories.get(slug);
+    if (!existing) {
+      uniqueCategories.set(slug, { ...category, games: new Map(category.games) });
+      return;
+    }
+    category.games.forEach((game, href) => existing.games.set(href, game));
+    if (category.description) {
+      existing.name = category.name;
+      existing.description = category.description;
+      existing.theme = category.theme || existing.theme;
+    }
+  });
+
+  const categoryPages = [...uniqueCategories.entries()];
+  const categoryTemplate = fs.readFileSync(path.join(__dirname, 'category-template.html'), 'utf8');
+  const pages = categoryPages.map(([slug, category]) => {
     const categoryUrl = `/${slug}-games/`;
     const gameList = [...category.games.values()];
     const description = category.description || `Browse ${category.name.toLowerCase()} browser games on PleyZ. Open a game page for its description, available instructions, and related titles.`;
@@ -391,11 +505,16 @@ function buildCategoryPages(feedGames) {
       <span>${escapeHtml(game.name)}</span>
     </a>`;
     }).join('\n');
-    const related = [...categories.entries()]
-      .filter(([otherKey]) => otherKey !== key)
+    const coverSource = gameList[0]?.image || '';
+    const coverUrl = coverSource && !/^(?:https?:|\/|data:)/i.test(coverSource) ? `/${coverSource}` : coverSource;
+    const categoryArt = coverUrl
+      ? `<img src="${escapeHtml(coverUrl)}" alt="" loading="eager" fetchpriority="high" decoding="async"><span class="category-visual-label">Featured in ${escapeHtml(category.name)}</span>`
+      : `<div class="category-visual-fallback" aria-hidden="true">${escapeHtml(category.name.slice(0, 1).toUpperCase())}</div>`;
+    const related = categoryPages
+      .filter(([otherSlug]) => otherSlug !== slug)
       .sort((a, b) => b[1].games.size - a[1].games.size)
       .slice(0, 5)
-      .map(([, other]) => `<a href="/${slugify(other.name)}-games/">${escapeHtml(other.name)} Games</a>`)
+      .map(([otherSlug, other]) => `<a href="/${otherSlug}-games/">${escapeHtml(other.name)} Games</a>`)
       .join('\n');
     const schema = JSON.stringify({
       '@context': 'https://schema.org',
@@ -419,6 +538,7 @@ function buildCategoryPages(feedGames) {
       .replaceAll('{{CATEGORY_THEME}}', category.theme || 'default')
       .replaceAll('{{DESCRIPTION}}', escapeHtml(description))
       .replaceAll('{{GAME_COUNT}}', String(gameList.length))
+      .replaceAll('{{CATEGORY_ART}}', categoryArt)
       .replaceAll('{{GAME_CARDS}}', cards)
       .replaceAll('{{RELATED_CATEGORIES}}', related)
       .replaceAll('{{JSON_LD}}', schema);
@@ -465,6 +585,72 @@ function buildCategoryPages(feedGames) {
   }
 
   return pages.length;
+}
+
+function normalizeLegacyGamePages() {
+  const homepageGames = loadHomepageGames();
+  const metadata = JSON.parse(fs.readFileSync(path.join(__dirname, 'legacy-game-seo.json'), 'utf8'));
+  const gameNames = new Map();
+  homepageGames.forEach(game => {
+    const href = String(game.iframeUrl || '').replace(/^\/+/, '');
+    if (!href || href.includes('/') || !href.endsWith('.html') || href === 'index.html') return;
+    gameNames.set(href, game.name);
+  });
+
+  const targetFiles = new Set([
+    ...gameNames.keys(),
+    ...Object.keys(metadata.titles || {}),
+    ...Object.keys(metadata.descriptions || {})
+  ]);
+  targetFiles.forEach(filename => {
+    const filePath = path.join(__dirname, filename);
+    if (!fs.existsSync(filePath)) return;
+    let html = fs.readFileSync(filePath, 'utf8');
+    const explicitTitle = metadata.titles?.[filename];
+    const heading = html.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i)?.[1] || '';
+    const name = explicitTitle || toPlainText(heading)
+      .replace(/^play\s+/i, '')
+      .replace(/\s+on\s+pleyz$/i, '')
+      .replace(/\s+(?:game\s+)?for\s+free$/i, '')
+      .replace(/\s+online$/i, '')
+      .trim() || gameNames.get(filename) || path.basename(filename, '.html').replace(/-/g, ' ');
+    const title = `Play ${name} | PleyZ`;
+    const existingDescription = html.match(/<meta\b(?=[^>]*\bname\s*=\s*["']description["'])[^>]*\bcontent\s*=\s*["']([^"']*)["'][^>]*>/i)?.[1] || '';
+    const description = metadata.descriptions?.[filename] || existingDescription || `Play ${name} in your browser on PleyZ.`;
+    const canonical = `https://nikunjprogames.github.io/${filename}`;
+    const insertIntoHead = tag => {
+      html = html.replace(/<\/head>/i, `  ${tag}\n</head>`);
+    };
+    const setMeta = (attribute, key, content) => {
+      const matcher = new RegExp(`<meta\\b(?=[^>]*\\b${attribute}\\s*=\\s*["']${key}["'])[^>]*>`, 'i');
+      const tag = `<meta ${attribute}="${key}" content="${escapeHtml(content)}" />`;
+      if (matcher.test(html)) html = html.replace(matcher, tag);
+      else insertIntoHead(tag);
+    };
+
+    const titleTag = `<title>${escapeHtml(title)}</title>`;
+    if (/<title>[\s\S]*?<\/title>/i.test(html)) html = html.replace(/<title>[\s\S]*?<\/title>/i, titleTag);
+    else insertIntoHead(titleTag);
+    html = html.replace(/<meta\b(?=[^>]*\bname\s*=\s*["']keywords["'])[^>]*>\s*/ig, '');
+    setMeta('name', 'description', description);
+    setMeta('property', 'og:title', title);
+    setMeta('property', 'og:description', description);
+    setMeta('property', 'og:url', canonical);
+    setMeta('property', 'og:site_name', 'PleyZ');
+    setMeta('name', 'twitter:card', 'summary_large_image');
+    setMeta('name', 'twitter:title', title);
+    setMeta('name', 'twitter:description', description);
+    const canonicalTag = `<link rel="canonical" href="${canonical}" />`;
+    const canonicalMatcher = /<link\b(?=[^>]*\brel\s*=\s*["']canonical["'])[^>]*>/i;
+    if (canonicalMatcher.test(html)) html = html.replace(canonicalMatcher, canonicalTag);
+    else insertIntoHead(canonicalTag);
+    if (!html.includes('src="/game-loading.js"')) {
+      html = html.replace(/<\/body>/i, '  <script src="/game-loading.js" defer></script>\n</body>');
+    }
+    fs.writeFileSync(filePath, html);
+  });
+
+  return targetFiles.size;
 }
 
 function generateGamePages() {
@@ -518,12 +704,15 @@ function generateGamePages() {
       .replaceAll('{{IMAGE_WIDTH}}', String(game.imageWidth))
       .replaceAll('{{IMAGE_HEIGHT}}', String(game.imageHeight));
 
+    htmlContent = htmlContent.replace(/^[\t ]+$/gm, '');
+
     // 4. Save the file
     fs.writeFileSync(path.join(outputDir, `${game.slug}.html`), htmlContent);
   });
 
   console.log(`Success! ${games.length} game pages generated in the /games/ folder.`);
   console.log(`Success! ${buildCategoryPages(games)} category pages generated.`);
+  console.log(`Normalized SEO metadata on ${normalizeLegacyGamePages()} legacy game pages.`);
 }
 
 if (process.argv.includes('--categories-only')) {

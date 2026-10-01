@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Play Santa Matching Game Online | PleyZ</title>
-  <meta name="description" content="Xmas Matching is a delightful, holiday-themed memory puzzle game designed for friends and family to enjoy together. Set against a snowy winter night," />
+  <title>Play Santa Matching Game | PleyZ</title>
+  <meta name="description" content="Xmas Matching is a delightful, holiday-themed memory puzzle game designed for friends and family to enjoy together." />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <link rel="canonical" href="https://nikunjprogames.github.io/games/santa-matching-game.html" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Play Santa Matching Game Online | PleyZ" />
-  <meta property="og:description" content="Xmas Matching is a delightful, holiday-themed memory puzzle game designed for friends and family to enjoy together. Set against a snowy winter night," />
+  <meta property="og:title" content="Play Santa Matching Game | PleyZ" />
+  <meta property="og:description" content="Xmas Matching is a delightful, holiday-themed memory puzzle game designed for friends and family to enjoy together." />
   <meta property="og:url" content="https://nikunjprogames.github.io/games/santa-matching-game.html" />
   <meta property="og:site_name" content="PleyZ" />
   <meta property="og:image" content="https://img.gamemonetize.com/7zwgvkvq609jq0jk7tpfe10bncofyj5o/512x384.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Play Santa Matching Game Online | PleyZ" />
-  <meta name="twitter:description" content="Xmas Matching is a delightful, holiday-themed memory puzzle game designed for friends and family to enjoy together. Set against a snowy winter night," />
+  <meta name="twitter:title" content="Play Santa Matching Game | PleyZ" />
+  <meta name="twitter:description" content="Xmas Matching is a delightful, holiday-themed memory puzzle game designed for friends and family to enjoy together." />
   <meta name="twitter:image" content="https://img.gamemonetize.com/7zwgvkvq609jq0jk7tpfe10bncofyj5o/512x384.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -57,7 +57,7 @@
     .site-brand { color: var(--text); font: 700 0.92rem 'Orbitron', sans-serif; white-space: nowrap; }
     .topbar .actions { display: flex; gap: 8px; flex-wrap: wrap; }
     .game-preferences { display: flex; gap: 6px; }
-    .game-preferences button { width: 36px; height: 36px; border: 1px solid var(--panel-border); border-radius: 7px; background: var(--panel); color: var(--muted); cursor: pointer; }
+    .game-preferences button { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--panel-border); border-radius: 7px; background: var(--panel); color: var(--muted); font-size: 1.1rem; line-height: 1; cursor: pointer; }
     .game-preferences button[aria-pressed="true"], .game-preferences button:hover { border-color: var(--accent); color: var(--accent); }
     .profile-score-link {
       display: inline-flex; align-items: center; gap: 8px;
@@ -159,8 +159,8 @@
       <h1>Santa Matching Game</h1>
       <div class="actions">
         <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="54">
-          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><i class="fa-solid fa-thumbs-up"></i></button>
-          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><i class="fa-solid fa-thumbs-down"></i></button>
+          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><span aria-hidden="true">👍</span></button>
+          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><span aria-hidden="true">👎</span></button>
         </div>
         <a class="profile-score-link" href="../index.html#leaderboard" title="View PleyZ score and leaderboard">
           <span class="profile-score-avatar" id="profile-score-avatar">PZ</span>
@@ -180,18 +180,18 @@
           <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
         </div>
         <div class="game-frame">
-          <iframe src="https://html5.gamemonetize.co/7zwgvkvq609jq0jk7tpfe10bncofyj5o/" allowfullscreen loading="lazy" title="Santa Matching Game"></iframe>
+          <iframe src="https://html5.gamemonetize.co/7zwgvkvq609jq0jk7tpfe10bncofyj5o/" allowfullscreen loading="eager" title="Santa Matching Game"></iframe>
         </div>
-        
+
       </div>
 
       <section class="info-card related-games" aria-label="Related games">
         <h2>Games You Might Like</h2>
         <div class="related-grid"><a class="related-game" href="quiz-runner-io.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/o265mdiouhnx82t87q3p0t5jgspwsdoy/512x384.jpg" alt="" width="800" height="600" loading="eager" fetchpriority="high" decoding="async" /></span><span>Quiz Runner.io</span></a>
         <a class="related-game" href="stickman-trivia-fall-io.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/cybh6ym22ww2ehlpu23d6azrudls31ar/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async" /></span><span>Stickman Trivia Fall IO</span></a>
-        <a class="related-game" href="turkish-draughts.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/d2gokou3otdsj4x3y2l09gxx4ktk1okw/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async" /></span><span>Turkish draughts</span></a>
-        <a class="related-game" href="battle-jitsu.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/cxu4dpr5uspgzim70lf6t4p6milazwr0/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async" /></span><span>Battle Jitsu</span></a>
-        <a class="related-game" href="battle-swat-vs-mercenary-remaster.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/np11v2111dvriy3bgljgr99a8qo2l8vi/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async" /></span><span>Battle SWAT vs Mercenary Remaster</span></a></div>
+        <a class="related-game" href="english-checkers.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/pir55cwoygvsus9az7d5zyxd6gra48dh/512x384.jpg" alt="" width="1920" height="1080" loading="lazy" decoding="async" /></span><span>English Checkers</span></a>
+        <a class="related-game" href="multiplayer-team-death-match.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/h5hc9ltwjo3sk2g2upo4su465kf1kkgz/512x384.jpg" alt="" width="900" height="900" loading="lazy" decoding="async" /></span><span>Multiplayer Team Death Match</span></a>
+        <a class="related-game" href="nuts-puzzle-sort-by-color.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/nuts-puzzle-sort-by-color/big_preview/faab3ed519024179b5a31afb72cdf675?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/8157a03153474f7bb4a7529f3d5c355e/orig_length_h320.mp4"></video></span><span>Nuts Puzzle: Sort By Color</span></a></div>
       </section>
     </div>
 
@@ -205,13 +205,13 @@
     </section>
 <section class="info-card" aria-labelledby="game-dna-heading">
       <h2 id="game-dna-heading">Game DNA</h2>
-      <div class="chip-list"><span class="chip">Multiplayer</span><span class="chip">amazing</span><span class="chip">Brain</span><span class="chip">Christmas</span><span class="chip">Fun</span><span class="chip">Matching</span><span class="chip">Memory</span><span class="chip">Mind</span><span class="chip">Santa</span><span class="chip">Santa Claus</span></div>
+      <div class="chip-list"><span class="chip">Multiplayer</span><span class="chip">Puzzle</span><span class="chip">Brain Training</span><span class="chip">amazing</span><span class="chip">Brain</span><span class="chip">Christmas</span><span class="chip">Fun</span><span class="chip">Matching</span><span class="chip">Memory</span><span class="chip">Mind</span><span class="chip">Santa</span><span class="chip">Santa Claus</span></div>
     </section>
 <section class="info-card" aria-label="Game details"><p><strong>Platform:</strong> Web browser</p></section>
 
     <section class="info-card" aria-labelledby="related-categories-heading">
       <h2 id="related-categories-heading">Related Categories</h2>
-      <nav class="related-categories" aria-label="Related categories"><a href="/multiplayer-games/">Multiplayer Games</a></nav>
+      <nav class="related-categories" aria-label="Related categories"><a href="/multiplayer-games/">Multiplayer Games</a><a href="/puzzle-games/">Puzzle Games</a><a href="/brain-training-games/">Brain Training Games</a></nav>
     </section>
     </main>
 
@@ -241,7 +241,8 @@
     <a href="/termsandconditions.html">Terms</a>
     <a href="/contact-us.html">Contact</a>
   </footer>
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/santa-matching-game.html#game","name":"Santa Matching Game","description":"Xmas Matching is a delightful, holiday-themed memory puzzle game designed for friends and family to enjoy together. Set against a snowy winter night, players take turns flipping cards to find matching pairs of iconic Christmas symbols, including Santa Claus, warm cocoa, festive candles, and gingerbread cookies. Challenge your brain across multiple levels of increasing difficulty. Whether you are playing solo to beat your best score or competing in the Battle Mode with up to 4 players, the goal remains the same: remember the positions, find the matches, and clear the board to become the ultimate Holiday Match Master!","url":"https://nikunjprogames.github.io/games/santa-matching-game.html","image":"https://img.gamemonetize.com/7zwgvkvq609jq0jk7tpfe10bncofyj5o/512x384.jpg","gamePlatform":["Web browser"],"genre":["Multiplayer"],"keywords":["amazing","Brain","Christmas","Fun","Matching","Memory","Mind","Multiplayer","Santa","Santa Claus"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Multiplayer Games","item":"https://nikunjprogames.github.io/multiplayer-games/"},{"@type":"ListItem","position":3,"name":"Santa Matching Game","item":"https://nikunjprogames.github.io/games/santa-matching-game.html"}]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/santa-matching-game.html#game","name":"Santa Matching Game","description":"Xmas Matching is a delightful, holiday-themed memory puzzle game designed for friends and family to enjoy together. Set against a snowy winter night, players take turns flipping cards to find matching pairs of iconic Christmas symbols, including Santa Claus, warm cocoa, festive candles, and gingerbread cookies. Challenge your brain across multiple levels of increasing difficulty. Whether you are playing solo to beat your best score or competing in the Battle Mode with up to 4 players, the goal remains the same: remember the positions, find the matches, and clear the board to become the ultimate Holiday Match Master!","url":"https://nikunjprogames.github.io/games/santa-matching-game.html","image":"https://img.gamemonetize.com/7zwgvkvq609jq0jk7tpfe10bncofyj5o/512x384.jpg","gamePlatform":["Web browser"],"genre":["Multiplayer","Puzzle","Brain Training"],"keywords":["amazing","Brain","Christmas","Fun","Matching","Memory","Mind","Multiplayer","Santa","Santa Claus"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Multiplayer Games","item":"https://nikunjprogames.github.io/multiplayer-games/"},{"@type":"ListItem","position":3,"name":"Santa Matching Game","item":"https://nikunjprogames.github.io/games/santa-matching-game.html"}]}]}</script>
+  <script src="/game-loading.js" defer></script>
   <script>
     function toggleGameFullscreen(root) {
       const target = root ? root.querySelector('.game-frame') : null;
