@@ -41,3 +41,77 @@
   else window.addEventListener('load', dismiss, { once: true });
   window.setTimeout(dismiss, 12000);
 })();
+
+(() => {
+  const startHeartbeat = async () => {
+    try {
+      const [appModule, authModule, functionsModule] = await Promise.all([
+        import('https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js'),
+        import('https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js'),
+        import('https://www.gstatic.com/firebasejs/12.17.1/firebase-functions.js')
+      ]);
+      const { getApp, getApps, initializeApp } = appModule;
+      const app = getApps().length ? getApp() : initializeApp({
+        apiKey: 'AIzaSyAZeHHIF2uOS-K5s6kZEffx-itN6xyxFk8',
+        authDomain: 'pleyz-dd9f8.firebaseapp.com',
+        projectId: 'pleyz-dd9f8',
+        storageBucket: 'pleyz-dd9f8.firebasestorage.app',
+        messagingSenderId: '386766168723',
+        appId: '1:386766168723:web:bffbdec0ad82394f64a366',
+        measurementId: 'G-HT57V3EZPP'
+      });
+      const auth = authModule.getAuth(app);
+      await auth.authStateReady();
+      if (!auth.currentUser) return;
+
+      const functions = functionsModule.getFunctions(app, 'asia-southeast1');
+      const startSession = functionsModule.httpsCallable(functions, 'startGameplaySession');
+      const sendHeartbeat = functionsModule.httpsCallable(functions, 'gameplayHeartbeat');
+      const username = localStorage.getItem('nikunj_current_username')
+        || auth.currentUser.displayName
+        || auth.currentUser.email?.split('@')[0]
+        || 'Player';
+      const gameId = location.pathname.slice(0, 180);
+      const start = async () => (await startSession({ username, gameId })).data.sessionId;
+      let sessionId = await start();
+      let pending = false;
+
+      const ping = async () => {
+        if (pending || document.visibilityState !== 'visible' || !auth.currentUser) return;
+        pending = true;
+        try {
+          await sendHeartbeat({ sessionId });
+        } catch (error) {
+          if (error.code === 'functions/failed-precondition') {
+            try { sessionId = await start(); } catch (restartError) {
+              console.warn('PleyZ gameplay session could not restart:', restartError);
+            }
+          } else {
+            console.warn('PleyZ gameplay heartbeat failed:', error);
+          }
+        } finally {
+          pending = false;
+        }
+      };
+
+      const interval = window.setInterval(ping, 30000);
+      document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible') ping();
+      });
+      window.addEventListener('pagehide', () => window.clearInterval(interval), { once: true });
+    } catch (error) {
+      console.warn('PleyZ gameplay rewards are unavailable:', error);
+    }
+  };
+
+  let started = false;
+  const startOnce = () => {
+    if (started) return;
+    started = true;
+    startHeartbeat();
+  };
+  const frame = document.querySelector('.game-frame iframe, iframe[src]');
+  frame?.addEventListener('load', startOnce, { once: true });
+  window.addEventListener('load', startOnce, { once: true });
+  window.setTimeout(startOnce, 12000);
+})();

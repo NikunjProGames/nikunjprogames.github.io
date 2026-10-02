@@ -13,6 +13,10 @@
       }
     ]
   },
+  "functions": {
+    "source": "functions",
+    "runtime": "nodejs22"
+  },
   "firestore": {
     "database": "(default)",
     "location": "asia-southeast1",

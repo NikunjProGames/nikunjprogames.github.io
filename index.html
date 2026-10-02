@@ -4428,17 +4428,6 @@ function openGame(id) {
   const loader = document.getElementById('game-launch-loader');
   if (loader) loader.hidden = false;
   saveRecentGame(game.id);
-  if (window.firebaseAuth?.currentUser && window.firebaseOnGameOpened) {
-    try {
-      Promise.resolve(window.firebaseOnGameOpened()).catch(err => {
-        console.warn('PleyZ score update failed', err);
-        try { incrementLocalPleyz(getCurrentUser()); } catch (_) {}
-      });
-    } catch (err) {
-      console.warn('PleyZ score update failed', err);
-      try { incrementLocalPleyz(getCurrentUser()); } catch (_) {}
-    }
-  }
   window.location.assign(new URL(launchUrl, window.location.origin).href);
 }
 
@@ -4601,74 +4590,29 @@ try {
     };
     window.firebaseLogout = async () => await signOut(auth);
 
-    onAuthStateChanged(auth, () => updateAuthUI());
+    onAuthStateChanged(auth, user => {
+      updateAuthUI();
+      window.dispatchEvent(new CustomEvent('pleyz-auth-state-change', { detail: user }));
+    });
     return true;
   }).catch(error => {
     console.warn('Firebase Auth unavailable:', error);
     return false;
   });
 
-  import("https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js").then(m => {
-    const { getFirestore, doc, setDoc, serverTimestamp, collection, query, orderBy, limit, getDocs, getDoc, runTransaction } = m;
+  import("https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js").then(async m => {
+    const { getFirestore, collection, query, orderBy, limit, getDocs } = m;
     const db = getFirestore(app);
     window.firebaseDb = db;
 
+    const { getFunctions, httpsCallable } = await import("https://www.gstatic.com/firebasejs/12.17.1/firebase-functions.js");
+    const functions = getFunctions(app, 'asia-southeast1');
+    const ensurePlayerProfile = httpsCallable(functions, 'ensurePlayerProfile');
     window.firebaseEnsureUserDoc = async (user, usernameOverride = null) => {
       if (!user) return;
-      const email = user.email || '';
-      const username = String(usernameOverride || user.displayName || (email.split('@')[0] || 'Player')).trim() || 'Player';
-      const ref = doc(db, 'users', user.uid);
-      const leaderboardRef = doc(db, 'leaderboard', user.uid);
-      const snapshot = await getDoc(ref);
-      const existing = snapshot.exists() ? snapshot.data() : {};
-      const profile = {
-        email,
-        username,
-        pleyzScore: Number(existing.pleyzScore || 0),
-        gamesPlayed: Number(existing.gamesPlayed || 0)
-      };
-      if (!snapshot.exists()) profile.createdAt = serverTimestamp();
-      await setDoc(ref, profile, { merge: true });
-      await setDoc(leaderboardRef, {
-        uid: user.uid,
-        username,
-        pleyzScore: profile.pleyzScore,
-        gamesPlayed: profile.gamesPlayed,
-        updatedAt: serverTimestamp()
-      }, { merge: true });
+      const username = String(usernameOverride || user.displayName || user.email?.split('@')[0] || 'Player').trim();
+      return ensurePlayerProfile({ username });
     };
-
-window.firebaseOnGameOpened = async () => {
-  const auth = window.firebaseAuth;
-  if (!auth || !auth.currentUser) return;
-
-  const user = auth.currentUser;
-  const uid = user.uid;
-  const username = getCurrentUser() || (user.email || 'Player').split('@')[0];
-  await window.firebaseEnsureUserDoc(user, username);
-  const userRef = doc(db, 'users', uid);
-  const leaderboardRef = doc(db, 'leaderboard', uid);
-
-  await runTransaction(db, async transaction => {
-    const snapshot = await transaction.get(userRef);
-    const existing = snapshot.exists() ? snapshot.data() : {};
-    const pleyzScore = Number(existing.pleyzScore || 0) + 1;
-    const gamesPlayed = Number(existing.gamesPlayed || 0) + 1;
-    transaction.set(userRef, {
-      username,
-      pleyzScore,
-      gamesPlayed,
-      lastPlayed: serverTimestamp()
-    }, { merge: true });
-    transaction.set(leaderboardRef, {
-      uid,
-      username,
-      pleyzScore,
-      gamesPlayed,
-      updatedAt: serverTimestamp()
-    }, { merge: true });
-  });
-};
 
 window.firebaseFetchLeaderboard = async () => {
   const tbody = document.getElementById('leaderboard-body');
@@ -4732,6 +4676,24 @@ window.firebaseFetchLeaderboard = async () => {
     statusRow('The live leaderboard is temporarily unavailable. Please try again later.');
   }
 };
+
+    let profileSyncUid = null;
+    const syncSignedInProfile = user => {
+      if (!user) {
+        profileSyncUid = null;
+        return;
+      }
+      if (profileSyncUid === user.uid) return;
+      profileSyncUid = user.uid;
+      window.firebaseEnsureUserDoc(user, getCurrentUser())
+        .then(() => window.firebaseFetchLeaderboard())
+        .catch(error => {
+          profileSyncUid = null;
+          console.warn('PleyZ profile initialization failed:', error);
+        });
+    };
+    window.addEventListener('pleyz-auth-state-change', event => syncSignedInProfile(event.detail));
+    syncSignedInProfile(window.firebaseAuth?.currentUser);
 
   // The Firestore module loads asynchronously; refresh once its API is ready.
   renderLeaderboard();
