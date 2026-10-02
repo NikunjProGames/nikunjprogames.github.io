@@ -781,6 +781,24 @@
       contain: content;
     }
 
+    .recommendation-feedback {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding-top: 0.25rem;
+      color: var(--text-dim);
+      font-size: 0.8rem;
+    }
+    .recommendation-feedback button {
+      padding: 0.25rem 0.55rem;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 6px;
+      background: transparent;
+      color: var(--text);
+      font: inherit;
+    }
+    .recommendation-feedback button:hover { border-color: #28b9ff; }
+
     .game-thumb {
       width: 100%;
       aspect-ratio: 4 / 3;
@@ -3503,12 +3521,52 @@ function createGameTile(game) {
   return card;
 }
 
+async function submitRecommendationFeedback(button) {
+  const user = window.firebaseAuth?.currentUser;
+  if (!user) {
+    openLoginModal();
+    return;
+  }
+  const row = button.closest('.recommendation-feedback');
+  row.querySelectorAll('button').forEach(option => { option.disabled = true; });
+  try {
+    const mood = getSelectedMood() || 'all';
+    const { sendPleyzFeedback } = await import('/feedback-client.js');
+    await sendPleyzFeedback(user, 'recommendations', button.dataset.gameId, {
+      helpful: button.dataset.helpful === 'true',
+      mood
+    });
+    const username = getCurrentUser();
+    if (username) {
+      const key = `pleyz_recommendation_feedback_${username}`;
+      let allFeedback = {};
+      try { allFeedback = JSON.parse(localStorage.getItem(key) || '{}'); } catch (_) {}
+      const feedback = { ...(allFeedback[mood] || (mood === 'all' ? allFeedback : {})) };
+      feedback[button.dataset.gameId] = button.dataset.helpful === 'true';
+      allFeedback[mood] = feedback;
+      localStorage.setItem(key, JSON.stringify(allFeedback));
+    }
+    row.textContent = 'Thanks for your feedback.';
+  } catch (error) {
+    row.querySelectorAll('button').forEach(option => { option.disabled = false; });
+    row.setAttribute('role', 'status');
+    row.textContent = error.message || 'Feedback could not be saved.';
+  }
+}
+
 function bindGameGrid(grid) {
   if (grid.dataset.eventsBound === 'true') return;
   grid.dataset.eventsBound = 'true';
   grid.addEventListener('click', event => {
+    const helpfulButton = event.target.closest('[data-recommendation-helpful]');
+    if (helpfulButton && grid.id === 'recommended-grid') {
+      event.preventDefault();
+      event.stopPropagation();
+      submitRecommendationFeedback(helpfulButton);
+      return;
+    }
     const card = event.target.closest('.game-card');
-    if (card && grid.contains(card) && !event.target.closest('iframe, video')) openGame(Number(card.dataset.id));
+    if (card && grid.contains(card) && !event.target.closest('iframe, video, [data-feedback-control]')) openGame(Number(card.dataset.id));
   });
   grid.addEventListener('keydown', event => {
     if ((event.key === 'Enter' || event.key === ' ') && event.target.matches('.game-card')) {
@@ -3559,6 +3617,20 @@ function getGamePreferences() {
   } catch (_) {
     return {};
   }
+}
+
+function getRecommendationFeedback(username, mood = 'all') {
+  try {
+    const feedback = JSON.parse(localStorage.getItem(`pleyz_recommendation_feedback_${username}`) || '{}');
+    return feedback[mood] || (mood === 'all' ? feedback : {});
+  } catch (_) {
+    return {};
+  }
+}
+
+function findGameByFeedbackId(id) {
+  return GAMES.find(game => String(game.id) === String(id)
+    || String(game.iframeUrl || '').split(/[?#]/)[0].split('/').pop() === String(id));
 }
 
 function rankGamesForUser(games) {
@@ -3681,8 +3753,10 @@ function renderRecommendedGames() {
   bindGameGrid(grid);
 
   const username = getCurrentUser();
+  const moodKey = getSelectedMood();
   const recent = username ? getRecentGamesForUser(username) : [];
   const preferences = getGamePreferences();
+  const recommendationFeedback = username ? getRecommendationFeedback(username, moodKey || 'all') : {};
   const history = getPlayHistory(username);
   const recentGames = recent.map(entry => GAMES.find(game => game.id === entry.id)).filter(Boolean);
   const categoryAffinity = new Map();
@@ -3700,8 +3774,21 @@ function renderRecommendedGames() {
     getGameCategories(game).forEach(category => categoryAffinity.set(category, (categoryAffinity.get(category) || 0) + weight));
     getGameTags(game).forEach(tag => dnaAffinity.set(String(tag).toLowerCase(), (dnaAffinity.get(String(tag).toLowerCase()) || 0) + weight));
   });
+  Object.entries(preferences).forEach(([id, preference]) => {
+    const game = findGameByFeedbackId(id);
+    if (!game) return;
+    const weight = preference === 'like' ? 2.5 : preference === 'dislike' ? -2 : 0;
+    getGameCategories(game).forEach(category => categoryAffinity.set(category, (categoryAffinity.get(category) || 0) + weight));
+    getGameTags(game).forEach(tag => dnaAffinity.set(String(tag).toLowerCase(), (dnaAffinity.get(String(tag).toLowerCase()) || 0) + weight));
+  });
+  Object.entries(recommendationFeedback).forEach(([id, helpful]) => {
+    const game = findGameByFeedbackId(id);
+    if (!game) return;
+    const weight = helpful ? 5 : -2;
+    getGameCategories(game).forEach(category => categoryAffinity.set(category, (categoryAffinity.get(category) || 0) + weight));
+    getGameTags(game).forEach(tag => dnaAffinity.set(String(tag).toLowerCase(), (dnaAffinity.get(String(tag).toLowerCase()) || 0) + weight));
+  });
 
-  const moodKey = getSelectedMood();
   const mood = PLAY_MOODS[moodKey];
   const surpriseHistory = new Set(getSurpriseHistory(username));
   const trendingRank = new Map(TRENDING.map((entry, index) => [entry.id, index]));
@@ -3720,7 +3807,7 @@ function renderRecommendedGames() {
     let score = 0;
     categories.forEach(category => { score += categoryAffinity.get(category) || 0; });
     dna.forEach(tag => { score += (dnaAffinity.get(tag) || 0) * 0.35; });
-    if (preference === 'like') score += 2.5;
+    if (preference === 'like') score += 1;
     if (preference === 'dislike') score -= 30;
     if (trendingRank.has(game.id)) score += Math.max(0.4, 2 - trendingRank.get(game.id) * 0.18);
     if (previouslyShown.has(game.id)) score -= mood ? 4 : 0.65;
@@ -3729,7 +3816,8 @@ function renderRecommendedGames() {
     if (mood?.terms.length) score += moodMatch ? 5 : -1.5;
     if (moodKey === 'surprise') score += (game.id * 17 % 11) / 10;
     return { game, score, categories, moodMatch };
-  }).filter(item => preferences[item.game.id] !== 'dislike');
+  }).filter(item => preferences[item.game.id] !== 'dislike'
+    && recommendationFeedback[item.game.id] !== false);
 
   const matchingMoodGames = mood?.terms.length ? ranked.filter(item => item.moodMatch) : [];
   const recommendationPool = mood?.terms.length ? matchingMoodGames : ranked;
@@ -3769,6 +3857,13 @@ function renderRecommendedGames() {
   } else {
     recommendations.forEach((game, index) => {
       const card = createGameTile(game);
+      card.setAttribute('role', 'group');
+      card.setAttribute('aria-label', `Recommended game: ${game.name}`);
+      const feedback = document.createElement('div');
+      feedback.className = 'recommendation-feedback';
+      feedback.dataset.feedbackControl = 'true';
+      feedback.innerHTML = `<span>Helpful?</span><button type="button" data-recommendation-helpful data-game-id="${game.id}" data-helpful="true">Yes</button><button type="button" data-recommendation-helpful data-game-id="${game.id}" data-helpful="false">No</button>`;
+      card.appendChild(feedback);
       if (index === 0) card.classList.add('pick-featured');
       recommendationFragment.appendChild(card);
     });
@@ -4417,18 +4512,28 @@ updateAuthUI();
   DIRECT GAME LAUNCH
 ============================================================ */
 let gameLaunchPending = false;
+window.addEventListener('pageshow', () => {
+  gameLaunchPending = false;
+  const loader = document.getElementById('game-launch-loader');
+  if (loader) loader.hidden = true;
+});
+
 function openGame(id) {
   const game = GAMES.find(g => g.id === id);
   if (!game || gameLaunchPending) return;
 
   const launchUrl = game.iframeUrl?.trim() || (game.slug ? `/games/${game.slug}.html` : '');
   if (!launchUrl) return;
+  const gameUrl = new URL(launchUrl, window.location.origin);
 
   gameLaunchPending = true;
   const loader = document.getElementById('game-launch-loader');
   if (loader) loader.hidden = false;
   saveRecentGame(game.id);
-  window.location.assign(new URL(launchUrl, window.location.origin).href);
+  try {
+    sessionStorage.setItem('pleyz_active_game', JSON.stringify({ id: game.id, path: gameUrl.pathname }));
+  } catch (_) {}
+  window.location.assign(gameUrl.href);
 }
 
 /* ============================================================
@@ -4658,9 +4763,26 @@ window.firebaseFetchLeaderboard = async () => {
   };
 
   try {
-    const leaderboardQuery = query(collection(db, 'leaderboard'), orderBy('pleyzScore', 'desc'), limit(10));
+    const leaderboardQuery = query(collection(db, 'leaderboard'), orderBy('pleyzScore', 'desc'), limit(500));
     const snapshot = await getDocs(leaderboardQuery);
-    const entries = snapshot.docs.map(docSnapshot => docSnapshot.data());
+    const documents = new Map(snapshot.docs.map(docSnapshot => [docSnapshot.id, docSnapshot]));
+    if (snapshot.size < 10) {
+      const legacySnapshot = await getDocs(query(collection(db, 'leaderboard'), limit(500)));
+      legacySnapshot.docs.forEach(docSnapshot => documents.set(docSnapshot.id, docSnapshot));
+    }
+    const entries = [...documents.values()]
+      .map(docSnapshot => {
+        const data = docSnapshot.data();
+        return {
+          ...data,
+          uid: data.uid || docSnapshot.id,
+          username: data.username || data.displayName || data.name || 'Player',
+          pleyzScore: Number(data.pleyzScore ?? data.score ?? data.points ?? 0),
+          gamesPlayed: Number(data.gamesPlayed ?? data.games ?? 0)
+        };
+      })
+      .sort((first, second) => second.pleyzScore - first.pleyzScore)
+      .slice(0, 10);
     if (!entries.length) {
       statusRow('No players have earned PleyZ Score yet. Sign in and play to claim the first spot.');
       return;
@@ -4678,6 +4800,52 @@ window.firebaseFetchLeaderboard = async () => {
 };
 
     let profileSyncUid = null;
+    let feedbackSyncUid = null;
+    const syncFeedbackPreferences = async user => {
+      if (!user) {
+        feedbackSyncUid = null;
+        return;
+      }
+      if (feedbackSyncUid === user.uid) return;
+      feedbackSyncUid = user.uid;
+      try {
+        const [gameFeedback, gameInteractions, recommendationVotes] = await Promise.all([
+          getDocs(collection(db, 'feedback', user.uid, 'games')),
+          getDocs(collection(db, 'feedback', user.uid, 'interactions')),
+          getDocs(collection(db, 'feedback', user.uid, 'recommendations'))
+        ]);
+        const preferences = getGamePreferences();
+        gameFeedback.docs.forEach(snapshot => {
+          const game = findGameByFeedbackId(snapshot.id);
+          if (!game || preferences[game.id]) return;
+          const rating = Number(snapshot.data().rating);
+          if (rating >= 4) preferences[game.id] = 'like';
+          else if (rating <= 2) preferences[game.id] = 'dislike';
+        });
+        gameInteractions.docs.forEach(snapshot => {
+          const game = findGameByFeedbackId(snapshot.id);
+          const interaction = snapshot.data().interaction;
+          if (game && ['like', 'dislike'].includes(interaction)) preferences[game.id] = interaction;
+        });
+        localStorage.setItem(getPreferenceKey(), JSON.stringify(preferences));
+
+        const helpfulFeedback = {};
+        recommendationVotes.docs.forEach(snapshot => {
+          const game = findGameByFeedbackId(snapshot.id);
+          const vote = snapshot.data();
+          if (game && typeof vote.helpful === 'boolean') {
+            const mood = vote.mood || 'all';
+            helpfulFeedback[mood] ||= {};
+            helpfulFeedback[mood][game.id] = vote.helpful;
+          }
+        });
+        localStorage.setItem(`pleyz_recommendation_feedback_${getCurrentUser()}`, JSON.stringify(helpfulFeedback));
+        renderRecommendedGames();
+      } catch (error) {
+        feedbackSyncUid = null;
+        console.warn('PleyZ feedback preference sync failed:', error);
+      }
+    };
     const syncSignedInProfile = user => {
       if (!user) {
         profileSyncUid = null;
@@ -4692,8 +4860,12 @@ window.firebaseFetchLeaderboard = async () => {
           console.warn('PleyZ profile initialization failed:', error);
         });
     };
-    window.addEventListener('pleyz-auth-state-change', event => syncSignedInProfile(event.detail));
+    window.addEventListener('pleyz-auth-state-change', event => {
+      syncSignedInProfile(event.detail);
+      syncFeedbackPreferences(event.detail);
+    });
     syncSignedInProfile(window.firebaseAuth?.currentUser);
+    syncFeedbackPreferences(window.firebaseAuth?.currentUser);
 
   // The Firestore module loads asynchronously; refresh once its API is ready.
   renderLeaderboard();

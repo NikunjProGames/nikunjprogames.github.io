@@ -20,6 +20,77 @@ service cloud.firestore {
       allow read, write: if false;
     }
 
+    function validGameId(gameId) {
+      return gameId.matches('^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$');
+    }
+
+    function validMood(mood) {
+      return mood in ['all', 'intense', 'think', 'tired', 'chaos', 'challenge', 'weird', 'surprise'];
+    }
+
+    function validFeedback(data) {
+      return data.keys().hasOnly(['rating', 'tags', 'text', 'createdAt', 'updatedAt'])
+        && data.rating is int && data.rating >= 1 && data.rating <= 5
+        && data.tags is list && data.tags.size() <= 5
+        && data.tags.hasOnly([
+          'fun', 'challenging', 'easy-controls', 'great-design', 'good-for-short-sessions',
+          'too-difficult', 'bugs', 'slow', 'not-for-me'
+        ])
+        && data.text is string && data.text.size() <= 1000
+        && data.createdAt is timestamp && data.updatedAt is timestamp;
+    }
+
+    match /feedback/{uid}/games/{gameId} {
+      allow read: if owns(uid);
+      allow create: if owns(uid) && validGameId(gameId)
+        && validFeedback(request.resource.data)
+        && request.resource.data.createdAt == request.time
+        && request.resource.data.updatedAt == request.time;
+      allow update: if owns(uid) && validGameId(gameId)
+        && validFeedback(request.resource.data)
+        && request.resource.data.createdAt == resource.data.createdAt
+        && request.resource.data.updatedAt == request.time
+        && request.resource.data.diff(resource.data).affectedKeys()
+          .hasOnly(['rating', 'tags', 'text', 'updatedAt']);
+      allow delete: if false;
+    }
+
+    match /feedback/{uid}/interactions/{gameId} {
+      allow read: if owns(uid);
+      allow create: if owns(uid) && validGameId(gameId)
+        && request.resource.data.keys().hasOnly(['interaction', 'createdAt', 'updatedAt'])
+        && request.resource.data.interaction in ['like', 'dislike']
+        && request.resource.data.createdAt == request.time
+        && request.resource.data.updatedAt == request.time;
+      allow update: if owns(uid) && validGameId(gameId)
+        && request.resource.data.keys().hasOnly(['interaction', 'createdAt', 'updatedAt'])
+        && request.resource.data.interaction in ['like', 'dislike']
+        && request.resource.data.createdAt == resource.data.createdAt
+        && request.resource.data.updatedAt == request.time
+        && request.resource.data.diff(resource.data).affectedKeys()
+          .hasOnly(['interaction', 'updatedAt']);
+      allow delete: if false;
+    }
+
+    match /feedback/{uid}/recommendations/{gameId} {
+      allow read: if owns(uid);
+      allow create: if owns(uid) && validGameId(gameId)
+        && request.resource.data.keys().hasOnly(['helpful', 'mood', 'createdAt', 'updatedAt'])
+        && request.resource.data.helpful is bool
+        && validMood(request.resource.data.mood)
+        && request.resource.data.createdAt == request.time
+        && request.resource.data.updatedAt == request.time;
+      allow update: if owns(uid) && validGameId(gameId)
+        && request.resource.data.keys().hasOnly(['helpful', 'mood', 'createdAt', 'updatedAt'])
+        && request.resource.data.helpful is bool
+        && validMood(request.resource.data.mood)
+        && request.resource.data.createdAt == resource.data.createdAt
+        && request.resource.data.updatedAt == request.time
+        && request.resource.data.diff(resource.data).affectedKeys()
+          .hasOnly(['helpful', 'mood', 'updatedAt']);
+      allow delete: if false;
+    }
+
     match /{document=**} {
       allow read, write: if false;
     }

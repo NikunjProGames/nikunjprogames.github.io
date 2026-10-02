@@ -6,6 +6,9 @@ firebase-adminsdk*.json
 service-account*.json
 *.pem
 *.key
+*.p12
+*.pfx
+*.keystore
 firebase-debug.log
 firestore-debug.log
 node_modules

@@ -1,7 +1,10 @@
 const { randomUUID } = require("node:crypto");
 const { initializeApp } = require("firebase-admin/app");
+const { getAuth } = require("firebase-admin/auth");
 const { getFirestore, Timestamp } = require("firebase-admin/firestore");
-const { HttpsError, onCall } = require("firebase-functions/v2/https");
+const { HttpsError, onCall, onRequest } = require("firebase-functions/v2/https");
+const { defineSecret } = require("firebase-functions/params");
+const { Pool } = require("pg");
 
 initializeApp();
 
@@ -9,6 +12,8 @@ const db = getFirestore();
 const region = "asia-southeast1";
 const minimumHeartbeatMs = 25_000;
 const maximumHeartbeatMs = 45_000;
+const databaseUrl = defineSecret("DATABASE_URL");
+let feedbackPool;
 const rewardTiers = [
   [60, 1],
   [300, 2],
