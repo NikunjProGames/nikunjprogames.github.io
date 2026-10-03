@@ -141,19 +141,39 @@
       document.getElementById('account-score').textContent = number(localStorage.getItem(`nikunj_pleyz_${username}`));
       document.getElementById('account-games').textContent = number(localStorage.getItem(`nikunj_games_${username}`));
       try {
-        const { getFirestore, doc, getDoc, collection, query, orderBy, limit, getDocs } = await import('https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js');
+        const { getFirestore, doc, getDoc } = await import('https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js');
         const db = getFirestore(app);
         const snapshot = await getDoc(doc(db, 'users', user.uid));
         if (snapshot.exists()) {
           const data = snapshot.data();
-          document.getElementById('account-score').textContent = number(data.pleyzScore);
-          document.getElementById('account-games').textContent = number(data.gamesPlayed);
+          document.getElementById('account-score').textContent = number(Math.max(0, Number(data.pleyzScore) || 0, Number(data.score) || 0, Number(data.points) || 0));
+          document.getElementById('account-games').textContent = number(Math.max(0, Number(data.gamesPlayed) || 0, Number(data.games) || 0));
           document.getElementById('account-sync-status').textContent = 'Cloud profile synced.';
         }
-        const ranking = await getDocs(query(collection(db, 'leaderboard'), orderBy('pleyzScore', 'desc'), limit(500)));
-        const rankIndex = ranking.docs.findIndex(entry => entry.id === user.uid);
-        document.getElementById('account-rank').textContent = rankIndex >= 0 ? `#${rankIndex + 1}` : ranking.size === 500 ? '500+' : 'Unranked';
-      } catch (_) {
+        try {
+          const { getFunctions, httpsCallable } = await import('https://www.gstatic.com/firebasejs/12.17.1/firebase-functions.js');
+          const fetchLeaderboard = httpsCallable(getFunctions(app, 'asia-southeast1'), 'fetchPleyzLeaderboard');
+          const leaderboard = await fetchLeaderboard({});
+          const rank = leaderboard.data?.currentUserRank;
+          if (Number.isInteger(rank)) {
+            document.getElementById('account-rank').textContent = rank > 500 ? '500+' : `#${rank}`;
+          } else {
+            document.getElementById('account-rank').textContent = 'Unranked';
+          }
+        } catch (error) {
+          console.warn('PleyZ account rank lookup failed:', error);
+          try {
+            const { collection, query, orderBy, limit, getDocs } = await import('https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js');
+            const ranking = await getDocs(query(collection(db, 'leaderboard'), orderBy('pleyzScore', 'desc'), limit(500)));
+            const rankIndex = ranking.docs.findIndex(entry => entry.id === user.uid);
+            document.getElementById('account-rank').textContent = rankIndex >= 0 ? `#${rankIndex + 1}` : ranking.size === 500 ? '500+' : 'Unranked';
+          } catch (fallbackError) {
+            console.warn('PleyZ public leaderboard fallback failed:', fallbackError);
+            document.getElementById('account-rank').textContent = 'Temporarily unavailable';
+          }
+        }
+      } catch (error) {
+        console.warn('PleyZ account profile lookup failed:', error);
         document.getElementById('account-sync-status').textContent = 'Cloud stats are temporarily unavailable; showing progress saved on this device.';
       }
     }, error => {

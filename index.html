@@ -68,6 +68,22 @@
         "@type": "ImageObject",
         "url": "https://nikunjprogames.github.io/icon-512.png"
       }
+      .mobile-nav-item[hidden] { display: none !important; }
+      .install-nav-item { flex: 1; min-width: 0; }
+      .install-help-dialog {
+        width: min(420px, calc(100vw - 24px));
+        padding: 1.4rem;
+        border: 1px solid rgba(0,191,255,0.45);
+        border-radius: 14px;
+        background: #0d1020;
+        color: var(--text);
+        box-shadow: 0 24px 80px rgba(0,0,0,0.65);
+        font: 1rem 'Rajdhani', sans-serif;
+      }
+      .install-help-dialog::backdrop { background: rgba(0,0,0,0.72); backdrop-filter: blur(4px); }
+      .install-help-dialog h2 { margin: 0 0 0.7rem; font: 700 1.1rem 'Orbitron', sans-serif; }
+      .install-help-dialog p { color: var(--text-dim); line-height: 1.5; }
+      .install-help-dialog button { margin-top: 1rem; }
     }
   ]
 }
@@ -1670,6 +1686,9 @@ animate();
 
     <button id="user-display" type="button" onclick="openAccountPage()" style="display:none; margin-right:0.6rem; font-weight:600; color:var(--text); background:none; border:0; cursor:pointer;"></button>
     <button id="profile-avatar-button" type="button" onclick="openAccountPage()" aria-label="Open my PleyZ account" title="PleyZ account"></button>
+    <button class="btn btn-outline" id="install-app-button" type="button" hidden>
+      <i class="fas fa-download" aria-hidden="true"></i> Install
+    </button>
     <button class="btn btn-outline" id="auth-action-button" onclick="openLoginModal()">
       <i class="fas fa-user"></i> Login
     </button>
@@ -1688,6 +1707,9 @@ animate();
     <i class="fas fa-search"></i><span>Search</span>
   </button>
   <a class="mobile-nav-item" href="/liked-games.html"><i class="fas fa-heart" aria-hidden="true"></i><span>Liked Games</span></a>
+  <button type="button" class="mobile-nav-item install-nav-item" id="mobile-install-button" hidden>
+    <i class="fas fa-download" aria-hidden="true"></i><span>Install</span>
+  </button>
   <button type="button" class="mobile-nav-item" id="mobile-auth-action" onclick="mobileNavAuth(this)">
     <i class="fas fa-user"></i><span>Login</span>
   </button>
@@ -4713,6 +4735,7 @@ try {
     const { getFunctions, httpsCallable } = await import("https://www.gstatic.com/firebasejs/12.17.1/firebase-functions.js");
     const functions = getFunctions(app, 'asia-southeast1');
     const ensurePlayerProfile = httpsCallable(functions, 'ensurePlayerProfile');
+    const fetchPleyzLeaderboard = httpsCallable(functions, 'fetchPleyzLeaderboard');
     window.firebaseEnsureUserDoc = async (user, usernameOverride = null) => {
       if (!user) return;
       const username = String(usernameOverride || user.displayName || user.email?.split('@')[0] || 'Player').trim();
@@ -4763,26 +4786,33 @@ window.firebaseFetchLeaderboard = async () => {
   };
 
   try {
-    const leaderboardQuery = query(collection(db, 'leaderboard'), orderBy('pleyzScore', 'desc'), limit(500));
-    const snapshot = await getDocs(leaderboardQuery);
-    const documents = new Map(snapshot.docs.map(docSnapshot => [docSnapshot.id, docSnapshot]));
-    if (snapshot.size < 10) {
-      const legacySnapshot = await getDocs(query(collection(db, 'leaderboard'), limit(500)));
-      legacySnapshot.docs.forEach(docSnapshot => documents.set(docSnapshot.id, docSnapshot));
+    let entries;
+    try {
+      const result = await fetchPleyzLeaderboard({});
+      if (!Array.isArray(result.data?.entries)) throw new Error('Leaderboard response was invalid.');
+      entries = result.data.entries;
+    } catch (error) {
+      console.warn('Profile-backed leaderboard unavailable; using public scores:', error);
+      const leaderboardQuery = query(collection(db, 'leaderboard'), orderBy('pleyzScore', 'desc'), limit(500));
+      const snapshot = await getDocs(leaderboardQuery);
+      const documents = new Map(snapshot.docs.map(docSnapshot => [docSnapshot.id, docSnapshot]));
+      if (snapshot.size < 10) {
+        const legacySnapshot = await getDocs(query(collection(db, 'leaderboard'), limit(500)));
+        legacySnapshot.docs.forEach(docSnapshot => documents.set(docSnapshot.id, docSnapshot));
+      }
+      entries = [...documents.values()]
+        .map(docSnapshot => {
+          const data = docSnapshot.data();
+          return {
+            uid: data.uid || docSnapshot.id,
+            username: data.username || data.displayName || data.name || 'Player',
+            pleyzScore: Math.max(0, Number(data.pleyzScore) || 0, Number(data.score) || 0, Number(data.points) || 0),
+            gamesPlayed: Math.max(0, Number(data.gamesPlayed) || 0, Number(data.games) || 0)
+          };
+        })
+        .sort((first, second) => second.pleyzScore - first.pleyzScore)
+        .slice(0, 10);
     }
-    const entries = [...documents.values()]
-      .map(docSnapshot => {
-        const data = docSnapshot.data();
-        return {
-          ...data,
-          uid: data.uid || docSnapshot.id,
-          username: data.username || data.displayName || data.name || 'Player',
-          pleyzScore: Number(data.pleyzScore ?? data.score ?? data.points ?? 0),
-          gamesPlayed: Number(data.gamesPlayed ?? data.games ?? 0)
-        };
-      })
-      .sort((first, second) => second.pleyzScore - first.pleyzScore)
-      .slice(0, 10);
     if (!entries.length) {
       statusRow('No players have earned PleyZ Score yet. Sign in and play to claim the first spot.');
       return;
@@ -4907,8 +4937,8 @@ window.openPleyzModal = async function(forceOpen = false) {
         const d = meSnap.data();
 
         res.textContent =
-          `Your PleyZ: ${Number(d.pleyzScore || 0).toLocaleString()} | ` +
-          `Games: ${Number(d.gamesPlayed || 0).toLocaleString()}`;
+          `Your PleyZ: ${Math.max(0, Number(d.pleyzScore) || 0, Number(d.score) || 0, Number(d.points) || 0).toLocaleString()} | ` +
+          `Games: ${Math.max(0, Number(d.gamesPlayed) || 0, Number(d.games) || 0).toLocaleString()}`;
       } else {
         res.textContent =
           'No PleyZ score yet. Play a game to start earning PleyZ!';
@@ -4994,8 +5024,8 @@ window.lookupPleyz = async function() {
         const username = String(found.username || 'Player').trim() || 'Player';
         res.textContent =
           `${username} — ` +
-          `PleyZ ${Number(found.pleyzScore || 0).toLocaleString()} | ` +
-          `Games ${Number(found.gamesPlayed || 0).toLocaleString()}`;
+          `PleyZ ${Math.max(0, Number(found.pleyzScore) || 0, Number(found.score) || 0, Number(found.points) || 0).toLocaleString()} | ` +
+          `Games ${Math.max(0, Number(found.gamesPlayed) || 0, Number(found.games) || 0).toLocaleString()}`;
       } else {
         res.textContent = 'Player not found.';
       }
@@ -5034,7 +5064,8 @@ window.sharePleyzScore = async function() {
       const { doc, getDoc } = await import('https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js');
       const snapshot = await getDoc(doc(window.firebaseDb, 'users', window.firebaseAuth.currentUser.uid));
       if (snapshot.exists()) {
-        score = Number(snapshot.data().pleyzScore || 0);
+        const data = snapshot.data();
+        score = Math.max(0, Number(data.pleyzScore) || 0, Number(data.score) || 0, Number(data.points) || 0);
       }
     } catch (_) {
       // Keep the local score if Firestore is temporarily unavailable.
@@ -5184,6 +5215,7 @@ setTimeout(() => {
     .mood-trigger { align-self: flex-start; }
     .mood-options { grid-template-columns: 1fr; max-height: min(58vh, 390px); overflow-y: auto; }
   }
+  @media (max-width: 768px) { #install-app-button { display: none; } }
   @media (prefers-reduced-motion: reduce) {
     .mood-popup { transition: none; }
   }
@@ -5195,6 +5227,13 @@ setTimeout(() => {
   .trending-arrow-previous { left: 6px; }
   .trending-arrow-next { right: 6px; }
   .trending-card, .trending-card.featured { width: calc((100% - 4.4rem) / 5); min-width: 0; flex: 0 0 calc((100% - 4.4rem) / 5); }
+  @media (min-width: 1800px) {
+    #trending { max-width: 1560px; }
+    .trending-card, .trending-card.featured {
+      width: calc((100% - 2.2rem) / 3);
+      flex-basis: calc((100% - 2.2rem) / 3);
+    }
+  }
   .game-launch-loader { position: fixed; z-index: 2200; left: 50%; bottom: 24px; display: inline-flex; align-items: center; gap: 0.7rem; padding: 0.75rem 1rem; border: 1px solid rgba(0,191,255,0.35); border-radius: 10px; background: rgba(8,10,18,0.96); color: var(--text); font: 700 0.84rem 'Rajdhani', sans-serif; box-shadow: 0 12px 36px rgba(0,0,0,0.4); transform: translateX(-50%); }
   .game-launch-loader[hidden] { display: none; }
   .game-launch-spinner { width: 16px; height: 16px; flex: 0 0 16px; border: 2px solid rgba(255,255,255,0.24); border-top-color: var(--blue-1); border-radius: 50%; animation: game-launch-spin 0.7s linear infinite; }
@@ -5246,8 +5285,65 @@ setTimeout(() => {
     <button class="mood-option" type="button" data-mood="surprise"><span>🎲</span><span>Surprise Me</span></button>
   </div>
 </aside>
+<dialog class="install-help-dialog" id="install-help-dialog" aria-labelledby="install-help-title">
+  <h2 id="install-help-title">Install PleyZ</h2>
+  <p id="install-help-copy"></p>
+  <button class="btn btn-primary" id="install-help-close" type="button">Got it</button>
+</dialog>
 <script>
   document.addEventListener('DOMContentLoaded', initializeMoodDiscovery, { once: true });
+</script>
+<script>
+  (() => {
+    const buttons = [
+      document.getElementById('install-app-button'),
+      document.getElementById('mobile-install-button')
+    ].filter(Boolean);
+    const helpDialog = document.getElementById('install-help-dialog');
+    const helpCopy = document.getElementById('install-help-copy');
+    const isInstalled = window.matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
+    const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+    let installPrompt = null;
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js')
+        .catch(error => console.warn('PleyZ app shell registration failed:', error));
+    }
+    if (isInstalled) return;
+
+    const setButtonsVisible = visible => buttons.forEach(button => { button.hidden = !visible; });
+    const openInstallHelp = () => {
+      helpCopy.textContent = isIOS
+        ? 'In Safari, tap Share, then choose “Add to Home Screen”.'
+        : 'Open your browser menu and choose “Install app” or “Add to Home Screen”.';
+      helpDialog.showModal();
+    };
+    const handleInstall = async () => {
+      if (!installPrompt) {
+        openInstallHelp();
+        return;
+      }
+      try {
+        await installPrompt.prompt();
+        const choice = await installPrompt.userChoice;
+        if (choice.outcome === 'accepted') setButtonsVisible(false);
+        installPrompt = null;
+      } catch (error) {
+        console.warn('PleyZ install prompt failed:', error);
+        openInstallHelp();
+      }
+    };
+
+    buttons.forEach(button => button.addEventListener('click', handleInstall));
+    document.getElementById('install-help-close').addEventListener('click', () => helpDialog.close());
+    window.addEventListener('beforeinstallprompt', event => {
+      event.preventDefault();
+      installPrompt = event;
+      setButtonsVisible(true);
+    });
+    window.addEventListener('appinstalled', () => setButtonsVisible(false));
+    setButtonsVisible(true);
+  })();
 </script>
 </body>
 </html>

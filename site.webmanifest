@@ -2,18 +2,14 @@
   "name": "PleyZ — Games Worth Playing",
   "short_name": "PleyZ",
   "description": "PleyZ — Games worth playing. Discover a curated collection of handpicked browser games.",
+  "id": "/",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#050816",
   "theme_color": "#0a0f2c",
   "orientation": "any",
   "icons": [
-    {
-      "src": "/favicon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
-      "purpose": "any"
-    },
     {
       "src": "/icon-192.png",
       "sizes": "192x192",

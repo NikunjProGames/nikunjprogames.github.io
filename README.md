@@ -46,3 +46,24 @@ Designed with a futuristic neon-cyberpunk aesthetic, it features an amazing boot
 Add a game to `feed.json` with its title, description, embed URL, thumbnail, category, and tags. During a full build, `build-games.js` keeps the supplied category and adds matching categories inferred from the tags; games with no recognized category are placed in **Other**. Add an optional `seoDescription` when the source description does not provide a concise, complete search snippet.
 
 Run `node build-games.js` to regenerate game pages, category pages, and legacy game metadata. Run `node build-games.js --categories-only` when only category pages need rebuilding. Page-specific overrides for older root-level game pages live in `legacy-game-seo.json`.
+
+## Firebase functions
+
+PleyZ Score is stored server-side. The public leaderboard function combines the email-free leaderboard projections with score fields in player profiles, so older profiles still appear if their public projection is missing.
+
+Game submissions and contact messages are delivered by the `submitGame` Cloud Function. Before deploying it, configure these Firebase Functions secrets through the CLI prompts (do not put their values in source control):
+
+```sh
+firebase functions:secrets:set SMTP_HOST
+firebase functions:secrets:set SMTP_PORT
+firebase functions:secrets:set SMTP_USER
+firebase functions:secrets:set SMTP_PASSWORD
+firebase functions:secrets:set SMTP_FROM
+firebase functions:secrets:set GAME_SUBMISSION_TO
+firebase functions:secrets:set SUBMISSION_RATE_LIMIT_KEY
+firebase deploy --only functions
+```
+
+Use an SMTP account with permission to send from `SMTP_FROM`; set `GAME_SUBMISSION_TO` to the private inbox that should receive messages, and set `SUBMISSION_RATE_LIMIT_KEY` to a unique random value. The endpoint permits five attempts per IP address per hour and stores only an HMAC of the address in Firestore. Enable a Firestore TTL policy on the `expiresAt` field in the `submissionRateLimits` collection to expire those records after one day.
+
+The home page can be installed as a PWA on supported browsers. Its service worker caches the app shell and an offline notice; games still require an internet connection.
