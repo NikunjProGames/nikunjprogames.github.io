@@ -1,0 +1,60 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "118618",
+          "slug": "word-finder",
+          "title": "Word Finder",
+          "description": "🐹Playing Word Finder 10 minutes a day sharpens your mind and prepares you for your daily life and challenges!🐹\n\nWould you like to relax, exercise your brain, and expand your vocabulary-all at the same time? With Word Finder, the brand NEW & incredibly addicting word game!\n\nWord Finder is a beautiful and immersive word search game with a shape-shifting twist. Once you start playing, you just won't be able to put it down!\n\nTake your daily medication and ease your mind while enjoying all the fun from Word Finder!\n\nFEATURES\n● A CLUE FOR EACH PUZZLE. Use it to find the related words in each puzzle\n● SHIFTING TILES. Each puzzle shifts as you find words. \n● LOTS OF LEVELS. Play over 6000 levels with more coming soon.\n● EARN POWER-UPS. Use the Spyglass, Light Bulb, or shuffle when you get stuck.\n● COLLECT BONUS POINTS. Earn rewards for finding extra words.",
+          "howToPlayText": "● Swipe over letters to connect them in the right order to create words.\n● Find all related words to clear the level.",
+          "gameURL": "https://playgama.com/export/game/word-finder?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/word-finder",
+          "genres": [
+            "words",
+            "brain",
+            "logic",
+            "intelligence",
+            "educational"
+          ],
+          "tags": [
+            "mind-games",
+            "addictive-games",
+            "search-games",
+            "brain-training-games",
+            "1-player-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/word-finder/big_preview/781af1adb04747a5b1fafedc05eef869?width=448",
+            "https://static.playgama.com/p-img/pg/word-finder/icon/f9f24184faad4da2a268bed307505737?width=448"
+          ],
+          "videos": [],
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/word-finder/big_preview/781af1adb04747a5b1fafedc05eef869?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/word-finder/icon/f9f24184faad4da2a268bed307505737?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": true
+          },
+          "supportedLanguages": [
+            "en-US"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/word-finder?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "125751",
+          "slug": "backrooms-craft",
+          "title": "Backrooms Craft",
+          "description": "You went through the wrong door. Behind it: damp carpet, humming lights, yellow wallpaper that runs further than it has any right to. No way out. Just a workbench, a furnace, and whatever the last expedition left behind.\n\nA chair comes apart into sticks, sticks become a torch, boards a workbench. Then stone tools, then steel, each opening what the last could not touch. The furnace smelts metal; the salvage bench strips furniture for parts.\n\nThe world reshuffles every time you start — except the first hall. A yellow line on the floor marks the border: everything built inside it stays where you left it. Past it, nothing holds.\n\nHealth, hunger, thirst and your grip on things. Almond water steadies the mind, a bandage closes what bit you. In the dark a torch is all that stands between you and what walks there.\n\nPoolrooms in white tile, server halls in blue half-light, warehouses, hotel corridors. Locked rooms, anomalous seams, flickering zones — all written up in the journal for good.",
+          "howToPlayText": "On a computer: WASD or the arrow keys to walk, Shift to run, Space to jump, C to crouch. The mouse looks around. Hold the left button to mine a block or pull furniture apart — on a creature it is a blow. The right button places a block, eats, drinks, or opens a workbench or furnace. Keys 1-9 and the mouse wheel pick an item from the belt. E is inventory and crafting, J is the journal, Esc is pause.\n\nOn a phone: the stick appears on the left wherever you touch the screen; hold it against the edge and you break into a run. Drag a finger across the world to look around. Hold a finger on a block and mining starts, and you can keep sliding without lifting. A short tap places, uses or hits. Round jump and crouch pads sit on the right; a weapon pad appears when you are holding one. The bag at the end of the belt opens inventory and crafting, the journal is in the top corner.",
+          "gameURL": "https://playgama.com/export/game/backrooms-craft?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/backrooms-craft",
+          "genres": [
+            "adventure",
+            "simulation",
+            "horror",
+            "3d",
+            "minecraft",
+            "survival",
+            "crafting"
+          ],
+          "tags": [
+            "1-player-games",
+            "mine-games",
+            "sandbox-games",
+            "building-games",
+            "open-world-games",
+            "minecraft-survival",
+            "minecraft-adventure",
+            "action-adventure",
+            "action-rpg",
+            "survival-horror",
+            "backrooms",
+            "ai-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/backrooms-craft/big_preview/34cec4a8a9af49fe98f613b4e57776a4?width=448",
+            "https://static.playgama.com/p-img/pg/backrooms-craft/icon/af71593661434a669de775d6b8639e14?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "ce19d1ef654b42aab0a2cb14e96004bd",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "ce19d1ef654b42aab0a2cb14e96004bd",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/backrooms-craft/big_preview/34cec4a8a9af49fe98f613b4e57776a4?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/backrooms-craft/icon/af71593661434a669de775d6b8639e14?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "supportedLanguages": [
+            "en-US",
+            "ru-RU"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/backrooms-craft?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

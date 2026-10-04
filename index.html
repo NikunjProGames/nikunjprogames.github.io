@@ -132,17 +132,6 @@
     }
 
     /* ============================================================
-       PARTICLE CANVAS
-    ============================================================ */
-    #particle-canvas {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    /* ============================================================
        SYNTHWAVE BACKGROUND CANVAS
     ============================================================ */
     #bg-canvas {
@@ -795,6 +784,7 @@
       color: inherit;
       cursor: pointer;
       contain: content;
+      transition: transform 0.18s ease;
     }
 
     .recommendation-feedback {
@@ -825,6 +815,8 @@
       position: relative;
       overflow: hidden;
       border-bottom: 1px solid rgba(255,255,255,0.08);
+      background: #111322;
+      transition: box-shadow 0.18s ease, border-color 0.18s ease;
     }
     .game-thumb img {
       width: 92px;
@@ -852,6 +844,13 @@
     }
     .game-thumb:hover img {
       opacity: 0;
+    }
+    @media (hover: hover) {
+      .game-card:hover { transform: translateY(-4px); }
+      .game-card:hover .game-thumb {
+        border-color: rgba(0,191,255,0.6);
+        box-shadow: 0 0 18px rgba(0,191,255,0.2);
+      }
     }
     .game-thumb img.custom-game-image,
     .trending-thumb img.custom-game-image {
@@ -1333,8 +1332,7 @@
     .ad-wrap { padding: 1.5rem 2rem; }
 
     @media (max-width: 768px) {
-      #bg-canvas,
-      #particle-canvas { opacity: 0.45; }
+      #bg-canvas { opacity: 0.45; }
 
       .trending-card { backdrop-filter: none; }
 
@@ -1506,154 +1504,83 @@
 </aside>
 
 <main id="main-content">
-<!-- =========================
-     PleyZ Cyber Cursor Trail v2
-========================== -->
+<!-- Lightweight neon-blue cursor trail -->
 
 <style>
 .cursor-trail {
     position: fixed;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
+    width: 7px;
+    height: 7px;
+    clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
     pointer-events: none;
     z-index: 9999;
-    transform: translate(-50%, -50%);
     will-change: transform;
-
-    background:
-        radial-gradient(circle,
-        #ffffff 0%,
-        #61d8ff 55%,
-        rgba(97,216,255,0) 100%);
-
-    box-shadow:
-        0 0 8px #b56dff,
-        0 0 18px #b56dff,
-        0 0 35px #45d5ff,
-        0 0 55px rgba(69,213,255,.85),
-        0 0 85px rgba(181,109,255,.55);
-
-    transition:
-        transform .18s ease,
-        box-shadow .18s ease,
-        opacity .2s ease;
+    background: #8beaff;
+    box-shadow: 0 0 5px #00bfff, 0 0 12px rgba(0,191,255,.75);
+    opacity: 0;
 }
 
 .cursor-trail.hover {
-    box-shadow:
-        0 0 18px #d793ff,
-        0 0 35px #c16dff,
-        0 0 65px #53d8ff,
-        0 0 100px rgba(83,216,255,.95),
-        0 0 140px rgba(193,109,255,.7);
+    background: #fff;
+    box-shadow: 0 0 7px #00bfff, 0 0 16px rgba(0,191,255,.9);
 }
 </style>
 
 <script>
-if (window.matchMedia("(pointer:fine)").matches) {
+if (window.matchMedia("(pointer:fine)").matches && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  const trail = [];
+  const pointer = { x: 0, y: 0 };
+  let hovering = false;
+  let frameId = 0;
+  const trailLength = 5;
 
-const TRAIL_LENGTH = 10;
+  for (let index = 0; index < trailLength; index += 1) {
+    const element = document.createElement("div");
+    element.className = "cursor-trail";
+    document.body.appendChild(element);
+    trail.push({ element, x: 0, y: 0 });
+  }
 
-const dots = [];
+  function animateTrail() {
+    frameId = 0;
+    let x = pointer.x;
+    let y = pointer.y;
+    let moving = false;
 
-let mouse = {
-    x: innerWidth / 2,
-    y: innerHeight / 2
-};
-
-let hovering = false;
-
-for(let i=0;i<TRAIL_LENGTH;i++){
-
-    const dot=document.createElement("div");
-
-    dot.className="cursor-trail";
-
-    document.body.appendChild(dot);
-
-    dots.push({
-        el:dot,
-        x:mouse.x,
-        y:mouse.y
+    trail.forEach((dot, index) => {
+      const dx = x - dot.x;
+      const dy = y - dot.y;
+      dot.x += dx * 0.38;
+      dot.y += dy * 0.38;
+      moving ||= Math.abs(dx) + Math.abs(dy) > 0.5;
+      const size = index === 0 && hovering ? 1.2 : 1 - index * 0.14;
+      dot.element.classList.toggle("hover", index === 0 && hovering);
+      dot.element.style.opacity = String(0.9 - index * 0.15);
+      dot.element.style.transform = `translate3d(${dot.x - 3.5}px,${dot.y - 3.5}px,0) scale(${size})`;
+      x = dot.x;
+      y = dot.y;
     });
 
-}
+    if (moving) frameId = requestAnimationFrame(animateTrail);
+  }
 
-window.addEventListener("mousemove",(e)=>{
+  document.addEventListener("pointermove", event => {
+    pointer.x = event.clientX;
+    pointer.y = event.clientY;
+    hovering = Boolean(event.target.closest("button,a,.submit-btn,.game-card,input,textarea,select"));
+    if (!frameId) frameId = requestAnimationFrame(animateTrail);
+  }, { passive: true });
 
-    mouse.x=e.clientX;
-    mouse.y=e.clientY;
-
-});
-
-document.addEventListener("mouseover",(e)=>{
-
-    hovering=e.target.closest(
-        "button,a,.submit-btn,.game-card,input,textarea,select"
-    );
-
-});
-
-document.addEventListener("mouseout",()=>{
-
-    hovering=false;
-
-});
-
-function animate(){
-
-    let x=mouse.x;
-    let y=mouse.y;
-
-    dots.forEach((dot,index)=>{
-
-        dot.x+=(x-dot.x)*0.34;
-        dot.y+=(y-dot.y)*0.34;
-
-        const scale=((TRAIL_LENGTH-index)/TRAIL_LENGTH);
-
-        let size=scale;
-
-        if(index===0 && hovering){
-
-            size=2.15;
-
-            dot.el.classList.add("hover");
-
-        }else{
-
-            dot.el.classList.remove("hover");
-
-        }
-
-        dot.el.style.left=dot.x+"px";
-        dot.el.style.top=dot.y+"px";
-
-        dot.el.style.transform=
-        `translate(-50%,-50%) scale(${size})`;
-
-        dot.el.style.opacity=Math.max(scale,0.08);
-
-        x=dot.x;
-        y=dot.y;
-
-    });
-
-    requestAnimationFrame(animate);
-
-}
-
-animate();
-
+  document.addEventListener("pointerout", event => {
+    if (!event.relatedTarget) {
+      trail.forEach(dot => { dot.element.style.opacity = "0"; });
+    }
+  });
 }
 </script>
 
 <!-- Synthwave background canvas -->
 <canvas id="bg-canvas"></canvas>
-
-<!-- Particle background canvas -->
-<canvas id="particle-canvas"></canvas>
 
 <!-- ============================================================
      HEADER
@@ -1827,7 +1754,7 @@ animate();
   <div class="section-title">Leaderboard</div>
   <div class="section-underline"></div>
   <p class="trending-copy" style="max-width:760px; margin:1rem auto 2rem;">
-    PleyZ leaderboard tracks the top players by score and total games played. Sign in and open games to begin earning PleyZ points.
+    Signed-in players receive 1 PleyZ point each time a game opens. Existing scores and game counts remain on the leaderboard.
   </p>
   <div class="leaderboard-table-wrap">
     <table class="leaderboard-table">
@@ -1950,7 +1877,7 @@ animate();
   <div class="modal-box auth-modal-box">
     <button class="modal-close" onclick="closeLoginModal()">&times;</button>
     <div class="modal-title" id="auth-title">Welcome Back</div>
-    <div class="modal-subtitle" id="auth-subtitle">Enjoying PleyZ? Create a free account to earn PleyZ Score and climb the leaderboard.</div>
+    <div class="modal-subtitle" id="auth-subtitle">Enjoying PleyZ? Create a free account to save your profile, earn points when opening games, and join the leaderboard.</div>
 
     <div class="auth-toggle">
       <button type="button" id="login-tab" class="active" onclick="setAuthMode('login')">Sign In</button>
@@ -1973,7 +1900,7 @@ animate();
       <label>Confirm Password</label>
       <input type="password" id="auth-confirm-password" placeholder="Confirm your password" autocomplete="new-password" />
     </div>
-    <p class="form-note"><i class="fas fa-save" style="color:var(--blue-1);"></i> &nbsp; Save Progress — your scores sync across all devices.</p>
+    <p class="form-note"><i class="fas fa-save" style="color:var(--blue-1);"></i> &nbsp; Save your account profile and existing scores across devices.</p>
     <div class="form-error" id="auth-error"></div>
     <button class="btn btn-primary" style="width:100%; justify-content:center;" id="auth-submit-button" onclick="handleAuthSubmit()">
       <i class="fas fa-sign-in-alt"></i> Sign In
@@ -1988,7 +1915,7 @@ animate();
     <div class="modal-box">
       <button class="modal-close" onclick="closePleyzModal()">&times;</button>
       <div class="modal-title">Enjoying PleyZ?</div>
-      <div style="margin-top:0.6rem; color:var(--text-dim);" id="pleyz-modal-desc">Create a free account to earn PleyZ Score and climb the leaderboard.</div>
+      <div style="margin-top:0.6rem; color:var(--text-dim);" id="pleyz-modal-desc">Create a free account to save your profile, earn points when opening games, and join the leaderboard.</div>
       <div style="margin-top:1rem; display:flex; gap:0.6rem; align-items:center;">
         <input id="pleyz-lookup-input" placeholder="Enter username" style="flex:1; padding:0.6rem; border-radius:8px; border:1px solid rgba(255,255,255,0.06); background:transparent; color:var(--text);" />
         <button class="btn" onclick="lookupPleyz()">Check</button>
@@ -2014,301 +1941,224 @@ animate();
 (function() {
   const canvas = document.getElementById('bg-canvas');
   const ctx = canvas.getContext('2d');
-  let offset = 200;
+  const scene = document.createElement('canvas');
+  const sceneCtx = scene.getContext('2d');
   const meteors = [];
-  let meteorTimer = 0;
+  const maxMeteors = 3;
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let offset = 0;
+  let nextMeteorIn = 0.8;
+  let lastFrameTime = 0;
+  let frameId = 0;
+  let width = 0;
+  let height = 0;
+  let horizonY = 0;
+  let vanishX = 0;
 
-  function resize() {
-    canvas.width  = window.innerWidth;
-    canvas.height = window.innerHeight;
+  function drawStaticScene() {
+    width = window.innerWidth;
+    height = window.innerHeight;
+    horizonY = height * 0.52;
+    vanishX = width / 2;
+    canvas.width = scene.width = width;
+    canvas.height = scene.height = height;
+
+    const sky = sceneCtx.createLinearGradient(0, 0, 0, horizonY);
+    sky.addColorStop(0, '#050008');
+    sky.addColorStop(0.6, '#0a001e');
+    sky.addColorStop(1, '#160035');
+    sceneCtx.fillStyle = sky;
+    sceneCtx.fillRect(0, 0, width, horizonY);
+
+    const floor = sceneCtx.createLinearGradient(0, horizonY, 0, height);
+    floor.addColorStop(0, '#0d0020');
+    floor.addColorStop(0.4, '#080015');
+    floor.addColorStop(1, '#0a0a0f');
+    sceneCtx.fillStyle = floor;
+    sceneCtx.fillRect(0, horizonY, width, height - horizonY);
+
+    const sunX = vanishX;
+    const sunY = horizonY - height * 0.13;
+    const sunRadius = height * 0.1;
+    const sunGlow = sceneCtx.createRadialGradient(sunX, sunY, 0, sunX, sunY, sunRadius * 2.2);
+    sunGlow.addColorStop(0, 'rgba(200,0,255,0.28)');
+    sunGlow.addColorStop(0.5, 'rgba(100,0,200,0.1)');
+    sunGlow.addColorStop(1, 'rgba(0,0,0,0)');
+    sceneCtx.fillStyle = sunGlow;
+    sceneCtx.fillRect(sunX - sunRadius * 2.5, sunY - sunRadius * 2.5, sunRadius * 5, sunRadius * 5);
+
+    const sunGradient = sceneCtx.createLinearGradient(0, sunY - sunRadius, 0, sunY + sunRadius);
+    sunGradient.addColorStop(0, '#ff88ff');
+    sunGradient.addColorStop(0.35, '#cc00ff');
+    sunGradient.addColorStop(0.65, '#6600cc');
+    sunGradient.addColorStop(1, '#30007a');
+    sceneCtx.save();
+    sceneCtx.beginPath();
+    sceneCtx.arc(sunX, sunY, sunRadius, 0, Math.PI * 2);
+    sceneCtx.fillStyle = sunGradient;
+    sceneCtx.fill();
+    sceneCtx.clip();
+    for (let lineY = sunY - sunRadius; lineY < sunY + sunRadius; lineY += 6) {
+      sceneCtx.fillStyle = 'rgba(0,0,20,0.42)';
+      sceneCtx.fillRect(sunX - sunRadius, lineY + 3.5, sunRadius * 2, 2.5);
+    }
+    sceneCtx.restore();
+
+    for (let index = 0; index <= 16; index += 1) {
+      const proportion = index / 16;
+      const bottomX = proportion * width;
+      const alpha = 0.1 + 0.2 * Math.sin(proportion * Math.PI);
+      const gradient = sceneCtx.createLinearGradient(vanishX, horizonY, bottomX, height);
+      gradient.addColorStop(0, 'rgba(139,0,255,0)');
+      gradient.addColorStop(0.3, `rgba(139,0,255,${(alpha * 0.4).toFixed(3)})`);
+      gradient.addColorStop(1, `rgba(139,0,255,${alpha.toFixed(3)})`);
+      sceneCtx.strokeStyle = gradient;
+      sceneCtx.lineWidth = 0.7;
+      sceneCtx.beginPath();
+      sceneCtx.moveTo(vanishX, horizonY);
+      sceneCtx.lineTo(bottomX, height);
+      sceneCtx.stroke();
+    }
+
+    const horizonGradient = sceneCtx.createLinearGradient(0, 0, width, 0);
+    horizonGradient.addColorStop(0, 'rgba(139,0,255,0)');
+    horizonGradient.addColorStop(0.15, 'rgba(139,0,255,0.55)');
+    horizonGradient.addColorStop(0.5, 'rgba(0,220,255,1)');
+    horizonGradient.addColorStop(0.85, 'rgba(139,0,255,0.55)');
+    horizonGradient.addColorStop(1, 'rgba(139,0,255,0)');
+    sceneCtx.save();
+    sceneCtx.shadowColor = '#00cfff';
+    sceneCtx.shadowBlur = 12;
+    sceneCtx.beginPath();
+    sceneCtx.moveTo(0, horizonY);
+    sceneCtx.lineTo(width, horizonY);
+    sceneCtx.strokeStyle = horizonGradient;
+    sceneCtx.lineWidth = 2;
+    sceneCtx.stroke();
+    sceneCtx.restore();
   }
 
   function spawnMeteor() {
-    const startX = canvas.width * (0.05 + Math.random() * 0.18);
-    const startY = canvas.height * (0.05 + Math.random() * 0.12);
-    const speed = 5 + Math.random() * 4;
-    const length = 120 + Math.random() * 80;
+    if (meteors.length >= maxMeteors) return;
+    const startY = horizonY * (0.08 + Math.random() * 0.62);
+    const speed = 220 + Math.random() * 140;
+    const travel = width + 180;
     meteors.push({
-      x: startX,
+      x: -90,
       y: startY,
-      dx: speed * 0.99,
-      dy: speed * 1.35,
-      length,
-      life: 0,
-      maxLife: 60 + Math.random() * 40,
-      alpha: 0,
+      startY,
+      endY: horizonY * (0.08 + Math.random() * 0.62),
+      speed,
+      travel,
+      arc: (Math.random() - 0.5) * Math.min(100, horizonY * 0.32),
+      wave: 8 + Math.random() * 18,
+      phase: Math.random() * Math.PI * 2,
+      length: 90 + Math.random() * 90,
+      age: 0,
+      lifetime: travel / speed
     });
   }
 
-  function drawMeteors() {
-    if (Math.random() < 0.012) spawnMeteor();
-    for (let i = meteors.length - 2; i >= 0; i--) {
-      const m = meteors[i];
-      m.x += m.dx;
-      m.y += m.dy;
-      m.life += 1;
-      if (m.life < 10) {
-        m.alpha = m.life / 10;
-      } else if (m.life > m.maxLife - 14) {
-        m.alpha = Math.max(0, (m.maxLife - m.life) / 14);
-      } else {
-        m.alpha = 1;
-      }
+  function drawMeteors(deltaSeconds) {
+    nextMeteorIn -= deltaSeconds;
+    if (nextMeteorIn <= 0) {
+      spawnMeteor();
+      nextMeteorIn = 1.4 + Math.random() * 1.8;
+    }
 
-      const tailX = m.x - m.length * 0.78;
-      const tailY = m.y - m.length * 0.42;
-      const grad = ctx.createLinearGradient(m.x, m.y, tailX, tailY);
-      grad.addColorStop(0, `rgba(255,255,255,${(m.alpha * 1.0).toFixed(3)})`);
-      grad.addColorStop(0.3, `rgba(180,230,255,${(m.alpha * 0.55).toFixed(3)})`);
-      grad.addColorStop(1, 'rgba(0,0,0,0)');
-      ctx.strokeStyle = grad;
-      ctx.lineWidth = 2.2;
+    for (let index = meteors.length - 1; index >= 0; index -= 1) {
+      const meteor = meteors[index];
+      meteor.age += deltaSeconds;
+      meteor.x = -90 + meteor.speed * meteor.age;
+      const progress = Math.min(1, meteor.age / meteor.lifetime);
+      const smoothArc = Math.sin(progress * Math.PI);
+      const wave = Math.sin(progress * Math.PI * 2 + meteor.phase) - Math.sin(meteor.phase);
+      meteor.y = meteor.startY + (meteor.endY - meteor.startY) * progress
+        + meteor.arc * smoothArc + meteor.wave * wave;
+      const verticalSlope = ((meteor.endY - meteor.startY)
+        + meteor.arc * Math.PI * Math.cos(progress * Math.PI)
+        + meteor.wave * Math.PI * 2 * Math.cos(progress * Math.PI * 2 + meteor.phase))
+        / meteor.travel;
+      const fadeIn = Math.min(1, meteor.age / 0.14);
+      const fadeOut = Math.min(1, (meteor.lifetime - meteor.age) / 0.25);
+      const alpha = Math.max(0, Math.min(fadeIn, fadeOut));
+      const tailX = meteor.x - meteor.length;
+      const tailY = meteor.y - verticalSlope * meteor.length;
+      const trail = ctx.createLinearGradient(meteor.x, meteor.y, tailX, tailY);
+      trail.addColorStop(0, `rgba(255,255,255,${alpha})`);
+      trail.addColorStop(0.18, `rgba(164,226,255,${alpha * 0.85})`);
+      trail.addColorStop(1, 'rgba(0,191,255,0)');
+      ctx.strokeStyle = trail;
+      ctx.lineWidth = 2.4;
       ctx.beginPath();
-      ctx.moveTo(m.x, m.y);
+      ctx.moveTo(meteor.x, meteor.y);
       ctx.lineTo(tailX, tailY);
       ctx.stroke();
-
+      ctx.fillStyle = `rgba(255,255,255,${alpha})`;
       ctx.beginPath();
-      ctx.fillStyle = `rgba(255,255,255,${(m.alpha * 0.95).toFixed(3)})`;
-      ctx.arc(m.x, m.y, 2.6, 0, Math.PI * 2);
+      ctx.arc(meteor.x, meteor.y, 2, 0, Math.PI * 2);
       ctx.fill();
 
-      if (m.life >= m.maxLife || m.x < -m.length || m.y > canvas.height + m.length) {
-        meteors.splice(i, 1);
+      if (meteor.age >= meteor.lifetime
+        || meteor.x < -meteor.length || meteor.x > width + meteor.length
+        || meteor.y < -meteor.length || meteor.y > height + meteor.length) {
+        meteors.splice(index, 1);
       }
     }
   }
 
-  let lastFrameTime = 0;
-
-  function drawFrame(timestamp = 0) {
-    if (document.hidden || timestamp - lastFrameTime < 33) {
-      requestAnimationFrame(drawFrame);
-      return;
-    }
-    lastFrameTime = timestamp;
-
-    const W = canvas.width;
-    const H = canvas.height;
-    const horizonY = H * 0.52;
-    const vX = W / 2;
-
-    ctx.clearRect(0, 0, W, H);
-
-    // Sky gradient
-    const sky = ctx.createLinearGradient(0, 0, 0, horizonY);
-    sky.addColorStop(0,   '#050008');
-    sky.addColorStop(0.6, '#0a001e');
-    sky.addColorStop(1,   '#160035');
-    ctx.fillStyle = sky;
-    ctx.fillRect(0, 0, W, horizonY);
-
-    // Nebula blobs in sky
-    [
-      [0.25, 0.35, 0.32, 'rgba(100,0,200,0.09)'],
-      [0.72, 0.28, 0.28, 'rgba(0,150,220,0.08)'],
-      [0.50, 0.15, 0.45, 'rgba(139,0,255,0.05)'],
-    ].forEach(([rx, ry, r, col]) => {
-      const g = ctx.createRadialGradient(W*rx, horizonY*ry, 0, W*rx, horizonY*ry, W*r);
-      g.addColorStop(0, col);
-      g.addColorStop(1, 'rgba(0,0,0,0)');
-      ctx.fillStyle = g;
-      ctx.fillRect(0, 0, W, horizonY);
-    });
-
-    // Retro sun — outer glow
-    const sunX = vX, sunY = horizonY - H * 0.13, sunR = H * 0.1;
-    const sunGlow = ctx.createRadialGradient(sunX, sunY, 0, sunX, sunY, sunR * 2.2);
-    sunGlow.addColorStop(0,   'rgba(200,0,255,0.28)');
-    sunGlow.addColorStop(0.5, 'rgba(100,0,200,0.10)');
-    sunGlow.addColorStop(1,   'rgba(0,0,0,0)');
-    ctx.fillStyle = sunGlow;
-    ctx.fillRect(sunX - sunR*2.5, sunY - sunR*2.5, sunR*5, sunR*5);
-
-    // Sun disk
-    const sunGrad = ctx.createLinearGradient(0, sunY - sunR, 0, sunY + sunR);
-    sunGrad.addColorStop(0,    '#ff88ff');
-    sunGrad.addColorStop(0.35, '#cc00ff');
-    sunGrad.addColorStop(0.65, '#6600cc');
-    sunGrad.addColorStop(1,    '#30007a');
-    ctx.save();
-    ctx.beginPath();
-    ctx.arc(sunX, sunY, sunR, 0, Math.PI * 2);
-    ctx.fillStyle = sunGrad;
-    ctx.fill();
-    // Horizontal scan-lines clipped to sun disk
-    ctx.clip();
-    for (let sy = sunY - sunR; sy < sunY + sunR; sy += 6) {
-      ctx.fillStyle = 'rgba(0,0,20,0.42)';
-      ctx.fillRect(sunX - sunR, sy + 3.5, sunR * 2, 2.5);
-    }
-    ctx.restore();
-
-    // Grid floor
-    const floor = ctx.createLinearGradient(0, horizonY, 0, H);
-    floor.addColorStop(0,   '#0d0020');
-    floor.addColorStop(0.4, '#080015');
-    floor.addColorStop(1,   '#0a0a0f');
-    ctx.fillStyle = floor;
-    ctx.fillRect(0, horizonY, W, H - horizonY);
-
-    // Perspective grid
-    const COLS = 16;
-    const ROWS = 24;
-    offset = (offset + 0.03) % 1;
-
-    ctx.save();
-
-    // Vertical lines — fan from vanish point
-    for (let i = 0; i <= COLS; i++) {
-      const t  = i / COLS;
-      const bx = t * W;
-      const a  = 0.10 + 0.20 * Math.sin(t * Math.PI);
-      const g  = ctx.createLinearGradient(vX, horizonY, bx, H);
-      g.addColorStop(0,   'rgba(139,0,255,0)');
-      g.addColorStop(0.3, `rgba(139,0,255,${(a * 0.4).toFixed(3)})`);
-      g.addColorStop(1,   `rgba(139,0,255,${a.toFixed(3)})`);
-      ctx.strokeStyle = g;
-      ctx.lineWidth = 0.7;
-      ctx.beginPath();
-      ctx.moveTo(vX, horizonY);
-      ctx.lineTo(bx, H);
-      ctx.stroke();
-    }
-
-    // Horizontal lines — scrolling perspective
-    for (let row = 1; row <= ROWS; row++) {
-      const z = row - offset;
-      if (z <= 0.01) continue;
-      const t = 1 / z;
-      if (t > 1) continue;
-      const y     = horizonY + t * (H - horizonY);
-      const halfW = t * (W / 2);
-      const alpha = Math.min(t * 0.65, 0.52);
-      const lineW = Math.max(t * 1.3, 0.35);
-      const useBlue = row % 4 === 0;
-      ctx.strokeStyle = useBlue
+  function drawMovingGrid(deltaSeconds) {
+    offset = (offset + deltaSeconds * 0.72) % 1;
+    for (let row = 1; row <= 24; row += 1) {
+      const depth = row - offset;
+      if (depth <= 0.01) continue;
+      const perspective = 1 / depth;
+      if (perspective > 1) continue;
+      const y = horizonY + perspective * (height - horizonY);
+      const halfWidth = perspective * width / 2;
+      const alpha = Math.min(perspective * 0.65, 0.52);
+      ctx.strokeStyle = row % 4 === 0
         ? `rgba(0,191,255,${alpha.toFixed(3)})`
         : `rgba(139,0,255,${(alpha * 0.85).toFixed(3)})`;
-      ctx.lineWidth = lineW;
+      ctx.lineWidth = Math.max(perspective * 1.3, 0.35);
       ctx.beginPath();
-      ctx.moveTo(vX - halfW, y);
-      ctx.lineTo(vX + halfW, y);
+      ctx.moveTo(vanishX - halfWidth, y);
+      ctx.lineTo(vanishX + halfWidth, y);
       ctx.stroke();
     }
-    ctx.restore();
-
-    // Glowing horizon line
-    const hg = ctx.createLinearGradient(0, 0, W, 0);
-    hg.addColorStop(0,    'rgba(139,0,255,0)');
-    hg.addColorStop(0.15, 'rgba(139,0,255,0.55)');
-    hg.addColorStop(0.5,  'rgba(0,220,255,1)');
-    hg.addColorStop(0.85, 'rgba(139,0,255,0.55)');
-    hg.addColorStop(1,    'rgba(139,0,255,0)');
-    ctx.save();
-    ctx.shadowColor = '#00cfff';
-    ctx.shadowBlur  = 20;
-    ctx.beginPath();
-    ctx.moveTo(0, horizonY);
-    ctx.lineTo(W, horizonY);
-    ctx.strokeStyle = hg;
-    ctx.lineWidth   = 2.5;
-    ctx.stroke();
-    ctx.restore();
-
-    // Horizon atmospheric bloom
-    const bloom = ctx.createRadialGradient(vX, horizonY, 0, vX, horizonY, W * 0.55);
-    bloom.addColorStop(0,   'rgba(80,0,255,0.13)');
-    bloom.addColorStop(0.4, 'rgba(0,191,255,0.05)');
-    bloom.addColorStop(1,   'rgba(0,0,0,0)');
-    ctx.fillStyle = bloom;
-    ctx.fillRect(0, horizonY - H * 0.25, W, H * 0.5);
-
-    drawMeteors();
-    requestAnimationFrame(drawFrame);
   }
 
-  window.addEventListener('resize', resize);
-  resize();
-  drawFrame();
-})();
-
-/* ============================================================
-   PARTICLE SYSTEM
-============================================================ */
-(function() {
-  const canvas = document.getElementById('particle-canvas');
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  const ctx = canvas.getContext('2d');
-  let particles = [];
-  const COUNT = window.matchMedia('(max-width: 768px)').matches ? 18 : 36;
-
-  function resize() {
-    canvas.width  = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
-
-  function mkParticle() {
-    const colors = ['#8B00FF','#6A0DAD','#00BFFF','#0047AB','#bf7fff','#7fe8ff'];
-    return {
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      r: Math.random() * 2.5 + 0.5,
-      color: colors[Math.floor(Math.random() * colors.length)],
-      vx: (Math.random() - 0.5) * 0.4,
-      vy: (Math.random() - 0.5) * 0.4,
-      alpha: Math.random() * 0.7 + 0.1,
-      pulse: Math.random() * Math.PI * 2,
-      pulseSpeed: 0.015 + Math.random() * 0.025,
-    };
-  }
-
-  for (let i = 0; i < COUNT; i++) particles.push(mkParticle());
-
-  let lastFrameTime = 0;
-
-  function draw(timestamp = 0) {
+  function drawFrame(timestamp) {
+    frameId = 0;
     if (document.hidden) return;
-    if (timestamp - lastFrameTime < 50) {
-      requestAnimationFrame(draw);
+    if (timestamp - lastFrameTime < 40) {
+      frameId = requestAnimationFrame(drawFrame);
       return;
     }
+    const deltaSeconds = lastFrameTime ? Math.min((timestamp - lastFrameTime) / 1000, 0.1) : 0.04;
     lastFrameTime = timestamp;
-
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    particles.forEach(p => {
-      p.pulse += p.pulseSpeed;
-      const alpha = p.alpha * (0.6 + 0.4 * Math.sin(p.pulse));
-
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = p.color;
-      ctx.globalAlpha = alpha;
-      ctx.shadowColor = p.color;
-      ctx.shadowBlur = 6;
-      ctx.fill();
-      ctx.globalAlpha = 1;
-      ctx.shadowBlur = 0;
-
-      p.x += p.vx;
-      p.y += p.vy;
-
-      if (p.x < 0) p.x = canvas.width;
-      if (p.x > canvas.width) p.x = 0;
-      if (p.y < 0) p.y = canvas.height;
-      if (p.y > canvas.height) p.y = 0;
-    });
-
-    requestAnimationFrame(draw);
+    ctx.clearRect(0, 0, width, height);
+    ctx.drawImage(scene, 0, 0);
+    drawMovingGrid(deltaSeconds);
+    if (!reducedMotion) drawMeteors(deltaSeconds);
+    if (!reducedMotion) frameId = requestAnimationFrame(drawFrame);
   }
 
-  window.addEventListener('resize', resize);
+  function startAnimation() {
+    lastFrameTime = 0;
+    if (!reducedMotion && !frameId) frameId = requestAnimationFrame(drawFrame);
+    else if (reducedMotion) drawFrame(performance.now());
+  }
+
+  window.addEventListener('resize', () => {
+    drawStaticScene();
+    startAnimation();
+  }, { passive: true });
   document.addEventListener('visibilitychange', () => {
-    if (!document.hidden) requestAnimationFrame(draw);
+    if (!document.hidden) startAnimation();
   });
-  resize();
-  draw();
+  drawStaticScene();
+  startAnimation();
 })();
 
 /* ============================================================
@@ -2406,7 +2256,7 @@ const GAMES = [
     tags: "adventure, story, scary, horror, 3d, ghost, logic, action-adventure, challenging-games, fantasy-games, mystery-games, quests-games, wizard-games",
     iframeUrl: "/games/sorcerers-refuge.html",
     fullscreen: true,
-    videoUrl: ""
+    videoUrl: "https://static.playgama.com/p-video/6f0fa1935227461bb6875c0f3be95664/orig_length_h640.mp4"
   },
   {
     id: 124,
@@ -2425,6 +2275,166 @@ const GAMES = [
     ],
     tags: "horror, 3d, multiplayer, scary, 3d-horror, fps-horror, stealth-games, sci-fi-games, space-horror, multiplayer-horror, imposter-games, gam-supported-games, hide-and-seek-games",
     iframeUrl: "/games/imposter-3d-online-horror.html",
+    fullscreen: true,
+    videoUrl: "https://static.playgama.com/p-video/ce9c9c3686363232dab69f88b265cf44/orig_length_h640.mp4"
+  },
+   {
+    id: 135,
+    name: "Supernova: The \"Charon\" Protocol",
+    cat: "space",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/supernova-the-charon-protocol/big_preview/01e886cf305a46b09285be84280d1c69?width=448",
+    width: "800",
+    height: "450",
+    description: "Supernova: The \"Charon\" Protocol is a vertical space shoot 'em up where the screen floods with fire and you thread your ship between hundreds of bullets. The last fleet is making its run — and you are flying point.\n\nFight through eleven sectors, from Earth orbit to the void rift. At the end of each one waits an enemy flagship: a multi-phase machine with turrets you can shoot off one by one and attacks of its own. It forgives one mistake. Never two.\n\nBetween sorties there is the hangar. Pick your hull and your gun, add drones, a bomb bay and a wing of escorts, paint the ship your way and fly back stronger. Every credit you earn in battle goes into the next upgrade.\n\nFeatures\n- 11 sectors with their own skies, obstacles and enemy waves\n- 11 flagship battles against multi-phase bosses with turrets you can shoot off\n- 9 weapons that power up mid-fight: pulse, spread, laser, missiles, plasma, arc, wave, boomerang and railgun\n- A hangar with 6 hulls, drones, a bomb bay, an escort wing and 6 paint jobs\n- 20 medals and orders for skill, awarded right in the heat of battle\n- 3 difficulty levels and a two-player mode on one keyboard\n- Plays on desktop and mobile, progress saves automatically\n\nClear the campaign and see what waits past the final sector.",
+    instructions: "Survive the waves, shoot down the enemy flagship at the end of each sector and spend your credits in the hangar between sorties.\n\nPC\nArrow keys or WASD = move\nThe ship fires on its own (autofire is on; Space = fire when you switch it off)\nRight Shift = focus: half speed, hitbox shown\n/ = bomb, clears enemy fire off the screen\nHold the left mouse button = the ship follows the cursor\nP or Esc = pause\nM = sound on / off\n\nTwo players on one keyboard\nPlayer 1: arrow keys, Space, Right Shift, /\nPlayer 2: WASD, F, Left Shift, Q\n\nMobile / Tablet\nDrag anywhere on the screen = move (the ship follows the movement of your finger, not its position)\nThe ship fires on its own\nButtons on the left edge: pause at the top, bomb at the bottom; a fire button appears when autofire is off\n\nEvery key can be remapped in Controls.",
+    categories: [
+      "space"
+    ],
+    tags: "space, arcade, shooting, action, two-player, skill, gun, 1-player-games, ai-games, 2-player-arcade, 2d-games, action-adventure, arcade-shooter, bullet-games, desktop-games, fast-paced-games, mission-games, sci-fi-games, shoot-em-up-games, space-shooter",
+    iframeUrl: "/games/supernova-the-charon-protocol.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
+  {
+    id: 136,
+    name: "Merge Fruit Characters",
+    cat: "puzzle",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/merge-fruit-characters/big-preview/67ed315932de41d3bb6df8a037dc9dda?width=448",
+    width: "800",
+    height: "450",
+    description: "Enjoy nice fruit puzzle game with physics! Match fruits, create new characters, use bonuses. 26 heroes, combos, daily rewards. Relax and play for free!\n\nMagical puzzle game where each fruit is a unique character with its own story! Dive into an amazing world where you can match identical fruits to create new ones. Turn small blueberries into juicy strawberries and strawberries into ripe cherries! The game features 26 incredible characters, each with their own personality and catchphrases. \n\nUse powerful bonuses: \n- \"Multicolor\" merges with any fruit\n- \"Meteor\" breaks through the fruits to the bottom of glass\n- \"Bomb\" explodes small fruits and gives X10 points\n- \"Grow\" increases all identical fruits by one\n- \"Magnet\" allows you to pull the interfering fruit out of the thicket\n- \"Microscope\" temporarily reduces all fruits to micro sizes\n- \"Tornado\" shakes the glass\n\nSpin the wheel of fortune, get daily rewards, and buy upgrades in the store. Realistic physics, beautiful animations, and pleasant music create a cozy atmosphere. Start your adventure in the «Merge Fruit Characters - Fruit Kingdom» right now!",
+    instructions: "Throw fruits into the glass and combine the same ones to create new fruits and unlock unique characters. For example, two Baby Blue Blueberries will turn into Princess Stella \"Little Beak\" Strawberry-Belle, and two sisters will turn into Champion Cherry \"Bouncy Bunny\" Cherryton. \n\n Clicking allows you to make a quick throw, while holding and moving activates a laser sight for more accurate hits.\n\n Fill the glass, but be careful, if even one fruit falls out of the glass, the game will end. Use the space wisely, and develop your own system!\n\nUse bonuses to progress faster in the game.\nSpin the wheel of fortune to receive random rewards, and don't forget to check out the daily quests - completing them will earn you useful bonuses. Upgrade your abilities in the store and progress through the levels, unlocking new features and characters.\n\n Become a leader in points and levels, chat with others, and share your achievements!",
+    categories: [
+      "puzzle"
+    ],
+    tags: "puzzle, merge, mobile, funny, cozy, fruits-games, casual-games, cute-games, 1-player-games",
+    iframeUrl: "/games/merge-fruit-characters.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
+  {
+    id: 137,
+    name: "Backrooms Craft",
+    cat: "adventure",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/backrooms-craft/big_preview/34cec4a8a9af49fe98f613b4e57776a4?width=448",
+    width: "800",
+    height: "450",
+    description: "You went through the wrong door. Behind it: damp carpet, humming lights, yellow wallpaper that runs further than it has any right to. No way out. Just a workbench, a furnace, and whatever the last expedition left behind.\n\nA chair comes apart into sticks, sticks become a torch, boards a workbench. Then stone tools, then steel, each opening what the last could not touch. The furnace smelts metal; the salvage bench strips furniture for parts.\n\nThe world reshuffles every time you start — except the first hall. A yellow line on the floor marks the border: everything built inside it stays where you left it. Past it, nothing holds.\n\nHealth, hunger, thirst and your grip on things. Almond water steadies the mind, a bandage closes what bit you. In the dark a torch is all that stands between you and what walks there.\n\nPoolrooms in white tile, server halls in blue half-light, warehouses, hotel corridors. Locked rooms, anomalous seams, flickering zones — all written up in the journal for good.",
+    instructions: "On a computer: WASD or the arrow keys to walk, Shift to run, Space to jump, C to crouch. The mouse looks around. Hold the left button to mine a block or pull furniture apart — on a creature it is a blow. The right button places a block, eats, drinks, or opens a workbench or furnace. Keys 1-9 and the mouse wheel pick an item from the belt. E is inventory and crafting, J is the journal, Esc is pause.\n\nOn a phone: the stick appears on the left wherever you touch the screen; hold it against the edge and you break into a run. Drag a finger across the world to look around. Hold a finger on a block and mining starts, and you can keep sliding without lifting. A short tap places, uses or hits. Round jump and crouch pads sit on the right; a weapon pad appears when you are holding one. The bag at the end of the belt opens inventory and crafting, the journal is in the top corner.",
+    categories: [
+      "adventure"
+    ],
+    tags: "adventure, simulation, horror, 3d, minecraft, survival, crafting, 1-player-games, mine-games, sandbox-games, building-games, open-world-games, minecraft-survival, minecraft-adventure, action-adventure, action-rpg, survival-horror, backrooms, ai-games",
+    iframeUrl: "/games/backrooms-craft.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
+  {
+    id: 138,
+    name: " Crime and Vice City Police",
+    cat: "driving",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/crime-and-vice-city-police/big-preview/7ae0b72e2627499798611c4d25e6d9fe?width=448",
+    width: "800",
+    height: "450",
+    description: "Switch to different cars and drive around the city with a bunch of other cars and the police.\n- Many different locations: Urban city, hills, crash test tracks, etc.\n- Online Multiplayer!\n- Tuning system.\n- Destruction of the car.\n\nThere will be other cars on the city highway that can be broken! Complete deformation of the transport and realistic collisions.\n\nArrange a crash test of cars and watch their destruction in slow motion. All the destruction of cars has a realistic simulation.",
+    instructions: "Controls:\nTAB - pause menu (or Escape)\n\nMoving W (forward), S (backward), A (left), D (right).\nSpacebar - handbrake.\nShift - nitro.\nC - change camera.\nR - reset car.\nK - restore car.\nB - slow down time.\nN - switch car.\n\nFor mobile devices, use the game interface.",
+    categories: [
+      "driving"
+    ],
+    tags: "driving, car, multiplayer, simulation, police, 3d, gta, boys, car-crash-games, vehicles-games, destruction-games, crash-games, crime-games, gangster-games",
+    iframeUrl: "/games/crime-and-vice-city-police.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
+  {
+    id: 139,
+    name: "Hidden Object: Clues and Mysteries",
+    cat: "hidden object",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/hidden-object-clues-and-mysteries/big-preview/918efb60143240eb99d962fecc6cdaf8?width=448",
+    width: "800",
+    height: "450",
+    description: "Hidden Object: Clues and Mysteries transforms the classic hidden object genre into an engaging adventure. Immerse yourself in a world of riddles, concealed items, and unsolved enigmas.\n\nJoin an experienced detective whose calm and reassuring voice will guide you every step of the way. Search for clues in a variety of charming locations: cozy living rooms, bustling cafés, warm kitchens, private studies, and more.\n\nEach scene is a unique setting where your keen eye and clever thinking will be essential to uncover all the hidden items.\n\nEnjoy serene melodies and a cozy ambiance, as this game is designed for relaxation and leisure. Take your time to solve every mystery and feel the satisfaction of becoming a true detective.",
+    instructions: "In the game, you can freely move left and right across locations and zoom in to find hidden objects.\n\nThe game is available on both PC and mobile devices, allowing you to play anytime, anywhere.",
+    categories: [
+      "hidden object"
+    ],
+    tags: "hidden-object, adventure, point-and-click, mobile, detective-games, mystery-games, relaxing-games, search-games, seek-and-find-games",
+    iframeUrl: "/games/hidden-object-clues-and-mysteries.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
+  {
+    id: 140,
+    name: "A Long Way Home",
+    cat: "adventure",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/a-long-way-home/big-preview/b754165683fe4dae9e2cfb5b0b0ed906?width=448",
+    width: "800",
+    height: "450",
+    description: "A Long Way Home is a chilling survival horror game that plunges you into the role of a lost wanderer, desperately trying to find their way back home. Stranded in an eerie, ever-changing landscape, you must navigate through shadowy corridors and odd places while being relentlessly pursued by strange, otherworldly creatures. As reality begins to unravel, you'll encounter haunting visions and unsettling experiences that blur the line between fear and madness. Will you uncover the truth behind your nightmarish journey or succumb to the horrors lurking in the dark? Prepare for a gripping tale of survival, mystery, and terror in A Long Way Home.",
+    instructions: "You're a lost wanderer.\n\nExplore the haunted world using Arrows or WASD.\n\nUse your mouse to control the camera\n\nFind hidden notes that expand the universe.\n\nCollect all the hidden Foxes.",
+    categories: [
+      "adventure"
+    ],
+    tags: "adventure, story, survival, horror, rpg, survival-horror, horror-escape, jump-scare-games, retro-horror",
+    iframeUrl: "/games/a-long-way-home.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
+  {
+    id: 141,
+    name: "Bubble Blast",
+    cat: "bubble shooter",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/bubble-blast/big-preview/48be0e1ca5354daa8378d69daea53114?width=448",
+    width: "800",
+    height: "450",
+    description: "Dive into a classic match-3 bubble puzzle!\nEnjoy tons of levels and exciting bonuses that keep the gameplay fresh.\n\nPop the bubbles and clear the entire board — if you can!\nIt’s not as easy as it looks.\nAs you advance, you’ll need more skill and tactical thinking to succeed.",
+    instructions: "Bubble Blast is a fun casual bubble shooter game where you pop bubbles and complete quests. This is the classic game you find yourself and those around you playing on your morning commute to work. Progress through the levels, earning coins and perfecting your skills. Use boosters to help you reach three stars and return for daily rewards!\n\nShoot at bubbles with the same color as the one loaded in your bubble blaster to pop them. You can switch the bubble with one of another color if the one currently loaded isn’t useful.\n\nIGB by Playgama",
+    categories: [
+      "bubble shooter"
+    ],
+    tags: "bubble-shooter, bubble, brain-training-games, 1-player-games, borwser-games",
+    iframeUrl: "/games/bubble-blast.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
+  {
+    id: 142,
+    name: "Word Finder",
+    cat: "words",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/word-finder/big_preview/781af1adb04747a5b1fafedc05eef869?width=448",
+    width: "800",
+    height: "450",
+    description: "🐹Playing Word Finder 10 minutes a day sharpens your mind and prepares you for your daily life and challenges!🐹\n\nWould you like to relax, exercise your brain, and expand your vocabulary-all at the same time? With Word Finder, the brand NEW & incredibly addicting word game!\n\nWord Finder is a beautiful and immersive word search game with a shape-shifting twist. Once you start playing, you just won't be able to put it down!\n\nTake your daily medication and ease your mind while enjoying all the fun from Word Finder!\n\nFEATURES\n● A CLUE FOR EACH PUZZLE. Use it to find the related words in each puzzle\n● SHIFTING TILES. Each puzzle shifts as you find words. \n● LOTS OF LEVELS. Play over 6000 levels with more coming soon.\n● EARN POWER-UPS. Use the Spyglass, Light Bulb, or shuffle when you get stuck.\n● COLLECT BONUS POINTS. Earn rewards for finding extra words.",
+    instructions: "● Swipe over letters to connect them in the right order to create words.\n● Find all related words to clear the level.",
+    categories: [
+      "words"
+    ],
+    tags: "words, brain, logic, intelligence, educational, mind-games, addictive-games, search-games, brain-training-games, 1-player-games",
+    iframeUrl: "/games/word-finder.html",
     fullscreen: true,
     videoUrl: ""
   },
@@ -2466,7 +2476,7 @@ const GAMES = [
     tags: "horror, adventure, scary, escape, 1-player-games, 3d-horror, dungeon-games, fps-horror, horror-escape, single-player-horror",
     iframeUrl: "/games/the-secret-of-the-toy-factory.html",
     fullscreen: true,
-    videoUrl: ""
+    videoUrl: "https://static.playgama.com/p-video/14ba2e129d6d4b63979e35a5dc7e44f0/orig_length_h640.mp4"
   },
   {
     id: 127,
@@ -2486,7 +2496,7 @@ const GAMES = [
     tags: "horror, adventure, running, survival, puzzle, monster, escape, scary, 1-player-games, 3d-horror, backrooms, horror-escape, survival-horror, webgl-games, desktop-games, action-adventure, brain-training-games",
     iframeUrl: "/games/backrooms-exit-protocol-0.html",
     fullscreen: true,
-    videoUrl: ""
+    videoUrl: "https://static.playgama.com/p-video/60c9d220c3d84df194de4368f427a1dd/orig_length_h640.mp4"
   },
     {
     id: 130,
@@ -2506,7 +2516,7 @@ const GAMES = [
     tags: "strategy, rpg, action, story, adventure, pve, video, sci-fi-games, arena-games, action-rpg, combat-games, competitive-games, fantasy-games, collecting-games, gam-supported-games, action-adventure, mmo-games, sandbox-games",
     iframeUrl: "/games/far-orion-new-worlds.html",
     fullscreen: true,
-    videoUrl: ""
+    videoUrl: "https://static.playgama.com/p-video/643ac827c1924dc5b17c2e04db358099/orig_length_h640.mp4"
   },
   {
     id: 131,
@@ -2526,7 +2536,7 @@ const GAMES = [
     tags: "scary, horror, story, keyboard, adventure, choice-games, 1-player-games, psychological-horror",
     iframeUrl: "/games/last-night.html",
     fullscreen: true,
-    videoUrl: ""
+    videoUrl: "https://static.playgama.com/p-video/77642c7a0185497ebcfd948210260ea0/orig_length_h640.mp4"
   },
   {
     id: 132,
@@ -2546,7 +2556,7 @@ const GAMES = [
     tags: "horror, survival, adventure, story, escape, action-adventure, horror-escape, survival-horror, 1-player-games, brain-training-games, 3d-horror, fps-horror, dungeon-games, retro-horror",
     iframeUrl: "/games/the-warlock-s-prisoner.html",
     fullscreen: true,
-    videoUrl: ""
+    videoUrl: "https://static.playgama.com/p-video/0b8656475e8441d392be5e024a514e88/orig_length_h640.mp4"
   },
   {
     id: 133,
@@ -2566,7 +2576,7 @@ const GAMES = [
     tags: "simulation, unity-games-online, business-games, desktop-games, borwser-games",
     iframeUrl: "/games/car-sales-empire-simulator.html",
     fullscreen: true,
-    videoUrl: ""
+    videoUrl: "https://static.playgama.com/p-video/cea4e609256d46049786ca2b2ed7b1d2/orig_length_h640.mp4"
   },
   {
     id: 134,
@@ -2586,7 +2596,7 @@ const GAMES = [
     tags: "cool-games, tower-defense, strategy, mobile, popular, boys, unity-games-online, gam-supported-games, defense-games, tactical-games, apocalypse-games, military-games, isometric-games, top-down-games",
     iframeUrl: "/games/aod-art-of-defense.html",
     fullscreen: true,
-    videoUrl: ""
+    videoUrl: "https://static.playgama.com/p-video/85dab689ee56444196a4391ca16773de/orig_length_h640.mp4"
   },
   {
     id: 128,
@@ -2606,7 +2616,7 @@ const GAMES = [
     tags: "scary, horror, christmas, survival, survival-horror, jump-scare-games, holiday-games, single-player-horror",
     iframeUrl: "/games/five-nights-at-christmas.html",
     fullscreen: true,
-    videoUrl: ""
+    videoUrl: "https://static.playgama.com/p-video/8214c0be049547e381d024d3fc4b4bba/orig_length_h640.mp4"
   },
   {
     id: 129,
@@ -2626,7 +2636,7 @@ const GAMES = [
     tags: "car, driving, racing, simulation, 3d, action, physics, unity, boys, car-crash-games, crash-games, destroy-games, destruction-games, demolition-cars-games",
     iframeUrl: "/games/car-destruction-king.html",
     fullscreen: true,
-    videoUrl: ""
+    videoUrl: "https://static.playgama.com/p-video/cdac251fb08c4fafb7bb056eadfa2623/orig_length_h640.mp4"
   },
    {
     id: 101,
@@ -2760,7 +2770,7 @@ const GAMES = [
     imageUrl: "https://static.playgama.com/p-img/pg/backfill/game-86496/preview/57449a8aeb08b058814fb911b0c15014c583f10801e7fa2f4c986e6743c4913c?width=448",
     iframeUrl: "/games/beam-drive-car-crash-test-simulator.html",
     fullscreen: true,
-    videoUrl: ""
+    videoUrl: "https://static.playgama.com/p-video/ca01b2a7120a42899a3bd18db50b4ebe/orig_length_h640.mp4"
   },
   {
     id: 45,
@@ -3534,7 +3544,7 @@ function createGameTile(game) {
   card.setAttribute('role', 'button');
   card.setAttribute('aria-label', `Play ${game.name}`);
   card.innerHTML = `
-    <div class="game-thumb" style="background:${game.gradient || '#171322'};">
+    <div class="game-thumb">
       ${createGameImageMarkup(game)}
     </div>
     <h3 class="game-name">${game.name}</h3>
@@ -3616,9 +3626,27 @@ function bindGameGrid(grid) {
    RENDER FUNCTIONS
 ============================================================ */
 function getGameCategories(game) {
-  if (Array.isArray(game.categories)) return game.categories;
-  if (Array.isArray(game.cats)) return game.cats;
-  return game.cat ? [game.cat] : [];
+  const categories = [
+    ...(Array.isArray(game.categories) ? game.categories : []),
+    ...(Array.isArray(game.cats) ? game.cats : []),
+    ...(game.cat ? [game.cat] : [])
+  ].map(category => String(category).trim().toLowerCase()).filter(Boolean);
+  const uniqueCategories = new Set(categories);
+  if (TRENDING.some(entry => entry.id === game.id)) uniqueCategories.add('trending');
+
+  const tags = getGameTags(game).map(tag => String(tag).toLowerCase());
+  const rating = Number(game.rating ?? game.averageRating ?? game.avgRating ?? game.ratingValue);
+  const isGem = game.gem === true
+    || game.isGem === true
+    || uniqueCategories.has('nostalgia')
+    || uniqueCategories.has('gem')
+    || uniqueCategories.has('gems')
+    || tags.some(tag => ['gem', 'gems', 'iconic', 'classic', 'all-time-classic'].includes(tag))
+    || TRENDING.some(entry => entry.id === game.id)
+    || (Number.isFinite(rating) && rating >= 4.5);
+  if (isGem) uniqueCategories.add('gems');
+
+  return [...uniqueCategories];
 }
 
 function getGameTags(game) {
@@ -3650,6 +3678,15 @@ function getRecommendationFeedback(username, mood = 'all') {
   }
 }
 
+function getRecommendationFeedbackSignals(username) {
+  if (!username) return { categories: {}, tags: {}, keywords: {} };
+  try {
+    return JSON.parse(localStorage.getItem(`pleyz_recommendation_signals_${username}`) || '{"categories":{},"tags":{},"keywords":{}}');
+  } catch (_) {
+    return { categories: {}, tags: {}, keywords: {} };
+  }
+}
+
 function findGameByFeedbackId(id) {
   return GAMES.find(game => String(game.id) === String(id)
     || String(game.iframeUrl || '').split(/[?#]/)[0].split('/').pop() === String(id));
@@ -3662,6 +3699,7 @@ function rankGamesForUser(games) {
   const preferredCategories = new Set(
     recentGames.flatMap(game => getGameCategories(game))
   );
+  const feedbackSignals = getRecommendationFeedbackSignals(getCurrentUser());
 
   return [...games].sort((a, b) => {
     const score = game => {
@@ -3669,7 +3707,9 @@ function rankGamesForUser(games) {
       if (preference === 'dislike') return -100;
       if (preference === 'like') return 50;
       const categoryMatch = getGameCategories(game).some(cat => preferredCategories.has(cat));
-      return categoryMatch ? 10 : 0;
+      return (categoryMatch ? 10 : 0)
+        + getGameCategories(game).reduce((total, category) => total + (feedbackSignals.categories[category] || 0), 0)
+        + getGameTags(game).reduce((total, tag) => total + (feedbackSignals.tags[String(tag).toLowerCase()] || 0), 0);
     };
     return score(b) - score(a);
   });
@@ -3779,6 +3819,7 @@ function renderRecommendedGames() {
   const recent = username ? getRecentGamesForUser(username) : [];
   const preferences = getGamePreferences();
   const recommendationFeedback = username ? getRecommendationFeedback(username, moodKey || 'all') : {};
+  const feedbackSignals = getRecommendationFeedbackSignals(username);
   const history = getPlayHistory(username);
   const recentGames = recent.map(entry => GAMES.find(game => game.id === entry.id)).filter(Boolean);
   const categoryAffinity = new Map();
@@ -3829,6 +3870,16 @@ function renderRecommendedGames() {
     let score = 0;
     categories.forEach(category => { score += categoryAffinity.get(category) || 0; });
     dna.forEach(tag => { score += (dnaAffinity.get(tag) || 0) * 0.35; });
+    categories.forEach(category => { score += (feedbackSignals.categories[category] || 0) * 1.4; });
+    dna.forEach(tag => { score += (feedbackSignals.tags[tag] || 0) * 0.8; });
+    const gameWords = new Set(
+      `${game.name} ${categories.join(' ')} ${dna.join(' ')} ${game.description || ''}`
+        .toLowerCase()
+        .match(/[a-z0-9]{3,}/g) || []
+    );
+    gameWords.forEach(word => { score += (feedbackSignals.keywords[word] || 0) * 0.55; });
+    if (recommendationFeedback[game.id] === true) score += 1.25;
+    if (recommendationFeedback[game.id] === false) score -= 0.75;
     if (preference === 'like') score += 1;
     if (preference === 'dislike') score -= 30;
     if (trendingRank.has(game.id)) score += Math.max(0.4, 2 - trendingRank.get(game.id) * 0.18);
@@ -3838,8 +3889,7 @@ function renderRecommendedGames() {
     if (mood?.terms.length) score += moodMatch ? 5 : -1.5;
     if (moodKey === 'surprise') score += (game.id * 17 % 11) / 10;
     return { game, score, categories, moodMatch };
-  }).filter(item => preferences[item.game.id] !== 'dislike'
-    && recommendationFeedback[item.game.id] !== false);
+  }).filter(item => preferences[item.game.id] !== 'dislike');
 
   const matchingMoodGames = mood?.terms.length ? ranked.filter(item => item.moodMatch) : [];
   const recommendationPool = mood?.terms.length ? matchingMoodGames : ranked;
@@ -3998,12 +4048,7 @@ function initializeMoodDiscovery() {
 
   const selectedMood = getSelectedMood();
   if (selectedMood && PLAY_MOODS[selectedMood]) trigger.textContent = `Mood: ${PLAY_MOODS[selectedMood].label}`;
-  let lastPrompt = 0;
-  try { lastPrompt = Number(localStorage.getItem('pleyz_mood_prompted_at') || 0); } catch (_) {}
-  if (Date.now() - lastPrompt > 7 * 24 * 60 * 60 * 1000) {
-    try { localStorage.setItem('pleyz_mood_prompted_at', String(Date.now())); } catch (_) {}
-    window.setTimeout(() => setOpen(true), 1200);
-  }
+  window.setTimeout(() => setOpen(true), 1200);
 }
 
 function renderTrending() {
@@ -4434,8 +4479,8 @@ function setAuthMode(mode) {
     : '<i class="fas fa-user-plus"></i> Sign Up';
   document.getElementById('auth-title').textContent = isLogin ? 'Welcome Back' : 'Create Account';
   document.getElementById('auth-subtitle').textContent = isLogin
-    ? 'Enjoying PleyZ? Create a free account to earn PleyZ Score and climb the leaderboard.'
-    : 'Create a free account to earn PleyZ Score and climb the leaderboard.';
+    ? 'Enjoying PleyZ? Create a free account to save your profile, earn points when opening games, and join the leaderboard.'
+    : 'Create a free account to save your profile, earn points when opening games, and join the leaderboard.';
   document.getElementById('auth-note').textContent = isLogin
     ? 'New here? Create an account to keep your progress.'
     : 'Already have an account? Sign in to continue.';
@@ -4563,19 +4608,24 @@ function openGame(id) {
 ============================================================ */
 const SIDEBAR_CATEGORIES = [
   {cat: 'all', label: 'All'},
-  {cat: 'action', label: 'Action'},
-  {cat: 'adventure', label: 'Adventure'},
-  {cat: 'boys', label: 'Games for Boys'},
-  {cat: 'girls', label: 'Games for Girls'},
-  {cat: 'puzzle', label: 'Puzzle'},
-  {cat: 'ad-free', label: 'Ad-free Games'},
-  {cat: 'original', label: 'Original Games'},
-  {cat: 'trending', label: 'Trending Games'},
-  {cat: '2d', label: '2D Games'},
-  {cat: '3d', label: '3D Games'},
-  {cat: 'multiplayer', label: 'Multiplayer'},
-  {cat: '2player', label: '2 Player'},
-  {cat: 'io', label: '.io Games'},
+  ...[...new Set(GAMES.flatMap(getGameCategories))]
+    .sort((first, second) => first.localeCompare(second))
+    .map(cat => ({
+      cat,
+      label: ({
+        '2d': '2D Games',
+        '3d': '3D Games',
+        'ad-free': 'Ad-free Games',
+        boys: 'Games for Boys',
+        girls: 'Games for Girls',
+        gems: 'Gems for You',
+        io: '.io Games',
+        nostalgia: 'Nostalgia',
+        original: 'Original Games',
+        trending: 'Trending Games',
+        'two player': 'Two Player'
+      })[cat] || cat.replace(/(^|[\s-])\w/g, character => character.toUpperCase())
+    }))
 ];
 
 function initSidebar() {
@@ -4659,7 +4709,7 @@ try {
         card.tabIndex = 0;
         card.setAttribute('role', 'button');
         card.setAttribute('aria-label', `Play ${g.name}`);
-        card.innerHTML = `<div class="game-thumb" style="background:${g.gradient};">${createGameImageMarkup(g)}</div><h3 class="game-name">${g.name}</h3><span class="cat-badge cat-${g.cat}">${String(g.cat || 'game').toUpperCase()}</span>`;
+        card.innerHTML = `<div class="game-thumb">${createGameImageMarkup(g)}</div><h3 class="game-name">${g.name}</h3><span class="cat-badge cat-${g.cat}">${String(g.cat || 'game').toUpperCase()}</span>`;
         grid.appendChild(card);
       } catch (inner) { /* ignore individual item render failures */ }
     });
@@ -4814,7 +4864,7 @@ window.firebaseFetchLeaderboard = async () => {
         .slice(0, 10);
     }
     if (!entries.length) {
-      statusRow('No players have earned PleyZ Score yet. Sign in and play to claim the first spot.');
+      statusRow('No player scores are available yet. Sign in and open a game to start earning PleyZ points.');
       return;
     }
     const currentUid = window.firebaseAuth?.currentUser?.uid;
@@ -4845,19 +4895,65 @@ window.firebaseFetchLeaderboard = async () => {
           getDocs(collection(db, 'feedback', user.uid, 'recommendations'))
         ]);
         const preferences = getGamePreferences();
+        const feedbackSignals = { categories: {}, tags: {}, keywords: {} };
+        const addSignal = (group, key, value) => {
+          if (key && value) group[key] = (group[key] || 0) + value;
+        };
+        const negativeFeedbackTags = new Set(['too-difficult', 'bugs', 'slow', 'not-for-me']);
+        const feedbackTagKeywords = {
+          fun: ['fun', 'casual', 'arcade'],
+          challenging: ['challenging', 'challenge', 'skill'],
+          'easy-controls': ['controls', 'simple', 'easy'],
+          'great-design': ['design', 'visual', 'art', 'graphics'],
+          'good-for-short-sessions': ['short', 'quick', 'casual'],
+          'too-difficult': ['difficult', 'hard', 'challenging'],
+          bugs: ['bugs', 'bug', 'glitch'],
+          slow: ['slow', 'lag'],
+          'not-for-me': []
+        };
+        const feedbackVocabulary = new Set(GAMES.flatMap(game => [
+          game.name,
+          getGameCategories(game).join(' '),
+          getGameTags(game).join(' ')
+        ]).join(' ').toLowerCase().match(/[a-z0-9]{3,}/g) || []);
+        const ignoredCommentWords = new Set(['about', 'after', 'again', 'also', 'because', 'could', 'game', 'games', 'good', 'just', 'more', 'much', 'play', 'really', 'this', 'very', 'with']);
         gameFeedback.docs.forEach(snapshot => {
           const game = findGameByFeedbackId(snapshot.id);
-          if (!game || preferences[game.id]) return;
-          const rating = Number(snapshot.data().rating);
-          if (rating >= 4) preferences[game.id] = 'like';
-          else if (rating <= 2) preferences[game.id] = 'dislike';
+          if (!game) return;
+          const feedback = snapshot.data();
+          const rating = Number(feedback.rating);
+          const ratingSignal = rating >= 4 ? (rating - 3) / 2 : rating <= 2 ? (rating - 3) / 2 : 0;
+          if (rating >= 4 && !preferences[game.id]) preferences[game.id] = 'like';
+          else if (rating <= 2 && !preferences[game.id]) preferences[game.id] = 'dislike';
+          if (ratingSignal) {
+            getGameCategories(game).forEach(category => addSignal(feedbackSignals.categories, category, ratingSignal * 2));
+            getGameTags(game).forEach(tag => addSignal(feedbackSignals.tags, String(tag).toLowerCase(), ratingSignal));
+          }
+          (Array.isArray(feedback.tags) ? feedback.tags : []).forEach(tag => {
+            const tagSignal = negativeFeedbackTags.has(tag) ? -1 : 1;
+            const weight = ratingSignal ? ratingSignal * tagSignal : tagSignal * 0.35;
+            (feedbackTagKeywords[tag] || []).forEach(word => addSignal(feedbackSignals.keywords, word, weight));
+          });
+          if (ratingSignal && typeof feedback.text === 'string') {
+            feedback.text.toLowerCase().match(/[a-z0-9]{3,}/g)?.forEach(word => {
+              if (feedbackVocabulary.has(word) && !ignoredCommentWords.has(word)) {
+                addSignal(feedbackSignals.keywords, word, ratingSignal * 1.5);
+              }
+            });
+          }
         });
         gameInteractions.docs.forEach(snapshot => {
           const game = findGameByFeedbackId(snapshot.id);
           const interaction = snapshot.data().interaction;
-          if (game && ['like', 'dislike'].includes(interaction)) preferences[game.id] = interaction;
+          if (game && ['like', 'dislike'].includes(interaction)) {
+            preferences[game.id] = interaction;
+            const polarity = interaction === 'like' ? 1 : -1;
+            getGameCategories(game).forEach(category => addSignal(feedbackSignals.categories, category, polarity * 2.5));
+            getGameTags(game).forEach(tag => addSignal(feedbackSignals.tags, String(tag).toLowerCase(), polarity * 1.25));
+          }
         });
         localStorage.setItem(getPreferenceKey(), JSON.stringify(preferences));
+        localStorage.setItem(`pleyz_recommendation_signals_${getCurrentUser()}`, JSON.stringify(feedbackSignals));
 
         const helpfulFeedback = {};
         recommendationVotes.docs.forEach(snapshot => {
@@ -4941,7 +5037,7 @@ window.openPleyzModal = async function(forceOpen = false) {
           `Games: ${Math.max(0, Number(d.gamesPlayed) || 0, Number(d.games) || 0).toLocaleString()}`;
       } else {
         res.textContent =
-          'No PleyZ score yet. Play a game to start earning PleyZ!';
+          'No PleyZ score yet. Sign in and open a game to earn your first point.';
       }
 
     } catch (e) {

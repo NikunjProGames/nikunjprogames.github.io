@@ -1,0 +1,79 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "117412",
+          "slug": "crime-and-vice-city-police",
+          "title": " Crime and Vice City Police",
+          "description": "Switch to different cars and drive around the city with a bunch of other cars and the police.\n- Many different locations: Urban city, hills, crash test tracks, etc.\n- Online Multiplayer!\n- Tuning system.\n- Destruction of the car.\n\nThere will be other cars on the city highway that can be broken! Complete deformation of the transport and realistic collisions.\n\nArrange a crash test of cars and watch their destruction in slow motion. All the destruction of cars has a realistic simulation.",
+          "howToPlayText": "Controls:\nTAB - pause menu (or Escape)\n\nMoving W (forward), S (backward), A (left), D (right).\nSpacebar - handbrake.\nShift - nitro.\nC - change camera.\nR - reset car.\nK - restore car.\nB - slow down time.\nN - switch car.\n\nFor mobile devices, use the game interface.",
+          "gameURL": "https://playgama.com/export/game/crime-and-vice-city-police?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/crime-and-vice-city-police",
+          "genres": [
+            "driving",
+            "car",
+            "multiplayer",
+            "simulation",
+            "police",
+            "3d",
+            "gta",
+            "boys"
+          ],
+          "tags": [
+            "car-crash-games",
+            "vehicles-games",
+            "destruction-games",
+            "crash-games",
+            "crime-games",
+            "gangster-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/crime-and-vice-city-police/big-preview/7ae0b72e2627499798611c4d25e6d9fe?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-117412/icon/41bb0803a17b1d46143df678a7c65331e506d6cdac3aa80616dd4564764c1b63?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "ad7aff3e4f3645f4b3d9d1f93ce3fac3",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "ad7aff3e4f3645f4b3d9d1f93ce3fac3",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/crime-and-vice-city-police/big-preview/7ae0b72e2627499798611c4d25e6d9fe?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/backfill/game-117412/icon/41bb0803a17b1d46143df678a7c65331e506d6cdac3aa80616dd4564764c1b63?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": true
+          },
+          "supportedLanguages": [
+            "en-US",
+            "zh-CN",
+            "de-DE",
+            "es-ES",
+            "fr-FR",
+            "id-ID",
+            "it-IT",
+            "ja-JP",
+            "pt-PT",
+            "ru-RU"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/crime-and-vice-city-police?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

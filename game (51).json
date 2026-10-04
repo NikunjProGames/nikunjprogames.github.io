@@ -1,0 +1,79 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "125616",
+          "slug": "supernova-the-charon-protocol",
+          "title": "Supernova: The \"Charon\" Protocol",
+          "description": "Supernova: The \"Charon\" Protocol is a vertical space shoot 'em up where the screen floods with fire and you thread your ship between hundreds of bullets. The last fleet is making its run — and you are flying point.\n\nFight through eleven sectors, from Earth orbit to the void rift. At the end of each one waits an enemy flagship: a multi-phase machine with turrets you can shoot off one by one and attacks of its own. It forgives one mistake. Never two.\n\nBetween sorties there is the hangar. Pick your hull and your gun, add drones, a bomb bay and a wing of escorts, paint the ship your way and fly back stronger. Every credit you earn in battle goes into the next upgrade.\n\nFeatures\n- 11 sectors with their own skies, obstacles and enemy waves\n- 11 flagship battles against multi-phase bosses with turrets you can shoot off\n- 9 weapons that power up mid-fight: pulse, spread, laser, missiles, plasma, arc, wave, boomerang and railgun\n- A hangar with 6 hulls, drones, a bomb bay, an escort wing and 6 paint jobs\n- 20 medals and orders for skill, awarded right in the heat of battle\n- 3 difficulty levels and a two-player mode on one keyboard\n- Plays on desktop and mobile, progress saves automatically\n\nClear the campaign and see what waits past the final sector.",
+          "howToPlayText": "Survive the waves, shoot down the enemy flagship at the end of each sector and spend your credits in the hangar between sorties.\n\nPC\nArrow keys or WASD = move\nThe ship fires on its own (autofire is on; Space = fire when you switch it off)\nRight Shift = focus: half speed, hitbox shown\n/ = bomb, clears enemy fire off the screen\nHold the left mouse button = the ship follows the cursor\nP or Esc = pause\nM = sound on / off\n\nTwo players on one keyboard\nPlayer 1: arrow keys, Space, Right Shift, /\nPlayer 2: WASD, F, Left Shift, Q\n\nMobile / Tablet\nDrag anywhere on the screen = move (the ship follows the movement of your finger, not its position)\nThe ship fires on its own\nButtons on the left edge: pause at the top, bomb at the bottom; a fire button appears when autofire is off\n\nEvery key can be remapped in Controls.",
+          "gameURL": "https://playgama.com/export/game/supernova-the-charon-protocol?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/supernova-the-charon-protocol",
+          "genres": [
+            "space",
+            "arcade",
+            "shooting",
+            "action",
+            "two-player",
+            "skill",
+            "gun"
+          ],
+          "tags": [
+            "1-player-games",
+            "ai-games",
+            "2-player-arcade",
+            "2d-games",
+            "action-adventure",
+            "arcade-shooter",
+            "bullet-games",
+            "desktop-games",
+            "fast-paced-games",
+            "mission-games",
+            "sci-fi-games",
+            "shoot-em-up-games",
+            "space-shooter"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/supernova-the-charon-protocol/big_preview/01e886cf305a46b09285be84280d1c69?width=448",
+            "https://static.playgama.com/p-img/pg/supernova-the-charon-protocol/icon/9edb959f462347be8cfa833e8d6d2c15?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "fed266a663084a209e51d8472a77f64c",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "fed266a663084a209e51d8472a77f64c",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/supernova-the-charon-protocol/big_preview/01e886cf305a46b09285be84280d1c69?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/supernova-the-charon-protocol/icon/9edb959f462347be8cfa833e8d6d2c15?width=448",
+          "inGamePurchases": "Yes",
+          "screenOrientation": {
+            "horizontal": false,
+            "vertical": true
+          },
+          "supportedLanguages": [
+            "ru-RU",
+            "en-US",
+            "tr-TR"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/supernova-the-charon-protocol?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

@@ -208,46 +208,48 @@
         if (activeGame && activeGame.path === location.pathname) gameId = String(activeGame.id);
       } catch (_) {}
       createFeedbackPopup(auth.currentUser, gameId);
-      const startScoreHeartbeat = async () => {
-        try {
-          const functionsModule = await import('https://www.gstatic.com/firebasejs/12.17.1/firebase-functions.js');
-          const functions = functionsModule.getFunctions(app, 'asia-southeast1');
-          const startSession = functionsModule.httpsCallable(functions, 'startGameplaySession');
-          const sendHeartbeat = functionsModule.httpsCallable(functions, 'gameplayHeartbeat');
-          const username = localStorage.getItem('nikunj_current_username')
-            || auth.currentUser.displayName
-            || auth.currentUser.email?.split('@')[0]
-            || 'Player';
-          const start = async () => (await startSession({ username, gameId })).data.sessionId;
-          let sessionId = await start();
-          let pending = false;
+      const username = localStorage.getItem('nikunj_current_username')
+        || auth.currentUser.displayName
+        || auth.currentUser.email?.split('@')[0]
+        || 'Player';
+      const userRef = firestoreModule.doc(window.firebaseDb, 'users', auth.currentUser.uid);
+      const leaderboardRef = firestoreModule.doc(window.firebaseDb, 'leaderboard', auth.currentUser.uid);
+      await firestoreModule.runTransaction(window.firebaseDb, async transaction => {
+        const [userSnapshot, leaderboardSnapshot] = await Promise.all([
+          transaction.get(userRef),
+          transaction.get(leaderboardRef)
+        ]);
+        const profile = userSnapshot.data() || {};
+        const leaderboard = leaderboardSnapshot.data() || {};
+        const score = Math.max(
+          Number(profile.pleyzScore) || 0,
+          Number(leaderboard.pleyzScore) || 0
+        ) + 1;
+        const gamesPlayed = Math.max(
+          Number(profile.gamesPlayed) || 0,
+          Number(leaderboard.gamesPlayed) || 0
+        ) + 1;
+        const savedUsername = String(profile.username || leaderboard.username || username).trim().slice(0, 40) || 'Player';
+        const now = firestoreModule.serverTimestamp();
 
-          const ping = async () => {
-            if (pending || document.visibilityState !== 'visible' || !auth.currentUser) return;
-            pending = true;
-            try {
-              await sendHeartbeat({ sessionId });
-            } catch (error) {
-              if (error.code === 'functions/failed-precondition') {
-                try { sessionId = await start(); } catch (_) {}
-              }
-            } finally {
-              pending = false;
-            }
-          };
-
-          const interval = window.setInterval(ping, 30000);
-          document.addEventListener('visibilitychange', () => {
-            if (document.visibilityState === 'visible') ping();
-          });
-          window.addEventListener('pagehide', () => window.clearInterval(interval), { once: true });
-        } catch (error) {
-          console.warn('PleyZ gameplay score is unavailable:', error);
-        }
-      };
-      startScoreHeartbeat();
+        transaction.set(userRef, {
+          email: auth.currentUser.email || profile.email || '',
+          username: savedUsername,
+          createdAt: profile.createdAt || now,
+          pleyzScore: score,
+          gamesPlayed,
+          lastPlayed: now
+        });
+        transaction.set(leaderboardRef, {
+          uid: auth.currentUser.uid,
+          username: savedUsername,
+          pleyzScore: score,
+          gamesPlayed,
+          updatedAt: now
+        });
+      });
     } catch (error) {
-      console.warn('PleyZ game feedback is unavailable:', error);
+      console.warn('PleyZ game feedback or score update is unavailable:', error);
     }
   };
 

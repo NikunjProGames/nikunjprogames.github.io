@@ -1,0 +1,67 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "114355",
+          "slug": "merge-fruit-characters",
+          "title": "Merge Fruit Characters",
+          "description": "Enjoy nice fruit puzzle game with physics! Match fruits, create new characters, use bonuses. 26 heroes, combos, daily rewards. Relax and play for free!\n\nMagical puzzle game where each fruit is a unique character with its own story! Dive into an amazing world where you can match identical fruits to create new ones. Turn small blueberries into juicy strawberries and strawberries into ripe cherries! The game features 26 incredible characters, each with their own personality and catchphrases. \n\nUse powerful bonuses: \n- \"Multicolor\" merges with any fruit\n- \"Meteor\" breaks through the fruits to the bottom of glass\n- \"Bomb\" explodes small fruits and gives X10 points\n- \"Grow\" increases all identical fruits by one\n- \"Magnet\" allows you to pull the interfering fruit out of the thicket\n- \"Microscope\" temporarily reduces all fruits to micro sizes\n- \"Tornado\" shakes the glass\n\nSpin the wheel of fortune, get daily rewards, and buy upgrades in the store. Realistic physics, beautiful animations, and pleasant music create a cozy atmosphere. Start your adventure in the «Merge Fruit Characters - Fruit Kingdom» right now!",
+          "howToPlayText": "Throw fruits into the glass and combine the same ones to create new fruits and unlock unique characters. For example, two Baby Blue Blueberries will turn into Princess Stella \"Little Beak\" Strawberry-Belle, and two sisters will turn into Champion Cherry \"Bouncy Bunny\" Cherryton. \n\n Clicking allows you to make a quick throw, while holding and moving activates a laser sight for more accurate hits.\n\n Fill the glass, but be careful, if even one fruit falls out of the glass, the game will end. Use the space wisely, and develop your own system!\n\nUse bonuses to progress faster in the game.\nSpin the wheel of fortune to receive random rewards, and don't forget to check out the daily quests - completing them will earn you useful bonuses. Upgrade your abilities in the store and progress through the levels, unlocking new features and characters.\n\n Become a leader in points and levels, chat with others, and share your achievements!",
+          "gameURL": "https://playgama.com/export/game/merge-fruit-characters?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/merge-fruit-characters",
+          "genres": [
+            "puzzle",
+            "merge",
+            "mobile",
+            "funny",
+            "cozy"
+          ],
+          "tags": [
+            "fruits-games",
+            "casual-games",
+            "cute-games",
+            "1-player-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/merge-fruit-characters/big-preview/67ed315932de41d3bb6df8a037dc9dda?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-114355/icon/cbdc43b3fe9b24a8369c4dcc1f9fb536e49465eec9efe219f1ef56e3f0d46f88?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "799a6ff8a3cec464ba12f5e2da945adf",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "799a6ff8a3cec464ba12f5e2da945adf",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/merge-fruit-characters/big-preview/67ed315932de41d3bb6df8a037dc9dda?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/backfill/game-114355/icon/cbdc43b3fe9b24a8369c4dcc1f9fb536e49465eec9efe219f1ef56e3f0d46f88?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": false,
+            "vertical": true
+          },
+          "supportedLanguages": [
+            "en-US",
+            "ru-RU"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/merge-fruit-characters?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

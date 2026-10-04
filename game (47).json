@@ -1,0 +1,66 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "99671",
+          "slug": "hidden-object-clues-and-mysteries",
+          "title": "Hidden Object: Clues and Mysteries",
+          "description": "Hidden Object: Clues and Mysteries transforms the classic hidden object genre into an engaging adventure. Immerse yourself in a world of riddles, concealed items, and unsolved enigmas.\n\nJoin an experienced detective whose calm and reassuring voice will guide you every step of the way. Search for clues in a variety of charming locations: cozy living rooms, bustling cafés, warm kitchens, private studies, and more.\n\nEach scene is a unique setting where your keen eye and clever thinking will be essential to uncover all the hidden items.\n\nEnjoy serene melodies and a cozy ambiance, as this game is designed for relaxation and leisure. Take your time to solve every mystery and feel the satisfaction of becoming a true detective.",
+          "howToPlayText": "In the game, you can freely move left and right across locations and zoom in to find hidden objects.\n\nThe game is available on both PC and mobile devices, allowing you to play anytime, anywhere.",
+          "gameURL": "https://playgama.com/export/game/hidden-object-clues-and-mysteries?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/hidden-object-clues-and-mysteries",
+          "genres": [
+            "hidden-object",
+            "adventure",
+            "point-and-click",
+            "mobile"
+          ],
+          "tags": [
+            "detective-games",
+            "mystery-games",
+            "relaxing-games",
+            "search-games",
+            "seek-and-find-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/hidden-object-clues-and-mysteries/big-preview/918efb60143240eb99d962fecc6cdaf8?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-99671/icon/bdfd60d3d7f79219244f36d82f5cdbe343dc93ae36c5c6c14acc53741390637a?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "0cf7cb9f43fc45968d1944018b90b0d9",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "0cf7cb9f43fc45968d1944018b90b0d9",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/hidden-object-clues-and-mysteries/big-preview/918efb60143240eb99d962fecc6cdaf8?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/backfill/game-99671/icon/bdfd60d3d7f79219244f36d82f5cdbe343dc93ae36c5c6c14acc53741390637a?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": false,
+            "vertical": true
+          },
+          "supportedLanguages": [
+            "en-US"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/hidden-object-clues-and-mysteries?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

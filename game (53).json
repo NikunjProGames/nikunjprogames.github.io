@@ -1,0 +1,62 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "72",
+          "slug": "bubble-blast",
+          "title": "Bubble Blast",
+          "description": "Dive into a classic match-3 bubble puzzle!\nEnjoy tons of levels and exciting bonuses that keep the gameplay fresh.\n\nPop the bubbles and clear the entire board — if you can!\nIt’s not as easy as it looks.\nAs you advance, you’ll need more skill and tactical thinking to succeed.",
+          "howToPlayText": "Bubble Blast is a fun casual bubble shooter game where you pop bubbles and complete quests. This is the classic game you find yourself and those around you playing on your morning commute to work. Progress through the levels, earning coins and perfecting your skills. Use boosters to help you reach three stars and return for daily rewards!\n\nShoot at bubbles with the same color as the one loaded in your bubble blaster to pop them. You can switch the bubble with one of another color if the one currently loaded isn’t useful.\n\nIGB by Playgama",
+          "gameURL": "https://playgama.com/export/game/bubble-blast?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/bubble-blast",
+          "genres": [
+            "bubble-shooter",
+            "bubble"
+          ],
+          "tags": [
+            "brain-training-games",
+            "1-player-games",
+            "borwser-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/bubble-blast/big-preview/48be0e1ca5354daa8378d69daea53114?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-72/icon/f90c9f98386558445fe7943cdc25fb32e4ff996f2770e2103f21fc6af5663dcc?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "cd3be2f04e1247ca95810887473489eb",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "cd3be2f04e1247ca95810887473489eb",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/bubble-blast/big-preview/48be0e1ca5354daa8378d69daea53114?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/backfill/game-72/icon/f90c9f98386558445fe7943cdc25fb32e4ff996f2770e2103f21fc6af5663dcc?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": false,
+            "vertical": true
+          },
+          "supportedLanguages": [
+            "en-US"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/bubble-blast?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

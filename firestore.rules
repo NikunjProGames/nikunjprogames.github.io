@@ -6,14 +6,93 @@ service cloud.firestore {
       return request.auth != null && request.auth.uid == uid;
     }
 
+    function validScoreData(data) {
+      return data.keys().hasOnly([
+          'email', 'username', 'createdAt', 'pleyzScore', 'gamesPlayed', 'lastPlayed'
+        ])
+        && data.keys().hasAll(['email', 'username', 'createdAt', 'pleyzScore', 'gamesPlayed'])
+        && data.email is string && data.email.size() <= 254
+        && data.username is string && data.username.size() > 0 && data.username.size() <= 40
+        && data.createdAt is timestamp
+        && data.pleyzScore is int && data.pleyzScore >= 0
+        && data.gamesPlayed is int && data.gamesPlayed >= 0
+        && (!('lastPlayed' in data) || data.lastPlayed is timestamp);
+    }
+
+    function matchingLeaderboard(uid) {
+      let profile = getAfter(/databases/$(database)/documents/users/$(uid)).data;
+      let entry = getAfter(/databases/$(database)/documents/leaderboard/$(uid)).data;
+      return profile.username == entry.username
+        && profile.pleyzScore == entry.pleyzScore
+        && profile.gamesPlayed == entry.gamesPlayed;
+    }
+
+    function validNewProfile(uid) {
+      let entryPath = /databases/$(database)/documents/leaderboard/$(uid);
+      return (!exists(entryPath)
+          && request.resource.data.pleyzScore <= 1
+          && request.resource.data.gamesPlayed == request.resource.data.pleyzScore)
+        || (exists(entryPath)
+          && request.resource.data.pleyzScore == get(entryPath).data.pleyzScore
+          && request.resource.data.gamesPlayed == get(entryPath).data.gamesPlayed)
+        || (exists(entryPath)
+          && request.resource.data.pleyzScore == get(entryPath).data.pleyzScore + 1
+          && request.resource.data.gamesPlayed == get(entryPath).data.gamesPlayed + 1);
+    }
+
     match /users/{uid} {
       allow read: if owns(uid);
-      allow write: if false;
+      allow create: if owns(uid)
+        && validScoreData(request.resource.data)
+        && request.resource.data.createdAt == request.time
+        && validNewProfile(uid)
+        && matchingLeaderboard(uid);
+      allow update: if owns(uid)
+        && validScoreData(request.resource.data)
+        && request.resource.data.email == resource.data.email
+        && request.resource.data.username == resource.data.username
+        && request.resource.data.createdAt == resource.data.createdAt
+        && request.resource.data.pleyzScore == resource.data.pleyzScore + 1
+        && request.resource.data.gamesPlayed == resource.data.gamesPlayed + 1
+        && request.resource.data.lastPlayed == request.time
+        && request.resource.data.diff(resource.data).affectedKeys()
+          .hasOnly(['pleyzScore', 'gamesPlayed', 'lastPlayed'])
+        && matchingLeaderboard(uid);
+      allow delete: if false;
     }
 
     match /leaderboard/{uid} {
       allow read: if true;
-      allow write: if false;
+      allow create: if owns(uid)
+        && request.resource.data.keys().hasOnly([
+          'uid', 'username', 'pleyzScore', 'gamesPlayed', 'updatedAt'
+        ])
+        && request.resource.data.keys().hasAll([
+          'uid', 'username', 'pleyzScore', 'gamesPlayed', 'updatedAt'
+        ])
+        && request.resource.data.uid == uid
+        && request.resource.data.username is string
+        && request.resource.data.username.size() > 0
+        && request.resource.data.username.size() <= 40
+        && request.resource.data.pleyzScore is int
+        && request.resource.data.pleyzScore >= 0
+        && request.resource.data.gamesPlayed is int
+        && request.resource.data.gamesPlayed >= 0
+        && request.resource.data.updatedAt == request.time
+        && matchingLeaderboard(uid);
+      allow update: if owns(uid)
+        && request.resource.data.keys().hasOnly([
+          'uid', 'username', 'pleyzScore', 'gamesPlayed', 'updatedAt'
+        ])
+        && request.resource.data.uid == resource.data.uid
+        && request.resource.data.username == resource.data.username
+        && request.resource.data.pleyzScore == resource.data.pleyzScore + 1
+        && request.resource.data.gamesPlayed == resource.data.gamesPlayed + 1
+        && request.resource.data.updatedAt == request.time
+        && request.resource.data.diff(resource.data).affectedKeys()
+          .hasOnly(['pleyzScore', 'gamesPlayed', 'updatedAt'])
+        && matchingLeaderboard(uid);
+      allow delete: if false;
     }
 
     match /gameSessions/{uid} {

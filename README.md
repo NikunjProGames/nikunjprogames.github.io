@@ -47,9 +47,15 @@ Add a game to `feed.json` with its title, description, embed URL, thumbnail, cat
 
 Run `node build-games.js` to regenerate game pages, category pages, and legacy game metadata. Run `node build-games.js --categories-only` when only category pages need rebuilding. Page-specific overrides for older root-level game pages live in `legacy-game-seo.json`.
 
-## Firebase functions
+## Firebase data
 
-PleyZ Score is stored server-side. The public leaderboard function combines the email-free leaderboard projections with score fields in player profiles, so older profiles still appear if their public projection is missing.
+PleyZ Score and leaderboard entries are stored in Cloud Firestore. Signed-in players get one point and one game-count increment each time a game page opens; the page updates both the private profile and public leaderboard entry in one Firestore transaction. Guests can still play, but their game opens do not affect the shared leaderboard. Firestore rules only allow a signed-in player to update their own entry, by exactly one point and one game per transaction.
+
+Publish the score and leaderboard changes with `npx -y firebase-tools@latest deploy --only firestore:rules,hosting`. This does not deploy Cloud Functions or require the Blaze plan. Firebase CLI login may be required. No score migration is needed.
+
+The `Gems for You` category updates automatically: games are included when marked as a gem, tagged as a classic, categorized as nostalgia, listed as trending, or given a rating of at least 4.5 in game metadata. The sidebar builds its category list from the game catalogue, so categories added to game metadata appear there automatically.
+
+To inspect feedback in Firebase Console, open **Firestore Database → Data → feedback**. Each user's UID contains `games` (ratings, tags, comments), `interactions` (likes/dislikes), and `recommendations` (helpful yes/no and mood). User feedback documents are private to that user in Firestore rules. When a user signs in, their ratings, selected tags, comments, reactions, and recommendation votes are synced into their personalized recommendation ranking; this does not pool private feedback from other users.
 
 Game submissions and contact messages are delivered by the `submitGame` Cloud Function. Before deploying it, configure these Firebase Functions secrets through the CLI prompts (do not put their values in source control):
 
@@ -64,6 +70,6 @@ firebase functions:secrets:set SUBMISSION_RATE_LIMIT_KEY
 firebase deploy --only functions
 ```
 
-Use an SMTP account with permission to send from `SMTP_FROM`; set `GAME_SUBMISSION_TO` to the private inbox that should receive messages, and set `SUBMISSION_RATE_LIMIT_KEY` to a unique random value. The endpoint permits five attempts per IP address per hour and stores only an HMAC of the address in Firestore. Enable a Firestore TTL policy on the `expiresAt` field in the `submissionRateLimits` collection to expire those records after one day.
+Use an SMTP account with permission to send from `SMTP_FROM`; set `GAME_SUBMISSION_TO` to the private inbox that should receive messages, and set `SUBMISSION_RATE_LIMIT_KEY` to a unique random value. The endpoint permits five attempts per IP address per hour and stores only an HMAC of the address in Firestore. Enable a Firestore TTL policy on the `expiresAt` field in the `submissionRateLimits` collection to expire those records after one day. The contact form supports general questions, game removal, account or privacy requests, copyright complaints, problem reports, and other inquiries.
 
 The home page can be installed as a PWA on supported browsers. Its service worker caches the app shell and an offline notice; games still require an internet connection.

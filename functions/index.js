@@ -1,4 +1,4 @@
-const { createHmac, randomUUID } = require("node:crypto");
+const { createHmac } = require("node:crypto");
 const { Readable } = require("node:stream");
 const Busboy = require("busboy");
 const { initializeApp } = require("firebase-admin/app");
@@ -13,8 +13,6 @@ initializeApp();
 
 const db = getFirestore();
 const region = "asia-southeast1";
-const minimumHeartbeatMs = 25_000;
-const maximumHeartbeatMs = 45_000;
 const databaseUrl = defineSecret("DATABASE_URL");
 const smtpHost = defineSecret("SMTP_HOST");
 const smtpPort = defineSecret("SMTP_PORT");
@@ -25,13 +23,6 @@ const submissionRecipient = defineSecret("GAME_SUBMISSION_TO");
 const submissionRateLimitKey = defineSecret("SUBMISSION_RATE_LIMIT_KEY");
 let feedbackPool;
 const maximumSubmissionBytes = 10 * 1024 * 1024;
-const rewardTiers = [
-  [60, 1],
-  [300, 2],
-  [600, 5],
-  [1800, 20],
-  [3600, 50]
-];
 
 function requireUser(request) {
   if (!request.auth) throw new HttpsError("unauthenticated", "Sign in to use the leaderboard.");
@@ -304,7 +295,14 @@ function readSubmissionFields(fields, attachments) {
   if (fields.formType === "contact") {
     if (attachments.length) throw submissionError("Contact messages cannot include file uploads.");
     const topic = field("Inquiry Type", 40, true);
-    if (!["General question", "Copyright complaint", "Report a problem"].includes(topic)) {
+    if (![
+      "General question",
+      "Copyright complaint",
+      "Report a problem",
+      "Game removal request",
+      "Account or privacy request",
+      "Other inquiry"
+    ].includes(topic)) {
       throw submissionError("Choose a valid contact topic.");
     }
     const contactEmail = field("Contact Email", 254, true);
@@ -473,109 +471,4 @@ exports.submitGame = onRequest({
     console.error("Game submission email delivery failed:", error.code || "unknown");
     response.status(502).json({ ok: false, error: "We could not send your submission. Please try again later." });
   }
-});
-
-exports.startGameplaySession = onCall({ region }, async request => {
-  const auth = requireUser(request);
-  const uid = auth.uid;
-  const username = cleanUsername(request.data?.username, auth);
-  const gameId = String(request.data?.gameId || "game").slice(0, 180);
-  const { userRef, leaderboardRef } = await ensureProfile(uid, auth.token.email, username);
-  const sessionRef = db.collection("gameSessions").doc(uid);
-  const candidateSessionId = randomUUID();
-
-  const sessionId = await db.runTransaction(async transaction => {
-    const [sessionSnapshot, userSnapshot] = await Promise.all([
-      transaction.get(sessionRef),
-      transaction.get(userRef),
-      transaction.get(leaderboardRef)
-    ]);
-    const now = Timestamp.now();
-    const existing = sessionSnapshot.data();
-    if (existing?.sessionId && now.toMillis() - existing.lastPingAt.toMillis() <= maximumHeartbeatMs) {
-      return existing.sessionId;
-    }
-
-    const profile = userSnapshot.data() || {};
-    const gamesPlayed = playerGamesPlayed(profile) + 1;
-    transaction.set(sessionRef, {
-      sessionId: candidateSessionId,
-      gameId,
-      startedAt: now,
-      lastPingAt: now,
-      playedSeconds: 0,
-      awardedPoints: 0
-    });
-    transaction.set(userRef, { gamesPlayed, lastPlayed: now }, { merge: true });
-    transaction.set(leaderboardRef, {
-      uid,
-      username: profile.username || username,
-      pleyzScore: playerScore(profile),
-      gamesPlayed,
-      updatedAt: now
-    });
-    return candidateSessionId;
-  });
-
-  return { sessionId };
-});
-
-exports.gameplayHeartbeat = onCall({ region }, async request => {
-  const auth = requireUser(request);
-  const uid = auth.uid;
-  const sessionId = String(request.data?.sessionId || "");
-  if (!sessionId) throw new HttpsError("invalid-argument", "A session is required.");
-
-  const sessionRef = db.collection("gameSessions").doc(uid);
-  const userRef = db.collection("users").doc(uid);
-  const leaderboardRef = db.collection("leaderboard").doc(uid);
-
-  return db.runTransaction(async transaction => {
-    const [sessionSnapshot, userSnapshot, leaderboardSnapshot] = await Promise.all([
-      transaction.get(sessionRef),
-      transaction.get(userRef),
-      transaction.get(leaderboardRef)
-    ]);
-    const session = sessionSnapshot.data();
-    if (!session || session.sessionId !== sessionId) {
-      throw new HttpsError("failed-precondition", "The gameplay session has expired.");
-    }
-
-    const now = Timestamp.now();
-    const elapsedMs = now.toMillis() - session.lastPingAt.toMillis();
-    if (elapsedMs < minimumHeartbeatMs) return { accepted: false };
-    if (elapsedMs > maximumHeartbeatMs) {
-      throw new HttpsError("failed-precondition", "The gameplay session timed out.");
-    }
-
-    const playedSeconds = safeCount(session.playedSeconds) + Math.floor(elapsedMs / 1000);
-    const priorAward = safeCount(session.awardedPoints);
-    const nextAward = rewardTiers.reduce(
-      (award, [threshold, points]) => playedSeconds >= threshold ? points : award,
-      0
-    );
-    const pointsToAdd = nextAward - priorAward;
-    const profile = userSnapshot.data() || {};
-    const leaderboard = leaderboardSnapshot.data() || {};
-    const score = playerScore(profile) + pointsToAdd;
-    const gamesPlayed = playerGamesPlayed(profile);
-
-    transaction.update(sessionRef, {
-      lastPingAt: now,
-      playedSeconds,
-      awardedPoints: nextAward
-    });
-    if (pointsToAdd > 0) {
-      transaction.set(userRef, { pleyzScore: score, lastPlayed: now }, { merge: true });
-      transaction.set(leaderboardRef, {
-        uid,
-        username: profile.username || leaderboard.username || "Player",
-        pleyzScore: score,
-        gamesPlayed,
-        updatedAt: now
-      });
-    }
-
-    return { accepted: true, pointsAdded: pointsToAdd, playedSeconds };
-  });
 });

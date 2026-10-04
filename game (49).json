@@ -1,0 +1,66 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "111987",
+          "slug": "a-long-way-home",
+          "title": "A Long Way Home",
+          "description": "A Long Way Home is a chilling survival horror game that plunges you into the role of a lost wanderer, desperately trying to find their way back home. Stranded in an eerie, ever-changing landscape, you must navigate through shadowy corridors and odd places while being relentlessly pursued by strange, otherworldly creatures. As reality begins to unravel, you'll encounter haunting visions and unsettling experiences that blur the line between fear and madness. Will you uncover the truth behind your nightmarish journey or succumb to the horrors lurking in the dark? Prepare for a gripping tale of survival, mystery, and terror in A Long Way Home.",
+          "howToPlayText": "You're a lost wanderer.\n\nExplore the haunted world using Arrows or WASD.\n\nUse your mouse to control the camera\n\nFind hidden notes that expand the universe.\n\nCollect all the hidden Foxes.",
+          "gameURL": "https://playgama.com/export/game/a-long-way-home?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/a-long-way-home",
+          "genres": [
+            "adventure",
+            "story",
+            "survival",
+            "horror",
+            "rpg"
+          ],
+          "tags": [
+            "survival-horror",
+            "horror-escape",
+            "jump-scare-games",
+            "retro-horror"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/a-long-way-home/big-preview/b754165683fe4dae9e2cfb5b0b0ed906?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-111987/icon/8f2d749905e50ae11f53afd8f6748426ffdbee3e49f1b403c291e5a4eafbc5ac?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "4ab6683015fe722810f1e7ac2c43416e",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "4ab6683015fe722810f1e7ac2c43416e",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/a-long-way-home/big-preview/b754165683fe4dae9e2cfb5b0b0ed906?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/backfill/game-111987/icon/8f2d749905e50ae11f53afd8f6748426ffdbee3e49f1b403c291e5a4eafbc5ac?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": true
+          },
+          "supportedLanguages": [
+            "en-US"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/a-long-way-home?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}
