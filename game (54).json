@@ -1,0 +1,64 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "95758",
+          "slug": "tap-3d-wood-block-away",
+          "title": "Tap 3D Wood Block Away",
+          "description": "Discover the captivating world of Tap 3D Wood Block Away, a free online puzzle game that combines creativity and logic. Rotate and tap wooden blocks to reveal intricate 3D designs. Enjoy challenging levels that stimulate your mind, whether you play on your phone or computer.",
+          "howToPlayText": "Tap 3D Wood Block Away is a challenging and addictive puzzle game where you rotate and tap to clear blocks, unlocking complex 3D structures. With intuitive controls, simply swipe to rotate and tap to remove cubes in the correct order. Progress through increasingly tricky levels, sharpen your spatial thinking, and enjoy a satisfying puzzle experience at your own pace!",
+          "gameURL": "https://playgama.com/export/game/tap-3d-wood-block-away?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/tap-3d-wood-block-away",
+          "genres": [
+            "puzzle",
+            "3d",
+            "brain",
+            "blocks"
+          ],
+          "tags": [
+            "cocos-games-online",
+            "iphone-games",
+            "android-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/tap-3d-wood-block-away/big-preview/86b5ffbb263241828684cd66c3fbb62a?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-95758/icon/bbf98b3579c8d3fd2ea65a1d16f68b4a1848ebb5b70dd65dfaf9c7a4c18df71a?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "dd0faafce1014fc49756741a5ab18cd6",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "dd0faafce1014fc49756741a5ab18cd6",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/tap-3d-wood-block-away/big-preview/86b5ffbb263241828684cd66c3fbb62a?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/backfill/game-95758/icon/bbf98b3579c8d3fd2ea65a1d16f68b4a1848ebb5b70dd65dfaf9c7a4c18df71a?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": true
+          },
+          "supportedLanguages": [
+            "en-US"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/tap-3d-wood-block-away?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

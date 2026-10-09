@@ -1,0 +1,75 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "90498",
+          "slug": "tb-world",
+          "title": "TB World",
+          "description": "Ready to unlock your creative potential? In this game, you can create one-of-a-kind looks and cozy interiors! Turn your ideas into reality!",
+          "howToPlayText": "The game opens up endless possibilities for creativity and fun, with your main task being to bring your fantasies to life and create unique stories.\n\nThe controls are intuitive and user-friendly, making it perfect for players of all ages. The simple interface allows you to easily move characters, items, and decor by swiping across the screen. You can tap on clothing and accessories to dress up your characters and drag items to decorate interiors.\n\nIn TB World, there are no strict rules or fixed storylines. You become the author of your own adventures and stories, using a wide range of scenarios, characters, and items. Your imagination is the only limit in this world of creativity and possibilities!",
+          "gameURL": "https://playgama.com/export/game/tb-world?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/tb-world",
+          "genres": [
+            "kids",
+            "decoration",
+            "dress-up",
+            "girls",
+            "make-up",
+            "cozy"
+          ],
+          "tags": [
+            "construct-games-online",
+            "casual-games",
+            "desktop-games",
+            "creativity-games",
+            "2d-games",
+            "1-player-games",
+            "art-games",
+            "customization-games",
+            "cute-games",
+            "house-games",
+            "borwser-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/tb-world/big_preview/af8743dadae94cfcb657a3580f7fc149?width=448",
+            "https://static.playgama.com/p-img/pg/tb-world/icon/00a2f00a4b134cbdab3f2085b0628cc8?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "ea8f329879a648babda819d59bd4ba23",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "ea8f329879a648babda819d59bd4ba23",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/tb-world/big_preview/af8743dadae94cfcb657a3580f7fc149?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/tb-world/icon/00a2f00a4b134cbdab3f2085b0628cc8?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "supportedLanguages": [
+            "en-US",
+            "ru-RU",
+            "tr-TR"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/tb-world?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

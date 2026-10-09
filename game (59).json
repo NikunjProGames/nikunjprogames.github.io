@@ -1,0 +1,76 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "125577",
+          "slug": "cars-vs-zombies",
+          "title": "Cars vs Zombies",
+          "description": "Cars vs Zombies is an arcade vehicular survival action game. Drive your car, annihilate waves of zombies, and destroy the interactive environment in the arenas. Earn resources to upgrade your vehicles in the garage: improve stats, install attachable armor, and equip boosters. Multiple maps and vehicle types are available.",
+          "howToPlayText": "Keyboard & Mouse Controls (Desktop / PC):\n• W / Up Arrow — Accelerate (Gas)\n• S / Down Arrow — Brake & Reverse\n• A / D or Left / Right Arrows — Steer and Air Balance (Tilt in flight)\n• Left Shift / Space — Rocket Booster (Nitro)\n• Left Mouse Button (LMB) — Fire Mounted Weapon\n• Right Mouse Button (RMB) — Trigger Slow-Mo\n• Esc / P / Tab — Pause Menu\n\nTouch Controls (Mobile):\n• On-screen pedals — Gas & Brake/Reverse\n• Left / Right buttons — Steer and Air Balance\n• Nitro button — Activate Booster",
+          "gameURL": "https://playgama.com/export/game/cars-vs-zombies?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/cars-vs-zombies",
+          "genres": [
+            "arcade",
+            "car",
+            "zombie",
+            "driving",
+            "action",
+            "racing",
+            "survival",
+            "3d"
+          ],
+          "tags": [
+            "1-player-games",
+            "action-adventure",
+            "apocalypse-games",
+            "arcade-car",
+            "customization-games",
+            "demolition-games",
+            "kill-games",
+            "vehicles-games",
+            "desktop-games",
+            "addictive-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/cars-vs-zombies/big_preview/5749639b38d74457a4228e4b719dcb85?width=448",
+            "https://static.playgama.com/p-img/pg/cars-vs-zombies/icon/06fb7ac974e749988a3c3241047c0f44?width=448"
+          ],
+          "videos": [],
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/cars-vs-zombies/big_preview/5749639b38d74457a4228e4b719dcb85?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/cars-vs-zombies/icon/06fb7ac974e749988a3c3241047c0f44?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "supportedLanguages": [
+            "en-US",
+            "de-DE",
+            "es-ES",
+            "fr-FR",
+            "id-ID",
+            "it-IT",
+            "pt-PT",
+            "ru-RU",
+            "tr-TR"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/cars-vs-zombies?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

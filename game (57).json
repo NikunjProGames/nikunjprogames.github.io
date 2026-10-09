@@ -1,0 +1,76 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "122402",
+          "slug": "car-crash-sandbox",
+          "title": "Car Crash Sandbox",
+          "description": "Realistic High-Speed Car Crash Simulator\n\nLaunch vehicles down massive slopes and crash them into destructible obstacles. Experience high-speed collisions, realistic crash physics, and detailed vehicle damage in an online driving simulator.\n\nCrash cars. Break parts. Feel the impact.\n\nChoose from multiple vehicles and watch them deform, crumble, and break apart with realistic physics and damage simulation.\n\nFeatures:\n- Online multiplayer mode\n- Realistic car deformation physics\n- 3D graphics\n- Authentic driving controls\n- Detailed vehicle damage system\n- Multiple vehicles to choose from",
+          "howToPlayText": "Controls:\nTab - Pause\nWASD - Drive\nSpace - Handbrake\nShift - Nitro\nN - Next car\nR - Repair car\nC - Change camera\nV - Slow motion\n\nOn mobile devices, use the on-screen controls.\n\nGame Objective:\nDrive around and smash cars however you like.",
+          "gameURL": "https://playgama.com/export/game/car-crash-sandbox?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/car-crash-sandbox",
+          "genres": [
+            "car",
+            "driving",
+            "3d",
+            "physics",
+            "simulation",
+            "boys"
+          ],
+          "tags": [
+            "car-crash-games",
+            "vehicles-games",
+            "sandbox-games",
+            "crash-games",
+            "demolition-cars-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/car-crash-sandbox/big_preview/27cc6ed862204c288a8e0460ac7d5e09?width=448",
+            "https://static.playgama.com/p-img/pg/car-crash-sandbox/icon/4b11607e9678495dabc5f5861e7ece0e?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "c47eac71dab14b27973b3a32f0f60a52",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "c47eac71dab14b27973b3a32f0f60a52",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/car-crash-sandbox/big_preview/27cc6ed862204c288a8e0460ac7d5e09?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/car-crash-sandbox/icon/4b11607e9678495dabc5f5861e7ece0e?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": true
+          },
+          "supportedLanguages": [
+            "en-US",
+            "zh-CN",
+            "de-DE",
+            "es-ES",
+            "fr-FR",
+            "id-ID",
+            "it-IT",
+            "ja-JP",
+            "pt-PT",
+            "ru-RU"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/car-crash-sandbox?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

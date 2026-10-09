@@ -1,0 +1,62 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "125196",
+          "slug": "traffic-rush-online",
+          "title": "TRAFFIC Rush Online",
+          "description": "TRAFFIC Rush Online is a dynamic 3D driving game set on the streets of a large city. Change lanes between moving cars, control your speed, and prove that you can make it through heavy traffic without mistakes.\n\nChoose from three game modes. Drive with other players online, explore the city without restrictions in Free Ride, or dodge traffic and earn more gold in Traffic mode. Level up, expand your garage, and customize your car with new colors, wheels, and exterior parts.\n\nResponsive driving physics, multiple camera views, and detailed urban roads make every run exciting. Take calculated risks, choose the right moment to move, and set a new record!\n\n",
+          "howToPlayText": "The goal of the race is to drive as far as possible along the highway and beat the record.\n\nTry not to crash into other cars. The farther you drive, the more money you will earn.\n\nThe game also features an online mode — invite your friends and play together, or meet new players.\n\nSpend the money you earn on upgrading your car and buying new vehicles.\n\nPC Controls:\nWASD / Arrow Keys — Drive\nC — Change camera\nSpacebar — Handbrake\n\nMobile Controls:\nOn-screen buttons / on-screen steering wheel. You can switch between control modes in the game settings.\n",
+          "gameURL": "https://playgama.com/export/game/traffic-rush-online?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/traffic-rush-online",
+          "genres": [
+            "3d",
+            "car",
+            "driving",
+            "racing",
+            "multiplayer",
+            "simulation"
+          ],
+          "tags": [
+            "car-tuning-games",
+            "race-games",
+            "realistic-car",
+            "traffic-games",
+            "webgl-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/traffic-rush-online/big_preview/8b5c9711e59d49f2a3bde681805443f4?width=448",
+            "https://static.playgama.com/p-img/pg/traffic-rush-online/icon/f83b2c9d897d444e8f3b47b2a2a01fa7?width=448"
+          ],
+          "videos": [],
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/traffic-rush-online/big_preview/8b5c9711e59d49f2a3bde681805443f4?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/traffic-rush-online/icon/f83b2c9d897d444e8f3b47b2a2a01fa7?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "supportedLanguages": [
+            "en-US",
+            "ru-RU"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/traffic-rush-online?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

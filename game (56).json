@@ -1,0 +1,67 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "122527",
+          "slug": "geometry-vibes-3d",
+          "title": "Geometry Vibes 3D",
+          "description": "Geometry Vibes 3D takes everything you loved about the original Geometry Vibes and brings it into a vibrant, dynamic 3D world. With fully reimagined levels and stunning new visuals, this version elevates your reflexes and rhythm-based skills to new dimensions.\n\nGeometry Vibes 3D introduces exciting additions to elevate your experience:\n\nCollectible Stars: Each level in Classic Mode has 3 stars to collect, with a total of 90 stars across all levels and difficulties (30 per difficulty). Stars serve as a badge of skill and currency to unlock exclusive items!\nMarket: Spend your hard-earned stars to unlock a special arrow skin or choose from dazzling 3D skins and trails to customize your vibe.\nLeaderboard for Endless Mode: Compete globally and see how you stack up against players worldwide.\nDifficulty Modes: Classic Mode now offers Rookie, Pro, and Expert settings, catering to beginners and veterans alike.\n\n\nHow is Geometry Vibes 3D different from the original Geometry Vibes?\nGeometry Vibes 3D reimagines the original with fully 3D levels, new features like collectible stars, difficulty modes (Rookie, Pro, Expert), a global Leaderboard, and a Market for skins and trails. The multiplayer is streamlined to 2-Player Mode for a cleaner experience.\n\nCan I play Geometry Vibes 3D on my phone?\nAbsolutely! The game is optimized for mobile devices with smooth touch controls, ensuring a seamless experience on both iOS and Android.\n\nHow do I unlock the special arrow skin?\nCollect stars in Classic Mode to unlock the exclusive arrow skin in the Market. You can earn up to 90 stars by completing all levels in Rookie, Pro, and Expert difficulties.\n\nIs there an online multiplayer mode?\nGeometry Vibes 3D features local 2-Player Mode for face-to-face competition. While there’s no online multiplayer, you can compete globally via the Endless Mode Leaderboard.\n\n Why is there only 2-Player Mode instead of 4-Player Mode like the original?\nTo maintain clear visuals and avoid clutter in the 3D environment, we focused on a polished 2-Player local multiplayer experience.",
+          "howToPlayText": "Player 1: W, Left Mouse Click, or Spacebar.\nPlayer 2 (in 2 Player Mode): Up Arrow Key.\nMobile Devices: Tap anywhere on the screen to jump – touch controls are fully supported.",
+          "gameURL": "https://playgama.com/export/game/geometry-vibes-3d?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/geometry-vibes-3d",
+          "genres": [
+            "3d",
+            "two-player"
+          ],
+          "tags": [
+            "customization-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/geometry-vibes-3d/big-preview/e7be47ba3f314b8e8222b723a2cb5a90?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-122527/icon/c1c16cf0554c62a92c476b8d4e33098e24342300db667ca27114382cf88a9eb6?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "73a8c92f33b74bcfb87bfe013f43e87d",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "73a8c92f33b74bcfb87bfe013f43e87d",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/geometry-vibes-3d/big-preview/e7be47ba3f314b8e8222b723a2cb5a90?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/backfill/game-122527/icon/c1c16cf0554c62a92c476b8d4e33098e24342300db667ca27114382cf88a9eb6?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "supportedLanguages": [
+            "en-US",
+            "ar-EG",
+            "de-DE",
+            "es-ES",
+            "pl-PL",
+            "pt-PT",
+            "ru-RU",
+            "tr-TR"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/geometry-vibes-3d?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

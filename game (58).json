@@ -1,0 +1,63 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "125106",
+          "slug": "street-race-master",
+          "title": "Street Race Master",
+          "description": "Street Race Master is an exciting street racing game featuring 10+ unique cars, 3 different tracks, and multiple challenging levels. Choose your favorite car, race through different environments, master every track, and progress through increasingly challenging races. With vibrant visuals and simple controls, it’s easy to pick up and fun to play.",
+          "howToPlayText": "Control your car with mouse or touch controls. Move left and right to steer your car and stay on the track.",
+          "gameURL": "https://playgama.com/export/game/street-race-master?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/street-race-master",
+          "genres": [
+            "car-racing",
+            "racing",
+            "car",
+            "driving",
+            "3d",
+            "arcade",
+            "drifting"
+          ],
+          "tags": [
+            "1-player-games",
+            "arcade-car",
+            "race-games",
+            "speed-games",
+            "car-tuning-games",
+            "realistic-car"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/street-race-master/big_preview/b3eb3fa57a8d4013943ac73b07f91926?width=448",
+            "https://static.playgama.com/p-img/pg/street-race-master/icon/70502291af5e4d6bbac12a4428f3cf30?width=448"
+          ],
+          "videos": [],
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/street-race-master/big_preview/b3eb3fa57a8d4013943ac73b07f91926?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/street-race-master/icon/70502291af5e4d6bbac12a4428f3cf30?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "supportedLanguages": [
+            "en-US"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/street-race-master?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}
