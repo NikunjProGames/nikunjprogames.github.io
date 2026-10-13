@@ -2118,5 +2118,205 @@ const NEW_GAMES = [
     iframeUrl: "/games/tb-world.html",
     fullscreen: true,
     videoUrl: ""
+  },
+  {
+    id: 150,
+    name: "Sprunki World Online RP - Play with Friends!",
+    cat: "multiplayer",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/sprunki-world-online-rp-play-with-friends/big_preview/74a82adcbb1840e8a176f44666de2c91?width=448",
+    width: "800",
+    height: "450",
+    description: "The World of Sprunki is a world of adventure and fun!\n\n✨ What awaits you?\n\n- 🗺️ Explore the world: find hidden Sprunki in different corners of the planet, discover new locations, and immerse yourself in an atmosphere of adventure.\n- 🎮 Variety of modes: choose the game mode that suits you—be it the Ferris Wheel or dynamic jumping on colorful platforms.\n- ⚡️ Obby + Block Builder: overcome obstacles, build blocks, and create your own routes, inspired by the atmosphere of cube games.\n- ✨ Mini-games: diversify your gameplay with fun tasks and challenges, testing your dexterity and ingenuity.\n- 💬 Live communication: communicate with friends and new acquaintances in the game chat, share impressions and secrets for completing levels.\n\n📈 The game is constantly updated, adding fresh quests and exciting events. Join now and immerse yourself in a world of vibrant emotions and unforgettable discoveries!\n\n\"Sprunki World Online RP - Play with Friends!\" is waiting for you!",
+    instructions: "Computer controls:\nWASD or arrow keys.\n\nPhone controls:\nTap the screen and a virtual joystick will appear.",
+    categories: [
+      "multiplayer"
+    ],
+    tags: "multiplayer, 3d, co-op, popular, obby, chat-games, cube-games, open-world-games, sandbox-games, gam-supported-games",
+    iframeUrl: "/games/sprunki-world-online-rp-play-with-friends.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
+  {
+    id: 151,
+    name: "2 Minute Football QB Legend",
+    cat: "american football",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/2-minute-football-qb-legend/big-preview/a2e92873908445478f326006daa1c0d5?width=448",
+    width: "800",
+    height: "450",
+    description: "2 Minute Football QB Legend 27 focuses on the best parts of football - strategy, completing passes and scoring TD's! We make it as easy as possible -- just start passing with a single tap on the screen. There are no complicated control schemes, only pure touchdown bliss! Play live offense and match up against simulated opponents to win your way to the World Championship! Now with Kickoff Return, Field Goals, 2 Point conversions and more!",
+    instructions: "Your goal is to complete passes and score Touchdowns! (getting the ball in the end zone)  You must have more points than your opponent when the game ends in order to win the games. \n\nSelect a play by tapping it. When the players start moving, look for the player that is the least guarded by the defense. Tap near the player you'd like to throw the ball to. Running is automatic, but can be controlled by clicking and dragging the mouse to the left of right, or dragging your finger on touch devices.",
+    categories: [
+      "american football"
+    ],
+    tags: "american-football, sports, 1-player-games, competitive-games",
+    iframeUrl: "/games/2-minute-football-qb-legend.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
+  {
+    id: 152,
+    name: "Mahjong Lines",
+    cat: "mahjong",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/mahjong-lines/big_preview/96269817997541b48d15ed462ff66d47?width=448",
+    width: "800",
+    height: "450",
+    description: "Mahjong Lines is an engaging logic puzzle game in the mahjong connect genre, where you need to find and connect pairs of matching tiles using simple and intuitive rules.\n\nEnjoy classic mahjong gameplay in a comfortable format: all tiles are placed on a single level, and your goal is to clear the board by connecting identical tiles. A valid path between tiles can be drawn freely, but it must consist of no more than three straight lines (up to two turns).\n\nThe game is perfect for both short relaxing sessions and thoughtful, strategic play.\nMahjong Lines combines a calm atmosphere, clear rules, and gradual difficulty progression, making it enjoyable for both beginners and experienced players.\n\nGame features:\n\n🀄A large number of unique levels\n\n🀄Classic Mahjong tiles\n\n🀄Simple and easy-to-learn rules\n\n🀄Hints and shuffle options\n\n🀄Full-screen gameplay",
+    instructions: "The rules of Mahjong Lines are simple and intuitive:\n\n🀄Tap on two identical tiles.\n\n🀄Tiles can be removed if a path of no more than three straight lines can be built between them.\n\n🀄The connecting line may pass only through empty cells.\n\n🀄The connected pair disappears from the board.\n\n🀄To complete a level, you need to remove all tiles.\n\n🀄Use hints if you can’t find available moves and clear the board step by step, carefully planning each connection.",
+    categories: [
+      "mahjong"
+    ],
+    tags: "mahjong, puzzle, brain, logic, easy, matching, board, mahjong-connect, tiles-games, mind-games, casual-games, brain-training-games, connect-games, mahjong-solitaire-online",
+    iframeUrl: "/games/mahjong-lines.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
+  {
+    id: 153,
+    name: "Fruit Merge: Juicy Drop Game",
+    cat: "puzzle",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/fruit-merge-playgama/big_preview/f88e2107d6554e668566d486ba0518a4?width=448",
+    width: "800",
+    height: "450",
+    description: "🎯 Challenge yourself and create a giant fruit! Start by merging two smaller fruits to eventually form a gigantic one. It’s a feat only 1% of players have achieved. Are you ready to join that elite group?\n\nGame Main Features:\n- Exciting Fruit Matching 🍒: Test your brain by combining the same fruits and observing their remarkable transformation!\n- Tactical Gameplay 🧠: Use thoughtful strategies to keep the fruits from spilling out of the container.\n- Thrilling Transformations 🔄: Discover and unlock new fruit varieties as you progress in the game.\n- Captivating and Fun 😄: Lose yourself in hours of amusement and delight with this unique fruit-matching adventure.",
+    instructions: "Dive deep into the vibrant and enthralling world of fruit-matching with our exciting game, Fruit Merge: Juicy Drop Game! 🍓🍇🍊 When the same fruits collide, they merge into a larger fruit. Your mission is to smartly pair the same types of fruits to make the biggest possible fruits without letting them overflow from the container. However, as the fruits grow in size, space becomes a premium - managing it effectively is your key challenge. Can you strategize and solve this fruity puzzle?",
+    categories: [
+      "puzzle"
+    ],
+    tags: "puzzle, merge, matching, watermelon, unity-games-online, brain-training-games, simple-games, fruits-games, 1-player-games, mind-games, borwser-games",
+    iframeUrl: "/games/fruit-merge-juicy-drop-game.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
+  {
+    id: 154,
+    name: "City Bus Simulator Driving Games",
+    cat: "driving",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/city-bus-simulator-driving-games/big_preview/3dc328398fd44f93a76ae33906e189e6?width=448",
+    width: "800",
+    height: "450",
+    description: "Get behind the wheel of a powerful city bus and experience the life of a professional bus driver in City Bus Simulator Driving Games! Pick up passengers from different locations, drive through busy city roads, park your bus carefully, and drop passengers at their destinations while completing exciting driving missions.\n\nChoose from three exciting modes: City, Winter, and Free Mode. In City Mode, navigate through busy streets and complete passenger pick-and-drop missions. In Winter Mode, test your driving skills on snowy and slippery roads where careful control is essential. In Free Mode, explore the city and enjoy driving your bus without mission restrictions.\nFeatures\n\n-3 exciting modes: City, Winter, and Free Mode.\n-Pick up and drop off passengers across different city locations.\n-Complete challenging bus driving and parking missions.\n-Follow routes and destinations using the in-game map.\n-Drive different buses and unlock new vehicles.\n-Experience city roads and snowy winter environments.\n-Dozens of levels with increasing difficulty.\n-Smooth and easy bus driving controls.\n-Realistic 3D environments, animations, and sound effects.\n-Challenging roads, parking areas, and passenger routes.\n\nBecome a professional bus driver, master difficult routes, safely transport your passengers, and explore different environments in City Bus Simulator Driving Games. Are you ready to start your bus driving career?",
+    instructions: "Desktop:\nAWSD: Player Movement\nSpace: Break\nP = Pause\nCtrl = Setting\nC= Camera Angle\nN: Skip Level\n\nMobile:\nLeft Button: Move Left\nRight Button: Move Right\nRace: Race\nBreak: Break",
+    categories: [
+      "driving"
+    ],
+    tags: "driving, car, bus, simulation, 3d, parking, 1-player-games, vehicles-games, realistic-car, desktop-games",
+    iframeUrl: "/games/city-bus-simulator-driving-games.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
+  {
+    id: 155,
+    name: "Abandoned Mansion",
+    cat: "horror",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/abandoned-mansion/big-preview/8467785cb4b841fca94e740451c367ea?width=448",
+    width: "800",
+    height: "450",
+    description: "Abandoned Mansion is a first-person horror game set in an abandoned mansion, where a distress call leads you to investigate. Upon arrival, you realize it’s too late.\nThe game features item interaction, challenging puzzles, and terrifying monsters.\n\nFeatures:\n\nOptimized 3D graphics and realistic sound effects\nImmersive and thrilling music\nMultiple levels to test your skills\nVariety of enemy types\nBoss fights\nPuzzles to solve\nExploration of the abandoned building\nHidden rooms and items\n\"Abandoned Mansion\" will test your courage and survival skills. Can you unravel the mansion's mystery and face its monstrous inhabitants? Play now to find out.",
+    instructions: "W, A, S, D - Move\nE - Interact\nR - Reload\nC - Crouch\nTab - Open inventory\nSpace - Jump\nLeft mouse button - Attack/Shoot",
+    categories: [
+      "horror"
+    ],
+    tags: "horror, adventure, 3d, survival, scary, ghost, escape, unity-games-online, mystery-games, retro-horror, borwser-games",
+    iframeUrl: "/games/abandoned-mansion.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
+  {
+    id: 156,
+    name: "War V: Path of the Survivor!",
+    cat: "action",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/war-v-path-of-the-survivor/big-preview/19a18f0d112e48a890061dd2464564c5?width=448",
+    width: "800",
+    height: "450",
+    description: "War Z: Path of the Survivor! - Story-driven first-person shooter. Go through the story, buy weapons, install various modules on them.\n\nA first-person action shooter.\n\nAs a result of the man-made disaster, most of humanity was infected with a dangerous virus... which turns people into zombies\n\nThe survivors were forced to form paramilitary groups...\n\nWho knows, maybe it's up to you to find the antidote to the virus and save humanity...\n\n- The world of the zombie apocalypse.\n- An exciting storyline.\n- Hordes of zombies from the simplest to the mutated.\n- A variety of weapons from the real world.\n- Various weapon modules and a leveling system.",
+    instructions: "Control:\n- WASD - movement,\n- LSHIFT - switch to running,\n- SPACEBAR - jump.\n- LEFT MOUSE BUTTON - shoot,\n- RIGHT MOUSE BUTTON - aim,\n- T - inspect the weapons.\n- R - reload.",
+    categories: [
+      "action"
+    ],
+    tags: "action, first-person-shooter, survival, zombie, story, shooting, war, unity-games-online, fps-horror, single-player-horror, 3d-horror, survivors-likes",
+    iframeUrl: "/games/war-v-path-of-the-survivor.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
+  {
+    id: 157,
+    name: "Car Smash Simulator: Crash & Tune",
+    cat: "simulation",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/car-smash-simulator-crash--tune/big-preview/79a9ff5139df4ebeaa6f1dbf25c91171?width=448",
+    width: "800",
+    height: "450",
+    description: "Welcome to the ultimate car crash simulator!\n\nSmash, crash, and customize your vehicles in a giant open-world sandbox. Experience realistic damage - watch doors fly off, hoods crumple, and wheels pop off in brutal crashes.\n\nDrive through zones packed with destruction tools:\n- Giant hammers\n- Hydraulic crushers\n- Mega ramps and more\n\nDiscover new cars roaming the world and make each one yours with tuning:\n- Change full body color or individual parts\n- Adjust wheel size, height, and camber\n- Style your ride your way\n\nWhether you're here to break stuff, perform insane stunts, or just roam free - it's your playground of metal and madness.",
+    instructions: "Keyboard Controls:\nWASD - drive\nSpace - handbrake\nShift - nitro\nTab - pause\nC - camera\nR - flip car\nK - repair\nN - next car\nB - slow motion\n\nOn mobile devices — use on-screen buttons.",
+    categories: [
+      "simulation"
+    ],
+    tags: "simulation, racing, car, 3d, physics, driving, car-racing, boys, car-crash-games, destroy-games, arcade-car, open-world-games, crash-games, demolition-cars-games",
+    iframeUrl: "/games/car-smash-simulator-crash-tune.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
+  {
+    id: 158,
+    name: "Rooftop Run",
+    cat: "skill",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/rooftop-run/big_preview/deae9057920049eb8d15e99aaf496d9e?width=448",
+    width: "800",
+    height: "450",
+    description: "Rooftop Run – Race Across the City! 🏃‍♂️💨\n\nRun, jump, and slide over rooftops in this fast-paced parkour game! Dodge obstacles, smash through barriers, and escape from enemies as you race through exciting levels.\n",
+    instructions: "🔥 Game Features:\n\nCool Parkour Moves – Jump, roll, and slide to keep running.\n\nFast Levels – Complete thrilling challenges and master your skills.\n\nSimple Controls – Easy to learn, fun to play!\n\n🖥️ Desktop Controls:\n\n↑ (Up Arrow) – Move up\n\n↓ (Down Arrow) – Move down\n\n← (Left Arrow) – Move left\n\n→ (Right Arrow) – Move right\n\nSpacebar – Fire weapon\n\nShift – Activate boost\n\n📱 Mobile Controls:\n\nOn-Screen Joystick – Drag to move\n\nFire Button – Tap to shoot\n\nBoost Button – Tap to go faster\n\nBe the best parkour runner! Play Rooftop Run now and start your adventure! ",
+    categories: [
+      "skill"
+    ],
+    tags: "skill, running, platform, parkour, mobile, unity-games-online, fast-paced-action, agility-games, casual-games",
+    iframeUrl: "/games/rooftop-run.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
+  {
+    id: 159,
+    name: "Ragdoll Fury",
+    cat: "fighting",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/ragdoll-fury/big_preview/b1a24e0746cf454d83bda559cdc7bbb2?width=448",
+    width: "800",
+    height: "450",
+    description: "You don't play a hero — you ARE the WEAPON! Grip the hilt, swing fast and tear through hordes of dummies. Every hit is driven by real ragdoll physics, sending enemies flying across the arena. Wield an arsenal of 15 blades and guns across five classes — from Knife and Katana to Sawn-off, Machine Gun and Grenade Launcher — with a premium Laser Blade and Minigun to unlock with gems. Many pack their own special move: ground slam, spin, dash, blade throw.\n\nEach wave hits harder: armored robots, kamikaze bombers, shield bots\nand towering bosses, while special waves throw hordes and gold rushes\nat you. After every wave pick one of three roguelite upgrades — damage, crit, burn, freeze, chain explosions, knockback and dozens more. Chain the elements into combos (shatter, wildfire, detonation), and at wave 10 trigger your weapon's EVOLUTION. Ring out enemies, keep your combo alive and climb the leaderboard.",
+    instructions: "• Melee: drag the weapon with your finger (or mouse) — the faster you\n  swing, the harder you hit and the farther enemies fly.\n• Ranged: move to aim at enemies — it fires automatically, or tap FIRE.\n• Special: tap the glowing button when charged (ground slam, spin,\n  dash, blade throw and more).\n• After each wave pick 1 of 3 upgrades and shape your build.\n• Between waves spend run coins to reroll, heal or banish a card.\n• Combine effects into elemental combos (shatter, burn, detonation),\n  and from wave 10 trigger your weapon's EVOLUTION.",
+    categories: [
+      "fighting"
+    ],
+    tags: "fighting, action, ragdoll, 1-player-games, arena-games, combat-games, fast-paced-action, shoot-em-up-games, smash-games, sword-games",
+    iframeUrl: "/games/ragdoll-fury.html",
+    fullscreen: true,
+    videoUrl: ""
   }
 ];

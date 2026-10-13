@@ -1,0 +1,75 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "90501",
+          "slug": "abandoned-mansion",
+          "title": "Abandoned Mansion",
+          "description": "Abandoned Mansion is a first-person horror game set in an abandoned mansion, where a distress call leads you to investigate. Upon arrival, you realize it’s too late.\nThe game features item interaction, challenging puzzles, and terrifying monsters.\n\nFeatures:\n\nOptimized 3D graphics and realistic sound effects\nImmersive and thrilling music\nMultiple levels to test your skills\nVariety of enemy types\nBoss fights\nPuzzles to solve\nExploration of the abandoned building\nHidden rooms and items\n\"Abandoned Mansion\" will test your courage and survival skills. Can you unravel the mansion's mystery and face its monstrous inhabitants? Play now to find out.",
+          "howToPlayText": "W, A, S, D - Move\nE - Interact\nR - Reload\nC - Crouch\nTab - Open inventory\nSpace - Jump\nLeft mouse button - Attack/Shoot",
+          "gameURL": "https://playgama.com/export/game/abandoned-mansion?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/abandoned-mansion",
+          "genres": [
+            "horror",
+            "adventure",
+            "3d",
+            "survival",
+            "scary",
+            "ghost",
+            "escape"
+          ],
+          "tags": [
+            "unity-games-online",
+            "mystery-games",
+            "retro-horror",
+            "borwser-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/abandoned-mansion/big-preview/8467785cb4b841fca94e740451c367ea?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-90501/icon/a54b5be6f15280d0475e0f597cfaaa4ab8fe687025863f6035c154339992f88d?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "18e8f99d799b47fa83ae0421f10e2ce0",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "18e8f99d799b47fa83ae0421f10e2ce0",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/abandoned-mansion/big-preview/8467785cb4b841fca94e740451c367ea?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/backfill/game-90501/icon/a54b5be6f15280d0475e0f597cfaaa4ab8fe687025863f6035c154339992f88d?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "supportedLanguages": [
+            "en-US",
+            "de-DE",
+            "es-ES",
+            "kk-KZ",
+            "pt-PT",
+            "ru-RU",
+            "tr-TR",
+            "uz-UZ"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/abandoned-mansion?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

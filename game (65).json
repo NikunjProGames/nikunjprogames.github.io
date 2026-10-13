@@ -1,0 +1,67 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "125238",
+          "slug": "city-bus-simulator-driving-games",
+          "title": "City Bus Simulator Driving Games",
+          "description": "Get behind the wheel of a powerful city bus and experience the life of a professional bus driver in City Bus Simulator Driving Games! Pick up passengers from different locations, drive through busy city roads, park your bus carefully, and drop passengers at their destinations while completing exciting driving missions.\n\nChoose from three exciting modes: City, Winter, and Free Mode. In City Mode, navigate through busy streets and complete passenger pick-and-drop missions. In Winter Mode, test your driving skills on snowy and slippery roads where careful control is essential. In Free Mode, explore the city and enjoy driving your bus without mission restrictions.\nFeatures\n\n-3 exciting modes: City, Winter, and Free Mode.\n-Pick up and drop off passengers across different city locations.\n-Complete challenging bus driving and parking missions.\n-Follow routes and destinations using the in-game map.\n-Drive different buses and unlock new vehicles.\n-Experience city roads and snowy winter environments.\n-Dozens of levels with increasing difficulty.\n-Smooth and easy bus driving controls.\n-Realistic 3D environments, animations, and sound effects.\n-Challenging roads, parking areas, and passenger routes.\n\nBecome a professional bus driver, master difficult routes, safely transport your passengers, and explore different environments in City Bus Simulator Driving Games. Are you ready to start your bus driving career?",
+          "howToPlayText": "Desktop:\nAWSD: Player Movement\nSpace: Break\nP = Pause\nCtrl = Setting\nC= Camera Angle\nN: Skip Level\n\nMobile:\nLeft Button: Move Left\nRight Button: Move Right\nRace: Race\nBreak: Break",
+          "gameURL": "https://playgama.com/export/game/city-bus-simulator-driving-games?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/city-bus-simulator-driving-games",
+          "genres": [
+            "driving",
+            "car",
+            "bus",
+            "simulation",
+            "3d",
+            "parking"
+          ],
+          "tags": [
+            "1-player-games",
+            "vehicles-games",
+            "realistic-car",
+            "desktop-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/city-bus-simulator-driving-games/big_preview/3dc328398fd44f93a76ae33906e189e6?width=448",
+            "https://static.playgama.com/p-img/pg/city-bus-simulator-driving-games/icon/ddfeac1f3d1149df816cf95f46f276b9?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "95f252af9fae42fb9d9c85ba7d23d679",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "95f252af9fae42fb9d9c85ba7d23d679",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/city-bus-simulator-driving-games/big_preview/3dc328398fd44f93a76ae33906e189e6?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/city-bus-simulator-driving-games/icon/ddfeac1f3d1149df816cf95f46f276b9?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "supportedLanguages": [
+            "en-US"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/city-bus-simulator-driving-games?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

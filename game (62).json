@@ -1,0 +1,61 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "123491",
+          "slug": "2-minute-football-qb-legend",
+          "title": "2 Minute Football QB Legend",
+          "description": "2 Minute Football QB Legend 27 focuses on the best parts of football - strategy, completing passes and scoring TD's! We make it as easy as possible -- just start passing with a single tap on the screen. There are no complicated control schemes, only pure touchdown bliss! Play live offense and match up against simulated opponents to win your way to the World Championship! Now with Kickoff Return, Field Goals, 2 Point conversions and more!",
+          "howToPlayText": "Your goal is to complete passes and score Touchdowns! (getting the ball in the end zone)  You must have more points than your opponent when the game ends in order to win the games. \n\nSelect a play by tapping it. When the players start moving, look for the player that is the least guarded by the defense. Tap near the player you'd like to throw the ball to. Running is automatic, but can be controlled by clicking and dragging the mouse to the left of right, or dragging your finger on touch devices.",
+          "gameURL": "https://playgama.com/export/game/2-minute-football-qb-legend?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/2-minute-football-qb-legend",
+          "genres": [
+            "american-football",
+            "sports"
+          ],
+          "tags": [
+            "1-player-games",
+            "competitive-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/2-minute-football-qb-legend/big-preview/a2e92873908445478f326006daa1c0d5?width=448",
+            "https://static.playgama.com/p-img/pg/preview/fc21ab69017e4038acd86c5387b20ff7?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "df698326136b4fee93bcf1f76001ab75",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "df698326136b4fee93bcf1f76001ab75",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/2-minute-football-qb-legend/big-preview/a2e92873908445478f326006daa1c0d5?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/preview/fc21ab69017e4038acd86c5387b20ff7?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": true
+          },
+          "supportedLanguages": [
+            "en-US"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/2-minute-football-qb-legend?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

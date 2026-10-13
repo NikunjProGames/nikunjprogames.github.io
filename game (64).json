@@ -1,0 +1,68 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "59",
+          "slug": "fruit-merge-playgama",
+          "title": "Fruit Merge: Juicy Drop Game",
+          "description": "🎯 Challenge yourself and create a giant fruit! Start by merging two smaller fruits to eventually form a gigantic one. It’s a feat only 1% of players have achieved. Are you ready to join that elite group?\n\nGame Main Features:\n- Exciting Fruit Matching 🍒: Test your brain by combining the same fruits and observing their remarkable transformation!\n- Tactical Gameplay 🧠: Use thoughtful strategies to keep the fruits from spilling out of the container.\n- Thrilling Transformations 🔄: Discover and unlock new fruit varieties as you progress in the game.\n- Captivating and Fun 😄: Lose yourself in hours of amusement and delight with this unique fruit-matching adventure.",
+          "howToPlayText": "Dive deep into the vibrant and enthralling world of fruit-matching with our exciting game, Fruit Merge: Juicy Drop Game! 🍓🍇🍊 When the same fruits collide, they merge into a larger fruit. Your mission is to smartly pair the same types of fruits to make the biggest possible fruits without letting them overflow from the container. However, as the fruits grow in size, space becomes a premium - managing it effectively is your key challenge. Can you strategize and solve this fruity puzzle?",
+          "gameURL": "https://playgama.com/export/game/fruit-merge-playgama?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/fruit-merge-playgama",
+          "genres": [
+            "puzzle",
+            "merge",
+            "matching",
+            "watermelon"
+          ],
+          "tags": [
+            "unity-games-online",
+            "brain-training-games",
+            "simple-games",
+            "fruits-games",
+            "1-player-games",
+            "mind-games",
+            "borwser-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/fruit-merge-playgama/big_preview/f88e2107d6554e668566d486ba0518a4?width=448",
+            "https://static.playgama.com/p-img/pg/fruit-merge-playgama/icon/7221e2b5dcd647ce9660bdf79c8133bd?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "2f6ffa316a8a4b45907ff8e46ae56965",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "2f6ffa316a8a4b45907ff8e46ae56965",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/fruit-merge-playgama/big_preview/f88e2107d6554e668566d486ba0518a4?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/fruit-merge-playgama/icon/7221e2b5dcd647ce9660bdf79c8133bd?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": false,
+            "vertical": true
+          },
+          "supportedLanguages": [
+            "en-US"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/fruit-merge-playgama?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

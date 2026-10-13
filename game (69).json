@@ -1,0 +1,71 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "99664",
+          "slug": "rooftop-run",
+          "title": "Rooftop Run",
+          "description": "Rooftop Run – Race Across the City! 🏃‍♂️💨\n\nRun, jump, and slide over rooftops in this fast-paced parkour game! Dodge obstacles, smash through barriers, and escape from enemies as you race through exciting levels.\n",
+          "howToPlayText": "🔥 Game Features:\n\nCool Parkour Moves – Jump, roll, and slide to keep running.\n\nFast Levels – Complete thrilling challenges and master your skills.\n\nSimple Controls – Easy to learn, fun to play!\n\n🖥️ Desktop Controls:\n\n↑ (Up Arrow) – Move up\n\n↓ (Down Arrow) – Move down\n\n← (Left Arrow) – Move left\n\n→ (Right Arrow) – Move right\n\nSpacebar – Fire weapon\n\nShift – Activate boost\n\n📱 Mobile Controls:\n\nOn-Screen Joystick – Drag to move\n\nFire Button – Tap to shoot\n\nBoost Button – Tap to go faster\n\nBe the best parkour runner! Play Rooftop Run now and start your adventure! ",
+          "gameURL": "https://rooftoprun.net/export?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/rooftop-run",
+          "genres": [
+            "skill",
+            "running",
+            "platform",
+            "parkour",
+            "mobile"
+          ],
+          "tags": [
+            "unity-games-online",
+            "fast-paced-action",
+            "agility-games",
+            "casual-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/rooftop-run/big_preview/deae9057920049eb8d15e99aaf496d9e?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-99664/icon/1e9b2927151e168b95c77f8e4c6c59f7bf825fd8070d6580ade4ee2750f3e10b?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "8526b1ddbf6643d086bcc8398a33abcc",
+              "external_url": "",
+              "type": "gameplay"
+            },
+            {
+              "playgama_id": "da98c2ba61f74c94b81141138a274b8b",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "8526b1ddbf6643d086bcc8398a33abcc",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/rooftop-run/big_preview/deae9057920049eb8d15e99aaf496d9e?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/backfill/game-99664/icon/1e9b2927151e168b95c77f8e4c6c59f7bf825fd8070d6580ade4ee2750f3e10b?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": true
+          },
+          "supportedLanguages": [
+            "en-US"
+          ],
+          "embed": "<iframe src='https://rooftoprun.net/export?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

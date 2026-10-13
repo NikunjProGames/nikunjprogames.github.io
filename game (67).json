@@ -1,0 +1,73 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "99682",
+          "slug": "war-v-path-of-the-survivor",
+          "title": "War V: Path of the Survivor!",
+          "description": "War Z: Path of the Survivor! - Story-driven first-person shooter. Go through the story, buy weapons, install various modules on them.\n\nA first-person action shooter.\n\nAs a result of the man-made disaster, most of humanity was infected with a dangerous virus... which turns people into zombies\n\nThe survivors were forced to form paramilitary groups...\n\nWho knows, maybe it's up to you to find the antidote to the virus and save humanity...\n\n- The world of the zombie apocalypse.\n- An exciting storyline.\n- Hordes of zombies from the simplest to the mutated.\n- A variety of weapons from the real world.\n- Various weapon modules and a leveling system.",
+          "howToPlayText": "Control:\n- WASD - movement,\n- LSHIFT - switch to running,\n- SPACEBAR - jump.\n- LEFT MOUSE BUTTON - shoot,\n- RIGHT MOUSE BUTTON - aim,\n- T - inspect the weapons.\n- R - reload.",
+          "gameURL": "https://playgama.com/export/game/war-v-path-of-the-survivor?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/war-v-path-of-the-survivor",
+          "genres": [
+            "action",
+            "first-person-shooter",
+            "survival",
+            "zombie",
+            "story",
+            "shooting",
+            "war"
+          ],
+          "tags": [
+            "unity-games-online",
+            "fps-horror",
+            "single-player-horror",
+            "3d-horror",
+            "survivors-likes"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/war-v-path-of-the-survivor/big-preview/19a18f0d112e48a890061dd2464564c5?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-99682/icon/5fac0636ab97a27383b4ec0f54e4d0a071121e9d6b38cae94fdcb11c7e182eb6?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "42dd892564fc46bf806f5fed4d137dc2",
+              "external_url": "",
+              "type": "gameplay"
+            },
+            {
+              "playgama_id": "6321a13f8d3349398f3aefb5106284ad",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "42dd892564fc46bf806f5fed4d137dc2",
+          "mobileReady": [
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/war-v-path-of-the-survivor/big-preview/19a18f0d112e48a890061dd2464564c5?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/backfill/game-99682/icon/5fac0636ab97a27383b4ec0f54e4d0a071121e9d6b38cae94fdcb11c7e182eb6?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "supportedLanguages": [
+            "en-US",
+            "ru-RU"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/war-v-path-of-the-survivor?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

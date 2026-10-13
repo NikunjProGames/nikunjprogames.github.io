@@ -1,0 +1,68 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "124116",
+          "slug": "ragdoll-fury",
+          "title": "Ragdoll Fury",
+          "description": "You don't play a hero — you ARE the WEAPON! Grip the hilt, swing fast and tear through hordes of dummies. Every hit is driven by real ragdoll physics, sending enemies flying across the arena. Wield an arsenal of 15 blades and guns across five classes — from Knife and Katana to Sawn-off, Machine Gun and Grenade Launcher — with a premium Laser Blade and Minigun to unlock with gems. Many pack their own special move: ground slam, spin, dash, blade throw.\n\nEach wave hits harder: armored robots, kamikaze bombers, shield bots\nand towering bosses, while special waves throw hordes and gold rushes\nat you. After every wave pick one of three roguelite upgrades — damage, crit, burn, freeze, chain explosions, knockback and dozens more. Chain the elements into combos (shatter, wildfire, detonation), and at wave 10 trigger your weapon's EVOLUTION. Ring out enemies, keep your combo alive and climb the leaderboard.",
+          "howToPlayText": "• Melee: drag the weapon with your finger (or mouse) — the faster you\n  swing, the harder you hit and the farther enemies fly.\n• Ranged: move to aim at enemies — it fires automatically, or tap FIRE.\n• Special: tap the glowing button when charged (ground slam, spin,\n  dash, blade throw and more).\n• After each wave pick 1 of 3 upgrades and shape your build.\n• Between waves spend run coins to reroll, heal or banish a card.\n• Combine effects into elemental combos (shatter, burn, detonation),\n  and from wave 10 trigger your weapon's EVOLUTION.",
+          "gameURL": "https://playgama.com/export/game/ragdoll-fury?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/ragdoll-fury",
+          "genres": [
+            "fighting",
+            "action",
+            "ragdoll"
+          ],
+          "tags": [
+            "1-player-games",
+            "arena-games",
+            "combat-games",
+            "fast-paced-action",
+            "shoot-em-up-games",
+            "smash-games",
+            "sword-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/ragdoll-fury/big_preview/b1a24e0746cf454d83bda559cdc7bbb2?width=448",
+            "https://static.playgama.com/p-img/pg/ragdoll-fury/icon/e592a0dc0648439d84517fc957033550?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "be802c71d6c043658d9aa9bc675c07f1",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "be802c71d6c043658d9aa9bc675c07f1",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/ragdoll-fury/big_preview/b1a24e0746cf454d83bda559cdc7bbb2?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/ragdoll-fury/icon/e592a0dc0648439d84517fc957033550?width=448",
+          "inGamePurchases": "Yes",
+          "screenOrientation": {
+            "horizontal": false,
+            "vertical": true
+          },
+          "supportedLanguages": [
+            "en-US",
+            "ru-RU"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/ragdoll-fury?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

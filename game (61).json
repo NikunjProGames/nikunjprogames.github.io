@@ -1,0 +1,68 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "114337",
+          "slug": "sprunki-world-online-rp--play-with-friends",
+          "title": "Sprunki World Online RP - Play with Friends!",
+          "description": "The World of Sprunki is a world of adventure and fun!\n\n✨ What awaits you?\n\n- 🗺️ Explore the world: find hidden Sprunki in different corners of the planet, discover new locations, and immerse yourself in an atmosphere of adventure.\n- 🎮 Variety of modes: choose the game mode that suits you—be it the Ferris Wheel or dynamic jumping on colorful platforms.\n- ⚡️ Obby + Block Builder: overcome obstacles, build blocks, and create your own routes, inspired by the atmosphere of cube games.\n- ✨ Mini-games: diversify your gameplay with fun tasks and challenges, testing your dexterity and ingenuity.\n- 💬 Live communication: communicate with friends and new acquaintances in the game chat, share impressions and secrets for completing levels.\n\n📈 The game is constantly updated, adding fresh quests and exciting events. Join now and immerse yourself in a world of vibrant emotions and unforgettable discoveries!\n\n\"Sprunki World Online RP - Play with Friends!\" is waiting for you!",
+          "howToPlayText": "Computer controls:\nWASD or arrow keys.\n\nPhone controls:\nTap the screen and a virtual joystick will appear.",
+          "gameURL": "https://playgama.com/export/game/sprunki-world-online-rp--play-with-friends?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/sprunki-world-online-rp--play-with-friends",
+          "genres": [
+            "multiplayer",
+            "3d",
+            "co-op",
+            "popular",
+            "obby"
+          ],
+          "tags": [
+            "chat-games",
+            "cube-games",
+            "open-world-games",
+            "sandbox-games",
+            "gam-supported-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/sprunki-world-online-rp-play-with-friends/big_preview/74a82adcbb1840e8a176f44666de2c91?width=448",
+            "https://static.playgama.com/p-img/pg/sprunki-world-online-rp-play-with-friends/icon/6d8c16f11d4846428400f4762d7c794c?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "c6c6091aa5ee47df9d51449d3c42d254",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "c6c6091aa5ee47df9d51449d3c42d254",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/sprunki-world-online-rp-play-with-friends/big_preview/74a82adcbb1840e8a176f44666de2c91?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/sprunki-world-online-rp-play-with-friends/icon/6d8c16f11d4846428400f4762d7c794c?width=448",
+          "inGamePurchases": "Yes",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "supportedLanguages": [
+            "en-US",
+            "ru-RU"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/sprunki-world-online-rp--play-with-friends?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

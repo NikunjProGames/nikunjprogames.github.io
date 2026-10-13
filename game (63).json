@@ -1,0 +1,72 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "118432",
+          "slug": "mahjong-lines",
+          "title": "Mahjong Lines",
+          "description": "Mahjong Lines is an engaging logic puzzle game in the mahjong connect genre, where you need to find and connect pairs of matching tiles using simple and intuitive rules.\n\nEnjoy classic mahjong gameplay in a comfortable format: all tiles are placed on a single level, and your goal is to clear the board by connecting identical tiles. A valid path between tiles can be drawn freely, but it must consist of no more than three straight lines (up to two turns).\n\nThe game is perfect for both short relaxing sessions and thoughtful, strategic play.\nMahjong Lines combines a calm atmosphere, clear rules, and gradual difficulty progression, making it enjoyable for both beginners and experienced players.\n\nGame features:\n\n🀄A large number of unique levels\n\n🀄Classic Mahjong tiles\n\n🀄Simple and easy-to-learn rules\n\n🀄Hints and shuffle options\n\n🀄Full-screen gameplay",
+          "howToPlayText": "The rules of Mahjong Lines are simple and intuitive:\n\n🀄Tap on two identical tiles.\n\n🀄Tiles can be removed if a path of no more than three straight lines can be built between them.\n\n🀄The connecting line may pass only through empty cells.\n\n🀄The connected pair disappears from the board.\n\n🀄To complete a level, you need to remove all tiles.\n\n🀄Use hints if you can’t find available moves and clear the board step by step, carefully planning each connection.",
+          "gameURL": "https://playgama.com/export/game/mahjong-lines?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/mahjong-lines",
+          "genres": [
+            "mahjong",
+            "puzzle",
+            "brain",
+            "logic",
+            "easy",
+            "matching",
+            "board"
+          ],
+          "tags": [
+            "mahjong-connect",
+            "tiles-games",
+            "mind-games",
+            "casual-games",
+            "brain-training-games",
+            "connect-games",
+            "mahjong-solitaire-online"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/mahjong-lines/big_preview/96269817997541b48d15ed462ff66d47?width=448",
+            "https://static.playgama.com/p-img/pg/mahjong-lines/icon/c414c10941374924b807e56c0676f190?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "5d5dd6756d0b4cf9bd2b3ffdcfdcb6cc",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "5d5dd6756d0b4cf9bd2b3ffdcfdcb6cc",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/mahjong-lines/big_preview/96269817997541b48d15ed462ff66d47?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/mahjong-lines/icon/c414c10941374924b807e56c0676f190?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": false,
+            "vertical": true
+          },
+          "supportedLanguages": [
+            "en-US",
+            "ru-RU"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/mahjong-lines?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}
