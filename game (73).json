@@ -1,0 +1,65 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "114919",
+          "slug": "snake-2077-glitch-war",
+          "title": "Snake 2077: Glitch War",
+          "description": "Welcome to Snake 2077: Glitch War, a futuristic evolution of the classic snake IO genre.\nDive into a chaotic, neon-lit digital arena where the only rule is survival. Collect energy pellets to grow your cyber-snake, use tactical speed boosts to cut off opponents, and scavenge coins from their remains. Featuring stunning glitch art aesthetics, smart AI bots with unique personalities, and a massive collection of unlockable skins, every match is a fight for dominance.\nCan you survive the glitch and top the global leaderboard?",
+          "howToPlayText": "Objective: Slither through the Cyberpunk arena, collecting neon food to grow longer.\nHow to Win: Cut off other snakes to destroy them and eat their remains for massive points. Climb to the #1 spot on the leaderboard!\nControls:\nDesktop: Move Mouse to steer. Hold Left Click to Boost (consume mass to speed up).\nMobile: Use the on-screen Joystick to steer. Tap the Lightning Button to Boost.",
+          "gameURL": "https://playgama.com/export/game/snake-2077-glitch-war?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/snake-2077-glitch-war",
+          "genres": [
+            "snake",
+            "pvp",
+            "io"
+          ],
+          "tags": [
+            "snake-io",
+            "competitive-games",
+            "eating-games",
+            "grow-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/snake-2077-glitch-war/big-preview/a197622a4bc540189401a9753ea98ba2?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-114919/icon/e604865c801c30e6dfedb0bd485bf6c286839c36c63d37a4face76fc07e045a3?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "ca064099757ba9f8aac1ab6d54bf884c",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "ca064099757ba9f8aac1ab6d54bf884c",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/snake-2077-glitch-war/big-preview/a197622a4bc540189401a9753ea98ba2?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/backfill/game-114919/icon/e604865c801c30e6dfedb0bd485bf6c286839c36c63d37a4face76fc07e045a3?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "supportedLanguages": [
+            "en-US",
+            "ru-RU"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/snake-2077-glitch-war?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "115284",
+          "slug": "motorcycle-racer-road-mayhem",
+          "title": "Motorcycle Racer: Road Mayhem",
+          "description": "Motorcycle Racer: Road Mayhem is an exciting motorcycle racing game.\nIn this game you will become a motorcycle racer who travels through city streets and highways, avoiding collisions with other vehicles. You will be able to unlock faster and more powerful motorcycles, each with its own unique handling characteristics, as well as improve the characteristics of your motorcycle. One of the key features of the game is a realistic physics engine that makes the gameplay challenging and exciting.\n\nFeatures of the game:\n- Bright and colorful graphics;\n- Well-developed physics engine;\n- Realistic soundtrack.",
+          "howToPlayText": "The goal of the game is to upgrade and buy motorcycles, participate in races and win at all levels.\nControl on a mobile device: touch.\nPC control: arrows for traffic",
+          "gameURL": "https://playgama.com/export/game/motorcycle-racer-road-mayhem?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/motorcycle-racer-road-mayhem",
+          "genres": [
+            "racing",
+            "motorbike",
+            "driving",
+            "simulation",
+            "skill",
+            "bike",
+            "boys"
+          ],
+          "tags": [
+            "drag-racing-games",
+            "vehicles-games",
+            "avoid-games",
+            "fast-paced-games",
+            "traffic-games",
+            "speed-games",
+            "bike-racing-games",
+            "race-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/motorcycle-racer-road-mayhem/big_preview/172bc19cb4694ac3896516a315ee8499?width=448",
+            "https://static.playgama.com/p-img/pg/motorcycle-racer-road-mayhem/icon/d2ff43d7e9e94e45a88620873683b623?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "ca6769ef9afe7d41b0a1cff6efc432cc",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "ca6769ef9afe7d41b0a1cff6efc432cc",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/motorcycle-racer-road-mayhem/big_preview/172bc19cb4694ac3896516a315ee8499?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/motorcycle-racer-road-mayhem/icon/d2ff43d7e9e94e45a88620873683b623?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "supportedLanguages": [
+            "en-US",
+            "de-DE",
+            "es-ES",
+            "ru-RU"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/motorcycle-racer-road-mayhem?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

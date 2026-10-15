@@ -1,0 +1,67 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "120338",
+          "slug": "zynpavo-rhythm-piano",
+          "title": "Zynpavo: Rhythm Piano",
+          "description": "Become a piano legend in Zynpavo! Play timeless hits from Beethoven, Mozart, and Chopin in this immersive rhythm game. Blending the addictive gameplay of classic arcade games with the elegance of beautiful piano melodies, your goal is to play songs flawlessly as notes fall down the screen.\nFeaturing 5 difficulty modes from Novice to Symphony, stunning 3D graphics, and responsive controls, Zynpavo is perfect for both casual players and aspiring musicians. You can play with your touch screen, computer keyboard, or even connect a real MIDI piano keyboard for an authentic experience! Can you master the keys and unlock every song? Play now on mobile or desktop!",
+          "howToPlayText": "Objective: Hit the falling notes exactly as they align with the piano keys at the bottom of the screen to score points and build your combo.\nControls:\n• Mobile/Tablet: Tap the virtual piano keys on your screen.\n• Desktop: Press the corresponding letter keys on your computer keyboard.\n• Pro Mode: Connect a real MIDI keyboard via USB to play with actual piano keys!",
+          "gameURL": "https://playgama.com/export/game/zynpavo-rhythm-piano?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/zynpavo-rhythm-piano",
+          "genres": [
+            "music",
+            "keyboard"
+          ],
+          "tags": [
+            "1-player-games",
+            "rhythm-games",
+            "piano-games",
+            "reaction-games",
+            "timing-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/zynpavo-rhythm-piano/big-preview/e1bd0b8cb6494eaebe6bab8da58cca25?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-120338/icon/904bf7ee4a824340aa90099da634ee7c457b08293d31971ace58e3b3451761bd?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "dff2ffe9d7344df88e39097898e54c05",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "dff2ffe9d7344df88e39097898e54c05",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/zynpavo-rhythm-piano/big-preview/e1bd0b8cb6494eaebe6bab8da58cca25?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/backfill/game-120338/icon/904bf7ee4a824340aa90099da634ee7c457b08293d31971ace58e3b3451761bd?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "supportedLanguages": [
+            "en-US",
+            "ar-EG",
+            "es-ES",
+            "fr-FR"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/zynpavo-rhythm-piano?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

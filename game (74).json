@@ -1,0 +1,72 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "121143",
+          "slug": "dead-land-survival",
+          "title": "Dead Land: Survival",
+          "description": "Dead Land: Survival is a multiplayer survival simulator set in a post-apocalyptic setting. The familiar world is destroyed – cities are in decay, with thousands of bloodthirsty zombies roaming their streets. Improve your hero, restore your shelter, venture beyond the safe zone in search of equipment, food, and crafting resources. Create new gear, join forces with other players in clans.\n\nFEATURES: \n• Battles against zombies.\n• Crafting weapons and equipment.\n• Restoration of the survivors' settlement.\n• Play with friends – raid elite bosses and participate in clan challenges!\n\nJoin the battles right now!",
+          "howToPlayText": "How to repair items? \nBroken items can be repaired in the Workshop building under the Repair tab.  \n\nHow to install a new chest in the warehouse?  To do this, you need to free up space in the warehouse. Remove one of the installed boxes, clearing it of items, and then place the new chest in its spot.\n\nWhat are lighters, cigarettes, matches, pine cones, and other items for?  \nMost in-game items may be needed for completing settler quests, and some items can be used to upgrade buildings and shelters. You can either accumulate items in advance or collect them as needed, selling excess items to the trader in the settlement. Choose a strategy that suits you best.\n\nI collected 75 ears and can't enter Amelia's Diner, even though I brought them with me. \nTo unlock the location, move the infected ears from your inventory to the slot with the requirement 0/75.  \n\nHow to start the game from the beginning?  \nGo to Profile, then Settings. Click on the \"Start Over\" button.",
+          "gameURL": "https://playgama.com/export/game/dead-land-survival?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/dead-land-survival",
+          "genres": [
+            "survival",
+            "zombie",
+            "multiplayer",
+            "crafting",
+            "action",
+            "pve",
+            "management",
+            "strategy",
+            "boys"
+          ],
+          "tags": [
+            "apocalypse-games",
+            "2-player-zombie",
+            "2-player-survival",
+            "survival-horror",
+            "resource-management-games",
+            "action-rpg"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/dead-land-survival/big_preview/3ec05c224d064e1789d0a98fd4a9d048?width=448",
+            "https://static.playgama.com/p-img/pg/dead-land-survival/icon/265478cc38e749e1952423743b447063?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "20132a31af5345adb698d954f9cec5ff",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "20132a31af5345adb698d954f9cec5ff",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/dead-land-survival/big_preview/3ec05c224d064e1789d0a98fd4a9d048?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/dead-land-survival/icon/265478cc38e749e1952423743b447063?width=448",
+          "inGamePurchases": "Yes",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "supportedLanguages": [
+            "en-US",
+            "ru-RU"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/dead-land-survival?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

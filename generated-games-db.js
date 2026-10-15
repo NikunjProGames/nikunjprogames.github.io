@@ -2318,5 +2318,125 @@ const NEW_GAMES = [
     iframeUrl: "/games/ragdoll-fury.html",
     fullscreen: true,
     videoUrl: ""
+  },
+  {
+    id: 160,
+    name: "Moto X3M",
+    cat: "racing",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/moto-x3m/big_preview/6863e1c77f624087bae1d217cdf4c240?width=448",
+    width: "800",
+    height: "450",
+    description: "Moto X3M is an awesome bike game with challenging levels. Choose a bike, put your helmet on, pass obstacles, and get ready to beat the time on tons of off-road circuits. Have fun with Moto X3M! The controls are simple – use the keyboard arrow keys to control the acceleration and deceleration, and also your tilt. Ride through each course and try to land your jumps perfectly – if you angle your bike incorrectly you risk tipping your bike over! \nEach level features different obstacles and objects for you to traverse – you will find this game both fun and challenging! This is off-road biking to the max and for any motorbike fan, this game will provide a huge amount of enjoyment! ",
+    instructions: "WASD or ARROWS \nPress the up arrow key to accelerate\nBalance your bike with the left and right arrow keys\nBreak by pressing the down arrow key\nPerform flips and other stunts to gain time\nDon't crash",
+    categories: [
+      "racing"
+    ],
+    tags: "racing, motorbike, dirt-bike, skill, action, mobile, popular, unblocked, boys, bike-racing-games, challenging-games, stunt-games, kizi-games",
+    iframeUrl: "/games/moto-x3m.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
+  {
+    id: 161,
+    name: "Snake 2077: Glitch War",
+    cat: "snake",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/snake-2077-glitch-war/big-preview/a197622a4bc540189401a9753ea98ba2?width=448",
+    width: "800",
+    height: "450",
+    description: "Welcome to Snake 2077: Glitch War, a futuristic evolution of the classic snake IO genre.\nDive into a chaotic, neon-lit digital arena where the only rule is survival. Collect energy pellets to grow your cyber-snake, use tactical speed boosts to cut off opponents, and scavenge coins from their remains. Featuring stunning glitch art aesthetics, smart AI bots with unique personalities, and a massive collection of unlockable skins, every match is a fight for dominance.\nCan you survive the glitch and top the global leaderboard?",
+    instructions: "Objective: Slither through the Cyberpunk arena, collecting neon food to grow longer.\nHow to Win: Cut off other snakes to destroy them and eat their remains for massive points. Climb to the #1 spot on the leaderboard!\nControls:\nDesktop: Move Mouse to steer. Hold Left Click to Boost (consume mass to speed up).\nMobile: Use the on-screen Joystick to steer. Tap the Lightning Button to Boost.",
+    categories: [
+      "snake"
+    ],
+    tags: "snake, pvp, io, snake-io, competitive-games, eating-games, grow-games",
+    iframeUrl: "/games/snake-2077-glitch-war.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
+  {
+    id: 162,
+    name: "Dead Land: Survival",
+    cat: "survival",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/dead-land-survival/big_preview/3ec05c224d064e1789d0a98fd4a9d048?width=448",
+    width: "800",
+    height: "450",
+    description: "Dead Land: Survival is a multiplayer survival simulator set in a post-apocalyptic setting. The familiar world is destroyed – cities are in decay, with thousands of bloodthirsty zombies roaming their streets. Improve your hero, restore your shelter, venture beyond the safe zone in search of equipment, food, and crafting resources. Create new gear, join forces with other players in clans.\n\nFEATURES: \n• Battles against zombies.\n• Crafting weapons and equipment.\n• Restoration of the survivors' settlement.\n• Play with friends – raid elite bosses and participate in clan challenges!\n\nJoin the battles right now!",
+    instructions: "How to repair items? \nBroken items can be repaired in the Workshop building under the Repair tab.  \n\nHow to install a new chest in the warehouse?  To do this, you need to free up space in the warehouse. Remove one of the installed boxes, clearing it of items, and then place the new chest in its spot.\n\nWhat are lighters, cigarettes, matches, pine cones, and other items for?  \nMost in-game items may be needed for completing settler quests, and some items can be used to upgrade buildings and shelters. You can either accumulate items in advance or collect them as needed, selling excess items to the trader in the settlement. Choose a strategy that suits you best.\n\nI collected 75 ears and can't enter Amelia's Diner, even though I brought them with me. \nTo unlock the location, move the infected ears from your inventory to the slot with the requirement 0/75.  \n\nHow to start the game from the beginning?  \nGo to Profile, then Settings. Click on the \"Start Over\" button.",
+    categories: [
+      "survival"
+    ],
+    tags: "survival, zombie, multiplayer, crafting, action, pve, management, strategy, boys, apocalypse-games, 2-player-zombie, 2-player-survival, survival-horror, resource-management-games, action-rpg",
+    iframeUrl: "/games/dead-land-survival.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
+  {
+    id: 163,
+    name: "Zynpavo: Rhythm Piano",
+    cat: "music",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/zynpavo-rhythm-piano/big-preview/e1bd0b8cb6494eaebe6bab8da58cca25?width=448",
+    width: "800",
+    height: "450",
+    description: "Become a piano legend in Zynpavo! Play timeless hits from Beethoven, Mozart, and Chopin in this immersive rhythm game. Blending the addictive gameplay of classic arcade games with the elegance of beautiful piano melodies, your goal is to play songs flawlessly as notes fall down the screen.\nFeaturing 5 difficulty modes from Novice to Symphony, stunning 3D graphics, and responsive controls, Zynpavo is perfect for both casual players and aspiring musicians. You can play with your touch screen, computer keyboard, or even connect a real MIDI piano keyboard for an authentic experience! Can you master the keys and unlock every song? Play now on mobile or desktop!",
+    instructions: "Objective: Hit the falling notes exactly as they align with the piano keys at the bottom of the screen to score points and build your combo.\nControls:\n• Mobile/Tablet: Tap the virtual piano keys on your screen.\n• Desktop: Press the corresponding letter keys on your computer keyboard.\n• Pro Mode: Connect a real MIDI keyboard via USB to play with actual piano keys!",
+    categories: [
+      "music"
+    ],
+    tags: "music, keyboard, 1-player-games, rhythm-games, piano-games, reaction-games, timing-games",
+    iframeUrl: "/games/zynpavo-rhythm-piano.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
+  {
+    id: 164,
+    name: "Motorcycle Racer: Road Mayhem",
+    cat: "racing",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/motorcycle-racer-road-mayhem/big_preview/172bc19cb4694ac3896516a315ee8499?width=448",
+    width: "800",
+    height: "450",
+    description: "Motorcycle Racer: Road Mayhem is an exciting motorcycle racing game.\nIn this game you will become a motorcycle racer who travels through city streets and highways, avoiding collisions with other vehicles. You will be able to unlock faster and more powerful motorcycles, each with its own unique handling characteristics, as well as improve the characteristics of your motorcycle. One of the key features of the game is a realistic physics engine that makes the gameplay challenging and exciting.\n\nFeatures of the game:\n- Bright and colorful graphics;\n- Well-developed physics engine;\n- Realistic soundtrack.",
+    instructions: "The goal of the game is to upgrade and buy motorcycles, participate in races and win at all levels.\nControl on a mobile device: touch.\nPC control: arrows for traffic",
+    categories: [
+      "racing"
+    ],
+    tags: "racing, motorbike, driving, simulation, skill, bike, boys, drag-racing-games, vehicles-games, avoid-games, fast-paced-games, traffic-games, speed-games, bike-racing-games, race-games",
+    iframeUrl: "/games/motorcycle-racer-road-mayhem.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
+  {
+    id: 165,
+    name: "Football Legends!",
+    cat: "sports",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/football-legends/big_preview/c21dbbb64fe940e0bcddd47fdedb966e?width=448",
+    width: "800",
+    height: "450",
+    description: "⚽ Grab a team and play quick football duels! Aim your shots, upgrade your squad and lift the Legends Cup 🏆",
+    instructions: "Drag your finger to aim and launch a football player to kick the ball. Each match lasts until two goals are scored or the timer runs out. Use power-ups, aim precisely, and take the top spots in tournaments!",
+    categories: [
+      "sports"
+    ],
+    tags: "sports, soccer, physics, 1-player-games, casual-games, competitive-games, addictive-games, challenging-games",
+    iframeUrl: "/games/football-legends.html",
+    fullscreen: true,
+    videoUrl: ""
   }
 ];

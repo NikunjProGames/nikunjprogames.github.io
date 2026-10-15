@@ -1,0 +1,69 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "106346",
+          "slug": "moto-x3m",
+          "title": "Moto X3M",
+          "description": "Moto X3M is an awesome bike game with challenging levels. Choose a bike, put your helmet on, pass obstacles, and get ready to beat the time on tons of off-road circuits. Have fun with Moto X3M! The controls are simple – use the keyboard arrow keys to control the acceleration and deceleration, and also your tilt. Ride through each course and try to land your jumps perfectly – if you angle your bike incorrectly you risk tipping your bike over! \nEach level features different obstacles and objects for you to traverse – you will find this game both fun and challenging! This is off-road biking to the max and for any motorbike fan, this game will provide a huge amount of enjoyment! ",
+          "howToPlayText": "WASD or ARROWS \nPress the up arrow key to accelerate\nBalance your bike with the left and right arrow keys\nBreak by pressing the down arrow key\nPerform flips and other stunts to gain time\nDon't crash",
+          "gameURL": "https://playgama.com/export/game/moto-x3m?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/moto-x3m",
+          "genres": [
+            "racing",
+            "motorbike",
+            "dirt-bike",
+            "skill",
+            "action",
+            "mobile",
+            "popular",
+            "unblocked",
+            "boys"
+          ],
+          "tags": [
+            "bike-racing-games",
+            "challenging-games",
+            "stunt-games",
+            "kizi-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/moto-x3m/big_preview/6863e1c77f624087bae1d217cdf4c240?width=448",
+            "https://static.playgama.com/p-img/pg/moto-x3m/icon/c65bb58f726d4e538f3202f12675cc71?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "236ada3eea264401b7be98a0466cd6ce",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "236ada3eea264401b7be98a0466cd6ce",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/moto-x3m/big_preview/6863e1c77f624087bae1d217cdf4c240?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/moto-x3m/icon/c65bb58f726d4e538f3202f12675cc71?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": true
+          },
+          "supportedLanguages": [
+            "en-US"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/moto-x3m?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

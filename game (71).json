@@ -1,0 +1,59 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "126123",
+          "slug": "football-legends",
+          "title": "Football Legends!",
+          "description": "⚽ Grab a team and play quick football duels! Aim your shots, upgrade your squad and lift the Legends Cup 🏆",
+          "howToPlayText": "Drag your finger to aim and launch a football player to kick the ball. Each match lasts until two goals are scored or the timer runs out. Use power-ups, aim precisely, and take the top spots in tournaments!",
+          "gameURL": "https://playgama.com/export/game/football-legends?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/football-legends",
+          "genres": [
+            "sports",
+            "soccer",
+            "physics"
+          ],
+          "tags": [
+            "1-player-games",
+            "casual-games",
+            "competitive-games",
+            "addictive-games",
+            "challenging-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/football-legends/big_preview/c21dbbb64fe940e0bcddd47fdedb966e?width=448",
+            "https://static.playgama.com/p-img/pg/football-legends/icon/afc55c5d1fa740b28a6c5df0898a1c10?width=448"
+          ],
+          "videos": [],
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/football-legends/big_preview/c21dbbb64fe940e0bcddd47fdedb966e?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/football-legends/icon/afc55c5d1fa740b28a6c5df0898a1c10?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": true
+          },
+          "supportedLanguages": [
+            "en-US",
+            "ru-RU"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/football-legends?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}
