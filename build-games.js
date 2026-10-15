@@ -644,6 +644,9 @@ function normalizeLegacyGamePages() {
     const canonicalMatcher = /<link\b(?=[^>]*\brel\s*=\s*["']canonical["'])[^>]*>/i;
     if (canonicalMatcher.test(html)) html = html.replace(canonicalMatcher, canonicalTag);
     else insertIntoHead(canonicalTag);
+    if (!html.includes('src="/site-shell.js"')) {
+      html = html.replace(/<\/body>/i, '  <script src="/site-shell.js" defer></script>\n</body>');
+    }
     if (!html.includes('src="/game-loading.js"')) {
       html = html.replace(/<\/body>/i, '  <script src="/game-loading.js" defer></script>\n</body>');
     }

@@ -40,7 +40,7 @@
       min-height: 100vh;
     }
     a { color: inherit; text-decoration: none; }
-    .page-shell { max-width: 1280px; margin: 0 auto; padding: 20px 16px 40px; }
+    .page-shell { max-width: 1540px; margin: 0 auto; padding: 16px 16px 36px; }
     .skip-link { position: absolute; left: 12px; top: -60px; z-index: 10; padding: 10px 14px; background: #fff; color: #111; }
     .skip-link:focus { top: 12px; }
     .breadcrumbs ol { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0 0 16px; color: var(--muted); }
@@ -49,47 +49,47 @@
     main { min-width: 0; }
     .topbar {
       display: flex; justify-content: space-between; align-items: center; gap: 12px;
-      padding: 16px 20px; border: 1px solid var(--panel-border); border-radius: 16px;
-      background: rgba(7, 9, 17, 0.82); backdrop-filter: blur(12px); margin-bottom: 18px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      padding: 10px 14px; border: 1px solid var(--panel-border); border-radius: 8px;
+      background: rgba(7, 9, 17, 0.9); backdrop-filter: blur(12px); margin-bottom: 14px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.22);
     }
-    .topbar h1 { font-family: 'Orbitron', sans-serif; margin: 0; font-size: clamp(1.1rem, 2vw, 1.5rem); }
-    .site-brand { color: var(--text); font: 700 0.92rem 'Orbitron', sans-serif; white-space: nowrap; }
-    .topbar .actions { display: flex; gap: 8px; flex-wrap: wrap; }
-    .game-preferences { display: flex; gap: 6px; }
-    .game-preferences button { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--panel-border); border-radius: 7px; background: var(--panel); color: var(--muted); font-size: 1.1rem; line-height: 1; cursor: pointer; }
+    .topbar h1 { font-family: 'Orbitron', sans-serif; margin: 0; font-size: clamp(1rem, 1.6vw, 1.3rem); line-height: 1.2; }
+    .site-brand { color: var(--text); font: 700 0.86rem 'Orbitron', sans-serif; white-space: nowrap; }
+    .topbar .actions { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+    .game-preferences { display: flex; gap: 4px; }
+    .game-preferences button { display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid var(--panel-border); border-radius: 7px; background: var(--panel); color: var(--muted); font-size: 1rem; line-height: 1; cursor: pointer; }
     .game-preferences button[aria-pressed="true"], .game-preferences button:hover { border-color: var(--accent); color: var(--accent); }
     .profile-score-link {
       display: inline-flex; align-items: center; gap: 8px;
-      padding: 6px 10px 6px 6px; border-radius: 999px;
+      padding: 4px 8px 4px 4px; border-radius: 999px;
       border: 1px solid rgba(0,191,255,0.35); background: rgba(0,191,255,0.08);
-      color: var(--text); font-weight: 700; font-size: 0.88rem;
+      color: var(--text); font-weight: 700; font-size: 0.82rem;
     }
     .profile-score-avatar {
-      display: grid; place-items: center; width: 28px; height: 28px;
+      display: grid; place-items: center; width: 26px; height: 26px;
       border-radius: 50%; background: linear-gradient(135deg, var(--accent-2), var(--accent));
       color: #fff; font-size: 0.68rem; font-family: 'Orbitron', sans-serif;
     }
     .btn {
       display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      padding: 8px 12px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.14); font-weight: 700; font-size: 0.92rem;
+      min-height: 34px; padding: 6px 10px; border-radius: 7px; border: 1px solid rgba(255,255,255,0.14); font-weight: 700; font-size: 0.84rem;
       background: var(--panel); color: var(--text);
     }
     .btn.primary { background: linear-gradient(90deg, var(--accent-2), var(--accent)); color: white; border-color: transparent; }
     .game-toolbar {
-      display: flex; justify-content: flex-end; gap: 8px; margin-bottom: 10px;
+      display: flex; justify-content: flex-end; gap: 6px; margin-bottom: 8px;
     }
-    .btn.compact { padding: 7px 12px; font-size: 0.9rem; }
+    .btn.compact { min-height: 34px; padding: 6px 10px; font-size: 0.84rem; }
     .game-layout {
-      display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 16px; align-items: start;
+      display: grid; grid-template-columns: minmax(0, 1fr) 250px; gap: 14px; align-items: start;
     }
     .game-shell { min-width: 0; }
     .game-frame {
-      border-radius: 18px; overflow: hidden; border: 1px solid var(--panel-border);
+      height: clamp(380px, 68vh, 760px); overflow: hidden; border: 1px solid var(--panel-border);
       background: #000; box-shadow: 0 14px 40px rgba(0,0,0,0.35);
-      min-height: 70vh;
+      border-radius: 8px;
     }
-    iframe { width: 100%; min-height: 70vh; border: 0; display: block; background: #000; }
+    .game-frame > iframe { width: 100%; height: 100%; min-height: 0; border: 0; display: block; background: #000; }
     .game-frame:fullscreen, .game-frame:-webkit-full-screen {
       width: 100vw; height: 100vh; height: 100dvh;
       min-height: 100vh; min-height: 100dvh;
@@ -99,7 +99,7 @@
       width: 100%; height: 100%; min-height: 0;
     }
     .video-card {
-      margin-top: 16px; padding: 16px; border-radius: 16px; background: rgba(255,255,255,0.05);
+      margin-top: 16px; padding: 14px; border-radius: 8px; background: rgba(255,255,255,0.05);
       border: 1px solid var(--panel-border);
     }
     .video-card h3 { margin: 0 0 10px; font-family: 'Orbitron', sans-serif; font-size: 1rem; }
@@ -107,7 +107,7 @@
       width: 100%; min-height: 280px; border-radius: 12px; border: 0; background: #000;
     }
     .info-card {
-      margin-top: 18px; padding: 18px; border-radius: 18px; background: rgba(255,255,255,0.05); border: 1px solid var(--panel-border);
+      margin-top: 16px; padding: 14px; border-radius: 8px; background: rgba(255,255,255,0.05); border: 1px solid var(--panel-border);
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
     }
     .info-card h2 { margin: 0 0 10px; font-family: 'Orbitron', sans-serif; font-size: 1.1rem; }
@@ -116,11 +116,11 @@
     .info-card h3 { margin: 16px 0 6px; font-family: 'Orbitron', sans-serif; font-size: 0.95rem; }
     .related-categories { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 12px; }
     .related-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
-    .related-games { margin-top: 0; position: sticky; top: 16px; max-height: 70vh; overflow-y: auto; }
+    .related-games { margin-top: 0; position: sticky; top: 12px; max-height: 68vh; overflow-y: auto; }
     .related-game {
       display: grid; grid-template-columns: 88px 1fr; gap: 10px; align-items: center;
       min-width: 0; color: var(--text); font-weight: 700; background: rgba(255,255,255,0.04);
-      border: 1px solid var(--panel-border); border-radius: 12px; padding: 8px; transition: transform 0.2s ease, border-color 0.2s ease;
+      border: 1px solid var(--panel-border); border-radius: 7px; padding: 6px; transition: transform 0.2s ease, border-color 0.2s ease;
     }
     .related-game:hover { transform: translateY(-2px); border-color: rgba(0,191,255,0.45); }
     .related-game-media { display: block; position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 8px; background: #05070d; }
@@ -140,13 +140,24 @@
     .video-card-header span { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
     .site-footer { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--panel-border); color: var(--muted); }
     .site-footer a:hover { color: var(--accent); }
+    .btn:hover, .btn:focus-visible, .game-preferences button:focus-visible { border-color: var(--accent); outline: 2px solid rgba(0,191,255,.35); outline-offset: 2px; }
+    @media (max-width: 900px) {
+      .game-layout { grid-template-columns: minmax(0, 1fr) 220px; }
+    }
     @media (max-width: 700px) {
-      .page-shell { padding: 12px 12px 24px; }
-      .topbar { flex-direction: column; align-items: flex-start; }
+      .page-shell { padding: 10px 10px 24px; }
+      .topbar { align-items: flex-start; flex-wrap: wrap; }
+      .topbar h1 { order: 2; flex: 1 1 100%; }
+      .topbar .actions { order: 3; width: 100%; }
       .game-layout { grid-template-columns: 1fr; }
-      .game-frame, iframe { min-height: 60vh; }
+      .game-frame { height: clamp(320px, 58vh, 620px); }
       .related-games { position: static; max-height: none; }
       .related-game { grid-template-columns: 96px 1fr; }
+    }
+    @media (max-width: 420px) {
+      .profile-score-link > span:last-child { display: none; }
+      .topbar .actions { gap: 5px; }
+      .btn { min-height: 32px; padding: 5px 8px; font-size: .8rem; }
     }
   </style>
 <!-- ads.txt: google.com, pub-3172987137389272, DIRECT, f08c47fec0942fa0 -->
@@ -158,7 +169,7 @@
       <a class="site-brand" href="/">PleyZ Games</a>
       <h1>Motorcycle Racer: Road Mayhem</h1>
       <div class="actions">
-        <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="115284">
+        <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="164">
           <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><span aria-hidden="true">👍</span></button>
           <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><span aria-hidden="true">👎</span></button>
         </div>
@@ -242,6 +253,7 @@
     <a href="/contact-us.html">Contact</a>
   </footer>
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/motorcycle-racer-road-mayhem.html#game","name":"Motorcycle Racer: Road Mayhem","description":"Motorcycle Racer: Road Mayhem is an exciting motorcycle racing game. In this game you will become a motorcycle racer who travels through city streets and highways, avoiding collisions with other vehicles. You will be able to unlock faster and more powerful motorcycles, each with its own unique handling characteristics, as well as improve the characteristics of your motorcycle. One of the key features of the game is a realistic physics engine that makes the gameplay challenging and exciting. Features of the game: - Bright and colorful graphics; - Well-developed physics engine; - Realistic soundtrack.","url":"https://nikunjprogames.github.io/games/motorcycle-racer-road-mayhem.html","image":"https://static.playgama.com/p-img/pg/motorcycle-racer-road-mayhem/big_preview/172bc19cb4694ac3896516a315ee8499?width=448","gamePlatform":["Web browser"],"genre":["Racing","Boys","Cars","Simulation","Skill"],"keywords":["racing","motorbike","driving","simulation","skill","bike","boys","drag-racing-games","vehicles-games","avoid-games","fast-paced-games","traffic-games","speed-games","bike-racing-games","race-games"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Racing Games","item":"https://nikunjprogames.github.io/racing-games/"},{"@type":"ListItem","position":3,"name":"Motorcycle Racer: Road Mayhem","item":"https://nikunjprogames.github.io/games/motorcycle-racer-road-mayhem.html"}]}]}</script>
+  <script src="/site-shell.js" defer></script>
   <script src="/game-loading.js" defer></script>
   <script>
     function toggleGameFullscreen(root) {
