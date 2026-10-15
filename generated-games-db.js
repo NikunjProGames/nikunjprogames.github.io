@@ -2438,5 +2438,45 @@ const NEW_GAMES = [
     iframeUrl: "/games/football-legends.html",
     fullscreen: true,
     videoUrl: ""
+  },
+  {
+    id: 166,
+    name: "Block Blast Master",
+    cat: "unblocked",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/block-blast-master/big_preview/e4e4f8e912d642bca61a30b4a590272f?width=448",
+    width: "800",
+    height: "450",
+    description: "Game Block Blast Master, where every move counts and strategy and speed are the keys to success. In this exciting game your task is not just to collect and destroy blocks, but to do it with intelligence and ingenuity to gain maximum points and overcome difficult obstacles on your way.\n\nYour main goal is to score as many points as possible by removing blocks and creating combinations. Be attentive and strategic with every move to set a new record and become a master of the block game!",
+    instructions: "- Drag and Drop Blocks: At the beginning of the game, select a block from the available blocks. Then drag that block onto the playing field. Choose the location carefully, as the placement of a block can greatly affect your game.\n\n- Forming Lines: Try to place the blocks so that they form complete horizontal or vertical lines. Once the line is completely filled, it will disappear, making room for new blocks and earning you points.\n\n- Planning: It is important to plan several moves ahead. Try to predict which blocks may be needed in the future and leave room for them.\n\n- End Game: The game ends when you can no longer place a new block on the playing field. Strive to make this happen as late as possible by scoring the maximum number of points.",
+    categories: [
+      "unblocked"
+    ],
+    tags: "unblocked, blocks, classic, difficult, cocos-games-online, addictive-games, hardcore-games",
+    iframeUrl: "/games/block-blast-master.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
+  {
+    id: 167,
+    name: "Stickman Kombat 2D",
+    cat: "fighting",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/stickman-kombat-2d/big_preview/4b027b6071e2495aad3ac02403e35a1a?width=448",
+    width: "800",
+    height: "450",
+    description: "Get ready to dive into a thrilling world of adrenaline-fueled combat, precise combos, and intense stickman fights in Stickman Kombat 2D, the best 2D fighting game!",
+    instructions: "CONTROLS FOR 1 PLAYER:\n\nWASD — move\nJ — attack\nK — special move\nBACK + K — second special move\nS + J — uppercut\nHOLD S — block\n\nCONTROLS FOR 2 PLAYERS ON ONE PC:\n\nPlayer 1: WASD + F (attack), G (special moves)\nPlayer 2: IJKL + : (colon) (attack), \" (quote) (special moves)\n\nCOMBO:\nPress attack at the right moment to continue the combo. Jump behind the enemy and hit — this triggers aerial strikes.\n\nTACTICS:\nManage stamina, block timely, and use breakers to escape combos. Earn coins for victories and unlock new fighters!",
+    categories: [
+      "fighting"
+    ],
+    tags: "fighting, stickman, boys, skill, action-fighting, fast-paced-action, arena-games, 1-player-games, 2d-games",
+    iframeUrl: "/games/stickman-kombat-2d.html",
+    fullscreen: true,
+    videoUrl: ""
   }
 ];
