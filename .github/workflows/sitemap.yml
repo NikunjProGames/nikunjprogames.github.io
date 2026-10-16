@@ -13,11 +13,43 @@ jobs:
         uses: actions/checkout@v4
         with:
           persist-credentials: true
+          fetch-depth: 0
 
       - name: Generate Sitemap
         uses: cicirello/generate-sitemap@v1
         with:
           base-url-path: https://nikunjprogames.github.io/
+          exclude-paths: >
+            /template.html
+            /category-template.html
+            /account.html
+            /liked-games.html
+            /play.html
+            /offline.html
+            /submission-success.html
+            /favicon-code.html
+            /NikunjProGame.html
+            /article.html
+
+      - name: Remove verification utility URL
+        run: |
+          python - <<'PY'
+          import xml.etree.ElementTree as ET
+          from urllib.parse import unquote, urlsplit
+
+          path = "sitemap.xml"
+          tree = ET.parse(path)
+          root = tree.getroot()
+          namespace = "{http://www.sitemaps.org/schemas/sitemap/0.9}"
+          ET.register_namespace("", namespace[1:-1])
+          verification_path = "/google57b19170d71224df .html"
+          for entry in list(root.findall(f"{namespace}url")):
+              location = entry.find(f"{namespace}loc")
+              if location is not None and unquote(urlsplit(location.text or "").path) == verification_path:
+                  root.remove(entry)
+          ET.indent(tree, space="  ")
+          tree.write(path, encoding="UTF-8", xml_declaration=True)
+          PY
 
       - name: Commit and Push Sitemap
         run: |

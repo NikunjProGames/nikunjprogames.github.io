@@ -261,7 +261,10 @@
         .filter(game => game?.name);
       newGames = [...announcements, ...newGames].slice(0, 20);
     } catch (error) {
-      panel.querySelector('#pleyz-notification-status').textContent = error.message || 'New games could not be loaded.';
+      const status = panel.querySelector('#pleyz-notification-status');
+      status.textContent = error?.code === 'permission-denied'
+        ? 'Firestore denied the notification updates read. Check that project pleyz-dd9f8 has the notificationAnnouncements list rule published. Catalog games are still available.'
+        : error?.message || 'New games could not be loaded.';
     }
   }
 

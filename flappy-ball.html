@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        body { margin: 0; background: #0d0214; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; font-family: sans-serif; }
-        canvas { border: 2px solid #bc13fe; box-shadow: 0 0 15px #bc13fe; background: #140526; }
+        body { min-height: 100vh; margin: 0; padding: 16px 12px; background: #0d0214; display: flex; flex-direction: column; justify-content: flex-start; align-items: center; gap: 12px; overflow-x: hidden; font-family: sans-serif; }
+        h1 { margin: 0; color: #fff; font-size: clamp(1.25rem, 4vw, 1.75rem); }
+        canvas { width: min(320px, 100%); height: auto; border: 2px solid #bc13fe; box-shadow: 0 0 15px #bc13fe; background: #140526; }
     </style>
 
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3172987137389272" crossorigin="anonymous"></script>
@@ -13,7 +14,7 @@
     .page-ad-section .ad-label { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8B00FF; margin-bottom: 8px; text-align: center; font-weight: 700; }
     .page-ad-section .adsbygoogle { min-height: 90px; }
   </style>
-  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" />
 <!-- ads.txt: google.com, pub-3172987137389272, DIRECT, f08c47fec0942fa0 -->
   <title>Play Flappy Ball | PleyZ</title>
   <meta name="description" content="Tap to keep the ball in the air, pass between obstacles, and beat your best score in this Flappy-style arcade game." />
@@ -27,6 +28,7 @@
   <link rel="canonical" href="https://nikunjprogames.github.io/flappy-ball.html" />
 </head>
 <body>
+    <h1>Flappy Ball</h1>
     <canvas id="c" width="320" height="480"></canvas>
     <script>
         const canvas = document.getElementById('c'), ctx = canvas.getContext('2d');

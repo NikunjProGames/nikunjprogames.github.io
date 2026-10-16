@@ -917,6 +917,7 @@ function buildCategoryPages(feedGames) {
     const html = categoryTemplate
       .replaceAll('{{CATEGORY}}', escapeHtml(category.name))
       .replaceAll('{{CATEGORY_SLUG}}', slug)
+      .replaceAll('<meta name="robots" content="noindex, follow">', '<meta name="robots" content="index, follow, max-image-preview:large">')
       .replaceAll('{{CATEGORY_THEME}}', category.theme || 'default')
       .replaceAll('{{DESCRIPTION}}', escapeHtml(description))
       .replaceAll('{{GAME_COUNT}}', String(gameList.length))
@@ -1076,6 +1077,7 @@ function generateGamePages() {
       .replaceAll('{{GAME_ID}}', escapeHtml(String(homepageIdBySlug.get(game.slug) ?? game.id)))
       .replaceAll('{{SEO_TITLE}}', escapeHtml(game.seoTitle))
       .replaceAll('{{DESCRIPTION}}', escapeHtml(game.seoDescription))
+      .replaceAll('<meta name="robots" content="noindex, follow" />', '<meta name="robots" content="index, follow, max-image-preview:large" />')
       .replaceAll('{{SLUG}}', game.slug)
       .replaceAll('{{IMAGE}}', escapeHtml(game.thumb))
       .replaceAll('{{EMBED_URL}}', escapeHtml(game.url))
