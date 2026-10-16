@@ -1,0 +1,32 @@
+name: Notify players about new games
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - feed.json
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  publish-new-game-notifications:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: functions/package-lock.json
+      - run: npm ci --prefix functions
+      - name: Publish announcements for newly added game IDs
+        env:
+          BASE_REVISION: ${{ github.event.before }}
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_PLEYZ_DD9F8 }}
+        run: node functions/publish-new-games.js "$BASE_REVISION"

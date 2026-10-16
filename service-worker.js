@@ -8,6 +8,46 @@ const SHELL_ASSETS = [
   '/apple-touch-icon.png'
 ];
 
+self.addEventListener('push', event => {
+  let payload = {};
+  try {
+    payload = event.data?.json() || {};
+  } catch {
+    payload = { body: event.data?.text() || '' };
+  }
+  const data = payload.data || payload;
+  const title = String(data.title || payload.notification?.title || 'PleyZ Games');
+  const body = String(data.body || payload.notification?.body || 'There is a new update on PleyZ.');
+  const requestedUrl = String(data.url || '/');
+  let url = '/';
+  try {
+    const parsed = new URL(requestedUrl, self.location.origin);
+    if (parsed.origin === self.location.origin) url = `${parsed.pathname}${parsed.search}${parsed.hash}`;
+  } catch {}
+
+  event.waitUntil(self.registration.showNotification(title, {
+    body,
+    icon: '/icon-192.png',
+    badge: '/favicon-96x96.png',
+    tag: String(data.tag || 'pleyz-notification'),
+    renotify: false,
+    data: { url }
+  }));
+});
+
+self.addEventListener('notificationclick', event => {
+  event.notification.close();
+  const targetUrl = new URL(event.notification.data?.url || '/', self.location.origin).href;
+  event.waitUntil(self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then(async clients => {
+    const existingClient = clients.find(client => new URL(client.url).origin === self.location.origin);
+    if (existingClient) {
+      await existingClient.navigate(targetUrl);
+      return existingClient.focus();
+    }
+    return self.clients.openWindow(targetUrl);
+  }));
+});
+
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME)

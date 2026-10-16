@@ -73,3 +73,15 @@ firebase deploy --only functions
 Use an SMTP account with permission to send from `SMTP_FROM`; set `GAME_SUBMISSION_TO` to the private inbox that should receive messages, and set `SUBMISSION_RATE_LIMIT_KEY` to a unique random value. The endpoint permits five attempts per IP address per hour and stores only an HMAC of the address in Firestore. Enable a Firestore TTL policy on the `expiresAt` field in the `submissionRateLimits` collection to expire those records after one day. The contact form supports general questions, game removal, account or privacy requests, copyright complaints, problem reports, and other inquiries.
 
 The home page can be installed as a PWA on supported browsers. Its service worker caches the app shell and an offline notice; games still require an internet connection.
+
+## Optional notifications
+
+The notification bell is available on the home, account, category, and game pages. Its update feed and signed-in recommendations use PleyZ data; web push is off until a player explicitly enables it. When enabled, opted-in players can receive a gentle reminder after 7 days without play (at most once per week), genuinely new-game announcements, and personalized recommendations every 14 days. Recommendation picks use the existing gameplay and preference-based ranking. Notification categories and hashed device-token IDs are stored under the signed-in player's private Firestore profile.
+
+To enable background delivery:
+
+1. In Firebase Console, generate a Web Push certificate key pair under **Project settings → Cloud Messaging**. Set the public key as `WEB_PUSH_VAPID_KEY` in `notification-center.js`; it is public configuration, not a server secret.
+2. Deploy the backend and announcement read rule with `firebase deploy --only functions,firestore:rules`, and publish the static website files through the repository's existing GitHub Pages workflow. Cloud Functions and scheduled reminders require a billing-enabled Firebase project; the scheduled functions also use Cloud Scheduler.
+3. Keep the repository secret `FIREBASE_SERVICE_ACCOUNT_PLEYZ_DD9F8` configured for GitHub Actions with permission to create Firestore documents. When a commit to `main` adds game IDs to `feed.json`, the **Notify players about new games** workflow automatically creates deduplicated announcements for those additions. The bell lists those announcements too, using a public query capped at 20 items. The existing `admin`-only `publishPleyzNewGame` callable remains available for announcements outside the catalog workflow.
+
+Browser/device support and permission settings determine whether push can be enabled. iOS push requires an installed web app. Without the Firebase VAPID key and deployed Functions, the bell and local update feed still work, but notifications cannot arrive while the site is closed.

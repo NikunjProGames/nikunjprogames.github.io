@@ -19,6 +19,12 @@ service cloud.firestore {
         && (!('lastPlayed' in data) || data.lastPlayed is timestamp);
     }
 
+    match /notificationAnnouncements/{gameId} {
+      allow get: if false;
+      allow list: if request.query.limit != null && request.query.limit <= 20;
+      allow create, update, delete: if false;
+    }
+
     function matchingLeaderboard(uid) {
       let profile = getAfter(/databases/$(database)/documents/users/$(uid)).data;
       let entry = getAfter(/databases/$(database)/documents/leaderboard/$(uid)).data;

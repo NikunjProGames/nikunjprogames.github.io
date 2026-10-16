@@ -289,7 +289,6 @@
       align-items: center;
       justify-content: space-between;
       transition: background 0.25s ease, box-shadow 0.25s ease, padding 0.25s ease, transform 0.25s ease;
-      will-change: background, box-shadow, transform;
     }
     header.scrolled {
       background: rgba(8,8,15,0.95);
@@ -443,6 +442,7 @@
       height: 100%;
       object-fit: cover;
     }
+    #auth-action-button[hidden] { display: none !important; }
 
     /* Hamburger */
     .hamburger {
@@ -509,7 +509,7 @@
         white-space: nowrap;
       }
       .hamburger {
-        display: flex;
+        display: none;
         justify-self: end;
         z-index: 1001;
       }
@@ -590,8 +590,20 @@
         padding: 0.5rem 0.9rem;
         font-size: 0.7rem;
       }
-      .recent-games-wrapper { display: none; }
       .logo { font-size: 0.95rem; }
+      #user-display { display: none !important; }
+      .nav-actions { gap: 0.35rem; }
+      .nav-actions > .btn,
+      .recent-toggle {
+        min-height: 38px;
+        padding: 0.45rem 0.55rem;
+        font-size: 0.62rem;
+        letter-spacing: 0;
+        gap: 0.3rem;
+      }
+      #profile-avatar-button { width: 36px; height: 36px; flex: 0 0 36px; }
+      .recent-games-wrapper { display: block; }
+      #install-app-button { display: none !important; }
     }
 
     @media (max-width: 520px) {
@@ -613,8 +625,20 @@
         font-size: 0.65rem;
       }
       #user-display { max-width: 6.5rem; font-size: 0.65rem; }
-      .hamburger span { width: 18px; height: 2px; }
-      .hamburger { gap: 4px; }
+      .nav-actions { gap: 0.3rem; }
+      .nav-actions > .btn,
+      .recent-toggle { padding: 0.4rem 0.45rem; font-size: 0.58rem; }
+    }
+
+    @media (max-width: 768px), (update: slow) {
+      header,
+      .mobile-bottom-nav,
+      .recent-panel { backdrop-filter: none; }
+      .logo,
+      .hero-badge,
+      .hero-title,
+      .ring,
+      .section-underline { animation: none !important; }
     }
 
     /* ============================================================
@@ -845,7 +869,6 @@
       box-shadow: 0 0 18px rgba(0,0,0,0.12);
       border: 2px solid rgba(255,255,255,0.12);
       background: rgba(255,255,255,0.05);
-      transition: opacity 0.25s ease;
     }
     .game-thumb .game-hover-video {
       position: absolute;
@@ -855,20 +878,17 @@
       object-fit: cover;
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.25s ease;
-      background: rgba(0,0,0,0.24);
     }
-    .game-thumb:hover .game-hover-video {
-      opacity: 1;
-    }
-    .game-thumb:hover img {
-      opacity: 0;
-    }
+    .game-thumb.video-playing .game-hover-video { opacity: 1; }
+    .game-thumb.video-playing > img { opacity: 0; }
     @media (hover: hover) {
-      .game-card:hover { transform: translateY(-4px); }
+      .game-card:hover {
+        transform: translateY(-4px);
+        z-index: 1;
+      }
       .game-card:hover .game-thumb {
         border-color: rgba(0,191,255,0.6);
-        box-shadow: 0 0 18px rgba(0,191,255,0.2);
+        box-shadow: 0 0 20px rgba(0,191,255,0.28), 0 0 34px rgba(139,0,255,0.14);
       }
     }
     .game-thumb img.custom-game-image,
@@ -1546,7 +1566,11 @@
 </style>
 
 <script>
-if (window.matchMedia("(pointer:fine)").matches && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+if (window.matchMedia("(pointer:fine)").matches
+  && !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  && !window.matchMedia("(max-width: 768px)").matches
+  && navigator.connection?.saveData !== true
+  && (!navigator.hardwareConcurrency || navigator.hardwareConcurrency > 4)) {
   const trail = [];
   const pointer = { x: 0, y: 0 };
   let hovering = false;
@@ -1616,6 +1640,10 @@ if (window.matchMedia("(pointer:fine)").matches && !window.matchMedia("(prefers-
   </nav>
 
   <div class="nav-actions">
+    <button id="random-game-button" class="btn btn-outline" type="button" aria-label="Play a random game">
+      <i class="fas fa-dice"></i> Random
+    </button>
+
     <div class="recent-games-wrapper">
       <button class="btn btn-outline recent-toggle" id="recent-toggle-button" onclick="toggleRecentPanel()" aria-expanded="false">
         <span class="desktop-label"><i class="fas fa-history"></i> Recent</span>
@@ -1631,10 +1659,7 @@ if (window.matchMedia("(pointer:fine)").matches && !window.matchMedia("(prefers-
     </div>
 
     <button id="user-display" type="button" onclick="openAccountPage()" style="display:none; margin-right:0.6rem; font-weight:600; color:var(--text); background:none; border:0; cursor:pointer;"></button>
-    <button id="random-game-button" class="btn btn-outline" type="button" aria-label="Play a random game">
-      <i class="fas fa-dice"></i> Random
-    </button>
-    <button id="profile-avatar-button" type="button" onclick="openAccountPage()" aria-label="Open my account" title="account"></button>
+    <button id="profile-avatar-button" type="button" onclick="openAccountPage()" aria-label="Open my account" title="Open my account"></button>
     <button class="btn btn-outline" id="install-app-button" type="button" hidden>
       <i class="fas fa-download" aria-hidden="true"></i> Install
     </button>
@@ -1973,6 +1998,10 @@ if (window.matchMedia("(pointer:fine)").matches && !window.matchMedia("(prefers-
   const meteors = [];
   const maxMeteors = 3;
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const lowPowerDevice = window.matchMedia('(max-width: 768px)').matches
+    || navigator.connection?.saveData === true
+    || (navigator.hardwareConcurrency > 0 && navigator.hardwareConcurrency <= 4);
+  const animateBackground = !reducedMotion && !lowPowerDevice;
   let offset = 0;
   let nextMeteorIn = 0.8;
   let lastFrameTime = 0;
@@ -2167,14 +2196,14 @@ if (window.matchMedia("(pointer:fine)").matches && !window.matchMedia("(prefers-
     ctx.clearRect(0, 0, width, height);
     ctx.drawImage(scene, 0, 0);
     drawMovingGrid(deltaSeconds);
-    if (!reducedMotion) drawMeteors(deltaSeconds);
-    if (!reducedMotion) frameId = requestAnimationFrame(drawFrame);
+    if (animateBackground) drawMeteors(deltaSeconds);
+    if (animateBackground) frameId = requestAnimationFrame(drawFrame);
   }
 
   function startAnimation() {
     lastFrameTime = 0;
-    if (!reducedMotion && !frameId) frameId = requestAnimationFrame(drawFrame);
-    else if (reducedMotion) drawFrame(performance.now());
+    if (animateBackground && !frameId) frameId = requestAnimationFrame(drawFrame);
+    else if (!animateBackground) drawFrame(performance.now());
   }
 
   window.addEventListener('resize', () => {
@@ -2202,8 +2231,6 @@ const GAMES = [
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/hazmob-fps-online-shooter/preview/76a02c8e7dbd4bd3a87bc87d868d6158?width=448",
     iframeUrl: "/games/hazmob-fps-online-shooter.html",
-    videoId: "8a7a62bfcec943b6a64d1188c8baf31d",
-    videoUrl: "https://static.playgama.com/p-video/8a7a62bfcec943b6a64d1188c8baf31d/orig_length_h640_6so.mp4"
   },
     {
     id: 94,
@@ -2215,8 +2242,6 @@ const GAMES = [
     players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/rivals-fps-online-shooter/preview/2203a049014e4f6eaa4038ab696f6afa?width=448",
     iframeUrl: "/games/rivals-fps-online-shooter.html",
-    videoId: "519f0e08d9764b25aea0b93699671b44",
-    videoUrl: "https://static.playgama.com/p-video/519f0e08d9764b25aea0b93699671b44/orig_length_h640_6so.mp4"
   },
    { id:6, name:'GTA New York',      cat:'action', categories:['action','boys'],   color:'#FF0066', gradient:'linear-gradient(135deg,#ff0066,#7c3aed)', players:'0', imageUrl:'', iframeUrl:'gta-new-york.html', imageUrl:'GTA New York-512x512.jpg' },
   { id:33, name:'Fire Truck Simulator',      cat:'puzzle',   color:'#FF0066', gradient:'linear-gradient(135deg,#ff0066,#7c3aed)', players:'0', imageUrl:'', iframeUrl:'fire-truck-simulator.html', imageUrl:'Fire Truck Rescue simulator-512x512.jpg' },
@@ -2235,7 +2260,6 @@ const GAMES = [
     imageUrl: "https://static.playgama.com/p-img/pg/1-speed-escape-prison/big-preview/415c3326c7724e6cae83d74990cc3020?width=448",
     iframeUrl: "/games/1-speed-escape-prison.html",
     fullscreen: true,
-    videoUrl: "https://static.playgama.com/p-video/32247dbeba054937adf4fe6321dabfb3/orig_length_h320.mp4"
   },
   { id:15, name:'Stock Car Hero',          cat:'cars',        categories:['cars','racing','boys'], color:'#24B8FF', gradient:'linear-gradient(135deg,#003040,#008FB8)', players:'20.0K', imageUrl:'stock_car_hero.png', iframeUrl:'stock-car-hero.html' },
     {  id: 100,
@@ -2247,7 +2271,6 @@ const GAMES = [
     imageUrl: "https://static.playgama.com/p-img/pg/piece-of-cake-merge--bake/big-preview/4124b3ce37ab4b92b6a8ff1332c9eee8?width=448",
     iframeUrl: "/games/piece-of-cake-merge-bake.html",
     fullscreen: true,
-    videoUrl: "https://static.playgama.com/p-video/73b06d463c9141eb802f8f79f75d208c/orig_length_h320.mp4",
   },
     {
     id: 107,
@@ -2259,7 +2282,6 @@ const GAMES = [
     imageUrl: "https://static.playgama.com/p-img/pg/ragdoll-crashtest-throw-and-break/big-preview/806817717e62466a83cb4377d0fa92eb?width=448",
     iframeUrl: "/games/ragdoll-crash-test-throw-and-break.html",
     fullscreen: true,
-    videoUrl: "https://static.playgama.com/p-video/1cbe32ecf2444651a508c985b8360784/orig_length_h320.mp4"
   },
   { id:8,  name:'Color Line',         cat:'strategy',   color:'#0068B8', gradient:'linear-gradient(135deg,#002030,#005080)', players:'6.5K',  imageUrl:'color_line.png', iframeUrl:'color-line.html' },
   { id:9,  name:'Moto Road Rash',        cat:'racing',   categories:['racing','boys'], color:'#2E8B00', gradient:'linear-gradient(135deg,#1a2000,#405000)', players:'11.9K', imageUrl:'moto_road_rash_.png', iframeUrl:'moto-road-rash.html' },
@@ -2283,7 +2305,6 @@ const GAMES = [
     tags: "adventure, story, scary, horror, 3d, ghost, logic, action-adventure, challenging-games, fantasy-games, mystery-games, quests-games, wizard-games",
     iframeUrl: "/games/sorcerers-refuge.html",
     fullscreen: true,
-    videoUrl: "https://static.playgama.com/p-video/6f0fa1935227461bb6875c0f3be95664/orig_length_h640.mp4"
   },
   {
     id: 124,
@@ -2303,7 +2324,6 @@ const GAMES = [
     tags: "horror, 3d, multiplayer, scary, 3d-horror, fps-horror, stealth-games, sci-fi-games, space-horror, multiplayer-horror, imposter-games, gam-supported-games, hide-and-seek-games",
     iframeUrl: "/games/imposter-3d-online-horror.html",
     fullscreen: true,
-    videoUrl: "https://static.playgama.com/p-video/ce9c9c3686363232dab69f88b265cf44/orig_length_h640.mp4"
   },
   {
     id: 160,
@@ -2323,7 +2343,6 @@ const GAMES = [
     tags: "racing, motorbike, dirt-bike, skill, action, mobile, popular, unblocked, boys, bike-racing-games, challenging-games, stunt-games, kizi-games",
     iframeUrl: "/games/moto-x3m.html",
     fullscreen: true,
-    videoUrl: ""
   },
   {
     id: 161,
@@ -2343,7 +2362,6 @@ const GAMES = [
     tags: "snake, pvp, io, snake-io, competitive-games, eating-games, grow-games",
     iframeUrl: "/games/snake-2077-glitch-war.html",
     fullscreen: true,
-    videoUrl: ""
   },
   {
     id: 162,
@@ -2363,7 +2381,6 @@ const GAMES = [
     tags: "survival, zombie, multiplayer, crafting, action, pve, management, strategy, boys, apocalypse-games, 2-player-zombie, 2-player-survival, survival-horror, resource-management-games, action-rpg",
     iframeUrl: "/games/dead-land-survival.html",
     fullscreen: true,
-    videoUrl: ""
   },
   {
     id: 163,
@@ -2383,7 +2400,6 @@ const GAMES = [
     tags: "music, keyboard, 1-player-games, rhythm-games, piano-games, reaction-games, timing-games",
     iframeUrl: "/games/zynpavo-rhythm-piano.html",
     fullscreen: true,
-    videoUrl: ""
   },
   {
     id: 164,
@@ -2403,7 +2419,6 @@ const GAMES = [
     tags: "racing, motorbike, driving, simulation, skill, bike, boys, drag-racing-games, vehicles-games, avoid-games, fast-paced-games, traffic-games, speed-games, bike-racing-games, race-games",
     iframeUrl: "/games/motorcycle-racer-road-mayhem.html",
     fullscreen: true,
-    videoUrl: ""
   },
   {
     id: 165,
@@ -2423,7 +2438,6 @@ const GAMES = [
     tags: "sports, soccer, physics, 1-player-games, casual-games, competitive-games, addictive-games, challenging-games",
     iframeUrl: "/games/football-legends.html",
     fullscreen: true,
-    videoUrl: ""
   },
   {
     id: 166,
@@ -2443,7 +2457,6 @@ const GAMES = [
     tags: "unblocked, blocks, classic, difficult, cocos-games-online, addictive-games, hardcore-games",
     iframeUrl: "/games/block-blast-master.html",
     fullscreen: true,
-    videoUrl: ""
   },
   {
     id: 167,
@@ -2463,7 +2476,6 @@ const GAMES = [
     tags: "fighting, stickman, boys, skill, action-fighting, fast-paced-action, arena-games, 1-player-games, 2d-games",
     iframeUrl: "/games/stickman-kombat-2d.html",
     fullscreen: true,
-    videoUrl: ""
   },
    {
     id: 135,
@@ -2483,7 +2495,6 @@ const GAMES = [
     tags: "space, arcade, shooting, action, two-player, skill, gun, 1-player-games, ai-games, 2-player-arcade, 2d-games, action-adventure, arcade-shooter, bullet-games, desktop-games, fast-paced-games, mission-games, sci-fi-games, shoot-em-up-games, space-shooter",
     iframeUrl: "/games/supernova-the-charon-protocol.html",
     fullscreen: true,
-    videoUrl: ""
   },
   {
     id: 136,
@@ -2503,7 +2514,6 @@ const GAMES = [
     tags: "puzzle, merge, mobile, funny, cozy, fruits-games, casual-games, cute-games, 1-player-games",
     iframeUrl: "/games/merge-fruit-characters.html",
     fullscreen: true,
-    videoUrl: ""
   },
   {
     id: 137,
@@ -2523,7 +2533,6 @@ const GAMES = [
     tags: "adventure, simulation, horror, 3d, minecraft, survival, crafting, 1-player-games, mine-games, sandbox-games, building-games, open-world-games, minecraft-survival, minecraft-adventure, action-adventure, action-rpg, survival-horror, backrooms, ai-games",
     iframeUrl: "/games/backrooms-craft.html",
     fullscreen: true,
-    videoUrl: ""
   },
   {
     id: 138,
@@ -2543,7 +2552,6 @@ const GAMES = [
     tags: "driving, car, multiplayer, simulation, police, 3d, gta, boys, car-crash-games, vehicles-games, destruction-games, crash-games, crime-games, gangster-games",
     iframeUrl: "/games/crime-and-vice-city-police.html",
     fullscreen: true,
-    videoUrl: ""
   },
   {
     id: 139,
@@ -2563,7 +2571,6 @@ const GAMES = [
     tags: "hidden-object, adventure, point-and-click, mobile, detective-games, mystery-games, relaxing-games, search-games, seek-and-find-games",
     iframeUrl: "/games/hidden-object-clues-and-mysteries.html",
     fullscreen: true,
-    videoUrl: ""
   },
   {
     id: 140,
@@ -2583,7 +2590,6 @@ const GAMES = [
     tags: "adventure, story, survival, horror, rpg, survival-horror, horror-escape, jump-scare-games, retro-horror",
     iframeUrl: "/games/a-long-way-home.html",
     fullscreen: true,
-    videoUrl: ""
   },
   {
     id: 141,
@@ -2603,7 +2609,6 @@ const GAMES = [
     tags: "bubble-shooter, bubble, brain-training-games, 1-player-games, borwser-games",
     iframeUrl: "/games/bubble-blast.html",
     fullscreen: true,
-    videoUrl: ""
   },
   {
     id: 142,
@@ -2623,7 +2628,6 @@ const GAMES = [
     tags: "words, brain, logic, intelligence, educational, mind-games, addictive-games, search-games, brain-training-games, 1-player-games",
     iframeUrl: "/games/word-finder.html",
     fullscreen: true,
-    videoUrl: ""
   },
   {
     id: 125,
@@ -2643,7 +2647,6 @@ const GAMES = [
     tags: "horror, survival, 3d, adventure, 3d-horror, survival-horror, psychological-horror, 1-player-games, horror-escape, stealth-action, single-player-horror",
     iframeUrl: "/games/the-tall-man.html",
     fullscreen: true,
-    videoUrl: ""
   },
   {
     id: 126,
@@ -2663,7 +2666,6 @@ const GAMES = [
     tags: "horror, adventure, scary, escape, 1-player-games, 3d-horror, dungeon-games, fps-horror, horror-escape, single-player-horror",
     iframeUrl: "/games/the-secret-of-the-toy-factory.html",
     fullscreen: true,
-    videoUrl: "https://static.playgama.com/p-video/14ba2e129d6d4b63979e35a5dc7e44f0/orig_length_h640.mp4"
   },
   {
     id: 127,
@@ -2683,7 +2685,6 @@ const GAMES = [
     tags: "horror, adventure, running, survival, puzzle, monster, escape, scary, 1-player-games, 3d-horror, backrooms, horror-escape, survival-horror, webgl-games, desktop-games, action-adventure, brain-training-games",
     iframeUrl: "/games/backrooms-exit-protocol-0.html",
     fullscreen: true,
-    videoUrl: "https://static.playgama.com/p-video/60c9d220c3d84df194de4368f427a1dd/orig_length_h640.mp4"
   },
     {
     id: 130,
@@ -2703,7 +2704,6 @@ const GAMES = [
     tags: "strategy, rpg, action, story, adventure, pve, video, sci-fi-games, arena-games, action-rpg, combat-games, competitive-games, fantasy-games, collecting-games, gam-supported-games, action-adventure, mmo-games, sandbox-games",
     iframeUrl: "/games/far-orion-new-worlds.html",
     fullscreen: true,
-    videoUrl: "https://static.playgama.com/p-video/643ac827c1924dc5b17c2e04db358099/orig_length_h640.mp4"
   },
   {
     id: 131,
@@ -2723,7 +2723,6 @@ const GAMES = [
     tags: "scary, horror, story, keyboard, adventure, choice-games, 1-player-games, psychological-horror",
     iframeUrl: "/games/last-night.html",
     fullscreen: true,
-    videoUrl: "https://static.playgama.com/p-video/77642c7a0185497ebcfd948210260ea0/orig_length_h640.mp4"
   },
   {
     id: 132,
@@ -2743,7 +2742,6 @@ const GAMES = [
     tags: "horror, survival, adventure, story, escape, action-adventure, horror-escape, survival-horror, 1-player-games, brain-training-games, 3d-horror, fps-horror, dungeon-games, retro-horror",
     iframeUrl: "/games/the-warlock-s-prisoner.html",
     fullscreen: true,
-    videoUrl: "https://static.playgama.com/p-video/0b8656475e8441d392be5e024a514e88/orig_length_h640.mp4"
   },
   {
     id: 133,
@@ -2763,7 +2761,6 @@ const GAMES = [
     tags: "simulation, unity-games-online, business-games, desktop-games, borwser-games",
     iframeUrl: "/games/car-sales-empire-simulator.html",
     fullscreen: true,
-    videoUrl: "https://static.playgama.com/p-video/cea4e609256d46049786ca2b2ed7b1d2/orig_length_h640.mp4"
   },
    {
     id: 143,
@@ -2783,7 +2780,6 @@ const GAMES = [
     tags: "3d, car, driving, racing, multiplayer, simulation, car-tuning-games, race-games, realistic-car, traffic-games, webgl-games",
     iframeUrl: "/games/traffic-rush-online.html",
     fullscreen: true,
-    videoUrl: ""
   },
   {
     id: 144,
@@ -2803,7 +2799,6 @@ const GAMES = [
     tags: "3d, two-player, customization-games",
     iframeUrl: "/games/geometry-vibes-3d.html",
     fullscreen: true,
-    videoUrl: ""
   },
   {
     id: 145,
@@ -2823,7 +2818,6 @@ const GAMES = [
     tags: "puzzle, 3d, brain, blocks, cocos-games-online, iphone-games, android-games",
     iframeUrl: "/games/tap-3d-wood-block-away.html",
     fullscreen: true,
-    videoUrl: ""
   },
   {
     id: 146,
@@ -2843,7 +2837,6 @@ const GAMES = [
     tags: "car, driving, 3d, physics, simulation, boys, car-crash-games, vehicles-games, sandbox-games, crash-games, demolition-cars-games",
     iframeUrl: "/games/car-crash-sandbox.html",
     fullscreen: true,
-    videoUrl: ""
   },
   {
     id: 147,
@@ -2863,7 +2856,6 @@ const GAMES = [
     tags: "car-racing, racing, car, driving, 3d, arcade, drifting, 1-player-games, arcade-car, race-games, speed-games, car-tuning-games, realistic-car",
     iframeUrl: "/games/street-race-master.html",
     fullscreen: true,
-    videoUrl: ""
   },
   {
     id: 148,
@@ -2883,7 +2875,6 @@ const GAMES = [
     tags: "arcade, car, zombie, driving, action, racing, survival, 3d, 1-player-games, action-adventure, apocalypse-games, arcade-car, customization-games, demolition-games, kill-games, vehicles-games, desktop-games, addictive-games",
     iframeUrl: "/games/cars-vs-zombies.html",
     fullscreen: true,
-    videoUrl: ""
   },
   {
     id: 149,
@@ -2903,7 +2894,6 @@ const GAMES = [
     tags: "kids, decoration, dress-up, girls, make-up, cozy, construct-games-online, casual-games, desktop-games, creativity-games, 2d-games, 1-player-games, art-games, customization-games, cute-games, house-games, borwser-games",
     iframeUrl: "/games/tb-world.html",
     fullscreen: true,
-    videoUrl: ""
   },
    {
     id: 150,
@@ -2923,7 +2913,6 @@ const GAMES = [
     tags: "multiplayer, 3d, co-op, popular, obby, chat-games, cube-games, open-world-games, sandbox-games, gam-supported-games",
     iframeUrl: "/games/sprunki-world-online-rp-play-with-friends.html",
     fullscreen: true,
-    videoUrl: ""
   },
   {
     id: 151,
@@ -2943,7 +2932,6 @@ const GAMES = [
     tags: "american-football, sports, 1-player-games, competitive-games",
     iframeUrl: "/games/2-minute-football-qb-legend.html",
     fullscreen: true,
-    videoUrl: ""
   },
   {
     id: 152,
@@ -2963,7 +2951,6 @@ const GAMES = [
     tags: "mahjong, puzzle, brain, logic, easy, matching, board, mahjong-connect, tiles-games, mind-games, casual-games, brain-training-games, connect-games, mahjong-solitaire-online",
     iframeUrl: "/games/mahjong-lines.html",
     fullscreen: true,
-    videoUrl: ""
   },
   {
     id: 153,
@@ -2983,7 +2970,6 @@ const GAMES = [
     tags: "puzzle, merge, matching, watermelon, unity-games-online, brain-training-games, simple-games, fruits-games, 1-player-games, mind-games, borwser-games",
     iframeUrl: "/games/fruit-merge-juicy-drop-game.html",
     fullscreen: true,
-    videoUrl: ""
   },
   {
     id: 154,
@@ -3003,7 +2989,6 @@ const GAMES = [
     tags: "driving, car, bus, simulation, 3d, parking, 1-player-games, vehicles-games, realistic-car, desktop-games",
     iframeUrl: "/games/city-bus-simulator-driving-games.html",
     fullscreen: true,
-    videoUrl: ""
   },
   {
     id: 155,
@@ -3023,7 +3008,6 @@ const GAMES = [
     tags: "horror, adventure, 3d, survival, scary, ghost, escape, unity-games-online, mystery-games, retro-horror, borwser-games",
     iframeUrl: "/games/abandoned-mansion.html",
     fullscreen: true,
-    videoUrl: ""
   },
   {
     id: 156,
@@ -3043,7 +3027,6 @@ const GAMES = [
     tags: "action, first-person-shooter, survival, zombie, story, shooting, war, unity-games-online, fps-horror, single-player-horror, 3d-horror, survivors-likes",
     iframeUrl: "/games/war-v-path-of-the-survivor.html",
     fullscreen: true,
-    videoUrl: ""
   },
   {
     id: 157,
@@ -3063,7 +3046,6 @@ const GAMES = [
     tags: "simulation, racing, car, 3d, physics, driving, car-racing, boys, car-crash-games, destroy-games, arcade-car, open-world-games, crash-games, demolition-cars-games",
     iframeUrl: "/games/car-smash-simulator-crash-tune.html",
     fullscreen: true,
-    videoUrl: ""
   },
   {
     id: 158,
@@ -3083,7 +3065,6 @@ const GAMES = [
     tags: "skill, running, platform, parkour, mobile, unity-games-online, fast-paced-action, agility-games, casual-games",
     iframeUrl: "/games/rooftop-run.html",
     fullscreen: true,
-    videoUrl: ""
   },
   {
     id: 159,
@@ -3103,7 +3084,6 @@ const GAMES = [
     tags: "fighting, action, ragdoll, 1-player-games, arena-games, combat-games, fast-paced-action, shoot-em-up-games, smash-games, sword-games",
     iframeUrl: "/games/ragdoll-fury.html",
     fullscreen: true,
-    videoUrl: ""
   },
   {
     id: 134,
@@ -3123,7 +3103,6 @@ const GAMES = [
     tags: "cool-games, tower-defense, strategy, mobile, popular, boys, unity-games-online, gam-supported-games, defense-games, tactical-games, apocalypse-games, military-games, isometric-games, top-down-games",
     iframeUrl: "/games/aod-art-of-defense.html",
     fullscreen: true,
-    videoUrl: "https://static.playgama.com/p-video/85dab689ee56444196a4391ca16773de/orig_length_h640.mp4"
   },
   {
     id: 128,
@@ -3143,7 +3122,6 @@ const GAMES = [
     tags: "scary, horror, christmas, survival, survival-horror, jump-scare-games, holiday-games, single-player-horror",
     iframeUrl: "/games/five-nights-at-christmas.html",
     fullscreen: true,
-    videoUrl: "https://static.playgama.com/p-video/8214c0be049547e381d024d3fc4b4bba/orig_length_h640.mp4"
   },
   {
     id: 129,
@@ -3163,7 +3141,6 @@ const GAMES = [
     tags: "car, driving, racing, simulation, 3d, action, physics, unity, boys, car-crash-games, crash-games, destroy-games, destruction-games, demolition-cars-games",
     iframeUrl: "/games/car-destruction-king.html",
     fullscreen: true,
-    videoUrl: "https://static.playgama.com/p-video/cdac251fb08c4fafb7bb056eadfa2623/orig_length_h640.mp4"
   },
    {
     id: 101,
@@ -3175,7 +3152,6 @@ const GAMES = [
     imageUrl: "https://static.playgama.com/p-img/pg/mahjong-classic/big-preview/730f65084d864a9baffefa86e110b106?width=448",
     iframeUrl: "/games/mahjong-classic.html",
     fullscreen: true,
-    videoUrl: "https://static.playgama.com/p-video/e1239d526cff4df79172804cabe8304a/orig_length_h320.mp4"
   },
                 {
     id: 105,
@@ -3187,7 +3163,6 @@ const GAMES = [
     imageUrl: "https://static.playgama.com/p-img/pg/solar-smash/big-preview/678db982b1364f018e7c4fac3b1f4a44?width=448",
     iframeUrl: "/games/solar-smash.html",
     fullscreen: true,
-    videoUrl: "https://static.playgama.com/p-video/20b78a71f7844d66aabe38ddbda3d270/orig_length_h320.mp4"
   },
   {
     id: 106,
@@ -3200,7 +3175,6 @@ const GAMES = [
     imageUrl: "https://static.playgama.com/p-img/pg/plants-vs-zombies-fusion-edition/big_preview/0a3f694494fd4b469429f9c8baf0cb93?width=448",
     iframeUrl: "/games/pvz-fusion-cheats.html",
     fullscreen: true,
-    videoUrl: "https://static.playgama.com/p-video/a6842fc25231418bb5a183952cfb2549/orig_length_h320.mp4"
   },
   { id:12, name:'Cut The Rope ',       cat:'nostalgia', color:'#B36A00', gradient:'linear-gradient(135deg,#2a1500,#604000)', players:'8.7K',  imageUrl:'Cut_the_Rope.png', iframeUrl:'cut-the-rope.html' },
   { id:13, name:'City Stunts',      cat:'cars',   categories:['cars','racing','boys'], color:'#FF3300', gradient:'linear-gradient(135deg,#3a0010,#8a0020)', players:'20.5K', imageUrl:'city-stunts.png', iframeUrl:'car-stunts.html' },
@@ -3228,7 +3202,6 @@ const GAMES = [
     imageUrl: "https://static.playgama.com/p-img/pg/basket-random/preview/fec7a407ebd246d8a893abaf7801622c?width=448",
     iframeUrl: "/games/basket-random.html",
     fullscreen: true,
-    videoUrl: "https://static.playgama.com/p-video/cbc801637e5c42c88a4ed95bc33c2564/orig_length_h320.mp4"
   },
     {
     id: 103,
@@ -3240,7 +3213,6 @@ const GAMES = [
     imageUrl: "https://static.playgama.com/p-img/pg/basketball-stars/big_preview/2e0653c710ad43e09c40d1ba5968e447?width=448",
     iframeUrl: "/games/basketball-stars.html",
     fullscreen: true,
-    videoUrl: "https://static.playgama.com/p-video/c7ae7f11ad0f1a1178788aaa188f4508/orig_length_h320.mp4"
   },
     {
     id: 109,
@@ -3252,7 +3224,6 @@ const GAMES = [
     imageUrl: "https://static.playgama.com/p-img/pg/slope-3d/big_preview/6031cc0ff00947dda0627af51b3316de?width=448",
     iframeUrl: "/games/slope-3d.html",
     fullscreen: true,
-    videoUrl: ""
   },
     {
     id: 108,
@@ -3264,7 +3235,6 @@ const GAMES = [
     imageUrl: "https://static.playgama.com/p-img/pg/geometry-vibes/big-preview/cd0c9c56e9e54948b7eca6c49ef590b5?width=448",
     iframeUrl: "/games/geometry-vibes.html",
     fullscreen: true,
-    videoUrl: "https://static.playgama.com/p-video/6a23eda4fac74d23848658c3fd75e2de/orig_length_h320.mp4"
   },
   { id:31, name:'Tic Tac Toe',      cat:'puzzle',   color:'#FF0066', gradient:'linear-gradient(135deg,#ff0066,#7c3aed)', players:'0', imageUrl:'', iframeUrl:'tic-tac-toe.html', imageUrl:'tic-tac-toe.png' },
    { id:33, name:'Fire Truck Simulator',      cat:'puzzle',   color:'#FF0066', gradient:'linear-gradient(135deg,#ff0066,#7c3aed)', players:'0', imageUrl:'', iframeUrl:'fire-truck-simulator.html', imageUrl:'Fire Truck Rescue simulator-512x512.jpg' },
@@ -3297,7 +3267,6 @@ const GAMES = [
     imageUrl: "https://static.playgama.com/p-img/pg/backfill/game-86496/preview/57449a8aeb08b058814fb911b0c15014c583f10801e7fa2f4c986e6743c4913c?width=448",
     iframeUrl: "/games/beam-drive-car-crash-test-simulator.html",
     fullscreen: true,
-    videoUrl: "https://static.playgama.com/p-video/ca01b2a7120a42899a3bd18db50b4ebe/orig_length_h640.mp4"
   },
   {
     id: 45,
@@ -3390,7 +3359,6 @@ const GAMES = [
     imageUrl: "https://static.playgama.com/p-img/pg/numicolor/big-preview/ad1c290e65cb4e1b8a747cb2b51de044?width=448",
     iframeUrl: "/games/numicolor.html",
     fullscreen: true,
-    videoUrl: ""
   },
   {
     id: 53,
@@ -3534,7 +3502,6 @@ const GAMES = [
     imageUrl: "https://static.playgama.com/p-img/pg/idle-airport-tycoon/big-preview/cf42eed8120a4f3f9fa4d25809bc4ab1?width=448",
     iframeUrl: "/games/idle-airport-tycoon.html",
     fullscreen: true,
-    videoUrl: ""
   },
   {
     id: 111,
@@ -3546,7 +3513,6 @@ const GAMES = [
     imageUrl: "https://static.playgama.com/p-img/pg/diy-phone-case-maker/big-preview/041992ee7d4b4937b7758c8d1ab8c438?width=448",
     iframeUrl: "/games/diy-phone-case-maker.html",
     fullscreen: true,
-    videoUrl: ""
   },
   {
     id: 112,
@@ -3558,7 +3524,6 @@ const GAMES = [
     imageUrl: "https://static.playgama.com/p-img/pg/golf-orbit/big-preview/e7f203e28b0745d880d1c0a995e9b213?width=448",
     iframeUrl: "/games/golf-orbit.html",
     fullscreen: true,
-    videoUrl: ""
   },
   {
     id: 113,
@@ -3570,7 +3535,6 @@ const GAMES = [
     imageUrl: "https://static.playgama.com/p-img/pg/plants-vs-zombies-hybrids/big_preview/f760a2d2906a4e8e93795c3e674d5c4f?width=448",
     iframeUrl: "/games/plants-vs-zombies-hybrids.html",
     fullscreen: true,
-    videoUrl: ""
   },
     {
     id: 114,
@@ -3582,7 +3546,6 @@ const GAMES = [
     imageUrl: "https://static.playgama.com/p-img/pg/burger-restaurant-simulator-3d/big_preview/b4cbcd2693594ae1a4e6aa672025365c?width=448",
     iframeUrl: "/games/burger-restaurant-simulator-3d.html",
     fullscreen: true,
-    videoUrl: ""
   },
     {
     id: 115,
@@ -3594,7 +3557,6 @@ const GAMES = [
     imageUrl: "https://static.playgama.com/p-img/pg/good-sort-master/big-preview/87153c5702e14ce994b208df2c0a5f61?width=448",
     iframeUrl: "/games/good-sort-master-triple-match.html",
     fullscreen: true,
-    videoUrl: "https://static.playgama.com/p-video/bde42b101df64dfd9bbc5fca8bd9cb96/orig_length_h320.mp4"
   },
   {
     id: 116,
@@ -3606,7 +3568,6 @@ const GAMES = [
     imageUrl: "https://static.playgama.com/p-img/pg/master-chess/big-preview/52cdd471a5044f1e94c36787ee523746?width=448",
     iframeUrl: "/games/master-chess.html",
     fullscreen: true,
-    videoUrl: "https://static.playgama.com/p-video/066b3bab8a1c460cbc5d057dbbe37125/orig_length_h320.mp4"
   },
   {
     id: 117,
@@ -3618,7 +3579,6 @@ const GAMES = [
     imageUrl: "https://static.playgama.com/p-img/pg/find-the-frog--hidden-objects/big_preview/541792f4c5354ef88be0646eb9be4b1b?width=448",
     iframeUrl: "/games/find-the-frog-hidden-objects.html",
     fullscreen: true,
-    videoUrl: "https://static.playgama.com/p-video/61541049fc244131805e9e1abfcbb54c/orig_length_h320.mp4"
   },
   {
     id: 118,
@@ -3630,7 +3590,6 @@ const GAMES = [
     imageUrl: "https://static.playgama.com/p-img/pg/driver-club-highway-racing/big-preview/037ce11afe4f4d58a0f93a6339db96b5?width=448",
     iframeUrl: "/games/driver-club-highway-racing.html",
     fullscreen: true,
-    videoUrl: "https://static.playgama.com/p-video/2bc9523376aa46139c01c868d86cbb68/orig_length_h320.mp4"
   },
   {
     id: 119,
@@ -3642,7 +3601,6 @@ const GAMES = [
     imageUrl: "https://static.playgama.com/p-img/pg/nuts-puzzle-sort-by-color/big_preview/faab3ed519024179b5a31afb72cdf675?width=448",
     iframeUrl: "/games/nuts-puzzle-sort-by-color.html",
     fullscreen: true,
-    videoUrl: "https://static.playgama.com/p-video/8157a03153474f7bb4a7529f3d5c355e/orig_length_h320.mp4"
   },
   {
     id: 120,
@@ -3654,7 +3612,6 @@ const GAMES = [
     imageUrl: "https://static.playgama.com/p-img/pg/special-ops/big_preview/379c25433de24d13afadf693d918e11e?width=448",
     iframeUrl: "/games/special-ops-go.html",
     fullscreen: true,
-    videoUrl: "https://static.playgama.com/p-video/cca4b40c9b6c4877a294c337ef342280/orig_length_h320.mp4"
   },
   {
     id: 121,
@@ -3666,7 +3623,6 @@ const GAMES = [
     imageUrl: "https://static.playgama.com/p-img/pg/plants-vs-zombies-fusion-mode/big-preview/df5ba67f240a40b18d46d2d3d57b8400?width=448",
     iframeUrl: "/games/plants-vs-zombies-fusion-mode.html",
     fullscreen: true,
-    videoUrl: "https://static.playgama.com/p-video/9bc8ad41499c4002aa3e17049bb4f3bc/orig_length_h320.mp4"
   },
   {
     id: 122,
@@ -3678,7 +3634,6 @@ const GAMES = [
     imageUrl: "https://static.playgama.com/p-img/pg/hedgies/big_preview/82348afa3e7b4db0bf915c835c40a8bd?width=448",
     iframeUrl: "/games/hedgies.html",
     fullscreen: true,
-    videoUrl: "https://static.playgama.com/p-video/5190b1fcdbba4021a45c3930c54161e2/orig_length_h320.mp4"
   },
   {
     id: 67,
@@ -3940,7 +3895,6 @@ const GAMES = [
     imageUrl: "https://static.playgama.com/p-img/pg/backfill/game-99645/preview/90df3206f7f0c706e6431b9ae58fc331d0ed13a11e547ce0271b720ff82e6b21?width=448",
     iframeUrl: "/games/geometry-arrow-2.html",
     fullscreen: true,
-    videoUrl: "https://static.playgama.com/p-video/5b84237660d746b7bd76be4e60bdba3a/orig_length_h320.mp4",
   },
     {
     id: 99,
@@ -3952,9 +3906,44 @@ const GAMES = [
     imageUrl: "https://static.playgama.com/p-img/pg/backfill/game-109351/preview/b0afdef34402ca9cc780be5207be4cbfe8b640b6cd70d6626c7cec02741a4e3c?width=448",
     iframeUrl: "/games/cube-snake-2048.html",
     fullscreen: true,
-    videoUrl: "https://static.playgama.com/p-video/c8ec011435b84bb3921bb39ff64b0973/orig_length_h320.mp4"
   },
 ];
+
+const GAME_PREVIEW_VIDEOS = {
+  95: 'https://static.playgama.com/p-video/8a7a62bfcec943b6a64d1188c8baf31d/orig_length_h640_6so.mp4',
+  94: 'https://static.playgama.com/p-video/519f0e08d9764b25aea0b93699671b44/orig_length_h640_6so.mp4',
+  104: 'https://static.playgama.com/p-video/32247dbeba054937adf4fe6321dabfb3/orig_length_h320.mp4',
+  100: 'https://static.playgama.com/p-video/73b06d463c9141eb802f8f79f75d208c/orig_length_h320.mp4',
+  107: 'https://static.playgama.com/p-video/1cbe32ecf2444651a508c985b8360784/orig_length_h320.mp4',
+  123: 'https://static.playgama.com/p-video/6f0fa1935227461bb6875c0f3be95664/orig_length_h640.mp4',
+  124: 'https://static.playgama.com/p-video/ce9c9c3686363232dab69f88b265cf44/orig_length_h640.mp4',
+  126: 'https://static.playgama.com/p-video/14ba2e129d6d4b63979e35a5dc7e44f0/orig_length_h640.mp4',
+  127: 'https://static.playgama.com/p-video/60c9d220c3d84df194de4368f427a1dd/orig_length_h640.mp4',
+  130: 'https://static.playgama.com/p-video/643ac827c1924dc5b17c2e04db358099/orig_length_h640.mp4',
+  131: 'https://static.playgama.com/p-video/77642c7a0185497ebcfd948210260ea0/orig_length_h640.mp4',
+  132: 'https://static.playgama.com/p-video/0b8656475e8441d392be5e024a514e88/orig_length_h640.mp4',
+  133: 'https://static.playgama.com/p-video/cea4e609256d46049786ca2b2ed7b1d2/orig_length_h640.mp4',
+  134: 'https://static.playgama.com/p-video/85dab689ee56444196a4391ca16773de/orig_length_h640.mp4',
+  128: 'https://static.playgama.com/p-video/8214c0be049547e381d024d3fc4b4bba/orig_length_h640.mp4',
+  129: 'https://static.playgama.com/p-video/cdac251fb08c4fafb7bb056eadfa2623/orig_length_h640.mp4',
+  101: 'https://static.playgama.com/p-video/e1239d526cff4df79172804cabe8304a/orig_length_h320.mp4',
+  105: 'https://static.playgama.com/p-video/20b78a71f7844d66aabe38ddbda3d270/orig_length_h320.mp4',
+  106: 'https://static.playgama.com/p-video/a6842fc25231418bb5a183952cfb2549/orig_length_h320.mp4',
+  97: 'https://static.playgama.com/p-video/cbc801637e5c42c88a4ed95bc33c2564/orig_length_h320.mp4',
+  103: 'https://static.playgama.com/p-video/c7ae7f11ad0f1a1178788aaa188f4508/orig_length_h320.mp4',
+  108: 'https://static.playgama.com/p-video/6a23eda4fac74d23848658c3fd75e2de/orig_length_h320.mp4',
+  98: 'https://static.playgama.com/p-video/ca01b2a7120a42899a3bd18db50b4ebe/orig_length_h640.mp4',
+  115: 'https://static.playgama.com/p-video/bde42b101df64dfd9bbc5fca8bd9cb96/orig_length_h320.mp4',
+  116: 'https://static.playgama.com/p-video/066b3bab8a1c460cbc5d057dbbe37125/orig_length_h320.mp4',
+  117: 'https://static.playgama.com/p-video/61541049fc244131805e9e1abfcbb54c/orig_length_h320.mp4',
+  118: 'https://static.playgama.com/p-video/2bc9523376aa46139c01c868d86cbb68/orig_length_h320.mp4',
+  119: 'https://static.playgama.com/p-video/8157a03153474f7bb4a7529f3d5c355e/orig_length_h320.mp4',
+  120: 'https://static.playgama.com/p-video/cca4b40c9b6c4877a294c337ef342280/orig_length_h320.mp4',
+  121: 'https://static.playgama.com/p-video/9bc8ad41499c4002aa3e17049bb4f3bc/orig_length_h320.mp4',
+  122: 'https://static.playgama.com/p-video/5190b1fcdbba4021a45c3930c54161e2/orig_length_h320.mp4',
+  96: 'https://static.playgama.com/p-video/5b84237660d746b7bd76be4e60bdba3a/orig_length_h320.mp4',
+  99: 'https://static.playgama.com/p-video/c8ec011435b84bb3921bb39ff64b0973/orig_length_h320.mp4'
+};
 
 const TRENDING = [
   { id:95,  name:'Hazmob FPS: Online Shooter',    color:'#008840', gradient:'linear-gradient(135deg,#003300,#006600)', players:'18.7K' },
@@ -3978,67 +3967,6 @@ function createGameIconUrl(game) {
   return 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg);
 }
 
-function resolveGameVideoUrl(game) {
-  const fallbackVideoMap = {
-    95: 'https://static.playgama.com/p-video/8a7a62bfcec943b6a64d1188c8baf31d/orig_length_h640_6so.mp4',
-    94: 'https://static.playgama.com/p-video/519f0e08d9764b25aea0b93699671b44/orig_length_h640_6so.mp4',
-    105: 'https://static.playgama.com/p-video/8a7a62bfcec943b6a64d1188c8baf31d/orig_length_h640_6so.mp4'
-  };
-
-  if (game && fallbackVideoMap[game.id]) return fallbackVideoMap[game.id];
-
-  const candidates = [];
-
-  if (Array.isArray(game.videos)) {
-    game.videos.forEach(item => {
-      if (item && typeof item === 'object') {
-        candidates.push(item.external_url, item.url, item.src, item.file, item.link, item.href);
-      }
-    });
-  }
-
-  if (Array.isArray(game.video_metadata)) {
-    game.video_metadata.forEach(item => {
-      if (item && typeof item === 'object') {
-        candidates.push(item.external_url, item.url, item.src, item.file, item.link, item.href);
-      }
-    });
-  }
-
-  candidates.push(
-    game.videoUrl,
-    game.video_url,
-    game.video,
-    game.videoURL,
-    game.previewVideoUrl,
-    game.preview_url,
-    game.external_url,
-    game.embed && String(game.embed).match(/https?:\/\/[^"'\s]+(?:mp4|webm|m3u8)/i)?.[0]
-  );
-
-  const explicitUrl = candidates
-    .filter(Boolean)
-    .map(value => String(value).trim())
-    .find(value => /\.(mp4|webm|m3u8)(\?|$)/i.test(value) || /static\.playgama\.com\/p-video\//i.test(value) || /youtube\.com|youtu\.be|vimeo\.com/i.test(value));
-
-  if (explicitUrl) return explicitUrl;
-
-  const playgamaId = [
-    game.videoId,
-    game.playgama_id,
-    game.playgamaId,
-    Array.isArray(game.videos) ? game.videos[0]?.playgama_id : null,
-    Array.isArray(game.video_metadata) ? game.video_metadata[0]?.playgama_id : null,
-  ].find(value => typeof value === 'string' && value.trim());
-
-  if (playgamaId) {
-    const cleanId = String(playgamaId).trim();
-    return `https://static.playgama.com/p-video/${cleanId}/orig_length_h640_6so.mp4`;
-  }
-
-  return '';
-}
-
 function createGameImageMarkup(game) {
   const imageUrl = game.imageUrl && game.imageUrl.trim();
   const src = imageUrl || createGameIconUrl(game);
@@ -4046,19 +3974,17 @@ function createGameImageMarkup(game) {
   return `<img class="${className}" src="${src}" alt="${game.name} image" loading="lazy" decoding="async" />`;
 }
 
-function createGameVideoMarkup(game) {
-  const videoUrl = resolveGameVideoUrl(game);
-  if (!videoUrl) return '';
-
-  const safeVideoUrl = videoUrl.replace(/"/g, '');
-  const youtubeMatch = safeVideoUrl.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([\w-]+)/i);
-
-  if (youtubeMatch) {
-    const embedUrl = `https://www.youtube.com/embed/${youtubeMatch[1]}?autoplay=1&mute=1&loop=1&playlist=${youtubeMatch[1]}`;
-    return `<iframe class="game-hover-video" src="${embedUrl}" title="${game.name} preview" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe>`;
-  }
-
-  return `<video class="game-hover-video" muted autoplay loop playsinline preload="metadata" src="${safeVideoUrl}"></video>`;
+function createGameVideoPreview(game) {
+  const videoUrl = GAME_PREVIEW_VIDEOS[game.id];
+  if (!videoUrl) return null;
+  const video = document.createElement('video');
+  video.className = 'game-hover-video';
+  video.muted = true;
+  video.loop = true;
+  video.playsInline = true;
+  video.preload = 'none';
+  video.src = videoUrl;
+  return video;
 }
 
 function createGameTile(game) {
@@ -4077,6 +4003,7 @@ function createGameTile(game) {
     <h3 class="game-name">${game.name}</h3>
     <span class="cat-badge cat-${category}">${category.toUpperCase()}</span>
   `;
+  card.dataset.hasPreview = String(Boolean(GAME_PREVIEW_VIDEOS[game.id]));
   return card;
 }
 
@@ -4135,17 +4062,35 @@ function bindGameGrid(grid) {
   });
   grid.addEventListener('pointerover', event => {
     if (event.pointerType !== 'mouse') return;
-    const thumb = event.target.closest('.game-thumb');
-    if (!thumb || !grid.contains(thumb) || thumb.contains(event.relatedTarget)) return;
-    const gameId = Number(thumb.closest('.game-card')?.dataset.id);
-    const game = GAMES.find(item => item.id === gameId);
-    const preview = game && createGameVideoMarkup(game);
-    if (preview) thumb.insertAdjacentHTML('beforeend', preview);
+    const card = event.target.closest('.game-card[data-has-preview="true"]');
+    if (!card || !grid.contains(card) || card.contains(event.relatedTarget)) return;
+    const thumb = card.querySelector('.game-thumb');
+    const game = GAMES.find(item => item.id === Number(card.dataset.id));
+    const preview = game && createGameVideoPreview(game);
+    if (!thumb || !preview) return;
+    preview.addEventListener('playing', () => thumb.classList.add('video-playing'), { once: true });
+    preview.addEventListener('error', () => {
+      preview.remove();
+      thumb.classList.remove('video-playing');
+    }, { once: true });
+    thumb.appendChild(preview);
+    preview.play().catch(() => {
+      preview.remove();
+      thumb.classList.remove('video-playing');
+    });
   });
   grid.addEventListener('pointerout', event => {
-    const thumb = event.target.closest('.game-thumb');
-    if (!thumb || !grid.contains(thumb) || thumb.contains(event.relatedTarget)) return;
-    thumb.querySelector('.game-hover-video')?.remove();
+    const card = event.target.closest('.game-card[data-has-preview="true"]');
+    if (!card || !grid.contains(card) || card.contains(event.relatedTarget)) return;
+    const thumb = card.querySelector('.game-thumb');
+    const preview = thumb?.querySelector('.game-hover-video');
+    if (preview) {
+      preview.pause();
+      preview.removeAttribute('src');
+      preview.load();
+      preview.remove();
+    }
+    thumb?.classList.remove('video-playing');
   });
 }
 
@@ -4246,8 +4191,11 @@ const GAMES_PER_BATCH = 24;
 let currentGameBatch = 0;
 let currentFilteredGames = [];
 let currentGameFilter = 'all';
+let gamesReady = false;
+let recommendationsReady = false;
 
 function renderGames(filter = 'all', reset = true) {
+  if (!gamesReady) return;
   const grid = document.getElementById('games-grid');
   if (!grid) return;
   bindGameGrid(grid);
@@ -4337,6 +4285,7 @@ function getSurpriseHistory(username) {
 }
 
 function renderRecommendedGames() {
+  if (!recommendationsReady) return;
   const grid = document.getElementById('recommended-grid');
   if (!grid) return;
   bindGameGrid(grid);
@@ -4435,6 +4384,23 @@ function renderRecommendedGames() {
     chosen.categories.forEach(category => categoryUse.set(category, (categoryUse.get(category) || 0) + 1));
   }
 
+  if (username) {
+    try {
+      localStorage.setItem('pleyz_notification_recommendations_v1', JSON.stringify({
+        username,
+        uid: window.firebaseAuth?.currentUser?.uid || '',
+        updatedAt: Date.now(),
+        items: recommendations.slice(0, 3).map(game => ({
+          name: game.name,
+          href: game.iframeUrl || ''
+        }))
+      }));
+      document.dispatchEvent(new Event('pleyz-notification-recommendations-updated'));
+    } catch (error) {
+      console.warn('PleyZ recommendation notices could not be saved:', error);
+    }
+  }
+
   const heading = document.getElementById('recommendations-heading');
   const caption = document.getElementById('recommendations-caption');
   if (mood && heading) heading.textContent = `${mood.label} picks`;
@@ -4474,7 +4440,10 @@ function renderRecommendedGames() {
   } catch (_) {}
 }
 
+let popularCountryReady = false;
+
 function renderPopularCountryGames() {
+  if (!popularCountryReady) return;
   const grid = document.getElementById('popular-country-grid');
   if (!grid) return;
   bindGameGrid(grid);
@@ -4653,7 +4622,10 @@ function renderTrending() {
   });
 }
 
+let leaderboardReady = false;
+
 async function renderLeaderboard() {
+  if (!leaderboardReady) return;
   const tbody = document.getElementById('leaderboard-body');
   if (!tbody) return;
   const row = document.createElement('tr');
@@ -4937,6 +4909,7 @@ function updateAuthUI() {
   if (username) {
     userDisplay.textContent = `Welcome, ${username}`;
     userDisplay.style.display = 'inline-block';
+    authButton.hidden = true;
     if (avatarButton) {
       const photoUrl = window.firebaseAuth?.currentUser?.photoURL;
       avatarButton.innerHTML = photoUrl
@@ -4945,10 +4918,6 @@ function updateAuthUI() {
       avatarButton.style.display = 'inline-grid';
       avatarButton.style.placeItems = 'center';
     }
-    authButton.innerHTML = '<i class="fas fa-sign-out-alt"></i> Logout';
-    authButton.classList.remove('btn-outline');
-    authButton.classList.add('btn-primary');
-    authButton.onclick = handleLogout;
     if (footerAuthButton) {
       footerAuthButton.textContent = 'Account / Profile';
       footerAuthButton.onclick = openAccountPage;
@@ -4961,9 +4930,8 @@ function updateAuthUI() {
       avatarButton.innerHTML = '';
       avatarButton.style.display = 'none';
     }
+    authButton.hidden = false;
     authButton.innerHTML = '<i class="fas fa-user"></i> Login';
-    authButton.classList.remove('btn-primary');
-    authButton.classList.add('btn-outline');
     authButton.onclick = openLoginModal;
     if (footerAuthButton) {
       footerAuthButton.textContent = 'Login';
@@ -4981,18 +4949,6 @@ function openAccountPage() {
     return;
   }
   window.location.href = 'account.html';
-}
-
-async function handleLogout() {
-  if (window.firebaseLogout) {
-    try {
-      await window.firebaseLogout();
-    } catch (err) {
-      console.warn('Logout failed', err);
-    }
-  }
-  clearCurrentUser();
-  updateAuthUI();
 }
 
 function setAuthMode(mode) {
@@ -5235,7 +5191,7 @@ function applyUrlCategoryFilter(){
   }
   if (cat) {
     document.querySelectorAll('#sidebar-cats a').forEach(x => x.classList.toggle('active', x.dataset.cat === cat));
-    renderGames(cat);
+    currentGameFilter = cat;
     // scroll to games section
     const gamesSection = document.getElementById('games');
     if (gamesSection) gamesSection.scrollIntoView({behavior:'smooth', block:'start'});
@@ -5244,43 +5200,81 @@ function applyUrlCategoryFilter(){
   return false;
 }
 
+let deferredHomeSectionsInitialized = false;
+
+function renderInitialGamesFallback() {
+  const grid = document.getElementById('games-grid');
+  if (!gamesReady || !grid || grid.children.length || !Array.isArray(GAMES) || !GAMES.length) return;
+  bindGameGrid(grid);
+  GAMES.slice(0, 24).forEach(game => {
+    try {
+      grid.appendChild(createGameTile(game));
+    } catch (error) {
+      console.warn('Fallback game card render failed:', error);
+    }
+  });
+}
+
+function initializeDeferredHomeSections() {
+  if (deferredHomeSectionsInitialized) return;
+  deferredHomeSectionsInitialized = true;
+
+  const renderDeferredSection = section => {
+    switch (section.id) {
+      case 'games':
+        gamesReady = true;
+        try {
+          renderGames(currentGameFilter);
+        } catch (error) {
+          console.warn('Initial games render failed:', error);
+        }
+        renderInitialGamesFallback();
+        break;
+      case 'recommendations':
+        recommendationsReady = true;
+        renderRecommendedGames();
+        break;
+      case 'popular-country':
+        popularCountryReady = true;
+        renderPopularCountryGames();
+        updatePopularCountryHeading();
+        break;
+      case 'leaderboard':
+        leaderboardReady = true;
+        renderLeaderboard();
+        break;
+    }
+  };
+  const deferredSections = ['games', 'recommendations', 'popular-country', 'leaderboard']
+    .map(id => document.getElementById(id))
+    .filter(Boolean);
+
+  if (!('IntersectionObserver' in window)) {
+    deferredSections.forEach(renderDeferredSection);
+    return;
+  }
+
+  const sectionObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      sectionObserver.unobserve(entry.target);
+      renderDeferredSection(entry.target);
+    });
+  }, { rootMargin: '320px 0px' });
+  deferredSections.forEach(section => sectionObserver.observe(section));
+}
+
 try {
-  const applied = applyUrlCategoryFilter();
-  if (!applied) renderGames();
-  renderRecommendedGames();
-  renderPopularCountryGames();
-  updatePopularCountryHeading();
+  applyUrlCategoryFilter();
   renderTrending();
-  renderLeaderboard();
+  initializeDeferredHomeSections();
   if (new URLSearchParams(location.search).get('signin') === '1') openLoginModal();
 } catch (err) {
   // Avoid halting the rest of the script — try again shortly
   console.warn('Initial render failed, retrying shortly', err);
   setTimeout(() => {
-    try { renderGames(); renderRecommendedGames(); renderPopularCountryGames(); updatePopularCountryHeading(); renderTrending(); renderLeaderboard(); } catch (e) { console.error('Retry failed', e); }
+    try { renderTrending(); initializeDeferredHomeSections(); } catch (e) { console.error('Retry failed', e); }
   }, 200);
-}
-
-// Fallback: if the main renderer didn't populate games (due to an earlier error), render a minimal set so the page remains usable.
-try {
-  const grid = document.getElementById('games-grid');
-  if (grid && grid.children.length === 0 && Array.isArray(GAMES) && GAMES.length) {
-    grid.innerHTML = '';
-    GAMES.slice(0, 50).forEach(g => {
-      try {
-        const card = document.createElement('div');
-        card.className = 'game-card';
-        card.dataset.id = String(g.id);
-        card.tabIndex = 0;
-        card.setAttribute('role', 'button');
-        card.setAttribute('aria-label', `Play ${g.name}`);
-        card.innerHTML = `<div class="game-thumb">${createGameImageMarkup(g)}</div><h3 class="game-name">${g.name}</h3><span class="cat-badge cat-${g.cat}">${String(g.cat || 'game').toUpperCase()}</span>`;
-        grid.appendChild(card);
-      } catch (inner) { /* ignore individual item render failures */ }
-    });
-  }
-} catch (e) {
-  console.warn('fallback render failed', e);
 }
 </script>
 <script type="module">
@@ -5333,6 +5327,13 @@ try {
     window.firebaseLogout = async () => await signOut(auth);
 
     onAuthStateChanged(auth, user => {
+      if (user) {
+        const username = getCurrentUser()
+          || (user.displayName || user.email?.split('@')[0] || 'Player').trim();
+        setCurrentUser(username);
+      } else {
+        clearCurrentUser();
+      }
       updateAuthUI();
       window.dispatchEvent(new CustomEvent('pleyz-auth-state-change', { detail: user }));
     });
@@ -5554,6 +5555,7 @@ window.firebaseFetchLeaderboard = async () => {
     window.addEventListener('pleyz-auth-state-change', event => {
       syncSignedInProfile(event.detail);
       syncFeedbackPreferences(event.detail);
+      if (event.detail) renderRecommendedGames();
     });
     syncSignedInProfile(window.firebaseAuth?.currentUser);
     syncFeedbackPreferences(window.firebaseAuth?.currentUser);
@@ -5926,7 +5928,7 @@ setTimeout(() => {
     #recommended-grid .pick-featured .game-thumb { aspect-ratio: 3 / 4; }
   }
   header .logo { font-size: clamp(1.25rem, 2.4vw, 1.65rem); }
-  @media (max-width: 768px) { header .logo { font-size: 1.3rem; } }
+  @media (max-width: 768px) { header .logo { font-size: 1.1rem; } }
 </style>
 <aside class="mood-popup" id="mood-popup" role="dialog" aria-modal="false" aria-labelledby="mood-popup-title" aria-hidden="true">
   <div class="mood-popup-header">
@@ -6006,5 +6008,6 @@ setTimeout(() => {
     setButtonsVisible(true);
   })();
 </script>
+<script src="/notification-center.js" defer></script>
 </body>
 </html>

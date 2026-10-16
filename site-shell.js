@@ -88,4 +88,9 @@
   categoryNav.addEventListener('click', event => {
     if (event.target.closest('a')) setOpen(false);
   });
+
+  const notificationsScript = document.createElement('script');
+  notificationsScript.src = '/notification-center.js';
+  notificationsScript.async = true;
+  document.head.appendChild(notificationsScript);
 })();

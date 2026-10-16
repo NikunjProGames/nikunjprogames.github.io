@@ -122,7 +122,17 @@
     const button = document.getElementById('account-auth-action');
 
     button.addEventListener('click', async () => {
-      try { await signOut(auth); } finally { location.href = '/'; }
+      button.disabled = true;
+      try {
+        await signOut(auth);
+        localStorage.removeItem('nikunj_current_username');
+        location.href = '/';
+      } catch (error) {
+        console.warn('PleyZ account logout failed:', error);
+        status.textContent = 'Could not log out. Please try again.';
+        status.hidden = false;
+        button.disabled = false;
+      }
     });
 
     onAuthStateChanged(auth, async user => {
@@ -168,5 +178,6 @@
       console.warn('PleyZ account auth unavailable:', error);
     });
   </script>
+  <script src="/notification-center.js" defer></script>
 </body>
 </html>
