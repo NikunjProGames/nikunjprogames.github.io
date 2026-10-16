@@ -98,24 +98,69 @@ function getCompleteSentences(text) {
 
 function getSeoDescription(title, description, providedSeoDescription, shortDescription) {
   const supplied = toPlainText(providedSeoDescription);
-  const unfinishedEnding = /\b(?:and|or|with|to|of|for|in|a|an|the|instead|where|when|by|as|because|while|from|on|into|over|that|which)$/i;
-  if (supplied && !unfinishedEnding.test(supplied.trim())) {
-    return /[.!?…]$/.test(supplied) ? supplied : `${supplied}.`;
-  }
-
-  const sentences = getCompleteSentences(description);
   const suppliedShort = toPlainText(shortDescription);
-  let summary = suppliedShort && !unfinishedEnding.test(suppliedShort.trim()) ? suppliedShort : '';
-  for (const sentence of sentences) {
-    if (summary.includes(sentence)) continue;
-    if (summary && summary.length >= 100) break;
-    if (summary && summary.length + sentence.length + 1 > 210) break;
-    summary = summary ? `${summary} ${sentence}` : sentence;
-  }
-  if (summary) return /[.!?…]$/.test(summary) ? summary : `${summary}...`;
+  const firstSentence = getCompleteSentences(toPlainText(description))[0] || '';
+  const snippet = supplied || suppliedShort || firstSentence;
+  if (!snippet) return `Play ${toPlainText(title)} on PleyZ.`;
+  if (snippet.length <= 160) return snippet;
 
-  const shortened = description.slice(0, 155).replace(/\s+\S*$/, '').replace(/[,:;\u2013\u2014-]+$/, '').trim();
-  return shortened ? `${shortened}...` : `Play ${title} on PleyZ.`;
+  const withinLimit = snippet.slice(0, 160);
+  const sentenceEnd = Math.max(withinLimit.lastIndexOf('.'), withinLimit.lastIndexOf('!'), withinLimit.lastIndexOf('?'));
+  if (sentenceEnd >= 100) return withinLimit.slice(0, sentenceEnd + 1).trim();
+
+  const wordEnd = withinLimit.lastIndexOf(' ');
+  return `${withinLimit.slice(0, wordEnd > 0 ? wordEnd : 159).replace(/[,:;\u2013\u2014-]+$/, '').trim()}…`;
+}
+
+function normalizeSeoContent(content, title) {
+  if (content === undefined) return null;
+  const label = toPlainText(title) || 'Untitled game';
+  if (!content || typeof content !== 'object' || Array.isArray(content)) {
+    throw new Error(`seoContent for "${label}" must be an object.`);
+  }
+
+  const readLines = (key, required = false) => {
+    const value = content[key] ?? [];
+    if (!Array.isArray(value) || value.some(item => typeof item !== 'string' || !toPlainText(item))) {
+      throw new Error(`seoContent.${key} for "${label}" must be an array of non-empty strings.`);
+    }
+    const lines = value.map(item => toPlainText(item));
+    if (required && !lines.length) throw new Error(`seoContent.${key} for "${label}" must not be empty.`);
+    return lines;
+  };
+  const about = readLines('about', true);
+  const features = readLines('features', true);
+  if (features.length > 4) throw new Error(`seoContent.features for "${label}" must contain no more than four items.`);
+  const story = readLines('story');
+
+  const questions = content.questions ?? {};
+  if (!questions || typeof questions !== 'object' || Array.isArray(questions)) {
+    throw new Error(`seoContent.questions for "${label}" must be an object of categorized question arrays.`);
+  }
+  const normalizedQuestions = {};
+  for (const category of ['core', 'mechanics', 'economy', 'retention']) {
+    const entries = questions[category] ?? [];
+    if (!Array.isArray(entries) || entries.some(item => (
+      !item || typeof item !== 'object'
+      || typeof item.question !== 'string' || !toPlainText(item.question)
+      || typeof item.answer !== 'string' || !toPlainText(item.answer)
+    ))) {
+      throw new Error(`seoContent.questions.${category} for "${label}" must contain question/answer objects.`);
+    }
+    normalizedQuestions[category] = entries.map(item => ({
+      question: toPlainText(item.question),
+      answer: toPlainText(item.answer)
+    }));
+  }
+
+  return {
+    about,
+    controls: readLines('controls'),
+    features,
+    modes: readLines('modes'),
+    story,
+    questions: normalizedQuestions
+  };
 }
 
 function normalizeGame(game) {
@@ -127,17 +172,22 @@ function normalizeGame(game) {
       .map(category => [toPlainText(category).toLowerCase(), toPlainText(category)])
   ).values()];
   if (!categories.length) categories.push('Other');
-  const shortDescription = toPlainText(game.shortDescription) || description.slice(0, 155).replace(/\s+\S*$/, '');
+  const shortDescription = toPlainText(game.shortDescription)
+    || getCompleteSentences(description)[0]
+    || description.slice(0, 155).replace(/\s+\S*$/, '');
 
   return {
     ...game,
     slug: game.slug || slugify(game.title),
     description,
+    descriptionSource: String(game.description || ''),
     shortDescription,
     instructions,
+    instructionsSource: String(game.instructions || ''),
     howToPlay: toPlainText(game.howToPlay),
     controls: toPlainText(game.controls),
     features: listFrom(game.features),
+    seoContent: normalizeSeoContent(game.seoContent, game.title),
     categories,
     tags,
     platforms: listFrom(game.platforms || ['Web browser']),
@@ -251,6 +301,315 @@ function getRecommendationVideoUrl(game, homepageVideosBySlug) {
     : homepageVideosBySlug.get(game.slug) || '';
 }
 
+function getDescriptionLines(value) {
+  return String(value || '')
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<\/(?:p|div|li|h[1-6])\s*>/gi, '\n')
+    .replace(/<(?:p|div|li|h[1-6])\b[^>]*>/gi, '\n')
+    .replace(/<[^>]*>/g, ' ')
+    .split(/\r?\n/)
+    .map(line => toPlainText(line))
+    .filter(Boolean);
+}
+
+function getDescriptionSectionHeading(line) {
+  const source = line.trim().replace(/^\[([^\]]+)\]$/, '$1');
+  const match = source.match(/^([^:]+?)(?::\s*(.*))?$/);
+  const heading = toPlainText(match?.[1])
+    .replace(/^[^A-Za-z0-9]+/, '')
+    .replace(/[\[\].:]\s*$/, '')
+    .trim()
+    .toLowerCase();
+  const inlineContent = match?.[2] ? toPlainText(match[2]) : '';
+  const sections = [
+    [/^controls?$/, 'controls'],
+    [/^(?:(?:key|game|main game|game main) )?features?(?: of the game)?$/, 'features'],
+    [/^(?:levels?\s*\/\s*maps?\s*\/\s*worlds?|(?:game )?modes?(?:\s*&\s*environments)?)$/, 'modes'],
+    [/^(?:game )?overview$/, 'intro'],
+    [/^(?:about this game|full description)$/, 'intro'],
+    [/^(?:story\s*\/\s*setting|story|setting)$/, 'story'],
+    [/^core$/, 'intro'],
+    [/^loop$/, 'mechanics'],
+    [/^start$/, 'core'],
+    [/^visual$/, 'features'],
+    [/^playgama fact$/, 'intro'],
+    [/^core gameplay\s*&\s*story$/, 'core'],
+    [/^upgrades?\s*\/\s*progression\s*\/\s*economy$/, 'economy'],
+    [/^characters?\s*\/\s*heroes\s*\/\s*skins?$/, 'economy'],
+    [/^enemies\s*\/\s*bosses$/, 'mechanics'],
+    [/^vehicles?\s*\/\s*cars?$/, 'mechanics'],
+    [/^mechanics\s*&\s*progression$/, 'mechanics'],
+    [/^economy\s*&\s*customization$/, 'economy'],
+    [/^retention\s*&\s*(?:engagement|accessibility)$/, 'retention'],
+    [/^tips for beginners$/, 'tipsForBeginners'],
+    [/^advanced tips$/, 'advancedTips'],
+    [/^common mistakes$/, 'commonMistakes']
+  ];
+  const section = sections.find(([pattern]) => pattern.test(heading));
+  return section ? { key: section[1], inlineContent } : null;
+}
+
+function parseGameDescription(game) {
+  const parsed = {
+    intro: [],
+    controls: [],
+    features: [],
+    modes: [],
+    story: [],
+    tipsForBeginners: [],
+    advancedTips: [],
+    commonMistakes: [],
+    notes: { mechanics: [], economy: [] },
+    questions: { core: [], mechanics: [], economy: [], retention: [] }
+  };
+  let currentSection = 'intro';
+  const sectionsWithBullets = new Set();
+
+  for (const originalLine of getDescriptionLines(game.descriptionSource || game.description)) {
+    const heading = getDescriptionSectionHeading(originalLine);
+    if (heading) {
+      currentSection = heading.key;
+      if (heading.inlineContent) {
+        const destination = getDescriptionDestination(parsed, currentSection);
+        destination?.push(heading.inlineContent);
+      }
+      continue;
+    }
+    const isBullet = /^\s*[-*•]\s*/.test(originalLine);
+    if (isBullet) sectionsWithBullets.add(currentSection);
+    const sentenceCount = (originalLine.match(/[.!?](?:\s|$)/g) || []).length;
+    if (['features', 'tipsForBeginners', 'advancedTips', 'commonMistakes'].includes(currentSection)
+      && !isBullet
+      && originalLine.length > 90
+      && /[.!?]/.test(originalLine)
+      && (sectionsWithBullets.has(currentSection) || (currentSection === 'features' && sentenceCount > 1 && originalLine.length > 120))) {
+      parsed.intro.push(originalLine);
+      currentSection = 'intro';
+      continue;
+    }
+    if (currentSection === 'intro' && /\b(?:choose from|includes?|offers?|features?)\b.{0,70}\b(?:game )?modes?\b/i.test(originalLine)) {
+      parsed.modes.push(originalLine);
+      continue;
+    }
+    const destination = getDescriptionDestination(parsed, currentSection);
+    destination?.push(originalLine);
+  }
+
+  for (const [category, lines] of Object.entries(parsed.questions)) {
+    parsed.questions[category] = parseQuestionAnswers(lines);
+  }
+  return parsed;
+}
+
+function getEditorialGameDescription(game) {
+  const content = game.seoContent;
+  if (!content || typeof content !== 'object' || Array.isArray(content)) return null;
+
+  const toQuestions = category => (Array.isArray(content.questions?.[category])
+    ? content.questions[category]
+    : []).filter(item => item && typeof item.question === 'string' && typeof item.answer === 'string')
+    .map(item => ({ question: toPlainText(item.question), answer: toPlainText(item.answer) }))
+    .filter(item => item.question && item.answer);
+
+  return {
+    intro: listFrom(content.about),
+    controls: listFrom(content.controls),
+    features: listFrom(content.features),
+    modes: listFrom(content.modes),
+    story: listFrom(content.story),
+    tipsForBeginners: [],
+    advancedTips: [],
+    commonMistakes: [],
+    notes: { mechanics: [], economy: [] },
+    questions: {
+      core: { questions: toQuestions('core'), notes: [] },
+      mechanics: { questions: toQuestions('mechanics'), notes: [] },
+      economy: { questions: toQuestions('economy'), notes: [] },
+      retention: { questions: toQuestions('retention'), notes: [] }
+    }
+  };
+}
+
+function getDescriptionDestination(parsed, section) {
+  if (parsed.questions[section]) return parsed.questions[section];
+  if (parsed.notes[section]) return parsed.notes[section];
+  return parsed[section];
+}
+
+function parseQuestionAnswers(lines) {
+  const questions = [];
+  const notes = [];
+  let currentQuestion = '';
+  let currentAnswer = '';
+  const saveQuestion = () => {
+    if (currentQuestion && currentAnswer) {
+      questions.push({ question: currentQuestion.trim(), answer: currentAnswer.trim() });
+    } else if (currentQuestion) notes.push(currentQuestion.trim());
+    currentQuestion = '';
+    currentAnswer = '';
+  };
+
+  for (const line of lines) {
+    const inlinePair = line.match(/^Q:\s*(.*?)\s+A:\s*(.+)$/i);
+    if (inlinePair) {
+      saveQuestion();
+      questions.push({ question: inlinePair[1].trim(), answer: inlinePair[2].trim() });
+      continue;
+    }
+    const question = line.match(/^Q:\s*(.+)$/i);
+    if (question) {
+      saveQuestion();
+      currentQuestion = question[1].trim();
+      continue;
+    }
+    const answer = line.match(/^A:\s*(.+)$/i);
+    if (answer && currentQuestion) {
+      currentAnswer = currentAnswer ? `${currentAnswer} ${answer[1].trim()}` : answer[1].trim();
+      continue;
+    }
+    if (currentQuestion && currentAnswer) currentAnswer += ` ${line}`;
+    else notes.push(line);
+  }
+  saveQuestion();
+  return { questions, notes };
+}
+
+function renderParagraphs(lines) {
+  return lines.map(line => `<p>${escapeHtml(line)}</p>`).join('\n');
+}
+
+function renderList(lines) {
+  const items = lines.map(line => `<li>${renderListItemContents(line)}</li>`);
+  return items.length ? `<ul>${items.join('')}</ul>` : '';
+}
+
+function renderFeatureList(lines) {
+  const maxBullets = 4;
+  const groupSize = Math.ceil(lines.length / maxBullets);
+  const groups = [];
+  for (let index = 0; index < lines.length; index += groupSize) {
+    groups.push(lines.slice(index, index + groupSize));
+  }
+  return `<ul>${groups.map(group => {
+    const items = group.map(item => item.replace(/^\s*[-*•]\s*/, '').trim());
+    if (items.length === 1) return `<li>${renderListItemContents(items[0])}</li>`;
+    const [first, ...rest] = items.map(item => item.replace(/[.!?;,]+$/, ''));
+    return `<li>${renderListItemContents(first)}${rest.map(item => `; ${escapeHtml(item)}`).join('')}.</li>`;
+  }).join('')}</ul>`;
+}
+
+function renderListItemContents(line) {
+  const text = line.replace(/^\s*[-*•]\s*/, '').trim();
+  const split = text.match(/^(.{1,100}?)\s*[:：]\s+(.+)$/);
+  const actionEnd = /[.!?]$/.test(split?.[1] || '') ? ' ' : ': ';
+  return split
+    ? `<strong>${escapeHtml(split[1])}</strong>${actionEnd}${escapeHtml(split[2])}`
+    : `<strong>${escapeHtml(text)}</strong>`;
+}
+
+function getFeatureControl(line) {
+  const text = line.replace(/^\s*[-*•]\s*/, '').trim();
+  if (!/\b(?:keyboard|mouse|arrow keys|wasd|swipe|tilt|touch|tap|click|controller|left[- ]and[- ]right steering)\b/i.test(text)) {
+    return '';
+  }
+  if (/\bmobile\b/i.test(text)) return `Mobile: ${text}`;
+  if (/\bdesktop\b|\bkeyboard\b/i.test(text)) return `Desktop: ${text}`;
+  return text;
+}
+
+function renderTips(groups) {
+  return [
+    ['Tips for Beginners', groups.tipsForBeginners],
+    ['Advanced Tips', groups.advancedTips],
+    ['Common Mistakes', groups.commonMistakes]
+  ].filter(([, lines]) => lines.length)
+    .map(([heading, lines]) => `<h3>${heading}</h3>${renderList(lines)}`)
+    .join('\n');
+}
+
+function parseInstructionText(instructions) {
+  const lines = getDescriptionLines(instructions);
+  if (!lines.length) return { controls: [], howToPlay: '' };
+  const playerOrDeviceLabels = /^(?:desktop|mobile|player\s*[12]|player\s*(?:one|two))\s*:/i;
+  if (lines.every(line => playerOrDeviceLabels.test(line))) return { controls: lines, howToPlay: '' };
+
+  const controlMapping = /^(?:move|movement|aim|shoot|fire|jump|boost|attack|run|drive|steer|turn|brake|accelerate|player\s*[12])\s*:/i;
+  if (lines.every(line => controlMapping.test(line))) return { controls: lines, howToPlay: '' };
+  if (lines.length === 1 && lines[0].length <= 140
+    && /^(?:use\s+)?(?:mouse|keyboard|arrow keys|wasd|tap|click|drag|swipe|press)\b/i.test(lines[0])) {
+    return { controls: lines, howToPlay: '' };
+  }
+
+  const source = String(instructions || '').trim();
+  const platformBlocks = { Desktop: [], Mobile: [] };
+  const narrativeLines = [];
+  let currentPlatform = '';
+  let foundPlatformControls = false;
+  for (const line of lines) {
+    const heading = line.match(/^(PC|Desktop|Mobile)(?:\s+controls?)\s*:?$/i);
+    const label = line.match(/^(PC|Desktop|Mobile)\s*:\s*(.*)$/i);
+    if (heading || label) {
+      currentPlatform = (heading?.[1] || label[1]).toLowerCase() === 'mobile' ? 'Mobile' : 'Desktop';
+      foundPlatformControls = true;
+      const inlineControls = label?.[2].trim();
+      if (inlineControls) platformBlocks[currentPlatform].push(inlineControls);
+      continue;
+    }
+    if (currentPlatform) platformBlocks[currentPlatform].push(line);
+    else narrativeLines.push(line);
+  }
+  if (foundPlatformControls) {
+    const controls = Object.entries(platformBlocks)
+      .filter(([, items]) => items.length)
+      .map(([platform, items]) => `${platform}: ${items.join('; ')}`);
+    return { controls, howToPlay: narrativeLines.join(' ') };
+  }
+
+  const labels = /(^|[.!?]\s*|\n\s*)(Control on a (mobile|desktop)(?: device)?|PC|Desktop|Mobile)(?:\s+control)?\s*:\s*/gi;
+  const matches = [...source.matchAll(labels)];
+  if (!matches.length) return { controls: [], howToPlay: lines.join(' ') };
+  const controls = matches.map((match, index) => {
+    const contentStart = match.index + match[0].length;
+    const end = index + 1 < matches.length ? matches[index + 1].index : source.length;
+    const label = match[2].toLowerCase().startsWith('control on a ')
+      ? match[3]
+      : match[2].replace(/\s+control$/i, '');
+    return `${label.toLowerCase() === 'pc' ? 'Desktop' : label[0].toUpperCase() + label.slice(1)}: ${source.slice(contentStart, end).replace(/[.!?]\s*$/, '').trim()}`;
+  }).filter(line => !/: \s*$/.test(line));
+  const howToPlay = source.slice(0, matches[0].index).replace(/[.!?\s]+$/, '').trim();
+  return { controls, howToPlay };
+}
+
+function renderControls(lines) {
+  const controls = lines.map(line => {
+    const labels = /(^|\s)(Desktop|Mobile|Player\s*[12]|Player\s*(?:One|Two))\s*:\s*/gi;
+    const firstLabel = labels.exec(line);
+    if (!firstLabel) return `<p>${escapeHtml(line)}</p>`;
+
+    labels.lastIndex = 0;
+    const pieces = [];
+    let match;
+    let lastIndex = 0;
+    while ((match = labels.exec(line))) {
+      if (match.index > lastIndex) {
+        const text = line.slice(lastIndex, match.index).trim();
+        if (text) pieces.push(escapeHtml(text));
+      }
+      const contentStart = labels.lastIndex;
+      const next = labels.exec(line);
+      const contentEnd = next ? next.index : line.length;
+      pieces.push(`<strong>${escapeHtml(match[2])}:</strong> ${escapeHtml(line.slice(contentStart, contentEnd).trim())}`);
+      if (next) labels.lastIndex = next.index;
+      lastIndex = contentEnd;
+      if (!next) break;
+    }
+    const remaining = line.slice(lastIndex).trim();
+    if (remaining) pieces.push(escapeHtml(remaining));
+    return `<p>${pieces.join(' ')}</p>`;
+  });
+  return controls.join('\n');
+}
+
 function getRecommendationsHtml(game, games, homepageVideosBySlug) {
   const gameCategories = new Set(game.categories.map(category => category.toLowerCase()));
   const gameTags = new Set(game.tags.map(tag => tag.toLowerCase()));
@@ -279,30 +638,47 @@ function getRecommendationsHtml(game, games, homepageVideosBySlug) {
 }
 
 function getGameContentHtml(game) {
+  const editorialContent = getEditorialGameDescription(game);
+  const description = editorialContent || parseGameDescription(game);
+  const instructionText = parseInstructionText(game.instructionsSource || game.instructions);
+  const intro = description.intro.length
+    ? description.intro
+    : [game.shortDescription || game.seoDescription];
+  const sourceControls = description.controls.length
+    ? description.controls
+    : editorialContent
+      ? []
+      : game.controls
+      ? getDescriptionLines(game.controls)
+    : instructionText.controls;
+  const rawFeatures = [...new Set([...description.features, ...(editorialContent ? [] : game.features)])];
+  const featureControls = sourceControls.length ? [] : rawFeatures.map(getFeatureControl).filter(Boolean);
+  const controls = [...new Set([...sourceControls, ...featureControls])];
+  const features = rawFeatures.filter(line => !getFeatureControl(line)
+    && !(description.modes.length && /\bmodes?\b/i.test(line)));
+  const coreQuestions = [
+    ...description.questions.core.questions,
+    ...(editorialContent ? [] : game.faqs.map(faq => ({ question: faq.question, answer: faq.answer })))
+  ];
   const sections = [`<section class="info-card" aria-labelledby="game-description-heading">
       <h2 id="game-description-heading">About ${escapeHtml(game.title)}</h2>
-      <p>${escapeHtml(game.description)}</p>
+      ${renderParagraphs(intro)}
+      ${controls.length ? `<h3>Controls</h3>${renderControls(controls)}` : ''}
+      ${features.length ? `<h3>Key Features</h3>${renderFeatureList(features)}` : ''}
+      ${description.modes.length ? `<h3>Game Modes &amp; Environments</h3>${renderList(description.modes)}` : ''}
+      ${renderQuestionCategory('Core Gameplay & Story', coreQuestions, [...description.story, ...description.questions.core.notes])}
+      ${renderQuestionCategory('Mechanics & Progression', description.questions.mechanics.questions, description.questions.mechanics.notes, description.notes.mechanics)}
+      ${renderQuestionCategory('Economy & Customization', description.questions.economy.questions, description.questions.economy.notes, description.notes.economy)}
+      ${renderQuestionCategory('Retention & Accessibility', description.questions.retention.questions, description.questions.retention.notes)}
     </section>`];
 
-  const howToPlay = game.howToPlay || (!game.controls ? game.instructions : '');
-  if (howToPlay) {
+  const howToPlay = game.howToPlay || instructionText.howToPlay || (!controls.length ? game.instructions : '');
+  const tipsHtml = renderTips(description);
+  if (howToPlay || tipsHtml) {
     sections.push(`<section class="info-card" aria-labelledby="how-to-play-heading">
       <h2 id="how-to-play-heading">How to Play</h2>
-      <p>${escapeHtml(howToPlay)}</p>
-    </section>`);
-  }
-
-  if (game.controls) {
-    sections.push(`<section class="info-card" aria-labelledby="controls-heading">
-      <h2 id="controls-heading">Controls</h2>
-      <p>${escapeHtml(game.controls)}</p>
-    </section>`);
-  }
-
-  if (game.features.length) {
-    sections.push(`<section class="info-card" aria-labelledby="features-heading">
-      <h2 id="features-heading">Features</h2>
-      <ul>${game.features.map(feature => `<li>${escapeHtml(feature)}</li>`).join('')}</ul>
+      ${howToPlay ? `<p>${escapeHtml(howToPlay)}</p>` : ''}
+      ${tipsHtml}
     </section>`);
   }
 
@@ -332,6 +708,12 @@ function getGameContentHtml(game) {
   return sections.join('\n');
 }
 
+function renderQuestionCategory(heading, questions, paragraphs = [], items = []) {
+  return questions.length || paragraphs.length || items.length
+    ? `<h3>${escapeHtml(heading)}</h3>${renderParagraphs(paragraphs)}${items.length ? renderList(items) : ''}${questions.length ? `<dl>${questions.map(item => `<dt>${escapeHtml(item.question)}</dt><dd>${escapeHtml(item.answer)}</dd>`).join('')}</dl>` : ''}`
+    : '';
+}
+
 function getBreadcrumbsHtml(game) {
   const category = game.categories[0];
   const categoryLink = category
@@ -347,7 +729,7 @@ function getGameSchema(game) {
       '@type': 'VideoGame',
       '@id': `${pageUrl}#game`,
       name: game.title,
-      description: game.description,
+      description: game.seoDescription || game.shortDescription || game.description,
       url: pageUrl,
       image: game.thumb,
       gamePlatform: game.platforms,

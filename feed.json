@@ -792,6 +792,44 @@
   {
     "id": "124002",
     "title": "Slope 3D",
+    "seoDescription": "Play Slope 3D, an endless ball runner. Steer across a neon track, dodge red blocks and gaps, and chase a higher score as the pace increases.",
+    "seoContent": {
+      "about": [
+        "Slope 3D is an endless ball runner where you guide a rolling ball along a neon track and try to stay on course for as long as possible. The ball moves forward automatically, so your challenge is to steer around red blocks, gaps, and sharp turns without rolling off the edge.",
+        "As your run continues, the pace rises and each correction becomes more demanding. Chase a longer distance and a higher score, then use each attempt to sharpen your timing and steering."
+      ],
+      "controls": [
+        "Desktop: Use the Left and Right Arrow keys or A and D to steer.",
+        "Mobile: Swipe left or right to steer."
+      ],
+      "features": [
+        "Steer a rolling ball: Move left or right to stay on the neon track.",
+        "React as speed climbs: The pace increases during a run, leaving less time to avoid hazards.",
+        "Dodge dangerous obstacles: Avoid red blocks, gaps, sharp turns, and the track edges.",
+        "Chase a longer run: Stay on course to build distance and improve your score."
+      ],
+      "modes": [],
+      "questions": {
+        "core": [
+          {
+            "question": "What is the goal in Slope 3D?",
+            "answer": "Keep the ball on the track for as long as possible and aim for a higher distance and score."
+          },
+          {
+            "question": "What ends a run?",
+            "answer": "The run ends if the ball hits a red obstacle or falls off the track."
+          }
+        ],
+        "mechanics": [
+          {
+            "question": "Does Slope 3D get faster as you play?",
+            "answer": "Yes. The ball's speed increases during the run, so you have less time to react to turns and obstacles."
+          }
+        ],
+        "economy": [],
+        "retention": []
+      }
+    },
     "description": "Slope 3D sends you down a steep neon track where quick reactions and precise movement decide how long your run will last. Guide the rolling ball through narrow platforms, sharp turns, sudden drops, and dangerous red obstacles while the speed continues to increase. The controls are simple to learn, but staying on the course becomes harder with every passing second.\n\nGame Overview\nYour objective in Slope 3D is to keep the ball on the track for as long as possible and achieve the highest score. The ball rolls forward automatically, leaving you responsible for steering it away from barriers, gaps, and the edges of the platform.\n\nThe slope changes constantly as you progress. Wide paths can quickly become narrow lanes, while sudden turns and uneven platforms force you to adjust your position without losing control. Red blocks are especially dangerous because touching one ends the current run immediately.\n\nSpeed is one of the biggest challenges. The farther you travel, the faster the ball moves, giving you less time to react to what appears ahead. A small steering mistake that seems harmless early in the run can send the ball off the track once the pace increases.\n\nKey Features\n- Fast-paced 3D endless runner gameplay\n- Futuristic neon environment\n- Simple left-and-right steering controls\n- Increasing speed and difficulty\n- Narrow tracks, sharp turns, and sudden gaps\n- Dangerous red obstacles to avoid\n- Score-based progression with no fixed finish line\n- Keyboard controls for desktop players \n- Swipe and tilt controls for mobile devices\n- Quick rounds designed for repeated high-score attempts\n\nTips for Beginners\n- Use short taps instead of holding a direction for too long.\n- Try to keep the ball near the center of the track.\n- Look ahead rather than focusing only on the ball.\n- Begin steering before reaching sharp turns.\n- Avoid unnecessary movement on narrow platforms.\n\nAdvanced Tips\n- Plan your position based on the next section of the course.\n- Use gentle corrections when the ball reaches higher speeds.\n- Enter narrow paths from the center whenever possible.\n- Move early when several obstacles appear close together.\n- Stay calm after sudden drops and regain control gradually.\n\nCommon Mistakes\n- Making large steering movements at high speed.\n- Waiting until the last moment to avoid an obstacle.\n- Staying too close to the edge of the platform.\n- Watching the current position instead of the upcoming track.\n- Trying to correct one mistake with another sudden turn.\n\nSlope 3D game turns a simple steering mechanic into a demanding test of focus, balance, and reflexes. Its endless course means every run offers another opportunity to travel farther and improve your score. Stay centered, react smoothly, and see how long you can survive as the neon slope becomes faster and more difficult.",
     "instructions": "PC Controls\nMove Left: Left Arrow or A\nMove Right: Right Arrow or D\n\nMobile Controls\nSteer: Swipe left or right",
     "url": "https://playgama.com/export/game/slope-3d?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
@@ -816,7 +854,7 @@
   {
     "id": "117063",
     "title": "DIY Phone Case Maker",
-    "seoDescription": "Lead a squad of heroes through sci-fi missions, upgrade cards, and enter PvP battles in Far Orion: New Worlds.",
+    "seoDescription": "Design and decorate custom phone cases in DIY Phone Case Maker with paint, stickers, acrylic art, and keychain accessories.",
     "description": "DIY Phone Case Maker\nAbout this game\nWelcome to DIY Phone Case Maker, the ultimate playground for those who love to personalize, design, and express their unique style! Dive into the colorful world of custom art and transform ordinary phone cases into extraordinary masterpieces. Whether you're a seasoned artist or just looking for a fun way to unleash your creative side, this game offers endless possibilities to craft the phone case of your dreams.",
     "instructions": "PAINTING: Bring your ideas to life with a palette of vibrant colors. From soft pastels to electric neons, paint your way to a phone case that screams 'you'.\nACRYLIC ART: Delve into the trendy world of acrylic art. Swirl, mix, and pour your way to stunning abstract designs that stand out in any crowd.\nSTICKERS: Add personality and flair with an array of whimsical and edgy stickers. From quotes to quirky characters, the perfect sticker is waiting to be placed.\nPOP IT: Embrace the satisfying trend of pop it and fidget toys by incorporating them into your designs. Why not have a phone case that's as fun to play with as it is to look at?\nKEYCHAINS: Accessorize your custom case with adorable keychains that dangle and dance with every move. Choose from a variety of designs to add that perfect finishing touch.",
     "url": "https://playgama.com/export/game/diy-phone-case-maker?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",

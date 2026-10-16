@@ -43,7 +43,28 @@ Designed with a futuristic neon-cyberpunk aesthetic, it features an amazing boot
 
 ## Adding games and SEO
 
-Add a game to `feed.json` with its title, description, embed URL, thumbnail, category, and tags. During a full build, `build-games.js` keeps the supplied category and adds matching categories inferred from the tags; games with no recognized category are placed in **Other**. Add an optional `seoDescription` when the source description does not provide a concise, complete search snippet.
+Add a game to `feed.json` with its title, description, embed URL, thumbnail, category, and tags. During a full build, `build-games.js` keeps the supplied category and adds matching categories inferred from the tags; games with no recognized category are placed in **Other**.
+
+For researched, game-specific copy, add a `seoContent` object to the feed entry. It supports `about` paragraphs, verified `controls`, up to four concise `features`, optional `modes` and `story`, and `questions` grouped under `core`, `mechanics`, `economy`, and `retention`. Each question is an object with `question` and `answer` strings. For example:
+
+```json
+"seoContent": {
+  "about": ["A natural, game-specific introduction describing the objective."],
+  "controls": ["Desktop: Verified keyboard controls."],
+  "features": ["Action phrase: A concise, verified gameplay detail."],
+  "modes": [],
+  "questions": {
+    "core": [{"question": "What is the objective?", "answer": "Describe the verified goal."}],
+    "mechanics": [],
+    "economy": [],
+    "retention": []
+  }
+}
+```
+
+The builder turns these fields into the shared semantic game-page structure. Write the copy from reliable game information, use natural search phrases, and omit details that cannot be verified; the build does not perform internet research or invent game facts.
+
+Add an optional `seoDescription` as a concise search snippet (aim for 160 characters or fewer). The normalizer prefers a supplied snippet, then the supplied short description, then the first sentence of the description. It does not append extra sentences to pad the text, and trims overlong snippets at a sentence or word boundary.
 
 Run `node build-games.js` to regenerate game pages, category pages, and legacy game metadata. Run `node build-games.js --categories-only` when only category pages need rebuilding. Page-specific overrides for older root-level game pages live in `legacy-game-seo.json`.
 
