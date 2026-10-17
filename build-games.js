@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const vm = require('vm');
+const categoryTaxonomy = require('./game-category-taxonomy.js');
 
 // 1. Point to your sample JSON file
 const FEED_FILE = 'feed.json';
@@ -45,39 +46,6 @@ function formatCategory(value) {
 function listFrom(value) {
   if (Array.isArray(value)) return value.map(item => toPlainText(item)).filter(Boolean);
   return String(value || '').split(',').map(item => toPlainText(item)).filter(Boolean);
-}
-
-const CATEGORY_TAG_RULES = {
-  Action: ['action', 'combat', 'fighting', 'fighter', 'shooter', 'shooting', 'battle', 'survival', 'fps', 'war'],
-  Adventure: ['adventure', 'adventures', 'quest', 'exploration', 'explore', 'story', 'rpg'],
-  Arcade: ['arcade', 'arcades'],
-  Boys: ['boys', 'games for boys'],
-  Girls: ['girls', 'games for girls'],
-  Cars: ['car', 'cars', 'driving', 'vehicle', 'vehicles', 'motorcycle', 'bike'],
-  Racing: ['race', 'races', 'racing', 'speed'],
-  Puzzle: ['puzzle', 'puzzles', 'logic', 'brain', 'word', 'quiz', 'trivia', 'jigsaw', 'match 3', 'matching', 'mahjong', 'chess', 'checkers', 'sudoku', 'sort'],
-  Strategy: ['strategy', 'strategies', 'tactical', 'tower defense', 'defense'],
-  Simulation: ['simulation', 'simulations', 'simulator', 'simulators', 'management', 'tycoon', 'cooking', 'restaurant'],
-  Sports: ['sport', 'sports', 'basketball', 'football', 'soccer', 'tennis', 'golf', 'baseball', 'volleyball', 'bowling', 'archery', 'carrom', 'ping pong'],
-  Multiplayer: ['multiplayer', 'online multiplayer', 'pvp', 'co op', 'coop', 'io'],
-  'Two Player': ['2 player', 'two player', '2 players', 'local multiplayer'],
-  Endless: ['endless', 'runner', 'runners', 'running'],
-  Parkour: ['parkour', 'obby', 'platformer', 'platforming'],
-  Skill: ['skill', 'skills', 'precision', 'reflex', 'timing', 'reaction'],
-  Horror: ['horror', 'scary', 'zombie'],
-  Nostalgia: ['retro', 'classic', 'old school', 'nostalgia'],
-  Casual: ['casual', 'cozy', 'relaxing', 'idle', 'merge'],
-  'Brain Training': ['brain training', 'memory', 'educational']
-};
-
-function inferCategoriesFromTags(tags) {
-  const normalizedTags = tags.map(tag => ` ${slugify(tag).replace(/-/g, ' ')} `);
-  return Object.entries(CATEGORY_TAG_RULES)
-    .filter(([, terms]) => terms.some(term => {
-      const normalizedTerm = ` ${slugify(term).replace(/-/g, ' ')} `;
-      return normalizedTags.some(tag => tag.includes(normalizedTerm));
-    }))
-    .map(([category]) => category);
 }
 
 function getCompleteSentences(text) {
@@ -167,11 +135,7 @@ function normalizeGame(game) {
   const description = toPlainText(game.description);
   const instructions = toPlainText(game.instructions);
   const tags = listFrom(game.tags);
-  const categories = [...new Map(
-    [...listFrom(game.categories), ...listFrom(game.category), ...inferCategoriesFromTags(tags)]
-      .map(category => [toPlainText(category).toLowerCase(), toPlainText(category)])
-  ).values()];
-  if (!categories.length) categories.push('Other');
+  const categories = categoryTaxonomy.normalizeGameCategories({ ...game, tags });
   const shortDescription = toPlainText(game.shortDescription)
     || getCompleteSentences(description)[0]
     || description.slice(0, 155).replace(/\s+\S*$/, '');
@@ -774,7 +738,7 @@ function buildCategoryPages(feedGames) {
       ? game.iframeUrl
       : `/${String(game.iframeUrl || `${slugify(game.name)}.html`).replace(/^\/+/, '')}`,
     image: game.imageUrl || '',
-    categories: [...new Set([...(Array.isArray(game.categories) ? game.categories : []), game.cat].filter(Boolean))],
+    categories: categoryTaxonomy.normalizeGameCategories(game),
     tags: [...(Array.isArray(game.tags) ? game.tags : []), ...(Array.isArray(game.gameDna) ? game.gameDna : [])],
     width: Number(game.width) || 0,
     height: Number(game.height) || 0
@@ -945,8 +909,28 @@ function buildCategoryPages(feedGames) {
       if (!fs.existsSync(pagePath)) return;
       const existingPage = fs.readFileSync(pagePath, 'utf8');
       if (!existingPage.includes('name="generator" content="PleyZ static category generator"')) return;
-      fs.unlinkSync(pagePath);
-      try { fs.rmdirSync(outputDir); } catch (_) {}
+      const oldCategory = entry.name.slice(0, -'-games'.length).replace(/-/g, ' ');
+      const redirectCategory = categoryTaxonomy.normalizeGameCategories({ category: oldCategory })
+        .find(category => category !== oldCategory && categoryUrls.has(`https://nikunjprogames.github.io/${slugify(category)}-games/`));
+      if (redirectCategory) {
+        const redirectUrl = `/${slugify(redirectCategory)}-games/`;
+        fs.writeFileSync(pagePath, `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex, follow">
+  <meta name="generator" content="PleyZ static category generator">
+  <link rel="canonical" href="https://nikunjprogames.github.io${redirectUrl}">
+  <meta http-equiv="refresh" content="0; url=${redirectUrl}">
+  <title>Category moved</title>
+</head>
+<body><p>This category is now part of <a href="${redirectUrl}">${escapeHtml(formatCategory(redirectCategory))} Games</a>.</p></body>
+</html>
+`);
+      } else {
+        fs.unlinkSync(pagePath);
+        try { fs.rmdirSync(outputDir); } catch (_) {}
+      }
     });
 
   const sitemapPath = path.join(__dirname, 'sitemap.xml');
@@ -960,11 +944,13 @@ function buildCategoryPages(feedGames) {
     const knownUrls = new Set([...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match => match[1]));
     const additions = [...categoryUrls]
       .filter(url => !knownUrls.has(url))
-      .map(url => `<url><loc>${url}</loc></url>`);
+      .map(url => `  <url>\n    <loc>${url}</loc>\n  </url>`);
     if (additions.length) {
       sitemap = sitemap.replace('</urlset>', `${additions.join('\n')}\n</urlset>`);
-      fs.writeFileSync(sitemapPath, sitemap);
     }
+    sitemap = sitemap.replace(/^[\t ]+$/gm, '').replace(/\n{3,}/g, '\n\n');
+    if (!sitemap.endsWith('\n')) sitemap += '\n';
+    fs.writeFileSync(sitemapPath, sitemap);
   }
 
   return pages.length;

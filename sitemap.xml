@@ -237,10 +237,6 @@
     <lastmod>2026-10-15T14:13:35Z</lastmod>
   </url>
   <url>
-    <loc>https://nikunjprogames.github.io/car-games/</loc>
-    <lastmod>2026-10-15T14:13:35Z</lastmod>
-  </url>
-  <url>
     <loc>https://nikunjprogames.github.io/car-racing-games/</loc>
     <lastmod>2026-10-15T14:13:35Z</lastmod>
   </url>
@@ -888,4 +884,6 @@
     <loc>https://nikunjprogames.github.io/words-games/</loc>
     <lastmod>2026-10-15T14:13:35Z</lastmod>
   </url>
+
+<url><loc>https://nikunjprogames.github.io/other-games/</loc></url>
 </urlset>

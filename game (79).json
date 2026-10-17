@@ -1,0 +1,61 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "112864",
+          "slug": "vega-mix-2-adventure",
+          "title": "Vega Mix 2: Adventure",
+          "description": "Welcome to Match-3 - an exciting three in a row adventure set on a mysterious island! Join two brave girls as they embark on a quest to save Alice's beloved husband from an ancient idol. Match and swap colorful pieces to clear the board, break through obstacles, and progress through the magical island. Challenge yourself with tricky puzzles and puzzles that require strategic thinking. Experience the thrill of completing levels and watch as your score increases with every match. Enjoy!",
+          "howToPlayText": "How to play match-3 puzzle:\n\n● Match 3 or more pieces in a line to explode them.\n● Match 4 pieces to create the Rocket. The Rocket blows up the whole line!\n● Match 4 pieces to form a square to create the Spinner. The Spinner destroys one of the targets!\n● Make a T-shaped match of 5 pieces to create the Bomb. The Bomb makes a massive explosion on the board!\n● Match 5 pieces in a line to create the Rainbow Flower. The Rainbow Flower explodes pieces of the same color!\n● Match any 2 power-ups to get a variety of powerful effects that will make it easier to complete the level.\n● Many obstacles on the board allow you to use different strategies and make the levels diverse.",
+          "gameURL": "https://playgama.com/export/game/vega-mix-2-adventure?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/vega-mix-2-adventure",
+          "genres": [
+            "match-3",
+            "mobile"
+          ],
+          "tags": [
+            "tiles-games",
+            "gam-supported-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/vega-mix-2-adventure/big-preview/46f5bcaca15b411382afc96ac1c38132?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-112864/icon/4ff6ded33f9f4f9f1c4dc9926e34121c7400a52408f4bec7d0a0f9568f4cc6ce?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "365a99bf01f2ff75994a5efbafb59178",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "365a99bf01f2ff75994a5efbafb59178",
+          "mobileReady": [
+            "For Android",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/vega-mix-2-adventure/big-preview/46f5bcaca15b411382afc96ac1c38132?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/backfill/game-112864/icon/4ff6ded33f9f4f9f1c4dc9926e34121c7400a52408f4bec7d0a0f9568f4cc6ce?width=448",
+          "inGamePurchases": "Yes",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "supportedLanguages": [
+            "en-US",
+            "ru-RU"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/vega-mix-2-adventure?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

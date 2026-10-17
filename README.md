@@ -43,7 +43,7 @@ Designed with a futuristic neon-cyberpunk aesthetic, it features an amazing boot
 
 ## Adding games and SEO
 
-Add a game to `feed.json` with its title, description, embed URL, thumbnail, category, and tags. During a full build, `build-games.js` keeps the supplied category and adds matching categories inferred from the tags; games with no recognized category are placed in **Other**.
+Add a game to `feed.json` with its title, description, embed URL, thumbnail, category, and tags. The shared `game-category-taxonomy.js` normalizes categories to the site's supported genres and adds every matching genre inferred from the title, supplied category, and tags. Related labels such as **gun**, **shooter**, and **FPS** map to broader categories like **Action**, **Shooting**, and **FPS Shooting** instead of creating one-off category pages. Games with no recognized category are placed in **Other**.
 
 For researched, game-specific copy, add a `seoContent` object to the feed entry. It supports `about` paragraphs, verified `controls`, up to four concise `features`, optional `modes` and `story`, and `questions` grouped under `core`, `mechanics`, `economy`, and `retention`. Each question is an object with `question` and `answer` strings. For example:
 

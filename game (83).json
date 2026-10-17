@@ -1,0 +1,68 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "124640",
+          "slug": "tower-of-asmr",
+          "title": "Tower Of ASMR",
+          "description": "Tower Of ASMR is a cozy 3D parkour climber built entirely around satisfying sound. Every surface reacts under your feet — slime squishes, baked crusts crack apart, giant keyboards click — so climbing feels as good to hear as it does to play.\n\nClimb procedurally coloured towers, tag every checkpoint on the way up, and bounce off speed and jump springs to reach ledges you couldn't otherwise. Each tower is its own world, from the Butter Tower to the Neon Ascent, and the portal at the top opens the next one.\n\nAlong the way you collect squishy pets from loot boxes. Squeeze them for coins, and carry up to three at once — they float in a line behind your back while you climb. Spend your coins on more boxes and glowing motion trails, spin the fortune wheel, and pick up daily gifts. Falling never punishes you: you simply drop back to your last checkpoint and keep going.",
+          "howToPlayText": "Your goal is to reach the top of the tower. Touch every checkpoint in order on the way up, then step into the portal at the summit to unlock the next world.\n\nMove with WASD or the arrow keys, look around with the mouse, jump with Space and sprint with Left Shift. Walk into a ladder to grab it, then move up or down — press Space to jump off. Gamepads and touch controls are supported too: on mobile use the on-screen joystick and buttons.\n\nPress 1–9 or scroll the mouse wheel to select an item from your bag, and left-click to use it. Clicking a pet squeezes it and earns you coins. Q puts the current item away, Tab opens the bag.\n\nSprings give you a temporary speed or jump boost — grab one before a tricky gap. If you fall, you return to your last checkpoint for free, and after three falls in a row you can skip the stage entirely. Use the side buttons to open pet boxes, trails, the fortune wheel and your daily rewards.",
+          "gameURL": "https://playgama.com/export/game/tower-of-asmr?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/tower-of-asmr",
+          "genres": [
+            "obby",
+            "parkour",
+            "3d",
+            "platform"
+          ],
+          "tags": [
+            "1-player-games",
+            "asmr-games",
+            "jumping-games",
+            "parkour-minecraft"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/tower-of-asmr/big_preview/d0af2a29d05641e58121ccfc1eed52dc?width=448",
+            "https://static.playgama.com/p-img/pg/tower-of-asmr/icon/fb3177e60d0649708db139f7082c294b?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "897c9cffa54f408488ae9e1725baa889",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "897c9cffa54f408488ae9e1725baa889",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/tower-of-asmr/big_preview/d0af2a29d05641e58121ccfc1eed52dc?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/tower-of-asmr/icon/fb3177e60d0649708db139f7082c294b?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "supportedLanguages": [
+            "en-US",
+            "es-ES",
+            "ru-RU",
+            "tr-TR"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/tower-of-asmr?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

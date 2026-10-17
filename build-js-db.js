@@ -1,4 +1,5 @@
 const fs = require('fs');
+const categoryTaxonomy = require('./game-category-taxonomy.js');
 
 const FEED_FILE = 'feed.json';
 
@@ -13,11 +14,12 @@ function generateJsDatabase() {
   const formattedGames = games.map((game, index) => {
     // Generate the exact same HTML slug we used in the previous scripts
     const slug = game.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
+    const categories = categoryTaxonomy.normalizeGameCategories(game);
     
     return {
       id: startingId + index,
       name: game.title,
-      cat: game.category.toLowerCase(), // Converts "Sports" to "sports"
+      cat: categories[0],
       color: '#0057B8', // Default color for auto-generated games
       gradient: 'linear-gradient(135deg,#001530,#003080)',
       players: '0',
@@ -26,7 +28,7 @@ function generateJsDatabase() {
       height: game.height,
       description: game.description,
       instructions: game.instructions,
-      categories: [game.category.toLowerCase()],
+      categories,
       tags: game.tags,
       iframeUrl: `/games/${slug}.html`,
       fullscreen: true,

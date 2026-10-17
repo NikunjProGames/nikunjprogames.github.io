@@ -2478,5 +2478,105 @@ const NEW_GAMES = [
     iframeUrl: "/games/stickman-kombat-2d.html",
     fullscreen: true,
     videoUrl: ""
+  },
+  {
+    id: 168,
+    name: "Tower Of ASMR",
+    cat: "obby",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/tower-of-asmr/big_preview/d0af2a29d05641e58121ccfc1eed52dc?width=448",
+    width: "800",
+    height: "450",
+    description: "Tower Of ASMR is a cozy 3D parkour climber built entirely around satisfying sound. Every surface reacts under your feet — slime squishes, baked crusts crack apart, giant keyboards click — so climbing feels as good to hear as it does to play.\n\nClimb procedurally coloured towers, tag every checkpoint on the way up, and bounce off speed and jump springs to reach ledges you couldn't otherwise. Each tower is its own world, from the Butter Tower to the Neon Ascent, and the portal at the top opens the next one.\n\nAlong the way you collect squishy pets from loot boxes. Squeeze them for coins, and carry up to three at once — they float in a line behind your back while you climb. Spend your coins on more boxes and glowing motion trails, spin the fortune wheel, and pick up daily gifts. Falling never punishes you: you simply drop back to your last checkpoint and keep going.",
+    instructions: "Your goal is to reach the top of the tower. Touch every checkpoint in order on the way up, then step into the portal at the summit to unlock the next world.\n\nMove with WASD or the arrow keys, look around with the mouse, jump with Space and sprint with Left Shift. Walk into a ladder to grab it, then move up or down — press Space to jump off. Gamepads and touch controls are supported too: on mobile use the on-screen joystick and buttons.\n\nPress 1–9 or scroll the mouse wheel to select an item from your bag, and left-click to use it. Clicking a pet squeezes it and earns you coins. Q puts the current item away, Tab opens the bag.\n\nSprings give you a temporary speed or jump boost — grab one before a tricky gap. If you fall, you return to your last checkpoint for free, and after three falls in a row you can skip the stage entirely. Use the side buttons to open pet boxes, trails, the fortune wheel and your daily rewards.",
+    categories: [
+      "obby"
+    ],
+    tags: "obby, parkour, 3d, platform, 1-player-games, asmr-games, jumping-games, parkour-minecraft",
+    iframeUrl: "/games/tower-of-asmr.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
+  {
+    id: 169,
+    name: "Parkour Runner 3D",
+    cat: "3d",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/parkour-runner-3d/big-preview/5b3d8e54dbce43c2a0426fbfe0c26b19?width=448",
+    width: "800",
+    height: "450",
+    description: "Parkour Runner 3D is a fast-paced action running game where you sprint, jump, slide, and flip through thrilling obstacle courses! Test your reflexes as you race across rooftops, leap between platforms, dodge traps, and perform epic parkour tricks.\nWith smooth controls, lively environments, and challenging levels, every run keeps you on the edge of your seat.\n\nMaster your timing, collect boosts, unlock new characters, and become the ultimate parkour champion!",
+    instructions: "WASD Controls\n\nW – Jump\nA – Move Left\nS – Slide\nD – Move Right\n\nArrow Key Controls\n\nUp Arrow – Jump\nLeft Arrow – Move Left\nDown Arrow – Slide\nRight Arrow – Move Right\n\nSpecial Abilities\n\nSpace (Single Tap) – Head Booster\nSpace (Double Tap) – Activate Hover Board",
+    categories: [
+      "3d"
+    ],
+    tags: "3d, running, platform, parkour, arcade, runner, 1-player-games, reaction-games, android-games, iphone-games, fullscreen-games, games-for-pc, obstacles-games",
+    iframeUrl: "/games/parkour-runner-3d.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
+  {
+    id: 170,
+    name: "Road Chase: Shooter Realistic Guns",
+    cat: "gun",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/road-chase-shooter-realistic-guns/big-preview/6e87b1320c124a7f8ddd5034b7ea1d38?width=448",
+    width: "800",
+    height: "450",
+    description: "Your goal is to break away from the chase. But bad luck, you have a rather weak car.\nNo problem! But you have plenty of weapons =)!\n\nUse a huge arsenal of weapons to stop the chase.\nAK47, Minigun, Crossbow, Stationary gun, Machine gun, Flamethrower...\n\nShoot car parts, wheels, body parts. Hand out headshots, do combos! Shoot weapons, machine guns, stationary guns. Do everything to stop the chase.\n\nThe game has a huge selection of weapons, and there will be even more!\n\nDo not rush to relax, the enemy is not asleep. And their attacking arsenal is varied.\nMotorcycles, ATVs, racing cars, drones, jeeps, helicopters...\nBut you can handle it ;)\n\nComplete over 50 unique levels\nUnlock all locations and all types of weapons.\nDefeat all bosses!\nRealistic weapons and cars!\n\nThis is your road madness!",
+    instructions: "The task of each level is to break away from the pursuit, or rather to destroy all the pursuers!\n\nControl:\nShoot: left mouse button\nAim control: by moving the mouse\nSwitch weapons: 1, 2, 3, 4\nReload - R\n\nPush the screen on mobile",
+    categories: [
+      "gun"
+    ],
+    tags: "gun, shooting, action, car, boys, arcade-shooter, military-shooter, vehicles-games, fast-paced-action, arcade-car",
+    iframeUrl: "/games/road-chase-shooter-realistic-guns.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
+  {
+    id: 171,
+    name: "Deadly Descent",
+    cat: "racing",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/deadly-descent/big-preview/cd3969f230d54e6abe01716483d55c8a?width=448",
+    width: "800",
+    height: "450",
+    description: "Drive your car down the mountain and get to the end of the track in one piece!\n\"Deadly Descent\" is a fascinating car simulator.",
+    instructions: "\"Deadly Descent\" is a simulator of driving down a mountain by car. You need to get to the finish line.. The difficulty is that there are a large number of obstacles on the track, a collision with which will destroy your car, so you should drive very carefully.\n\nThis driving simulator is for those who enjoy different types of car destruction. Now you can complete them on your phone or computer completely free of charge.\n\nThe game features destructible cars and realistic driving simulation. Despite the well-developed physics and realistic graphics, the game does not require many resources from the device and will give you a realistic driving experience on any device.\n\nCompete with other players! Each unique track has a table of records, where each player automatically records his best result - the maximum distance that your car was able to travel on the track.\n\nStart playing now!",
+    categories: [
+      "racing"
+    ],
+    tags: "racing, car, driving, boys, unity-games-online, speed-games, games-for-pc, challenge-games, car-crash-games, vehicles-games, offroad-games, obstacles-games, fast-paced-games, borwser-games",
+    iframeUrl: "/games/deadly-descent.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
+  {
+    id: 172,
+    name: "Vega Mix 2: Adventure",
+    cat: "match 3",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    players: "0",
+    imageUrl: "https://static.playgama.com/p-img/pg/vega-mix-2-adventure/big-preview/46f5bcaca15b411382afc96ac1c38132?width=448",
+    width: "800",
+    height: "450",
+    description: "Welcome to Match-3 - an exciting three in a row adventure set on a mysterious island! Join two brave girls as they embark on a quest to save Alice's beloved husband from an ancient idol. Match and swap colorful pieces to clear the board, break through obstacles, and progress through the magical island. Challenge yourself with tricky puzzles and puzzles that require strategic thinking. Experience the thrill of completing levels and watch as your score increases with every match. Enjoy!",
+    instructions: "How to play match-3 puzzle:\n\n● Match 3 or more pieces in a line to explode them.\n● Match 4 pieces to create the Rocket. The Rocket blows up the whole line!\n● Match 4 pieces to form a square to create the Spinner. The Spinner destroys one of the targets!\n● Make a T-shaped match of 5 pieces to create the Bomb. The Bomb makes a massive explosion on the board!\n● Match 5 pieces in a line to create the Rainbow Flower. The Rainbow Flower explodes pieces of the same color!\n● Match any 2 power-ups to get a variety of powerful effects that will make it easier to complete the level.\n● Many obstacles on the board allow you to use different strategies and make the levels diverse.",
+    categories: [
+      "match 3"
+    ],
+    tags: "match-3, mobile, tiles-games, gam-supported-games",
+    iframeUrl: "/games/vega-mix-2-adventure.html",
+    fullscreen: true,
+    videoUrl: ""
   }
 ];

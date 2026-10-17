@@ -1,0 +1,67 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "117430",
+          "slug": "road-chase-shooter-realistic-guns",
+          "title": "Road Chase: Shooter Realistic Guns",
+          "description": "Your goal is to break away from the chase. But bad luck, you have a rather weak car.\nNo problem! But you have plenty of weapons =)!\n\nUse a huge arsenal of weapons to stop the chase.\nAK47, Minigun, Crossbow, Stationary gun, Machine gun, Flamethrower...\n\nShoot car parts, wheels, body parts. Hand out headshots, do combos! Shoot weapons, machine guns, stationary guns. Do everything to stop the chase.\n\nThe game has a huge selection of weapons, and there will be even more!\n\nDo not rush to relax, the enemy is not asleep. And their attacking arsenal is varied.\nMotorcycles, ATVs, racing cars, drones, jeeps, helicopters...\nBut you can handle it ;)\n\nComplete over 50 unique levels\nUnlock all locations and all types of weapons.\nDefeat all bosses!\nRealistic weapons and cars!\n\nThis is your road madness!",
+          "howToPlayText": "The task of each level is to break away from the pursuit, or rather to destroy all the pursuers!\n\nControl:\nShoot: left mouse button\nAim control: by moving the mouse\nSwitch weapons: 1, 2, 3, 4\nReload - R\n\nPush the screen on mobile",
+          "gameURL": "https://playgama.com/export/game/road-chase-shooter-realistic-guns?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/road-chase-shooter-realistic-guns",
+          "genres": [
+            "gun",
+            "shooting",
+            "action",
+            "car",
+            "boys"
+          ],
+          "tags": [
+            "arcade-shooter",
+            "military-shooter",
+            "vehicles-games",
+            "fast-paced-action",
+            "arcade-car"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/road-chase-shooter-realistic-guns/big-preview/6e87b1320c124a7f8ddd5034b7ea1d38?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-117430/icon/f816def5bb3d427d4368a48c17150457ef3ef22c3750d3e38ad6b888a8f34fcf?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "10ad85227cd74c08b9ce78f9b8db396d",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "10ad85227cd74c08b9ce78f9b8db396d",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/road-chase-shooter-realistic-guns/big-preview/6e87b1320c124a7f8ddd5034b7ea1d38?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/backfill/game-117430/icon/f816def5bb3d427d4368a48c17150457ef3ef22c3750d3e38ad6b888a8f34fcf?width=448",
+          "inGamePurchases": "Yes",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": true
+          },
+          "supportedLanguages": [
+            "en-US",
+            "ru-RU"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/road-chase-shooter-realistic-guns?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

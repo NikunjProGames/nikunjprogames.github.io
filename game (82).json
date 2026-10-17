@@ -1,0 +1,70 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "114356",
+          "slug": "parkour-runner-3d",
+          "title": "Parkour Runner 3D",
+          "description": "Parkour Runner 3D is a fast-paced action running game where you sprint, jump, slide, and flip through thrilling obstacle courses! Test your reflexes as you race across rooftops, leap between platforms, dodge traps, and perform epic parkour tricks.\nWith smooth controls, lively environments, and challenging levels, every run keeps you on the edge of your seat.\n\nMaster your timing, collect boosts, unlock new characters, and become the ultimate parkour champion!",
+          "howToPlayText": "WASD Controls\n\nW – Jump\nA – Move Left\nS – Slide\nD – Move Right\n\nArrow Key Controls\n\nUp Arrow – Jump\nLeft Arrow – Move Left\nDown Arrow – Slide\nRight Arrow – Move Right\n\nSpecial Abilities\n\nSpace (Single Tap) – Head Booster\nSpace (Double Tap) – Activate Hover Board",
+          "gameURL": "https://playgama.com/export/game/parkour-runner-3d?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/parkour-runner-3d",
+          "genres": [
+            "3d",
+            "running",
+            "platform",
+            "parkour",
+            "arcade",
+            "runner"
+          ],
+          "tags": [
+            "1-player-games",
+            "reaction-games",
+            "android-games",
+            "iphone-games",
+            "fullscreen-games",
+            "games-for-pc",
+            "obstacles-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/parkour-runner-3d/big-preview/5b3d8e54dbce43c2a0426fbfe0c26b19?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-114356/icon/8a5b00de5eb87f30f8fcbb3d98eefc6226552ee17f098cc6b94d4ae9b344a301?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "6137c1c8dabb771b8e9c292a6707b7ea",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "6137c1c8dabb771b8e9c292a6707b7ea",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/parkour-runner-3d/big-preview/5b3d8e54dbce43c2a0426fbfe0c26b19?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/backfill/game-114356/icon/8a5b00de5eb87f30f8fcbb3d98eefc6226552ee17f098cc6b94d4ae9b344a301?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "supportedLanguages": [
+            "en-US"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/parkour-runner-3d?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

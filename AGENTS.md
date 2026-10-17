@@ -25,7 +25,7 @@ Everything lives in `index.html` in three logical sections:
 2. **HTML body** — semantic sections: `header`, `#home` (hero), `#games`, `#trending`, `#leaderboard`, `#about`, `footer`, plus two modal overlays.
 
 3. **`<script>` blocks** — plain JavaScript in named IIFE/function sections:
-   - `SYNTHWAVE BACKGROUND` — cached canvas scene with a low-frequency animated grid and meteor shower
+   - `SYNTHWAVE BACKGROUND` — canvas grid and meteor shower, disabled on low-power/mobile devices
    - `GAME DATA` — static arrays (`GAMES`, `TRENDING`, `LEADERBOARD`)
    - `RENDER FUNCTIONS` — `renderGames()`, `renderTrending()`, `renderLeaderboard()`
    - `FILTER TABS` — event delegation on the tabs container
@@ -40,8 +40,8 @@ Everything lives in `index.html` in three logical sections:
 - `clamp()` for all heading font sizes — no media-query font overrides needed.
 - Glassmorphism cards use `backdrop-filter: blur()` + semi-transparent `background` + neon `border`.
 - All animations use `transform` and `opacity` for GPU compositing (60 fps target).
-- The background canvas is `position:fixed` with `pointer-events:none` so it never blocks clicks. Its static scene is redrawn only when the viewport changes.
-- The cursor trail runs only on fine pointers and schedules animation frames only while catching up to pointer movement.
+- The background canvas is `position:fixed` with `pointer-events:none` so it never blocks clicks; it is skipped on low-power/mobile devices and pauses while the page is hidden.
+- The cursor trail is a thin canvas stroke on mouse pointers, respects reduced-motion and data-saver settings, and stops drawing after its fade-out.
 
 ## Non-obvious decisions
 
