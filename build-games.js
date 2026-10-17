@@ -722,7 +722,59 @@ function loadHomepageGames() {
   return vm.runInNewContext(`(${match[1]})`);
 }
 
+function generateSearchConsoleGameIndex(feedGames) {
+  const homepageGames = loadHomepageGames();
+  const entries = new Map();
+  const addEntry = (name, href) => {
+    if (!name || !href || !href.endsWith('.html')) return;
+    const relativePath = href.replace(/^\/+/, '');
+    if (!fs.existsSync(path.join(__dirname, relativePath))) return;
+    entries.set(relativePath, { name: toPlainText(name), href: `/${relativePath}` });
+  };
+
+  feedGames.forEach(game => addEntry(game.title, `/games/${game.slug}.html`));
+  homepageGames.forEach(game => {
+    const href = String(game.iframeUrl || '');
+    if (/^(?:\/?games\/|\/?[^/]+\.html$)/.test(href)) addEntry(game.name, href);
+  });
+
+  const gameLinks = [...entries.values()]
+    .sort((a, b) => a.name.localeCompare(b.name))
+    .map(game => `      <li><a href="${escapeHtml(game.href)}">${escapeHtml(game.name)}</a></li>`)
+    .join('\n');
+  const html = `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, follow">
+  <title>Game URL Submission Index | PleyZ</title>
+  <style>
+    body { max-width: 900px; margin: 2rem auto; padding: 0 1rem; color: #e8e8ff; background: #0a0a0f; font: 16px/1.6 system-ui, sans-serif; }
+    h1 { font-size: clamp(1.5rem, 5vw, 2.2rem); }
+    li { margin: .35rem 0; }
+    a { color: #60ddff; }
+    a:focus-visible { outline: 2px solid #60ddff; outline-offset: 3px; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Game URL submission index</h1>
+    <p>Game pages currently in the PleyZ catalog. This directory is intentionally not linked from site navigation or included in the sitemap.</p>
+    <p>${entries.size} game pages</p>
+    <ul>
+${gameLinks}
+    </ul>
+  </main>
+</body>
+</html>
+`;
+  fs.writeFileSync(path.join(__dirname, 'catalog-submission-index-2026.html'), html);
+  return entries.size;
+}
+
 function buildCategoryPages(feedGames) {
+  const indexedGames = generateSearchConsoleGameIndex(feedGames);
   const homepageGames = loadHomepageGames();
   const homepageIdBySlug = new Map(homepageGames.flatMap(game => {
     const match = String(game.iframeUrl || '').match(/^\/?games\/([^/]+)\.html$/);
@@ -953,6 +1005,7 @@ function buildCategoryPages(feedGames) {
     fs.writeFileSync(sitemapPath, sitemap);
   }
 
+  console.log(`Updated catalog-submission-index-2026.html with ${indexedGames} game pages.`);
   return pages.length;
 }
 

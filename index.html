@@ -566,6 +566,7 @@
         padding: 0.9rem 1rem;
         border-radius: 12px;
         background: rgba(255,255,255,0.05);
+        transition: transform 0.28s ease;
         text-align: center;
         font-size: 0.95rem;
       }
@@ -811,6 +812,17 @@
       contain: content;
       transition: transform 0.18s ease;
     }
+    .game-thumb::after {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0;
+      background: linear-gradient(115deg, transparent 28%, rgba(135,235,255,0.2) 48%, transparent 68%);
+      transform: translateX(-100%);
+      transition: transform 0.42s ease, opacity 0.18s ease;
+    }
 
     .recommendation-feedback {
       display: flex;
@@ -863,14 +875,25 @@
     }
     .game-thumb.video-playing .game-hover-video { opacity: 1; }
     .game-thumb.video-playing > img { opacity: 0; }
-    @media (hover: hover) {
-      .game-card:hover {
-        transform: translateY(-4px);
+    @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+      .game-card:hover,
+      .game-card:focus-visible {
+        transform: translateY(-5px);
         z-index: 1;
       }
-      .game-card:hover .game-thumb {
+      .game-card:hover .game-thumb,
+      .game-card:focus-visible .game-thumb {
         border-color: rgba(0,191,255,0.6);
-        box-shadow: 0 0 20px rgba(0,191,255,0.28), 0 0 34px rgba(139,0,255,0.14);
+        box-shadow: 0 8px 22px rgba(0,191,255,0.2), 0 0 0 1px rgba(0,191,255,0.18);
+      }
+      .game-card:hover .game-thumb::after,
+      .game-card:focus-visible .game-thumb::after {
+        opacity: 1;
+        transform: translateX(100%);
+      }
+      .game-card:hover .game-thumb > img,
+      .game-card:focus-visible .game-thumb > img {
+        transform: scale(1.035);
       }
     }
     .game-thumb img.custom-game-image,
