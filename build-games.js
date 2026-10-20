@@ -3,6 +3,7 @@ const path = require('path');
 const vm = require('vm');
 const categoryTaxonomy = require('./game-category-taxonomy.js');
 const createPlaygamaVideoUrl = require('./playgama-video-url.js');
+const generateGamePreviewVideos = require('./generate-game-preview-videos.js');
 
 // 1. Point to your sample JSON file
 const FEED_FILE = 'feed.json';
@@ -1288,6 +1289,9 @@ function normalizeLegacyGamePages() {
 }
 
 function generateGamePages() {
+  const previewCatalog = generateGamePreviewVideos(__dirname);
+  console.log(`Updated homepage preview catalog: added ${previewCatalog.added} URL${previewCatalog.added === 1 ? '' : 's'}.`);
+
   // Read the JSON file and HTML template
   const gamesData = fs.readFileSync(FEED_FILE, 'utf8');
   const playgamaMetadata = loadPlaygamaMetadata();

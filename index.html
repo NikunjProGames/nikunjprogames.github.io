@@ -1898,6 +1898,7 @@
      JAVASCRIPT
 ============================================================ -->
 <script src="/game-category-taxonomy.js"></script>
+<script src="/game-preview-videos.js"></script>
 <script>
 /* ============================================================
    SYNTHWAVE BACKGROUND
@@ -3723,42 +3724,7 @@ const GAMES = [
   },
 ];
 
-const GAME_PREVIEW_VIDEOS = {
-  95: 'https://static.playgama.com/p-video/8a7a62bfcec943b6a64d1188c8baf31d/orig_length_h640_6so.mp4',
-  94: 'https://static.playgama.com/p-video/519f0e08d9764b25aea0b93699671b44/orig_length_h640_6so.mp4',
-  104: 'https://static.playgama.com/p-video/32247dbeba054937adf4fe6321dabfb3/orig_length_h320.mp4',
-  100: 'https://static.playgama.com/p-video/73b06d463c9141eb802f8f79f75d208c/orig_length_h320.mp4',
-  107: 'https://static.playgama.com/p-video/1cbe32ecf2444651a508c985b8360784/orig_length_h320.mp4',
-  123: 'https://static.playgama.com/p-video/6f0fa1935227461bb6875c0f3be95664/orig_length_h640.mp4',
-  124: 'https://static.playgama.com/p-video/ce9c9c3686363232dab69f88b265cf44/orig_length_h640.mp4',
-  126: 'https://static.playgama.com/p-video/14ba2e129d6d4b63979e35a5dc7e44f0/orig_length_h640.mp4',
-  127: 'https://static.playgama.com/p-video/60c9d220c3d84df194de4368f427a1dd/orig_length_h640.mp4',
-  130: 'https://static.playgama.com/p-video/643ac827c1924dc5b17c2e04db358099/orig_length_h640.mp4',
-  131: 'https://static.playgama.com/p-video/77642c7a0185497ebcfd948210260ea0/orig_length_h640.mp4',
-  132: 'https://static.playgama.com/p-video/0b8656475e8441d392be5e024a514e88/orig_length_h640.mp4',
-  133: 'https://static.playgama.com/p-video/cea4e609256d46049786ca2b2ed7b1d2/orig_length_h640.mp4',
-  134: 'https://static.playgama.com/p-video/85dab689ee56444196a4391ca16773de/orig_length_h640.mp4',
-  128: 'https://static.playgama.com/p-video/8214c0be049547e381d024d3fc4b4bba/orig_length_h640.mp4',
-  129: 'https://static.playgama.com/p-video/cdac251fb08c4fafb7bb056eadfa2623/orig_length_h640.mp4',
-  101: 'https://static.playgama.com/p-video/e1239d526cff4df79172804cabe8304a/orig_length_h320.mp4',
-  105: 'https://static.playgama.com/p-video/20b78a71f7844d66aabe38ddbda3d270/orig_length_h320.mp4',
-  106: 'https://static.playgama.com/p-video/a6842fc25231418bb5a183952cfb2549/orig_length_h320.mp4',
-  97: 'https://static.playgama.com/p-video/cbc801637e5c42c88a4ed95bc33c2564/orig_length_h320.mp4',
-  103: 'https://static.playgama.com/p-video/c7ae7f11ad0f1a1178788aaa188f4508/orig_length_h320.mp4',
-  108: 'https://static.playgama.com/p-video/6a23eda4fac74d23848658c3fd75e2de/orig_length_h320.mp4',
-  98: 'https://static.playgama.com/p-video/ca01b2a7120a42899a3bd18db50b4ebe/orig_length_h640.mp4',
-  115: 'https://static.playgama.com/p-video/bde42b101df64dfd9bbc5fca8bd9cb96/orig_length_h320.mp4',
-  116: 'https://static.playgama.com/p-video/066b3bab8a1c460cbc5d057dbbe37125/orig_length_h320.mp4',
-  117: 'https://static.playgama.com/p-video/61541049fc244131805e9e1abfcbb54c/orig_length_h320.mp4',
-  118: 'https://static.playgama.com/p-video/2bc9523376aa46139c01c868d86cbb68/orig_length_h320.mp4',
-  119: 'https://static.playgama.com/p-video/8157a03153474f7bb4a7529f3d5c355e/orig_length_h320.mp4',
-  120: 'https://static.playgama.com/p-video/cca4b40c9b6c4877a294c337ef342280/orig_length_h320.mp4',
-  121: 'https://static.playgama.com/p-video/9bc8ad41499c4002aa3e17049bb4f3bc/orig_length_h320.mp4',
-  122: 'https://static.playgama.com/p-video/5190b1fcdbba4021a45c3930c54161e2/orig_length_h320.mp4',
-  96: 'https://static.playgama.com/p-video/5b84237660d746b7bd76be4e60bdba3a/orig_length_h320.mp4',
-  99: 'https://static.playgama.com/p-video/c8ec011435b84bb3921bb39ff64b0973/orig_length_h320.mp4',
-  168: 'https://static.playgama.com/p-video/897c9cffa54f408488ae9e1725baa889/orig_length_h320.mp4'
-};
+const GAME_PREVIEW_VIDEOS = window.PLEYZ_GAME_PREVIEW_VIDEOS;
 
 const TRENDING = [
   { id:95,  name:'Hazmob FPS: Online Shooter',    color:'#008840', gradient:'linear-gradient(135deg,#003300,#006600)' },
@@ -3800,6 +3766,30 @@ function createGameVideoPreview(game) {
   video.preload = 'none';
   video.src = videoUrl;
   return video;
+}
+
+function startGameVideoPreview(card) {
+  const game = GAMES.find(item => item.id === Number(card.dataset.id));
+  const thumb = card.querySelector('.game-thumb');
+  const preview = game && createGameVideoPreview(game);
+  if (!thumb || !preview) return;
+
+  preview.addEventListener('playing', () => thumb.classList.add('video-playing'), { once: true });
+  preview.addEventListener('error', () => stopGameVideoPreview(card), { once: true });
+  thumb.appendChild(preview);
+  preview.play().catch(() => stopGameVideoPreview(card));
+}
+
+function stopGameVideoPreview(card) {
+  const thumb = card.querySelector('.game-thumb');
+  const preview = thumb?.querySelector('.game-hover-video');
+  if (preview) {
+    preview.pause();
+    preview.removeAttribute('src');
+    preview.load();
+    preview.remove();
+  }
+  thumb?.classList.remove('video-playing');
 }
 
 function createGameTile(game) {
@@ -3879,33 +3869,12 @@ function bindGameGrid(grid) {
     if (event.pointerType !== 'mouse') return;
     const card = event.target.closest('.game-card[data-has-preview="true"]');
     if (!card || !grid.contains(card) || card.contains(event.relatedTarget)) return;
-    const thumb = card.querySelector('.game-thumb');
-    const game = GAMES.find(item => item.id === Number(card.dataset.id));
-    const preview = game && createGameVideoPreview(game);
-    if (!thumb || !preview) return;
-    preview.addEventListener('playing', () => thumb.classList.add('video-playing'), { once: true });
-    preview.addEventListener('error', () => {
-      preview.remove();
-      thumb.classList.remove('video-playing');
-    }, { once: true });
-    thumb.appendChild(preview);
-    preview.play().catch(() => {
-      preview.remove();
-      thumb.classList.remove('video-playing');
-    });
+    startGameVideoPreview(card);
   });
   grid.addEventListener('pointerout', event => {
     const card = event.target.closest('.game-card[data-has-preview="true"]');
     if (!card || !grid.contains(card) || card.contains(event.relatedTarget)) return;
-    const thumb = card.querySelector('.game-thumb');
-    const preview = thumb?.querySelector('.game-hover-video');
-    if (preview) {
-      preview.pause();
-      preview.removeAttribute('src');
-      preview.load();
-      preview.remove();
-    }
-    thumb?.classList.remove('video-playing');
+    stopGameVideoPreview(card);
   });
 }
 
@@ -5670,8 +5639,8 @@ setTimeout(() => {
   .trending-card, .trending-card.featured { width: calc((100% - 4.4rem) / 5); min-width: 0; flex: 0 0 calc((100% - 4.4rem) / 5); }
   @media (min-width: 1800px) {
     .trending-card, .trending-card.featured {
-      width: calc((100% - 2.2rem) / 3);
-      flex-basis: calc((100% - 2.2rem) / 3);
+      width: calc((100% - 6.6rem) / 7);
+      flex-basis: calc((100% - 6.6rem) / 7);
     }
   }
   .game-launch-loader { position: fixed; z-index: 2200; left: 50%; bottom: 24px; display: inline-flex; align-items: center; gap: 0.7rem; padding: 0.75rem 1rem; border: 1px solid rgba(0,191,255,0.35); border-radius: 10px; background: rgba(8,10,18,0.96); color: var(--text); font: 700 0.84rem 'Rajdhani', sans-serif; box-shadow: 0 12px 36px rgba(0,0,0,0.4); transform: translateX(-50%); }
