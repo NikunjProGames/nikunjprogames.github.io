@@ -13,6 +13,7 @@
   <meta property="og:url" content="https://nikunjprogames.github.io/games/super-sprunki-adventure-game.html" />
   <meta property="og:site_name" content="PleyZ" />
   <meta property="og:image" content="https://img.gamemonetize.com/yh0n2bobl4i5wdm0z43l7rhow2nk62qy/512x384.jpg" />
+
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Play super sprunki adventure game | PleyZ" />
   <meta name="twitter:description" content="super sprunki adventure game - Jungle Adventure - Classic Run Game gives you the chance to step back in time to your childhood." />
@@ -76,9 +77,8 @@
       background: var(--panel); color: var(--text);
     }
     .btn.primary { background: linear-gradient(90deg, var(--accent-2), var(--accent)); color: white; border-color: transparent; }
-    .game-toolbar {
-      display: flex; justify-content: flex-end; gap: 6px; margin-bottom: 8px;
-    }
+    .game-action-bar { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 7px; padding: 7px 9px; border: 1px solid var(--panel-border); border-radius: 8px; background: rgba(255,255,255,0.045); }
+    .game-toolbar { display: flex; justify-content: flex-end; gap: 6px; }
     .btn.compact { min-height: 34px; padding: 6px 10px; font-size: 0.84rem; }
     .game-layout {
       display: grid; grid-template-columns: minmax(0, 1fr) 250px; gap: 14px; align-items: start;
@@ -98,14 +98,9 @@
     .game-frame:fullscreen iframe, .game-frame:-webkit-full-screen iframe {
       width: 100%; height: 100%; min-height: 0;
     }
-    .video-card {
-      margin-top: 16px; padding: 14px; border-radius: 8px; background: rgba(255,255,255,0.05);
-      border: 1px solid var(--panel-border);
-    }
+    .video-card { margin-top: 16px; padding: 14px; border: 1px solid transparent; border-radius: 12px; background: linear-gradient(#101521, #101521) padding-box, linear-gradient(125deg, rgba(0,191,255,.8), rgba(139,0,255,.7), rgba(0,191,255,.25)) border-box; box-shadow: 0 12px 32px rgba(0,0,0,.28), inset 0 1px rgba(255,255,255,.08); }
     .video-card h3 { margin: 0 0 10px; font-family: 'Orbitron', sans-serif; font-size: 1rem; }
-    .video-card video, .video-card iframe {
-      width: 100%; min-height: 280px; border-radius: 12px; border: 0; background: #000;
-    }
+    .video-card video, .video-card iframe { display: block; width: 100%; aspect-ratio: 16 / 9; max-height: 620px; border-radius: 9px; border: 1px solid rgba(255,255,255,.12); background: #000; object-fit: contain; }
     .info-card {
       margin-top: 16px; padding: 14px; border-radius: 8px; background: rgba(255,255,255,0.05); border: 1px solid var(--panel-border);
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
@@ -132,6 +127,11 @@
     .related-game span { font-size: 0.9rem; line-height: 1.2; }
     .chip-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
     .chip { padding: 6px 10px; border-radius: 999px; background: rgba(0,191,255,0.14); border: 1px solid rgba(0,191,255,0.26); color: #bfeeff; font-size: 0.9rem; }
+    .screenshot-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 14px; }
+    .game-screenshot { min-width: 0; margin: 0; overflow: hidden; border: 1px solid var(--panel-border); border-radius: 10px; background: rgba(0,0,0,.22); }
+    .game-screenshot img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+    .game-screenshot figcaption { padding: 8px 10px; color: var(--muted); font-size: .85rem; }
+    .game-details p { margin: 6px 0; }
     .page-ad-section { margin-top: 18px; padding: 14px 16px; border-radius: 14px; border: 1px solid var(--panel-border); background: rgba(255,255,255,0.04); }
     .page-ad-section .ad-label { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8b00ff; margin-bottom: 8px; text-align: center; font-weight: 700; }
     .page-ad-section .adsbygoogle { min-height: 90px; }
@@ -151,6 +151,7 @@
       .topbar .actions { order: 3; width: 100%; }
       .game-layout { grid-template-columns: 1fr; }
       .game-frame { height: clamp(320px, 58vh, 620px); }
+      .game-action-bar { padding: 6px; }
       .related-games { position: static; max-height: none; }
       .related-game { grid-template-columns: 96px 1fr; }
     }
@@ -169,10 +170,6 @@
       <a class="site-brand" href="/">PleyZ Games</a>
       <h1>super sprunki adventure game</h1>
       <div class="actions">
-        <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="69">
-          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><span aria-hidden="true">👍</span></button>
-          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><span aria-hidden="true">👎</span></button>
-        </div>
         <a class="profile-score-link" href="../index.html#leaderboard" title="View PleyZ score and leaderboard">
           <span class="profile-score-avatar" id="profile-score-avatar">PZ</span>
           <span id="profile-score-label">PleyZ Score</span>
@@ -184,25 +181,31 @@
     </header>
 
     <main id="main-content">
-      <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="../">Home</a></li><li><a href="/multiplayer-games/">Multiplayer Games</a></li><li aria-current="page">super sprunki adventure game</li></ol></nav>
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="../">Home</a></li><li><a href="/multiplayer-games/">multiplayer Games</a></li><li aria-current="page">super sprunki adventure game</li></ol></nav>
     <div class="game-layout">
       <div class="game-shell">
-        <div class="game-toolbar">
-          <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
-        </div>
         <div class="game-frame">
           <iframe src="https://html5.gamemonetize.co/yh0n2bobl4i5wdm0z43l7rhow2nk62qy/" allowfullscreen loading="eager" title="super sprunki adventure game"></iframe>
+        </div>
+        <div class="game-action-bar">
+          <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="69">
+            <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><span aria-hidden="true">👍</span></button>
+            <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><span aria-hidden="true">👎</span></button>
+          </div>
+          <div class="game-toolbar">
+            <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
+          </div>
         </div>
 
       </div>
 
       <section class="info-card related-games" aria-label="Related games">
         <h2>Games You Might Like</h2>
-        <div class="related-grid"><a class="related-game" href="sprunki-drift-multiplayer.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/c8p1307f1u9vsd1njv8qswqfomtayqgl/512x384.jpg" alt="" width="960" height="600" loading="eager" fetchpriority="high" decoding="async" /></span><span>Sprunki Drift Multiplayer</span></a>
-        <a class="related-game" href="crime-and-vice-city-police.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/crime-and-vice-city-police/big-preview/7ae0b72e2627499798611c4d25e6d9fe?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span> Crime and Vice City Police</span></a>
-        <a class="related-game" href="balloon-heroes-run-and-rise.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/vlhloqzu0cvn1apzoyq9vwycgddt3fxn/512x384.jpg" alt="" width="350" height="600" loading="lazy" decoding="async" /></span><span>Balloon Heroes Run and Rise</span></a>
-        <a class="related-game" href="basketball-stars.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/basketball-stars/big_preview/2e0653c710ad43e09c40d1ba5968e447?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Basketball Stars</span></a>
-        <a class="related-game" href="battle-jitsu.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/cxu4dpr5uspgzim70lf6t4p6milazwr0/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async" /></span><span>Battle Jitsu</span></a></div>
+        <div class="related-grid"><a class="related-game" href="dead-land-survival.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/dead-land-survival/big_preview/3ec05c224d064e1789d0a98fd4a9d048?width=448" alt="" width="800" height="450" loading="eager" fetchpriority="high" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/20132a31af5345adb698d954f9cec5ff/orig_length_h320.mp4"></video></span><span>Dead Land: Survival</span></a>
+        <a class="related-game" href="jump-race.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/iquipc0k9ijyjxw1pxc0q271kxb4t7gn/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async" /></span><span>Jump Race</span></a>
+        <a class="related-game" href="multiplayer-team-death-match.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/h5hc9ltwjo3sk2g2upo4su465kf1kkgz/512x384.jpg" alt="" width="900" height="900" loading="lazy" decoding="async" /></span><span>Multiplayer Team Death Match</span></a>
+        <a class="related-game" href="special-ops-go.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/special-ops/big_preview/379c25433de24d13afadf693d918e11e?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/cca4b40c9b6c4877a294c337ef342280/orig_length_h320.mp4"></video></span><span>Special Ops: GO</span></a>
+        <a class="related-game" href="sprunki-drift-multiplayer.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/c8p1307f1u9vsd1njv8qswqfomtayqgl/512x384.jpg" alt="" width="960" height="600" loading="lazy" decoding="async" /></span><span>Sprunki Drift Multiplayer</span></a></div>
       </section>
     </div>
 
@@ -219,13 +222,14 @@
     </section>
 <section class="info-card" aria-labelledby="game-dna-heading">
       <h2 id="game-dna-heading">Game DNA</h2>
-      <div class="chip-list"><span class="chip">Multiplayer</span><span class="chip">Mario</span><span class="chip">Sprunki</span></div>
+      <div class="chip-list"><span class="chip">multiplayer</span><span class="chip">adventure</span><span class="chip">Mario</span><span class="chip">Sprunki</span></div>
     </section>
 <section class="info-card" aria-label="Game details"><p><strong>Platform:</strong> Web browser</p></section>
 
+
     <section class="info-card" aria-labelledby="related-categories-heading">
       <h2 id="related-categories-heading">Related Categories</h2>
-      <nav class="related-categories" aria-label="Related categories"><a href="/multiplayer-games/">Multiplayer Games</a></nav>
+      <nav class="related-categories" aria-label="Related categories"><a href="/multiplayer-games/">multiplayer Games</a><a href="/adventure-games/">adventure Games</a></nav>
     </section>
     </main>
 
@@ -255,7 +259,7 @@
     <a href="/termsandconditions.html">Terms</a>
     <a href="/contact-us.html">Contact</a>
   </footer>
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/super-sprunki-adventure-game.html#game","name":"super sprunki adventure game","description":"super sprunki adventure game - Jungle Adventure - Classic Run Game gives you the chance to step back in time to your childhood.","url":"https://nikunjprogames.github.io/games/super-sprunki-adventure-game.html","image":"https://img.gamemonetize.com/yh0n2bobl4i5wdm0z43l7rhow2nk62qy/512x384.jpg","gamePlatform":["Web browser"],"genre":["Multiplayer"],"keywords":["Mario","Sprunki"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Multiplayer Games","item":"https://nikunjprogames.github.io/multiplayer-games/"},{"@type":"ListItem","position":3,"name":"super sprunki adventure game","item":"https://nikunjprogames.github.io/games/super-sprunki-adventure-game.html"}]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/super-sprunki-adventure-game.html#game","name":"super sprunki adventure game","description":"super sprunki adventure game - Jungle Adventure - Classic Run Game gives you the chance to step back in time to your childhood.","url":"https://nikunjprogames.github.io/games/super-sprunki-adventure-game.html","image":"https://img.gamemonetize.com/yh0n2bobl4i5wdm0z43l7rhow2nk62qy/512x384.jpg","gamePlatform":["Web browser"],"genre":["multiplayer","adventure"],"keywords":["Mario","Sprunki"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"multiplayer Games","item":"https://nikunjprogames.github.io/multiplayer-games/"},{"@type":"ListItem","position":3,"name":"super sprunki adventure game","item":"https://nikunjprogames.github.io/games/super-sprunki-adventure-game.html"}]}]}</script>
   <script src="/site-shell.js" defer></script>
   <script src="/game-loading.js" defer></script>
   <script>

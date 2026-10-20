@@ -13,6 +13,8 @@
   <meta property="og:url" content="https://nikunjprogames.github.io/games/last-night.html" />
   <meta property="og:site_name" content="PleyZ" />
   <meta property="og:image" content="https://static.playgama.com/p-img/pg/last-night/big-preview/ecab9c788b4a4c678edaccc4bc9e46ea?width=448" />
+  <meta property="og:video" content="https://static.playgama.com/p-video/77642c7a0185497ebcfd948210260ea0/orig_length_h320.mp4" />
+  <meta property="og:video:type" content="video/mp4" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Play LAST NIGHT! | PleyZ" />
   <meta name="twitter:description" content="Explore a strange computer, investigate a survey, and uncover one of three endings in Last Night, a story-driven horror game." />
@@ -76,9 +78,8 @@
       background: var(--panel); color: var(--text);
     }
     .btn.primary { background: linear-gradient(90deg, var(--accent-2), var(--accent)); color: white; border-color: transparent; }
-    .game-toolbar {
-      display: flex; justify-content: flex-end; gap: 6px; margin-bottom: 8px;
-    }
+    .game-action-bar { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 7px; padding: 7px 9px; border: 1px solid var(--panel-border); border-radius: 8px; background: rgba(255,255,255,0.045); }
+    .game-toolbar { display: flex; justify-content: flex-end; gap: 6px; }
     .btn.compact { min-height: 34px; padding: 6px 10px; font-size: 0.84rem; }
     .game-layout {
       display: grid; grid-template-columns: minmax(0, 1fr) 250px; gap: 14px; align-items: start;
@@ -98,14 +99,9 @@
     .game-frame:fullscreen iframe, .game-frame:-webkit-full-screen iframe {
       width: 100%; height: 100%; min-height: 0;
     }
-    .video-card {
-      margin-top: 16px; padding: 14px; border-radius: 8px; background: rgba(255,255,255,0.05);
-      border: 1px solid var(--panel-border);
-    }
+    .video-card { margin-top: 16px; padding: 14px; border: 1px solid transparent; border-radius: 12px; background: linear-gradient(#101521, #101521) padding-box, linear-gradient(125deg, rgba(0,191,255,.8), rgba(139,0,255,.7), rgba(0,191,255,.25)) border-box; box-shadow: 0 12px 32px rgba(0,0,0,.28), inset 0 1px rgba(255,255,255,.08); }
     .video-card h3 { margin: 0 0 10px; font-family: 'Orbitron', sans-serif; font-size: 1rem; }
-    .video-card video, .video-card iframe {
-      width: 100%; min-height: 280px; border-radius: 12px; border: 0; background: #000;
-    }
+    .video-card video, .video-card iframe { display: block; width: 100%; aspect-ratio: 16 / 9; max-height: 620px; border-radius: 9px; border: 1px solid rgba(255,255,255,.12); background: #000; object-fit: contain; }
     .info-card {
       margin-top: 16px; padding: 14px; border-radius: 8px; background: rgba(255,255,255,0.05); border: 1px solid var(--panel-border);
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
@@ -132,6 +128,11 @@
     .related-game span { font-size: 0.9rem; line-height: 1.2; }
     .chip-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
     .chip { padding: 6px 10px; border-radius: 999px; background: rgba(0,191,255,0.14); border: 1px solid rgba(0,191,255,0.26); color: #bfeeff; font-size: 0.9rem; }
+    .screenshot-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 14px; }
+    .game-screenshot { min-width: 0; margin: 0; overflow: hidden; border: 1px solid var(--panel-border); border-radius: 10px; background: rgba(0,0,0,.22); }
+    .game-screenshot img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+    .game-screenshot figcaption { padding: 8px 10px; color: var(--muted); font-size: .85rem; }
+    .game-details p { margin: 6px 0; }
     .page-ad-section { margin-top: 18px; padding: 14px 16px; border-radius: 14px; border: 1px solid var(--panel-border); background: rgba(255,255,255,0.04); }
     .page-ad-section .ad-label { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8b00ff; margin-bottom: 8px; text-align: center; font-weight: 700; }
     .page-ad-section .adsbygoogle { min-height: 90px; }
@@ -151,6 +152,7 @@
       .topbar .actions { order: 3; width: 100%; }
       .game-layout { grid-template-columns: 1fr; }
       .game-frame { height: clamp(320px, 58vh, 620px); }
+      .game-action-bar { padding: 6px; }
       .related-games { position: static; max-height: none; }
       .related-game { grid-template-columns: 96px 1fr; }
     }
@@ -169,10 +171,6 @@
       <a class="site-brand" href="/">PleyZ Games</a>
       <h1>LAST NIGHT!</h1>
       <div class="actions">
-        <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="131">
-          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><span aria-hidden="true">👍</span></button>
-          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><span aria-hidden="true">👎</span></button>
-        </div>
         <a class="profile-score-link" href="../index.html#leaderboard" title="View PleyZ score and leaderboard">
           <span class="profile-score-avatar" id="profile-score-avatar">PZ</span>
           <span id="profile-score-label">PleyZ Score</span>
@@ -184,25 +182,38 @@
     </header>
 
     <main id="main-content">
-      <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="../">Home</a></li><li><a href="/scary-games/">Scary Games</a></li><li aria-current="page">LAST NIGHT!</li></ol></nav>
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="../">Home</a></li><li><a href="/scary-games/">scary Games</a></li><li aria-current="page">LAST NIGHT!</li></ol></nav>
     <div class="game-layout">
       <div class="game-shell">
-        <div class="game-toolbar">
-          <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
-        </div>
         <div class="game-frame">
           <iframe src="https://playgama.com/export/game/last-night?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487" allowfullscreen loading="eager" title="LAST NIGHT!"></iframe>
         </div>
+        <div class="game-action-bar">
+          <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="131">
+            <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><span aria-hidden="true">👍</span></button>
+            <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><span aria-hidden="true">👎</span></button>
+          </div>
+          <div class="game-toolbar">
+            <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
+          </div>
+        </div>
 
+    <section class="video-card" aria-label="Gameplay video">
+      <div class="video-card-header">
+        <h3>Gameplay Video</h3>
+        <span>Quick guide</span>
+      </div>
+      <video controls preload="metadata" playsinline poster="https://static.playgama.com/p-img/pg/last-night/big-preview/ecab9c788b4a4c678edaccc4bc9e46ea?width=448" src="https://static.playgama.com/p-video/77642c7a0185497ebcfd948210260ea0/orig_length_h320.mp4"></video>
+    </section>
       </div>
 
       <section class="info-card related-games" aria-label="Related games">
         <h2>Games You Might Like</h2>
-        <div class="related-grid"><a class="related-game" href="backrooms-exit-protocol-0.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/backrooms-exit-protocol-0/big_preview/4f691ad7fdbb4ec3a0a45c781c0feea7?width=448" alt="" width="800" height="450" loading="eager" fetchpriority="high" decoding="async" /></span><span>Backrooms: Exit Protocol 0</span></a>
-        <a class="related-game" href="sorcerers-refuge.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/sorcerers-refuge/big-preview/23c5e2a2597e4b71b1a01fc457170af8?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Sorcerers Refuge</span></a>
-        <a class="related-game" href="the-secret-of-the-toy-factory.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/the-secret-of-the-toy-factory/big_preview/ce41b593f2044ba197bc73f83d7cfc41?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>The Secret of the Toy Factory</span></a>
-        <a class="related-game" href="the-tall-man.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/the-tall-man/big_preview/cad21af835d348db83f9aace4ccca043?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>The Tall Man</span></a>
-        <a class="related-game" href="the-warlock-s-prisoner.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/the-warlocks-prisoner/big-preview/7ca7579a0daa42f19382b84c761966c4?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>The Warlock&#39;s Prisoner</span></a></div>
+        <div class="related-grid"><a class="related-game" href="backrooms-exit-protocol-0.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/backrooms-exit-protocol-0/big_preview/4f691ad7fdbb4ec3a0a45c781c0feea7?width=448" alt="" width="800" height="450" loading="eager" fetchpriority="high" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/60c9d220c3d84df194de4368f427a1dd/orig_length_h320.mp4"></video></span><span>Backrooms: Exit Protocol 0</span></a>
+        <a class="related-game" href="sorcerers-refuge.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/sorcerers-refuge/big-preview/23c5e2a2597e4b71b1a01fc457170af8?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/6f0fa1935227461bb6875c0f3be95664/orig_length_h320.mp4"></video></span><span>Sorcerers Refuge</span></a>
+        <a class="related-game" href="the-secret-of-the-toy-factory.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/the-secret-of-the-toy-factory/big_preview/ce41b593f2044ba197bc73f83d7cfc41?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/14ba2e129d6d4b63979e35a5dc7e44f0/orig_length_h320.mp4"></video></span><span>The Secret of the Toy Factory</span></a>
+        <a class="related-game" href="a-long-way-home.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/a-long-way-home/big-preview/b754165683fe4dae9e2cfb5b0b0ed906?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/4ab6683015fe722810f1e7ac2c43416e/orig_length_h320.mp4"></video></span><span>A Long Way Home</span></a>
+        <a class="related-game" href="abandoned-mansion.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/abandoned-mansion/big-preview/8467785cb4b841fca94e740451c367ea?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/18e8f99d799b47fa83ae0421f10e2ce0/orig_length_h320.mp4"></video></span><span>Abandoned Mansion</span></a></div>
       </section>
     </div>
 
@@ -223,18 +234,38 @@
     </section>
 <section class="info-card" aria-labelledby="how-to-play-heading">
       <h2 id="how-to-play-heading">How to Play</h2>
-      <p>● Control: [ WASD ]. ● Interaction: [ E ]. ● In-Game tutorial. This is a linear game so the game will tell what you need to do!</p>
+      <p>● Control: [ WASD ]. ● Interaction: [ E ]. ● In-Game tutorial.</p>
+<p>This is a linear game so the game will tell what you need to do!</p>
 
     </section>
 <section class="info-card" aria-labelledby="game-dna-heading">
       <h2 id="game-dna-heading">Game DNA</h2>
-      <div class="chip-list"><span class="chip">Scary</span><span class="chip">Adventure</span><span class="chip">Horror</span><span class="chip">scary</span><span class="chip">horror</span><span class="chip">story</span><span class="chip">keyboard</span><span class="chip">adventure</span><span class="chip">choice-games</span><span class="chip">1-player-games</span><span class="chip">psychological-horror</span></div>
+      <div class="chip-list"><span class="chip">scary</span><span class="chip">horror</span><span class="chip">adventure</span><span class="chip">story</span><span class="chip">keyboard</span><span class="chip">choice-games</span><span class="chip">1-player-games</span><span class="chip">psychological-horror</span></div>
     </section>
 <section class="info-card" aria-label="Game details"><p><strong>Platform:</strong> Web browser</p></section>
+<section class="info-card" aria-labelledby="faq-heading">
+      <h2 id="faq-heading">FAQ</h2>
+      <h3>Which devices can you play LAST NIGHT! on?</h3><p>This game supports Desktop.</p><h3>What genre is LAST NIGHT!?</h3><p>It is a scary, horror, story, keyboard, adventure game.</p><h3>Does LAST NIGHT! support portrait or landscape mode?</h3><p>The game supports landscape orientation.</p><h3>Does LAST NIGHT! have in-game purchases?</h3><p>No, in-game purchases are not listed.</p>
+    </section>
+<section class="info-card game-details" aria-labelledby="game-details-heading">
+      <h2 id="game-details-heading">Platforms, Genres &amp; Compatibility</h2>
+      <p><strong>Supported devices:</strong> Desktop</p><p><strong>Orientation:</strong> landscape</p><p><strong>Genres:</strong> scary, horror, story, keyboard, adventure</p><p><strong>In-game purchases:</strong> No</p><p><strong>Languages:</strong> en-US</p>
+    </section>
+<section class="info-card screenshot-card" aria-labelledby="screenshots-heading">
+      <h2 id="screenshots-heading">LAST NIGHT! Screenshots &amp; Artwork</h2>
+      <div class="screenshot-gallery">
+        <figure class="game-screenshot">
+          <img src="https://static.playgama.com/p-img/pg/last-night/big-preview/ecab9c788b4a4c678edaccc4bc9e46ea?width=448" alt="LAST NIGHT! Playgama preview" loading="lazy" decoding="async" />
+          <figcaption>Official Playgama game preview</figcaption>
+        </figure><figure class="game-screenshot game-artwork">
+          <img src="https://static.playgama.com/p-img/pg/backfill/game-118428/icon/f924aff8ac3ce3dc672704dc2dc21346f94db0c8e8e334185ef5b1823e03a2fa?width=448" alt="LAST NIGHT! game icon" loading="lazy" decoding="async" />
+          <figcaption>Game icon</figcaption>
+        </figure></div>
+    </section>
 
     <section class="info-card" aria-labelledby="related-categories-heading">
       <h2 id="related-categories-heading">Related Categories</h2>
-      <nav class="related-categories" aria-label="Related categories"><a href="/scary-games/">Scary Games</a><a href="/adventure-games/">Adventure Games</a><a href="/horror-games/">Horror Games</a></nav>
+      <nav class="related-categories" aria-label="Related categories"><a href="/scary-games/">scary Games</a><a href="/horror-games/">horror Games</a><a href="/adventure-games/">adventure Games</a></nav>
     </section>
     </main>
 
@@ -264,7 +295,7 @@
     <a href="/termsandconditions.html">Terms</a>
     <a href="/contact-us.html">Contact</a>
   </footer>
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/last-night.html#game","name":"LAST NIGHT!","description":"Explore a strange computer, investigate a survey, and uncover one of three endings in Last Night, a story-driven horror game.","url":"https://nikunjprogames.github.io/games/last-night.html","image":"https://static.playgama.com/p-img/pg/last-night/big-preview/ecab9c788b4a4c678edaccc4bc9e46ea?width=448","gamePlatform":["Web browser"],"genre":["Scary","Adventure","Horror"],"keywords":["scary","horror","story","keyboard","adventure","choice-games","1-player-games","psychological-horror"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Scary Games","item":"https://nikunjprogames.github.io/scary-games/"},{"@type":"ListItem","position":3,"name":"LAST NIGHT!","item":"https://nikunjprogames.github.io/games/last-night.html"}]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/last-night.html#game","name":"LAST NIGHT!","description":"Explore a strange computer, investigate a survey, and uncover one of three endings in Last Night, a story-driven horror game.","url":"https://nikunjprogames.github.io/games/last-night.html","image":"https://static.playgama.com/p-img/pg/last-night/big-preview/ecab9c788b4a4c678edaccc4bc9e46ea?width=448","gamePlatform":["Web browser","Desktop"],"genre":["scary","horror","adventure","story","keyboard"],"keywords":["scary","horror","story","keyboard","adventure","choice-games","1-player-games","psychological-horror"],"video":{"@type":"VideoObject","name":"LAST NIGHT! gameplay video","description":"Watch gameplay from LAST NIGHT!.","thumbnailUrl":"https://static.playgama.com/p-img/pg/last-night/big-preview/ecab9c788b4a4c678edaccc4bc9e46ea?width=448","contentUrl":"https://static.playgama.com/p-video/77642c7a0185497ebcfd948210260ea0/orig_length_h320.mp4"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"scary Games","item":"https://nikunjprogames.github.io/scary-games/"},{"@type":"ListItem","position":3,"name":"LAST NIGHT!","item":"https://nikunjprogames.github.io/games/last-night.html"}]}]}</script>
   <script src="/site-shell.js" defer></script>
   <script src="/game-loading.js" defer></script>
   <script>

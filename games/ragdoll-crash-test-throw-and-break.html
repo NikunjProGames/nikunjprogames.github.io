@@ -13,6 +13,8 @@
   <meta property="og:url" content="https://nikunjprogames.github.io/games/ragdoll-crash-test-throw-and-break.html" />
   <meta property="og:site_name" content="PleyZ" />
   <meta property="og:image" content="https://static.playgama.com/p-img/pg/ragdoll-crashtest-throw-and-break/big-preview/806817717e62466a83cb4377d0fa92eb?width=448" />
+  <meta property="og:video" content="https://static.playgama.com/p-video/1cbe32ecf2444651a508c985b8360784/orig_length_h320.mp4" />
+  <meta property="og:video:type" content="video/mp4" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Play Ragdoll Crash-Test: Throw and Break! | PleyZ" />
   <meta name="twitter:description" content="«Ragdoll Crash-Test: Throw and Break!" />
@@ -76,9 +78,8 @@
       background: var(--panel); color: var(--text);
     }
     .btn.primary { background: linear-gradient(90deg, var(--accent-2), var(--accent)); color: white; border-color: transparent; }
-    .game-toolbar {
-      display: flex; justify-content: flex-end; gap: 6px; margin-bottom: 8px;
-    }
+    .game-action-bar { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 7px; padding: 7px 9px; border: 1px solid var(--panel-border); border-radius: 8px; background: rgba(255,255,255,0.045); }
+    .game-toolbar { display: flex; justify-content: flex-end; gap: 6px; }
     .btn.compact { min-height: 34px; padding: 6px 10px; font-size: 0.84rem; }
     .game-layout {
       display: grid; grid-template-columns: minmax(0, 1fr) 250px; gap: 14px; align-items: start;
@@ -98,14 +99,9 @@
     .game-frame:fullscreen iframe, .game-frame:-webkit-full-screen iframe {
       width: 100%; height: 100%; min-height: 0;
     }
-    .video-card {
-      margin-top: 16px; padding: 14px; border-radius: 8px; background: rgba(255,255,255,0.05);
-      border: 1px solid var(--panel-border);
-    }
+    .video-card { margin-top: 16px; padding: 14px; border: 1px solid transparent; border-radius: 12px; background: linear-gradient(#101521, #101521) padding-box, linear-gradient(125deg, rgba(0,191,255,.8), rgba(139,0,255,.7), rgba(0,191,255,.25)) border-box; box-shadow: 0 12px 32px rgba(0,0,0,.28), inset 0 1px rgba(255,255,255,.08); }
     .video-card h3 { margin: 0 0 10px; font-family: 'Orbitron', sans-serif; font-size: 1rem; }
-    .video-card video, .video-card iframe {
-      width: 100%; min-height: 280px; border-radius: 12px; border: 0; background: #000;
-    }
+    .video-card video, .video-card iframe { display: block; width: 100%; aspect-ratio: 16 / 9; max-height: 620px; border-radius: 9px; border: 1px solid rgba(255,255,255,.12); background: #000; object-fit: contain; }
     .info-card {
       margin-top: 16px; padding: 14px; border-radius: 8px; background: rgba(255,255,255,0.05); border: 1px solid var(--panel-border);
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
@@ -132,6 +128,11 @@
     .related-game span { font-size: 0.9rem; line-height: 1.2; }
     .chip-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
     .chip { padding: 6px 10px; border-radius: 999px; background: rgba(0,191,255,0.14); border: 1px solid rgba(0,191,255,0.26); color: #bfeeff; font-size: 0.9rem; }
+    .screenshot-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 14px; }
+    .game-screenshot { min-width: 0; margin: 0; overflow: hidden; border: 1px solid var(--panel-border); border-radius: 10px; background: rgba(0,0,0,.22); }
+    .game-screenshot img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+    .game-screenshot figcaption { padding: 8px 10px; color: var(--muted); font-size: .85rem; }
+    .game-details p { margin: 6px 0; }
     .page-ad-section { margin-top: 18px; padding: 14px 16px; border-radius: 14px; border: 1px solid var(--panel-border); background: rgba(255,255,255,0.04); }
     .page-ad-section .ad-label { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8b00ff; margin-bottom: 8px; text-align: center; font-weight: 700; }
     .page-ad-section .adsbygoogle { min-height: 90px; }
@@ -151,6 +152,7 @@
       .topbar .actions { order: 3; width: 100%; }
       .game-layout { grid-template-columns: 1fr; }
       .game-frame { height: clamp(320px, 58vh, 620px); }
+      .game-action-bar { padding: 6px; }
       .related-games { position: static; max-height: none; }
       .related-game { grid-template-columns: 96px 1fr; }
     }
@@ -169,10 +171,6 @@
       <a class="site-brand" href="/">PleyZ Games</a>
       <h1>Ragdoll Crash-Test: Throw and Break!</h1>
       <div class="actions">
-        <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="107">
-          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><span aria-hidden="true">👍</span></button>
-          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><span aria-hidden="true">👎</span></button>
-        </div>
         <a class="profile-score-link" href="../index.html#leaderboard" title="View PleyZ score and leaderboard">
           <span class="profile-score-avatar" id="profile-score-avatar">PZ</span>
           <span id="profile-score-label">PleyZ Score</span>
@@ -184,25 +182,38 @@
     </header>
 
     <main id="main-content">
-      <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="../">Home</a></li><li><a href="/action-games/">Action Games</a></li><li aria-current="page">Ragdoll Crash-Test: Throw and Break!</li></ol></nav>
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="../">Home</a></li><li><a href="/action-games/">action Games</a></li><li aria-current="page">Ragdoll Crash-Test: Throw and Break!</li></ol></nav>
     <div class="game-layout">
       <div class="game-shell">
-        <div class="game-toolbar">
-          <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
-        </div>
         <div class="game-frame">
           <iframe src="https://playgama.com/export/game/ragdoll-crashtest-throw-and-break?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487" allowfullscreen loading="eager" title="Ragdoll Crash-Test: Throw and Break!"></iframe>
         </div>
+        <div class="game-action-bar">
+          <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="107">
+            <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><span aria-hidden="true">👍</span></button>
+            <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><span aria-hidden="true">👎</span></button>
+          </div>
+          <div class="game-toolbar">
+            <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
+          </div>
+        </div>
 
+    <section class="video-card" aria-label="Gameplay video">
+      <div class="video-card-header">
+        <h3>Gameplay Video</h3>
+        <span>Quick guide</span>
+      </div>
+      <video controls preload="metadata" playsinline poster="https://static.playgama.com/p-img/pg/ragdoll-crashtest-throw-and-break/big-preview/806817717e62466a83cb4377d0fa92eb?width=448" src="https://static.playgama.com/p-video/1cbe32ecf2444651a508c985b8360784/orig_length_h320.mp4"></video>
+    </section>
       </div>
 
       <section class="info-card related-games" aria-label="Related games">
         <h2>Games You Might Like</h2>
-        <div class="related-grid"><a class="related-game" href="basket-random.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/basket-random/preview/fec7a407ebd246d8a893abaf7801622c?width=448" alt="" width="800" height="450" loading="eager" fetchpriority="high" decoding="async" /></span><span>Basket Random</span></a>
+        <div class="related-grid"><a class="related-game" href="basket-random.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/basket-random/preview/fec7a407ebd246d8a893abaf7801622c?width=448" alt="" width="800" height="450" loading="eager" fetchpriority="high" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/cbc801637e5c42c88a4ed95bc33c2564/orig_length_h320.mp4"></video></span><span>Basket Random</span></a>
         <a class="related-game" href="cars-vs-zombies.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/cars-vs-zombies/big_preview/5749639b38d74457a4228e4b719dcb85?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Cars vs Zombies</span></a>
-        <a class="related-game" href="supernova-the-charon-protocol.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/supernova-the-charon-protocol/big_preview/01e886cf305a46b09285be84280d1c69?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Supernova: The &quot;Charon&quot; Protocol</span></a>
-        <a class="related-game" href="car-destruction-king.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/car-destruction-king/big_preview/0ca8f4094cfd4826b9888ea1d094bdd7?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span> Car Destruction King</span></a>
-        <a class="related-game" href="ragdoll-fury.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/ragdoll-fury/big_preview/b1a24e0746cf454d83bda559cdc7bbb2?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Ragdoll Fury</span></a></div>
+        <a class="related-game" href="supernova-the-charon-protocol.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/supernova-the-charon-protocol/big_preview/01e886cf305a46b09285be84280d1c69?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/fed266a663084a209e51d8472a77f64c/orig_length_h320.mp4"></video></span><span>Supernova: The &quot;Charon&quot; Protocol</span></a>
+        <a class="related-game" href="car-destruction-king.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/car-destruction-king/big_preview/0ca8f4094cfd4826b9888ea1d094bdd7?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/cdac251fb08c4fafb7bb056eadfa2623/orig_length_h320.mp4"></video></span><span> Car Destruction King</span></a>
+        <a class="related-game" href="ragdoll-fury.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/ragdoll-fury/big_preview/b1a24e0746cf454d83bda559cdc7bbb2?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/be802c71d6c043658d9aa9bc675c07f1/orig_length_h320.mp4"></video></span><span>Ragdoll Fury</span></a></div>
       </section>
     </div>
 
@@ -221,18 +232,38 @@
     </section>
 <section class="info-card" aria-labelledby="how-to-play-heading">
       <h2 id="how-to-play-heading">How to Play</h2>
-      <p>🕹Drag the stickman onto the selected objects and watch the chaos unfold. Try to experiment with different objects to maximize damage. 🎯 Choose from a variety of objects to smash, hit, and drag the stickman. Each object has unique properties for maximum impact.</p>
+      <p>🕹Drag the stickman onto the selected objects and watch the chaos unfold. Try to experiment with different objects to maximize damage.</p>
+<p>🎯 Choose from a variety of objects to smash, hit, and drag the stickman. Each object has unique properties for maximum impact.</p>
 
     </section>
 <section class="info-card" aria-labelledby="game-dna-heading">
       <h2 id="game-dna-heading">Game DNA</h2>
-      <div class="chip-list"><span class="chip">Action</span><span class="chip">action</span><span class="chip">ragdoll</span><span class="chip">2d-games</span><span class="chip">destruction-games</span><span class="chip">addictive-games</span><span class="chip">crash-games</span><span class="chip">desktop-games</span><span class="chip">1-player-games</span><span class="chip">simple-games</span><span class="chip">throwing-games</span><span class="chip">borwser-games</span></div>
+      <div class="chip-list"><span class="chip">action</span><span class="chip">ragdoll</span><span class="chip">2d-games</span><span class="chip">destruction-games</span><span class="chip">addictive-games</span><span class="chip">crash-games</span><span class="chip">desktop-games</span><span class="chip">1-player-games</span><span class="chip">simple-games</span><span class="chip">throwing-games</span><span class="chip">borwser-games</span><span class="chip">unity-games-online</span></div>
     </section>
 <section class="info-card" aria-label="Game details"><p><strong>Platform:</strong> Web browser</p></section>
+<section class="info-card" aria-labelledby="faq-heading">
+      <h2 id="faq-heading">FAQ</h2>
+      <h3>Which devices can you play Ragdoll Crash-Test: Throw and Break! on?</h3><p>This game supports Android, iOS, Desktop.</p><h3>What genre is Ragdoll Crash-Test: Throw and Break!?</h3><p>It is a action, ragdoll game.</p><h3>Does Ragdoll Crash-Test: Throw and Break! support portrait or landscape mode?</h3><p>The game supports portrait orientation.</p><h3>Does Ragdoll Crash-Test: Throw and Break! have in-game purchases?</h3><p>No, in-game purchases are not listed.</p>
+    </section>
+<section class="info-card game-details" aria-labelledby="game-details-heading">
+      <h2 id="game-details-heading">Platforms, Genres &amp; Compatibility</h2>
+      <p><strong>Supported devices:</strong> Android, iOS, Desktop</p><p><strong>Orientation:</strong> portrait</p><p><strong>Genres:</strong> action, ragdoll</p><p><strong>In-game purchases:</strong> No</p><p><strong>Languages:</strong> en-US, es-ES, tr-TR, ru-RU, de-DE</p>
+    </section>
+<section class="info-card screenshot-card" aria-labelledby="screenshots-heading">
+      <h2 id="screenshots-heading">Ragdoll Crash-Test: Throw and Break! Screenshots &amp; Artwork</h2>
+      <div class="screenshot-gallery">
+        <figure class="game-screenshot">
+          <img src="https://static.playgama.com/p-img/pg/ragdoll-crashtest-throw-and-break/big-preview/806817717e62466a83cb4377d0fa92eb?width=448" alt="Ragdoll Crash-Test: Throw and Break! Playgama preview" loading="lazy" decoding="async" />
+          <figcaption>Official Playgama game preview</figcaption>
+        </figure><figure class="game-screenshot game-artwork">
+          <img src="https://static.playgama.com/p-img/pg/backfill/game-86415/icon/358a6b7b9f5f50618ef4275042fd4fe76ad5a44dc22336f62897db58aed769a7?width=448" alt="Ragdoll Crash-Test: Throw and Break! game icon" loading="lazy" decoding="async" />
+          <figcaption>Game icon</figcaption>
+        </figure></div>
+    </section>
 
     <section class="info-card" aria-labelledby="related-categories-heading">
       <h2 id="related-categories-heading">Related Categories</h2>
-      <nav class="related-categories" aria-label="Related categories"><a href="/action-games/">Action Games</a></nav>
+      <nav class="related-categories" aria-label="Related categories"><a href="/action-games/">action Games</a></nav>
     </section>
     </main>
 
@@ -262,7 +293,7 @@
     <a href="/termsandconditions.html">Terms</a>
     <a href="/contact-us.html">Contact</a>
   </footer>
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/ragdoll-crash-test-throw-and-break.html#game","name":"Ragdoll Crash-Test: Throw and Break!","description":"«Ragdoll Crash-Test: Throw and Break!","url":"https://nikunjprogames.github.io/games/ragdoll-crash-test-throw-and-break.html","image":"https://static.playgama.com/p-img/pg/ragdoll-crashtest-throw-and-break/big-preview/806817717e62466a83cb4377d0fa92eb?width=448","gamePlatform":["Web browser"],"genre":["Action"],"keywords":["action","ragdoll","2d-games","destruction-games","addictive-games","crash-games","desktop-games","1-player-games","simple-games","throwing-games","borwser-games","unity-games-online"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Action Games","item":"https://nikunjprogames.github.io/action-games/"},{"@type":"ListItem","position":3,"name":"Ragdoll Crash-Test: Throw and Break!","item":"https://nikunjprogames.github.io/games/ragdoll-crash-test-throw-and-break.html"}]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/ragdoll-crash-test-throw-and-break.html#game","name":"Ragdoll Crash-Test: Throw and Break!","description":"«Ragdoll Crash-Test: Throw and Break!","url":"https://nikunjprogames.github.io/games/ragdoll-crash-test-throw-and-break.html","image":"https://static.playgama.com/p-img/pg/ragdoll-crashtest-throw-and-break/big-preview/806817717e62466a83cb4377d0fa92eb?width=448","gamePlatform":["Web browser","Android","iOS","Desktop"],"genre":["action","ragdoll"],"keywords":["action","ragdoll","2d-games","destruction-games","addictive-games","crash-games","desktop-games","1-player-games","simple-games","throwing-games","borwser-games","unity-games-online"],"video":{"@type":"VideoObject","name":"Ragdoll Crash-Test: Throw and Break! gameplay video","description":"Watch gameplay from Ragdoll Crash-Test: Throw and Break!.","thumbnailUrl":"https://static.playgama.com/p-img/pg/ragdoll-crashtest-throw-and-break/big-preview/806817717e62466a83cb4377d0fa92eb?width=448","contentUrl":"https://static.playgama.com/p-video/1cbe32ecf2444651a508c985b8360784/orig_length_h320.mp4"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"action Games","item":"https://nikunjprogames.github.io/action-games/"},{"@type":"ListItem","position":3,"name":"Ragdoll Crash-Test: Throw and Break!","item":"https://nikunjprogames.github.io/games/ragdoll-crash-test-throw-and-break.html"}]}]}</script>
   <script src="/site-shell.js" defer></script>
   <script src="/game-loading.js" defer></script>
   <script>

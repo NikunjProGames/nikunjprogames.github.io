@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const vm = require('vm');
 const categoryTaxonomy = require('./game-category-taxonomy.js');
+const createPlaygamaVideoUrl = require('./playgama-video-url.js');
 
 // 1. Point to your sample JSON file
 const FEED_FILE = 'feed.json';
@@ -147,23 +148,165 @@ function normalizeGame(game) {
     descriptionSource: String(game.description || ''),
     shortDescription,
     instructions,
-    instructionsSource: String(game.instructions || ''),
+    instructionsSource: String(game.instructionsSource || game.instructions || ''),
     howToPlay: toPlainText(game.howToPlay),
     controls: toPlainText(game.controls),
     features: listFrom(game.features),
+    genres: listFrom(game.genres),
+    supportedDevices: listFrom(game.supportedDevices),
+    screenOrientations: listFrom(game.screenOrientations),
+    supportedLanguages: listFrom(game.supportedLanguages),
+    screenshots: Array.isArray(game.screenshots)
+      ? game.screenshots.filter(image => (
+        typeof image === 'string' && /^https:\/\/static\.playgama\.com\/p-img\//i.test(image)
+      ))
+      : [],
+    gameArtwork: typeof game.gameArtwork === 'string'
+      && /^https:\/\/static\.playgama\.com\/p-img\//i.test(game.gameArtwork)
+      ? game.gameArtwork
+      : '',
+    inGamePurchases: toPlainText(game.inGamePurchases),
     seoContent: normalizeSeoContent(game.seoContent, game.title),
     categories,
     tags,
+    videoId: String(game.videoId || '').trim(),
+    videoUrl: game.videoUrl || game.video_url || game.video
+      || (game.videoId ? createPlaygamaVideoUrl(game.videoId) : ''),
     platforms: listFrom(game.platforms || ['Web browser']),
     difficulty: toPlainText(game.difficulty),
     gameDna: listFrom(game.gameDna || [...categories, ...tags]).slice(0, 12),
-    faqs: Array.isArray(game.faqs) ? game.faqs : [],
+    faqs: getGameMetadataFaqs(game),
     relatedGames: Array.isArray(game.relatedGames) ? game.relatedGames : [],
     relatedCategories: Array.isArray(game.relatedCategories) ? game.relatedCategories : [],
     seoTitle: toPlainText(game.seoTitle) || `Play ${toPlainText(game.title)} | PleyZ`,
     seoDescription: getSeoDescription(game.title, description, game.seoDescription, game.shortDescription),
     imageWidth: Number(game.width) || 448,
     imageHeight: Number(game.height) || 336
+  };
+}
+
+function getGameMetadataFaqs(game) {
+  const existing = Array.isArray(game.faqs) ? game.faqs : [];
+  const metadataFaqs = [];
+  if (Array.isArray(game.supportedDevices) && game.supportedDevices.length) {
+    metadataFaqs.push({
+      question: `Which devices can you play ${toPlainText(game.title)} on?`,
+      answer: `This game supports ${listFrom(game.supportedDevices).join(', ')}.`
+    });
+  }
+  if (Array.isArray(game.genres) && game.genres.length) {
+    metadataFaqs.push({
+      question: `What genre is ${toPlainText(game.title)}?`,
+      answer: `It is a ${listFrom(game.genres).join(', ')} game.`
+    });
+  }
+  if (Array.isArray(game.screenOrientations) && game.screenOrientations.length) {
+    metadataFaqs.push({
+      question: `Does ${toPlainText(game.title)} support portrait or landscape mode?`,
+      answer: `The game supports ${listFrom(game.screenOrientations).join(' and ').toLowerCase()} orientation.`
+    });
+  }
+  if (/^(?:yes|no)$/i.test(String(game.inGamePurchases || '').trim())) {
+    metadataFaqs.push({
+      question: `Does ${toPlainText(game.title)} have in-game purchases?`,
+      answer: /^yes$/i.test(game.inGamePurchases) ? 'Yes, in-game purchases are listed.' : 'No, in-game purchases are not listed.'
+    });
+  }
+  const knownQuestions = new Set(existing.map(item => toPlainText(item.question).toLowerCase()));
+  return [...existing, ...metadataFaqs.filter(item => !knownQuestions.has(item.question.toLowerCase()))];
+}
+
+function loadPlaygamaMetadata() {
+  const sourceFiles = fs.readdirSync(__dirname)
+    .filter(filename => /^game(?: \(\d+\))?\.json$/.test(filename));
+  const metadataById = new Map();
+
+  sourceFiles.forEach(filename => {
+    const source = JSON.parse(fs.readFileSync(path.join(__dirname, filename), 'utf8'));
+    const entries = Array.isArray(source)
+      ? source
+      : source.segments?.flatMap(segment => segment.hits || []);
+    if (!Array.isArray(entries)) {
+      throw new Error(`${filename} does not contain a Playgama game list.`);
+    }
+
+    entries.forEach(entry => {
+      const id = String(entry.id || '').trim();
+      if (!id) return;
+      if (metadataById.has(id)) {
+        throw new Error(`Duplicate Playgama metadata for game ID ${id}.`);
+      }
+      const rawImages = Array.isArray(entry.screenshots)
+        ? entry.screenshots
+        : (entry.images || []).filter(image => /\/(?:big[-_]preview|preview)\//i.test(String(image)));
+      const screenshots = rawImages.filter(image => (
+        typeof image === 'string' && /^https:\/\/static\.playgama\.com\/p-img\//i.test(image)
+      ));
+      const gameArtwork = (entry.images || []).find(image => (
+        typeof image === 'string'
+        && /\/icon\//i.test(image)
+        && /^https:\/\/static\.playgama\.com\/p-img\//i.test(image)
+      )) || '';
+      const mobileReady = Array.isArray(entry.mobileReady) ? entry.mobileReady : [];
+      const supportedDevices = mobileReady
+        .map(device => String(device).replace(/^for\s+/i, '').trim())
+        .map(device => /^ios$/i.test(device) ? 'iOS' : device)
+        .filter(Boolean);
+      const orientation = entry.screenOrientation || {};
+      const screenOrientations = [
+        orientation.horizontal && 'landscape',
+        orientation.vertical && 'portrait'
+      ].filter(Boolean);
+      const videoId = String(entry.videoId || entry.videos?.find(video => video.playgama_id)?.playgama_id || '').trim();
+
+      metadataById.set(id, {
+        genres: Array.isArray(entry.genres) ? entry.genres : [],
+        supportedDevices,
+        screenOrientations,
+        supportedLanguages: Array.isArray(entry.supportedLanguages) ? entry.supportedLanguages : [],
+        screenshots,
+        gameArtwork,
+        inGamePurchases: entry.inGamePurchases || '',
+        videoId,
+        howToPlayText: entry.howToPlayText || ''
+      });
+    });
+  });
+  return metadataById;
+}
+
+function addPlaygamaMetadata(game, metadataById) {
+  const metadata = metadataById.get(String(game.id || '').trim());
+  if (!metadata) return game;
+  const currentInstructionsSource = String(game.instructions || '');
+  const playgamaInstructionsSource = String(metadata.howToPlayText || '');
+  const currentInstructions = toPlainText(currentInstructionsSource);
+  const playgamaInstructions = toPlainText(playgamaInstructionsSource);
+  const wordCount = text => text.split(/\s+/).filter(Boolean).length;
+  const instructionsSource = wordCount(playgamaInstructions) > wordCount(currentInstructions)
+    ? playgamaInstructionsSource
+    : currentInstructionsSource;
+
+  return {
+    ...game,
+    videoId: game.videoId || metadata.videoId,
+    genres: Array.isArray(game.genres) && game.genres.length ? game.genres : metadata.genres,
+    supportedDevices: Array.isArray(game.supportedDevices) && game.supportedDevices.length
+      ? game.supportedDevices
+      : metadata.supportedDevices,
+    screenOrientations: Array.isArray(game.screenOrientations) && game.screenOrientations.length
+      ? game.screenOrientations
+      : metadata.screenOrientations,
+    supportedLanguages: Array.isArray(game.supportedLanguages) && game.supportedLanguages.length
+      ? game.supportedLanguages
+      : metadata.supportedLanguages,
+    screenshots: Array.isArray(game.screenshots) && game.screenshots.length
+      ? game.screenshots
+      : metadata.screenshots,
+    gameArtwork: game.gameArtwork || metadata.gameArtwork,
+    inGamePurchases: game.inGamePurchases || metadata.inGamePurchases,
+    instructions: instructionsSource,
+    instructionsSource
   };
 }
 
@@ -192,7 +335,7 @@ function getVideoHtml(game) {
     game.video_metadata?.[0]?.playgama_id,
   ].find(value => typeof value === 'string' && value.trim());
 
-  const videoUrl = directVideoUrl || (playgamaId ? `https://static.playgama.com/p-video/${String(playgamaId).trim()}/orig_length_h640_6so.mp4` : '');
+  const videoUrl = directVideoUrl || (playgamaId ? createPlaygamaVideoUrl(playgamaId) : '');
 
   if (!videoUrl) return '';
 
@@ -203,9 +346,9 @@ function getVideoHtml(game) {
   if (youtubeMatch) {
     const embedUrl = `https://www.youtube.com/embed/${youtubeMatch[1]}`;
     return `
-      <section class="video-card" aria-label="How to play video">
+      <section class="video-card" aria-label="Gameplay video">
         <div class="video-card-header">
-          <h3>How to Play</h3>
+          <h3>Gameplay Video</h3>
           <span>Quick guide</span>
         </div>
         <iframe src="${embedUrl}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
@@ -215,9 +358,9 @@ function getVideoHtml(game) {
   if (vimeoMatch) {
     const embedUrl = `https://player.vimeo.com/video/${vimeoMatch[1]}`;
     return `
-      <section class="video-card" aria-label="How to play video">
+      <section class="video-card" aria-label="Gameplay video">
         <div class="video-card-header">
-          <h3>How to Play</h3>
+          <h3>Gameplay Video</h3>
           <span>Quick guide</span>
         </div>
         <iframe src="${embedUrl}" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
@@ -225,12 +368,12 @@ function getVideoHtml(game) {
   }
 
   return `
-    <section class="video-card" aria-label="How to play video">
+    <section class="video-card" aria-label="Gameplay video">
       <div class="video-card-header">
-        <h3>How to Play</h3>
+        <h3>Gameplay Video</h3>
         <span>Quick guide</span>
       </div>
-      <video controls preload="metadata" playsinline src="${safeUrl}"></video>
+      <video controls preload="metadata" playsinline poster="${escapeHtml(game.thumb)}" src="${safeUrl}"></video>
     </section>`;
 }
 
@@ -261,7 +404,7 @@ function getRecommendationVideoUrl(game, homepageVideosBySlug) {
     game.video_metadata?.[0]?.playgama_id
   ].find(value => typeof value === 'string' && value.trim());
   return playgamaId
-    ? `https://static.playgama.com/p-video/${String(playgamaId).trim()}/orig_length_h640_6so.mp4`
+    ? createPlaygamaVideoUrl(playgamaId)
     : homepageVideosBySlug.get(game.slug) || '';
 }
 
@@ -491,6 +634,31 @@ function renderTips(groups) {
     .join('\n');
 }
 
+function renderInstructionContent(text) {
+  const source = String(text || '')
+    .replace(/<br\s*\/?\s*>/gi, '\n')
+    .replace(/<\/(?:p|div|li)\s*>/gi, '\n')
+    .replace(/<[^>]*>/g, '');
+  const blocks = source.split(/\r?\n\s*\r?\n/)
+    .map(block => block.split(/\r?\n/).map(line => toPlainText(line)).filter(Boolean))
+    .filter(block => block.length);
+  return blocks.map(lines => {
+    const headingMatch = lines[0].match(/^(?:✅\s*)?((?:[12]\s*player|player\s*[12]|on\s+pc|on\s+desktop|on\s+mobile|pc|desktop|mobile)?\s*controls?)\s*:?$/i);
+    const heading = headingMatch ? toPlainText(headingMatch[1]) : '';
+    const content = heading ? lines.slice(1) : lines;
+    if (!content.length) return heading ? `<h3>${escapeHtml(heading)}</h3>` : '';
+
+    const controlLine = line => /^\s*[-*•]\s*/.test(line)
+      || /\b(?:WASD|arrow keys|mouse|click|tap|swipe|press|keyboard|spacebar|player\s*[12])\b/i.test(line);
+    const isList = content.length > 1
+      && (Boolean(heading) || content.filter(controlLine).length >= Math.ceil(content.length * 0.6));
+    const body = isList
+      ? `<ul>${content.map(line => `<li>${escapeHtml(line.replace(/^\s*[-*•]\s*/, ''))}</li>`).join('')}</ul>`
+      : renderParagraphs([content.join(' ')]);
+    return `${heading ? `<h3>${escapeHtml(heading)}</h3>` : ''}${body}`;
+  }).join('\n');
+}
+
 function parseInstructionText(instructions) {
   const lines = getDescriptionLines(instructions);
   if (!lines.length) return { controls: [], howToPlay: '' };
@@ -620,10 +788,7 @@ function getGameContentHtml(game) {
   const controls = [...new Set([...sourceControls, ...featureControls])];
   const features = rawFeatures.filter(line => !getFeatureControl(line)
     && !(description.modes.length && /\bmodes?\b/i.test(line)));
-  const coreQuestions = [
-    ...description.questions.core.questions,
-    ...(editorialContent ? [] : game.faqs.map(faq => ({ question: faq.question, answer: faq.answer })))
-  ];
+  const coreQuestions = description.questions.core.questions;
   const sections = [`<section class="info-card" aria-labelledby="game-description-heading">
       <h2 id="game-description-heading">About ${escapeHtml(game.title)}</h2>
       ${renderParagraphs(intro)}
@@ -637,11 +802,14 @@ function getGameContentHtml(game) {
     </section>`];
 
   const howToPlay = game.howToPlay || instructionText.howToPlay || (!controls.length ? game.instructions : '');
+  const howToPlayContent = !game.howToPlay && !instructionText.controls.length && !controls.length
+    ? game.instructionsSource || howToPlay
+    : howToPlay;
   const tipsHtml = renderTips(description);
   if (howToPlay || tipsHtml) {
     sections.push(`<section class="info-card" aria-labelledby="how-to-play-heading">
       <h2 id="how-to-play-heading">How to Play</h2>
-      ${howToPlay ? `<p>${escapeHtml(howToPlay)}</p>` : ''}
+      ${howToPlay ? renderInstructionContent(howToPlayContent) : ''}
       ${tipsHtml}
     </section>`);
   }
@@ -664,10 +832,25 @@ function getGameContentHtml(game) {
 
   if (game.faqs.length) {
     sections.push(`<section class="info-card" aria-labelledby="faq-heading">
-      <h2 id="faq-heading">Questions and Answers</h2>
+      <h2 id="faq-heading">FAQ</h2>
       ${game.faqs.map(faq => `<h3>${escapeHtml(faq.question)}</h3><p>${escapeHtml(faq.answer)}</p>`).join('')}
     </section>`);
   }
+
+  const gameDetails = [
+    game.supportedDevices.length ? `<p><strong>Supported devices:</strong> ${escapeHtml(game.supportedDevices.join(', '))}</p>` : '',
+    game.screenOrientations.length ? `<p><strong>Orientation:</strong> ${escapeHtml(game.screenOrientations.join(' and '))}</p>` : '',
+    game.genres.length ? `<p><strong>Genres:</strong> ${escapeHtml(game.genres.join(', '))}</p>` : '',
+    game.inGamePurchases ? `<p><strong>In-game purchases:</strong> ${escapeHtml(game.inGamePurchases)}</p>` : '',
+    game.supportedLanguages.length ? `<p><strong>Languages:</strong> ${escapeHtml(game.supportedLanguages.join(', '))}</p>` : ''
+  ].filter(Boolean).join('');
+  if (gameDetails) {
+    sections.push(`<section class="info-card game-details" aria-labelledby="game-details-heading">
+      <h2 id="game-details-heading">Platforms, Genres &amp; Compatibility</h2>
+      ${gameDetails}
+    </section>`);
+  }
+  sections.push(renderScreenshots(game));
 
   return sections.join('\n');
 }
@@ -676,6 +859,25 @@ function renderQuestionCategory(heading, questions, paragraphs = [], items = [])
   return questions.length || paragraphs.length || items.length
     ? `<h3>${escapeHtml(heading)}</h3>${renderParagraphs(paragraphs)}${items.length ? renderList(items) : ''}${questions.length ? `<dl>${questions.map(item => `<dt>${escapeHtml(item.question)}</dt><dd>${escapeHtml(item.answer)}</dd>`).join('')}</dl>` : ''}`
     : '';
+}
+
+function renderScreenshots(game) {
+  if (!game.screenshots.length && !game.gameArtwork) return '';
+  const screenshots = game.screenshots.map((image, index) => `
+        <figure class="game-screenshot">
+          <img src="${escapeHtml(image)}" alt="${escapeHtml(`${game.title} Playgama preview`)}" loading="lazy" decoding="async" />
+          <figcaption>Official Playgama game preview</figcaption>
+        </figure>`).join('');
+  const artwork = game.gameArtwork && !game.screenshots.includes(game.gameArtwork)
+    ? `<figure class="game-screenshot game-artwork">
+          <img src="${escapeHtml(game.gameArtwork)}" alt="${escapeHtml(`${game.title} game icon`)}" loading="lazy" decoding="async" />
+          <figcaption>Game icon</figcaption>
+        </figure>`
+    : '';
+  return `<section class="info-card screenshot-card" aria-labelledby="screenshots-heading">
+      <h2 id="screenshots-heading">${escapeHtml(game.title)} Screenshots &amp; Artwork</h2>
+      <div class="screenshot-gallery">${screenshots}${artwork}</div>
+    </section>`;
 }
 
 function getBreadcrumbsHtml(game) {
@@ -696,9 +898,16 @@ function getGameSchema(game) {
       description: game.seoDescription || game.shortDescription || game.description,
       url: pageUrl,
       image: game.thumb,
-      gamePlatform: game.platforms,
-      genre: game.categories,
-      keywords: game.tags
+      gamePlatform: [...new Set([...game.platforms, ...game.supportedDevices])],
+      genre: [...new Set([...game.categories, ...game.genres])],
+      keywords: [...new Set([...game.tags, ...game.genres])],
+      video: game.videoUrl ? {
+        '@type': 'VideoObject',
+        name: `${game.title} gameplay video`,
+        description: `Watch gameplay from ${game.title}.`,
+        thumbnailUrl: game.thumb,
+        contentUrl: game.videoUrl
+      } : undefined
     },
     {
       '@type': 'BreadcrumbList',
@@ -1081,7 +1290,10 @@ function normalizeLegacyGamePages() {
 function generateGamePages() {
   // Read the JSON file and HTML template
   const gamesData = fs.readFileSync(FEED_FILE, 'utf8');
-  const games = JSON.parse(gamesData).map(normalizeGame);
+  const playgamaMetadata = loadPlaygamaMetadata();
+  const games = JSON.parse(gamesData)
+    .map(game => addPlaygamaMetadata(game, playgamaMetadata))
+    .map(normalizeGame);
   const template = fs.readFileSync('template.html', 'utf8');
   const homepageIdBySlug = new Map(loadHomepageGames().flatMap(game => {
     const match = String(game.iframeUrl || '').match(/^\/?games\/([^/]+)\.html$/);
@@ -1107,6 +1319,9 @@ function generateGamePages() {
 
     // 3. Replace placeholders with actual data
     const videoHtml = getVideoHtml(game);
+    const videoMeta = game.videoUrl
+      ? `<meta property="og:video" content="${escapeHtml(game.videoUrl)}" />\n  <meta property="og:video:type" content="video/mp4" />`
+      : '';
     const categoryLinks = game.categories.map(category =>
       `<a href="/${slugify(category)}-games/">${escapeHtml(category)} Games</a>`
     ).join('');
@@ -1126,6 +1341,7 @@ function generateGamePages() {
       .replaceAll('{{RELATED_CATEGORIES_HTML}}', categoryLinks)
       .replaceAll('{{JSON_LD}}', getGameSchema(game))
       .replaceAll('{{VIDEO_HTML}}', videoHtml)
+      .replaceAll('{{VIDEO_META}}', videoMeta)
       .replaceAll('{{RECOMMENDATIONS_HTML}}', getRecommendationsHtml(game, games, homepageVideosBySlug))
       .replaceAll('{{IMAGE_WIDTH}}', String(game.imageWidth))
       .replaceAll('{{IMAGE_HEIGHT}}', String(game.imageHeight));

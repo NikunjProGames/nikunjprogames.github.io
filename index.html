@@ -105,7 +105,6 @@
     .install-help-dialog p { color: var(--text-dim); line-height: 1.5; }
     .install-help-dialog button { margin-top: 1rem; }
   </style>
-</head>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet" />
@@ -323,29 +322,24 @@
       text-decoration: none;
       white-space: nowrap;
     }
+    .site-brand {
+      display: flex;
+      align-items: baseline;
+      min-width: 0;
+    }
+    .logo-tagline {
+      display: none;
+      margin-left: 0.45em;
+      color: var(--text-dim);
+      font: 600 0.62em 'Rajdhani', sans-serif;
+      letter-spacing: 0.04em;
+      -webkit-text-fill-color: var(--text-dim);
+      background: none;
+      animation: none;
+    }
     @keyframes logo-pulse {
       0%,100% { filter: drop-shadow(0 0 6px var(--purple-1)); }
       50% { filter: drop-shadow(0 0 18px var(--purple-1)) drop-shadow(0 0 30px var(--blue-1)); }
-    }
-
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 2rem;
-      align-items: center;
-    }
-    nav a {
-      color: var(--text-dim);
-      text-decoration: none;
-      font-family: 'Orbitron', sans-serif;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 1.5px;
-      transition: color 0.2s, text-shadow 0.2s;
-    }
-    nav a:hover, nav a.active {
-      color: var(--blue-1);
-      text-shadow: 0 0 8px var(--blue-1);
     }
 
     .nav-actions { display: flex; gap: 1rem; align-items: center; }
@@ -459,33 +453,6 @@
     }
     #auth-action-button[hidden] { display: none !important; }
 
-    /* Hamburger */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 4px;
-    }
-    .hamburger span {
-      display: block;
-      width: 24px; height: 2px;
-      background: var(--blue-1);
-      border-radius: 2px;
-      transition: transform 0.3s, opacity 0.3s, background 0.3s;
-      box-shadow: 0 0 6px var(--blue-1);
-    }
-    .hamburger:hover span { background: #ffffff; }
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    .hamburger.open { animation: hamburger-bounce 0.35s ease; }
-    @keyframes hamburger-bounce {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-4px); }
-      100% { transform: translateY(0); }
-    }
-
     @media (max-width: 960px) {
       header {
         display: flex;
@@ -523,56 +490,6 @@
         text-overflow: ellipsis;
         white-space: nowrap;
       }
-      .hamburger {
-        display: none;
-        justify-self: end;
-        z-index: 1001;
-      }
-      nav {
-        display: none;
-      }
-      nav.open {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        position: fixed;
-        inset: 60px 0 0 0;
-        min-height: calc(100vh - 60px);
-        background: rgba(6, 6, 18, 0.98);
-        backdrop-filter: blur(18px);
-        padding: 1.6rem 1.2rem 2rem;
-        z-index: 999;
-        overflow-y: auto;
-        opacity: 0;
-        transform: translateY(-18px);
-        transition: opacity 0.28s ease, transform 0.28s ease;
-        border-top: 1px solid rgba(139,0,255,0.2);
-      }
-      nav.open { opacity: 1; transform: translateY(0); }
-      nav.open ul {
-        display: flex;
-        flex-direction: column;
-        gap: 0.8rem;
-        padding: 0;
-        margin: 0;
-        width: 100%;
-        max-width: 300px;
-      }
-      nav.open li { width: 100%; }
-      nav.open a {
-        display: block;
-        width: 100%;
-        padding: 0.9rem 1rem;
-        border-radius: 12px;
-        background: rgba(255,255,255,0.05);
-        transition: transform 0.28s ease;
-        text-align: center;
-        font-size: 0.95rem;
-      }
-      nav.open a:hover {
-        background: rgba(0,191,255,0.18);
-      }
       .recent-toggle {
         padding: 0.55rem 1rem;
         font-size: 0.75rem;
@@ -596,7 +513,6 @@
         height: 58px;
       }
       #home { padding: 5.5rem 1.2rem 3rem; }
-      nav.open { inset: 58px 0 0 0; top: 58px; }
       #auth-action-button {
         padding: 0.5rem 0.9rem;
         font-size: 0.7rem;
@@ -629,7 +545,6 @@
         gap: 0.4rem;
       }
       #home { padding: 5.3rem 1rem 2.8rem; }
-      nav.open { inset: 56px 0 0 0; top: 56px; }
       .logo { font-size: 1.15rem; }
       #auth-action-button {
         padding: 0.45rem 0.8rem;
@@ -954,8 +869,8 @@
       padding: 4.5rem 2rem 3rem;
       position: relative;
       z-index: 2;
-      max-width: 1320px;
-      margin: 0 auto;
+      width: 100%;
+      max-width: none;
     }
     #trending::before {
       content: '';
@@ -1113,12 +1028,6 @@
       padding: 0.25rem 0.5rem;
       border-radius: 999px;
     }
-    .trending-score {
-      font-size: 0.7rem;
-      color: var(--text);
-      font-family: 'Orbitron', sans-serif;
-      font-weight: 700;
-    }
     .trending-name {
       font-family: 'Orbitron', sans-serif;
       font-size: 0.78rem;
@@ -1127,13 +1036,6 @@
       line-height: 1.3;
     }
 
-    .trending-players {
-      font-size: 0.72rem;
-      color: var(--text-dim);
-      display: flex;
-      align-items: center;
-      gap: 0.35rem;
-    }
     .trending-meta {
       display: flex;
       justify-content: space-between;
@@ -1647,15 +1549,9 @@
      HEADER
 ============================================================ -->
 <header>
-  <h1><a href="#trending" class="logo">PleyZ</a></h1>
-
-  <nav id="main-nav">
-    <ul>
-      <li><a href="#trending" class="active">Home</a></li>
-      <li><a href="#games">Games</a></li>
-      <li><a href="#about">About</a></li>
-    </ul>
-  </nav>
+  <h1 class="site-brand">
+    <a href="#trending" class="logo">PleyZ<span class="logo-tagline"> - Games Worth Playing</span></a>
+  </h1>
 
   <div class="nav-actions">
     <button id="random-game-button" class="btn btn-outline" type="button" aria-label="Play a random game">
@@ -1684,10 +1580,7 @@
     <button class="btn btn-outline" id="auth-action-button" onclick="openLoginModal()">
       <i class="fas fa-user"></i> Login
     </button>
-
-    <div class="hamburger" id="hamburger" onclick="toggleMobileNav()">
-      <span></span><span></span><span></span>
-    </div>
+    <div id="notification-center-slot"></div>
   </div>
 </header>
 
@@ -1713,11 +1606,11 @@
 <section id="trending">
   <div class="trending-intro">
     <div>
-      <div class="section-title">Your Next Pick</div>
+      <h2 class="section-title">Your Next Pick</h2>
       <div class="section-underline"></div>
     
     </div>
-    <div class="trending-badge"><i class="fas fa-bolt"></i> Popular on PleyZ</div>
+    <div class="trending-badge"><i class="fas fa-star"></i> Featured on PleyZ</div>
   </div>
   <div class="trending-slider">
     <button class="trending-arrow trending-arrow-previous" id="trending-previous" type="button" data-trending-direction="-1" aria-label="Show previous games" title="Previous games"><span aria-hidden="true">←</span></button>
@@ -1733,7 +1626,7 @@
 <section id="recommendations" aria-labelledby="recommendations-heading">
   <div class="discovery-heading">
     <div>
-      <div class="section-title" id="recommendations-heading">PleyZ Picks</div>
+      <h2 class="section-title" id="recommendations-heading">PleyZ Picks</h2>
       <div class="section-underline"></div>
       <p class="discovery-copy" id="recommendations-caption">A fresh mix from across the PleyZ library.</p>
     </div>
@@ -1743,9 +1636,9 @@
 </section>
 
 <section id="popular-country" aria-labelledby="popular-country-heading">
-  <div class="section-title" id="popular-country-heading">Popular in <span id="popular-country-name">your country</span> <span id="popular-country-flag" aria-hidden="true"></span></div>
+  <h2 class="section-title" id="popular-country-heading">Popular in <span id="popular-country-name">your country</span> <span id="popular-country-flag" aria-hidden="true"></span></h2>
   <div class="section-underline"></div>
-  <p class="discovery-copy">Popular games from PleyZ's current player trends.</p>
+  <p class="discovery-copy">Explore a rotating selection of games featured on PleyZ.</p>
   <div class="games-grid discovery-grid country-feature-grid" id="popular-country-grid"></div>
 </section>
 
@@ -1753,7 +1646,7 @@
      GAMES SECTION
 ============================================================ -->
 <section id="games">
-  <div class="section-title">All Games</div>
+  <h2 class="section-title">All Games</h2>
   <div class="section-underline"></div>
 
   <div class="game-search-wrap">
@@ -1822,7 +1715,7 @@
      LEADERBOARD SECTION
 ============================================================ -->
 <section id="leaderboard">
-  <div class="section-title">Leaderboard</div>
+  <h2 class="section-title">Leaderboard</h2>
   <div class="section-underline"></div>
   <p class="trending-copy" style="max-width:760px; margin:1rem auto 2rem;">
     Signed-in players receive 1 point each time a game opens. Existing scores and game counts remain on the leaderboard.
@@ -2175,7 +2068,6 @@ const GAMES = [
     categories: ["action", "boys"],
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/hazmob-fps-online-shooter/preview/76a02c8e7dbd4bd3a87bc87d868d6158?width=448",
     iframeUrl: "/games/hazmob-fps-online-shooter.html",
   },
@@ -2186,35 +2078,32 @@ const GAMES = [
     categories: ["action", "boys"],
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/rivals-fps-online-shooter/preview/2203a049014e4f6eaa4038ab696f6afa?width=448",
     iframeUrl: "/games/rivals-fps-online-shooter.html",
   },
-   { id:6, name:'GTA New York',      cat:'action', categories:['action','boys'],   color:'#FF0066', gradient:'linear-gradient(135deg,#ff0066,#7c3aed)', players:'0', imageUrl:'', iframeUrl:'gta-new-york.html', imageUrl:'GTA New York-512x512.jpg' },
-  { id:33, name:'Fire Truck Simulator',      cat:'puzzle',   color:'#FF0066', gradient:'linear-gradient(135deg,#ff0066,#7c3aed)', players:'0', imageUrl:'', iframeUrl:'fire-truck-simulator.html', imageUrl:'Fire Truck Rescue simulator-512x512.jpg' },
-{ id:30,  name:'Minecraft',        cat:'nostalgia',   color:'#8B00FF', gradient:'linear-gradient(135deg,#1a0030,#4a0080)', players:'12.4K', imageUrl:'minecraft.png', iframeUrl:'minecraft.html' },
-  { id:1,  name:'Temple Run',        cat:'nostalgia',   categories:['nostalgia','adventure','girls'], color:'#8B00FF', gradient:'linear-gradient(135deg,#1a0030,#4a0080)', players:'12.4K', imageUrl:'Templerun.png', iframeUrl:'temple-run.html' },
-   { id:32, name:'Rocket Goal',      cat:'puzzle',   color:'#FF0066', gradient:'linear-gradient(135deg,#ff0066,#7c3aed)', players:'0', imageUrl:'', iframeUrl:'rocket-goal-io.html', imageUrl:'rocket-goal.png' },
-  { id:2,  name:'Battle Dudes',       cat:'action',    categories:['action','boys'], color:'#0055C4', gradient:'linear-gradient(135deg,#001a3a,#004080)', players:'9.1K',  imageUrl:'battledudes.png', iframeUrl:'battledudes.html' },
-  { id:4,  name:'Subway Surfers',     cat:'endless',   color:'#FF8C00', gradient:'linear-gradient(135deg,#3a1a00,#804000)', players:'7.3K',  imageUrl:'subwaysurfers.png', iframeUrl:'subway-surfers.html' }, 
+   { id:6, name:'GTA New York',      cat:'action', categories:['action','boys'],   color:'#FF0066', gradient:'linear-gradient(135deg,#ff0066,#7c3aed)', imageUrl:'', iframeUrl:'gta-new-york.html', imageUrl:'GTA New York-512x512.jpg' },
+  { id:33, name:'Fire Truck Simulator',      cat:'puzzle',   color:'#FF0066', gradient:'linear-gradient(135deg,#ff0066,#7c3aed)', imageUrl:'', iframeUrl:'fire-truck-simulator.html', imageUrl:'Fire Truck Rescue simulator-512x512.jpg' },
+{ id:30,  name:'Minecraft',        cat:'nostalgia',   color:'#8B00FF', gradient:'linear-gradient(135deg,#1a0030,#4a0080)', imageUrl:'minecraft.png', iframeUrl:'minecraft.html' },
+  { id:1,  name:'Temple Run',        cat:'nostalgia',   categories:['nostalgia','adventure','girls'], color:'#8B00FF', gradient:'linear-gradient(135deg,#1a0030,#4a0080)', imageUrl:'Templerun.png', iframeUrl:'temple-run.html' },
+   { id:32, name:'Rocket Goal',      cat:'puzzle',   color:'#FF0066', gradient:'linear-gradient(135deg,#ff0066,#7c3aed)', imageUrl:'', iframeUrl:'rocket-goal-io.html', imageUrl:'rocket-goal.png' },
+  { id:2,  name:'Battle Dudes',       cat:'action',    categories:['action','boys'], color:'#0055C4', gradient:'linear-gradient(135deg,#001a3a,#004080)',  imageUrl:'battledudes.png', iframeUrl:'battledudes.html' },
+  { id:4,  name:'Subway Surfers',     cat:'endless',   color:'#FF8C00', gradient:'linear-gradient(135deg,#3a1a00,#804000)', imageUrl:'subwaysurfers.png', iframeUrl:'subway-surfers.html' },
     {
     id: 104,
     name: "Roblox Escape Prison Game",
     cat: "action",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/1-speed-escape-prison/big-preview/415c3326c7724e6cae83d74990cc3020?width=448",
     iframeUrl: "/games/1-speed-escape-prison.html",
     fullscreen: true,
   },
-  { id:15, name:'Stock Car Hero',          cat:'cars',        categories:['cars','racing','boys'], color:'#24B8FF', gradient:'linear-gradient(135deg,#003040,#008FB8)', players:'20.0K', imageUrl:'stock_car_hero.png', iframeUrl:'stock-car-hero.html' },
+  { id:15, name:'Stock Car Hero',          cat:'cars',        categories:['cars','racing','boys'], color:'#24B8FF', gradient:'linear-gradient(135deg,#003040,#008FB8)', imageUrl:'stock_car_hero.png', iframeUrl:'stock-car-hero.html' },
     {  id: 100,
     name: "Piece of Cake: Merge & Bake",
     cat: "puzzle",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/piece-of-cake-merge--bake/big-preview/4124b3ce37ab4b92b6a8ff1332c9eee8?width=448",
     iframeUrl: "/games/piece-of-cake-merge-bake.html",
     fullscreen: true,
@@ -2225,22 +2114,20 @@ const GAMES = [
     cat: "action",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/ragdoll-crashtest-throw-and-break/big-preview/806817717e62466a83cb4377d0fa92eb?width=448",
     iframeUrl: "/games/ragdoll-crash-test-throw-and-break.html",
     fullscreen: true,
   },
-  { id:8,  name:'Color Line',         cat:'strategy',   color:'#0068B8', gradient:'linear-gradient(135deg,#002030,#005080)', players:'6.5K',  imageUrl:'color_line.png', iframeUrl:'color-line.html' },
-  { id:9,  name:'Moto Road Rash',        cat:'racing',   categories:['racing','boys'], color:'#2E8B00', gradient:'linear-gradient(135deg,#1a2000,#405000)', players:'11.9K', imageUrl:'moto_road_rash_.png', iframeUrl:'moto-road-rash.html' },
-  { id:10, name:'FireBoy And WaterGirl-1',      cat:'strategy',   categories:['strategy','adventure','girls'], color:'#00A5D1', gradient:'linear-gradient(135deg,#003320,#006040)', players:'16.3K', imageUrl:'fireboy-and-watergirl.png', iframeUrl:'fireboyandwatergirl.html' },
-  { id:11, name:'Pacman',    cat:'',   color:'#9D50FF', gradient:'linear-gradient(135deg,#250040,#600090)', players:'19.8K', imageUrl:'pacman.png', iframeUrl:'pacman.html' },
+  { id:8,  name:'Color Line',         cat:'strategy',   color:'#0068B8', gradient:'linear-gradient(135deg,#002030,#005080)',  imageUrl:'color_line.png', iframeUrl:'color-line.html' },
+  { id:9,  name:'Moto Road Rash',        cat:'racing',   categories:['racing','boys'], color:'#2E8B00', gradient:'linear-gradient(135deg,#1a2000,#405000)', imageUrl:'moto_road_rash_.png', iframeUrl:'moto-road-rash.html' },
+  { id:10, name:'FireBoy And WaterGirl-1',      cat:'strategy',   categories:['strategy','adventure','girls'], color:'#00A5D1', gradient:'linear-gradient(135deg,#003320,#006040)', imageUrl:'fireboy-and-watergirl.png', iframeUrl:'fireboyandwatergirl.html' },
+  { id:11, name:'Pacman',    cat:'',   color:'#9D50FF', gradient:'linear-gradient(135deg,#250040,#600090)', imageUrl:'pacman.png', iframeUrl:'pacman.html' },
    {
     id: 123,
     name: "Sorcerers Refuge",
     cat: "adventure",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/sorcerers-refuge/big-preview/23c5e2a2597e4b71b1a01fc457170af8?width=448",
     width: "800",
     height: "450",
@@ -2259,7 +2146,6 @@ const GAMES = [
     cat: "horror",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/imposter-3d-online-horror/big_preview/c4a268f6d7234acaaebdd4a300253cf4?width=448",
     width: "800",
     height: "450",
@@ -2278,7 +2164,6 @@ const GAMES = [
     cat: "racing",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/moto-x3m/big_preview/6863e1c77f624087bae1d217cdf4c240?width=448",
     width: "800",
     height: "450",
@@ -2297,7 +2182,6 @@ const GAMES = [
     cat: "snake",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/snake-2077-glitch-war/big-preview/a197622a4bc540189401a9753ea98ba2?width=448",
     width: "800",
     height: "450",
@@ -2316,7 +2200,6 @@ const GAMES = [
     cat: "survival",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/dead-land-survival/big_preview/3ec05c224d064e1789d0a98fd4a9d048?width=448",
     width: "800",
     height: "450",
@@ -2335,7 +2218,6 @@ const GAMES = [
     cat: "music",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/zynpavo-rhythm-piano/big-preview/e1bd0b8cb6494eaebe6bab8da58cca25?width=448",
     width: "800",
     height: "450",
@@ -2354,7 +2236,6 @@ const GAMES = [
     cat: "racing",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/motorcycle-racer-road-mayhem/big_preview/172bc19cb4694ac3896516a315ee8499?width=448",
     width: "800",
     height: "450",
@@ -2373,7 +2254,6 @@ const GAMES = [
     cat: "sports",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/football-legends/big_preview/c21dbbb64fe940e0bcddd47fdedb966e?width=448",
     width: "800",
     height: "450",
@@ -2392,7 +2272,6 @@ const GAMES = [
     cat: "unblocked",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/block-blast-master/big_preview/e4e4f8e912d642bca61a30b4a590272f?width=448",
     width: "800",
     height: "450",
@@ -2411,7 +2290,6 @@ const GAMES = [
     cat: "fighting",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/stickman-kombat-2d/big_preview/4b027b6071e2495aad3ac02403e35a1a?width=448",
     width: "800",
     height: "450",
@@ -2430,7 +2308,6 @@ const GAMES = [
     cat: "space",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/supernova-the-charon-protocol/big_preview/01e886cf305a46b09285be84280d1c69?width=448",
     width: "800",
     height: "450",
@@ -2449,7 +2326,6 @@ const GAMES = [
     cat: "puzzle",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/merge-fruit-characters/big-preview/67ed315932de41d3bb6df8a037dc9dda?width=448",
     width: "800",
     height: "450",
@@ -2468,7 +2344,6 @@ const GAMES = [
     cat: "adventure",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/backrooms-craft/big_preview/34cec4a8a9af49fe98f613b4e57776a4?width=448",
     width: "800",
     height: "450",
@@ -2487,7 +2362,6 @@ const GAMES = [
     cat: "driving",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/crime-and-vice-city-police/big-preview/7ae0b72e2627499798611c4d25e6d9fe?width=448",
     width: "800",
     height: "450",
@@ -2506,7 +2380,6 @@ const GAMES = [
     cat: "hidden object",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/hidden-object-clues-and-mysteries/big-preview/918efb60143240eb99d962fecc6cdaf8?width=448",
     width: "800",
     height: "450",
@@ -2525,7 +2398,6 @@ const GAMES = [
     cat: "adventure",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/a-long-way-home/big-preview/b754165683fe4dae9e2cfb5b0b0ed906?width=448",
     width: "800",
     height: "450",
@@ -2544,7 +2416,6 @@ const GAMES = [
     cat: "bubble shooter",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/bubble-blast/big-preview/48be0e1ca5354daa8378d69daea53114?width=448",
     width: "800",
     height: "450",
@@ -2563,7 +2434,6 @@ const GAMES = [
     cat: "words",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/word-finder/big_preview/781af1adb04747a5b1fafedc05eef869?width=448",
     width: "800",
     height: "450",
@@ -2582,7 +2452,6 @@ const GAMES = [
     cat: "horror",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/the-tall-man/big_preview/cad21af835d348db83f9aace4ccca043?width=448",
     width: "800",
     height: "450",
@@ -2601,7 +2470,6 @@ const GAMES = [
     cat: "horror",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/the-secret-of-the-toy-factory/big_preview/ce41b593f2044ba197bc73f83d7cfc41?width=448",
     width: "800",
     height: "450",
@@ -2620,7 +2488,6 @@ const GAMES = [
     cat: "horror",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/backrooms-exit-protocol-0/big_preview/4f691ad7fdbb4ec3a0a45c781c0feea7?width=448",
     width: "800",
     height: "450",
@@ -2639,7 +2506,6 @@ const GAMES = [
     cat: "strategy",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/far-orion-new-worlds/big-preview/fcd5f2452bba4a86ae4d6176d707c03c?width=448",
     width: "800",
     height: "450",
@@ -2658,7 +2524,6 @@ const GAMES = [
     cat: "scary",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/last-night/big-preview/ecab9c788b4a4c678edaccc4bc9e46ea?width=448",
     width: "800",
     height: "450",
@@ -2677,7 +2542,6 @@ const GAMES = [
     cat: "horror",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/the-warlocks-prisoner/big-preview/7ca7579a0daa42f19382b84c761966c4?width=448",
     width: "800",
     height: "450",
@@ -2696,7 +2560,6 @@ const GAMES = [
     cat: "simulation",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/car-sales-empire-simulator/big_preview/c91ce59d4b5248f2b2631185c4ffd384?width=448",
     width: "800",
     height: "450",
@@ -2715,7 +2578,6 @@ const GAMES = [
     cat: "3d",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/traffic-rush-online/big_preview/8b5c9711e59d49f2a3bde681805443f4?width=448",
     width: "800",
     height: "450",
@@ -2734,7 +2596,6 @@ const GAMES = [
     cat: "3d",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/geometry-vibes-3d/big-preview/e7be47ba3f314b8e8222b723a2cb5a90?width=448",
     width: "800",
     height: "450",
@@ -2753,7 +2614,6 @@ const GAMES = [
     cat: "puzzle",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/tap-3d-wood-block-away/big-preview/86b5ffbb263241828684cd66c3fbb62a?width=448",
     width: "800",
     height: "450",
@@ -2772,7 +2632,6 @@ const GAMES = [
     cat: "car",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/car-crash-sandbox/big_preview/27cc6ed862204c288a8e0460ac7d5e09?width=448",
     width: "800",
     height: "450",
@@ -2791,7 +2650,6 @@ const GAMES = [
     cat: "car racing",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/street-race-master/big_preview/b3eb3fa57a8d4013943ac73b07f91926?width=448",
     width: "800",
     height: "450",
@@ -2810,7 +2668,6 @@ const GAMES = [
     cat: "arcade",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/cars-vs-zombies/big_preview/5749639b38d74457a4228e4b719dcb85?width=448",
     width: "800",
     height: "450",
@@ -2829,7 +2686,6 @@ const GAMES = [
     cat: "kids",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/tb-world/big_preview/af8743dadae94cfcb657a3580f7fc149?width=448",
     width: "800",
     height: "450",
@@ -2848,7 +2704,6 @@ const GAMES = [
     cat: "multiplayer",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/sprunki-world-online-rp-play-with-friends/big_preview/74a82adcbb1840e8a176f44666de2c91?width=448",
     width: "800",
     height: "450",
@@ -2867,7 +2722,6 @@ const GAMES = [
     cat: "american football",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/2-minute-football-qb-legend/big-preview/a2e92873908445478f326006daa1c0d5?width=448",
     width: "800",
     height: "450",
@@ -2886,7 +2740,6 @@ const GAMES = [
     cat: "mahjong",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/mahjong-lines/big_preview/96269817997541b48d15ed462ff66d47?width=448",
     width: "800",
     height: "450",
@@ -2905,7 +2758,6 @@ const GAMES = [
     cat: "puzzle",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/fruit-merge-playgama/big_preview/f88e2107d6554e668566d486ba0518a4?width=448",
     width: "800",
     height: "450",
@@ -2924,7 +2776,6 @@ const GAMES = [
     cat: "driving",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/city-bus-simulator-driving-games/big_preview/3dc328398fd44f93a76ae33906e189e6?width=448",
     width: "800",
     height: "450",
@@ -2943,7 +2794,6 @@ const GAMES = [
     cat: "horror",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/abandoned-mansion/big-preview/8467785cb4b841fca94e740451c367ea?width=448",
     width: "800",
     height: "450",
@@ -2962,7 +2812,6 @@ const GAMES = [
     cat: "action",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/war-v-path-of-the-survivor/big-preview/19a18f0d112e48a890061dd2464564c5?width=448",
     width: "800",
     height: "450",
@@ -2981,7 +2830,6 @@ const GAMES = [
     cat: "simulation",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/car-smash-simulator-crash--tune/big-preview/79a9ff5139df4ebeaa6f1dbf25c91171?width=448",
     width: "800",
     height: "450",
@@ -3000,7 +2848,6 @@ const GAMES = [
     cat: "skill",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/rooftop-run/big_preview/deae9057920049eb8d15e99aaf496d9e?width=448",
     width: "800",
     height: "450",
@@ -3019,7 +2866,6 @@ const GAMES = [
     cat: "fighting",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/ragdoll-fury/big_preview/b1a24e0746cf454d83bda559cdc7bbb2?width=448",
     width: "800",
     height: "450",
@@ -3038,7 +2884,6 @@ const GAMES = [
     cat: "cool games",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/aod--art-of-defense/big_preview/748d6b91ce3c4a309fd6df323115b434?width=448",
     width: "800",
     height: "450",
@@ -3057,7 +2902,6 @@ const GAMES = [
     cat: "scary",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/five-nights-at-christmas/big-preview/ff5f8b877e88481da903a946bc4eb1ff?width=448",
     width: "800",
     height: "450",
@@ -3076,7 +2920,6 @@ const GAMES = [
     cat: "car",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/car-destruction-king/big_preview/0ca8f4094cfd4826b9888ea1d094bdd7?width=448",
     width: "800",
     height: "450",
@@ -3095,7 +2938,6 @@ const GAMES = [
     cat: "puzzle",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/mahjong-classic/big-preview/730f65084d864a9baffefa86e110b106?width=448",
     iframeUrl: "/games/mahjong-classic.html",
     fullscreen: true,
@@ -3106,7 +2948,6 @@ const GAMES = [
     cat: "simulation",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/solar-smash/big-preview/678db982b1364f018e7c4fac3b1f4a44?width=448",
     iframeUrl: "/games/solar-smash.html",
     fullscreen: true,
@@ -3118,26 +2959,25 @@ const GAMES = [
     categories: ["strategy", "nostalgia"],
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/plants-vs-zombies-fusion-edition/big_preview/0a3f694494fd4b469429f9c8baf0cb93?width=448",
     iframeUrl: "/games/pvz-fusion-cheats.html",
     fullscreen: true,
   },
-  { id:12, name:'Cut The Rope ',       cat:'nostalgia', color:'#B36A00', gradient:'linear-gradient(135deg,#2a1500,#604000)', players:'8.7K',  imageUrl:'Cut_the_Rope.png', iframeUrl:'cut-the-rope.html' },
-  { id:13, name:'City Stunts',      cat:'cars',   categories:['cars','racing','boys'], color:'#FF3300', gradient:'linear-gradient(135deg,#3a0010,#8a0020)', players:'20.5K', imageUrl:'city-stunts.png', iframeUrl:'car-stunts.html' },
-    { id:16, name:'Car Rush',      cat:'cars',   categories:['cars','racing','boys'], color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'car-rush.png', iframeUrl:'car-rush.html' },
-      { id:17, name:'Killer Assassin',      cat:'puzzle',   color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'killer-assassin.png', iframeUrl:'killer-assassin.html' },
-       { id:18, name:'Bottle Flip',      cat:'puzzle',   color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'bottle-flip.png', iframeUrl:'bottle-flip.html' },
-        { id:19, name:'Under The Red Sky',      cat:'parkour',   categories:['parkour','adventure','boys'], color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'under-the-red-sky.png', iframeUrl:'under-the-red-sky.html' },
-         { id:21, name:'Happy Glass',      cat:'puzzle',   color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'happy-glass.png', iframeUrl:'happy-glass.html' },
-          { id:22, name:'Grey Hound Racing',      cat:'sports',   categories:['sports','boys','girls'], color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'grey-hound-racing.jpeg', iframeUrl:'greyhound-racing.html' },
-           { id:23, name:'Table Tennis World Tour',      cat:'sports',   categories:['sports','boys','girls'], color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'table-tennis-world-tour.png', iframeUrl:'table-tennis-world-tour.html' },
-           { id:24, name:'Flappy Dunk',      cat:'sports',   categories:['sports','boys','girls'], color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'flappy-dunk.png', iframeUrl:'flappy-dunk.html' },
-           { id:25, name:'Archery World Tour',      cat:'arcade',   categories:['arcade','boys'], color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'Archery-World-Tour.png', iframeUrl:'archery-world-tour.html' },
-            { id:26, name:'Crazy Cars',      cat:'cars',   categories:['cars','racing','boys'], color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'crazy-cars.png', iframeUrl:'crazy-cars.html' },
-            { id:27, name:'FIFA World Cup Game',      cat:'sports',   categories:['sports','boys','girls'], color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'fifa.png', iframeUrl:'fifa.html' },
-             { id:28, name:'Hole IO',      cat:'io',   color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'hole-io.png', iframeUrl:'hole-io.html' },
-              { id:29, name:'Square Bird',      cat:'puzzle',   color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'13.1K', imageUrl:'square-bird.png', iframeUrl:'square-bird.html' },
+  { id:12, name:'Cut The Rope ',       cat:'nostalgia', color:'#B36A00', gradient:'linear-gradient(135deg,#2a1500,#604000)',  imageUrl:'Cut_the_Rope.png', iframeUrl:'cut-the-rope.html' },
+  { id:13, name:'City Stunts',      cat:'cars',   categories:['cars','racing','boys'], color:'#FF3300', gradient:'linear-gradient(135deg,#3a0010,#8a0020)', imageUrl:'city-stunts.png', iframeUrl:'car-stunts.html' },
+    { id:16, name:'Car Rush',      cat:'cars',   categories:['cars','racing','boys'], color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', imageUrl:'car-rush.png', iframeUrl:'car-rush.html' },
+      { id:17, name:'Killer Assassin',      cat:'puzzle',   color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', imageUrl:'killer-assassin.png', iframeUrl:'killer-assassin.html' },
+       { id:18, name:'Bottle Flip',      cat:'puzzle',   color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', imageUrl:'bottle-flip.png', iframeUrl:'bottle-flip.html' },
+        { id:19, name:'Under The Red Sky',      cat:'parkour',   categories:['parkour','adventure','boys'], color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', imageUrl:'under-the-red-sky.png', iframeUrl:'under-the-red-sky.html' },
+         { id:21, name:'Happy Glass',      cat:'puzzle',   color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', imageUrl:'happy-glass.png', iframeUrl:'happy-glass.html' },
+          { id:22, name:'Grey Hound Racing',      cat:'sports',   categories:['sports','boys','girls'], color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', imageUrl:'grey-hound-racing.jpeg', iframeUrl:'greyhound-racing.html' },
+           { id:23, name:'Table Tennis World Tour',      cat:'sports',   categories:['sports','boys','girls'], color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', imageUrl:'table-tennis-world-tour.png', iframeUrl:'table-tennis-world-tour.html' },
+           { id:24, name:'Flappy Dunk',      cat:'sports',   categories:['sports','boys','girls'], color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', imageUrl:'flappy-dunk.png', iframeUrl:'flappy-dunk.html' },
+           { id:25, name:'Archery World Tour',      cat:'arcade',   categories:['arcade','boys'], color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', imageUrl:'Archery-World-Tour.png', iframeUrl:'archery-world-tour.html' },
+            { id:26, name:'Crazy Cars',      cat:'cars',   categories:['cars','racing','boys'], color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', imageUrl:'crazy-cars.png', iframeUrl:'crazy-cars.html' },
+            { id:27, name:'FIFA World Cup Game',      cat:'sports',   categories:['sports','boys','girls'], color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', imageUrl:'fifa.png', iframeUrl:'fifa.html' },
+             { id:28, name:'Hole IO',      cat:'io',   color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', imageUrl:'hole-io.png', iframeUrl:'hole-io.html' },
+              { id:29, name:'Square Bird',      cat:'puzzle',   color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', imageUrl:'square-bird.png', iframeUrl:'square-bird.html' },
 
                 {
     id: 97,
@@ -3145,7 +2985,6 @@ const GAMES = [
     cat: "action",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/basket-random/preview/fec7a407ebd246d8a893abaf7801622c?width=448",
     iframeUrl: "/games/basket-random.html",
     fullscreen: true,
@@ -3156,7 +2995,6 @@ const GAMES = [
     cat: "arcade",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/basketball-stars/big_preview/2e0653c710ad43e09c40d1ba5968e447?width=448",
     iframeUrl: "/games/basketball-stars.html",
     fullscreen: true,
@@ -3167,7 +3005,6 @@ const GAMES = [
     cat: "arcade",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/slope-3d/big_preview/6031cc0ff00947dda0627af51b3316de?width=448",
     iframeUrl: "/games/slope-3d.html",
     fullscreen: true,
@@ -3178,29 +3015,27 @@ const GAMES = [
     cat: "arcade",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/geometry-vibes/big-preview/cd0c9c56e9e54948b7eca6c49ef590b5?width=448",
     iframeUrl: "/games/geometry-vibes.html",
     fullscreen: true,
   },
-  { id:31, name:'Tic Tac Toe',      cat:'puzzle',   color:'#FF0066', gradient:'linear-gradient(135deg,#ff0066,#7c3aed)', players:'0', imageUrl:'', iframeUrl:'tic-tac-toe.html', imageUrl:'tic-tac-toe.png' },
-   { id:33, name:'Fire Truck Simulator',      cat:'puzzle',   color:'#FF0066', gradient:'linear-gradient(135deg,#ff0066,#7c3aed)', players:'0', imageUrl:'', iframeUrl:'fire-truck-simulator.html', imageUrl:'Fire Truck Rescue simulator-512x512.jpg' },
-   { id:34, name:'Home Cleaning Game',      cat:'puzzle',   color:'#FF0066', gradient:'linear-gradient(135deg,#ff0066,#7c3aed)', players:'0', imageUrl:'', iframeUrl:'cleaning-game.html', imageUrl:'Home Makeover Cleaning Game-512x512.jpg' },
-   { id:35, name:'FIFA World Cup Jigsaw', cat:'puzzle', color:'#00BFFF', gradient:'linear-gradient(135deg,#002f4d,#00a8ff)', players:'0', imageUrl:'https://img.gamemonetize.com/r4uajbh1wyesosbb12k2hi2tl4izze2m/512x384.jpg', iframeUrl:'fifa-world-cup-jigsaw.html' },
-   { id:36, name:'FIFA Score', cat:'sports', categories:['sports','boys','girls'], color:'#22C55E', gradient:'linear-gradient(135deg,#10361d,#2ea043)', players:'0', imageUrl:'https://img.gamemonetize.com/qjtd7ud3ysktv7ii5xcklblw7vjsujy4/512x384.jpg', iframeUrl:'fifa-score.html' },
-   { id:37, name:'FIFA Soccer 2023', cat:'sports', categories:['sports','boys','girls'], color:'#8B00FF', gradient:'linear-gradient(135deg,#2d0f4f,#7b2cbf)', players:'0', imageUrl:'https://img.gamemonetize.com/j6y0wq913tf5t6iswkgr5t70i4d0ouwz/512x384.jpg', iframeUrl:'fifa-soccer-2023.html' },
-   { id:39, name:'Poppy Strike 6', cat:'sports', categories:['sports','boys','girls'], color:'#8B00FF', gradient:'linear-gradient(135deg,#2d0f4f,#7b2cbf)', players:'0', imageUrl:'Poppy Strike 6-512x512.jpg', iframeUrl:'poppy-strike-6.html' },
-   { id:40, name:'Digital Circus Shooter', cat:'action', categories:['action','boys'], color:'#FF5C8A', gradient:'linear-gradient(135deg,#1f0a29,#ff4d6d)', players:'0', imageUrl:'circus game.png', iframeUrl:'digital-circus-shooter.html' },
-   { id:41, name:'DNA Evolution 3D', cat:'adventure', categories:['adventure','girls'], color:'#22C55E', gradient:'linear-gradient(135deg,#062b1d,#22c55e)', players:'0', imageUrl:'DNA Evolution 3D-512x512.jpg', iframeUrl:'dna-evolution-3d.html' },
-   { id:42, name:'Crowd Rush', cat:'arcade', color:'#F59E0B', gradient:'linear-gradient(135deg,#221100,#f59e0b)', players:'0', imageUrl:'Crowd Rush-512x512.jpg', iframeUrl:'crowd-rush.html' },
-   { id:43, name:'Storm Fighter 007', cat:'action', categories:['action','boys'], color:'#0EA5E9', gradient:'linear-gradient(135deg,#071c2d,#0ea5e9)', players:'0', imageUrl:'Storm Fighter007-512x512.jpg', iframeUrl:'storm-fighter007.html' },
+  { id:31, name:'Tic Tac Toe',      cat:'puzzle',   color:'#FF0066', gradient:'linear-gradient(135deg,#ff0066,#7c3aed)', imageUrl:'', iframeUrl:'tic-tac-toe.html', imageUrl:'tic-tac-toe.png' },
+   { id:33, name:'Fire Truck Simulator',      cat:'puzzle',   color:'#FF0066', gradient:'linear-gradient(135deg,#ff0066,#7c3aed)', imageUrl:'', iframeUrl:'fire-truck-simulator.html', imageUrl:'Fire Truck Rescue simulator-512x512.jpg' },
+   { id:34, name:'Home Cleaning Game',      cat:'puzzle',   color:'#FF0066', gradient:'linear-gradient(135deg,#ff0066,#7c3aed)', imageUrl:'', iframeUrl:'cleaning-game.html', imageUrl:'Home Makeover Cleaning Game-512x512.jpg' },
+   { id:35, name:'FIFA World Cup Jigsaw', cat:'puzzle', color:'#00BFFF', gradient:'linear-gradient(135deg,#002f4d,#00a8ff)', imageUrl:'https://img.gamemonetize.com/r4uajbh1wyesosbb12k2hi2tl4izze2m/512x384.jpg', iframeUrl:'fifa-world-cup-jigsaw.html' },
+   { id:36, name:'FIFA Score', cat:'sports', categories:['sports','boys','girls'], color:'#22C55E', gradient:'linear-gradient(135deg,#10361d,#2ea043)', imageUrl:'https://img.gamemonetize.com/qjtd7ud3ysktv7ii5xcklblw7vjsujy4/512x384.jpg', iframeUrl:'fifa-score.html' },
+   { id:37, name:'FIFA Soccer 2023', cat:'sports', categories:['sports','boys','girls'], color:'#8B00FF', gradient:'linear-gradient(135deg,#2d0f4f,#7b2cbf)', imageUrl:'https://img.gamemonetize.com/j6y0wq913tf5t6iswkgr5t70i4d0ouwz/512x384.jpg', iframeUrl:'fifa-soccer-2023.html' },
+   { id:39, name:'Poppy Strike 6', cat:'sports', categories:['sports','boys','girls'], color:'#8B00FF', gradient:'linear-gradient(135deg,#2d0f4f,#7b2cbf)', imageUrl:'Poppy Strike 6-512x512.jpg', iframeUrl:'poppy-strike-6.html' },
+   { id:40, name:'Digital Circus Shooter', cat:'action', categories:['action','boys'], color:'#FF5C8A', gradient:'linear-gradient(135deg,#1f0a29,#ff4d6d)', imageUrl:'circus game.png', iframeUrl:'digital-circus-shooter.html' },
+   { id:41, name:'DNA Evolution 3D', cat:'adventure', categories:['adventure','girls'], color:'#22C55E', gradient:'linear-gradient(135deg,#062b1d,#22c55e)', imageUrl:'DNA Evolution 3D-512x512.jpg', iframeUrl:'dna-evolution-3d.html' },
+   { id:42, name:'Crowd Rush', cat:'arcade', color:'#F59E0B', gradient:'linear-gradient(135deg,#221100,#f59e0b)', imageUrl:'Crowd Rush-512x512.jpg', iframeUrl:'crowd-rush.html' },
+   { id:43, name:'Storm Fighter 007', cat:'action', categories:['action','boys'], color:'#0EA5E9', gradient:'linear-gradient(135deg,#071c2d,#0ea5e9)', imageUrl:'Storm Fighter007-512x512.jpg', iframeUrl:'storm-fighter007.html' },
   {
     id: 44,
     name: "Speen",
     cat: "multiplayer",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://img.gamemonetize.com/fwiozook1vr9lw7duxy81zup5676u7bj/512x384.jpg",
     iframeUrl: "/games/speen.html"
   },
@@ -3210,7 +3045,6 @@ const GAMES = [
     cat: "simulation",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/backfill/game-86496/preview/57449a8aeb08b058814fb911b0c15014c583f10801e7fa2f4c986e6743c4913c?width=448",
     iframeUrl: "/games/beam-drive-car-crash-test-simulator.html",
     fullscreen: true,
@@ -3221,7 +3055,6 @@ const GAMES = [
     cat: "multiplayer",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://img.gamemonetize.com/gpnthl10ris6862m1lrywpqk8gc4zk4v/512x384.jpg",
     iframeUrl: "/games/music-night-battle-rhythm-game.html"
   },
@@ -3232,7 +3065,6 @@ const GAMES = [
     categories: ["sports", "boys", "girls"],
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://img.gamemonetize.com/l0nqbs09szfpxezuy44h886ecqpomll5/512x384.jpg",
     iframeUrl: "/games/wiggly-worm-race.html"
   },
@@ -3242,7 +3074,6 @@ const GAMES = [
     cat: "multiplayer",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://img.gamemonetize.com/cybh6ym22ww2ehlpu23d6azrudls31ar/512x384.jpg",
     iframeUrl: "/games/stickman-trivia-fall-io.html"
   },
@@ -3252,7 +3083,6 @@ const GAMES = [
     cat: "multiplayer",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://img.gamemonetize.com/f6ung9e7lfninu1957spejeihzprdusb/512x384.jpg",
     iframeUrl: "/games/castle-wars-legacy.html"
   },
@@ -3262,7 +3092,6 @@ const GAMES = [
     cat: "multiplayer",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://img.gamemonetize.com/f1e896emfy104h8j8higjjdkcqeqvtau/512x384.jpg",
     iframeUrl: "/games/guardz-io.html"
   },
@@ -3272,7 +3101,6 @@ const GAMES = [
     cat: "racing",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://img.gamemonetize.com/iv0siadzdl75mq4brnh2p63bjdomi3jt/512x384.jpg",
     iframeUrl: "/games/robot-astro-party.html"
   },
@@ -3282,7 +3110,6 @@ const GAMES = [
     cat: "puzzle",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://img.gamemonetize.com/y4wmrpbd3v374mr8z6vtd97bwbo4kc82/512x384.jpg",
     iframeUrl: "/games/incoword.html"
   },
@@ -3292,7 +3119,6 @@ const GAMES = [
     cat: "multiplayer",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://img.gamemonetize.com/z41q0ycg5i8u33rqy7sfjcedpak3e7zz/512x384.jpg",
     iframeUrl: "/games/blockscape-io.html"
   },
@@ -3302,7 +3128,6 @@ const GAMES = [
     cat: "puzzle",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/numicolor/big-preview/ad1c290e65cb4e1b8a747cb2b51de044?width=448",
     iframeUrl: "/games/numicolor.html",
     fullscreen: true,
@@ -3313,7 +3138,6 @@ const GAMES = [
     cat: "multiplayer",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://img.gamemonetize.com/o265mdiouhnx82t87q3p0t5jgspwsdoy/512x384.jpg",
     iframeUrl: "/games/quiz-runner-io.html"
   },
@@ -3323,7 +3147,6 @@ const GAMES = [
     cat: "multiplayer",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://img.gamemonetize.com/7zwgvkvq609jq0jk7tpfe10bncofyj5o/512x384.jpg",
     iframeUrl: "/games/santa-matching-game.html"
   },
@@ -3334,7 +3157,6 @@ const GAMES = [
     cat: "multiplayer",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://img.gamemonetize.com/ts6iu4xqkctvpkau5yk4hwdkr3nwbsn7/512x384.jpg",
     iframeUrl: "/games/carrom-pro.html"
   },
@@ -3344,7 +3166,6 @@ const GAMES = [
     cat: "multiplayer",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://img.gamemonetize.com/at7gjto5axuv0mv7m4ain5pll3qmutcz/512x384.jpg",
     iframeUrl: "/games/whot-the-ultimate-nigerian-card-game.html"
   },
@@ -3355,7 +3176,6 @@ const GAMES = [
     categories: ["sports", "boys", "girls"],
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://img.gamemonetize.com/pir55cwoygvsus9az7d5zyxd6gra48dh/512x384.jpg",
     iframeUrl: "/games/english-checkers.html"
   },
@@ -3365,7 +3185,6 @@ const GAMES = [
     cat: "multiplayer",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://img.gamemonetize.com/cx9ykv4xl6wlfq6vd9odkn68e6zenz7s/512x384.jpg",
     iframeUrl: "/games/clonium.html"
   },
@@ -3375,7 +3194,6 @@ const GAMES = [
     cat: "multiplayer",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://img.gamemonetize.com/7o8qtn59e5ejushl2s6bp52nbcgiu44x/512x384.jpg",
     iframeUrl: "/games/fall-guys-unblocked-web-multiplayer.html"
   },
@@ -3385,7 +3203,6 @@ const GAMES = [
     cat: "multiplayer",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://img.gamemonetize.com/np11v2111dvriy3bgljgr99a8qo2l8vi/512x384.jpg",
     iframeUrl: "/games/battle-swat-vs-mercenary-remaster.html"
   },
@@ -3395,7 +3212,6 @@ const GAMES = [
     cat: "multiplayer",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://img.gamemonetize.com/gw00mqn2tqrl78k76v4bug5o2ho9qng8/512x384.jpg",
     iframeUrl: "/games/pga-toons.html"
   },
@@ -3405,7 +3221,6 @@ const GAMES = [
     cat: "multiplayer",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://img.gamemonetize.com/tg44gsgkrah9ash957sdnj6jg2oeyn75/512x384.jpg",
     iframeUrl: "/games/pga3-zombie.html"
   },
@@ -3415,7 +3230,6 @@ const GAMES = [
     cat: "multiplayer",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://img.gamemonetize.com/u1n5ttd87g2a326o5b2pn1wb9ntpx33f/512x384.jpg",
     iframeUrl: "/games/paws-off-my-clues.html"
   },
@@ -3425,7 +3239,6 @@ const GAMES = [
     cat: "multiplayer",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://img.gamemonetize.com/yek6als54qfbxd4vx2h26nuq55rt7gt8/512x384.jpg",
     iframeUrl: "/games/tic-tac-toe-with-ai-and-multiplayer.html"
   },
@@ -3435,7 +3248,6 @@ const GAMES = [
     cat: "racing",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://img.gamemonetize.com/vlhloqzu0cvn1apzoyq9vwycgddt3fxn/512x384.jpg",
     iframeUrl: "/games/balloon-heroes-run-and-rise.html"
   },
@@ -3445,7 +3257,6 @@ const GAMES = [
     cat: "strategy",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/idle-airport-tycoon/big-preview/cf42eed8120a4f3f9fa4d25809bc4ab1?width=448",
     iframeUrl: "/games/idle-airport-tycoon.html",
     fullscreen: true,
@@ -3456,7 +3267,6 @@ const GAMES = [
     cat: "girls",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/diy-phone-case-maker/big-preview/041992ee7d4b4937b7758c8d1ab8c438?width=448",
     iframeUrl: "/games/diy-phone-case-maker.html",
     fullscreen: true,
@@ -3467,7 +3277,6 @@ const GAMES = [
     cat: "arcade",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/golf-orbit/big-preview/e7f203e28b0745d880d1c0a995e9b213?width=448",
     iframeUrl: "/games/golf-orbit.html",
     fullscreen: true,
@@ -3478,7 +3287,6 @@ const GAMES = [
     cat: "strategy",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/plants-vs-zombies-hybrids/big_preview/f760a2d2906a4e8e93795c3e674d5c4f?width=448",
     iframeUrl: "/games/plants-vs-zombies-hybrids.html",
     fullscreen: true,
@@ -3489,7 +3297,6 @@ const GAMES = [
     cat: "arcade",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/burger-restaurant-simulator-3d/big_preview/b4cbcd2693594ae1a4e6aa672025365c?width=448",
     iframeUrl: "/games/burger-restaurant-simulator-3d.html",
     fullscreen: true,
@@ -3500,7 +3307,6 @@ const GAMES = [
     cat: "puzzle",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/good-sort-master/big-preview/87153c5702e14ce994b208df2c0a5f61?width=448",
     iframeUrl: "/games/good-sort-master-triple-match.html",
     fullscreen: true,
@@ -3511,7 +3317,6 @@ const GAMES = [
     cat: "two player",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/master-chess/big-preview/52cdd471a5044f1e94c36787ee523746?width=448",
     iframeUrl: "/games/master-chess.html",
     fullscreen: true,
@@ -3522,7 +3327,6 @@ const GAMES = [
     cat: "puzzle",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/find-the-frog--hidden-objects/big_preview/541792f4c5354ef88be0646eb9be4b1b?width=448",
     iframeUrl: "/games/find-the-frog-hidden-objects.html",
     fullscreen: true,
@@ -3533,7 +3337,6 @@ const GAMES = [
     cat: "action",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/driver-club-highway-racing/big-preview/037ce11afe4f4d58a0f93a6339db96b5?width=448",
     iframeUrl: "/games/driver-club-highway-racing.html",
     fullscreen: true,
@@ -3544,7 +3347,6 @@ const GAMES = [
     cat: "puzzle",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/nuts-puzzle-sort-by-color/big_preview/faab3ed519024179b5a31afb72cdf675?width=448",
     iframeUrl: "/games/nuts-puzzle-sort-by-color.html",
     fullscreen: true,
@@ -3555,7 +3357,6 @@ const GAMES = [
     cat: "action",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/special-ops/big_preview/379c25433de24d13afadf693d918e11e?width=448",
     iframeUrl: "/games/special-ops-go.html",
     fullscreen: true,
@@ -3566,7 +3367,6 @@ const GAMES = [
     cat: "strategy",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/plants-vs-zombies-fusion-mode/big-preview/df5ba67f240a40b18d46d2d3d57b8400?width=448",
     iframeUrl: "/games/plants-vs-zombies-fusion-mode.html",
     fullscreen: true,
@@ -3577,7 +3377,6 @@ const GAMES = [
     cat: "adventure",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/hedgies/big_preview/82348afa3e7b4db0bf915c835c40a8bd?width=448",
     iframeUrl: "/games/hedgies.html",
     fullscreen: true,
@@ -3588,7 +3387,6 @@ const GAMES = [
     cat: "multiplayer",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://img.gamemonetize.com/gkeofcoqengjzxlw0b09f2qrng35egbi/512x384.jpg",
     iframeUrl: "/games/iron-legion.html"
   },
@@ -3598,7 +3396,6 @@ const GAMES = [
     cat: "multiplayer",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://img.gamemonetize.com/yh0n2bobl4i5wdm0z43l7rhow2nk62qy/512x384.jpg",
     iframeUrl: "/games/super-sprunki-adventure-game.html"
   },
@@ -3608,7 +3405,6 @@ const GAMES = [
     cat: "racing",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://img.gamemonetize.com/bivqu9s6efq0gk7rknnqlad3qw0ncizt/512x384.jpg",
     iframeUrl: "/games/run-guys-knockout-royale.html"
   },
@@ -3618,7 +3414,6 @@ const GAMES = [
     cat: "racing",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://img.gamemonetize.com/2zzd4eaozs2hipxphec84xoac3sagofk/512x384.jpg",
     iframeUrl: "/games/online-cats-multiplayer-park.html"
   },
@@ -3628,7 +3423,6 @@ const GAMES = [
     cat: "multiplayer",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://img.gamemonetize.com/e8vfdarke5qjx5uemefer4jtnbo3dc01/512x384.jpg",
     iframeUrl: "/games/ludo-king-offline-ludo-game.html"
   },
@@ -3638,7 +3432,6 @@ const GAMES = [
     cat: "multiplayer",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://img.gamemonetize.com/qf4hzartah4bf6ewbpelfx4dmz1qql4a/512x384.jpg",
     iframeUrl: "/games/snake-war-multiplayer.html"
   },
@@ -3648,7 +3441,6 @@ const GAMES = [
     cat: "shooting",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://img.gamemonetize.com/lbj1gbsu0l7j8jdaih6a3yqibr9xtgu2/512x384.jpg",
     iframeUrl: "/games/counter-terror-3d.html"
   },
@@ -3658,7 +3450,6 @@ const GAMES = [
     cat: "shooting",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://img.gamemonetize.com/s0e0jqx8z8e8s5n9dshww2gexamrw0cm/512x384.jpg",
     iframeUrl: "/games/sure-shot.html"
   },
@@ -3668,7 +3459,6 @@ const GAMES = [
     cat: "racing",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://img.gamemonetize.com/dx1obtwhyn14plnk6inxzny5295onzl5/512x384.jpg",
     iframeUrl: "/games/free-rally-vice.html"
   },
@@ -3678,7 +3468,6 @@ const GAMES = [
     cat: "multiplayer",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://img.gamemonetize.com/i5povrpxi9gwdyq2d9zr1haw3cm0il6h/512x384.jpg",
     iframeUrl: "/games/gorilla-multiplayer.html"
   },
@@ -3688,7 +3477,6 @@ const GAMES = [
     cat: "multiplayer",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://img.gamemonetize.com/d2gokou3otdsj4x3y2l09gxx4ktk1okw/512x384.jpg",
     iframeUrl: "/games/turkish-draughts.html"
   },
@@ -3698,7 +3486,6 @@ const GAMES = [
     cat: "multiplayer",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://img.gamemonetize.com/6677ao3k189n72jdo2h94kdvvkmo6c72/512x384.jpg",
     iframeUrl: "/games/sunny-fields.html"
   },
@@ -3708,7 +3495,6 @@ const GAMES = [
     cat: "multiplayer",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://img.gamemonetize.com/iquipc0k9ijyjxw1pxc0q271kxb4t7gn/512x384.jpg",
     iframeUrl: "/games/jump-race.html"
   },
@@ -3718,7 +3504,6 @@ const GAMES = [
     cat: "puzzle",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://img.gamemonetize.com/3e4hk4zpotozwuy9ehh5uy0xzeaabp3k/512x384.jpg",
     iframeUrl: "/games/qolor-2048.html"
   },
@@ -3728,7 +3513,6 @@ const GAMES = [
     cat: "multiplayer",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://img.gamemonetize.com/l3njgmefn0e3h9ih3zyhyctgjj2jlpsv/512x384.jpg",
     iframeUrl: "/games/dominoes-classic-duel.html"
   },
@@ -3738,7 +3522,6 @@ const GAMES = [
     cat: "puzzle",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://img.gamemonetize.com/8g5l1zycbzl4d95ho3kztawxu1cjrz0a/512x384.jpg",
     iframeUrl: "/games/animerge.html"
   },
@@ -3748,7 +3531,6 @@ const GAMES = [
     cat: "shooting",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://img.gamemonetize.com/h5hc9ltwjo3sk2g2upo4su465kf1kkgz/512x384.jpg",
     iframeUrl: "/games/multiplayer-team-death-match.html"
   },
@@ -3758,7 +3540,6 @@ const GAMES = [
     cat: "puzzle",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://img.gamemonetize.com/9dfjnm3ihlvt9h0yxblmdflszkbanpc2/512x384.jpg",
     iframeUrl: "/games/tafl-viking-chess.html"
   },
@@ -3768,7 +3549,6 @@ const GAMES = [
     cat: "multiplayer",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://img.gamemonetize.com/l28ng8jar2mopyfsls1ufwi7zm9ml4zi/512x384.jpg",
     iframeUrl: "/games/popaloon.html"
   },
@@ -3778,7 +3558,6 @@ const GAMES = [
     cat: "racing",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://img.gamemonetize.com/c8p1307f1u9vsd1njv8qswqfomtayqgl/512x384.jpg",
     iframeUrl: "/games/sprunki-drift-multiplayer.html"
   },
@@ -3788,7 +3567,6 @@ const GAMES = [
     cat: "multiplayer",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://img.gamemonetize.com/fzxidkarnp7ykiii4mot05y6nfwt8h3w/512x384.jpg",
     iframeUrl: "/games/greedy-snake-multiplayer-duel.html"
   },
@@ -3798,7 +3576,6 @@ const GAMES = [
     cat: "puzzle",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://img.gamemonetize.com/slrxe38x6845ol68bkcrtet7yqe728g9/512x384.jpg",
     iframeUrl: "/games/gomoku-five-stones-in-a-row.html"
   },
@@ -3808,7 +3585,6 @@ const GAMES = [
     cat: "multiplayer",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://img.gamemonetize.com/q9xrmuceu30pey8llzop5cr0p1p2fbx9/512x384.jpg",
     iframeUrl: "/games/survev-io.html"
   },
@@ -3818,7 +3594,6 @@ const GAMES = [
     cat: "multiplayer",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://img.gamemonetize.com/cxu4dpr5uspgzim70lf6t4p6milazwr0/512x384.jpg",
     iframeUrl: "/games/battle-jitsu.html"
   },
@@ -3828,7 +3603,6 @@ const GAMES = [
     cat: "puzzle",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://img.gamemonetize.com/594795s0fh64izkmnelrpracbmz1we3t/512x384.jpg",
     iframeUrl: "/games/giveaway-checkers.html"
   },
@@ -3838,7 +3612,6 @@ const GAMES = [
     cat: "arcade",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/backfill/game-99645/preview/90df3206f7f0c706e6431b9ae58fc331d0ed13a11e547ce0271b720ff82e6b21?width=448",
     iframeUrl: "/games/geometry-arrow-2.html",
     fullscreen: true,
@@ -3849,7 +3622,6 @@ const GAMES = [
     cat: "arcade",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/backfill/game-109351/preview/b0afdef34402ca9cc780be5207be4cbfe8b640b6cd70d6626c7cec02741a4e3c?width=448",
     iframeUrl: "/games/cube-snake-2048.html",
     fullscreen: true,
@@ -3860,7 +3632,6 @@ const GAMES = [
     cat: "obby",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/tower-of-asmr/big_preview/d0af2a29d05641e58121ccfc1eed52dc?width=448",
     width: "800",
     height: "450",
@@ -3880,7 +3651,6 @@ const GAMES = [
     cat: "3d",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/parkour-runner-3d/big-preview/5b3d8e54dbce43c2a0426fbfe0c26b19?width=448",
     width: "800",
     height: "450",
@@ -3900,7 +3670,6 @@ const GAMES = [
     cat: "gun",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/road-chase-shooter-realistic-guns/big-preview/6e87b1320c124a7f8ddd5034b7ea1d38?width=448",
     width: "800",
     height: "450",
@@ -3920,7 +3689,6 @@ const GAMES = [
     cat: "racing",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/deadly-descent/big-preview/cd3969f230d54e6abe01716483d55c8a?width=448",
     width: "800",
     height: "450",
@@ -3940,7 +3708,6 @@ const GAMES = [
     cat: "match 3",
     color: "#0057B8",
     gradient: "linear-gradient(135deg,#001530,#003080)",
-    players: "0",
     imageUrl: "https://static.playgama.com/p-img/pg/vega-mix-2-adventure/big-preview/46f5bcaca15b411382afc96ac1c38132?width=448",
     width: "800",
     height: "450",
@@ -3989,23 +3756,24 @@ const GAME_PREVIEW_VIDEOS = {
   121: 'https://static.playgama.com/p-video/9bc8ad41499c4002aa3e17049bb4f3bc/orig_length_h320.mp4',
   122: 'https://static.playgama.com/p-video/5190b1fcdbba4021a45c3930c54161e2/orig_length_h320.mp4',
   96: 'https://static.playgama.com/p-video/5b84237660d746b7bd76be4e60bdba3a/orig_length_h320.mp4',
-  99: 'https://static.playgama.com/p-video/c8ec011435b84bb3921bb39ff64b0973/orig_length_h320.mp4'
+  99: 'https://static.playgama.com/p-video/c8ec011435b84bb3921bb39ff64b0973/orig_length_h320.mp4',
+  168: 'https://static.playgama.com/p-video/897c9cffa54f408488ae9e1725baa889/orig_length_h320.mp4'
 };
 
 const TRENDING = [
-  { id:95,  name:'Hazmob FPS: Online Shooter',    color:'#008840', gradient:'linear-gradient(135deg,#003300,#006600)', players:'18.7K' },
-  { id:94, name:'RIVALS FPS: Online Shooter', color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)', players:'16.3K' },
-  { id:6, name:'GTA New York', color:'#FF0066', gradient:'linear-gradient(135deg,#3f0d3d,#ff0066)', players:'17.2K' },
-  { id:9, name:'Moto Road Rash', color:'#2E8B00', gradient:'linear-gradient(135deg,#1a2000,#405000)', players:'16.1K' },
-  { id:30, name:'Minecraft', color:'#00BFFF', gradient:'linear-gradient(135deg,#001a3a,#004080)', players:'12.4K' },
-  { id:1, name:'Temple Run',     color:'#FF3300', gradient:'linear-gradient(135deg,#3a0010,#8a0020)', players:'20.5K' },
-  { id:4, name:'Subway Surfers',   color:'#9D50FF', gradient:'linear-gradient(135deg,#250040,#600090)', players:'19.8K' },
-  { id:2,  name:'Battledudes', color:'#5B2BFF', gradient:'linear-gradient(135deg,#1a003a,#500090)', players:'22.1K' },
-  { id:10,  name:'Fireboy And Watergirl',      color:'#A100FF', gradient:'linear-gradient(135deg,#300030,#800060)', players:'14.2K' },
-  { id:11,  name:'Pacman',      color:'#A100FF', gradient:'linear-gradient(135deg,#300030,#800060)', players:'14.2K' },
-  { id:15, name:'Stock Car Hero', color:'#24B8FF', gradient:'linear-gradient(135deg,#0e2230,#24b8ff)', players:'16.8K' },
-  { id:37, name:'FIFA Soccer 2023', color:'#8B00FF', gradient:'linear-gradient(135deg,#2d0f4f,#7b2cbf)', players:'14.6K' },
-  { id:41, name:'DNA Evolution 3D', color:'#22C55E', gradient:'linear-gradient(135deg,#062b1d,#22c55e)', players:'13.4K' },
+  { id:95,  name:'Hazmob FPS: Online Shooter',    color:'#008840', gradient:'linear-gradient(135deg,#003300,#006600)' },
+  { id:94, name:'RIVALS FPS: Online Shooter', color:'#0057B8', gradient:'linear-gradient(135deg,#001530,#003080)' },
+  { id:6, name:'GTA New York', color:'#FF0066', gradient:'linear-gradient(135deg,#3f0d3d,#ff0066)' },
+  { id:9, name:'Moto Road Rash', color:'#2E8B00', gradient:'linear-gradient(135deg,#1a2000,#405000)' },
+  { id:30, name:'Minecraft', color:'#00BFFF', gradient:'linear-gradient(135deg,#001a3a,#004080)' },
+  { id:1, name:'Temple Run',     color:'#FF3300', gradient:'linear-gradient(135deg,#3a0010,#8a0020)' },
+  { id:4, name:'Subway Surfers',   color:'#9D50FF', gradient:'linear-gradient(135deg,#250040,#600090)' },
+  { id:2,  name:'Battledudes', color:'#5B2BFF', gradient:'linear-gradient(135deg,#1a003a,#500090)' },
+  { id:10,  name:'Fireboy And Watergirl',      color:'#A100FF', gradient:'linear-gradient(135deg,#300030,#800060)' },
+  { id:11,  name:'Pacman',      color:'#A100FF', gradient:'linear-gradient(135deg,#300030,#800060)' },
+  { id:15, name:'Stock Car Hero', color:'#24B8FF', gradient:'linear-gradient(135deg,#0e2230,#24b8ff)' },
+  { id:37, name:'FIFA Soccer 2023', color:'#8B00FF', gradient:'linear-gradient(135deg,#2d0f4f,#7b2cbf)' },
+  { id:41, name:'DNA Evolution 3D', color:'#22C55E', gradient:'linear-gradient(135deg,#062b1d,#22c55e)' },
 ];
 
 function createGameIconUrl(game) {
@@ -4413,7 +4181,8 @@ function renderRecommendedGames() {
   const recommendationPool = mood?.terms.length ? matchingMoodGames : ranked;
   const recommendations = [];
   const categoryUse = new Map();
-  while (recommendationPool.length && recommendations.length < 14) {
+  const recommendationLimit = window.matchMedia('(min-width: 1800px)').matches ? 17 : 14;
+  while (recommendationPool.length && recommendations.length < recommendationLimit) {
     let bestIndex = 0;
     let bestScore = -Infinity;
     recommendationPool.forEach((item, index) => {
@@ -4481,6 +4250,9 @@ function renderRecommendedGames() {
     sessionStorage.setItem('pleyz_recommendations_shown', JSON.stringify([...shown].slice(-80)));
   } catch (_) {}
 }
+
+const recommendationViewport = window.matchMedia('(min-width: 1800px)');
+recommendationViewport.addEventListener('change', renderRecommendedGames);
 
 let popularCountryReady = false;
 
@@ -4599,20 +4371,18 @@ function renderTrending() {
     card.className = `trending-card${index === 0 ? ' featured' : ''}`;
     card.onclick = () => openGame(g.id);
     card.innerHTML = `
-      <div class="hot-badge"><i class="fas fa-fire"></i> HOT</div>
+      <div class="hot-badge"><i class="fas fa-star"></i> PICK</div>
       <div class="trending-thumb" style="background:${g.gradient};">
         ${createGameImageMarkup(game)}
       </div>
       <div class="trending-info">
         <div class="trending-topline">
-          <span class="trending-pill">${index === 0 ? 'Featured' : 'Rising'}</span>
-          <span class="trending-score">${g.players}</span>
+          <span class="trending-pill">${index === 0 ? 'Featured' : 'PleyZ pick'}</span>
         </div>
         <div class="trending-name">${g.name}</div>
-        <div class="trending-players"><i class="fas fa-users" style="color:var(--blue-1)"></i> ${g.players} playing</div>
         <div class="trending-meta">
           <span>Instant play</span>
-          <span>Top rated</span>
+          <span>${getGameCategories(game)[0] || 'Games'}</span>
         </div>
       </div>`;
     row.appendChild(card);
@@ -4694,10 +4464,6 @@ document.getElementById('game-search').addEventListener('input', () => {
 /* ============================================================
    MOBILE NAV
 ============================================================ */
-function toggleMobileNav() {
-  document.getElementById('main-nav').classList.toggle('open');
-  document.getElementById('hamburger').classList.toggle('open');
-}
 function setMobileNavActive(button) {
   document.querySelectorAll('.mobile-nav-item').forEach(item => item.classList.remove('active'));
   button?.classList.add('active');
@@ -4711,10 +4477,6 @@ function mobileNavSearch(button) {
   document.getElementById('games')?.scrollIntoView({ behavior: 'smooth' });
   window.setTimeout(() => document.getElementById('game-search')?.focus(), 350);
 }
-function mobileNavLiked(button) {
-  setMobileNavActive(button);
-  toggleRecentPanel(true, 'liked');
-}
 function mobileNavAuth(button) {
   setMobileNavActive(button);
   if (getCurrentUser()) openAccountPage();
@@ -4723,30 +4485,6 @@ function mobileNavAuth(button) {
 window.addEventListener('scroll', () => {
   document.querySelector('header').classList.toggle('scrolled', window.scrollY > 18);
 });
-// Close on link click
-document.querySelectorAll('nav a').forEach(a => {
-  a.addEventListener('click', () => {
-    document.getElementById('main-nav').classList.remove('open');
-    document.getElementById('hamburger').classList.remove('open');
-  });
-});
-
-/* ============================================================
-   ACTIVE NAV LINK
-============================================================ */
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('nav a');
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      navLinks.forEach(a => {
-        a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id);
-      });
-    }
-  });
-}, { rootMargin: '-40% 0px -40% 0px' });
-sections.forEach(s => observer.observe(s));
-
 /* ============================================================
    LOGIN MODAL
 ============================================================ */
@@ -5844,7 +5582,6 @@ setTimeout(() => {
 
   @media (max-width: 768px) {
     body { padding-bottom: 76px; }
-    .hamburger { display: none !important; }
     .hero-tagline, .discovery-copy { display: none; }
     #home { padding: 6.8rem 1.2rem 1.5rem; }
     .hero-title { font-size: clamp(2rem, 11vw, 3rem); }
@@ -5909,7 +5646,6 @@ setTimeout(() => {
     .trending-thumb { height: 112px; }
     .trending-card.featured .trending-thumb { height: 124px; }
     .trending-info { padding: 0.7rem; gap: 0.42rem; }
-    .trending-players { font-size: 0.64rem; }
     .discovery-heading { align-items: flex-start; }
     .games-grid, .discovery-grid { column-gap: 0.65rem; row-gap: 0.72rem; }
     .mood-popup { top: 68px; right: 0.75rem; width: calc(100vw - 1.5rem); padding: 1rem; }
@@ -5933,7 +5669,6 @@ setTimeout(() => {
   .trending-arrow-next { right: 6px; }
   .trending-card, .trending-card.featured { width: calc((100% - 4.4rem) / 5); min-width: 0; flex: 0 0 calc((100% - 4.4rem) / 5); }
   @media (min-width: 1800px) {
-    #trending { max-width: 1560px; }
     .trending-card, .trending-card.featured {
       width: calc((100% - 2.2rem) / 3);
       flex-basis: calc((100% - 2.2rem) / 3);
@@ -5971,6 +5706,7 @@ setTimeout(() => {
   }
   header .logo { font-size: clamp(1.25rem, 2.4vw, 1.65rem); }
   @media (max-width: 768px) { header .logo { font-size: 1.1rem; } }
+  @media (min-width: 1440px) { .logo-tagline { display: inline; } }
 </style>
 <aside class="mood-popup" id="mood-popup" role="dialog" aria-modal="false" aria-labelledby="mood-popup-title" aria-hidden="true">
   <div class="mood-popup-header">

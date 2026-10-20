@@ -13,6 +13,7 @@
   <meta property="og:url" content="https://nikunjprogames.github.io/games/slope-3d.html" />
   <meta property="og:site_name" content="PleyZ" />
   <meta property="og:image" content="https://static.playgama.com/p-img/pg/slope-3d/big_preview/6031cc0ff00947dda0627af51b3316de?width=448" />
+
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Play Slope 3D | PleyZ" />
   <meta name="twitter:description" content="Play Slope 3D, an endless ball runner. Steer across a neon track, dodge red blocks and gaps, and chase a higher score as the pace increases." />
@@ -76,9 +77,8 @@
       background: var(--panel); color: var(--text);
     }
     .btn.primary { background: linear-gradient(90deg, var(--accent-2), var(--accent)); color: white; border-color: transparent; }
-    .game-toolbar {
-      display: flex; justify-content: flex-end; gap: 6px; margin-bottom: 8px;
-    }
+    .game-action-bar { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 7px; padding: 7px 9px; border: 1px solid var(--panel-border); border-radius: 8px; background: rgba(255,255,255,0.045); }
+    .game-toolbar { display: flex; justify-content: flex-end; gap: 6px; }
     .btn.compact { min-height: 34px; padding: 6px 10px; font-size: 0.84rem; }
     .game-layout {
       display: grid; grid-template-columns: minmax(0, 1fr) 250px; gap: 14px; align-items: start;
@@ -98,14 +98,9 @@
     .game-frame:fullscreen iframe, .game-frame:-webkit-full-screen iframe {
       width: 100%; height: 100%; min-height: 0;
     }
-    .video-card {
-      margin-top: 16px; padding: 14px; border-radius: 8px; background: rgba(255,255,255,0.05);
-      border: 1px solid var(--panel-border);
-    }
+    .video-card { margin-top: 16px; padding: 14px; border: 1px solid transparent; border-radius: 12px; background: linear-gradient(#101521, #101521) padding-box, linear-gradient(125deg, rgba(0,191,255,.8), rgba(139,0,255,.7), rgba(0,191,255,.25)) border-box; box-shadow: 0 12px 32px rgba(0,0,0,.28), inset 0 1px rgba(255,255,255,.08); }
     .video-card h3 { margin: 0 0 10px; font-family: 'Orbitron', sans-serif; font-size: 1rem; }
-    .video-card video, .video-card iframe {
-      width: 100%; min-height: 280px; border-radius: 12px; border: 0; background: #000;
-    }
+    .video-card video, .video-card iframe { display: block; width: 100%; aspect-ratio: 16 / 9; max-height: 620px; border-radius: 9px; border: 1px solid rgba(255,255,255,.12); background: #000; object-fit: contain; }
     .info-card {
       margin-top: 16px; padding: 14px; border-radius: 8px; background: rgba(255,255,255,0.05); border: 1px solid var(--panel-border);
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
@@ -132,6 +127,11 @@
     .related-game span { font-size: 0.9rem; line-height: 1.2; }
     .chip-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
     .chip { padding: 6px 10px; border-radius: 999px; background: rgba(0,191,255,0.14); border: 1px solid rgba(0,191,255,0.26); color: #bfeeff; font-size: 0.9rem; }
+    .screenshot-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 14px; }
+    .game-screenshot { min-width: 0; margin: 0; overflow: hidden; border: 1px solid var(--panel-border); border-radius: 10px; background: rgba(0,0,0,.22); }
+    .game-screenshot img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+    .game-screenshot figcaption { padding: 8px 10px; color: var(--muted); font-size: .85rem; }
+    .game-details p { margin: 6px 0; }
     .page-ad-section { margin-top: 18px; padding: 14px 16px; border-radius: 14px; border: 1px solid var(--panel-border); background: rgba(255,255,255,0.04); }
     .page-ad-section .ad-label { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8b00ff; margin-bottom: 8px; text-align: center; font-weight: 700; }
     .page-ad-section .adsbygoogle { min-height: 90px; }
@@ -151,6 +151,7 @@
       .topbar .actions { order: 3; width: 100%; }
       .game-layout { grid-template-columns: 1fr; }
       .game-frame { height: clamp(320px, 58vh, 620px); }
+      .game-action-bar { padding: 6px; }
       .related-games { position: static; max-height: none; }
       .related-game { grid-template-columns: 96px 1fr; }
     }
@@ -169,10 +170,6 @@
       <a class="site-brand" href="/">PleyZ Games</a>
       <h1>Slope 3D</h1>
       <div class="actions">
-        <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="109">
-          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><span aria-hidden="true">👍</span></button>
-          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><span aria-hidden="true">👎</span></button>
-        </div>
         <a class="profile-score-link" href="../index.html#leaderboard" title="View PleyZ score and leaderboard">
           <span class="profile-score-avatar" id="profile-score-avatar">PZ</span>
           <span id="profile-score-label">PleyZ Score</span>
@@ -184,25 +181,31 @@
     </header>
 
     <main id="main-content">
-      <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="../">Home</a></li><li><a href="/arcade-games/">Arcade Games</a></li><li aria-current="page">Slope 3D</li></ol></nav>
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="../">Home</a></li><li><a href="/arcade-games/">arcade Games</a></li><li aria-current="page">Slope 3D</li></ol></nav>
     <div class="game-layout">
       <div class="game-shell">
-        <div class="game-toolbar">
-          <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
-        </div>
         <div class="game-frame">
           <iframe src="https://playgama.com/export/game/slope-3d?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487" allowfullscreen loading="eager" title="Slope 3D"></iframe>
+        </div>
+        <div class="game-action-bar">
+          <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="109">
+            <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><span aria-hidden="true">👍</span></button>
+            <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><span aria-hidden="true">👎</span></button>
+          </div>
+          <div class="game-toolbar">
+            <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
+          </div>
         </div>
 
       </div>
 
       <section class="info-card related-games" aria-label="Related games">
         <h2>Games You Might Like</h2>
-        <div class="related-grid"><a class="related-game" href="geometry-vibes.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/geometry-vibes/big-preview/cd0c9c56e9e54948b7eca6c49ef590b5?width=448" alt="" width="800" height="450" loading="eager" fetchpriority="high" decoding="async" /></span><span>Geometry Vibes </span></a>
-        <a class="related-game" href="parkour-runner-3d.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/parkour-runner-3d/big-preview/5b3d8e54dbce43c2a0426fbfe0c26b19?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Parkour Runner 3D</span></a>
-        <a class="related-game" href="driver-club-highway-racing.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/driver-club-highway-racing/big-preview/037ce11afe4f4d58a0f93a6339db96b5?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Driver Club: Highway Racing</span></a>
-        <a class="related-game" href="1-speed-escape-prison.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/1-speed-escape-prison/big-preview/415c3326c7724e6cae83d74990cc3020?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>+1 Speed: Escape Prison</span></a>
-        <a class="related-game" href="golf-orbit.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/golf-orbit/big-preview/e7f203e28b0745d880d1c0a995e9b213?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Golf Orbit</span></a></div>
+        <div class="related-grid"><a class="related-game" href="geometry-vibes.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/geometry-vibes/big-preview/cd0c9c56e9e54948b7eca6c49ef590b5?width=448" alt="" width="800" height="450" loading="eager" fetchpriority="high" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/6a23eda4fac74d23848658c3fd75e2de/orig_length_h320.mp4"></video></span><span>Geometry Vibes </span></a>
+        <a class="related-game" href="parkour-runner-3d.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/parkour-runner-3d/big-preview/5b3d8e54dbce43c2a0426fbfe0c26b19?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/6137c1c8dabb771b8e9c292a6707b7ea/orig_length_h320.mp4"></video></span><span>Parkour Runner 3D</span></a>
+        <a class="related-game" href="driver-club-highway-racing.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/driver-club-highway-racing/big-preview/037ce11afe4f4d58a0f93a6339db96b5?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/2bc9523376aa46139c01c868d86cbb68/orig_length_h320.mp4"></video></span><span>Driver Club: Highway Racing</span></a>
+        <a class="related-game" href="1-speed-escape-prison.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/1-speed-escape-prison/big-preview/415c3326c7724e6cae83d74990cc3020?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/32247dbeba054937adf4fe6321dabfb3/orig_length_h320.mp4"></video></span><span>+1 Speed: Escape Prison</span></a>
+        <a class="related-game" href="golf-orbit.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/golf-orbit/big-preview/e7f203e28b0745d880d1c0a995e9b213?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/6c572b73e1d9434eb82165297cc7c430/orig_length_h320.mp4"></video></span><span>Golf Orbit</span></a></div>
       </section>
     </div>
 
@@ -221,13 +224,32 @@
     </section>
 <section class="info-card" aria-labelledby="game-dna-heading">
       <h2 id="game-dna-heading">Game DNA</h2>
-      <div class="chip-list"><span class="chip">Arcade</span><span class="chip">Racing</span><span class="chip">Endless</span><span class="chip">Skill</span><span class="chip">Casual</span><span class="chip">arcade</span><span class="chip">skill</span><span class="chip">3d</span><span class="chip">running</span><span class="chip">platform</span><span class="chip">ball</span><span class="chip">physics</span></div>
+      <div class="chip-list"><span class="chip">arcade</span><span class="chip">casual</span><span class="chip">endless</span><span class="chip">racing</span><span class="chip">skill</span><span class="chip">3d</span><span class="chip">running</span><span class="chip">platform</span><span class="chip">ball</span><span class="chip">physics</span><span class="chip">unblocked</span><span class="chip">reaction-games</span></div>
     </section>
 <section class="info-card" aria-label="Game details"><p><strong>Platform:</strong> Web browser</p></section>
+<section class="info-card" aria-labelledby="faq-heading">
+      <h2 id="faq-heading">FAQ</h2>
+      <h3>Which devices can you play Slope 3D on?</h3><p>This game supports Android, iOS, Desktop.</p><h3>What genre is Slope 3D?</h3><p>It is a arcade, skill, 3d, running, platform, ball, physics, unblocked game.</p><h3>Does Slope 3D support portrait or landscape mode?</h3><p>The game supports landscape and portrait orientation.</p><h3>Does Slope 3D have in-game purchases?</h3><p>No, in-game purchases are not listed.</p>
+    </section>
+<section class="info-card game-details" aria-labelledby="game-details-heading">
+      <h2 id="game-details-heading">Platforms, Genres &amp; Compatibility</h2>
+      <p><strong>Supported devices:</strong> Android, iOS, Desktop</p><p><strong>Orientation:</strong> landscape and portrait</p><p><strong>Genres:</strong> arcade, skill, 3d, running, platform, ball, physics, unblocked</p><p><strong>In-game purchases:</strong> No</p><p><strong>Languages:</strong> en-US, ar-EG, de-DE, es-ES, ru-RU, tr-TR</p>
+    </section>
+<section class="info-card screenshot-card" aria-labelledby="screenshots-heading">
+      <h2 id="screenshots-heading">Slope 3D Screenshots &amp; Artwork</h2>
+      <div class="screenshot-gallery">
+        <figure class="game-screenshot">
+          <img src="https://static.playgama.com/p-img/pg/slope-3d/big_preview/6031cc0ff00947dda0627af51b3316de?width=448" alt="Slope 3D Playgama preview" loading="lazy" decoding="async" />
+          <figcaption>Official Playgama game preview</figcaption>
+        </figure><figure class="game-screenshot game-artwork">
+          <img src="https://static.playgama.com/p-img/pg/slope-3d/icon/6dc931faf35e44d8b109bf9b214596c8?width=448" alt="Slope 3D game icon" loading="lazy" decoding="async" />
+          <figcaption>Game icon</figcaption>
+        </figure></div>
+    </section>
 
     <section class="info-card" aria-labelledby="related-categories-heading">
       <h2 id="related-categories-heading">Related Categories</h2>
-      <nav class="related-categories" aria-label="Related categories"><a href="/arcade-games/">Arcade Games</a><a href="/racing-games/">Racing Games</a><a href="/endless-games/">Endless Games</a><a href="/skill-games/">Skill Games</a><a href="/casual-games/">Casual Games</a></nav>
+      <nav class="related-categories" aria-label="Related categories"><a href="/arcade-games/">arcade Games</a><a href="/casual-games/">casual Games</a><a href="/endless-games/">endless Games</a><a href="/racing-games/">racing Games</a><a href="/skill-games/">skill Games</a></nav>
     </section>
     </main>
 
@@ -257,7 +279,7 @@
     <a href="/termsandconditions.html">Terms</a>
     <a href="/contact-us.html">Contact</a>
   </footer>
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/slope-3d.html#game","name":"Slope 3D","description":"Play Slope 3D, an endless ball runner. Steer across a neon track, dodge red blocks and gaps, and chase a higher score as the pace increases.","url":"https://nikunjprogames.github.io/games/slope-3d.html","image":"https://static.playgama.com/p-img/pg/slope-3d/big_preview/6031cc0ff00947dda0627af51b3316de?width=448","gamePlatform":["Web browser"],"genre":["Arcade","Racing","Endless","Skill","Casual"],"keywords":["arcade","skill","3d","running","platform","ball","physics","unblocked","reaction-games","fast-paced-games","hyper-casual-games","avoid-games","endless-games","speed-games","agility-games","rolling-games","1-player-games"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Arcade Games","item":"https://nikunjprogames.github.io/arcade-games/"},{"@type":"ListItem","position":3,"name":"Slope 3D","item":"https://nikunjprogames.github.io/games/slope-3d.html"}]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/slope-3d.html#game","name":"Slope 3D","description":"Play Slope 3D, an endless ball runner. Steer across a neon track, dodge red blocks and gaps, and chase a higher score as the pace increases.","url":"https://nikunjprogames.github.io/games/slope-3d.html","image":"https://static.playgama.com/p-img/pg/slope-3d/big_preview/6031cc0ff00947dda0627af51b3316de?width=448","gamePlatform":["Web browser","Android","iOS","Desktop"],"genre":["arcade","casual","endless","racing","skill","3d","running","platform","ball","physics","unblocked"],"keywords":["arcade","skill","3d","running","platform","ball","physics","unblocked","reaction-games","fast-paced-games","hyper-casual-games","avoid-games","endless-games","speed-games","agility-games","rolling-games","1-player-games"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"arcade Games","item":"https://nikunjprogames.github.io/arcade-games/"},{"@type":"ListItem","position":3,"name":"Slope 3D","item":"https://nikunjprogames.github.io/games/slope-3d.html"}]}]}</script>
   <script src="/site-shell.js" defer></script>
   <script src="/game-loading.js" defer></script>
   <script>

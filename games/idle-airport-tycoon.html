@@ -13,6 +13,8 @@
   <meta property="og:url" content="https://nikunjprogames.github.io/games/idle-airport-tycoon.html" />
   <meta property="og:site_name" content="PleyZ" />
   <meta property="og:image" content="https://static.playgama.com/p-img/pg/idle-airport-tycoon/big-preview/cf42eed8120a4f3f9fa4d25809bc4ab1?width=448" />
+  <meta property="og:video" content="https://static.playgama.com/p-video/8b026c228211b2728554c4f50ea97704/orig_length_h320.mp4" />
+  <meta property="og:video:type" content="video/mp4" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Play Idle Airport Tycoon | PleyZ" />
   <meta name="twitter:description" content="Idle Airport Tycoon is a casual simulation game that puts you in charge of building and managing your very own bustling airport." />
@@ -76,9 +78,8 @@
       background: var(--panel); color: var(--text);
     }
     .btn.primary { background: linear-gradient(90deg, var(--accent-2), var(--accent)); color: white; border-color: transparent; }
-    .game-toolbar {
-      display: flex; justify-content: flex-end; gap: 6px; margin-bottom: 8px;
-    }
+    .game-action-bar { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 7px; padding: 7px 9px; border: 1px solid var(--panel-border); border-radius: 8px; background: rgba(255,255,255,0.045); }
+    .game-toolbar { display: flex; justify-content: flex-end; gap: 6px; }
     .btn.compact { min-height: 34px; padding: 6px 10px; font-size: 0.84rem; }
     .game-layout {
       display: grid; grid-template-columns: minmax(0, 1fr) 250px; gap: 14px; align-items: start;
@@ -98,14 +99,9 @@
     .game-frame:fullscreen iframe, .game-frame:-webkit-full-screen iframe {
       width: 100%; height: 100%; min-height: 0;
     }
-    .video-card {
-      margin-top: 16px; padding: 14px; border-radius: 8px; background: rgba(255,255,255,0.05);
-      border: 1px solid var(--panel-border);
-    }
+    .video-card { margin-top: 16px; padding: 14px; border: 1px solid transparent; border-radius: 12px; background: linear-gradient(#101521, #101521) padding-box, linear-gradient(125deg, rgba(0,191,255,.8), rgba(139,0,255,.7), rgba(0,191,255,.25)) border-box; box-shadow: 0 12px 32px rgba(0,0,0,.28), inset 0 1px rgba(255,255,255,.08); }
     .video-card h3 { margin: 0 0 10px; font-family: 'Orbitron', sans-serif; font-size: 1rem; }
-    .video-card video, .video-card iframe {
-      width: 100%; min-height: 280px; border-radius: 12px; border: 0; background: #000;
-    }
+    .video-card video, .video-card iframe { display: block; width: 100%; aspect-ratio: 16 / 9; max-height: 620px; border-radius: 9px; border: 1px solid rgba(255,255,255,.12); background: #000; object-fit: contain; }
     .info-card {
       margin-top: 16px; padding: 14px; border-radius: 8px; background: rgba(255,255,255,0.05); border: 1px solid var(--panel-border);
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
@@ -132,6 +128,11 @@
     .related-game span { font-size: 0.9rem; line-height: 1.2; }
     .chip-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
     .chip { padding: 6px 10px; border-radius: 999px; background: rgba(0,191,255,0.14); border: 1px solid rgba(0,191,255,0.26); color: #bfeeff; font-size: 0.9rem; }
+    .screenshot-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 14px; }
+    .game-screenshot { min-width: 0; margin: 0; overflow: hidden; border: 1px solid var(--panel-border); border-radius: 10px; background: rgba(0,0,0,.22); }
+    .game-screenshot img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+    .game-screenshot figcaption { padding: 8px 10px; color: var(--muted); font-size: .85rem; }
+    .game-details p { margin: 6px 0; }
     .page-ad-section { margin-top: 18px; padding: 14px 16px; border-radius: 14px; border: 1px solid var(--panel-border); background: rgba(255,255,255,0.04); }
     .page-ad-section .ad-label { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8b00ff; margin-bottom: 8px; text-align: center; font-weight: 700; }
     .page-ad-section .adsbygoogle { min-height: 90px; }
@@ -151,6 +152,7 @@
       .topbar .actions { order: 3; width: 100%; }
       .game-layout { grid-template-columns: 1fr; }
       .game-frame { height: clamp(320px, 58vh, 620px); }
+      .game-action-bar { padding: 6px; }
       .related-games { position: static; max-height: none; }
       .related-game { grid-template-columns: 96px 1fr; }
     }
@@ -169,10 +171,6 @@
       <a class="site-brand" href="/">PleyZ Games</a>
       <h1>Idle Airport Tycoon</h1>
       <div class="actions">
-        <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="110">
-          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><span aria-hidden="true">👍</span></button>
-          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><span aria-hidden="true">👎</span></button>
-        </div>
         <a class="profile-score-link" href="../index.html#leaderboard" title="View PleyZ score and leaderboard">
           <span class="profile-score-avatar" id="profile-score-avatar">PZ</span>
           <span id="profile-score-label">PleyZ Score</span>
@@ -184,25 +182,38 @@
     </header>
 
     <main id="main-content">
-      <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="../">Home</a></li><li><a href="/strategy-games/">Strategy Games</a></li><li aria-current="page">Idle Airport Tycoon</li></ol></nav>
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="../">Home</a></li><li><a href="/strategy-games/">strategy Games</a></li><li aria-current="page">Idle Airport Tycoon</li></ol></nav>
     <div class="game-layout">
       <div class="game-shell">
-        <div class="game-toolbar">
-          <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
-        </div>
         <div class="game-frame">
           <iframe src="https://playgama.com/export/game/idle-airport-tycoon?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487" allowfullscreen loading="eager" title="Idle Airport Tycoon"></iframe>
         </div>
+        <div class="game-action-bar">
+          <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="110">
+            <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><span aria-hidden="true">👍</span></button>
+            <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><span aria-hidden="true">👎</span></button>
+          </div>
+          <div class="game-toolbar">
+            <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
+          </div>
+        </div>
 
+    <section class="video-card" aria-label="Gameplay video">
+      <div class="video-card-header">
+        <h3>Gameplay Video</h3>
+        <span>Quick guide</span>
+      </div>
+      <video controls preload="metadata" playsinline poster="https://static.playgama.com/p-img/pg/idle-airport-tycoon/big-preview/cf42eed8120a4f3f9fa4d25809bc4ab1?width=448" src="https://static.playgama.com/p-video/8b026c228211b2728554c4f50ea97704/orig_length_h320.mp4"></video>
+    </section>
       </div>
 
       <section class="info-card related-games" aria-label="Related games">
         <h2>Games You Might Like</h2>
-        <div class="related-grid"><a class="related-game" href="burger-restaurant-simulator-3d.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/burger-restaurant-simulator-3d/big_preview/b4cbcd2693594ae1a4e6aa672025365c?width=448" alt="" width="800" height="450" loading="eager" fetchpriority="high" decoding="async" /></span><span>Burger Restaurant Simulator 3D</span></a>
-        <a class="related-game" href="plants-vs-zombies-fusion-mode.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/plants-vs-zombies-fusion-mode/big-preview/df5ba67f240a40b18d46d2d3d57b8400?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Plants vs Zombies Fusion Mode</span></a>
-        <a class="related-game" href="hedgies.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/hedgies/big_preview/82348afa3e7b4db0bf915c835c40a8bd?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Hedgies</span></a>
-        <a class="related-game" href="dead-land-survival.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/dead-land-survival/big_preview/3ec05c224d064e1789d0a98fd4a9d048?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Dead Land: Survival</span></a>
-        <a class="related-game" href="piece-of-cake-merge-bake.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/piece-of-cake-merge--bake/big-preview/4124b3ce37ab4b92b6a8ff1332c9eee8?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Piece of Cake: Merge &amp; Bake</span></a></div>
+        <div class="related-grid"><a class="related-game" href="burger-restaurant-simulator-3d.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/burger-restaurant-simulator-3d/big_preview/b4cbcd2693594ae1a4e6aa672025365c?width=448" alt="" width="800" height="450" loading="eager" fetchpriority="high" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/77eafebf3fa97f11d0a47fd2a4ce085c/orig_length_h320.mp4"></video></span><span>Burger Restaurant Simulator 3D</span></a>
+        <a class="related-game" href="plants-vs-zombies-fusion-mode.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/plants-vs-zombies-fusion-mode/big-preview/df5ba67f240a40b18d46d2d3d57b8400?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/9bc8ad41499c4002aa3e17049bb4f3bc/orig_length_h320.mp4"></video></span><span>Plants vs Zombies Fusion Mode</span></a>
+        <a class="related-game" href="hedgies.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/hedgies/big_preview/82348afa3e7b4db0bf915c835c40a8bd?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/5190b1fcdbba4021a45c3930c54161e2/orig_length_h320.mp4"></video></span><span>Hedgies</span></a>
+        <a class="related-game" href="dead-land-survival.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/dead-land-survival/big_preview/3ec05c224d064e1789d0a98fd4a9d048?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/20132a31af5345adb698d954f9cec5ff/orig_length_h320.mp4"></video></span><span>Dead Land: Survival</span></a>
+        <a class="related-game" href="piece-of-cake-merge-bake.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/piece-of-cake-merge--bake/big-preview/4124b3ce37ab4b92b6a8ff1332c9eee8?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/73b06d463c9141eb802f8f79f75d208c/orig_length_h320.mp4"></video></span><span>Piece of Cake: Merge &amp; Bake</span></a></div>
       </section>
     </div>
 
@@ -219,18 +230,37 @@
     </section>
 <section class="info-card" aria-labelledby="how-to-play-heading">
       <h2 id="how-to-play-heading">How to Play</h2>
-      <p>Controls: Use the left mouse button = interact with the in-game UI+/- keys = change the size of the camera</p>
+      <h3>Controls</h3><p>Use the left mouse button = interact with the in-game UI+/- keys = change the size of the camera</p>
 
     </section>
 <section class="info-card" aria-labelledby="game-dna-heading">
       <h2 id="game-dna-heading">Game DNA</h2>
-      <div class="chip-list"><span class="chip">Strategy</span><span class="chip">Simulation</span><span class="chip">Casual</span><span class="chip">strategy</span><span class="chip">simulation</span><span class="chip">tycoon</span><span class="chip">mouse</span><span class="chip">management</span><span class="chip">idle</span><span class="chip">business-games</span><span class="chip">time-management-games</span><span class="chip">1-player-games</span></div>
+      <div class="chip-list"><span class="chip">strategy</span><span class="chip">casual</span><span class="chip">simulation</span><span class="chip">tycoon</span><span class="chip">mouse</span><span class="chip">management</span><span class="chip">idle</span><span class="chip">business-games</span><span class="chip">time-management-games</span><span class="chip">1-player-games</span><span class="chip">incremental-games</span><span class="chip">building-games</span></div>
     </section>
 <section class="info-card" aria-label="Game details"><p><strong>Platform:</strong> Web browser</p></section>
+<section class="info-card" aria-labelledby="faq-heading">
+      <h2 id="faq-heading">FAQ</h2>
+      <h3>Which devices can you play Idle Airport Tycoon on?</h3><p>This game supports Android, iOS, Desktop.</p><h3>What genre is Idle Airport Tycoon?</h3><p>It is a strategy, simulation, tycoon, mouse, management, idle game.</p><h3>Does Idle Airport Tycoon support portrait or landscape mode?</h3><p>The game supports landscape orientation.</p><h3>Does Idle Airport Tycoon have in-game purchases?</h3><p>Yes, in-game purchases are listed.</p>
+    </section>
+<section class="info-card game-details" aria-labelledby="game-details-heading">
+      <h2 id="game-details-heading">Platforms, Genres &amp; Compatibility</h2>
+      <p><strong>Supported devices:</strong> Android, iOS, Desktop</p><p><strong>Orientation:</strong> landscape</p><p><strong>Genres:</strong> strategy, simulation, tycoon, mouse, management, idle</p><p><strong>In-game purchases:</strong> Yes</p><p><strong>Languages:</strong> en-US, de-DE, es-ES, fr-FR, id-ID, it-IT, pl-PL, pt-PT, ru-RU, tr-TR</p>
+    </section>
+<section class="info-card screenshot-card" aria-labelledby="screenshots-heading">
+      <h2 id="screenshots-heading">Idle Airport Tycoon Screenshots &amp; Artwork</h2>
+      <div class="screenshot-gallery">
+        <figure class="game-screenshot">
+          <img src="https://static.playgama.com/p-img/pg/idle-airport-tycoon/big-preview/cf42eed8120a4f3f9fa4d25809bc4ab1?width=448" alt="Idle Airport Tycoon Playgama preview" loading="lazy" decoding="async" />
+          <figcaption>Official Playgama game preview</figcaption>
+        </figure><figure class="game-screenshot game-artwork">
+          <img src="https://static.playgama.com/p-img/pg/backfill/game-114895/icon/97d2c234d6f4b59034760f0ade06a844607b545a0ad5bfd5b79bcfc67028f7a7?width=448" alt="Idle Airport Tycoon game icon" loading="lazy" decoding="async" />
+          <figcaption>Game icon</figcaption>
+        </figure></div>
+    </section>
 
     <section class="info-card" aria-labelledby="related-categories-heading">
       <h2 id="related-categories-heading">Related Categories</h2>
-      <nav class="related-categories" aria-label="Related categories"><a href="/strategy-games/">Strategy Games</a><a href="/simulation-games/">Simulation Games</a><a href="/casual-games/">Casual Games</a></nav>
+      <nav class="related-categories" aria-label="Related categories"><a href="/strategy-games/">strategy Games</a><a href="/casual-games/">casual Games</a><a href="/simulation-games/">simulation Games</a></nav>
     </section>
     </main>
 
@@ -260,7 +290,7 @@
     <a href="/termsandconditions.html">Terms</a>
     <a href="/contact-us.html">Contact</a>
   </footer>
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/idle-airport-tycoon.html#game","name":"Idle Airport Tycoon","description":"Idle Airport Tycoon is a casual simulation game that puts you in charge of building and managing your very own bustling airport.","url":"https://nikunjprogames.github.io/games/idle-airport-tycoon.html","image":"https://static.playgama.com/p-img/pg/idle-airport-tycoon/big-preview/cf42eed8120a4f3f9fa4d25809bc4ab1?width=448","gamePlatform":["Web browser"],"genre":["Strategy","Simulation","Casual"],"keywords":["strategy","simulation","tycoon","mouse","management","idle","business-games","time-management-games","1-player-games","incremental-games","building-games","aviation-games","resource-management-games","airport-games","gam-supported-games"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Strategy Games","item":"https://nikunjprogames.github.io/strategy-games/"},{"@type":"ListItem","position":3,"name":"Idle Airport Tycoon","item":"https://nikunjprogames.github.io/games/idle-airport-tycoon.html"}]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/idle-airport-tycoon.html#game","name":"Idle Airport Tycoon","description":"Idle Airport Tycoon is a casual simulation game that puts you in charge of building and managing your very own bustling airport.","url":"https://nikunjprogames.github.io/games/idle-airport-tycoon.html","image":"https://static.playgama.com/p-img/pg/idle-airport-tycoon/big-preview/cf42eed8120a4f3f9fa4d25809bc4ab1?width=448","gamePlatform":["Web browser","Android","iOS","Desktop"],"genre":["strategy","casual","simulation","tycoon","mouse","management","idle"],"keywords":["strategy","simulation","tycoon","mouse","management","idle","business-games","time-management-games","1-player-games","incremental-games","building-games","aviation-games","resource-management-games","airport-games","gam-supported-games"],"video":{"@type":"VideoObject","name":"Idle Airport Tycoon gameplay video","description":"Watch gameplay from Idle Airport Tycoon.","thumbnailUrl":"https://static.playgama.com/p-img/pg/idle-airport-tycoon/big-preview/cf42eed8120a4f3f9fa4d25809bc4ab1?width=448","contentUrl":"https://static.playgama.com/p-video/8b026c228211b2728554c4f50ea97704/orig_length_h320.mp4"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"strategy Games","item":"https://nikunjprogames.github.io/strategy-games/"},{"@type":"ListItem","position":3,"name":"Idle Airport Tycoon","item":"https://nikunjprogames.github.io/games/idle-airport-tycoon.html"}]}]}</script>
   <script src="/site-shell.js" defer></script>
   <script src="/game-loading.js" defer></script>
   <script>

@@ -13,6 +13,8 @@
   <meta property="og:url" content="https://nikunjprogames.github.io/games/deadly-descent.html" />
   <meta property="og:site_name" content="PleyZ" />
   <meta property="og:image" content="https://static.playgama.com/p-img/pg/deadly-descent/big-preview/cd3969f230d54e6abe01716483d55c8a?width=448" />
+  <meta property="og:video" content="https://static.playgama.com/p-video/1511a295f4474a0c822ca8e85ffca28f/orig_length_h320.mp4" />
+  <meta property="og:video:type" content="video/mp4" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Play Deadly Descent | PleyZ" />
   <meta name="twitter:description" content="Drive your car down the mountain and get to the end of the track in one piece!" />
@@ -76,9 +78,8 @@
       background: var(--panel); color: var(--text);
     }
     .btn.primary { background: linear-gradient(90deg, var(--accent-2), var(--accent)); color: white; border-color: transparent; }
-    .game-toolbar {
-      display: flex; justify-content: flex-end; gap: 6px; margin-bottom: 8px;
-    }
+    .game-action-bar { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 7px; padding: 7px 9px; border: 1px solid var(--panel-border); border-radius: 8px; background: rgba(255,255,255,0.045); }
+    .game-toolbar { display: flex; justify-content: flex-end; gap: 6px; }
     .btn.compact { min-height: 34px; padding: 6px 10px; font-size: 0.84rem; }
     .game-layout {
       display: grid; grid-template-columns: minmax(0, 1fr) 250px; gap: 14px; align-items: start;
@@ -98,14 +99,9 @@
     .game-frame:fullscreen iframe, .game-frame:-webkit-full-screen iframe {
       width: 100%; height: 100%; min-height: 0;
     }
-    .video-card {
-      margin-top: 16px; padding: 14px; border-radius: 8px; background: rgba(255,255,255,0.05);
-      border: 1px solid var(--panel-border);
-    }
+    .video-card { margin-top: 16px; padding: 14px; border: 1px solid transparent; border-radius: 12px; background: linear-gradient(#101521, #101521) padding-box, linear-gradient(125deg, rgba(0,191,255,.8), rgba(139,0,255,.7), rgba(0,191,255,.25)) border-box; box-shadow: 0 12px 32px rgba(0,0,0,.28), inset 0 1px rgba(255,255,255,.08); }
     .video-card h3 { margin: 0 0 10px; font-family: 'Orbitron', sans-serif; font-size: 1rem; }
-    .video-card video, .video-card iframe {
-      width: 100%; min-height: 280px; border-radius: 12px; border: 0; background: #000;
-    }
+    .video-card video, .video-card iframe { display: block; width: 100%; aspect-ratio: 16 / 9; max-height: 620px; border-radius: 9px; border: 1px solid rgba(255,255,255,.12); background: #000; object-fit: contain; }
     .info-card {
       margin-top: 16px; padding: 14px; border-radius: 8px; background: rgba(255,255,255,0.05); border: 1px solid var(--panel-border);
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
@@ -132,6 +128,11 @@
     .related-game span { font-size: 0.9rem; line-height: 1.2; }
     .chip-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
     .chip { padding: 6px 10px; border-radius: 999px; background: rgba(0,191,255,0.14); border: 1px solid rgba(0,191,255,0.26); color: #bfeeff; font-size: 0.9rem; }
+    .screenshot-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 14px; }
+    .game-screenshot { min-width: 0; margin: 0; overflow: hidden; border: 1px solid var(--panel-border); border-radius: 10px; background: rgba(0,0,0,.22); }
+    .game-screenshot img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+    .game-screenshot figcaption { padding: 8px 10px; color: var(--muted); font-size: .85rem; }
+    .game-details p { margin: 6px 0; }
     .page-ad-section { margin-top: 18px; padding: 14px 16px; border-radius: 14px; border: 1px solid var(--panel-border); background: rgba(255,255,255,0.04); }
     .page-ad-section .ad-label { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8b00ff; margin-bottom: 8px; text-align: center; font-weight: 700; }
     .page-ad-section .adsbygoogle { min-height: 90px; }
@@ -151,6 +152,7 @@
       .topbar .actions { order: 3; width: 100%; }
       .game-layout { grid-template-columns: 1fr; }
       .game-frame { height: clamp(320px, 58vh, 620px); }
+      .game-action-bar { padding: 6px; }
       .related-games { position: static; max-height: none; }
       .related-game { grid-template-columns: 96px 1fr; }
     }
@@ -169,10 +171,6 @@
       <a class="site-brand" href="/">PleyZ Games</a>
       <h1>Deadly Descent</h1>
       <div class="actions">
-        <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="44">
-          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><span aria-hidden="true">👍</span></button>
-          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><span aria-hidden="true">👎</span></button>
-        </div>
         <a class="profile-score-link" href="../index.html#leaderboard" title="View PleyZ score and leaderboard">
           <span class="profile-score-avatar" id="profile-score-avatar">PZ</span>
           <span id="profile-score-label">PleyZ Score</span>
@@ -184,25 +182,38 @@
     </header>
 
     <main id="main-content">
-      <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="../">Home</a></li><li><a href="/racing-games/">Racing Games</a></li><li aria-current="page">Deadly Descent</li></ol></nav>
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="../">Home</a></li><li><a href="/racing-games/">racing Games</a></li><li aria-current="page">Deadly Descent</li></ol></nav>
     <div class="game-layout">
       <div class="game-shell">
-        <div class="game-toolbar">
-          <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
-        </div>
         <div class="game-frame">
           <iframe src="https://deadlydescent.net/export?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487" allowfullscreen loading="eager" title="Deadly Descent"></iframe>
         </div>
+        <div class="game-action-bar">
+          <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="171">
+            <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><span aria-hidden="true">👍</span></button>
+            <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><span aria-hidden="true">👎</span></button>
+          </div>
+          <div class="game-toolbar">
+            <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
+          </div>
+        </div>
 
+    <section class="video-card" aria-label="Gameplay video">
+      <div class="video-card-header">
+        <h3>Gameplay Video</h3>
+        <span>Quick guide</span>
+      </div>
+      <video controls preload="metadata" playsinline poster="https://static.playgama.com/p-img/pg/deadly-descent/big-preview/cd3969f230d54e6abe01716483d55c8a?width=448" src="https://static.playgama.com/p-video/1511a295f4474a0c822ca8e85ffca28f/orig_length_h320.mp4"></video>
+    </section>
       </div>
 
       <section class="info-card related-games" aria-label="Related games">
         <h2>Games You Might Like</h2>
-        <div class="related-grid"><a class="related-game" href="driver-club-highway-racing.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/driver-club-highway-racing/big-preview/037ce11afe4f4d58a0f93a6339db96b5?width=448" alt="" width="800" height="450" loading="eager" fetchpriority="high" decoding="async" /></span><span>Driver Club: Highway Racing</span></a>
-        <a class="related-game" href="motorcycle-racer-road-mayhem.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/motorcycle-racer-road-mayhem/big_preview/172bc19cb4694ac3896516a315ee8499?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Motorcycle Racer: Road Mayhem</span></a>
-        <a class="related-game" href="car-destruction-king.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/car-destruction-king/big_preview/0ca8f4094cfd4826b9888ea1d094bdd7?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span> Car Destruction King</span></a>
-        <a class="related-game" href="car-smash-simulator-crash-tune.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/car-smash-simulator-crash--tune/big-preview/79a9ff5139df4ebeaa6f1dbf25c91171?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Car Smash Simulator: Crash &amp; Tune</span></a>
-        <a class="related-game" href="crime-and-vice-city-police.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/crime-and-vice-city-police/big-preview/7ae0b72e2627499798611c4d25e6d9fe?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span> Crime and Vice City Police</span></a></div>
+        <div class="related-grid"><a class="related-game" href="driver-club-highway-racing.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/driver-club-highway-racing/big-preview/037ce11afe4f4d58a0f93a6339db96b5?width=448" alt="" width="800" height="450" loading="eager" fetchpriority="high" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/2bc9523376aa46139c01c868d86cbb68/orig_length_h320.mp4"></video></span><span>Driver Club: Highway Racing</span></a>
+        <a class="related-game" href="car-smash-simulator-crash-tune.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/car-smash-simulator-crash--tune/big-preview/79a9ff5139df4ebeaa6f1dbf25c91171?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/06ee5a9ff7744d5091f46e059c1ba3a0/orig_length_h320.mp4"></video></span><span>Car Smash Simulator: Crash &amp; Tune</span></a>
+        <a class="related-game" href="street-race-master.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/street-race-master/big_preview/b3eb3fa57a8d4013943ac73b07f91926?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Street Race Master</span></a>
+        <a class="related-game" href="motorcycle-racer-road-mayhem.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/motorcycle-racer-road-mayhem/big_preview/172bc19cb4694ac3896516a315ee8499?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/ca6769ef9afe7d41b0a1cff6efc432cc/orig_length_h320.mp4"></video></span><span>Motorcycle Racer: Road Mayhem</span></a>
+        <a class="related-game" href="car-destruction-king.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/car-destruction-king/big_preview/0ca8f4094cfd4826b9888ea1d094bdd7?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/cdac251fb08c4fafb7bb056eadfa2623/orig_length_h320.mp4"></video></span><span> Car Destruction King</span></a></div>
       </section>
     </div>
 
@@ -220,18 +231,41 @@
     </section>
 <section class="info-card" aria-labelledby="how-to-play-heading">
       <h2 id="how-to-play-heading">How to Play</h2>
-      <p>&quot;Deadly Descent&quot; is a simulator of driving down a mountain by car. You need to get to the finish line.. The difficulty is that there are a large number of obstacles on the track, a collision with which will destroy your car, so you should drive very carefully. This driving simulator is for those who enjoy different types of car destruction. Now you can complete them on your phone or computer completely free of charge. The game features destructible cars and realistic driving simulation. Despite the well-developed physics and realistic graphics, the game does not require many resources from the device and will give you a realistic driving experience on any device. Compete with other players! Each unique track has a table of records, where each player automatically records his best result - the maximum distance that your car was able to travel on the track. Start playing now!</p>
+      <p>&quot;Deadly Descent&quot; is a simulator of driving down a mountain by car. You need to get to the finish line.. The difficulty is that there are a large number of obstacles on the track, a collision with which will destroy your car, so you should drive very carefully.</p>
+<p>This driving simulator is for those who enjoy different types of car destruction. Now you can complete them on your phone or computer completely free of charge.</p>
+<p>The game features destructible cars and realistic driving simulation. Despite the well-developed physics and realistic graphics, the game does not require many resources from the device and will give you a realistic driving experience on any device.</p>
+<p>Compete with other players! Each unique track has a table of records, where each player automatically records his best result - the maximum distance that your car was able to travel on the track.</p>
+<p>Start playing now!</p>
 
     </section>
 <section class="info-card" aria-labelledby="game-dna-heading">
       <h2 id="game-dna-heading">Game DNA</h2>
-      <div class="chip-list"><span class="chip">Racing</span><span class="chip">Boys</span><span class="chip">Cars</span><span class="chip">racing</span><span class="chip">car</span><span class="chip">driving</span><span class="chip">boys</span><span class="chip">unity-games-online</span><span class="chip">speed-games</span><span class="chip">games-for-pc</span><span class="chip">challenge-games</span><span class="chip">car-crash-games</span></div>
+      <div class="chip-list"><span class="chip">racing</span><span class="chip">cars</span><span class="chip">car racing</span><span class="chip">driving</span><span class="chip">car</span><span class="chip">boys</span><span class="chip">unity-games-online</span><span class="chip">speed-games</span><span class="chip">games-for-pc</span><span class="chip">challenge-games</span><span class="chip">car-crash-games</span><span class="chip">vehicles-games</span></div>
     </section>
 <section class="info-card" aria-label="Game details"><p><strong>Platform:</strong> Web browser</p></section>
+<section class="info-card" aria-labelledby="faq-heading">
+      <h2 id="faq-heading">FAQ</h2>
+      <h3>Which devices can you play Deadly Descent on?</h3><p>This game supports Android, iOS, Desktop.</p><h3>What genre is Deadly Descent?</h3><p>It is a racing, car, driving, boys game.</p><h3>Does Deadly Descent support portrait or landscape mode?</h3><p>The game supports landscape and portrait orientation.</p><h3>Does Deadly Descent have in-game purchases?</h3><p>Yes, in-game purchases are listed.</p>
+    </section>
+<section class="info-card game-details" aria-labelledby="game-details-heading">
+      <h2 id="game-details-heading">Platforms, Genres &amp; Compatibility</h2>
+      <p><strong>Supported devices:</strong> Android, iOS, Desktop</p><p><strong>Orientation:</strong> landscape and portrait</p><p><strong>Genres:</strong> racing, car, driving, boys</p><p><strong>In-game purchases:</strong> Yes</p><p><strong>Languages:</strong> en-US, ru-RU, es-ES, de-DE, tr-TR</p>
+    </section>
+<section class="info-card screenshot-card" aria-labelledby="screenshots-heading">
+      <h2 id="screenshots-heading">Deadly Descent Screenshots &amp; Artwork</h2>
+      <div class="screenshot-gallery">
+        <figure class="game-screenshot">
+          <img src="https://static.playgama.com/p-img/pg/deadly-descent/big-preview/cd3969f230d54e6abe01716483d55c8a?width=448" alt="Deadly Descent Playgama preview" loading="lazy" decoding="async" />
+          <figcaption>Official Playgama game preview</figcaption>
+        </figure><figure class="game-screenshot game-artwork">
+          <img src="https://static.playgama.com/p-img/pg/backfill/game-44/icon/46bc7f6a80a55b33244d81f0f6a660a619efa33ebdaec06e2299a0e2d40785e4?width=448" alt="Deadly Descent game icon" loading="lazy" decoding="async" />
+          <figcaption>Game icon</figcaption>
+        </figure></div>
+    </section>
 
     <section class="info-card" aria-labelledby="related-categories-heading">
       <h2 id="related-categories-heading">Related Categories</h2>
-      <nav class="related-categories" aria-label="Related categories"><a href="/racing-games/">Racing Games</a><a href="/boys-games/">Boys Games</a><a href="/cars-games/">Cars Games</a></nav>
+      <nav class="related-categories" aria-label="Related categories"><a href="/racing-games/">racing Games</a><a href="/cars-games/">cars Games</a><a href="/car-racing-games/">car racing Games</a><a href="/driving-games/">driving Games</a></nav>
     </section>
     </main>
 
@@ -261,7 +295,7 @@
     <a href="/termsandconditions.html">Terms</a>
     <a href="/contact-us.html">Contact</a>
   </footer>
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/deadly-descent.html#game","name":"Deadly Descent","description":"Drive your car down the mountain and get to the end of the track in one piece!","url":"https://nikunjprogames.github.io/games/deadly-descent.html","image":"https://static.playgama.com/p-img/pg/deadly-descent/big-preview/cd3969f230d54e6abe01716483d55c8a?width=448","gamePlatform":["Web browser"],"genre":["Racing","Boys","Cars"],"keywords":["racing","car","driving","boys","unity-games-online","speed-games","games-for-pc","challenge-games","car-crash-games","vehicles-games","offroad-games","obstacles-games","fast-paced-games","borwser-games"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Racing Games","item":"https://nikunjprogames.github.io/racing-games/"},{"@type":"ListItem","position":3,"name":"Deadly Descent","item":"https://nikunjprogames.github.io/games/deadly-descent.html"}]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/deadly-descent.html#game","name":"Deadly Descent","description":"Drive your car down the mountain and get to the end of the track in one piece!","url":"https://nikunjprogames.github.io/games/deadly-descent.html","image":"https://static.playgama.com/p-img/pg/deadly-descent/big-preview/cd3969f230d54e6abe01716483d55c8a?width=448","gamePlatform":["Web browser","Android","iOS","Desktop"],"genre":["racing","cars","car racing","driving","car","boys"],"keywords":["racing","car","driving","boys","unity-games-online","speed-games","games-for-pc","challenge-games","car-crash-games","vehicles-games","offroad-games","obstacles-games","fast-paced-games","borwser-games"],"video":{"@type":"VideoObject","name":"Deadly Descent gameplay video","description":"Watch gameplay from Deadly Descent.","thumbnailUrl":"https://static.playgama.com/p-img/pg/deadly-descent/big-preview/cd3969f230d54e6abe01716483d55c8a?width=448","contentUrl":"https://static.playgama.com/p-video/1511a295f4474a0c822ca8e85ffca28f/orig_length_h320.mp4"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"racing Games","item":"https://nikunjprogames.github.io/racing-games/"},{"@type":"ListItem","position":3,"name":"Deadly Descent","item":"https://nikunjprogames.github.io/games/deadly-descent.html"}]}]}</script>
   <script src="/site-shell.js" defer></script>
   <script src="/game-loading.js" defer></script>
   <script>

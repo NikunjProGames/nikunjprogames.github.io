@@ -13,6 +13,8 @@
   <meta property="og:url" content="https://nikunjprogames.github.io/games/special-ops-go.html" />
   <meta property="og:site_name" content="PleyZ" />
   <meta property="og:image" content="https://static.playgama.com/p-img/pg/special-ops/big_preview/379c25433de24d13afadf693d918e11e?width=448" />
+  <meta property="og:video" content="https://static.playgama.com/p-video/cca4b40c9b6c4877a294c337ef342280/orig_length_h320.mp4" />
+  <meta property="og:video:type" content="video/mp4" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Play Special Ops: GO | PleyZ" />
   <meta name="twitter:description" content="Play instantly in your browser." />
@@ -76,9 +78,8 @@
       background: var(--panel); color: var(--text);
     }
     .btn.primary { background: linear-gradient(90deg, var(--accent-2), var(--accent)); color: white; border-color: transparent; }
-    .game-toolbar {
-      display: flex; justify-content: flex-end; gap: 6px; margin-bottom: 8px;
-    }
+    .game-action-bar { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 7px; padding: 7px 9px; border: 1px solid var(--panel-border); border-radius: 8px; background: rgba(255,255,255,0.045); }
+    .game-toolbar { display: flex; justify-content: flex-end; gap: 6px; }
     .btn.compact { min-height: 34px; padding: 6px 10px; font-size: 0.84rem; }
     .game-layout {
       display: grid; grid-template-columns: minmax(0, 1fr) 250px; gap: 14px; align-items: start;
@@ -98,14 +99,9 @@
     .game-frame:fullscreen iframe, .game-frame:-webkit-full-screen iframe {
       width: 100%; height: 100%; min-height: 0;
     }
-    .video-card {
-      margin-top: 16px; padding: 14px; border-radius: 8px; background: rgba(255,255,255,0.05);
-      border: 1px solid var(--panel-border);
-    }
+    .video-card { margin-top: 16px; padding: 14px; border: 1px solid transparent; border-radius: 12px; background: linear-gradient(#101521, #101521) padding-box, linear-gradient(125deg, rgba(0,191,255,.8), rgba(139,0,255,.7), rgba(0,191,255,.25)) border-box; box-shadow: 0 12px 32px rgba(0,0,0,.28), inset 0 1px rgba(255,255,255,.08); }
     .video-card h3 { margin: 0 0 10px; font-family: 'Orbitron', sans-serif; font-size: 1rem; }
-    .video-card video, .video-card iframe {
-      width: 100%; min-height: 280px; border-radius: 12px; border: 0; background: #000;
-    }
+    .video-card video, .video-card iframe { display: block; width: 100%; aspect-ratio: 16 / 9; max-height: 620px; border-radius: 9px; border: 1px solid rgba(255,255,255,.12); background: #000; object-fit: contain; }
     .info-card {
       margin-top: 16px; padding: 14px; border-radius: 8px; background: rgba(255,255,255,0.05); border: 1px solid var(--panel-border);
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
@@ -132,6 +128,11 @@
     .related-game span { font-size: 0.9rem; line-height: 1.2; }
     .chip-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
     .chip { padding: 6px 10px; border-radius: 999px; background: rgba(0,191,255,0.14); border: 1px solid rgba(0,191,255,0.26); color: #bfeeff; font-size: 0.9rem; }
+    .screenshot-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 14px; }
+    .game-screenshot { min-width: 0; margin: 0; overflow: hidden; border: 1px solid var(--panel-border); border-radius: 10px; background: rgba(0,0,0,.22); }
+    .game-screenshot img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+    .game-screenshot figcaption { padding: 8px 10px; color: var(--muted); font-size: .85rem; }
+    .game-details p { margin: 6px 0; }
     .page-ad-section { margin-top: 18px; padding: 14px 16px; border-radius: 14px; border: 1px solid var(--panel-border); background: rgba(255,255,255,0.04); }
     .page-ad-section .ad-label { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8b00ff; margin-bottom: 8px; text-align: center; font-weight: 700; }
     .page-ad-section .adsbygoogle { min-height: 90px; }
@@ -151,6 +152,7 @@
       .topbar .actions { order: 3; width: 100%; }
       .game-layout { grid-template-columns: 1fr; }
       .game-frame { height: clamp(320px, 58vh, 620px); }
+      .game-action-bar { padding: 6px; }
       .related-games { position: static; max-height: none; }
       .related-game { grid-template-columns: 96px 1fr; }
     }
@@ -169,10 +171,6 @@
       <a class="site-brand" href="/">PleyZ Games</a>
       <h1>Special Ops: GO</h1>
       <div class="actions">
-        <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="120">
-          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><span aria-hidden="true">👍</span></button>
-          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><span aria-hidden="true">👎</span></button>
-        </div>
         <a class="profile-score-link" href="../index.html#leaderboard" title="View PleyZ score and leaderboard">
           <span class="profile-score-avatar" id="profile-score-avatar">PZ</span>
           <span id="profile-score-label">PleyZ Score</span>
@@ -184,25 +182,38 @@
     </header>
 
     <main id="main-content">
-      <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="../">Home</a></li><li><a href="/action-games/">Action Games</a></li><li aria-current="page">Special Ops: GO</li></ol></nav>
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="../">Home</a></li><li><a href="/action-games/">action Games</a></li><li aria-current="page">Special Ops: GO</li></ol></nav>
     <div class="game-layout">
       <div class="game-shell">
-        <div class="game-toolbar">
-          <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
-        </div>
         <div class="game-frame">
           <iframe src="https://playgama.com/export/game/special-ops?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487" allowfullscreen loading="eager" title="Special Ops: GO"></iframe>
         </div>
+        <div class="game-action-bar">
+          <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="120">
+            <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><span aria-hidden="true">👍</span></button>
+            <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><span aria-hidden="true">👎</span></button>
+          </div>
+          <div class="game-toolbar">
+            <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
+          </div>
+        </div>
 
+    <section class="video-card" aria-label="Gameplay video">
+      <div class="video-card-header">
+        <h3>Gameplay Video</h3>
+        <span>Quick guide</span>
+      </div>
+      <video controls preload="metadata" playsinline poster="https://static.playgama.com/p-img/pg/special-ops/big_preview/379c25433de24d13afadf693d918e11e?width=448" src="https://static.playgama.com/p-video/cca4b40c9b6c4877a294c337ef342280/orig_length_h320.mp4"></video>
+    </section>
       </div>
 
       <section class="info-card related-games" aria-label="Related games">
         <h2>Games You Might Like</h2>
-        <div class="related-grid"><a class="related-game" href="rivals-fps-online-shooter.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/rivals-fps-online-shooter/preview/2203a049014e4f6eaa4038ab696f6afa?width=448" alt="" width="800" height="450" loading="eager" fetchpriority="high" decoding="async" /></span><span>RIVALS FPS: Online Shooter</span></a>
-        <a class="related-game" href="dead-land-survival.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/dead-land-survival/big_preview/3ec05c224d064e1789d0a98fd4a9d048?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Dead Land: Survival</span></a>
-        <a class="related-game" href="cars-vs-zombies.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/cars-vs-zombies/big_preview/5749639b38d74457a4228e4b719dcb85?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Cars vs Zombies</span></a>
-        <a class="related-game" href="supernova-the-charon-protocol.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/supernova-the-charon-protocol/big_preview/01e886cf305a46b09285be84280d1c69?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Supernova: The &quot;Charon&quot; Protocol</span></a>
-        <a class="related-game" href="driver-club-highway-racing.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/driver-club-highway-racing/big-preview/037ce11afe4f4d58a0f93a6339db96b5?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Driver Club: Highway Racing</span></a></div>
+        <div class="related-grid"><a class="related-game" href="rivals-fps-online-shooter.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/rivals-fps-online-shooter/preview/2203a049014e4f6eaa4038ab696f6afa?width=448" alt="" width="800" height="450" loading="eager" fetchpriority="high" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/519f0e08d9764b25aea0b93699671b44/orig_length_h320.mp4"></video></span><span>RIVALS FPS: Online Shooter</span></a>
+        <a class="related-game" href="the-warlock-s-prisoner.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/the-warlocks-prisoner/big-preview/7ca7579a0daa42f19382b84c761966c4?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/0b8656475e8441d392be5e024a514e88/orig_length_h320.mp4"></video></span><span>The Warlock&#39;s Prisoner</span></a>
+        <a class="related-game" href="war-v-path-of-the-survivor.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/war-v-path-of-the-survivor/big-preview/19a18f0d112e48a890061dd2464564c5?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/42dd892564fc46bf806f5fed4d137dc2/orig_length_h320.mp4"></video></span><span>War V: Path of the Survivor!</span></a>
+        <a class="related-game" href="dead-land-survival.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/dead-land-survival/big_preview/3ec05c224d064e1789d0a98fd4a9d048?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/20132a31af5345adb698d954f9cec5ff/orig_length_h320.mp4"></video></span><span>Dead Land: Survival</span></a>
+        <a class="related-game" href="hazmob-fps-online-shooter.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/hazmob-fps-online-shooter/preview/76a02c8e7dbd4bd3a87bc87d868d6158?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Hazmob FPS: Online Shooter</span></a></div>
       </section>
     </div>
 
@@ -226,13 +237,32 @@
     </section>
 <section class="info-card" aria-labelledby="game-dna-heading">
       <h2 id="game-dna-heading">Game DNA</h2>
-      <div class="chip-list"><span class="chip">Action</span><span class="chip">Adventure</span><span class="chip">Arcade</span><span class="chip">Boys</span><span class="chip">Multiplayer</span><span class="chip">Horror</span><span class="chip">action</span><span class="chip">boys</span><span class="chip">3d</span><span class="chip">multiplayer</span><span class="chip">shooting</span><span class="chip">gun</span></div>
+      <div class="chip-list"><span class="chip">action</span><span class="chip">adventure</span><span class="chip">arcade</span><span class="chip">fps shooting</span><span class="chip">horror</span><span class="chip">multiplayer</span><span class="chip">shooting</span><span class="chip">survival</span><span class="chip">boys</span><span class="chip">3d</span><span class="chip">gun</span><span class="chip">pve</span></div>
     </section>
 <section class="info-card" aria-label="Game details"><p><strong>Platform:</strong> Web browser</p></section>
+<section class="info-card" aria-labelledby="faq-heading">
+      <h2 id="faq-heading">FAQ</h2>
+      <h3>Which devices can you play Special Ops: GO on?</h3><p>This game supports Desktop.</p><h3>What genre is Special Ops: GO?</h3><p>It is a action, boys, 3d, multiplayer, shooting, gun, pve, pvp, army, first-person-shooter, sniper game.</p><h3>Does Special Ops: GO support portrait or landscape mode?</h3><p>The game supports landscape orientation.</p><h3>Does Special Ops: GO have in-game purchases?</h3><p>No, in-game purchases are not listed.</p>
+    </section>
+<section class="info-card game-details" aria-labelledby="game-details-heading">
+      <h2 id="game-details-heading">Platforms, Genres &amp; Compatibility</h2>
+      <p><strong>Supported devices:</strong> Desktop</p><p><strong>Orientation:</strong> landscape</p><p><strong>Genres:</strong> action, boys, 3d, multiplayer, shooting, gun, pve, pvp, army, first-person-shooter, sniper</p><p><strong>In-game purchases:</strong> No</p><p><strong>Languages:</strong> en-US</p>
+    </section>
+<section class="info-card screenshot-card" aria-labelledby="screenshots-heading">
+      <h2 id="screenshots-heading">Special Ops: GO Screenshots &amp; Artwork</h2>
+      <div class="screenshot-gallery">
+        <figure class="game-screenshot">
+          <img src="https://static.playgama.com/p-img/pg/special-ops/big_preview/379c25433de24d13afadf693d918e11e?width=448" alt="Special Ops: GO Playgama preview" loading="lazy" decoding="async" />
+          <figcaption>Official Playgama game preview</figcaption>
+        </figure><figure class="game-screenshot game-artwork">
+          <img src="https://static.playgama.com/p-img/pg/special-ops/icon/643041e15f5345c5bb5d6e671fc23099?width=448" alt="Special Ops: GO game icon" loading="lazy" decoding="async" />
+          <figcaption>Game icon</figcaption>
+        </figure></div>
+    </section>
 
     <section class="info-card" aria-labelledby="related-categories-heading">
       <h2 id="related-categories-heading">Related Categories</h2>
-      <nav class="related-categories" aria-label="Related categories"><a href="/action-games/">Action Games</a><a href="/adventure-games/">Adventure Games</a><a href="/arcade-games/">Arcade Games</a><a href="/boys-games/">Boys Games</a><a href="/multiplayer-games/">Multiplayer Games</a><a href="/horror-games/">Horror Games</a></nav>
+      <nav class="related-categories" aria-label="Related categories"><a href="/action-games/">action Games</a><a href="/adventure-games/">adventure Games</a><a href="/arcade-games/">arcade Games</a><a href="/fps-shooting-games/">fps shooting Games</a><a href="/horror-games/">horror Games</a><a href="/multiplayer-games/">multiplayer Games</a><a href="/shooting-games/">shooting Games</a><a href="/survival-games/">survival Games</a></nav>
     </section>
     </main>
 
@@ -262,7 +292,7 @@
     <a href="/termsandconditions.html">Terms</a>
     <a href="/contact-us.html">Contact</a>
   </footer>
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/special-ops-go.html#game","name":"Special Ops: GO","description":"Play instantly in your browser.","url":"https://nikunjprogames.github.io/games/special-ops-go.html","image":"https://static.playgama.com/p-img/pg/special-ops/big_preview/379c25433de24d13afadf693d918e11e?width=448","gamePlatform":["Web browser"],"genre":["Action","Adventure","Arcade","Boys","Multiplayer","Horror"],"keywords":["action","boys","3d","multiplayer","shooting","gun","pve","pvp","army","first-person-shooter","sniper","competitive-games","collecting-games","desktop-games","1-player-games","shoot-em-up-games","arcade-shooter","military-shooter","action-adventure","2d-action","survival-horror"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Action Games","item":"https://nikunjprogames.github.io/action-games/"},{"@type":"ListItem","position":3,"name":"Special Ops: GO","item":"https://nikunjprogames.github.io/games/special-ops-go.html"}]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/special-ops-go.html#game","name":"Special Ops: GO","description":"Play instantly in your browser.","url":"https://nikunjprogames.github.io/games/special-ops-go.html","image":"https://static.playgama.com/p-img/pg/special-ops/big_preview/379c25433de24d13afadf693d918e11e?width=448","gamePlatform":["Web browser","Desktop"],"genre":["action","adventure","arcade","fps shooting","horror","multiplayer","shooting","survival","boys","3d","gun","pve","pvp","army","first-person-shooter","sniper"],"keywords":["action","boys","3d","multiplayer","shooting","gun","pve","pvp","army","first-person-shooter","sniper","competitive-games","collecting-games","desktop-games","1-player-games","shoot-em-up-games","arcade-shooter","military-shooter","action-adventure","2d-action","survival-horror"],"video":{"@type":"VideoObject","name":"Special Ops: GO gameplay video","description":"Watch gameplay from Special Ops: GO.","thumbnailUrl":"https://static.playgama.com/p-img/pg/special-ops/big_preview/379c25433de24d13afadf693d918e11e?width=448","contentUrl":"https://static.playgama.com/p-video/cca4b40c9b6c4877a294c337ef342280/orig_length_h320.mp4"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"action Games","item":"https://nikunjprogames.github.io/action-games/"},{"@type":"ListItem","position":3,"name":"Special Ops: GO","item":"https://nikunjprogames.github.io/games/special-ops-go.html"}]}]}</script>
   <script src="/site-shell.js" defer></script>
   <script src="/game-loading.js" defer></script>
   <script>

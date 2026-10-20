@@ -13,6 +13,7 @@
   <meta property="og:url" content="https://nikunjprogames.github.io/games/cars-vs-zombies.html" />
   <meta property="og:site_name" content="PleyZ" />
   <meta property="og:image" content="https://static.playgama.com/p-img/pg/cars-vs-zombies/big_preview/5749639b38d74457a4228e4b719dcb85?width=448" />
+
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Play Cars vs Zombies | PleyZ" />
   <meta name="twitter:description" content="Cars vs Zombies is an arcade vehicular survival action game." />
@@ -76,9 +77,8 @@
       background: var(--panel); color: var(--text);
     }
     .btn.primary { background: linear-gradient(90deg, var(--accent-2), var(--accent)); color: white; border-color: transparent; }
-    .game-toolbar {
-      display: flex; justify-content: flex-end; gap: 6px; margin-bottom: 8px;
-    }
+    .game-action-bar { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 7px; padding: 7px 9px; border: 1px solid var(--panel-border); border-radius: 8px; background: rgba(255,255,255,0.045); }
+    .game-toolbar { display: flex; justify-content: flex-end; gap: 6px; }
     .btn.compact { min-height: 34px; padding: 6px 10px; font-size: 0.84rem; }
     .game-layout {
       display: grid; grid-template-columns: minmax(0, 1fr) 250px; gap: 14px; align-items: start;
@@ -98,14 +98,9 @@
     .game-frame:fullscreen iframe, .game-frame:-webkit-full-screen iframe {
       width: 100%; height: 100%; min-height: 0;
     }
-    .video-card {
-      margin-top: 16px; padding: 14px; border-radius: 8px; background: rgba(255,255,255,0.05);
-      border: 1px solid var(--panel-border);
-    }
+    .video-card { margin-top: 16px; padding: 14px; border: 1px solid transparent; border-radius: 12px; background: linear-gradient(#101521, #101521) padding-box, linear-gradient(125deg, rgba(0,191,255,.8), rgba(139,0,255,.7), rgba(0,191,255,.25)) border-box; box-shadow: 0 12px 32px rgba(0,0,0,.28), inset 0 1px rgba(255,255,255,.08); }
     .video-card h3 { margin: 0 0 10px; font-family: 'Orbitron', sans-serif; font-size: 1rem; }
-    .video-card video, .video-card iframe {
-      width: 100%; min-height: 280px; border-radius: 12px; border: 0; background: #000;
-    }
+    .video-card video, .video-card iframe { display: block; width: 100%; aspect-ratio: 16 / 9; max-height: 620px; border-radius: 9px; border: 1px solid rgba(255,255,255,.12); background: #000; object-fit: contain; }
     .info-card {
       margin-top: 16px; padding: 14px; border-radius: 8px; background: rgba(255,255,255,0.05); border: 1px solid var(--panel-border);
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
@@ -132,6 +127,11 @@
     .related-game span { font-size: 0.9rem; line-height: 1.2; }
     .chip-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
     .chip { padding: 6px 10px; border-radius: 999px; background: rgba(0,191,255,0.14); border: 1px solid rgba(0,191,255,0.26); color: #bfeeff; font-size: 0.9rem; }
+    .screenshot-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 14px; }
+    .game-screenshot { min-width: 0; margin: 0; overflow: hidden; border: 1px solid var(--panel-border); border-radius: 10px; background: rgba(0,0,0,.22); }
+    .game-screenshot img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+    .game-screenshot figcaption { padding: 8px 10px; color: var(--muted); font-size: .85rem; }
+    .game-details p { margin: 6px 0; }
     .page-ad-section { margin-top: 18px; padding: 14px 16px; border-radius: 14px; border: 1px solid var(--panel-border); background: rgba(255,255,255,0.04); }
     .page-ad-section .ad-label { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8b00ff; margin-bottom: 8px; text-align: center; font-weight: 700; }
     .page-ad-section .adsbygoogle { min-height: 90px; }
@@ -151,6 +151,7 @@
       .topbar .actions { order: 3; width: 100%; }
       .game-layout { grid-template-columns: 1fr; }
       .game-frame { height: clamp(320px, 58vh, 620px); }
+      .game-action-bar { padding: 6px; }
       .related-games { position: static; max-height: none; }
       .related-game { grid-template-columns: 96px 1fr; }
     }
@@ -169,10 +170,6 @@
       <a class="site-brand" href="/">PleyZ Games</a>
       <h1>Cars vs Zombies</h1>
       <div class="actions">
-        <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="148">
-          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><span aria-hidden="true">👍</span></button>
-          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><span aria-hidden="true">👎</span></button>
-        </div>
         <a class="profile-score-link" href="../index.html#leaderboard" title="View PleyZ score and leaderboard">
           <span class="profile-score-avatar" id="profile-score-avatar">PZ</span>
           <span id="profile-score-label">PleyZ Score</span>
@@ -184,25 +181,31 @@
     </header>
 
     <main id="main-content">
-      <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="../">Home</a></li><li><a href="/arcade-games/">Arcade Games</a></li><li aria-current="page">Cars vs Zombies</li></ol></nav>
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="../">Home</a></li><li><a href="/arcade-games/">arcade Games</a></li><li aria-current="page">Cars vs Zombies</li></ol></nav>
     <div class="game-layout">
       <div class="game-shell">
-        <div class="game-toolbar">
-          <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
-        </div>
         <div class="game-frame">
           <iframe src="https://playgama.com/export/game/cars-vs-zombies?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487" allowfullscreen loading="eager" title="Cars vs Zombies"></iframe>
+        </div>
+        <div class="game-action-bar">
+          <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="148">
+            <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><span aria-hidden="true">👍</span></button>
+            <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><span aria-hidden="true">👎</span></button>
+          </div>
+          <div class="game-toolbar">
+            <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
+          </div>
         </div>
 
       </div>
 
       <section class="info-card related-games" aria-label="Related games">
         <h2>Games You Might Like</h2>
-        <div class="related-grid"><a class="related-game" href="driver-club-highway-racing.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/driver-club-highway-racing/big-preview/037ce11afe4f4d58a0f93a6339db96b5?width=448" alt="" width="800" height="450" loading="eager" fetchpriority="high" decoding="async" /></span><span>Driver Club: Highway Racing</span></a>
-        <a class="related-game" href="special-ops-go.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/special-ops/big_preview/379c25433de24d13afadf693d918e11e?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Special Ops: GO</span></a>
+        <div class="related-grid"><a class="related-game" href="driver-club-highway-racing.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/driver-club-highway-racing/big-preview/037ce11afe4f4d58a0f93a6339db96b5?width=448" alt="" width="800" height="450" loading="eager" fetchpriority="high" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/2bc9523376aa46139c01c868d86cbb68/orig_length_h320.mp4"></video></span><span>Driver Club: Highway Racing</span></a>
         <a class="related-game" href="street-race-master.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/street-race-master/big_preview/b3eb3fa57a8d4013943ac73b07f91926?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Street Race Master</span></a>
-        <a class="related-game" href="car-destruction-king.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/car-destruction-king/big_preview/0ca8f4094cfd4826b9888ea1d094bdd7?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span> Car Destruction King</span></a>
-        <a class="related-game" href="basket-random.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/basket-random/preview/fec7a407ebd246d8a893abaf7801622c?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Basket Random</span></a></div>
+        <a class="related-game" href="car-destruction-king.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/car-destruction-king/big_preview/0ca8f4094cfd4826b9888ea1d094bdd7?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/cdac251fb08c4fafb7bb056eadfa2623/orig_length_h320.mp4"></video></span><span> Car Destruction King</span></a>
+        <a class="related-game" href="car-smash-simulator-crash-tune.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/car-smash-simulator-crash--tune/big-preview/79a9ff5139df4ebeaa6f1dbf25c91171?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/06ee5a9ff7744d5091f46e059c1ba3a0/orig_length_h320.mp4"></video></span><span>Car Smash Simulator: Crash &amp; Tune</span></a>
+        <a class="related-game" href="special-ops-go.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/special-ops/big_preview/379c25433de24d13afadf693d918e11e?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/cca4b40c9b6c4877a294c337ef342280/orig_length_h320.mp4"></video></span><span>Special Ops: GO</span></a></div>
       </section>
     </div>
 
@@ -219,18 +222,38 @@
     </section>
 <section class="info-card" aria-labelledby="how-to-play-heading">
       <h2 id="how-to-play-heading">How to Play</h2>
-      <p>Keyboard &amp; Mouse Controls (Desktop / PC): • W / Up Arrow — Accelerate (Gas) • S / Down Arrow — Brake &amp; Reverse • A / D or Left / Right Arrows — Steer and Air Balance (Tilt in flight) • Left Shift / Space — Rocket Booster (Nitro) • Left Mouse Button (LMB) — Fire Mounted Weapon • Right Mouse Button (RMB) — Trigger Slow-Mo • Esc / P / Tab — Pause Menu Touch Controls (Mobile): • On-screen pedals — Gas &amp; Brake/Reverse • Left / Right buttons — Steer and Air Balance • Nitro button — Activate Booster</p>
+      <ul><li>Keyboard &amp; Mouse Controls (Desktop / PC):</li><li>W / Up Arrow — Accelerate (Gas)</li><li>S / Down Arrow — Brake &amp; Reverse</li><li>A / D or Left / Right Arrows — Steer and Air Balance (Tilt in flight)</li><li>Left Shift / Space — Rocket Booster (Nitro)</li><li>Left Mouse Button (LMB) — Fire Mounted Weapon</li><li>Right Mouse Button (RMB) — Trigger Slow-Mo</li><li>Esc / P / Tab — Pause Menu</li></ul>
+<ul><li>Touch Controls (Mobile):</li><li>On-screen pedals — Gas &amp; Brake/Reverse</li><li>Left / Right buttons — Steer and Air Balance</li><li>Nitro button — Activate Booster</li></ul>
 
     </section>
 <section class="info-card" aria-labelledby="game-dna-heading">
       <h2 id="game-dna-heading">Game DNA</h2>
-      <div class="chip-list"><span class="chip">Arcade</span><span class="chip">Action</span><span class="chip">Adventure</span><span class="chip">Cars</span><span class="chip">Racing</span><span class="chip">Horror</span><span class="chip">arcade</span><span class="chip">car</span><span class="chip">zombie</span><span class="chip">driving</span><span class="chip">action</span><span class="chip">racing</span></div>
+      <div class="chip-list"><span class="chip">arcade</span><span class="chip">action</span><span class="chip">adventure</span><span class="chip">cars</span><span class="chip">driving</span><span class="chip">racing</span><span class="chip">survival</span><span class="chip">survival zombies</span><span class="chip">car</span><span class="chip">zombie</span><span class="chip">3d</span><span class="chip">1-player-games</span></div>
     </section>
 <section class="info-card" aria-label="Game details"><p><strong>Platform:</strong> Web browser</p></section>
+<section class="info-card" aria-labelledby="faq-heading">
+      <h2 id="faq-heading">FAQ</h2>
+      <h3>Which devices can you play Cars vs Zombies on?</h3><p>This game supports Android, iOS, Desktop.</p><h3>What genre is Cars vs Zombies?</h3><p>It is a arcade, car, zombie, driving, action, racing, survival, 3d game.</p><h3>Does Cars vs Zombies support portrait or landscape mode?</h3><p>The game supports landscape orientation.</p><h3>Does Cars vs Zombies have in-game purchases?</h3><p>No, in-game purchases are not listed.</p>
+    </section>
+<section class="info-card game-details" aria-labelledby="game-details-heading">
+      <h2 id="game-details-heading">Platforms, Genres &amp; Compatibility</h2>
+      <p><strong>Supported devices:</strong> Android, iOS, Desktop</p><p><strong>Orientation:</strong> landscape</p><p><strong>Genres:</strong> arcade, car, zombie, driving, action, racing, survival, 3d</p><p><strong>In-game purchases:</strong> No</p><p><strong>Languages:</strong> en-US, de-DE, es-ES, fr-FR, id-ID, it-IT, pt-PT, ru-RU, tr-TR</p>
+    </section>
+<section class="info-card screenshot-card" aria-labelledby="screenshots-heading">
+      <h2 id="screenshots-heading">Cars vs Zombies Screenshots &amp; Artwork</h2>
+      <div class="screenshot-gallery">
+        <figure class="game-screenshot">
+          <img src="https://static.playgama.com/p-img/pg/cars-vs-zombies/big_preview/5749639b38d74457a4228e4b719dcb85?width=448" alt="Cars vs Zombies Playgama preview" loading="lazy" decoding="async" />
+          <figcaption>Official Playgama game preview</figcaption>
+        </figure><figure class="game-screenshot game-artwork">
+          <img src="https://static.playgama.com/p-img/pg/cars-vs-zombies/icon/06fb7ac974e749988a3c3241047c0f44?width=448" alt="Cars vs Zombies game icon" loading="lazy" decoding="async" />
+          <figcaption>Game icon</figcaption>
+        </figure></div>
+    </section>
 
     <section class="info-card" aria-labelledby="related-categories-heading">
       <h2 id="related-categories-heading">Related Categories</h2>
-      <nav class="related-categories" aria-label="Related categories"><a href="/arcade-games/">Arcade Games</a><a href="/action-games/">Action Games</a><a href="/adventure-games/">Adventure Games</a><a href="/cars-games/">Cars Games</a><a href="/racing-games/">Racing Games</a><a href="/horror-games/">Horror Games</a></nav>
+      <nav class="related-categories" aria-label="Related categories"><a href="/arcade-games/">arcade Games</a><a href="/action-games/">action Games</a><a href="/adventure-games/">adventure Games</a><a href="/cars-games/">cars Games</a><a href="/driving-games/">driving Games</a><a href="/racing-games/">racing Games</a><a href="/survival-games/">survival Games</a><a href="/survival-zombies-games/">survival zombies Games</a></nav>
     </section>
     </main>
 
@@ -260,7 +283,7 @@
     <a href="/termsandconditions.html">Terms</a>
     <a href="/contact-us.html">Contact</a>
   </footer>
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/cars-vs-zombies.html#game","name":"Cars vs Zombies","description":"Cars vs Zombies is an arcade vehicular survival action game.","url":"https://nikunjprogames.github.io/games/cars-vs-zombies.html","image":"https://static.playgama.com/p-img/pg/cars-vs-zombies/big_preview/5749639b38d74457a4228e4b719dcb85?width=448","gamePlatform":["Web browser"],"genre":["Arcade","Action","Adventure","Cars","Racing","Horror"],"keywords":["arcade","car","zombie","driving","action","racing","survival","3d","1-player-games","action-adventure","apocalypse-games","arcade-car","customization-games","demolition-games","kill-games","vehicles-games","desktop-games","addictive-games"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Arcade Games","item":"https://nikunjprogames.github.io/arcade-games/"},{"@type":"ListItem","position":3,"name":"Cars vs Zombies","item":"https://nikunjprogames.github.io/games/cars-vs-zombies.html"}]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/cars-vs-zombies.html#game","name":"Cars vs Zombies","description":"Cars vs Zombies is an arcade vehicular survival action game.","url":"https://nikunjprogames.github.io/games/cars-vs-zombies.html","image":"https://static.playgama.com/p-img/pg/cars-vs-zombies/big_preview/5749639b38d74457a4228e4b719dcb85?width=448","gamePlatform":["Web browser","Android","iOS","Desktop"],"genre":["arcade","action","adventure","cars","driving","racing","survival","survival zombies","car","zombie","3d"],"keywords":["arcade","car","zombie","driving","action","racing","survival","3d","1-player-games","action-adventure","apocalypse-games","arcade-car","customization-games","demolition-games","kill-games","vehicles-games","desktop-games","addictive-games"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"arcade Games","item":"https://nikunjprogames.github.io/arcade-games/"},{"@type":"ListItem","position":3,"name":"Cars vs Zombies","item":"https://nikunjprogames.github.io/games/cars-vs-zombies.html"}]}]}</script>
   <script src="/site-shell.js" defer></script>
   <script src="/game-loading.js" defer></script>
   <script>

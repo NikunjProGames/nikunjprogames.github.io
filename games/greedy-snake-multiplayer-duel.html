@@ -13,6 +13,7 @@
   <meta property="og:url" content="https://nikunjprogames.github.io/games/greedy-snake-multiplayer-duel.html" />
   <meta property="og:site_name" content="PleyZ" />
   <meta property="og:image" content="https://img.gamemonetize.com/fzxidkarnp7ykiii4mot05y6nfwt8h3w/512x384.jpg" />
+
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Play Greedy Snake Multiplayer Duel | PleyZ" />
   <meta name="twitter:description" content="Steer a growing snake around the arena, collect items, and compete in multiplayer duels in Greedy Snake Multiplayer Duel." />
@@ -76,9 +77,8 @@
       background: var(--panel); color: var(--text);
     }
     .btn.primary { background: linear-gradient(90deg, var(--accent-2), var(--accent)); color: white; border-color: transparent; }
-    .game-toolbar {
-      display: flex; justify-content: flex-end; gap: 6px; margin-bottom: 8px;
-    }
+    .game-action-bar { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 7px; padding: 7px 9px; border: 1px solid var(--panel-border); border-radius: 8px; background: rgba(255,255,255,0.045); }
+    .game-toolbar { display: flex; justify-content: flex-end; gap: 6px; }
     .btn.compact { min-height: 34px; padding: 6px 10px; font-size: 0.84rem; }
     .game-layout {
       display: grid; grid-template-columns: minmax(0, 1fr) 250px; gap: 14px; align-items: start;
@@ -98,14 +98,9 @@
     .game-frame:fullscreen iframe, .game-frame:-webkit-full-screen iframe {
       width: 100%; height: 100%; min-height: 0;
     }
-    .video-card {
-      margin-top: 16px; padding: 14px; border-radius: 8px; background: rgba(255,255,255,0.05);
-      border: 1px solid var(--panel-border);
-    }
+    .video-card { margin-top: 16px; padding: 14px; border: 1px solid transparent; border-radius: 12px; background: linear-gradient(#101521, #101521) padding-box, linear-gradient(125deg, rgba(0,191,255,.8), rgba(139,0,255,.7), rgba(0,191,255,.25)) border-box; box-shadow: 0 12px 32px rgba(0,0,0,.28), inset 0 1px rgba(255,255,255,.08); }
     .video-card h3 { margin: 0 0 10px; font-family: 'Orbitron', sans-serif; font-size: 1rem; }
-    .video-card video, .video-card iframe {
-      width: 100%; min-height: 280px; border-radius: 12px; border: 0; background: #000;
-    }
+    .video-card video, .video-card iframe { display: block; width: 100%; aspect-ratio: 16 / 9; max-height: 620px; border-radius: 9px; border: 1px solid rgba(255,255,255,.12); background: #000; object-fit: contain; }
     .info-card {
       margin-top: 16px; padding: 14px; border-radius: 8px; background: rgba(255,255,255,0.05); border: 1px solid var(--panel-border);
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
@@ -132,6 +127,11 @@
     .related-game span { font-size: 0.9rem; line-height: 1.2; }
     .chip-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
     .chip { padding: 6px 10px; border-radius: 999px; background: rgba(0,191,255,0.14); border: 1px solid rgba(0,191,255,0.26); color: #bfeeff; font-size: 0.9rem; }
+    .screenshot-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 14px; }
+    .game-screenshot { min-width: 0; margin: 0; overflow: hidden; border: 1px solid var(--panel-border); border-radius: 10px; background: rgba(0,0,0,.22); }
+    .game-screenshot img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+    .game-screenshot figcaption { padding: 8px 10px; color: var(--muted); font-size: .85rem; }
+    .game-details p { margin: 6px 0; }
     .page-ad-section { margin-top: 18px; padding: 14px 16px; border-radius: 14px; border: 1px solid var(--panel-border); background: rgba(255,255,255,0.04); }
     .page-ad-section .ad-label { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8b00ff; margin-bottom: 8px; text-align: center; font-weight: 700; }
     .page-ad-section .adsbygoogle { min-height: 90px; }
@@ -151,6 +151,7 @@
       .topbar .actions { order: 3; width: 100%; }
       .game-layout { grid-template-columns: 1fr; }
       .game-frame { height: clamp(320px, 58vh, 620px); }
+      .game-action-bar { padding: 6px; }
       .related-games { position: static; max-height: none; }
       .related-game { grid-template-columns: 96px 1fr; }
     }
@@ -169,10 +170,6 @@
       <a class="site-brand" href="/">PleyZ Games</a>
       <h1>Greedy Snake Multiplayer Duel</h1>
       <div class="actions">
-        <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="89">
-          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><span aria-hidden="true">👍</span></button>
-          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><span aria-hidden="true">👎</span></button>
-        </div>
         <a class="profile-score-link" href="../index.html#leaderboard" title="View PleyZ score and leaderboard">
           <span class="profile-score-avatar" id="profile-score-avatar">PZ</span>
           <span id="profile-score-label">PleyZ Score</span>
@@ -184,14 +181,20 @@
     </header>
 
     <main id="main-content">
-      <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="../">Home</a></li><li><a href="/multiplayer-games/">Multiplayer Games</a></li><li aria-current="page">Greedy Snake Multiplayer Duel</li></ol></nav>
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="../">Home</a></li><li><a href="/multiplayer-games/">multiplayer Games</a></li><li aria-current="page">Greedy Snake Multiplayer Duel</li></ol></nav>
     <div class="game-layout">
       <div class="game-shell">
-        <div class="game-toolbar">
-          <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
-        </div>
         <div class="game-frame">
           <iframe src="https://html5.gamemonetize.co/fzxidkarnp7ykiii4mot05y6nfwt8h3w/" allowfullscreen loading="eager" title="Greedy Snake Multiplayer Duel"></iframe>
+        </div>
+        <div class="game-action-bar">
+          <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="89">
+            <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><span aria-hidden="true">👍</span></button>
+            <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><span aria-hidden="true">👎</span></button>
+          </div>
+          <div class="game-toolbar">
+            <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
+          </div>
         </div>
 
       </div>
@@ -199,10 +202,10 @@
       <section class="info-card related-games" aria-label="Related games">
         <h2>Games You Might Like</h2>
         <div class="related-grid"><a class="related-game" href="snake-war-multiplayer.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/qf4hzartah4bf6ewbpelfx4dmz1qql4a/512x384.jpg" alt="" width="800" height="600" loading="eager" fetchpriority="high" decoding="async" /></span><span>Snake War Multiplayer</span></a>
+        <a class="related-game" href="snake-2077-glitch-war.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/snake-2077-glitch-war/big-preview/a197622a4bc540189401a9753ea98ba2?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/ca064099757ba9f8aac1ab6d54bf884c/orig_length_h320.mp4"></video></span><span>Snake 2077: Glitch War</span></a>
         <a class="related-game" href="survev-io.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/q9xrmuceu30pey8llzop5cr0p1p2fbx9/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async" /></span><span>Survev.io</span></a>
-        <a class="related-game" href="battle-jitsu.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/cxu4dpr5uspgzim70lf6t4p6milazwr0/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async" /></span><span>Battle Jitsu</span></a>
         <a class="related-game" href="blockscape-io.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/z41q0ycg5i8u33rqy7sfjcedpak3e7zz/512x384.jpg" alt="" width="900" height="600" loading="lazy" decoding="async" /></span><span>blockscape.io</span></a>
-        <a class="related-game" href="brainrot-bridge-race-3d.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/e27ezlhh5edki5wv0aad96d8w3g1l1bf/512x384.jpg" alt="" width="1334" height="750" loading="lazy" decoding="async" /></span><span>Brainrot Bridge Race 3D</span></a></div>
+        <a class="related-game" href="guardz-io.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/f1e896emfy104h8j8higjjdkcqeqvtau/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async" /></span><span>Guardz IO</span></a></div>
       </section>
     </div>
 
@@ -219,13 +222,14 @@
     </section>
 <section class="info-card" aria-labelledby="game-dna-heading">
       <h2 id="game-dna-heading">Game DNA</h2>
-      <div class="chip-list"><span class="chip">Multiplayer</span><span class="chip">Action</span><span class="chip">.io</span><span class="chip">Battle</span><span class="chip">Best Games</span></div>
+      <div class="chip-list"><span class="chip">multiplayer</span><span class="chip">action</span><span class="chip">io</span><span class="chip">snake</span><span class="chip">.io</span><span class="chip">Battle</span><span class="chip">Best Games</span></div>
     </section>
 <section class="info-card" aria-label="Game details"><p><strong>Platform:</strong> Web browser</p></section>
 
+
     <section class="info-card" aria-labelledby="related-categories-heading">
       <h2 id="related-categories-heading">Related Categories</h2>
-      <nav class="related-categories" aria-label="Related categories"><a href="/multiplayer-games/">Multiplayer Games</a><a href="/action-games/">Action Games</a></nav>
+      <nav class="related-categories" aria-label="Related categories"><a href="/multiplayer-games/">multiplayer Games</a><a href="/action-games/">action Games</a><a href="/io-games/">io Games</a><a href="/snake-games/">snake Games</a></nav>
     </section>
     </main>
 
@@ -255,7 +259,7 @@
     <a href="/termsandconditions.html">Terms</a>
     <a href="/contact-us.html">Contact</a>
   </footer>
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/greedy-snake-multiplayer-duel.html#game","name":"Greedy Snake Multiplayer Duel","description":"Steer a growing snake around the arena, collect items, and compete in multiplayer duels in Greedy Snake Multiplayer Duel.","url":"https://nikunjprogames.github.io/games/greedy-snake-multiplayer-duel.html","image":"https://img.gamemonetize.com/fzxidkarnp7ykiii4mot05y6nfwt8h3w/512x384.jpg","gamePlatform":["Web browser"],"genre":["Multiplayer","Action"],"keywords":[".io","Battle","Best Games"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Multiplayer Games","item":"https://nikunjprogames.github.io/multiplayer-games/"},{"@type":"ListItem","position":3,"name":"Greedy Snake Multiplayer Duel","item":"https://nikunjprogames.github.io/games/greedy-snake-multiplayer-duel.html"}]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/greedy-snake-multiplayer-duel.html#game","name":"Greedy Snake Multiplayer Duel","description":"Steer a growing snake around the arena, collect items, and compete in multiplayer duels in Greedy Snake Multiplayer Duel.","url":"https://nikunjprogames.github.io/games/greedy-snake-multiplayer-duel.html","image":"https://img.gamemonetize.com/fzxidkarnp7ykiii4mot05y6nfwt8h3w/512x384.jpg","gamePlatform":["Web browser"],"genre":["multiplayer","action","io","snake"],"keywords":[".io","Battle","Best Games"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"multiplayer Games","item":"https://nikunjprogames.github.io/multiplayer-games/"},{"@type":"ListItem","position":3,"name":"Greedy Snake Multiplayer Duel","item":"https://nikunjprogames.github.io/games/greedy-snake-multiplayer-duel.html"}]}]}</script>
   <script src="/site-shell.js" defer></script>
   <script src="/game-loading.js" defer></script>
   <script>

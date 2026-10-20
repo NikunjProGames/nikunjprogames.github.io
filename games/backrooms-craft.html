@@ -13,6 +13,8 @@
   <meta property="og:url" content="https://nikunjprogames.github.io/games/backrooms-craft.html" />
   <meta property="og:site_name" content="PleyZ" />
   <meta property="og:image" content="https://static.playgama.com/p-img/pg/backrooms-craft/big_preview/34cec4a8a9af49fe98f613b4e57776a4?width=448" />
+  <meta property="og:video" content="https://static.playgama.com/p-video/ce19d1ef654b42aab0a2cb14e96004bd/orig_length_h320.mp4" />
+  <meta property="og:video:type" content="video/mp4" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Play Backrooms Craft | PleyZ" />
   <meta name="twitter:description" content="You went through the wrong door." />
@@ -76,9 +78,8 @@
       background: var(--panel); color: var(--text);
     }
     .btn.primary { background: linear-gradient(90deg, var(--accent-2), var(--accent)); color: white; border-color: transparent; }
-    .game-toolbar {
-      display: flex; justify-content: flex-end; gap: 6px; margin-bottom: 8px;
-    }
+    .game-action-bar { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 7px; padding: 7px 9px; border: 1px solid var(--panel-border); border-radius: 8px; background: rgba(255,255,255,0.045); }
+    .game-toolbar { display: flex; justify-content: flex-end; gap: 6px; }
     .btn.compact { min-height: 34px; padding: 6px 10px; font-size: 0.84rem; }
     .game-layout {
       display: grid; grid-template-columns: minmax(0, 1fr) 250px; gap: 14px; align-items: start;
@@ -98,14 +99,9 @@
     .game-frame:fullscreen iframe, .game-frame:-webkit-full-screen iframe {
       width: 100%; height: 100%; min-height: 0;
     }
-    .video-card {
-      margin-top: 16px; padding: 14px; border-radius: 8px; background: rgba(255,255,255,0.05);
-      border: 1px solid var(--panel-border);
-    }
+    .video-card { margin-top: 16px; padding: 14px; border: 1px solid transparent; border-radius: 12px; background: linear-gradient(#101521, #101521) padding-box, linear-gradient(125deg, rgba(0,191,255,.8), rgba(139,0,255,.7), rgba(0,191,255,.25)) border-box; box-shadow: 0 12px 32px rgba(0,0,0,.28), inset 0 1px rgba(255,255,255,.08); }
     .video-card h3 { margin: 0 0 10px; font-family: 'Orbitron', sans-serif; font-size: 1rem; }
-    .video-card video, .video-card iframe {
-      width: 100%; min-height: 280px; border-radius: 12px; border: 0; background: #000;
-    }
+    .video-card video, .video-card iframe { display: block; width: 100%; aspect-ratio: 16 / 9; max-height: 620px; border-radius: 9px; border: 1px solid rgba(255,255,255,.12); background: #000; object-fit: contain; }
     .info-card {
       margin-top: 16px; padding: 14px; border-radius: 8px; background: rgba(255,255,255,0.05); border: 1px solid var(--panel-border);
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
@@ -132,6 +128,11 @@
     .related-game span { font-size: 0.9rem; line-height: 1.2; }
     .chip-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
     .chip { padding: 6px 10px; border-radius: 999px; background: rgba(0,191,255,0.14); border: 1px solid rgba(0,191,255,0.26); color: #bfeeff; font-size: 0.9rem; }
+    .screenshot-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 14px; }
+    .game-screenshot { min-width: 0; margin: 0; overflow: hidden; border: 1px solid var(--panel-border); border-radius: 10px; background: rgba(0,0,0,.22); }
+    .game-screenshot img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+    .game-screenshot figcaption { padding: 8px 10px; color: var(--muted); font-size: .85rem; }
+    .game-details p { margin: 6px 0; }
     .page-ad-section { margin-top: 18px; padding: 14px 16px; border-radius: 14px; border: 1px solid var(--panel-border); background: rgba(255,255,255,0.04); }
     .page-ad-section .ad-label { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8b00ff; margin-bottom: 8px; text-align: center; font-weight: 700; }
     .page-ad-section .adsbygoogle { min-height: 90px; }
@@ -151,6 +152,7 @@
       .topbar .actions { order: 3; width: 100%; }
       .game-layout { grid-template-columns: 1fr; }
       .game-frame { height: clamp(320px, 58vh, 620px); }
+      .game-action-bar { padding: 6px; }
       .related-games { position: static; max-height: none; }
       .related-game { grid-template-columns: 96px 1fr; }
     }
@@ -169,10 +171,6 @@
       <a class="site-brand" href="/">PleyZ Games</a>
       <h1>Backrooms Craft</h1>
       <div class="actions">
-        <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="137">
-          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><span aria-hidden="true">👍</span></button>
-          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><span aria-hidden="true">👎</span></button>
-        </div>
         <a class="profile-score-link" href="../index.html#leaderboard" title="View PleyZ score and leaderboard">
           <span class="profile-score-avatar" id="profile-score-avatar">PZ</span>
           <span id="profile-score-label">PleyZ Score</span>
@@ -184,25 +182,38 @@
     </header>
 
     <main id="main-content">
-      <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="../">Home</a></li><li><a href="/adventure-games/">Adventure Games</a></li><li aria-current="page">Backrooms Craft</li></ol></nav>
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="../">Home</a></li><li><a href="/adventure-games/">adventure Games</a></li><li aria-current="page">Backrooms Craft</li></ol></nav>
     <div class="game-layout">
       <div class="game-shell">
-        <div class="game-toolbar">
-          <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
-        </div>
         <div class="game-frame">
           <iframe src="https://playgama.com/export/game/backrooms-craft?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487" allowfullscreen loading="eager" title="Backrooms Craft"></iframe>
         </div>
+        <div class="game-action-bar">
+          <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="137">
+            <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><span aria-hidden="true">👍</span></button>
+            <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><span aria-hidden="true">👎</span></button>
+          </div>
+          <div class="game-toolbar">
+            <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
+          </div>
+        </div>
 
+    <section class="video-card" aria-label="Gameplay video">
+      <div class="video-card-header">
+        <h3>Gameplay Video</h3>
+        <span>Quick guide</span>
+      </div>
+      <video controls preload="metadata" playsinline poster="https://static.playgama.com/p-img/pg/backrooms-craft/big_preview/34cec4a8a9af49fe98f613b4e57776a4?width=448" src="https://static.playgama.com/p-video/ce19d1ef654b42aab0a2cb14e96004bd/orig_length_h320.mp4"></video>
+    </section>
       </div>
 
       <section class="info-card related-games" aria-label="Related games">
         <h2>Games You Might Like</h2>
-        <div class="related-grid"><a class="related-game" href="backrooms-exit-protocol-0.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/backrooms-exit-protocol-0/big_preview/4f691ad7fdbb4ec3a0a45c781c0feea7?width=448" alt="" width="800" height="450" loading="eager" fetchpriority="high" decoding="async" /></span><span>Backrooms: Exit Protocol 0</span></a>
-        <a class="related-game" href="dead-land-survival.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/dead-land-survival/big_preview/3ec05c224d064e1789d0a98fd4a9d048?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Dead Land: Survival</span></a>
+        <div class="related-grid"><a class="related-game" href="backrooms-exit-protocol-0.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/backrooms-exit-protocol-0/big_preview/4f691ad7fdbb4ec3a0a45c781c0feea7?width=448" alt="" width="800" height="450" loading="eager" fetchpriority="high" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/60c9d220c3d84df194de4368f427a1dd/orig_length_h320.mp4"></video></span><span>Backrooms: Exit Protocol 0</span></a>
+        <a class="related-game" href="dead-land-survival.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/dead-land-survival/big_preview/3ec05c224d064e1789d0a98fd4a9d048?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/20132a31af5345adb698d954f9cec5ff/orig_length_h320.mp4"></video></span><span>Dead Land: Survival</span></a>
         <a class="related-game" href="the-tall-man.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/the-tall-man/big_preview/cad21af835d348db83f9aace4ccca043?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>The Tall Man</span></a>
-        <a class="related-game" href="the-warlock-s-prisoner.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/the-warlocks-prisoner/big-preview/7ca7579a0daa42f19382b84c761966c4?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>The Warlock&#39;s Prisoner</span></a>
-        <a class="related-game" href="a-long-way-home.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/a-long-way-home/big-preview/b754165683fe4dae9e2cfb5b0b0ed906?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>A Long Way Home</span></a></div>
+        <a class="related-game" href="the-warlock-s-prisoner.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/the-warlocks-prisoner/big-preview/7ca7579a0daa42f19382b84c761966c4?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/0b8656475e8441d392be5e024a514e88/orig_length_h320.mp4"></video></span><span>The Warlock&#39;s Prisoner</span></a>
+        <a class="related-game" href="special-ops-go.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/special-ops/big_preview/379c25433de24d13afadf693d918e11e?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/cca4b40c9b6c4877a294c337ef342280/orig_length_h320.mp4"></video></span><span>Special Ops: GO</span></a></div>
       </section>
     </div>
 
@@ -223,18 +234,38 @@
     </section>
 <section class="info-card" aria-labelledby="how-to-play-heading">
       <h2 id="how-to-play-heading">How to Play</h2>
-      <p>On a computer: WASD or the arrow keys to walk, Shift to run, Space to jump, C to crouch. The mouse looks around. Hold the left button to mine a block or pull furniture apart — on a creature it is a blow. The right button places a block, eats, drinks, or opens a workbench or furnace. Keys 1-9 and the mouse wheel pick an item from the belt. E is inventory and crafting, J is the journal, Esc is pause. On a phone: the stick appears on the left wherever you touch the screen; hold it against the edge and you break into a run. Drag a finger across the world to look around. Hold a finger on a block and mining starts, and you can keep sliding without lifting. A short tap places, uses or hits. Round jump and crouch pads sit on the right; a weapon pad appears when you are holding one. The bag at the end of the belt opens inventory and crafting, the journal is in the top corner.</p>
+      <p>On a computer: WASD or the arrow keys to walk, Shift to run, Space to jump, C to crouch. The mouse looks around. Hold the left button to mine a block or pull furniture apart — on a creature it is a blow. The right button places a block, eats, drinks, or opens a workbench or furnace. Keys 1-9 and the mouse wheel pick an item from the belt. E is inventory and crafting, J is the journal, Esc is pause.</p>
+<p>On a phone: the stick appears on the left wherever you touch the screen; hold it against the edge and you break into a run. Drag a finger across the world to look around. Hold a finger on a block and mining starts, and you can keep sliding without lifting. A short tap places, uses or hits. Round jump and crouch pads sit on the right; a weapon pad appears when you are holding one. The bag at the end of the belt opens inventory and crafting, the journal is in the top corner.</p>
 
     </section>
 <section class="info-card" aria-labelledby="game-dna-heading">
       <h2 id="game-dna-heading">Game DNA</h2>
-      <div class="chip-list"><span class="chip">Adventure</span><span class="chip">Action</span><span class="chip">Simulation</span><span class="chip">Horror</span><span class="chip">adventure</span><span class="chip">simulation</span><span class="chip">horror</span><span class="chip">3d</span><span class="chip">minecraft</span><span class="chip">survival</span><span class="chip">crafting</span><span class="chip">1-player-games</span></div>
+      <div class="chip-list"><span class="chip">adventure</span><span class="chip">action</span><span class="chip">horror</span><span class="chip">simulation</span><span class="chip">survival</span><span class="chip">3d</span><span class="chip">minecraft</span><span class="chip">crafting</span><span class="chip">1-player-games</span><span class="chip">mine-games</span><span class="chip">sandbox-games</span><span class="chip">building-games</span></div>
     </section>
 <section class="info-card" aria-label="Game details"><p><strong>Platform:</strong> Web browser</p></section>
+<section class="info-card" aria-labelledby="faq-heading">
+      <h2 id="faq-heading">FAQ</h2>
+      <h3>Which devices can you play Backrooms Craft on?</h3><p>This game supports Android, iOS, Desktop.</p><h3>What genre is Backrooms Craft?</h3><p>It is a adventure, simulation, horror, 3d, minecraft, survival, crafting game.</p><h3>Does Backrooms Craft support portrait or landscape mode?</h3><p>The game supports landscape orientation.</p><h3>Does Backrooms Craft have in-game purchases?</h3><p>No, in-game purchases are not listed.</p>
+    </section>
+<section class="info-card game-details" aria-labelledby="game-details-heading">
+      <h2 id="game-details-heading">Platforms, Genres &amp; Compatibility</h2>
+      <p><strong>Supported devices:</strong> Android, iOS, Desktop</p><p><strong>Orientation:</strong> landscape</p><p><strong>Genres:</strong> adventure, simulation, horror, 3d, minecraft, survival, crafting</p><p><strong>In-game purchases:</strong> No</p><p><strong>Languages:</strong> en-US, ru-RU</p>
+    </section>
+<section class="info-card screenshot-card" aria-labelledby="screenshots-heading">
+      <h2 id="screenshots-heading">Backrooms Craft Screenshots &amp; Artwork</h2>
+      <div class="screenshot-gallery">
+        <figure class="game-screenshot">
+          <img src="https://static.playgama.com/p-img/pg/backrooms-craft/big_preview/34cec4a8a9af49fe98f613b4e57776a4?width=448" alt="Backrooms Craft Playgama preview" loading="lazy" decoding="async" />
+          <figcaption>Official Playgama game preview</figcaption>
+        </figure><figure class="game-screenshot game-artwork">
+          <img src="https://static.playgama.com/p-img/pg/backrooms-craft/icon/af71593661434a669de775d6b8639e14?width=448" alt="Backrooms Craft game icon" loading="lazy" decoding="async" />
+          <figcaption>Game icon</figcaption>
+        </figure></div>
+    </section>
 
     <section class="info-card" aria-labelledby="related-categories-heading">
       <h2 id="related-categories-heading">Related Categories</h2>
-      <nav class="related-categories" aria-label="Related categories"><a href="/adventure-games/">Adventure Games</a><a href="/action-games/">Action Games</a><a href="/simulation-games/">Simulation Games</a><a href="/horror-games/">Horror Games</a></nav>
+      <nav class="related-categories" aria-label="Related categories"><a href="/adventure-games/">adventure Games</a><a href="/action-games/">action Games</a><a href="/horror-games/">horror Games</a><a href="/simulation-games/">simulation Games</a><a href="/survival-games/">survival Games</a></nav>
     </section>
     </main>
 
@@ -264,7 +295,7 @@
     <a href="/termsandconditions.html">Terms</a>
     <a href="/contact-us.html">Contact</a>
   </footer>
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/backrooms-craft.html#game","name":"Backrooms Craft","description":"You went through the wrong door.","url":"https://nikunjprogames.github.io/games/backrooms-craft.html","image":"https://static.playgama.com/p-img/pg/backrooms-craft/big_preview/34cec4a8a9af49fe98f613b4e57776a4?width=448","gamePlatform":["Web browser"],"genre":["Adventure","Action","Simulation","Horror"],"keywords":["adventure","simulation","horror","3d","minecraft","survival","crafting","1-player-games","mine-games","sandbox-games","building-games","open-world-games","minecraft-survival","minecraft-adventure","action-adventure","action-rpg","survival-horror","backrooms","ai-games"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Adventure Games","item":"https://nikunjprogames.github.io/adventure-games/"},{"@type":"ListItem","position":3,"name":"Backrooms Craft","item":"https://nikunjprogames.github.io/games/backrooms-craft.html"}]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/backrooms-craft.html#game","name":"Backrooms Craft","description":"You went through the wrong door.","url":"https://nikunjprogames.github.io/games/backrooms-craft.html","image":"https://static.playgama.com/p-img/pg/backrooms-craft/big_preview/34cec4a8a9af49fe98f613b4e57776a4?width=448","gamePlatform":["Web browser","Android","iOS","Desktop"],"genre":["adventure","action","horror","simulation","survival","3d","minecraft","crafting"],"keywords":["adventure","simulation","horror","3d","minecraft","survival","crafting","1-player-games","mine-games","sandbox-games","building-games","open-world-games","minecraft-survival","minecraft-adventure","action-adventure","action-rpg","survival-horror","backrooms","ai-games"],"video":{"@type":"VideoObject","name":"Backrooms Craft gameplay video","description":"Watch gameplay from Backrooms Craft.","thumbnailUrl":"https://static.playgama.com/p-img/pg/backrooms-craft/big_preview/34cec4a8a9af49fe98f613b4e57776a4?width=448","contentUrl":"https://static.playgama.com/p-video/ce19d1ef654b42aab0a2cb14e96004bd/orig_length_h320.mp4"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"adventure Games","item":"https://nikunjprogames.github.io/adventure-games/"},{"@type":"ListItem","position":3,"name":"Backrooms Craft","item":"https://nikunjprogames.github.io/games/backrooms-craft.html"}]}]}</script>
   <script src="/site-shell.js" defer></script>
   <script src="/game-loading.js" defer></script>
   <script>

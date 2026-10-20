@@ -13,6 +13,8 @@
   <meta property="og:url" content="https://nikunjprogames.github.io/games/solar-smash.html" />
   <meta property="og:site_name" content="PleyZ" />
   <meta property="og:image" content="https://static.playgama.com/p-img/pg/solar-smash/big-preview/678db982b1364f018e7c4fac3b1f4a44?width=448" />
+  <meta property="og:video" content="https://static.playgama.com/p-video/20b78a71f7844d66aabe38ddbda3d270/orig_length_h320.mp4" />
+  <meta property="og:video:type" content="video/mp4" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Play Solar Smash | PleyZ" />
   <meta name="twitter:description" content="Solar Smash is a fun game that allows you to fully embrace cosmic power and create or destroy planets as you wish." />
@@ -76,9 +78,8 @@
       background: var(--panel); color: var(--text);
     }
     .btn.primary { background: linear-gradient(90deg, var(--accent-2), var(--accent)); color: white; border-color: transparent; }
-    .game-toolbar {
-      display: flex; justify-content: flex-end; gap: 6px; margin-bottom: 8px;
-    }
+    .game-action-bar { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 7px; padding: 7px 9px; border: 1px solid var(--panel-border); border-radius: 8px; background: rgba(255,255,255,0.045); }
+    .game-toolbar { display: flex; justify-content: flex-end; gap: 6px; }
     .btn.compact { min-height: 34px; padding: 6px 10px; font-size: 0.84rem; }
     .game-layout {
       display: grid; grid-template-columns: minmax(0, 1fr) 250px; gap: 14px; align-items: start;
@@ -98,14 +99,9 @@
     .game-frame:fullscreen iframe, .game-frame:-webkit-full-screen iframe {
       width: 100%; height: 100%; min-height: 0;
     }
-    .video-card {
-      margin-top: 16px; padding: 14px; border-radius: 8px; background: rgba(255,255,255,0.05);
-      border: 1px solid var(--panel-border);
-    }
+    .video-card { margin-top: 16px; padding: 14px; border: 1px solid transparent; border-radius: 12px; background: linear-gradient(#101521, #101521) padding-box, linear-gradient(125deg, rgba(0,191,255,.8), rgba(139,0,255,.7), rgba(0,191,255,.25)) border-box; box-shadow: 0 12px 32px rgba(0,0,0,.28), inset 0 1px rgba(255,255,255,.08); }
     .video-card h3 { margin: 0 0 10px; font-family: 'Orbitron', sans-serif; font-size: 1rem; }
-    .video-card video, .video-card iframe {
-      width: 100%; min-height: 280px; border-radius: 12px; border: 0; background: #000;
-    }
+    .video-card video, .video-card iframe { display: block; width: 100%; aspect-ratio: 16 / 9; max-height: 620px; border-radius: 9px; border: 1px solid rgba(255,255,255,.12); background: #000; object-fit: contain; }
     .info-card {
       margin-top: 16px; padding: 14px; border-radius: 8px; background: rgba(255,255,255,0.05); border: 1px solid var(--panel-border);
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
@@ -132,6 +128,11 @@
     .related-game span { font-size: 0.9rem; line-height: 1.2; }
     .chip-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
     .chip { padding: 6px 10px; border-radius: 999px; background: rgba(0,191,255,0.14); border: 1px solid rgba(0,191,255,0.26); color: #bfeeff; font-size: 0.9rem; }
+    .screenshot-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 14px; }
+    .game-screenshot { min-width: 0; margin: 0; overflow: hidden; border: 1px solid var(--panel-border); border-radius: 10px; background: rgba(0,0,0,.22); }
+    .game-screenshot img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+    .game-screenshot figcaption { padding: 8px 10px; color: var(--muted); font-size: .85rem; }
+    .game-details p { margin: 6px 0; }
     .page-ad-section { margin-top: 18px; padding: 14px 16px; border-radius: 14px; border: 1px solid var(--panel-border); background: rgba(255,255,255,0.04); }
     .page-ad-section .ad-label { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8b00ff; margin-bottom: 8px; text-align: center; font-weight: 700; }
     .page-ad-section .adsbygoogle { min-height: 90px; }
@@ -151,6 +152,7 @@
       .topbar .actions { order: 3; width: 100%; }
       .game-layout { grid-template-columns: 1fr; }
       .game-frame { height: clamp(320px, 58vh, 620px); }
+      .game-action-bar { padding: 6px; }
       .related-games { position: static; max-height: none; }
       .related-game { grid-template-columns: 96px 1fr; }
     }
@@ -169,10 +171,6 @@
       <a class="site-brand" href="/">PleyZ Games</a>
       <h1>Solar Smash</h1>
       <div class="actions">
-        <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="105">
-          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><span aria-hidden="true">👍</span></button>
-          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><span aria-hidden="true">👎</span></button>
-        </div>
         <a class="profile-score-link" href="../index.html#leaderboard" title="View PleyZ score and leaderboard">
           <span class="profile-score-avatar" id="profile-score-avatar">PZ</span>
           <span id="profile-score-label">PleyZ Score</span>
@@ -184,25 +182,38 @@
     </header>
 
     <main id="main-content">
-      <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="../">Home</a></li><li><a href="/simulation-games/">Simulation Games</a></li><li aria-current="page">Solar Smash</li></ol></nav>
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="../">Home</a></li><li><a href="/simulation-games/">simulation Games</a></li><li aria-current="page">Solar Smash</li></ol></nav>
     <div class="game-layout">
       <div class="game-shell">
-        <div class="game-toolbar">
-          <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
-        </div>
         <div class="game-frame">
           <iframe src="https://playgama.com/export/game/solar-smash?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487" allowfullscreen loading="eager" title="Solar Smash"></iframe>
         </div>
+        <div class="game-action-bar">
+          <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="105">
+            <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><span aria-hidden="true">👍</span></button>
+            <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><span aria-hidden="true">👎</span></button>
+          </div>
+          <div class="game-toolbar">
+            <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
+          </div>
+        </div>
 
+    <section class="video-card" aria-label="Gameplay video">
+      <div class="video-card-header">
+        <h3>Gameplay Video</h3>
+        <span>Quick guide</span>
+      </div>
+      <video controls preload="metadata" playsinline poster="https://static.playgama.com/p-img/pg/solar-smash/big-preview/678db982b1364f018e7c4fac3b1f4a44?width=448" src="https://static.playgama.com/p-video/20b78a71f7844d66aabe38ddbda3d270/orig_length_h320.mp4"></video>
+    </section>
       </div>
 
       <section class="info-card related-games" aria-label="Related games">
         <h2>Games You Might Like</h2>
-        <div class="related-grid"><a class="related-game" href="car-destruction-king.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/car-destruction-king/big_preview/0ca8f4094cfd4826b9888ea1d094bdd7?width=448" alt="" width="800" height="450" loading="eager" fetchpriority="high" decoding="async" /></span><span> Car Destruction King</span></a>
-        <a class="related-game" href="dead-land-survival.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/dead-land-survival/big_preview/3ec05c224d064e1789d0a98fd4a9d048?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Dead Land: Survival</span></a>
-        <a class="related-game" href="crime-and-vice-city-police.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/crime-and-vice-city-police/big-preview/7ae0b72e2627499798611c4d25e6d9fe?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span> Crime and Vice City Police</span></a>
-        <a class="related-game" href="backrooms-craft.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/backrooms-craft/big_preview/34cec4a8a9af49fe98f613b4e57776a4?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Backrooms Craft</span></a>
-        <a class="related-game" href="battle-swat-vs-mercenary-remaster.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/np11v2111dvriy3bgljgr99a8qo2l8vi/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async" /></span><span>Battle SWAT vs Mercenary Remaster</span></a></div>
+        <div class="related-grid"><a class="related-game" href="car-destruction-king.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/car-destruction-king/big_preview/0ca8f4094cfd4826b9888ea1d094bdd7?width=448" alt="" width="800" height="450" loading="eager" fetchpriority="high" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/cdac251fb08c4fafb7bb056eadfa2623/orig_length_h320.mp4"></video></span><span> Car Destruction King</span></a>
+        <a class="related-game" href="supernova-the-charon-protocol.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/supernova-the-charon-protocol/big_preview/01e886cf305a46b09285be84280d1c69?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/fed266a663084a209e51d8472a77f64c/orig_length_h320.mp4"></video></span><span>Supernova: The &quot;Charon&quot; Protocol</span></a>
+        <a class="related-game" href="guardz-io.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/f1e896emfy104h8j8higjjdkcqeqvtau/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async" /></span><span>Guardz IO</span></a>
+        <a class="related-game" href="imposter-3d-online-horror.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/imposter-3d-online-horror/big_preview/c4a268f6d7234acaaebdd4a300253cf4?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/ce9c9c3686363232dab69f88b265cf44/orig_length_h320.mp4"></video></span><span>Imposter 3D online horror</span></a>
+        <a class="related-game" href="survev-io.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/q9xrmuceu30pey8llzop5cr0p1p2fbx9/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async" /></span><span>Survev.io</span></a></div>
       </section>
     </div>
 
@@ -227,13 +238,32 @@ Control on <strong>desktop:</strong> left mouse button</p>
     </section>
 <section class="info-card" aria-labelledby="game-dna-heading">
       <h2 id="game-dna-heading">Game DNA</h2>
-      <div class="chip-list"><span class="chip">Simulation</span><span class="chip">Action</span><span class="chip">Multiplayer</span><span class="chip">simulation</span><span class="chip">physics</span><span class="chip">unblocked</span><span class="chip">destruction-games</span><span class="chip">destroy-games</span><span class="chip">addictive-games</span><span class="chip">creativity-games</span><span class="chip">space-shooter</span><span class="chip">space-io</span></div>
+      <div class="chip-list"><span class="chip">simulation</span><span class="chip">action</span><span class="chip">io</span><span class="chip">shooting</span><span class="chip">space</span><span class="chip">physics</span><span class="chip">unblocked</span><span class="chip">destruction-games</span><span class="chip">destroy-games</span><span class="chip">addictive-games</span><span class="chip">creativity-games</span><span class="chip">space-shooter</span></div>
     </section>
 <section class="info-card" aria-label="Game details"><p><strong>Platform:</strong> Web browser</p></section>
+<section class="info-card" aria-labelledby="faq-heading">
+      <h2 id="faq-heading">FAQ</h2>
+      <h3>Which devices can you play Solar Smash on?</h3><p>This game supports Android, iOS, Desktop.</p><h3>What genre is Solar Smash?</h3><p>It is a simulation, physics, unblocked game.</p><h3>Does Solar Smash support portrait or landscape mode?</h3><p>The game supports landscape orientation.</p><h3>Does Solar Smash have in-game purchases?</h3><p>No, in-game purchases are not listed.</p>
+    </section>
+<section class="info-card game-details" aria-labelledby="game-details-heading">
+      <h2 id="game-details-heading">Platforms, Genres &amp; Compatibility</h2>
+      <p><strong>Supported devices:</strong> Android, iOS, Desktop</p><p><strong>Orientation:</strong> landscape</p><p><strong>Genres:</strong> simulation, physics, unblocked</p><p><strong>In-game purchases:</strong> No</p><p><strong>Languages:</strong> en-US, ru-RU</p>
+    </section>
+<section class="info-card screenshot-card" aria-labelledby="screenshots-heading">
+      <h2 id="screenshots-heading">Solar Smash Screenshots &amp; Artwork</h2>
+      <div class="screenshot-gallery">
+        <figure class="game-screenshot">
+          <img src="https://static.playgama.com/p-img/pg/solar-smash/big-preview/678db982b1364f018e7c4fac3b1f4a44?width=448" alt="Solar Smash Playgama preview" loading="lazy" decoding="async" />
+          <figcaption>Official Playgama game preview</figcaption>
+        </figure><figure class="game-screenshot game-artwork">
+          <img src="https://static.playgama.com/p-img/pg/backfill/game-121242/icon/78f9de1f897c5e590d118af9d6ae85124738bfc499c3bbf15340909441794abb?width=448" alt="Solar Smash game icon" loading="lazy" decoding="async" />
+          <figcaption>Game icon</figcaption>
+        </figure></div>
+    </section>
 
     <section class="info-card" aria-labelledby="related-categories-heading">
       <h2 id="related-categories-heading">Related Categories</h2>
-      <nav class="related-categories" aria-label="Related categories"><a href="/simulation-games/">Simulation Games</a><a href="/action-games/">Action Games</a><a href="/multiplayer-games/">Multiplayer Games</a></nav>
+      <nav class="related-categories" aria-label="Related categories"><a href="/simulation-games/">simulation Games</a><a href="/action-games/">action Games</a><a href="/io-games/">io Games</a><a href="/shooting-games/">shooting Games</a><a href="/space-games/">space Games</a></nav>
     </section>
     </main>
 
@@ -263,7 +293,7 @@ Control on <strong>desktop:</strong> left mouse button</p>
     <a href="/termsandconditions.html">Terms</a>
     <a href="/contact-us.html">Contact</a>
   </footer>
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/solar-smash.html#game","name":"Solar Smash","description":"Solar Smash is a fun game that allows you to fully embrace cosmic power and create or destroy planets as you wish.","url":"https://nikunjprogames.github.io/games/solar-smash.html","image":"https://static.playgama.com/p-img/pg/solar-smash/big-preview/678db982b1364f018e7c4fac3b1f4a44?width=448","gamePlatform":["Web browser"],"genre":["Simulation","Action","Multiplayer"],"keywords":["simulation","physics","unblocked","destruction-games","destroy-games","addictive-games","creativity-games","space-shooter","space-io"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Simulation Games","item":"https://nikunjprogames.github.io/simulation-games/"},{"@type":"ListItem","position":3,"name":"Solar Smash","item":"https://nikunjprogames.github.io/games/solar-smash.html"}]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/solar-smash.html#game","name":"Solar Smash","description":"Solar Smash is a fun game that allows you to fully embrace cosmic power and create or destroy planets as you wish.","url":"https://nikunjprogames.github.io/games/solar-smash.html","image":"https://static.playgama.com/p-img/pg/solar-smash/big-preview/678db982b1364f018e7c4fac3b1f4a44?width=448","gamePlatform":["Web browser","Android","iOS","Desktop"],"genre":["simulation","action","io","shooting","space","physics","unblocked"],"keywords":["simulation","physics","unblocked","destruction-games","destroy-games","addictive-games","creativity-games","space-shooter","space-io"],"video":{"@type":"VideoObject","name":"Solar Smash gameplay video","description":"Watch gameplay from Solar Smash.","thumbnailUrl":"https://static.playgama.com/p-img/pg/solar-smash/big-preview/678db982b1364f018e7c4fac3b1f4a44?width=448","contentUrl":"https://static.playgama.com/p-video/20b78a71f7844d66aabe38ddbda3d270/orig_length_h320.mp4"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"simulation Games","item":"https://nikunjprogames.github.io/simulation-games/"},{"@type":"ListItem","position":3,"name":"Solar Smash","item":"https://nikunjprogames.github.io/games/solar-smash.html"}]}]}</script>
   <script src="/site-shell.js" defer></script>
   <script src="/game-loading.js" defer></script>
   <script>

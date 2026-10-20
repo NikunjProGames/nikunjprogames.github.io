@@ -46,7 +46,13 @@ function slugify(value) {
 async function main() {
   let revision = process.argv[2];
   if (!revision || /^0+$/.test(revision)) {
-    revision = execFileSync("git", ["rev-parse", "HEAD^"], { encoding: "utf8" }).trim();
+    try {
+      revision = execFileSync("git", ["rev-parse", "HEAD^"], { encoding: "utf8" }).trim();
+    } catch (error) {
+      if (error.status !== 128) throw error;
+      console.warn("No previous commit is available; skipping first-push announcements.");
+      return;
+    }
   }
   const previousFeed = getPreviousFeed(revision);
   if (previousFeed === null) return;
@@ -102,6 +108,14 @@ async function main() {
       if (error.code === 6 || error.code === "already-exists") {
         console.log(`Announcement already exists for ${gameId}; skipping duplicate.`);
         continue;
+      }
+      if (error.code === 7 || error.code === "7" || error.code === "permission-denied") {
+        throw new Error(
+          `Firestore denied creating announcement ${gameId} in project ${serviceAccount.project_id}. `
+          + "Grant the workflow service account the Cloud Datastore User role (roles/datastore.user) "
+          + "on that project, then rerun this workflow.",
+          { cause: error }
+        );
       }
       throw error;
     }

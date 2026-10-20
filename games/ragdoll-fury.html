@@ -13,6 +13,8 @@
   <meta property="og:url" content="https://nikunjprogames.github.io/games/ragdoll-fury.html" />
   <meta property="og:site_name" content="PleyZ" />
   <meta property="og:image" content="https://static.playgama.com/p-img/pg/ragdoll-fury/big_preview/b1a24e0746cf454d83bda559cdc7bbb2?width=448" />
+  <meta property="og:video" content="https://static.playgama.com/p-video/be802c71d6c043658d9aa9bc675c07f1/orig_length_h320.mp4" />
+  <meta property="og:video:type" content="video/mp4" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Play Ragdoll Fury | PleyZ" />
   <meta name="twitter:description" content="You don&#39;t play a hero — you ARE the WEAPON!" />
@@ -76,9 +78,8 @@
       background: var(--panel); color: var(--text);
     }
     .btn.primary { background: linear-gradient(90deg, var(--accent-2), var(--accent)); color: white; border-color: transparent; }
-    .game-toolbar {
-      display: flex; justify-content: flex-end; gap: 6px; margin-bottom: 8px;
-    }
+    .game-action-bar { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 7px; padding: 7px 9px; border: 1px solid var(--panel-border); border-radius: 8px; background: rgba(255,255,255,0.045); }
+    .game-toolbar { display: flex; justify-content: flex-end; gap: 6px; }
     .btn.compact { min-height: 34px; padding: 6px 10px; font-size: 0.84rem; }
     .game-layout {
       display: grid; grid-template-columns: minmax(0, 1fr) 250px; gap: 14px; align-items: start;
@@ -98,14 +99,9 @@
     .game-frame:fullscreen iframe, .game-frame:-webkit-full-screen iframe {
       width: 100%; height: 100%; min-height: 0;
     }
-    .video-card {
-      margin-top: 16px; padding: 14px; border-radius: 8px; background: rgba(255,255,255,0.05);
-      border: 1px solid var(--panel-border);
-    }
+    .video-card { margin-top: 16px; padding: 14px; border: 1px solid transparent; border-radius: 12px; background: linear-gradient(#101521, #101521) padding-box, linear-gradient(125deg, rgba(0,191,255,.8), rgba(139,0,255,.7), rgba(0,191,255,.25)) border-box; box-shadow: 0 12px 32px rgba(0,0,0,.28), inset 0 1px rgba(255,255,255,.08); }
     .video-card h3 { margin: 0 0 10px; font-family: 'Orbitron', sans-serif; font-size: 1rem; }
-    .video-card video, .video-card iframe {
-      width: 100%; min-height: 280px; border-radius: 12px; border: 0; background: #000;
-    }
+    .video-card video, .video-card iframe { display: block; width: 100%; aspect-ratio: 16 / 9; max-height: 620px; border-radius: 9px; border: 1px solid rgba(255,255,255,.12); background: #000; object-fit: contain; }
     .info-card {
       margin-top: 16px; padding: 14px; border-radius: 8px; background: rgba(255,255,255,0.05); border: 1px solid var(--panel-border);
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
@@ -132,6 +128,11 @@
     .related-game span { font-size: 0.9rem; line-height: 1.2; }
     .chip-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
     .chip { padding: 6px 10px; border-radius: 999px; background: rgba(0,191,255,0.14); border: 1px solid rgba(0,191,255,0.26); color: #bfeeff; font-size: 0.9rem; }
+    .screenshot-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 14px; }
+    .game-screenshot { min-width: 0; margin: 0; overflow: hidden; border: 1px solid var(--panel-border); border-radius: 10px; background: rgba(0,0,0,.22); }
+    .game-screenshot img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+    .game-screenshot figcaption { padding: 8px 10px; color: var(--muted); font-size: .85rem; }
+    .game-details p { margin: 6px 0; }
     .page-ad-section { margin-top: 18px; padding: 14px 16px; border-radius: 14px; border: 1px solid var(--panel-border); background: rgba(255,255,255,0.04); }
     .page-ad-section .ad-label { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8b00ff; margin-bottom: 8px; text-align: center; font-weight: 700; }
     .page-ad-section .adsbygoogle { min-height: 90px; }
@@ -151,6 +152,7 @@
       .topbar .actions { order: 3; width: 100%; }
       .game-layout { grid-template-columns: 1fr; }
       .game-frame { height: clamp(320px, 58vh, 620px); }
+      .game-action-bar { padding: 6px; }
       .related-games { position: static; max-height: none; }
       .related-game { grid-template-columns: 96px 1fr; }
     }
@@ -169,10 +171,6 @@
       <a class="site-brand" href="/">PleyZ Games</a>
       <h1>Ragdoll Fury</h1>
       <div class="actions">
-        <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="159">
-          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><span aria-hidden="true">👍</span></button>
-          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><span aria-hidden="true">👎</span></button>
-        </div>
         <a class="profile-score-link" href="../index.html#leaderboard" title="View PleyZ score and leaderboard">
           <span class="profile-score-avatar" id="profile-score-avatar">PZ</span>
           <span id="profile-score-label">PleyZ Score</span>
@@ -184,25 +182,38 @@
     </header>
 
     <main id="main-content">
-      <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="../">Home</a></li><li><a href="/fighting-games/">Fighting Games</a></li><li aria-current="page">Ragdoll Fury</li></ol></nav>
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="../">Home</a></li><li><a href="/fighting-games/">fighting Games</a></li><li aria-current="page">Ragdoll Fury</li></ol></nav>
     <div class="game-layout">
       <div class="game-shell">
-        <div class="game-toolbar">
-          <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
-        </div>
         <div class="game-frame">
           <iframe src="https://playgama.com/export/game/ragdoll-fury?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487" allowfullscreen loading="eager" title="Ragdoll Fury"></iframe>
         </div>
+        <div class="game-action-bar">
+          <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="159">
+            <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><span aria-hidden="true">👍</span></button>
+            <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><span aria-hidden="true">👎</span></button>
+          </div>
+          <div class="game-toolbar">
+            <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
+          </div>
+        </div>
 
+    <section class="video-card" aria-label="Gameplay video">
+      <div class="video-card-header">
+        <h3>Gameplay Video</h3>
+        <span>Quick guide</span>
+      </div>
+      <video controls preload="metadata" playsinline poster="https://static.playgama.com/p-img/pg/ragdoll-fury/big_preview/b1a24e0746cf454d83bda559cdc7bbb2?width=448" src="https://static.playgama.com/p-video/be802c71d6c043658d9aa9bc675c07f1/orig_length_h320.mp4"></video>
+    </section>
       </div>
 
       <section class="info-card related-games" aria-label="Related games">
         <h2>Games You Might Like</h2>
-        <div class="related-grid"><a class="related-game" href="stickman-kombat-2d.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/stickman-kombat-2d/big_preview/4b027b6071e2495aad3ac02403e35a1a?width=448" alt="" width="800" height="450" loading="eager" fetchpriority="high" decoding="async" /></span><span>Stickman Kombat 2D</span></a>
-        <a class="related-game" href="basket-random.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/basket-random/preview/fec7a407ebd246d8a893abaf7801622c?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Basket Random</span></a>
-        <a class="related-game" href="far-orion-new-worlds.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/far-orion-new-worlds/big-preview/fcd5f2452bba4a86ae4d6176d707c03c?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Far Orion: New worlds</span></a>
-        <a class="related-game" href="ragdoll-crash-test-throw-and-break.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/ragdoll-crashtest-throw-and-break/big-preview/806817717e62466a83cb4377d0fa92eb?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Ragdoll Crash-Test: Throw and Break!</span></a>
-        <a class="related-game" href="rivals-fps-online-shooter.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/rivals-fps-online-shooter/preview/2203a049014e4f6eaa4038ab696f6afa?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>RIVALS FPS: Online Shooter</span></a></div>
+        <div class="related-grid"><a class="related-game" href="stickman-kombat-2d.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/stickman-kombat-2d/big_preview/4b027b6071e2495aad3ac02403e35a1a?width=448" alt="" width="800" height="450" loading="eager" fetchpriority="high" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/d2333405efe8e2a815076ba6b6cb42f0/orig_length_h320.mp4"></video></span><span>Stickman Kombat 2D</span></a>
+        <a class="related-game" href="hazmob-fps-online-shooter.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/hazmob-fps-online-shooter/preview/76a02c8e7dbd4bd3a87bc87d868d6158?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Hazmob FPS: Online Shooter</span></a>
+        <a class="related-game" href="multiplayer-team-death-match.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/h5hc9ltwjo3sk2g2upo4su465kf1kkgz/512x384.jpg" alt="" width="900" height="900" loading="lazy" decoding="async" /></span><span>Multiplayer Team Death Match</span></a>
+        <a class="related-game" href="basket-random.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/basket-random/preview/fec7a407ebd246d8a893abaf7801622c?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/cbc801637e5c42c88a4ed95bc33c2564/orig_length_h320.mp4"></video></span><span>Basket Random</span></a>
+        <a class="related-game" href="far-orion-new-worlds.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/far-orion-new-worlds/big-preview/fcd5f2452bba4a86ae4d6176d707c03c?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/643ac827c1924dc5b17c2e04db358099/orig_length_h320.mp4"></video></span><span>Far Orion: New worlds</span></a></div>
       </section>
     </div>
 
@@ -222,18 +233,37 @@
     </section>
 <section class="info-card" aria-labelledby="how-to-play-heading">
       <h2 id="how-to-play-heading">How to Play</h2>
-      <p>• Melee: drag the weapon with your finger (or mouse) — the faster you swing, the harder you hit and the farther enemies fly. • Ranged: move to aim at enemies — it fires automatically, or tap FIRE. • Special: tap the glowing button when charged (ground slam, spin, dash, blade throw and more). • After each wave pick 1 of 3 upgrades and shape your build. • Between waves spend run coins to reroll, heal or banish a card. • Combine effects into elemental combos (shatter, burn, detonation), and from wave 10 trigger your weapon&#39;s EVOLUTION.</p>
+      <ul><li>Melee: drag the weapon with your finger (or mouse) — the faster you</li><li>swing, the harder you hit and the farther enemies fly.</li><li>Ranged: move to aim at enemies — it fires automatically, or tap FIRE.</li><li>Special: tap the glowing button when charged (ground slam, spin,</li><li>dash, blade throw and more).</li><li>After each wave pick 1 of 3 upgrades and shape your build.</li><li>Between waves spend run coins to reroll, heal or banish a card.</li><li>Combine effects into elemental combos (shatter, burn, detonation),</li><li>and from wave 10 trigger your weapon&#39;s EVOLUTION.</li></ul>
 
     </section>
 <section class="info-card" aria-labelledby="game-dna-heading">
       <h2 id="game-dna-heading">Game DNA</h2>
-      <div class="chip-list"><span class="chip">Fighting</span><span class="chip">Action</span><span class="chip">fighting</span><span class="chip">action</span><span class="chip">ragdoll</span><span class="chip">1-player-games</span><span class="chip">arena-games</span><span class="chip">combat-games</span><span class="chip">fast-paced-action</span><span class="chip">shoot-em-up-games</span><span class="chip">smash-games</span><span class="chip">sword-games</span></div>
+      <div class="chip-list"><span class="chip">fighting</span><span class="chip">action</span><span class="chip">ragdoll</span><span class="chip">1-player-games</span><span class="chip">arena-games</span><span class="chip">combat-games</span><span class="chip">fast-paced-action</span><span class="chip">shoot-em-up-games</span><span class="chip">smash-games</span><span class="chip">sword-games</span></div>
     </section>
 <section class="info-card" aria-label="Game details"><p><strong>Platform:</strong> Web browser</p></section>
+<section class="info-card" aria-labelledby="faq-heading">
+      <h2 id="faq-heading">FAQ</h2>
+      <h3>Which devices can you play Ragdoll Fury on?</h3><p>This game supports Android, iOS, Desktop.</p><h3>What genre is Ragdoll Fury?</h3><p>It is a fighting, action, ragdoll game.</p><h3>Does Ragdoll Fury support portrait or landscape mode?</h3><p>The game supports portrait orientation.</p><h3>Does Ragdoll Fury have in-game purchases?</h3><p>Yes, in-game purchases are listed.</p>
+    </section>
+<section class="info-card game-details" aria-labelledby="game-details-heading">
+      <h2 id="game-details-heading">Platforms, Genres &amp; Compatibility</h2>
+      <p><strong>Supported devices:</strong> Android, iOS, Desktop</p><p><strong>Orientation:</strong> portrait</p><p><strong>Genres:</strong> fighting, action, ragdoll</p><p><strong>In-game purchases:</strong> Yes</p><p><strong>Languages:</strong> en-US, ru-RU</p>
+    </section>
+<section class="info-card screenshot-card" aria-labelledby="screenshots-heading">
+      <h2 id="screenshots-heading">Ragdoll Fury Screenshots &amp; Artwork</h2>
+      <div class="screenshot-gallery">
+        <figure class="game-screenshot">
+          <img src="https://static.playgama.com/p-img/pg/ragdoll-fury/big_preview/b1a24e0746cf454d83bda559cdc7bbb2?width=448" alt="Ragdoll Fury Playgama preview" loading="lazy" decoding="async" />
+          <figcaption>Official Playgama game preview</figcaption>
+        </figure><figure class="game-screenshot game-artwork">
+          <img src="https://static.playgama.com/p-img/pg/ragdoll-fury/icon/e592a0dc0648439d84517fc957033550?width=448" alt="Ragdoll Fury game icon" loading="lazy" decoding="async" />
+          <figcaption>Game icon</figcaption>
+        </figure></div>
+    </section>
 
     <section class="info-card" aria-labelledby="related-categories-heading">
       <h2 id="related-categories-heading">Related Categories</h2>
-      <nav class="related-categories" aria-label="Related categories"><a href="/fighting-games/">Fighting Games</a><a href="/action-games/">Action Games</a></nav>
+      <nav class="related-categories" aria-label="Related categories"><a href="/fighting-games/">fighting Games</a><a href="/action-games/">action Games</a></nav>
     </section>
     </main>
 
@@ -263,7 +293,7 @@
     <a href="/termsandconditions.html">Terms</a>
     <a href="/contact-us.html">Contact</a>
   </footer>
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/ragdoll-fury.html#game","name":"Ragdoll Fury","description":"You don't play a hero — you ARE the WEAPON!","url":"https://nikunjprogames.github.io/games/ragdoll-fury.html","image":"https://static.playgama.com/p-img/pg/ragdoll-fury/big_preview/b1a24e0746cf454d83bda559cdc7bbb2?width=448","gamePlatform":["Web browser"],"genre":["Fighting","Action"],"keywords":["fighting","action","ragdoll","1-player-games","arena-games","combat-games","fast-paced-action","shoot-em-up-games","smash-games","sword-games"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Fighting Games","item":"https://nikunjprogames.github.io/fighting-games/"},{"@type":"ListItem","position":3,"name":"Ragdoll Fury","item":"https://nikunjprogames.github.io/games/ragdoll-fury.html"}]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/ragdoll-fury.html#game","name":"Ragdoll Fury","description":"You don't play a hero — you ARE the WEAPON!","url":"https://nikunjprogames.github.io/games/ragdoll-fury.html","image":"https://static.playgama.com/p-img/pg/ragdoll-fury/big_preview/b1a24e0746cf454d83bda559cdc7bbb2?width=448","gamePlatform":["Web browser","Android","iOS","Desktop"],"genre":["fighting","action","ragdoll"],"keywords":["fighting","action","ragdoll","1-player-games","arena-games","combat-games","fast-paced-action","shoot-em-up-games","smash-games","sword-games"],"video":{"@type":"VideoObject","name":"Ragdoll Fury gameplay video","description":"Watch gameplay from Ragdoll Fury.","thumbnailUrl":"https://static.playgama.com/p-img/pg/ragdoll-fury/big_preview/b1a24e0746cf454d83bda559cdc7bbb2?width=448","contentUrl":"https://static.playgama.com/p-video/be802c71d6c043658d9aa9bc675c07f1/orig_length_h320.mp4"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"fighting Games","item":"https://nikunjprogames.github.io/fighting-games/"},{"@type":"ListItem","position":3,"name":"Ragdoll Fury","item":"https://nikunjprogames.github.io/games/ragdoll-fury.html"}]}]}</script>
   <script src="/site-shell.js" defer></script>
   <script src="/game-loading.js" defer></script>
   <script>

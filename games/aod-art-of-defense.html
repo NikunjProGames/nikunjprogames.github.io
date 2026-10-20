@@ -13,6 +13,8 @@
   <meta property="og:url" content="https://nikunjprogames.github.io/games/aod-art-of-defense.html" />
   <meta property="og:site_name" content="PleyZ" />
   <meta property="og:image" content="https://static.playgama.com/p-img/pg/aod--art-of-defense/big_preview/748d6b91ce3c4a309fd6df323115b434?width=448" />
+  <meta property="og:video" content="https://static.playgama.com/p-video/85dab689ee56444196a4391ca16773de/orig_length_h320.mp4" />
+  <meta property="og:video:type" content="video/mp4" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Play AOD - Art Of Defense | PleyZ" />
   <meta name="twitter:description" content="AOD - Art Of Defense is a dynamic tower defense game with elements of strategy and RPG in a post-apocalyptic world." />
@@ -76,9 +78,8 @@
       background: var(--panel); color: var(--text);
     }
     .btn.primary { background: linear-gradient(90deg, var(--accent-2), var(--accent)); color: white; border-color: transparent; }
-    .game-toolbar {
-      display: flex; justify-content: flex-end; gap: 6px; margin-bottom: 8px;
-    }
+    .game-action-bar { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 7px; padding: 7px 9px; border: 1px solid var(--panel-border); border-radius: 8px; background: rgba(255,255,255,0.045); }
+    .game-toolbar { display: flex; justify-content: flex-end; gap: 6px; }
     .btn.compact { min-height: 34px; padding: 6px 10px; font-size: 0.84rem; }
     .game-layout {
       display: grid; grid-template-columns: minmax(0, 1fr) 250px; gap: 14px; align-items: start;
@@ -98,14 +99,9 @@
     .game-frame:fullscreen iframe, .game-frame:-webkit-full-screen iframe {
       width: 100%; height: 100%; min-height: 0;
     }
-    .video-card {
-      margin-top: 16px; padding: 14px; border-radius: 8px; background: rgba(255,255,255,0.05);
-      border: 1px solid var(--panel-border);
-    }
+    .video-card { margin-top: 16px; padding: 14px; border: 1px solid transparent; border-radius: 12px; background: linear-gradient(#101521, #101521) padding-box, linear-gradient(125deg, rgba(0,191,255,.8), rgba(139,0,255,.7), rgba(0,191,255,.25)) border-box; box-shadow: 0 12px 32px rgba(0,0,0,.28), inset 0 1px rgba(255,255,255,.08); }
     .video-card h3 { margin: 0 0 10px; font-family: 'Orbitron', sans-serif; font-size: 1rem; }
-    .video-card video, .video-card iframe {
-      width: 100%; min-height: 280px; border-radius: 12px; border: 0; background: #000;
-    }
+    .video-card video, .video-card iframe { display: block; width: 100%; aspect-ratio: 16 / 9; max-height: 620px; border-radius: 9px; border: 1px solid rgba(255,255,255,.12); background: #000; object-fit: contain; }
     .info-card {
       margin-top: 16px; padding: 14px; border-radius: 8px; background: rgba(255,255,255,0.05); border: 1px solid var(--panel-border);
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
@@ -132,6 +128,11 @@
     .related-game span { font-size: 0.9rem; line-height: 1.2; }
     .chip-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
     .chip { padding: 6px 10px; border-radius: 999px; background: rgba(0,191,255,0.14); border: 1px solid rgba(0,191,255,0.26); color: #bfeeff; font-size: 0.9rem; }
+    .screenshot-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 14px; }
+    .game-screenshot { min-width: 0; margin: 0; overflow: hidden; border: 1px solid var(--panel-border); border-radius: 10px; background: rgba(0,0,0,.22); }
+    .game-screenshot img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+    .game-screenshot figcaption { padding: 8px 10px; color: var(--muted); font-size: .85rem; }
+    .game-details p { margin: 6px 0; }
     .page-ad-section { margin-top: 18px; padding: 14px 16px; border-radius: 14px; border: 1px solid var(--panel-border); background: rgba(255,255,255,0.04); }
     .page-ad-section .ad-label { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8b00ff; margin-bottom: 8px; text-align: center; font-weight: 700; }
     .page-ad-section .adsbygoogle { min-height: 90px; }
@@ -151,6 +152,7 @@
       .topbar .actions { order: 3; width: 100%; }
       .game-layout { grid-template-columns: 1fr; }
       .game-frame { height: clamp(320px, 58vh, 620px); }
+      .game-action-bar { padding: 6px; }
       .related-games { position: static; max-height: none; }
       .related-game { grid-template-columns: 96px 1fr; }
     }
@@ -169,10 +171,6 @@
       <a class="site-brand" href="/">PleyZ Games</a>
       <h1>AOD - Art Of Defense</h1>
       <div class="actions">
-        <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="134">
-          <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><span aria-hidden="true">👍</span></button>
-          <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><span aria-hidden="true">👎</span></button>
-        </div>
         <a class="profile-score-link" href="../index.html#leaderboard" title="View PleyZ score and leaderboard">
           <span class="profile-score-avatar" id="profile-score-avatar">PZ</span>
           <span id="profile-score-label">PleyZ Score</span>
@@ -184,25 +182,38 @@
     </header>
 
     <main id="main-content">
-      <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="../">Home</a></li><li><a href="/cool-games-games/">Cool Games Games</a></li><li aria-current="page">AOD - Art Of Defense</li></ol></nav>
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="../">Home</a></li><li><a href="/cool-games-games/">cool games Games</a></li><li aria-current="page">AOD - Art Of Defense</li></ol></nav>
     <div class="game-layout">
       <div class="game-shell">
-        <div class="game-toolbar">
-          <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
-        </div>
         <div class="game-frame">
           <iframe src="https://playgama.com/export/game/aod--art-of-defense?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487" allowfullscreen loading="eager" title="AOD - Art Of Defense"></iframe>
         </div>
+        <div class="game-action-bar">
+          <div class="game-preferences" role="group" aria-label="Game preference" data-game-id="134">
+            <button type="button" data-game-preference="like" aria-label="Like game" aria-pressed="false"><span aria-hidden="true">👍</span></button>
+            <button type="button" data-game-preference="dislike" aria-label="Dislike game" aria-pressed="false"><span aria-hidden="true">👎</span></button>
+          </div>
+          <div class="game-toolbar">
+            <button class="btn compact" type="button" onclick="toggleGameFullscreen(this.closest('.game-shell'))">Fullscreen</button>
+          </div>
+        </div>
 
+    <section class="video-card" aria-label="Gameplay video">
+      <div class="video-card-header">
+        <h3>Gameplay Video</h3>
+        <span>Quick guide</span>
+      </div>
+      <video controls preload="metadata" playsinline poster="https://static.playgama.com/p-img/pg/aod--art-of-defense/big_preview/748d6b91ce3c4a309fd6df323115b434?width=448" src="https://static.playgama.com/p-video/85dab689ee56444196a4391ca16773de/orig_length_h320.mp4"></video>
+    </section>
       </div>
 
       <section class="info-card related-games" aria-label="Related games">
         <h2>Games You Might Like</h2>
-        <div class="related-grid"><a class="related-game" href="dead-land-survival.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/dead-land-survival/big_preview/3ec05c224d064e1789d0a98fd4a9d048?width=448" alt="" width="800" height="450" loading="eager" fetchpriority="high" decoding="async" /></span><span>Dead Land: Survival</span></a>
-        <a class="related-game" href="moto-x3m.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/moto-x3m/big_preview/6863e1c77f624087bae1d217cdf4c240?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Moto X3M</span></a>
-        <a class="related-game" href="plants-vs-zombies-fusion-mode.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/plants-vs-zombies-fusion-mode/big-preview/df5ba67f240a40b18d46d2d3d57b8400?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Plants vs Zombies Fusion Mode</span></a>
+        <div class="related-grid"><a class="related-game" href="dead-land-survival.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/dead-land-survival/big_preview/3ec05c224d064e1789d0a98fd4a9d048?width=448" alt="" width="800" height="450" loading="eager" fetchpriority="high" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/20132a31af5345adb698d954f9cec5ff/orig_length_h320.mp4"></video></span><span>Dead Land: Survival</span></a>
+        <a class="related-game" href="plants-vs-zombies-fusion-mode.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/plants-vs-zombies-fusion-mode/big-preview/df5ba67f240a40b18d46d2d3d57b8400?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/9bc8ad41499c4002aa3e17049bb4f3bc/orig_length_h320.mp4"></video></span><span>Plants vs Zombies Fusion Mode</span></a>
         <a class="related-game" href="plants-vs-zombies-hybrids.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/plants-vs-zombies-hybrids/big_preview/f760a2d2906a4e8e93795c3e674d5c4f?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Plants vs Zombies Hybrids</span></a>
-        <a class="related-game" href="pvz-fusion-cheats.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/plants-vs-zombies-fusion-edition/big_preview/0a3f694494fd4b469429f9c8baf0cb93?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>PVZ Fusion Cheats</span></a></div>
+        <a class="related-game" href="pvz-fusion-cheats.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/plants-vs-zombies-fusion-edition/big_preview/0a3f694494fd4b469429f9c8baf0cb93?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/a6842fc25231418bb5a183952cfb2549/orig_length_h320.mp4"></video></span><span>PVZ Fusion Cheats</span></a>
+        <a class="related-game" href="english-checkers.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/pir55cwoygvsus9az7d5zyxd6gra48dh/512x384.jpg" alt="" width="1920" height="1080" loading="lazy" decoding="async" /></span><span>English Checkers</span></a></div>
       </section>
     </div>
 
@@ -219,18 +230,41 @@
     </section>
 <section class="info-card" aria-labelledby="how-to-play-heading">
       <h2 id="how-to-play-heading">How to Play</h2>
-      <p>AOD - Art Of Defense is a dynamic tower defense game set in a post-apocalyptic world. As the commander of the A.O.D squad, you lead the fight against the ruthless cutthroats of Mr. Evil, who are seeking to find the lost Project Inola. With stunning isometric graphics, build your tech kingdoms and thwart the destructive ambitions of your enemy. Can you save humanity or will you succumb to darkness? Game Features: * Dynamic battles to keep you engaged. * Elements of tower defense, RPG, and tactical strategy. * Over 500 sectors for real-time battles. * Various locations from small villages to huge metropolises. * New tower defense modes: escape, fog, survival. * Over 1000 unique upgrades for towers (tanks, miniguns, AA, etc.) * 6 unique heroes to explore and level up. * Nuclear bombs, ion satellite attacks, ballistic barrages, and more. * Hundreds of upgrade cards for each tower. Build towers! Protect your base! Use tanks, machine guns, and rockets (even nuclear). Upgrade and use heroes. Fight powerful enemies and formidable bosses! Protect your base and save the world! Use the left mouse button to place a tower. Use the scroll wheel/pinch to zoom on a touchpad to zoom in or out.</p>
+      <p>AOD - Art Of Defense is a dynamic tower defense game set in a post-apocalyptic world. As the commander of the A.O.D squad, you lead the fight against the ruthless cutthroats of Mr. Evil, who are seeking to find the lost Project Inola. With stunning isometric graphics, build your tech kingdoms and thwart the destructive ambitions of your enemy. Can you save humanity or will you succumb to darkness?</p>
+<p>Game Features:</p>
+<ul><li>Dynamic battles to keep you engaged.</li><li>Elements of tower defense, RPG, and tactical strategy.</li><li>Over 500 sectors for real-time battles.</li><li>Various locations from small villages to huge metropolises.</li><li>New tower defense modes: escape, fog, survival.</li><li>Over 1000 unique upgrades for towers (tanks, miniguns, AA, etc.)</li><li>6 unique heroes to explore and level up.</li><li>Nuclear bombs, ion satellite attacks, ballistic barrages, and more.</li><li>Hundreds of upgrade cards for each tower.</li></ul>
+<p>Build towers! Protect your base! Use tanks, machine guns, and rockets (even nuclear). Upgrade and use heroes. Fight powerful enemies and formidable bosses! Protect your base and save the world!</p>
+<p>Use the left mouse button to place a tower. Use the scroll wheel/pinch to zoom on a touchpad to zoom in or out.</p>
 
     </section>
 <section class="info-card" aria-labelledby="game-dna-heading">
       <h2 id="game-dna-heading">Game DNA</h2>
-      <div class="chip-list"><span class="chip">Cool Games</span><span class="chip">Boys</span><span class="chip">Strategy</span><span class="chip">cool-games</span><span class="chip">tower-defense</span><span class="chip">strategy</span><span class="chip">mobile</span><span class="chip">popular</span><span class="chip">boys</span><span class="chip">unity-games-online</span><span class="chip">gam-supported-games</span><span class="chip">defense-games</span></div>
+      <div class="chip-list"><span class="chip">cool games</span><span class="chip">strategy</span><span class="chip">cool-games</span><span class="chip">tower-defense</span><span class="chip">mobile</span><span class="chip">popular</span><span class="chip">boys</span><span class="chip">unity-games-online</span><span class="chip">gam-supported-games</span><span class="chip">defense-games</span><span class="chip">tactical-games</span><span class="chip">apocalypse-games</span></div>
     </section>
 <section class="info-card" aria-label="Game details"><p><strong>Platform:</strong> Web browser</p></section>
+<section class="info-card" aria-labelledby="faq-heading">
+      <h2 id="faq-heading">FAQ</h2>
+      <h3>Which devices can you play AOD - Art Of Defense on?</h3><p>This game supports Android, iOS, Desktop.</p><h3>What genre is AOD - Art Of Defense?</h3><p>It is a cool-games, tower-defense, strategy, mobile, popular, boys game.</p><h3>Does AOD - Art Of Defense support portrait or landscape mode?</h3><p>The game supports landscape orientation.</p><h3>Does AOD - Art Of Defense have in-game purchases?</h3><p>Yes, in-game purchases are listed.</p>
+    </section>
+<section class="info-card game-details" aria-labelledby="game-details-heading">
+      <h2 id="game-details-heading">Platforms, Genres &amp; Compatibility</h2>
+      <p><strong>Supported devices:</strong> Android, iOS, Desktop</p><p><strong>Orientation:</strong> landscape</p><p><strong>Genres:</strong> cool-games, tower-defense, strategy, mobile, popular, boys</p><p><strong>In-game purchases:</strong> Yes</p><p><strong>Languages:</strong> en-US, es-ES, ja-JP, it-IT, fr-FR, pt-PT, ar-EG, id-ID, de-DE, ru-RU, zh-CN, tr-TR</p>
+    </section>
+<section class="info-card screenshot-card" aria-labelledby="screenshots-heading">
+      <h2 id="screenshots-heading">AOD - Art Of Defense Screenshots &amp; Artwork</h2>
+      <div class="screenshot-gallery">
+        <figure class="game-screenshot">
+          <img src="https://static.playgama.com/p-img/pg/aod--art-of-defense/big_preview/748d6b91ce3c4a309fd6df323115b434?width=448" alt="AOD - Art Of Defense Playgama preview" loading="lazy" decoding="async" />
+          <figcaption>Official Playgama game preview</figcaption>
+        </figure><figure class="game-screenshot game-artwork">
+          <img src="https://static.playgama.com/p-img/pg/aod--art-of-defense/icon/01ed7544e47a43fc9daffd45b0d23c26?width=448" alt="AOD - Art Of Defense game icon" loading="lazy" decoding="async" />
+          <figcaption>Game icon</figcaption>
+        </figure></div>
+    </section>
 
     <section class="info-card" aria-labelledby="related-categories-heading">
       <h2 id="related-categories-heading">Related Categories</h2>
-      <nav class="related-categories" aria-label="Related categories"><a href="/cool-games-games/">Cool Games Games</a><a href="/boys-games/">Boys Games</a><a href="/strategy-games/">Strategy Games</a></nav>
+      <nav class="related-categories" aria-label="Related categories"><a href="/cool-games-games/">cool games Games</a><a href="/strategy-games/">strategy Games</a></nav>
     </section>
     </main>
 
@@ -260,7 +294,7 @@
     <a href="/termsandconditions.html">Terms</a>
     <a href="/contact-us.html">Contact</a>
   </footer>
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/aod-art-of-defense.html#game","name":"AOD - Art Of Defense","description":"AOD - Art Of Defense is a dynamic tower defense game with elements of strategy and RPG in a post-apocalyptic world.","url":"https://nikunjprogames.github.io/games/aod-art-of-defense.html","image":"https://static.playgama.com/p-img/pg/aod--art-of-defense/big_preview/748d6b91ce3c4a309fd6df323115b434?width=448","gamePlatform":["Web browser"],"genre":["Cool Games","Boys","Strategy"],"keywords":["cool-games","tower-defense","strategy","mobile","popular","boys","unity-games-online","gam-supported-games","defense-games","tactical-games","apocalypse-games","military-games","isometric-games","top-down-games"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"Cool Games Games","item":"https://nikunjprogames.github.io/cool-games-games/"},{"@type":"ListItem","position":3,"name":"AOD - Art Of Defense","item":"https://nikunjprogames.github.io/games/aod-art-of-defense.html"}]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/aod-art-of-defense.html#game","name":"AOD - Art Of Defense","description":"AOD - Art Of Defense is a dynamic tower defense game with elements of strategy and RPG in a post-apocalyptic world.","url":"https://nikunjprogames.github.io/games/aod-art-of-defense.html","image":"https://static.playgama.com/p-img/pg/aod--art-of-defense/big_preview/748d6b91ce3c4a309fd6df323115b434?width=448","gamePlatform":["Web browser","Android","iOS","Desktop"],"genre":["cool games","strategy","cool-games","tower-defense","mobile","popular","boys"],"keywords":["cool-games","tower-defense","strategy","mobile","popular","boys","unity-games-online","gam-supported-games","defense-games","tactical-games","apocalypse-games","military-games","isometric-games","top-down-games"],"video":{"@type":"VideoObject","name":"AOD - Art Of Defense gameplay video","description":"Watch gameplay from AOD - Art Of Defense.","thumbnailUrl":"https://static.playgama.com/p-img/pg/aod--art-of-defense/big_preview/748d6b91ce3c4a309fd6df323115b434?width=448","contentUrl":"https://static.playgama.com/p-video/85dab689ee56444196a4391ca16773de/orig_length_h320.mp4"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"cool games Games","item":"https://nikunjprogames.github.io/cool-games-games/"},{"@type":"ListItem","position":3,"name":"AOD - Art Of Defense","item":"https://nikunjprogames.github.io/games/aod-art-of-defense.html"}]}]}</script>
   <script src="/site-shell.js" defer></script>
   <script src="/game-loading.js" defer></script>
   <script>

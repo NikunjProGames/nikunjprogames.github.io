@@ -68,6 +68,10 @@ Add an optional `seoDescription` as a concise search snippet (aim for 160 charac
 
 Run `node build-games.js` to regenerate game pages, category pages, and legacy game metadata. Run `node build-games.js --categories-only` when only category pages need rebuilding. Page-specific overrides for older root-level game pages live in `legacy-game-seo.json`.
 
+The game-page builder also reads matching `game*.json` Playgama exports by game ID. It adds verified device support, orientation, genres, languages, in-game purchase information, preview screenshots, and longer source instructions to the page structure without rewriting the original game description. When an export contains a gameplay video ID, the builder generates the Playgama MP4 URL and adds a styled gameplay video section. To format a video ID for a game added later, run `node playgama-video-url.js <video-id>`.
+
+The `new-game-notifications.yml` GitHub Action uses the `FIREBASE_SERVICE_ACCOUNT_PLEYZ_DD9F8` repository secret to create announcement documents in Firestore. The service account in that secret needs the **Cloud Datastore User** role (`roles/datastore.user`) on the Firebase project `pleyz-dd9f8`; otherwise the workflow fails with `PERMISSION_DENIED`.
+
 ## Firebase data
 
 PleyZ Score and leaderboard entries are stored in Cloud Firestore. Signed-in players get one point and one game-count increment each time a game page opens; the page updates both the private profile and public leaderboard entry in one Firestore transaction. Guests can still play, but their game opens do not affect the shared leaderboard. Firestore rules only allow a signed-in player to update their own entry, by exactly one point and one game per transaction.
