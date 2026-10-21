@@ -81,9 +81,7 @@
     .game-action-bar { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 7px; padding: 7px 9px; border: 1px solid var(--panel-border); border-radius: 8px; background: rgba(255,255,255,0.045); }
     .game-toolbar { display: flex; justify-content: flex-end; gap: 6px; }
     .btn.compact { min-height: 34px; padding: 6px 10px; font-size: 0.84rem; }
-    .game-layout {
-      display: grid; grid-template-columns: minmax(0, 1fr) 250px; gap: 14px; align-items: start;
-    }
+    .game-layout { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 14px; align-items: start; }
     .game-shell { min-width: 0; }
     .game-frame {
       height: clamp(380px, 68vh, 760px); overflow: hidden; border: 1px solid var(--panel-border);
@@ -111,21 +109,22 @@
     .info-card p + p { margin-top: 10px; }
     .info-card h3 { margin: 16px 0 6px; font-family: 'Orbitron', sans-serif; font-size: 0.95rem; }
     .related-categories { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 12px; }
-    .related-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
-    .related-games { margin-top: 0; position: sticky; top: 12px; max-height: 68vh; overflow-y: auto; }
+    .related-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    .related-games { margin-top: 0; position: sticky; top: 12px; max-height: calc(100vh - 24px); overflow-y: auto; }
     .related-game {
-      display: grid; grid-template-columns: 88px 1fr; gap: 10px; align-items: center;
-      min-width: 0; color: var(--text); font-weight: 700; background: rgba(255,255,255,0.04);
-      border: 1px solid var(--panel-border); border-radius: 7px; padding: 6px; transition: transform 0.2s ease, border-color 0.2s ease;
+      display: flex; min-width: 0; flex-direction: column; gap: 9px;
+      color: var(--text); font-weight: 700; background: rgba(255,255,255,0.04);
+      border: 1px solid var(--panel-border); border-radius: 10px; padding: 8px;
+      transition: transform 0.2s ease, border-color 0.2s ease;
     }
     .related-game:hover { transform: translateY(-2px); border-color: rgba(0,191,255,0.45); }
-    .related-game-media { display: block; position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 8px; background: #05070d; }
+    .related-game-media { display: block; position: relative; width: 100%; aspect-ratio: 16 / 10; overflow: hidden; border-radius: 8px; background: #05070d; }
     .related-game-media img, .related-game-preview { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
     .related-game-media img { transition: opacity 0.2s ease; }
     .related-game-preview { opacity: 0; pointer-events: none; transition: opacity 0.2s ease; }
     .related-game:hover .related-game-preview, .related-game:focus-visible .related-game-preview { opacity: 1; }
     .related-game:hover .related-game-media img, .related-game:focus-visible .related-game-media img { opacity: 0; }
-    .related-game span { font-size: 0.9rem; line-height: 1.2; }
+    .related-game > span:last-child { font-size: 0.95rem; line-height: 1.2; }
     .chip-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
     .chip { padding: 6px 10px; border-radius: 999px; background: rgba(0,191,255,0.14); border: 1px solid rgba(0,191,255,0.26); color: #bfeeff; font-size: 0.9rem; }
     .screenshot-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 14px; }
@@ -143,7 +142,9 @@
     .site-footer a:hover { color: var(--accent); }
     .btn:hover, .btn:focus-visible, .game-preferences button:focus-visible { border-color: var(--accent); outline: 2px solid rgba(0,191,255,.35); outline-offset: 2px; }
     @media (max-width: 900px) {
-      .game-layout { grid-template-columns: minmax(0, 1fr) 220px; }
+      .game-layout { grid-template-columns: minmax(0, 1fr); }
+      .related-games { margin-top: 18px; position: static; max-height: none; }
+      .related-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
     }
     @media (max-width: 700px) {
       .page-shell { padding: 10px 10px 24px; }
@@ -153,8 +154,12 @@
       .game-layout { grid-template-columns: 1fr; }
       .game-frame { height: clamp(320px, 58vh, 620px); }
       .game-action-bar { padding: 6px; }
-      .related-games { position: static; max-height: none; }
-      .related-game { grid-template-columns: 96px 1fr; }
+      .related-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+    @media (max-width: 480px) {
+      .related-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+      .related-game { padding: 6px; }
+      .related-game > span:last-child { font-size: 0.88rem; }
     }
     @media (max-width: 420px) {
       .profile-score-link > span:last-child { display: none; }
@@ -213,7 +218,12 @@
         <a class="related-game" href="sorcerers-refuge.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/sorcerers-refuge/big-preview/23c5e2a2597e4b71b1a01fc457170af8?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/6f0fa1935227461bb6875c0f3be95664/orig_length_h320.mp4"></video></span><span>Sorcerers Refuge</span></a>
         <a class="related-game" href="the-secret-of-the-toy-factory.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/the-secret-of-the-toy-factory/big_preview/ce41b593f2044ba197bc73f83d7cfc41?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/14ba2e129d6d4b63979e35a5dc7e44f0/orig_length_h320.mp4"></video></span><span>The Secret of the Toy Factory</span></a>
         <a class="related-game" href="a-long-way-home.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/a-long-way-home/big-preview/b754165683fe4dae9e2cfb5b0b0ed906?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/4ab6683015fe722810f1e7ac2c43416e/orig_length_h320.mp4"></video></span><span>A Long Way Home</span></a>
-        <a class="related-game" href="abandoned-mansion.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/abandoned-mansion/big-preview/8467785cb4b841fca94e740451c367ea?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/18e8f99d799b47fa83ae0421f10e2ce0/orig_length_h320.mp4"></video></span><span>Abandoned Mansion</span></a></div>
+        <a class="related-game" href="abandoned-mansion.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/abandoned-mansion/big-preview/8467785cb4b841fca94e740451c367ea?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/18e8f99d799b47fa83ae0421f10e2ce0/orig_length_h320.mp4"></video></span><span>Abandoned Mansion</span></a>
+        <a class="related-game" href="the-tall-man.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/the-tall-man/big_preview/cad21af835d348db83f9aace4ccca043?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>The Tall Man</span></a>
+        <a class="related-game" href="the-warlock-s-prisoner.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/the-warlocks-prisoner/big-preview/7ca7579a0daa42f19382b84c761966c4?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/0b8656475e8441d392be5e024a514e88/orig_length_h320.mp4"></video></span><span>The Warlock&#39;s Prisoner</span></a>
+        <a class="related-game" href="backrooms-craft.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/backrooms-craft/big_preview/34cec4a8a9af49fe98f613b4e57776a4?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/ce19d1ef654b42aab0a2cb14e96004bd/orig_length_h320.mp4"></video></span><span>Backrooms Craft</span></a>
+        <a class="related-game" href="five-nights-at-christmas.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/five-nights-at-christmas/big-preview/ff5f8b877e88481da903a946bc4eb1ff?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/8214c0be049547e381d024d3fc4b4bba/orig_length_h320.mp4"></video></span><span>Five Nights at Christmas</span></a>
+        <a class="related-game" href="imposter-3d-online-horror.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/imposter-3d-online-horror/big_preview/c4a268f6d7234acaaebdd4a300253cf4?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/ce9c9c3686363232dab69f88b265cf44/orig_length_h320.mp4"></video></span><span>Imposter 3D online horror</span></a></div>
       </section>
     </div>
 
@@ -295,7 +305,7 @@
     <a href="/termsandconditions.html">Terms</a>
     <a href="/contact-us.html">Contact</a>
   </footer>
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/last-night.html#game","name":"LAST NIGHT!","description":"Explore a strange computer, investigate a survey, and uncover one of three endings in Last Night, a story-driven horror game.","url":"https://nikunjprogames.github.io/games/last-night.html","image":"https://static.playgama.com/p-img/pg/last-night/big-preview/ecab9c788b4a4c678edaccc4bc9e46ea?width=448","gamePlatform":["Web browser","Desktop"],"genre":["scary","horror","adventure","story","keyboard"],"keywords":["scary","horror","story","keyboard","adventure","choice-games","1-player-games","psychological-horror"],"video":{"@type":"VideoObject","name":"LAST NIGHT! gameplay video","description":"Watch gameplay from LAST NIGHT!.","thumbnailUrl":"https://static.playgama.com/p-img/pg/last-night/big-preview/ecab9c788b4a4c678edaccc4bc9e46ea?width=448","contentUrl":"https://static.playgama.com/p-video/77642c7a0185497ebcfd948210260ea0/orig_length_h320.mp4"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"scary Games","item":"https://nikunjprogames.github.io/scary-games/"},{"@type":"ListItem","position":3,"name":"LAST NIGHT!","item":"https://nikunjprogames.github.io/games/last-night.html"}]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/last-night.html#game","name":"LAST NIGHT!","description":"Explore a strange computer, investigate a survey, and uncover one of three endings in Last Night, a story-driven horror game.","url":"https://nikunjprogames.github.io/games/last-night.html","image":"https://static.playgama.com/p-img/pg/last-night/big-preview/ecab9c788b4a4c678edaccc4bc9e46ea?width=448","gamePlatform":["Web browser","Desktop"],"genre":["scary","horror","adventure","story","keyboard"],"keywords":["scary","horror","story","keyboard","adventure","choice-games","1-player-games","psychological-horror"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"scary Games","item":"https://nikunjprogames.github.io/scary-games/"},{"@type":"ListItem","position":3,"name":"LAST NIGHT!","item":"https://nikunjprogames.github.io/games/last-night.html"}]}]}</script>
   <script src="/site-shell.js" defer></script>
   <script src="/game-loading.js" defer></script>
   <script>

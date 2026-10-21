@@ -754,7 +754,7 @@ function getRecommendationsHtml(game, games, homepageVideosBySlug) {
       return { candidate, score: sharedCategories * 3 + sharedTags };
     })
     .sort((a, b) => b.score - a.score || a.candidate.title.localeCompare(b.candidate.title))
-    .slice(0, 5)
+    .slice(0, 10)
     .map(({ candidate }, index) => {
       const image = candidate.thumb
         ? `<img src="${escapeHtml(candidate.thumb)}" alt="" width="${candidate.imageWidth}" height="${candidate.imageHeight}" loading="${index === 0 ? 'eager' : 'lazy'}"${index === 0 ? ' fetchpriority="high"' : ''} decoding="async" />`
@@ -901,14 +901,7 @@ function getGameSchema(game) {
       image: game.thumb,
       gamePlatform: [...new Set([...game.platforms, ...game.supportedDevices])],
       genre: [...new Set([...game.categories, ...game.genres])],
-      keywords: [...new Set([...game.tags, ...game.genres])],
-      video: game.videoUrl ? {
-        '@type': 'VideoObject',
-        name: `${game.title} gameplay video`,
-        description: `Watch gameplay from ${game.title}.`,
-        thumbnailUrl: game.thumb,
-        contentUrl: game.videoUrl
-      } : undefined
+      keywords: [...new Set([...game.tags, ...game.genres])]
     },
     {
       '@type': 'BreadcrumbList',
@@ -1108,9 +1101,11 @@ function buildCategoryPages(feedGames) {
     const cards = gameList.map((game, index) => {
       const imageUrl = game.image && !/^(?:https?:|\/|data:)/i.test(game.image) ? `/${game.image}` : game.image;
       const imageDimensions = game.width && game.height ? ` width="${game.width}" height="${game.height}"` : '';
+      const imageMarkup = imageUrl
+        ? `<img src="${escapeHtml(imageUrl)}" alt=""${imageDimensions} loading="${index === 0 ? 'eager' : 'lazy'}"${index === 0 ? ' fetchpriority="high"' : ''} decoding="async">\n      `
+        : '';
       return `<a class="game-item" href="${escapeHtml(game.href)}">
-      ${imageUrl ? `<img src="${escapeHtml(imageUrl)}" alt=""${imageDimensions} loading="${index === 0 ? 'eager' : 'lazy'}"${index === 0 ? ' fetchpriority="high"' : ''} decoding="async">` : ''}
-      <span>${escapeHtml(game.name)}</span>
+      ${imageMarkup}<span>${escapeHtml(game.name)}</span>
     </a>`;
     }).join('\n');
     const coverSource = gameList[0]?.image || '';
@@ -1246,8 +1241,8 @@ function normalizeLegacyGamePages() {
       .replace(/\s+(?:game\s+)?for\s+free$/i, '')
       .replace(/\s+online$/i, '')
       .trim() || gameNames.get(filename) || path.basename(filename, '.html').replace(/-/g, ' ');
-    const title = `Play ${name} | PleyZ`;
-    const existingDescription = html.match(/<meta\b(?=[^>]*\bname\s*=\s*["']description["'])[^>]*\bcontent\s*=\s*["']([^"']*)["'][^>]*>/i)?.[1] || '';
+    const title = metadata.pageTitles?.[filename] || `Play ${name} | PleyZ`;
+    const existingDescription = html.match(/<meta\b(?=[^>]*\bname\s*=\s*["']description["'])[^>]*\bcontent\s*=\s*(["'])([\s\S]*?)\1[^>]*>/i)?.[2] || '';
     const description = metadata.descriptions?.[filename] || existingDescription || `Play ${name} in your browser on PleyZ.`;
     const canonical = `https://nikunjprogames.github.io/${filename}`;
     const insertIntoHead = tag => {

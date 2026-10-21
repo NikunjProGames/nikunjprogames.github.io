@@ -47,6 +47,7 @@
   let hasLoadedGames = false;
   let verifiedUid = '';
   let authListenerAttached = false;
+  let foregroundListenerAttached = false;
   let authPromise;
   let firebasePromise;
 
@@ -140,9 +141,9 @@
     <div class="pleyz-notification-feed" id="pleyz-notification-feed"><p class="pleyz-notification-empty">Updates appear here when available.</p></div>
     <div class="pleyz-notification-controls">
       <strong>Manage updates</strong>
-      <label><input type="checkbox" data-category="newGames"> New games</label>
+      <label><input type="checkbox" data-category="newGames"> New games (at most one per day)</label>
       <label><input type="checkbox" data-category="recommendations"> Game recommendations (every 2 weeks)</label>
-      <label><input type="checkbox" data-category="reminders"> Weekly return reminder</label>
+      <label><input type="checkbox" data-category="reminders"> Gentle return reminder (at most every 2 weeks)</label>
       <label>Reminder after <select id="pleyz-reminder-days"><option value="7">7 days</option><option value="14">14 days</option><option value="21">21 days</option><option value="30">30 days</option><option value="60">60 days</option></select> away</label>
       <div class="pleyz-notification-actions"><button id="pleyz-push-enable" type="button">Enable device notifications</button><button id="pleyz-push-disable" type="button">Turn off push</button></div>
       <p id="pleyz-notification-status" role="status">Browser notifications are optional and stay off until you enable them.</p>
@@ -344,6 +345,7 @@
 
   async function getSignedInFirebase() {
     const sdk = await loadFirebase();
+    await sdk.auth.authStateReady();
     if (!sdk.auth.currentUser) {
       await new Promise(resolve => {
         const unsubscribe = sdk.authSdk.onAuthStateChanged(sdk.auth, user => {
@@ -379,6 +381,7 @@
     button.disabled = true;
     let sdk;
     let token;
+    let setupStep = 'checking your account';
     try {
       sdk = await getSignedInFirebase();
       if (!await sdk.messagingSdk.isSupported()) {
@@ -393,8 +396,10 @@
           : 'Push notifications were not enabled.';
         return;
       }
+      setupStep = 'registering the browser service worker';
       const serviceWorkerRegistration = await navigator.serviceWorker.register('/service-worker.js');
       const messaging = sdk.messagingSdk.getMessaging(sdk.app);
+      setupStep = 'creating your browser subscription';
       token = await sdk.messagingSdk.getToken(messaging, {
         vapidKey: WEB_PUSH_VAPID_KEY,
         serviceWorkerRegistration
@@ -402,35 +407,38 @@
       if (!token) throw new Error('The browser did not create a push subscription.');
       settings.pushEnabled = true;
       saveSettings();
+      setupStep = 'saving your notification preferences';
       await syncSettings(sdk);
       preferencesNeedSync = false;
       localStorage.removeItem(SETTINGS_SYNC_PENDING_KEY);
+      setupStep = 'registering this device';
       await sdk.functionsSdk.httpsCallable(sdk.functions, 'savePleyzNotificationToken')({ token });
       const recommendations = getRecommendations();
       if (recommendations) {
-        await sdk.functionsSdk.httpsCallable(sdk.functions, 'savePleyzNotificationRecommendations')({
-          items: recommendations.items
-        });
+        try {
+          await sdk.functionsSdk.httpsCallable(sdk.functions, 'savePleyzNotificationRecommendations')({
+            items: recommendations.items
+          });
+        } catch (error) {
+          console.warn('PleyZ push recommendations could not be synchronized:', error.code || 'unknown');
+        }
       }
-      sdk.messagingSdk.onMessage(messaging, payload => {
-        status.textContent = payload.data?.body || payload.notification?.body || 'You have a new PleyZ update.';
-      });
+      if (!foregroundListenerAttached) {
+        sdk.messagingSdk.onMessage(messaging, payload => {
+          status.textContent = payload.data?.body || payload.notification?.body || 'You have a new PleyZ update.';
+        });
+        foregroundListenerAttached = true;
+      }
       status.textContent = 'Device notifications are enabled. Manage them here or in your browser settings.';
       renderFeed();
     } catch (error) {
       settings.pushEnabled = false;
       saveSettings();
-      if (sdk) {
-        try {
-          if (token) {
-            await sdk.functionsSdk.httpsCallable(sdk.functions, 'removePleyzNotificationToken')({ token });
-          }
-          await syncSettings(sdk);
-        } catch (rollbackError) {
-          console.warn('PleyZ push setup rollback failed:', rollbackError);
-        }
-      }
-      status.textContent = error.message || 'Push notifications could not be enabled.';
+      const code = String(error?.code || '');
+      console.warn('PleyZ notification setup failed:', setupStep, code || 'unknown');
+      status.textContent = code.endsWith('/internal') || code === 'internal'
+        ? `PleyZ could not finish ${setupStep} because its notification service returned an internal error. Your browser permission is unchanged; please try again later.`
+        : error.message || `Push notifications could not be enabled while ${setupStep}.`;
     } finally {
       button.disabled = false;
     }

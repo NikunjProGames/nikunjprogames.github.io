@@ -84,7 +84,7 @@ The `Gems for You` category updates automatically: games are included when marke
 
 To inspect feedback in Firebase Console, open **Firestore Database → Data → feedback**. Each user's UID contains `games` (ratings, tags, comments), `interactions` (likes/dislikes), and `recommendations` (helpful yes/no and mood). User feedback documents are private to that user in Firestore rules. When a user signs in, their ratings, selected tags, comments, reactions, and recommendation votes are synced into their personalized recommendation ranking; this does not pool private feedback from other users.
 
-Game submissions and contact messages are delivered by the `submitGame` Cloud Function. Before deploying it, configure these Firebase Functions secrets through the CLI prompts (do not put their values in source control):
+Game submissions and contact messages are delivered by the `submitGame` Cloud Function. Game submissions from `/developers.html` require a signed-in Firebase account; the function verifies the Firebase ID token server-side. General inquiries remain available without signing in from `/contact-us.html`. Before deploying the function, configure these Firebase Functions secrets through the CLI prompts (do not put their values in source control):
 
 ```sh
 firebase functions:secrets:set SMTP_HOST
@@ -103,7 +103,7 @@ The home page can be installed as a PWA on supported browsers. Its service worke
 
 ## Optional notifications
 
-The notification bell is available on the home, account, category, and game pages. Its update feed and signed-in recommendations use PleyZ data; web push is off until a player explicitly enables it. When enabled, opted-in players can receive a gentle reminder after 7 days without play (at most once per week), genuinely new-game announcements, and personalized recommendations every 14 days. Recommendation picks use the existing gameplay and preference-based ranking. Notification categories and hashed device-token IDs are stored under the signed-in player's private Firestore profile.
+The notification bell is available on the home, account, category, and game pages. Its update feed and signed-in recommendations use PleyZ data; web push is off until a player explicitly enables it and the device token is registered to the signed-in account. When enabled, opted-in players can receive a gentle reminder after 7 days without play (at most once every two weeks), at most one new-game alert per day, and personalized recommendations every 14 days. Recommendation picks use the existing gameplay and preference-based ranking. Notification categories and hashed device-token IDs are stored under the signed-in player's private Firestore profile.
 
 To enable background delivery:
 
@@ -111,4 +111,4 @@ To enable background delivery:
 2. Deploy the backend and announcement read rule with `firebase deploy --only functions,firestore:rules`, and publish the static website files through the repository's existing GitHub Pages workflow. Cloud Functions and scheduled reminders require a billing-enabled Firebase project; the scheduled functions also use Cloud Scheduler.
 3. Keep the repository secret `FIREBASE_SERVICE_ACCOUNT_PLEYZ_DD9F8` configured for GitHub Actions with permission to create Firestore documents. When a commit to `main` adds game IDs to `feed.json`, the **Notify players about new games** workflow automatically creates deduplicated announcements for those additions. The bell lists those announcements too, using a public query capped at 20 items. The existing `admin`-only `publishPleyzNewGame` callable remains available for announcements outside the catalog workflow.
 
-Browser/device support and permission settings determine whether push can be enabled. iOS push requires an installed web app. Without the Firebase VAPID key and deployed Functions, the bell and local update feed still work, but notifications cannot arrive while the site is closed.
+Browser/device support and permission settings determine whether push can be enabled. A browser permission granted before PleyZ registered a Firebase device token does not, by itself, subscribe the account to background delivery; sign in and enable notifications once to register it. iOS push requires an installed web app. Without the Firebase VAPID key and deployed Functions, the bell and local update feed still work, but notifications cannot arrive while the site is closed.

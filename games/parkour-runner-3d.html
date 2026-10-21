@@ -81,9 +81,7 @@
     .game-action-bar { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 7px; padding: 7px 9px; border: 1px solid var(--panel-border); border-radius: 8px; background: rgba(255,255,255,0.045); }
     .game-toolbar { display: flex; justify-content: flex-end; gap: 6px; }
     .btn.compact { min-height: 34px; padding: 6px 10px; font-size: 0.84rem; }
-    .game-layout {
-      display: grid; grid-template-columns: minmax(0, 1fr) 250px; gap: 14px; align-items: start;
-    }
+    .game-layout { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 14px; align-items: start; }
     .game-shell { min-width: 0; }
     .game-frame {
       height: clamp(380px, 68vh, 760px); overflow: hidden; border: 1px solid var(--panel-border);
@@ -111,21 +109,22 @@
     .info-card p + p { margin-top: 10px; }
     .info-card h3 { margin: 16px 0 6px; font-family: 'Orbitron', sans-serif; font-size: 0.95rem; }
     .related-categories { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 12px; }
-    .related-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
-    .related-games { margin-top: 0; position: sticky; top: 12px; max-height: 68vh; overflow-y: auto; }
+    .related-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    .related-games { margin-top: 0; position: sticky; top: 12px; max-height: calc(100vh - 24px); overflow-y: auto; }
     .related-game {
-      display: grid; grid-template-columns: 88px 1fr; gap: 10px; align-items: center;
-      min-width: 0; color: var(--text); font-weight: 700; background: rgba(255,255,255,0.04);
-      border: 1px solid var(--panel-border); border-radius: 7px; padding: 6px; transition: transform 0.2s ease, border-color 0.2s ease;
+      display: flex; min-width: 0; flex-direction: column; gap: 9px;
+      color: var(--text); font-weight: 700; background: rgba(255,255,255,0.04);
+      border: 1px solid var(--panel-border); border-radius: 10px; padding: 8px;
+      transition: transform 0.2s ease, border-color 0.2s ease;
     }
     .related-game:hover { transform: translateY(-2px); border-color: rgba(0,191,255,0.45); }
-    .related-game-media { display: block; position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 8px; background: #05070d; }
+    .related-game-media { display: block; position: relative; width: 100%; aspect-ratio: 16 / 10; overflow: hidden; border-radius: 8px; background: #05070d; }
     .related-game-media img, .related-game-preview { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
     .related-game-media img { transition: opacity 0.2s ease; }
     .related-game-preview { opacity: 0; pointer-events: none; transition: opacity 0.2s ease; }
     .related-game:hover .related-game-preview, .related-game:focus-visible .related-game-preview { opacity: 1; }
     .related-game:hover .related-game-media img, .related-game:focus-visible .related-game-media img { opacity: 0; }
-    .related-game span { font-size: 0.9rem; line-height: 1.2; }
+    .related-game > span:last-child { font-size: 0.95rem; line-height: 1.2; }
     .chip-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
     .chip { padding: 6px 10px; border-radius: 999px; background: rgba(0,191,255,0.14); border: 1px solid rgba(0,191,255,0.26); color: #bfeeff; font-size: 0.9rem; }
     .screenshot-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 14px; }
@@ -143,7 +142,9 @@
     .site-footer a:hover { color: var(--accent); }
     .btn:hover, .btn:focus-visible, .game-preferences button:focus-visible { border-color: var(--accent); outline: 2px solid rgba(0,191,255,.35); outline-offset: 2px; }
     @media (max-width: 900px) {
-      .game-layout { grid-template-columns: minmax(0, 1fr) 220px; }
+      .game-layout { grid-template-columns: minmax(0, 1fr); }
+      .related-games { margin-top: 18px; position: static; max-height: none; }
+      .related-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
     }
     @media (max-width: 700px) {
       .page-shell { padding: 10px 10px 24px; }
@@ -153,8 +154,12 @@
       .game-layout { grid-template-columns: 1fr; }
       .game-frame { height: clamp(320px, 58vh, 620px); }
       .game-action-bar { padding: 6px; }
-      .related-games { position: static; max-height: none; }
-      .related-game { grid-template-columns: 96px 1fr; }
+      .related-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+    @media (max-width: 480px) {
+      .related-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+      .related-game { padding: 6px; }
+      .related-game > span:last-child { font-size: 0.88rem; }
     }
     @media (max-width: 420px) {
       .profile-score-link > span:last-child { display: none; }
@@ -213,7 +218,12 @@
         <a class="related-game" href="geometry-vibes.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/geometry-vibes/big-preview/cd0c9c56e9e54948b7eca6c49ef590b5?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/6a23eda4fac74d23848658c3fd75e2de/orig_length_h320.mp4"></video></span><span>Geometry Vibes </span></a>
         <a class="related-game" href="rooftop-run.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/rooftop-run/big_preview/deae9057920049eb8d15e99aaf496d9e?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/8526b1ddbf6643d086bcc8398a33abcc/orig_length_h320.mp4"></video></span><span>Rooftop Run</span></a>
         <a class="related-game" href="1-speed-escape-prison.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/1-speed-escape-prison/big-preview/415c3326c7724e6cae83d74990cc3020?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/32247dbeba054937adf4fe6321dabfb3/orig_length_h320.mp4"></video></span><span>+1 Speed: Escape Prison</span></a>
-        <a class="related-game" href="basketball-stars.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/basketball-stars/big_preview/2e0653c710ad43e09c40d1ba5968e447?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/c7ae7f11ad0f1a1178788aaa188f4508/orig_length_h320.mp4"></video></span><span>Basketball Stars</span></a></div>
+        <a class="related-game" href="basketball-stars.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/basketball-stars/big_preview/2e0653c710ad43e09c40d1ba5968e447?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/c7ae7f11ad0f1a1178788aaa188f4508/orig_length_h320.mp4"></video></span><span>Basketball Stars</span></a>
+        <a class="related-game" href="burger-restaurant-simulator-3d.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/burger-restaurant-simulator-3d/big_preview/b4cbcd2693594ae1a4e6aa672025365c?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/77eafebf3fa97f11d0a47fd2a4ce085c/orig_length_h320.mp4"></video></span><span>Burger Restaurant Simulator 3D</span></a>
+        <a class="related-game" href="driver-club-highway-racing.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/driver-club-highway-racing/big-preview/037ce11afe4f4d58a0f93a6339db96b5?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/2bc9523376aa46139c01c868d86cbb68/orig_length_h320.mp4"></video></span><span>Driver Club: Highway Racing</span></a>
+        <a class="related-game" href="geometry-arrow-2.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/backfill/game-99645/preview/90df3206f7f0c706e6431b9ae58fc331d0ed13a11e547ce0271b720ff82e6b21?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/5b84237660d746b7bd76be4e60bdba3a/orig_length_h320.mp4"></video></span><span>Geometry Arrow 2</span></a>
+        <a class="related-game" href="online-cats-multiplayer-park.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/2zzd4eaozs2hipxphec84xoac3sagofk/512x384.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async" /></span><span>Online Cats Multiplayer Park</span></a>
+        <a class="related-game" href="supernova-the-charon-protocol.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/supernova-the-charon-protocol/big_preview/01e886cf305a46b09285be84280d1c69?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/fed266a663084a209e51d8472a77f64c/orig_length_h320.mp4"></video></span><span>Supernova: The &quot;Charon&quot; Protocol</span></a></div>
       </section>
     </div>
 
@@ -297,7 +307,7 @@
     <a href="/termsandconditions.html">Terms</a>
     <a href="/contact-us.html">Contact</a>
   </footer>
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/parkour-runner-3d.html#game","name":"Parkour Runner 3D","description":"Parkour Runner 3D is a fast-paced action running game where you sprint, jump, slide, and flip through thrilling obstacle courses!","url":"https://nikunjprogames.github.io/games/parkour-runner-3d.html","image":"https://static.playgama.com/p-img/pg/parkour-runner-3d/big-preview/5b3d8e54dbce43c2a0426fbfe0c26b19?width=448","gamePlatform":["Web browser","Android","iOS","Desktop"],"genre":["3d","arcade","endless","parkour","skill","running","platform","runner"],"keywords":["3d","running","platform","parkour","arcade","runner","1-player-games","reaction-games","android-games","iphone-games","fullscreen-games","games-for-pc","obstacles-games"],"video":{"@type":"VideoObject","name":"Parkour Runner 3D gameplay video","description":"Watch gameplay from Parkour Runner 3D.","thumbnailUrl":"https://static.playgama.com/p-img/pg/parkour-runner-3d/big-preview/5b3d8e54dbce43c2a0426fbfe0c26b19?width=448","contentUrl":"https://static.playgama.com/p-video/6137c1c8dabb771b8e9c292a6707b7ea/orig_length_h320.mp4"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"3d Games","item":"https://nikunjprogames.github.io/3d-games/"},{"@type":"ListItem","position":3,"name":"Parkour Runner 3D","item":"https://nikunjprogames.github.io/games/parkour-runner-3d.html"}]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/parkour-runner-3d.html#game","name":"Parkour Runner 3D","description":"Parkour Runner 3D is a fast-paced action running game where you sprint, jump, slide, and flip through thrilling obstacle courses!","url":"https://nikunjprogames.github.io/games/parkour-runner-3d.html","image":"https://static.playgama.com/p-img/pg/parkour-runner-3d/big-preview/5b3d8e54dbce43c2a0426fbfe0c26b19?width=448","gamePlatform":["Web browser","Android","iOS","Desktop"],"genre":["3d","arcade","endless","parkour","skill","running","platform","runner"],"keywords":["3d","running","platform","parkour","arcade","runner","1-player-games","reaction-games","android-games","iphone-games","fullscreen-games","games-for-pc","obstacles-games"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"3d Games","item":"https://nikunjprogames.github.io/3d-games/"},{"@type":"ListItem","position":3,"name":"Parkour Runner 3D","item":"https://nikunjprogames.github.io/games/parkour-runner-3d.html"}]}]}</script>
   <script src="/site-shell.js" defer></script>
   <script src="/game-loading.js" defer></script>
   <script>

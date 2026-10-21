@@ -81,9 +81,7 @@
     .game-action-bar { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 7px; padding: 7px 9px; border: 1px solid var(--panel-border); border-radius: 8px; background: rgba(255,255,255,0.045); }
     .game-toolbar { display: flex; justify-content: flex-end; gap: 6px; }
     .btn.compact { min-height: 34px; padding: 6px 10px; font-size: 0.84rem; }
-    .game-layout {
-      display: grid; grid-template-columns: minmax(0, 1fr) 250px; gap: 14px; align-items: start;
-    }
+    .game-layout { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 14px; align-items: start; }
     .game-shell { min-width: 0; }
     .game-frame {
       height: clamp(380px, 68vh, 760px); overflow: hidden; border: 1px solid var(--panel-border);
@@ -111,21 +109,22 @@
     .info-card p + p { margin-top: 10px; }
     .info-card h3 { margin: 16px 0 6px; font-family: 'Orbitron', sans-serif; font-size: 0.95rem; }
     .related-categories { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 12px; }
-    .related-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
-    .related-games { margin-top: 0; position: sticky; top: 12px; max-height: 68vh; overflow-y: auto; }
+    .related-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    .related-games { margin-top: 0; position: sticky; top: 12px; max-height: calc(100vh - 24px); overflow-y: auto; }
     .related-game {
-      display: grid; grid-template-columns: 88px 1fr; gap: 10px; align-items: center;
-      min-width: 0; color: var(--text); font-weight: 700; background: rgba(255,255,255,0.04);
-      border: 1px solid var(--panel-border); border-radius: 7px; padding: 6px; transition: transform 0.2s ease, border-color 0.2s ease;
+      display: flex; min-width: 0; flex-direction: column; gap: 9px;
+      color: var(--text); font-weight: 700; background: rgba(255,255,255,0.04);
+      border: 1px solid var(--panel-border); border-radius: 10px; padding: 8px;
+      transition: transform 0.2s ease, border-color 0.2s ease;
     }
     .related-game:hover { transform: translateY(-2px); border-color: rgba(0,191,255,0.45); }
-    .related-game-media { display: block; position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 8px; background: #05070d; }
+    .related-game-media { display: block; position: relative; width: 100%; aspect-ratio: 16 / 10; overflow: hidden; border-radius: 8px; background: #05070d; }
     .related-game-media img, .related-game-preview { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
     .related-game-media img { transition: opacity 0.2s ease; }
     .related-game-preview { opacity: 0; pointer-events: none; transition: opacity 0.2s ease; }
     .related-game:hover .related-game-preview, .related-game:focus-visible .related-game-preview { opacity: 1; }
     .related-game:hover .related-game-media img, .related-game:focus-visible .related-game-media img { opacity: 0; }
-    .related-game span { font-size: 0.9rem; line-height: 1.2; }
+    .related-game > span:last-child { font-size: 0.95rem; line-height: 1.2; }
     .chip-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
     .chip { padding: 6px 10px; border-radius: 999px; background: rgba(0,191,255,0.14); border: 1px solid rgba(0,191,255,0.26); color: #bfeeff; font-size: 0.9rem; }
     .screenshot-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 14px; }
@@ -143,7 +142,9 @@
     .site-footer a:hover { color: var(--accent); }
     .btn:hover, .btn:focus-visible, .game-preferences button:focus-visible { border-color: var(--accent); outline: 2px solid rgba(0,191,255,.35); outline-offset: 2px; }
     @media (max-width: 900px) {
-      .game-layout { grid-template-columns: minmax(0, 1fr) 220px; }
+      .game-layout { grid-template-columns: minmax(0, 1fr); }
+      .related-games { margin-top: 18px; position: static; max-height: none; }
+      .related-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
     }
     @media (max-width: 700px) {
       .page-shell { padding: 10px 10px 24px; }
@@ -153,8 +154,12 @@
       .game-layout { grid-template-columns: 1fr; }
       .game-frame { height: clamp(320px, 58vh, 620px); }
       .game-action-bar { padding: 6px; }
-      .related-games { position: static; max-height: none; }
-      .related-game { grid-template-columns: 96px 1fr; }
+      .related-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+    @media (max-width: 480px) {
+      .related-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+      .related-game { padding: 6px; }
+      .related-game > span:last-child { font-size: 0.88rem; }
     }
     @media (max-width: 420px) {
       .profile-score-link > span:last-child { display: none; }
@@ -213,7 +218,12 @@
         <a class="related-game" href="golf-orbit.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/golf-orbit/big-preview/e7f203e28b0745d880d1c0a995e9b213?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/6c572b73e1d9434eb82165297cc7c430/orig_length_h320.mp4"></video></span><span>Golf Orbit</span></a>
         <a class="related-game" href="supernova-the-charon-protocol.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/supernova-the-charon-protocol/big_preview/01e886cf305a46b09285be84280d1c69?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/fed266a663084a209e51d8472a77f64c/orig_length_h320.mp4"></video></span><span>Supernova: The &quot;Charon&quot; Protocol</span></a>
         <a class="related-game" href="burger-restaurant-simulator-3d.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/burger-restaurant-simulator-3d/big_preview/b4cbcd2693594ae1a4e6aa672025365c?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/77eafebf3fa97f11d0a47fd2a4ce085c/orig_length_h320.mp4"></video></span><span>Burger Restaurant Simulator 3D</span></a>
-        <a class="related-game" href="geometry-vibes.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/geometry-vibes/big-preview/cd0c9c56e9e54948b7eca6c49ef590b5?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/6a23eda4fac74d23848658c3fd75e2de/orig_length_h320.mp4"></video></span><span>Geometry Vibes </span></a></div>
+        <a class="related-game" href="geometry-vibes.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/geometry-vibes/big-preview/cd0c9c56e9e54948b7eca6c49ef590b5?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/6a23eda4fac74d23848658c3fd75e2de/orig_length_h320.mp4"></video></span><span>Geometry Vibes </span></a>
+        <a class="related-game" href="slope-3d.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/slope-3d/big_preview/6031cc0ff00947dda0627af51b3316de?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Slope 3D</span></a>
+        <a class="related-game" href="hazmob-fps-online-shooter.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/hazmob-fps-online-shooter/preview/76a02c8e7dbd4bd3a87bc87d868d6158?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Hazmob FPS: Online Shooter</span></a>
+        <a class="related-game" href="parkour-runner-3d.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/parkour-runner-3d/big-preview/5b3d8e54dbce43c2a0426fbfe0c26b19?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/6137c1c8dabb771b8e9c292a6707b7ea/orig_length_h320.mp4"></video></span><span>Parkour Runner 3D</span></a>
+        <a class="related-game" href="rivals-fps-online-shooter.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/rivals-fps-online-shooter/preview/2203a049014e4f6eaa4038ab696f6afa?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/519f0e08d9764b25aea0b93699671b44/orig_length_h320.mp4"></video></span><span>RIVALS FPS: Online Shooter</span></a>
+        <a class="related-game" href="clonium.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/cx9ykv4xl6wlfq6vd9odkn68e6zenz7s/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async" /></span><span>Clonium</span></a></div>
       </section>
     </div>
 
@@ -291,7 +301,7 @@
     <a href="/termsandconditions.html">Terms</a>
     <a href="/contact-us.html">Contact</a>
   </footer>
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/basketball-stars.html#game","name":"Basketball Stars","description":"Basketball Stars is a cool 2-player basketball game by MadPuffers.","url":"https://nikunjprogames.github.io/games/basketball-stars.html","image":"https://static.playgama.com/p-img/pg/basketball-stars/big_preview/2e0653c710ad43e09c40d1ba5968e447?width=448","gamePlatform":["Web browser","Android","iOS","Desktop"],"genre":["arcade","casual","multiplayer","skill","sports","two player","two-player","popular","basketball","pvp"],"keywords":["arcade","sports","two-player","popular","basketball","pvp","reaction-games","iphone-games","casual-games","competitive-games","desktop-games","1-player-games","timing-games","dunking-games","android-games","2-player-basketball","2-player-arcade"],"video":{"@type":"VideoObject","name":"Basketball Stars gameplay video","description":"Watch gameplay from Basketball Stars.","thumbnailUrl":"https://static.playgama.com/p-img/pg/basketball-stars/big_preview/2e0653c710ad43e09c40d1ba5968e447?width=448","contentUrl":"https://static.playgama.com/p-video/c7ae7f11ad0f1a1178788aaa188f4508/orig_length_h320.mp4"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"arcade Games","item":"https://nikunjprogames.github.io/arcade-games/"},{"@type":"ListItem","position":3,"name":"Basketball Stars","item":"https://nikunjprogames.github.io/games/basketball-stars.html"}]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/basketball-stars.html#game","name":"Basketball Stars","description":"Basketball Stars is a cool 2-player basketball game by MadPuffers.","url":"https://nikunjprogames.github.io/games/basketball-stars.html","image":"https://static.playgama.com/p-img/pg/basketball-stars/big_preview/2e0653c710ad43e09c40d1ba5968e447?width=448","gamePlatform":["Web browser","Android","iOS","Desktop"],"genre":["arcade","casual","multiplayer","skill","sports","two player","two-player","popular","basketball","pvp"],"keywords":["arcade","sports","two-player","popular","basketball","pvp","reaction-games","iphone-games","casual-games","competitive-games","desktop-games","1-player-games","timing-games","dunking-games","android-games","2-player-basketball","2-player-arcade"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"arcade Games","item":"https://nikunjprogames.github.io/arcade-games/"},{"@type":"ListItem","position":3,"name":"Basketball Stars","item":"https://nikunjprogames.github.io/games/basketball-stars.html"}]}]}</script>
   <script src="/site-shell.js" defer></script>
   <script src="/game-loading.js" defer></script>
   <script>

@@ -306,6 +306,43 @@ async function sendPleyzPushToUser(uid, data) {
   return deliveredCount;
 }
 
+async function sendPleyzNewGameToUser(uid, announcement) {
+  const preferencesRef = notificationPreferencesRef(uid);
+  const now = Date.now();
+  const claimed = await db.runTransaction(async transaction => {
+    const snapshot = await transaction.get(preferencesRef);
+    const preferences = snapshot.data() || {};
+    const lastSentAt = preferences.lastNewGameNotificationAt?.toMillis?.() || 0;
+    const leaseAt = preferences.newGameNotificationLeaseAt?.toMillis?.() || 0;
+    if (preferences.pushEnabled !== true
+      || preferences.categories?.newGames !== true
+      || now - lastSentAt < 24 * 60 * 60 * 1000
+      || now - leaseAt < 60 * 60 * 1000) return false;
+    transaction.set(preferencesRef, {
+      newGameNotificationLeaseAt: Timestamp.fromMillis(now)
+    }, { merge: true });
+    return true;
+  });
+  if (!claimed) return;
+
+  try {
+    const deliveredCount = await sendPleyzPushToUser(uid, {
+      title: "New on PleyZ",
+      body: `${announcement.name} is ready to play.`,
+      href: announcement.href,
+      tag: `pleyz-game-${announcement.gameId}`,
+      category: "newGames"
+    });
+    await preferencesRef.update({
+      ...(deliveredCount ? { lastNewGameNotificationAt: Timestamp.now() } : {}),
+      newGameNotificationLeaseAt: FieldValue.delete()
+    });
+  } catch (error) {
+    await preferencesRef.update({ newGameNotificationLeaseAt: FieldValue.delete() });
+    throw error;
+  }
+}
+
 exports.deliverPleyzNewGame = onDocumentCreated({
   region,
   document: "notificationAnnouncements/{gameId}"
@@ -320,13 +357,7 @@ exports.deliverPleyzNewGame = onDocumentCreated({
     const data = preference.data();
     const uid = preference.ref.parent.parent?.id;
     if (!uid || data.categories?.newGames !== true) continue;
-    await sendPleyzPushToUser(uid, {
-      title: "New on PleyZ",
-      body: `${announcement.name} is ready to play.`,
-      href: announcement.href,
-      tag: `pleyz-game-${announcement.gameId}`,
-      category: "newGames"
-    });
+    await sendPleyzNewGameToUser(uid, announcement);
   }
 });
 
@@ -354,7 +385,7 @@ exports.sendPleyzReturnReminders = onSchedule({
     if (inactiveDays < Number(data.reminderDays || 7)) continue;
     const lastReminderAt = data.lastReminderAt?.toMillis?.() || 0;
     const leaseAt = data.reminderLeaseAt?.toMillis?.() || 0;
-    if (now - lastReminderAt < 7 * 86_400_000 || now - leaseAt < 3_600_000) continue;
+    if (now - lastReminderAt < 14 * 86_400_000 || now - leaseAt < 3_600_000) continue;
 
     const claimed = await db.runTransaction(async transaction => {
       const current = await transaction.get(preference.ref);
@@ -362,7 +393,7 @@ exports.sendPleyzReturnReminders = onSchedule({
       const currentReminder = currentData.lastReminderAt?.toMillis?.() || 0;
       const currentLease = currentData.reminderLeaseAt?.toMillis?.() || 0;
       if (currentData.pushEnabled !== true || currentData.categories?.reminders !== true
-        || now - currentReminder < 7 * 86_400_000
+        || now - currentReminder < 14 * 86_400_000
         || now - currentLease < 3_600_000) return false;
       transaction.update(preference.ref, { reminderLeaseAt: Timestamp.fromMillis(now) });
       return true;
@@ -717,6 +748,20 @@ exports.submitGame = onRequest({
 
     const { fields, attachments } = await parseSubmission(request);
     const submission = readSubmissionFields(fields, attachments);
+    if (submission.kind === "game") {
+      const authorization = request.get("authorization") || "";
+      const bearerToken = /^Bearer\s+([^\s]+)$/i.exec(authorization)?.[1];
+      if (!bearerToken) {
+        response.status(401).json({ ok: false, error: "Sign in to submit a game." });
+        return;
+      }
+      try {
+        await getAuth().verifyIdToken(bearerToken);
+      } catch {
+        response.status(401).json({ ok: false, error: "Your sign-in expired. Sign in again and resubmit." });
+        return;
+      }
+    }
     const port = Number(smtpPort.value());
     const mailSettings = [
       smtpHost.value(),

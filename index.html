@@ -14,7 +14,7 @@
   <link rel="manifest" href="/site.webmanifest" />
 
   <title>PleyZ Games | Games Worth Playing - Play Now!</title>
-  <meta name="description" content="Play free online browser games at PleyZ Games! Discover handpicked action, puzzle, racing, strategy, and arcade games. Play instantly with no downloads!" />
+  <meta name="description" content="Discover free browser games at PleyZ with mood-based game discovery, personalized recommendations, PleyZ Score, and a player leaderboard." />
 
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <meta name="msvalidate.01" content="094E1ED761D7CE3B597F41F2347CD317" />
@@ -23,7 +23,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://nikunjprogames.github.io/" />
   <meta property="og:title" content="PleyZ Games | Play Free Online Browser Games - Play Now!" />
-  <meta property="og:description" content="Play free online browser games at PleyZ Games! Discover handpicked action, puzzle, racing, strategy, and arcade games. Play instantly with no downloads!" />
+  <meta property="og:description" content="Discover free browser games at PleyZ with mood-based game discovery, personalized recommendations, PleyZ Score, and a player leaderboard." />
   <meta property="og:site_name" content="PleyZ Games" />
   <meta property="og:image" content="https://nikunjprogames.github.io/icon-512.png" />
   <meta property="og:image:alt" content="PleyZ Games - Handpicked Games Worth Playing" />
@@ -31,7 +31,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content="https://nikunjprogames.github.io/" />
   <meta name="twitter:title" content="PleyZ Games | Play Free Online Browser Games - Play Now!" />
-  <meta name="twitter:description" content="Play free online browser games at PleyZ Games! Discover handpicked action, puzzle, racing, strategy, and arcade games. Play instantly with no downloads!" />
+  <meta name="twitter:description" content="Discover free browser games at PleyZ with mood-based game discovery, personalized recommendations, PleyZ Score, and a player leaderboard." />
   <meta name="twitter:image" content="https://nikunjprogames.github.io/icon-512.png" />
   <meta name="twitter:image:alt" content="PleyZ Games - Handpicked Games Worth Playing" />
 
@@ -51,7 +51,7 @@
         "url": "https://nikunjprogames.github.io/",
         "name": "PleyZ Games",
         "alternateName": "PleyZ",
-        "description": "Handpicked browser games worth playing, across action, puzzle, racing, strategy, arcade and more.",
+        "description": "Discover free browser games with PleyZ mood discovery, personalized game recommendations, PleyZ Score, and a player leaderboard.",
         "publisher": {
           "@id": "https://nikunjprogames.github.io/#organization"
         },
@@ -62,7 +62,7 @@
         "@id": "https://nikunjprogames.github.io/#webpage",
         "url": "https://nikunjprogames.github.io/",
         "name": "PleyZ Games | Play Free Online Browser Games - Play Now!",
-        "description": "Play free online browser games at PleyZ Games! Discover handpicked action, puzzle, racing, strategy, and arcade games. Play instantly with no downloads!",
+        "description": "Discover free browser games at PleyZ with mood-based discovery, personalized recommendations, PleyZ Score, and a player leaderboard.",
         "isPartOf": {
           "@id": "https://nikunjprogames.github.io/#website"
         },
@@ -77,7 +77,7 @@
         "name": "PleyZ Games",
         "alternateName": "PleyZ",
         "url": "https://nikunjprogames.github.io/",
-        "description": "PleyZ curates browser games across a range of game categories.",
+        "description": "PleyZ helps players discover browser games with mood discovery, personalized recommendations, PleyZ Score, and a player leaderboard.",
         "logo": {
           "@type": "ImageObject",
           "url": "https://nikunjprogames.github.io/icon-512.png"
@@ -90,6 +90,36 @@
 <style>
     .mobile-nav-item[hidden] { display: none !important; }
     .install-nav-item { flex: 1; min-width: 0; }
+    .site-loader {
+      position: fixed;
+      z-index: 5000;
+      inset: 0;
+      display: grid;
+      place-content: center;
+      justify-items: center;
+      gap: .8rem;
+      background: #0a0a0f;
+      color: #e8e8ff;
+      font: 600 clamp(1rem, 1.2vw, 1.5rem) 'Rajdhani', sans-serif;
+      opacity: 1;
+      transition: opacity .18s ease;
+    }
+    .site-loader.is-hidden { opacity: 0; pointer-events: none; }
+    .site-loader-mark { font: 900 clamp(1.5rem, 3vw, 2.75rem) 'Orbitron', sans-serif; }
+    .site-loader-mark span { color: #8b00ff; }
+    .site-loader-spinner {
+      width: clamp(24px, 2vw, 40px);
+      height: clamp(24px, 2vw, 40px);
+      border: 2px solid #ffffff30;
+      border-top-color: #00bfff;
+      border-radius: 50%;
+      animation: site-loader-spin .75s linear infinite;
+    }
+    @keyframes site-loader-spin { to { transform: rotate(360deg); } }
+    @media (prefers-reduced-motion: reduce) {
+      .site-loader { transition: none; }
+      .site-loader-spinner { animation: none; }
+    }
     .install-help-dialog {
       width: min(420px, calc(100vw - 24px));
       padding: 1.4rem;
@@ -107,8 +137,10 @@
   </style>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet" /></noscript>
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" /></noscript>
 <meta name="google-site-verification" content="Tv6rcZkhJoP6OHr6VhgpgN_4DVGQt8qfx0oRQ5ADZx4" />
   <!-- GameMonetize tag -->
   <meta name="gamemonetize-site-verification" content="f08c47fec0942fa0" />
@@ -853,6 +885,17 @@
       font-weight: 600;
       width: fit-content;
     }
+    .game-badges { display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem; }
+    .original-badge {
+      width: fit-content;
+      padding: 2px 8px;
+      border: 1px solid rgba(255, 205, 95, 0.38);
+      border-radius: 10px;
+      background: rgba(255, 190, 60, 0.12);
+      color: #ffd276;
+      font: 600 0.58rem 'Orbitron', sans-serif;
+      letter-spacing: 0.04em;
+    }
     .cat-action  { background: rgba(255,50,50,0.15);  color: #ff6b6b; border: 1px solid rgba(255,50,50,0.3); }
     .cat-puzzle  { background: rgba(255,200,0,0.1);   color: #ffd700; border: 1px solid rgba(255,200,0,0.3); }
     .cat-racing  { background: rgba(0,255,100,0.1);   color: #00ff88; border: 1px solid rgba(0,255,100,0.3); }
@@ -1544,6 +1587,13 @@
   />
 </picture>
 <canvas id="bg-canvas"></canvas>
+<div class="site-loader" id="site-loader" role="status" aria-live="polite">
+  <span class="site-loader-mark">Pley<span>Z</span></span>
+  <span class="site-loader-spinner" aria-hidden="true"></span>
+  <span id="site-loader-message">Getting your games ready...</span>
+  <span id="site-loader-network-note" hidden>Slow connection detected. Game images load as you browse.</span>
+</div>
+<noscript><style>#site-loader { display: none !important; }</style></noscript>
 
 <!-- ============================================================
      HEADER
@@ -1573,13 +1623,14 @@
     </div>
 
     <button id="user-display" type="button" onclick="openAccountPage()" style="display:none; margin-right:0.6rem; font-weight:600; color:var(--text); background:none; border:0; cursor:pointer;"></button>
-    <button id="profile-avatar-button" type="button" onclick="openAccountPage()" aria-label="Open my account" title="Open my account"></button>
     <button class="btn btn-outline" id="install-app-button" type="button" hidden>
       <i class="fas fa-download" aria-hidden="true"></i> Install
     </button>
     <button class="btn btn-outline" id="auth-action-button" onclick="openLoginModal()">
       <i class="fas fa-user"></i> Login
     </button>
+    <a class="btn btn-outline developer-nav-link" href="/developers.html"><span class="developer-nav-full">For Developers</span><span class="developer-nav-short">Dev</span></a>
+    <button id="profile-avatar-button" type="button" onclick="openAccountPage()" aria-label="Open my account" title="Open my account"></button>
     <div id="notification-center-slot"></div>
   </div>
 </header>
@@ -1626,9 +1677,9 @@
 <section id="recommendations" aria-labelledby="recommendations-heading">
   <div class="discovery-heading">
     <div>
-      <h2 class="section-title" id="recommendations-heading">PleyZ Picks</h2>
+      <h2 class="section-title mood-discovery-title" id="recommendations-heading">PleyZ Picks</h2>
       <div class="section-underline"></div>
-      <p class="discovery-copy" id="recommendations-caption">A fresh mix from across the PleyZ library.</p>
+      <p class="discovery-copy" id="recommendations-caption">Personalized game recommendations adapt to your interests, mood, and play history.</p>
     </div>
     <button class="mood-trigger" type="button" id="mood-trigger" aria-haspopup="dialog" aria-controls="mood-popup">Choose a mood</button>
   </div>
@@ -1779,7 +1830,7 @@
   <h2 id="about-heading">About PleyZ</h2>
   <p>PleyZ is a browser-gaming destination built around one simple idea: finding a game should be as enjoyable as playing it. The homepage brings together current picks, popular games, and a searchable library, with categories that make it easier to move between different kinds of play. Whether you have a few minutes for a quick arcade round or want to explore a longer adventure, you can browse at your own pace and open games directly from your browser.</p>
   <p>The library spans action, arcade, puzzle, racing, sports, strategy, simulation, casual, and multiplayer experiences. Game pages include the details available for each title, such as controls, instructions, and related games, so you can decide what to try before launching. Many games can be played without downloading a separate app; individual titles may have their own requirements, loading times, advertisements, or device limitations.</p>
-  <p>PleyZ also includes optional account features. Players can save game preferences, track eligible activity through PleyZ Score, and see personalized recommendations informed by their play history. These tools are meant to make it easier to return to favorites and discover something new. You can still browse the catalog whether or not you sign in.</p>
+  <p>PleyZ also includes optional account features: PleyZ Score tracks eligible play, the leaderboard celebrates active players, and personalized game recommendations learn from each player's own play history and preferences. Mood discovery helps you find games for the way you feel right now. You can still browse the catalog whether or not you sign in.</p>
   <p>PleyZ is independently developed and continues to evolve. The collection and discovery tools change as games are added and features improve. Players can explore the categories to find a next pick, while browser-game developers can use the submission link to share work for consideration. The goal is a clear, accessible place to discover worthwhile games and get into the action without unnecessary friction.</p>
   <p>Because it is not just about a list of games, its an experience. We find the hidden gems waiting to be played not the games that everyone has but the games That are <strong>Worth Playing</strong></p>
   <p>For More Information, please visit our <a href="about-us.html">About Us</a> page.</p>
@@ -1790,7 +1841,7 @@
     <div class="submit-content">
         <h2>Want to see your game on our website?</h2>
         <p>Are you a developer? Submit your game to our platform and share it with thousands of active players worldwide.</p>
-        <a href="contact-us.html" class="submit-btn">Submit Your Game ↗</a>
+        <a href="/developers.html" class="submit-btn">For Developers ↗</a>
     </div>
 </section>
       </main>
@@ -1818,6 +1869,7 @@
       <ul>
         <li><a href="privacy-policy.html">Privacy Policy</a></li>
         <li><a href="termsandconditions.html">Terms of Service</a></li>
+        <li><a href="/developers.html">For Developers</a></li>
         <li><a href="contact-us.html" target="_blank" class="contact-btn" rel="noopener noreferrer">
     Contact Us
 </a>
@@ -3722,6 +3774,39 @@ const GAMES = [
     fullscreen: true,
     videoUrl: ""
   },
+    {
+    id: 173,
+    name: "You Are Not Alone",
+    cat: "Horror",
+    color: "#0057B8",
+    gradient: "linear-gradient(135deg,#001530,#003080)",
+    imageUrl: "https://nikunjprogames.github.io/You-Are-Not-Alone/social-card.png",
+    categories: ["Horror"],
+    tags: ["PleyZ Original", "Horror"],
+    isOriginal: true,
+    width: "800",
+    height: "450",
+    iframeUrl: "/You-Are-Not-Alone/",
+    fullscreen: true,
+    videoUrl: ""
+  },
+  {
+    id: 174,
+    name: "Test Your Brain",
+    cat: "Puzzle",
+    color: "#38A169",
+    gradient: "linear-gradient(135deg,#163c2a,#38a169)",
+    categories: ["Puzzle", "Brain Training"],
+    tags: ["PleyZ Original", "Brain Training", "Puzzle"],
+    isOriginal: true,
+    width: "800",
+    height: "450",
+    description: "A PleyZ Original brain game with 25 tricky puzzle challenges.",
+    iframeUrl: "/Test-your-brain.html",
+    fullscreen: true,
+    videoUrl: ""
+  },
+
 ];
 
 const GAME_PREVIEW_VIDEOS = window.PLEYZ_GAME_PREVIEW_VIDEOS;
@@ -3800,13 +3885,16 @@ function createGameTile(game) {
   card.dataset.cat = category;
   card.tabIndex = 0;
   card.setAttribute('role', 'button');
-  card.setAttribute('aria-label', `Play ${game.name}`);
+  card.setAttribute('aria-label', `Play ${game.name}${game.isOriginal ? ', PleyZ Original' : ''}`);
   card.innerHTML = `
     <div class="game-thumb">
       ${createGameImageMarkup(game)}
     </div>
     <h3 class="game-name">${game.name}</h3>
-    <span class="cat-badge cat-${category}">${category.toUpperCase()}</span>
+    <div class="game-badges">
+      <span class="cat-badge cat-${category}">${category.toUpperCase()}</span>
+      ${game.isOriginal ? '<span class="original-badge">PleyZ Original</span>' : ''}
+    </div>
   `;
   card.dataset.hasPreview = String(Boolean(GAME_PREVIEW_VIDEOS[game.id]));
   return card;
@@ -4181,10 +4269,7 @@ function renderRecommendedGames() {
     }
   }
 
-  const heading = document.getElementById('recommendations-heading');
   const caption = document.getElementById('recommendations-caption');
-  if (mood && heading) heading.textContent = `${mood.label} picks`;
-  else if (heading) heading.textContent = username && (recent.length || Object.keys(history).length || Object.keys(preferences).length) ? 'Picked for your play style' : 'PleyZ Picks';
   if (caption) {
     caption.textContent = mood
       ? `A varied mix matched to ${mood.label.toLowerCase()}. Change your mood any time.`
@@ -5017,7 +5102,10 @@ try {
   applyUrlCategoryFilter();
   renderTrending();
   initializeDeferredHomeSections();
-  if (new URLSearchParams(location.search).get('signin') === '1') openLoginModal();
+  if (new URLSearchParams(location.search).get('signin') === '1') {
+    setAuthMode(new URLSearchParams(location.search).get('signup') === '1' ? 'signup' : 'login');
+    document.getElementById('login-modal').classList.add('open');
+  }
 } catch (err) {
   // Avoid halting the rest of the script — try again shortly
   console.warn('Initial render failed, retrying shortly', err);
@@ -5085,6 +5173,8 @@ try {
       }
       updateAuthUI();
       window.dispatchEvent(new CustomEvent('pleyz-auth-state-change', { detail: user }));
+      const returnPath = new URLSearchParams(location.search).get('return');
+      if (user && returnPath === '/developers.html') location.replace(returnPath);
     });
     return true;
   }).catch(error => {
@@ -5665,6 +5755,7 @@ setTimeout(() => {
     .country-feature-grid .country-featured .game-thumb { height: auto; min-height: 0; aspect-ratio: 1 / 1; }
     .country-feature-grid .country-wide .game-thumb { aspect-ratio: 16 / 9; }
   }
+  .mood-discovery-title { font-size: clamp(1.8rem, 4.2vw, 3rem); }
   #recommended-grid { grid-auto-flow: dense; }
   #recommended-grid .pick-featured { grid-column: span 2; grid-row: span 2; }
   #recommended-grid .pick-featured .game-thumb { aspect-ratio: 4 / 3; }
@@ -5673,6 +5764,11 @@ setTimeout(() => {
     #recommended-grid .pick-featured { grid-column: span 1; grid-row: span 2; }
     #recommended-grid .pick-featured .game-thumb { aspect-ratio: 3 / 4; }
   }
+  .developer-nav-short { display: none; }
+  @media (max-width: 520px) {
+    .developer-nav-full { display: none; }
+    .developer-nav-short { display: inline; }
+  }
   header .logo { font-size: clamp(1.25rem, 2.4vw, 1.65rem); }
   @media (max-width: 768px) { header .logo { font-size: 1.1rem; } }
   @media (min-width: 1440px) { .logo-tagline { display: inline; } }
@@ -5680,7 +5776,7 @@ setTimeout(() => {
 <aside class="mood-popup" id="mood-popup" role="dialog" aria-modal="false" aria-labelledby="mood-popup-title" aria-hidden="true">
   <div class="mood-popup-header">
     <div>
-      <span class="mood-eyebrow">PleyZ mood discovery</span>
+      <span class="mood-eyebrow">Play according to your mood</span>
       <h2 id="mood-popup-title">What are you in the mood to play?</h2>
     </div>
     <button class="mood-close" type="button" aria-label="Close mood discovery">&times;</button>
@@ -5756,5 +5852,28 @@ setTimeout(() => {
   })();
 </script>
 <script src="/notification-center.js" defer></script>
+<script>
+  (() => {
+    const loader = document.getElementById('site-loader');
+    const note = document.getElementById('site-loader-network-note');
+    if (!loader) return;
+    const slowTimer = window.setTimeout(() => {
+      const connectionType = navigator.connection?.effectiveType;
+      if (loader.isConnected && navigator.onLine && ['slow-2g', '2g'].includes(connectionType)) {
+        note.hidden = false;
+      }
+    }, 2200);
+    let finished = false;
+    const finish = () => {
+      if (finished) return;
+      finished = true;
+      window.clearTimeout(slowTimer);
+      loader.classList.add('is-hidden');
+      window.setTimeout(() => loader.remove(), 220);
+    };
+    window.requestAnimationFrame(() => window.requestAnimationFrame(finish));
+    window.setTimeout(finish, 5000);
+  })();
+</script>
 </body>
 </html>

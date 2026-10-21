@@ -80,9 +80,7 @@
     .game-action-bar { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 7px; padding: 7px 9px; border: 1px solid var(--panel-border); border-radius: 8px; background: rgba(255,255,255,0.045); }
     .game-toolbar { display: flex; justify-content: flex-end; gap: 6px; }
     .btn.compact { min-height: 34px; padding: 6px 10px; font-size: 0.84rem; }
-    .game-layout {
-      display: grid; grid-template-columns: minmax(0, 1fr) 250px; gap: 14px; align-items: start;
-    }
+    .game-layout { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 14px; align-items: start; }
     .game-shell { min-width: 0; }
     .game-frame {
       height: clamp(380px, 68vh, 760px); overflow: hidden; border: 1px solid var(--panel-border);
@@ -110,21 +108,22 @@
     .info-card p + p { margin-top: 10px; }
     .info-card h3 { margin: 16px 0 6px; font-family: 'Orbitron', sans-serif; font-size: 0.95rem; }
     .related-categories { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 12px; }
-    .related-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
-    .related-games { margin-top: 0; position: sticky; top: 12px; max-height: 68vh; overflow-y: auto; }
+    .related-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    .related-games { margin-top: 0; position: sticky; top: 12px; max-height: calc(100vh - 24px); overflow-y: auto; }
     .related-game {
-      display: grid; grid-template-columns: 88px 1fr; gap: 10px; align-items: center;
-      min-width: 0; color: var(--text); font-weight: 700; background: rgba(255,255,255,0.04);
-      border: 1px solid var(--panel-border); border-radius: 7px; padding: 6px; transition: transform 0.2s ease, border-color 0.2s ease;
+      display: flex; min-width: 0; flex-direction: column; gap: 9px;
+      color: var(--text); font-weight: 700; background: rgba(255,255,255,0.04);
+      border: 1px solid var(--panel-border); border-radius: 10px; padding: 8px;
+      transition: transform 0.2s ease, border-color 0.2s ease;
     }
     .related-game:hover { transform: translateY(-2px); border-color: rgba(0,191,255,0.45); }
-    .related-game-media { display: block; position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 8px; background: #05070d; }
+    .related-game-media { display: block; position: relative; width: 100%; aspect-ratio: 16 / 10; overflow: hidden; border-radius: 8px; background: #05070d; }
     .related-game-media img, .related-game-preview { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
     .related-game-media img { transition: opacity 0.2s ease; }
     .related-game-preview { opacity: 0; pointer-events: none; transition: opacity 0.2s ease; }
     .related-game:hover .related-game-preview, .related-game:focus-visible .related-game-preview { opacity: 1; }
     .related-game:hover .related-game-media img, .related-game:focus-visible .related-game-media img { opacity: 0; }
-    .related-game span { font-size: 0.9rem; line-height: 1.2; }
+    .related-game > span:last-child { font-size: 0.95rem; line-height: 1.2; }
     .chip-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
     .chip { padding: 6px 10px; border-radius: 999px; background: rgba(0,191,255,0.14); border: 1px solid rgba(0,191,255,0.26); color: #bfeeff; font-size: 0.9rem; }
     .screenshot-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 14px; }
@@ -142,7 +141,9 @@
     .site-footer a:hover { color: var(--accent); }
     .btn:hover, .btn:focus-visible, .game-preferences button:focus-visible { border-color: var(--accent); outline: 2px solid rgba(0,191,255,.35); outline-offset: 2px; }
     @media (max-width: 900px) {
-      .game-layout { grid-template-columns: minmax(0, 1fr) 220px; }
+      .game-layout { grid-template-columns: minmax(0, 1fr); }
+      .related-games { margin-top: 18px; position: static; max-height: none; }
+      .related-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
     }
     @media (max-width: 700px) {
       .page-shell { padding: 10px 10px 24px; }
@@ -152,8 +153,12 @@
       .game-layout { grid-template-columns: 1fr; }
       .game-frame { height: clamp(320px, 58vh, 620px); }
       .game-action-bar { padding: 6px; }
-      .related-games { position: static; max-height: none; }
-      .related-game { grid-template-columns: 96px 1fr; }
+      .related-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+    @media (max-width: 480px) {
+      .related-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+      .related-game { padding: 6px; }
+      .related-game > span:last-child { font-size: 0.88rem; }
     }
     @media (max-width: 420px) {
       .profile-score-link > span:last-child { display: none; }
@@ -205,7 +210,12 @@
         <a class="related-game" href="robot-astro-party.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/iv0siadzdl75mq4brnh2p63bjdomi3jt/512x384.jpg" alt="" width="1336" height="540" loading="lazy" decoding="async" /></span><span>Robot Astro Party</span></a>
         <a class="related-game" href="1-speed-escape-prison.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/1-speed-escape-prison/big-preview/415c3326c7724e6cae83d74990cc3020?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/32247dbeba054937adf4fe6321dabfb3/orig_length_h320.mp4"></video></span><span>+1 Speed: Escape Prison</span></a>
         <a class="related-game" href="balloon-heroes-run-and-rise.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/vlhloqzu0cvn1apzoyq9vwycgddt3fxn/512x384.jpg" alt="" width="350" height="600" loading="lazy" decoding="async" /></span><span>Balloon Heroes Run and Rise</span></a>
-        <a class="related-game" href="brainrot-bridge-race-3d.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/e27ezlhh5edki5wv0aad96d8w3g1l1bf/512x384.jpg" alt="" width="1334" height="750" loading="lazy" decoding="async" /></span><span>Brainrot Bridge Race 3D</span></a></div>
+        <a class="related-game" href="brainrot-bridge-race-3d.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/e27ezlhh5edki5wv0aad96d8w3g1l1bf/512x384.jpg" alt="" width="1334" height="750" loading="lazy" decoding="async" /></span><span>Brainrot Bridge Race 3D</span></a>
+        <a class="related-game" href="slope-3d.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/slope-3d/big_preview/6031cc0ff00947dda0627af51b3316de?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /></span><span>Slope 3D</span></a>
+        <a class="related-game" href="backrooms-exit-protocol-0.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/backrooms-exit-protocol-0/big_preview/4f691ad7fdbb4ec3a0a45c781c0feea7?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/60c9d220c3d84df194de4368f427a1dd/orig_length_h320.mp4"></video></span><span>Backrooms: Exit Protocol 0</span></a>
+        <a class="related-game" href="parkour-runner-3d.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/parkour-runner-3d/big-preview/5b3d8e54dbce43c2a0426fbfe0c26b19?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/6137c1c8dabb771b8e9c292a6707b7ea/orig_length_h320.mp4"></video></span><span>Parkour Runner 3D</span></a>
+        <a class="related-game" href="rooftop-run.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/rooftop-run/big_preview/deae9057920049eb8d15e99aaf496d9e?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/8526b1ddbf6643d086bcc8398a33abcc/orig_length_h320.mp4"></video></span><span>Rooftop Run</span></a>
+        <a class="related-game" href="wiggly-worm-race.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/l0nqbs09szfpxezuy44h886ecqpomll5/512x384.jpg" alt="" width="800" height="480" loading="lazy" decoding="async" /></span><span>Wiggly Worm Race</span></a></div>
       </section>
     </div>
 

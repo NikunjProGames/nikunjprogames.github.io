@@ -81,9 +81,7 @@
     .game-action-bar { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 7px; padding: 7px 9px; border: 1px solid var(--panel-border); border-radius: 8px; background: rgba(255,255,255,0.045); }
     .game-toolbar { display: flex; justify-content: flex-end; gap: 6px; }
     .btn.compact { min-height: 34px; padding: 6px 10px; font-size: 0.84rem; }
-    .game-layout {
-      display: grid; grid-template-columns: minmax(0, 1fr) 250px; gap: 14px; align-items: start;
-    }
+    .game-layout { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 14px; align-items: start; }
     .game-shell { min-width: 0; }
     .game-frame {
       height: clamp(380px, 68vh, 760px); overflow: hidden; border: 1px solid var(--panel-border);
@@ -111,21 +109,22 @@
     .info-card p + p { margin-top: 10px; }
     .info-card h3 { margin: 16px 0 6px; font-family: 'Orbitron', sans-serif; font-size: 0.95rem; }
     .related-categories { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 12px; }
-    .related-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
-    .related-games { margin-top: 0; position: sticky; top: 12px; max-height: 68vh; overflow-y: auto; }
+    .related-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    .related-games { margin-top: 0; position: sticky; top: 12px; max-height: calc(100vh - 24px); overflow-y: auto; }
     .related-game {
-      display: grid; grid-template-columns: 88px 1fr; gap: 10px; align-items: center;
-      min-width: 0; color: var(--text); font-weight: 700; background: rgba(255,255,255,0.04);
-      border: 1px solid var(--panel-border); border-radius: 7px; padding: 6px; transition: transform 0.2s ease, border-color 0.2s ease;
+      display: flex; min-width: 0; flex-direction: column; gap: 9px;
+      color: var(--text); font-weight: 700; background: rgba(255,255,255,0.04);
+      border: 1px solid var(--panel-border); border-radius: 10px; padding: 8px;
+      transition: transform 0.2s ease, border-color 0.2s ease;
     }
     .related-game:hover { transform: translateY(-2px); border-color: rgba(0,191,255,0.45); }
-    .related-game-media { display: block; position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 8px; background: #05070d; }
+    .related-game-media { display: block; position: relative; width: 100%; aspect-ratio: 16 / 10; overflow: hidden; border-radius: 8px; background: #05070d; }
     .related-game-media img, .related-game-preview { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
     .related-game-media img { transition: opacity 0.2s ease; }
     .related-game-preview { opacity: 0; pointer-events: none; transition: opacity 0.2s ease; }
     .related-game:hover .related-game-preview, .related-game:focus-visible .related-game-preview { opacity: 1; }
     .related-game:hover .related-game-media img, .related-game:focus-visible .related-game-media img { opacity: 0; }
-    .related-game span { font-size: 0.9rem; line-height: 1.2; }
+    .related-game > span:last-child { font-size: 0.95rem; line-height: 1.2; }
     .chip-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
     .chip { padding: 6px 10px; border-radius: 999px; background: rgba(0,191,255,0.14); border: 1px solid rgba(0,191,255,0.26); color: #bfeeff; font-size: 0.9rem; }
     .screenshot-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 14px; }
@@ -143,7 +142,9 @@
     .site-footer a:hover { color: var(--accent); }
     .btn:hover, .btn:focus-visible, .game-preferences button:focus-visible { border-color: var(--accent); outline: 2px solid rgba(0,191,255,.35); outline-offset: 2px; }
     @media (max-width: 900px) {
-      .game-layout { grid-template-columns: minmax(0, 1fr) 220px; }
+      .game-layout { grid-template-columns: minmax(0, 1fr); }
+      .related-games { margin-top: 18px; position: static; max-height: none; }
+      .related-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
     }
     @media (max-width: 700px) {
       .page-shell { padding: 10px 10px 24px; }
@@ -153,8 +154,12 @@
       .game-layout { grid-template-columns: 1fr; }
       .game-frame { height: clamp(320px, 58vh, 620px); }
       .game-action-bar { padding: 6px; }
-      .related-games { position: static; max-height: none; }
-      .related-game { grid-template-columns: 96px 1fr; }
+      .related-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+    @media (max-width: 480px) {
+      .related-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+      .related-game { padding: 6px; }
+      .related-game > span:last-child { font-size: 0.88rem; }
     }
     @media (max-width: 420px) {
       .profile-score-link > span:last-child { display: none; }
@@ -213,7 +218,12 @@
         <a class="related-game" href="plants-vs-zombies-fusion-mode.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/plants-vs-zombies-fusion-mode/big-preview/df5ba67f240a40b18d46d2d3d57b8400?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/9bc8ad41499c4002aa3e17049bb4f3bc/orig_length_h320.mp4"></video></span><span>Plants vs Zombies Fusion Mode</span></a>
         <a class="related-game" href="hedgies.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/hedgies/big_preview/82348afa3e7b4db0bf915c835c40a8bd?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/5190b1fcdbba4021a45c3930c54161e2/orig_length_h320.mp4"></video></span><span>Hedgies</span></a>
         <a class="related-game" href="dead-land-survival.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/dead-land-survival/big_preview/3ec05c224d064e1789d0a98fd4a9d048?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/20132a31af5345adb698d954f9cec5ff/orig_length_h320.mp4"></video></span><span>Dead Land: Survival</span></a>
-        <a class="related-game" href="piece-of-cake-merge-bake.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/piece-of-cake-merge--bake/big-preview/4124b3ce37ab4b92b6a8ff1332c9eee8?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/73b06d463c9141eb802f8f79f75d208c/orig_length_h320.mp4"></video></span><span>Piece of Cake: Merge &amp; Bake</span></a></div>
+        <a class="related-game" href="piece-of-cake-merge-bake.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/piece-of-cake-merge--bake/big-preview/4124b3ce37ab4b92b6a8ff1332c9eee8?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/73b06d463c9141eb802f8f79f75d208c/orig_length_h320.mp4"></video></span><span>Piece of Cake: Merge &amp; Bake</span></a>
+        <a class="related-game" href="popaloon.html"><span class="related-game-media"><img src="https://img.gamemonetize.com/l28ng8jar2mopyfsls1ufwi7zm9ml4zi/512x384.jpg" alt="" width="800" height="600" loading="lazy" decoding="async" /></span><span>popaloon</span></a>
+        <a class="related-game" href="backrooms-craft.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/backrooms-craft/big_preview/34cec4a8a9af49fe98f613b4e57776a4?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/ce19d1ef654b42aab0a2cb14e96004bd/orig_length_h320.mp4"></video></span><span>Backrooms Craft</span></a>
+        <a class="related-game" href="car-sales-empire-simulator.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/car-sales-empire-simulator/big_preview/c91ce59d4b5248f2b2631185c4ffd384?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/cea4e609256d46049786ca2b2ed7b1d2/orig_length_h320.mp4"></video></span><span> Car Sales Empire Simulator</span></a>
+        <a class="related-game" href="aod-art-of-defense.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/aod--art-of-defense/big_preview/748d6b91ce3c4a309fd6df323115b434?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/85dab689ee56444196a4391ca16773de/orig_length_h320.mp4"></video></span><span>AOD - Art Of Defense</span></a>
+        <a class="related-game" href="city-bus-simulator-driving-games.html"><span class="related-game-media"><img src="https://static.playgama.com/p-img/pg/city-bus-simulator-driving-games/big_preview/3dc328398fd44f93a76ae33906e189e6?width=448" alt="" width="800" height="450" loading="lazy" decoding="async" /><video class="related-game-preview" muted loop playsinline preload="none" tabindex="-1" src="https://static.playgama.com/p-video/95f252af9fae42fb9d9c85ba7d23d679/orig_length_h320.mp4"></video></span><span>City Bus Simulator Driving Games</span></a></div>
       </section>
     </div>
 
@@ -290,7 +300,7 @@
     <a href="/termsandconditions.html">Terms</a>
     <a href="/contact-us.html">Contact</a>
   </footer>
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/idle-airport-tycoon.html#game","name":"Idle Airport Tycoon","description":"Idle Airport Tycoon is a casual simulation game that puts you in charge of building and managing your very own bustling airport.","url":"https://nikunjprogames.github.io/games/idle-airport-tycoon.html","image":"https://static.playgama.com/p-img/pg/idle-airport-tycoon/big-preview/cf42eed8120a4f3f9fa4d25809bc4ab1?width=448","gamePlatform":["Web browser","Android","iOS","Desktop"],"genre":["strategy","casual","simulation","tycoon","mouse","management","idle"],"keywords":["strategy","simulation","tycoon","mouse","management","idle","business-games","time-management-games","1-player-games","incremental-games","building-games","aviation-games","resource-management-games","airport-games","gam-supported-games"],"video":{"@type":"VideoObject","name":"Idle Airport Tycoon gameplay video","description":"Watch gameplay from Idle Airport Tycoon.","thumbnailUrl":"https://static.playgama.com/p-img/pg/idle-airport-tycoon/big-preview/cf42eed8120a4f3f9fa4d25809bc4ab1?width=448","contentUrl":"https://static.playgama.com/p-video/8b026c228211b2728554c4f50ea97704/orig_length_h320.mp4"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"strategy Games","item":"https://nikunjprogames.github.io/strategy-games/"},{"@type":"ListItem","position":3,"name":"Idle Airport Tycoon","item":"https://nikunjprogames.github.io/games/idle-airport-tycoon.html"}]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","@id":"https://nikunjprogames.github.io/games/idle-airport-tycoon.html#game","name":"Idle Airport Tycoon","description":"Idle Airport Tycoon is a casual simulation game that puts you in charge of building and managing your very own bustling airport.","url":"https://nikunjprogames.github.io/games/idle-airport-tycoon.html","image":"https://static.playgama.com/p-img/pg/idle-airport-tycoon/big-preview/cf42eed8120a4f3f9fa4d25809bc4ab1?width=448","gamePlatform":["Web browser","Android","iOS","Desktop"],"genre":["strategy","casual","simulation","tycoon","mouse","management","idle"],"keywords":["strategy","simulation","tycoon","mouse","management","idle","business-games","time-management-games","1-player-games","incremental-games","building-games","aviation-games","resource-management-games","airport-games","gam-supported-games"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nikunjprogames.github.io/"},{"@type":"ListItem","position":2,"name":"strategy Games","item":"https://nikunjprogames.github.io/strategy-games/"},{"@type":"ListItem","position":3,"name":"Idle Airport Tycoon","item":"https://nikunjprogames.github.io/games/idle-airport-tycoon.html"}]}]}</script>
   <script src="/site-shell.js" defer></script>
   <script src="/game-loading.js" defer></script>
   <script>
