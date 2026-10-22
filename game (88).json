@@ -1,0 +1,83 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "125798",
+          "slug": "math-crosswords",
+          "title": "Math Crosswords",
+          "description": "A crossword where numbers take the place of words. Equations cross each other, so a single number has to fit two of them at once - get it right and both light up green. Addition, subtraction, multiplication and division; loads of levels from simple sums to big grids, with difficulty that ramps up gradually. Every level has exactly one solution. A daily puzzle with a streak to keep alive, speed points, a leaderboard and achievements, light and dark themes. A five-minute brain warm-up for grown-ups, and handy for kids practicing mental math.",
+          "howToPlayText": "Numbers wait in the panel next to the board; the board holds equations with empty cells. Drag a number into an empty cell, or tap the number first and then the cell. Tap a filled cell to send its number back. A correct equation turns green, a wrong one turns red. You clear the level once every equation on the board is correct. Stuck? Tap the light bulb to place one correct number. Solve fast and without hints to score the most. Tip: start with the cells where two equations cross - they have the fewest possible answers. Controls: mouse on desktop, touch on mobile.",
+          "gameURL": "https://playgama.com/export/game/math-crosswords?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/math-crosswords",
+          "genres": [
+            "math",
+            "puzzle",
+            "brain",
+            "logic",
+            "educational",
+            "number"
+          ],
+          "tags": [
+            "1-player-games",
+            "brain-training-games",
+            "casual-games",
+            "learning-games",
+            "mind-games",
+            "addictive-games",
+            "desktop-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/math-crosswords/big_preview/2f7e45eeee5c45ffbf3a3606f3cb0d0a?width=448",
+            "https://static.playgama.com/p-img/pg/math-crosswords/icon/c0561a51ac8a4a15bb50662f9616cf71?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "149af4177b9f431bba0b4da256512f6b",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "149af4177b9f431bba0b4da256512f6b",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/math-crosswords/big_preview/2f7e45eeee5c45ffbf3a3606f3cb0d0a?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/math-crosswords/icon/c0561a51ac8a4a15bb50662f9616cf71?width=448",
+          "inGamePurchases": "Yes",
+          "screenOrientation": {
+            "horizontal": false,
+            "vertical": true
+          },
+          "supportedLanguages": [
+            "en-US",
+            "ru-RU",
+            "de-DE",
+            "es-ES",
+            "fr-FR",
+            "id-ID",
+            "it-IT",
+            "ja-JP",
+            "ko-KR",
+            "pl-PL",
+            "pt-BR",
+            "th-TH",
+            "tr-TR",
+            "zh-CN"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/math-crosswords?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

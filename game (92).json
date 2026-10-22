@@ -1,0 +1,63 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "124635",
+          "slug": "find-the-rule",
+          "title": "Find the rule",
+          "description": "Find the Rule is an addictive minimalist brain-training puzzle game that tests your logic and mathematical intuition! Discover the hidden pattern in number sequences, choose the correct answer from four plausible choices, and unlock thousands of unique procedural levels. Challenge yourself in the Daily Challenge mode, track your streak, compete on global leaderboards, and see if you can solve faster than other players!",
+          "howToPlayText": "Objective: Analyze the sequence of numbers on the screen, identify the mathematical rule connecting them, and pick the correct number to replace the question mark (?).\n\nGame Modes:\n\nLevel Mode: Progress through infinite levels with increasing difficulty. Use hints or skip tough levels if you get stuck.\nDaily Challenge: Complete 10 daily puzzles, beat your average time, and compare your speed percentile with players worldwide!\nControls:\n\nMobile / Tablet: Tap any of the 4 option buttons to select your answer.\nDesktop (PC): Click options with your Mouse, or use Keyboard keys 1, 2, 3, 4 for quick selection and Esc to close menus.",
+          "gameURL": "https://playgama.com/export/game/find-the-rule?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/find-the-rule",
+          "genres": [
+            "math",
+            "logic",
+            "puzzle",
+            "brain",
+            "number"
+          ],
+          "tags": [
+            "brain-training-games",
+            "casual-games",
+            "mind-games",
+            "learning-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/find-the-rule/big_preview/3b40664f26334922875695be6abaf3e0?width=448",
+            "https://static.playgama.com/p-img/pg/find-the-rule/icon/2c81ebbd4c44459b9781bdd401c17b62?width=448"
+          ],
+          "videos": [],
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/find-the-rule/big_preview/3b40664f26334922875695be6abaf3e0?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/find-the-rule/icon/2c81ebbd4c44459b9781bdd401c17b62?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": true
+          },
+          "supportedLanguages": [
+            "en-US",
+            "de-DE",
+            "es-ES",
+            "fr-FR",
+            "ru-RU"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/find-the-rule?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

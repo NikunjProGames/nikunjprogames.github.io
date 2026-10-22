@@ -1,0 +1,64 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "86391",
+          "slug": "my-town-home-family-playhouse",
+          "title": "My Town Home: Family Playhouse",
+          "description": "Discover **My Town Home: Family Playhouse**, a vibrant online dollhouse adventure that sparks your imagination. Explore six unique rooms, create family narratives, and enjoy activities like cooking and gardening. Play for **free** on your phone or computer and craft your ideal virtual family experience.\n\nControls:\nDesktop: Right-click on buttons, move items and characters with the mouse.\nMobile: Tap on buttons, move items and characters with your finger.\n\nKey Features:\n• Endless possibilities: You have an entire house at your disposal! Play out your stories and interact with the environment. Cook in the spacious kitchen, turn on the TV, and much more!\n• Your sandbox: The game doesn't limit your creativity! Create your own plots and come up with unique stories!\n• Mini-games: Play various mini-games to earn a little extra! Wash the teddy bear or pop the right balloons, and much more. This adds variety to your experience!\n\nLevels / Maps / Worlds:\n• You have access to a large two-story house with different locations!\n• Kitchen: A big kitchen with a large table and a smaller one just for kids! Plenty of space to cook delicious meals. A wonderful place for a big family!\n• Backyard: A fantastic spot for fun stories! Play in the sandbox, jump on the trampoline, or have a picnic outdoors, and much more!\n\nStory / Setting:\nYou are the author of your own story. Create tales and bring them to life in the game!\n\nCore Gameplay & Story\nQ: What is the goal of the game?\nA: You have an entire house at your disposal! Choose a family to live here. Play out your stories, cook meals, play in the backyard, tend to plants, and much more. Play mini-games to earn some extra and buy something!\n\nQ: Is there a storyline?\nA: In the game, you are the author of your own story. Create tales in a large house where everyone can find their place!\n\nQ: What grabs attention in the first few minutes?\nA: The large interactivity in the house. Turn on the computer, bake something in the oven, make smoothies, change outfits, and much more. Combined with character selection and the ability to role-play your stories, your plots can become much more vivid!\n\nMechanics & Progression\nQ: How many levels are there / is the structure clear?\nA: The game features one large two-story house. It has children's rooms, a parents' room, a bathroom, a kitchen, a backyard, and other locations. You have plenty of space to explore your ideas!\n\nQ: What unlocks as you play?\nA: As you progress, you will unlock new mini-games and characters for your stories!\n\nEconomy & Customization\nQ: Are there skins / customization options?\nA: You can change the clothing for your characters. Choose the right outfit for your story!\n\nQ: What is available from the start?\nA: Most activities in the game are available from the very beginning. You can start your story without restrictions! Plant flowers, choose outfits. At the start, you have access to 2 mini-games: pop the right balloons and wash the teddy bear!\n\nRetention & Engagement\nQ: Are there daily challenges / a wheel of fortune / achievements / tasks?\nA: A robot vacuum moves around the house. It carries a wheel of fortune! Take advantage of the moment and try your luck to win prizes!\n\nQ: Is sound necessary?\nA: Sound is not required, but it can immerse you in the atmosphere of home life!\n\nQ: What achievements are there and how can they be earned?\nA: Collect cards! By collecting cards, you can gather all the pieces for a family album. It's always nice to enjoy good moments!\n\nQ: Is there onboarding in the game? What is it like?\nA: You will understand everything from the first minutes in the game. The game will show you all the basic mechanics, and you'll quickly get the hang of it!",
+          "howToPlayText": "The navigation in this game is very simple.\nOn desktop: use the mouse click.\nOn mobile: use your finger tap.",
+          "gameURL": "https://playgama.com/export/game/my-town-home-family-playhouse?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/my-town-home-family-playhouse",
+          "genres": [
+            "girls",
+            "kids",
+            "cozy"
+          ],
+          "tags": [
+            "unity-games-online",
+            "cute-games",
+            "life-simulation-games",
+            "mom-games",
+            "borwser-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/my-town-home-family-playhouse/big_preview/7cfc3b9750e84aceb634888d9518f8d3?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-86391/icon/9bc47713edeb7b4dba4a6cb5b45f9292cd98dd220aa9189824cbf1dc029d48b7?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "0801196b79604cb0aefb2ac21f04eef5",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "0801196b79604cb0aefb2ac21f04eef5",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/my-town-home-family-playhouse/big_preview/7cfc3b9750e84aceb634888d9518f8d3?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/backfill/game-86391/icon/9bc47713edeb7b4dba4a6cb5b45f9292cd98dd220aa9189824cbf1dc029d48b7?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "supportedLanguages": [
+            "en-US"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/my-town-home-family-playhouse?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

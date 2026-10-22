@@ -1,0 +1,78 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "125587",
+          "slug": "crowd-rush",
+          "title": "Crowd Rush",
+          "description": "Lead a tiny crowd on a colourful sky track and turn it into an unstoppable army! Swipe to pick the best gates (+, x, -, /), dodge spinning saws, sweeping bars, pushers and gaps, and crush rival crowds in quick battles. At the finish, stack your crowd into a tower and climb the x1-x10 stairs, or take down a giant boss. Earn coins, upgrade your crowd and income, and unlock 8 fun skins!",
+          "howToPlayText": "Drag left or right (or use A/D or the arrow keys) to steer your crowd. Run through the better gate to multiply your runners, avoid saws, sweepers, pushers and gaps, and beat enemy crowds by having more runners. Reach the finish with as many runners as possible to climb the bonus stairs or defeat the boss and earn coins.",
+          "gameURL": "https://playgama.com/export/game/crowd-rush?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/crowd-rush",
+          "genres": [
+            "arcade",
+            "puzzle",
+            "skill",
+            "action",
+            "running",
+            "3d",
+            "math",
+            "runner"
+          ],
+          "tags": [
+            "1-player-games",
+            "ai-games",
+            "2d-games",
+            "addictive-games",
+            "avoid-games",
+            "casual-games",
+            "fast-paced-games",
+            "hyper-casual-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/crowd-rush/big_preview/6739d21daf0147a09d2c2f39cd782464?width=448",
+            "https://static.playgama.com/p-img/pg/crowd-rush/icon/a218ef0a00ff49448c61f5bae66f85ae?width=448"
+          ],
+          "videos": [],
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/crowd-rush/big_preview/6739d21daf0147a09d2c2f39cd782464?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/crowd-rush/icon/a218ef0a00ff49448c61f5bae66f85ae?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": true
+          },
+          "supportedLanguages": [
+            "en-US",
+            "ja-JP",
+            "ru-RU",
+            "es-ES",
+            "pt-BR",
+            "de-DE",
+            "fr-FR",
+            "tr-TR",
+            "it-IT",
+            "pl-PL",
+            "id-ID",
+            "ko-KR",
+            "zh-CN"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/crowd-rush?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

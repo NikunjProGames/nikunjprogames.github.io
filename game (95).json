@@ -1,0 +1,86 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "125496",
+          "slug": "steal-an-egg-grow-animals",
+          "title": "Steal An Egg - Grow Animals",
+          "description": "Welcome to \"Steal an Egg!\" 🏃\n\nReady for the craziest Roblox-style chase? Your task is simple but dangerous — steal eggs from the guards and run! 🏃💨\n\n🥚 Sneak into guarded nests, grab valuable eggs, and carry them back to your safe zone before the angry guards catch you!\n\n🐣 Bring the eggs to your base, place them in the pen, and wait for them to hatch. Collect common, rare, epic, legendary, and mythical pets!\n\n🏃 Endless Upgrades: Buy and improve your treadmill, train your speed, and become faster. The more speed you gain, the easier it will be to escape the guards and reach dangerous new locations!\n\n✨ Trails and Multipliers: Buy colorful trails, leave an awesome effect behind you while running, and gain powerful speed-training multipliers!\n\nCan you outsmart every guard, collect the rarest pets, and become the fastest egg thief? Jump into the game right now and prove that you are the true king of eggs! 👑🥚",
+          "howToPlayText": "On PC:\nWASD or arrow keys – Move\nRight mouse button – Look around\nSpace – Jump\n\nOn Mobile:\nJoystick – Move\nJump button – Bottom right corner",
+          "gameURL": "https://playgama.com/export/game/steal-an-egg-grow-animals?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/steal-an-egg-grow-animals",
+          "genres": [
+            "adventure",
+            "simulation",
+            "3d",
+            "running",
+            "animals",
+            "obby"
+          ],
+          "tags": [
+            "1-player-games",
+            "action-adventure",
+            "addictive-games",
+            "agility-games",
+            "avoid-games",
+            "casual-games",
+            "collecting-games",
+            "endless-games",
+            "fast-paced-games",
+            "hyper-casual-games",
+            "incremental-games",
+            "jumping-games",
+            "pet-games",
+            "roblox-games",
+            "speed-games",
+            "stealth-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/steal-an-egg-grow-animals/big_preview/abe5e8a38d9d47488f7d57c239a2e540?width=448",
+            "https://static.playgama.com/p-img/pg/steal-an-egg-grow-animals/icon/3e94ce5ae63e4ea7bdd53c0e0109f9ce?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "0e0b3432ba48455bba8c7a1ae7690789",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "0e0b3432ba48455bba8c7a1ae7690789",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/steal-an-egg-grow-animals/big_preview/abe5e8a38d9d47488f7d57c239a2e540?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/steal-an-egg-grow-animals/icon/3e94ce5ae63e4ea7bdd53c0e0109f9ce?width=448",
+          "inGamePurchases": "Yes",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "supportedLanguages": [
+            "en-US",
+            "de-DE",
+            "es-ES",
+            "fr-FR",
+            "ru-RU",
+            "tr-TR",
+            "uk-UA",
+            "vi-VN"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/steal-an-egg-grow-animals?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

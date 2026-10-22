@@ -1,0 +1,60 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "123059",
+          "slug": "sum-sum",
+          "title": "SUM+SUM",
+          "description": "Match the numbers. The numerical grid awaits your solution. Your task is to retain only those numbers that add up to the desired horizontal and vertical values. Eliminate the unnecessary, maintain balance, and uncover the logic behind each move",
+          "howToPlayText": "This is a logic game with numbers. You need to remove the extra numbers so that the sum in each row and column matches the specified one. \n1 click = keep,\n2 clicks = delete, \n3 clicks = reset. \nThe rows and columns must match their sums",
+          "gameURL": "https://playgama.com/export/game/sum-sum?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/sum-sum",
+          "genres": [
+            "math",
+            "logic",
+            "brain",
+            "number"
+          ],
+          "tags": [
+            "1-player-games",
+            "brain-training-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/sum-sum/big-preview/6d760789e58a482a9d4e984b4dc910cf?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-123059/icon/738db75a1ce8e07b733dcd0d45aa011a2fc1f598e19cc761cf970fa6b9797ac4?width=448"
+          ],
+          "videos": [],
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/sum-sum/big-preview/6d760789e58a482a9d4e984b4dc910cf?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/backfill/game-123059/icon/738db75a1ce8e07b733dcd0d45aa011a2fc1f598e19cc761cf970fa6b9797ac4?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": false,
+            "vertical": true
+          },
+          "supportedLanguages": [
+            "en-US",
+            "es-ES",
+            "fr-FR",
+            "ru-RU",
+            "tr-TR"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/sum-sum?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

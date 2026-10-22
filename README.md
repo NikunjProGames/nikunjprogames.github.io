@@ -2,20 +2,20 @@
 
 [![Live Site](https://img.shields.io/badge/Play-Live%20Arcade-brightgreen?style=for-the-badge)](https://nikunjprogames.github.io/)
 
-Welcome to **PleyZ**, A premium gaming Hub For those who just dont want a stack of games. These are **Curated, OG games** which are specially picked by hand for you!
+Welcome to **PleyZ**, an independently developed browser gaming platform built around game discovery. Browse a curated catalog, explore by genre or mood, and play supported titles in your browser without installing a separate app.
 
-Designed with a futuristic neon-cyberpunk aesthetic, it features an amazing bootstrapped interface, interactive game-launch overlays, and a curated library of the web's most popular games.
+PleyZ combines game pages with available descriptions and controls, mood-based discovery, personalized recommendations, and optional player accounts. Signed-in players can earn PleyZ Score and join the leaderboard; browsing and gameplay remain available without an account.
 
 ---
 
 ## 🚀 Key Features
 
-* **Curatd Games** Special games that are handpicked with effort so that you dont have to 
-* **No nonsense UI** No irritating ads, or banners justWith partner ship with Playgama and Game Monetize.com, PleyZ now has a borad Amount of Games
-* **Neon background** With the neon moving background, we make pleyz step into the future
-* **Not Just Simple Games** PleyZ is not just a hub of simple games that somebody just casually plays, it is a substituion to get actual amazing games for FREE without any downloads or much storage space  
+* **Curated catalog:** Explore browser games across genres, with categories and game details that help you choose what to play.
+* **Personal discovery:** Find games by mood and get recommendations based on your own play history and preferences when signed in.
+* **Player accounts:** Create a free profile, earn PleyZ Score on eligible game opens, and appear on the leaderboard.
+* **Browser-first play:** Play supported titles without installing a separate app; individual games may have their own device requirements or loading times.
+* **PleyZ Originals:** The catalog includes original projects created for PleyZ, alongside other browser games.
 
-* **PleyZ Originals:** Games Made specially for pleyz that you wont find anywhere else. this feature is evolving and will be slowly in large scale
 ---
 
 ### 🏃‍♂️ Endless Runners & Action
@@ -107,8 +107,8 @@ The notification bell is available on the home, account, category, and game page
 
 To enable background delivery:
 
-1. In Firebase Console, generate a Web Push certificate key pair under **Project settings → Cloud Messaging**. Set the public key as `WEB_PUSH_VAPID_KEY` in `notification-center.js`; it is public configuration, not a server secret.
-2. Deploy the backend and announcement read rule with `firebase deploy --only functions,firestore:rules`, and publish the static website files through the repository's existing GitHub Pages workflow. Cloud Functions and scheduled reminders require a billing-enabled Firebase project; the scheduled functions also use Cloud Scheduler.
+1. The public `WEB_PUSH_VAPID_KEY` is already configured in `notification-center.js`. Confirm it matches the Web Push certificate key pair under **Firebase Console → Project settings → Cloud Messaging** for project `pleyz-dd9f8`. If you generate a new pair, update the public key in the file and publish the website; the key is public configuration, not a server secret.
+2. Deploy the backend and announcement read rule with `firebase deploy --only functions,firestore:rules`. Cloud Functions and scheduled reminders require a billing-enabled Firebase project; scheduled functions also use Cloud Scheduler. Publish static website changes through the repository's existing GitHub Pages workflow.
 3. Keep the repository secret `FIREBASE_SERVICE_ACCOUNT_PLEYZ_DD9F8` configured for GitHub Actions with permission to create Firestore documents. When a commit to `main` adds game IDs to `feed.json`, the **Notify players about new games** workflow automatically creates deduplicated announcements for those additions. The bell lists those announcements too, using a public query capped at 20 items. The existing `admin`-only `publishPleyzNewGame` callable remains available for announcements outside the catalog workflow.
 
 Browser/device support and permission settings determine whether push can be enabled. A browser permission granted before PleyZ registered a Firebase device token does not, by itself, subscribe the account to background delivery; sign in and enable notifications once to register it. iOS push requires an installed web app. Without the Firebase VAPID key and deployed Functions, the bell and local update feed still work, but notifications cannot arrive while the site is closed.

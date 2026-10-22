@@ -1,0 +1,74 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "126094",
+          "slug": "knights-arena--castle-defense",
+          "title": "Knight's Arena - Castle Defense",
+          "description": "The castle is surrounded, and only one hero can stop the assault. Charge into the enemy horde, deliver crushing blows, and do not let them break through to the fortress.\n\nEach victory makes you stronger. Find weapons and armor, upgrade your equipment, and prepare for new, more dangerous opponents.\n\n- Dynamic close-combat battles\n- Powerful weapons and durable armor\n- Continuous hero upgrades\n- Castle defense against advancing enemies\n- Simple controls on computers and phones",
+          "howToPlayText": "Goal — protect the castle by defeating enemies and strengthening the hero with weapons and armor you find. Do not let opponents break through to the fortress, and choose a safe moment to attack.\n\nControls:\n\nOn desktop: use WASD to move; use the left mouse button to attack and interact.\n\nOn mobile: swipe across the screen to move; tap the screen to attack and interact.",
+          "gameURL": "https://playgama.com/export/game/knights-arena--castle-defense?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/knights-arena--castle-defense",
+          "genres": [
+            "action",
+            "3d",
+            "tower-defense",
+            "fighting",
+            "monster"
+          ],
+          "tags": [
+            "1-player-games",
+            "action-adventure",
+            "arena-games",
+            "castle-games",
+            "combat-games",
+            "defense-games",
+            "heroes-games",
+            "medieval-games",
+            "mission-games",
+            "sword-games",
+            "webgl-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/knights-arena-castle-defense/big_preview/543e0b0604934a9f8dec0dc6f851bda7?width=448",
+            "https://static.playgama.com/p-img/pg/knights-arena-castle-defense/icon/0d8b1d3d388e4547889d47772e7a25d2?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "c6783e1bc97c441b89e8141641970d5e",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "c6783e1bc97c441b89e8141641970d5e",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/knights-arena-castle-defense/big_preview/543e0b0604934a9f8dec0dc6f851bda7?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/knights-arena-castle-defense/icon/0d8b1d3d388e4547889d47772e7a25d2?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": true
+          },
+          "supportedLanguages": [
+            "en-US",
+            "ru-RU"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/knights-arena--castle-defense?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "111181",
+          "slug": "nullify--merge-math",
+          "title": "Nullify - Merge Math",
+          "description": "Nullify is a minimal abstract relaxing puzzle with the goal of clearing everything from the screen by merging numbers and math symbols.\nImprove your logic and math skills by completing unique handcrafted levels and infinite generated levels.\n\nFeatures:\n-56 Levels to complete\n-4 Infinite games modes\n-Simple and easy controls by dragging elements\n-13 math symbols",
+          "howToPlayText": "Nullify is a minimal abstract relaxing puzzle with the goal of clearing everything from the screen by merging numbers and math symbols.\nImprove your logic and math skills by completing unique handcrafted levels and infinite generated levels.\nClick and drag to move the symbols and merge them to clear everything from the screen.",
+          "gameURL": "https://playgama.com/export/game/nullify--merge-math?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/nullify--merge-math",
+          "genres": [
+            "puzzle",
+            "brain",
+            "merge",
+            "math",
+            "logic",
+            "number",
+            "mobile",
+            "educational"
+          ],
+          "tags": [
+            "brain-training-games",
+            "addictive-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/nullify--merge-math/big-preview/75af8b67767a4993babd8d8cecf29fe5?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-111181/icon/86a4f457cca5d58ce42137b38f6da0061ea34c0024e3a80c8cef59eab8d85992?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "37f624d128a14d9fb3181e67c5d26cda",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "37f624d128a14d9fb3181e67c5d26cda",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/nullify--merge-math/big-preview/75af8b67767a4993babd8d8cecf29fe5?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/backfill/game-111181/icon/86a4f457cca5d58ce42137b38f6da0061ea34c0024e3a80c8cef59eab8d85992?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "supportedLanguages": [
+            "en-US"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/nullify--merge-math?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "122769",
+          "slug": "soccer-random",
+          "title": "Soccer Random",
+          "description": "Soccer Random is a funny physics-based soccer game where every match feels unpredictable from the first kick. Instead of following the style of a serious football simulation, it turns soccer into a fast, chaotic, and easy-to-play challenge built around one-button controls. Your goal is simple: jump, kick, defend, and try to score before your opponent reaches the winning number of goals. The rules are clear, but the movement is never fully predictable, which is what makes each round so entertaining.\n\nThe game uses ragdoll-style character movement, so players do not run, turn, or shoot in a traditional way. They bounce, fall, stretch, and swing toward the ball with awkward timing. A perfect-looking attack can suddenly miss, while a strange jump may turn into an unexpected goal. This mix of timing, reaction, and random physics gives Soccer Random its playful identity. It is easy to understand in seconds, but every match still creates surprising moments.\n\nOne of the strongest parts of Soccer Random is how the game changes between rounds. The field, players, weather-like conditions, ball behavior, and match rhythm can shift after a goal. You may play on a regular soccer field in one round, then face a slippery or unusual setup in the next. These random changes keep the experience fresh and stop the matches from feeling repetitive. Players must quickly adapt instead of relying on the same move every time.\n\nSoccer Random can be played alone against the CPU, but it becomes even more enjoyable in local 2-player mode. Two players can share the same device and compete in short, messy football duels where both sides are dealing with the same unpredictable movement. Because the controls are simple, the match stays focused on timing, quick reactions, and funny mistakes rather than complicated button combinations.\n\nThe pixel art style gives the game a clean, retro look that fits well with its arcade feeling. The visuals are simple enough to keep the action easy to follow, while the strange animations make every goal, save, and missed kick more memorable. A small bounce, a late jump, or an accidental block can completely change the result of a round.\n\nFor players who enjoy quick soccer games, local 2-player challenges, and funny sports games with random physics, Soccer Random offers a light but highly replayable experience. It works well for short sessions because the matches start quickly, the goal is always clear, and every round can produce a new kind of chaos. Whether you are trying to beat the CPU or challenge a friend, Soccer Random keeps football simple, strange, and entertaining from one goal to the next.",
+          "howToPlayText": "Player 1: W\nPlayer 2: UP ARROW\n\nJump, kick, and defend with one key. Adapt to random physics and score more goals than your rival.",
+          "gameURL": "https://playgama.com/export/game/soccer-random?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/soccer-random",
+          "genres": [
+            "soccer",
+            "arcade",
+            "sports",
+            "physics",
+            "funny",
+            "two-player",
+            "boys"
+          ],
+          "tags": [
+            "2-player-soccer",
+            "2-player-party",
+            "2-player-sports",
+            "agility-games",
+            "fast-paced-games",
+            "competitive-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/soccer-random/big-preview/6f59ef235c1e42198225c02473d66943?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-122769/icon/a1d3e6a8f7c0fa60a4416c509a65334ca1cd8802c4401684c1bca13de6464c3a?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "7c09a2b122a74ffe9ded17185d5e38a5",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "7c09a2b122a74ffe9ded17185d5e38a5",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/soccer-random/big-preview/6f59ef235c1e42198225c02473d66943?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/backfill/game-122769/icon/a1d3e6a8f7c0fa60a4416c509a65334ca1cd8802c4401684c1bca13de6464c3a?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": true
+          },
+          "supportedLanguages": [
+            "en-US"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/soccer-random?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

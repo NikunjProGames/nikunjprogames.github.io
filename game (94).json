@@ -1,0 +1,64 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "99438",
+          "slug": "skyblock-3d-survival",
+          "title": "Skyblock 3D: Survival",
+          "description": "Embark on a unique survival adventure on floating islands in a 3D world, where each island offers valuable resources. Explore vibrant landscapes, battle monsters to grow stronger, and trade with villagers for useful items. Build plantations and breed animals to ensure a steady supply of food and resources. The skies are full of islands, each one holding secrets and challenges. Survive, craft, battle, and thrive in this exciting world!",
+          "howToPlayText": "For computer:\n- Move: W, A, S, D\n- Jump: Spacebar\n- Break blocks: Hold down LMB\n- Place blocks: RMB / F\n- Inventory: E\n- Pause: Tab\n- Help: J\n- Drop: Q (Shift+Q Drop full slot)\n\nFor mobile devices:\n- Move: Left Joystick\n- Jump: Arrow icon button\n- Break blocks: Hold down the sword icon button.\n- Stack blocks: Hold down the cross icon button.\n- Inventory: Orange button in the middle of the screen.\n- Pause: Purple button in the upper right corner of the screen",
+          "gameURL": "https://playgama.com/export/game/skyblock-3d-survival?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/skyblock-3d-survival",
+          "genres": [
+            "3d",
+            "crafting",
+            "survival",
+            "minecraft"
+          ],
+          "tags": [
+            "godot-games-online",
+            "sandbox-games",
+            "resource-management-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/skyblock-3d-survival/big-preview/72e42708a4ac4232b2a94960817f73d4?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-99438/icon/40a7fb64cfd9acbf0e887c813dc90d290da79fed34db84cf2dbf9d1ae37992e4?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "967797b5f82241c7ad77e3e35b582adb",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "967797b5f82241c7ad77e3e35b582adb",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/skyblock-3d-survival/big-preview/72e42708a4ac4232b2a94960817f73d4?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/backfill/game-99438/icon/40a7fb64cfd9acbf0e887c813dc90d290da79fed34db84cf2dbf9d1ae37992e4?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "supportedLanguages": [
+            "en-US"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/skyblock-3d-survival?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}
