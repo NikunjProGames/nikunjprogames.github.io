@@ -6,6 +6,13 @@
       "**/.*",
       "**/node_modules/**"
     ],
+    "redirects": [
+      {
+        "source": "/crowd-rush.html",
+        "destination": "/games/crowd-rush.html",
+        "type": 301
+      }
+    ],
     "rewrites": [
       {
         "source": "**",

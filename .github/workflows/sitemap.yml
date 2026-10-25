@@ -30,6 +30,7 @@ jobs:
             /favicon-code.html
             /NikunjProGame.html
             /article.html
+            /crowd-rush.html
 
       - name: Remove verification utility URL
         run: |

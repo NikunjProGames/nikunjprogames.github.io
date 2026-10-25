@@ -1050,15 +1050,15 @@ function buildCategoryPages(feedGames) {
   const trendingMatch = homepage.match(/const TRENDING = (\[[\s\S]*?\n\]);/);
   const trendingIds = new Set(trendingMatch ? vm.runInNewContext(`(${trendingMatch[1]})`).map(game => game.id) : []);
   const curatedCategories = [
-    { name: 'Brain Training', theme: 'brain', description: 'Browse games tagged for brain, memory, logic, quizzes, words, and trivia in the PleyZ library.', terms: ['brain', 'memory', 'logic', 'quiz', 'word', 'trivia'] },
-    { name: 'Skill', theme: 'skill', description: 'Explore games tagged for skill, reflexes, precision, obstacles, and parkour.', terms: ['skill', 'precision', 'reflex', 'obstacle', 'parkour'] },
-    { name: 'FPS & Shooting', theme: 'tactical', description: 'Find first-person shooters and shooting games identified by the PleyZ game catalog.', terms: ['fps', 'first person shooter', 'shooter', 'shooting'] },
-    { name: 'Survival & Zombies', theme: 'intense', description: 'Play survival and zombie games identified by their catalog tags and titles.', terms: ['survival', 'zombie', 'battle royale'] },
-    { name: 'Physics & Oddities', theme: 'weird', description: 'Discover physics-based and brainrot-tagged games from the PleyZ library.', terms: ['physics', 'brainrot', 'weird', 'experimental', 'chaotic', 'meme'] },
-    { name: 'Chill & Casual', theme: 'chill', description: 'Browse games tagged casual, cozy, relaxing, or idle for a lower-pressure play session.', terms: ['casual', 'cozy', 'relax', 'idle'] },
-    { name: 'Tactical Strategy', theme: 'tactical', description: 'Find strategy, tactical, defense, and tower games using the library’s own tags.', terms: ['tactical', 'strategy', 'defense', 'tower'] },
-    { name: 'New in 2026', theme: 'fresh', description: 'Browse PleyZ games marked with the 2026 games tag in the current catalog feed.', select: game => (game.tags || []).some(tag => String(tag).trim().toLowerCase() === '2026 games') },
-    { name: 'PleyZ Picks', theme: 'default', description: 'Browse the games in PleyZ’s current featured and trending selection.', select: game => trendingIds.has(game.id) }
+    { name: 'Brain Training', theme: 'brain', description: 'Explore logic, memory, word, and trivia games designed to challenge your thinking.', terms: ['brain', 'memory', 'logic', 'quiz', 'word', 'trivia'] },
+    { name: 'Skill', theme: 'skill', description: 'Browse games that test timing, reflexes, precision, and movement.', terms: ['skill', 'precision', 'reflex', 'obstacle', 'parkour'] },
+    { name: 'FPS & Shooting', theme: 'tactical', description: 'Play first-person shooters and other shooting games in the PleyZ collection.', terms: ['fps', 'first person shooter', 'shooter', 'shooting'] },
+    { name: 'Survival & Zombies', theme: 'intense', description: 'Browse survival games and zombie-themed challenges in the PleyZ collection.', terms: ['survival', 'zombie', 'battle royale'] },
+    { name: 'Physics & Oddities', theme: 'weird', description: 'Explore physics-based games, unusual puzzles, and playful challenges.', terms: ['physics', 'brainrot', 'weird', 'experimental', 'chaotic', 'meme'] },
+    { name: 'Chill & Casual', theme: 'chill', description: 'Choose a casual game for a relaxed, low-pressure play session.', terms: ['casual', 'cozy', 'relax', 'idle'] },
+    { name: 'Tactical Strategy', theme: 'tactical', description: 'Browse strategy, defense, and tower games that reward careful planning.', terms: ['tactical', 'strategy', 'defense', 'tower'] },
+    { name: 'New in 2026', theme: 'fresh', description: 'Explore games featured in PleyZ’s 2026 collection.', select: game => (game.tags || []).some(tag => String(tag).trim().toLowerCase() === '2026 games') },
+    { name: 'PleyZ Picks', theme: 'default', description: 'Browse games selected for the PleyZ Picks collection.', select: game => trendingIds.has(game.id) }
   ];
 
   curatedCategories.forEach(category => {
@@ -1097,7 +1097,7 @@ function buildCategoryPages(feedGames) {
   const pages = categoryPages.map(([slug, category]) => {
     const categoryUrl = `/${slug}-games/`;
     const gameList = [...category.games.values()];
-    const description = category.description || `Browse ${category.name.toLowerCase()} browser games on PleyZ. Open a game page for its description, available instructions, and related titles.`;
+    const description = category.description || `Find ${category.name.toLowerCase()} games to play on PleyZ. Browse the collection and review available details and controls before playing.`;
     const cards = gameList.map((game, index) => {
       const imageUrl = game.image && !/^(?:https?:|\/|data:)/i.test(game.image) ? `/${game.image}` : game.image;
       const imageDimensions = game.width && game.height ? ` width="${game.width}" height="${game.height}"` : '';
@@ -1142,6 +1142,7 @@ function buildCategoryPages(feedGames) {
       .replaceAll('{{CATEGORY_THEME}}', category.theme || 'default')
       .replaceAll('{{DESCRIPTION}}', escapeHtml(description))
       .replaceAll('{{GAME_COUNT}}', String(gameList.length))
+      .replaceAll('{{GAME_COUNT_UNIT}}', gameList.length === 1 ? 'game' : 'games')
       .replaceAll('{{CATEGORY_ART}}', categoryArt)
       .replaceAll('{{GAME_CARDS}}', cards)
       .replaceAll('{{RELATED_CATEGORIES}}', related)
@@ -1167,7 +1168,7 @@ function buildCategoryPages(feedGames) {
       const existingPage = fs.readFileSync(pagePath, 'utf8');
       if (!existingPage.includes('name="generator" content="PleyZ static category generator"')) return;
       const oldCategory = entry.name.slice(0, -'-games'.length).replace(/-/g, ' ');
-      const redirectCategory = categoryTaxonomy.normalizeGameCategories({ category: oldCategory })
+      const redirectCategory = (oldCategory === 'cool games' ? ['strategy'] : categoryTaxonomy.normalizeGameCategories({ category: oldCategory }))
         .find(category => category !== oldCategory && categoryUrls.has(`https://nikunjprogames.github.io/${slugify(category)}-games/`));
       if (redirectCategory) {
         const redirectUrl = `/${slugify(redirectCategory)}-games/`;

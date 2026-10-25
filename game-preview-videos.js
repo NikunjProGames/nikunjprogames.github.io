@@ -65,5 +65,10 @@ window.PLEYZ_GAME_PREVIEW_VIDEOS = Object.freeze({
   "169": "https://static.playgama.com/p-video/6137c1c8dabb771b8e9c292a6707b7ea/orig_length_h320.mp4",
   "170": "https://static.playgama.com/p-video/10ad85227cd74c08b9ce78f9b8db396d/orig_length_h320.mp4",
   "171": "https://static.playgama.com/p-video/1511a295f4474a0c822ca8e85ffca28f/orig_length_h320.mp4",
-  "172": "https://static.playgama.com/p-video/365a99bf01f2ff75994a5efbafb59178/orig_length_h320.mp4"
+  "172": "https://static.playgama.com/p-video/365a99bf01f2ff75994a5efbafb59178/orig_length_h320.mp4",
+  "174": "https://static.playgama.com/p-video/0801196b79604cb0aefb2ac21f04eef5/orig_length_h320.mp4",
+  "175": "https://static.playgama.com/p-video/7c09a2b122a74ffe9ded17185d5e38a5/orig_length_h320.mp4",
+  "176": "https://static.playgama.com/p-video/0e0b3432ba48455bba8c7a1ae7690789/orig_length_h320.mp4",
+  "177": "https://static.playgama.com/p-video/149af4177b9f431bba0b4da256512f6b/orig_length_h320.mp4",
+  "179": "https://static.playgama.com/p-video/967797b5f82241c7ad77e3e35b582adb/orig_length_h320.mp4"
 });

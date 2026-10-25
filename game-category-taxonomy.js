@@ -43,7 +43,6 @@ const CATEGORY_ALIASES = {
   'car racing': ['car racing', 'cars', 'racing', 'driving'],
   cars: ['cars', 'driving'],
   'chill casual': ['chill casual', 'casual'],
-  'cool games': ['cool games'],
   'fps': ['fps shooting', 'shooting', 'action'],
   'fps shooting': ['fps shooting', 'shooting', 'action'],
   'first person shooter': ['fps shooting', 'shooting', 'action'],
@@ -73,7 +72,7 @@ const CATEGORY_ALIASES = {
 const CATEGORY_LABELS = new Set([
   '3d', 'action', 'adventure', 'american football', 'arcade', 'boys',
   'brain training', 'bubble shooter', 'car racing', 'cars', 'casual',
-  'chill casual', 'cool games', 'driving', 'endless', 'fighting',
+  'chill casual', 'driving', 'endless', 'fighting',
   'fps shooting', 'girls', 'hidden object', 'horror', 'io', 'kids',
   'mahjong', 'multiplayer', 'music', 'new in 2026', 'nostalgia', 'parkour',
   'physics oddities', 'pleyz picks', 'puzzle', 'racing', 'scary', 'shooting',
