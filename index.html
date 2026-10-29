@@ -1677,9 +1677,10 @@
 <section id="recommendations" aria-labelledby="recommendations-heading">
   <div class="discovery-heading">
     <div>
+      <p class="mood-discovery-kicker">Mood discovery</p>
       <h2 class="section-title mood-discovery-title" id="recommendations-heading">PleyZ Picks</h2>
       <div class="section-underline"></div>
-      <p class="discovery-copy" id="recommendations-caption">Personalized game recommendations adapt to your interests, mood, and play history.</p>
+      <p class="discovery-copy" id="recommendations-caption">Choose a mood for picks that fit your play style. Helpful votes make future recommendations smarter.</p>
     </div>
     <button class="mood-trigger" type="button" id="mood-trigger" aria-haspopup="dialog" aria-controls="mood-popup">Choose a mood</button>
   </div>
@@ -4329,6 +4330,7 @@ let currentFilteredGames = [];
 let currentGameFilter = 'all';
 let gamesReady = false;
 let recommendationsReady = false;
+let moodChangeRenderTimer = null;
 
 function renderGames(filter = 'all', reset = true) {
   if (!gamesReady) return;
@@ -4393,15 +4395,20 @@ function renderGames(filter = 'all', reset = true) {
 const PLAY_MOODS = {
   intense: { label: 'Intense', terms: ['action', 'shooter', 'shooting', 'fighting', 'combat', 'survival', 'battle', 'fps', 'horror', 'war'], exclude: ['casual', 'cozy', 'chill', 'relax', 'idle', 'merge', 'dress up', 'simulation', 'puzzle'] },
   think: { label: 'Make Me Think', terms: ['puzzle', 'strategy', 'logic', 'brain', 'chess', 'quiz', 'trivia', 'word', 'mahjong', 'checkers'], exclude: ['shooter', 'shooting', 'combat', 'racing'] },
-  tired: { label: "I'm Tired", terms: ['casual', 'cozy', 'chill', 'relax', 'idle', 'merge', 'dress up', 'simulation', 'easy', 'cooking', 'tycoon'], exclude: ['action', 'shooter', 'shooting', 'fighting', 'combat', 'survival', 'battle', 'fps', 'horror', 'war'] },
-  chaos: { label: 'Something Chaotic', terms: ['io', 'arcade', 'multiplayer', 'crowd', 'chaos', 'ragdoll', 'party', 'race'], exclude: ['cozy', 'relax', 'idle'] },
+  tired: { label: 'Low-Key', terms: ['casual', 'cozy', 'chill', 'relax', 'idle', 'merge', 'dress up', 'simulation', 'easy', 'cooking', 'tycoon'], exclude: ['action', 'shooter', 'shooting', 'fighting', 'combat', 'survival', 'battle', 'fps', 'horror', 'war'] },
   challenge: { label: 'Challenge Me', terms: ['skill', 'parkour', 'racing', 'sports', 'hard', 'challenge', 'precision', 'reflex'], exclude: ['idle', 'cozy', 'relax'] },
   weird: { label: 'Something Weird', terms: ['weird', 'experimental', 'physics', 'brainrot', 'odd', 'meme', 'bizarre'], exclude: ['cozy', 'relax', 'idle'] },
-  surprise: { label: 'Surprise Me', terms: [] }
+  quick: { label: 'Quick Games', terms: ['quick', 'arcade', 'runner', 'casual', 'fast paced', 'reaction', 'endless', 'speed', '2 minute'], exclude: ['story', 'campaign', 'long form'] },
+  together: { label: 'Play Together', terms: ['multiplayer', 'multi player', '2 player', 'two player', 'co op', 'coop', 'friends', 'party', 'online', 'io', 'versus', 'team'], exclude: [] }
 };
 
 function getSelectedMood() {
-  try { return sessionStorage.getItem('pleyz_play_mood') || ''; } catch (_) { return ''; }
+  try {
+    const mood = sessionStorage.getItem('pleyz_play_mood') || '';
+    return PLAY_MOODS[mood] ? mood : '';
+  } catch (_) {
+    return '';
+  }
 }
 
 function getPlayHistory(username) {
@@ -4410,21 +4417,13 @@ function getPlayHistory(username) {
   catch (_) { return {}; }
 }
 
-function getSurpriseHistory(username) {
-  try {
-    const storage = username ? localStorage : sessionStorage;
-    const key = username ? `pleyz_surprise_history_${username}` : 'pleyz_surprise_history_guest';
-    return JSON.parse(storage.getItem(key) || '[]');
-  } catch (_) {
-    return [];
-  }
-}
-
 function renderRecommendedGames() {
   if (!recommendationsReady) return;
+  if (moodChangeRenderTimer) return;
   const grid = document.getElementById('recommended-grid');
   if (!grid) return;
   bindGameGrid(grid);
+  grid.removeAttribute('aria-busy');
 
   const username = getCurrentUser();
   const moodKey = getSelectedMood();
@@ -4465,7 +4464,6 @@ function renderRecommendedGames() {
   });
 
   const mood = PLAY_MOODS[moodKey];
-  const surpriseHistory = new Set(getSurpriseHistory(username));
   const trendingRank = new Map(TRENDING.map((entry, index) => [entry.id, index]));
   let previouslyShown = new Set();
   try { previouslyShown = new Set(JSON.parse(sessionStorage.getItem('pleyz_recommendations_shown') || '[]')); } catch (_) {}
@@ -4497,9 +4495,7 @@ function renderRecommendedGames() {
     if (trendingRank.has(game.id)) score += Math.max(0.4, 2 - trendingRank.get(game.id) * 0.18);
     if (previouslyShown.has(game.id)) score -= mood ? 4 : 0.65;
     if (recent.some(entry => entry.id === game.id)) score -= 2.5;
-    if (moodKey === 'surprise' && surpriseHistory.has(game.id)) score -= 1.8;
     if (mood?.terms.length) score += moodMatch ? 5 : -1.5;
-    if (moodKey === 'surprise') score += (game.id * 17 % 11) / 10;
     return { game, score, categories, moodMatch };
   }).filter(item => preferences[item.game.id] !== 'dislike');
 
@@ -4507,7 +4503,7 @@ function renderRecommendedGames() {
   const recommendationPool = mood?.terms.length ? matchingMoodGames : ranked;
   const recommendations = [];
   const categoryUse = new Map();
-  const recommendationLimit = window.matchMedia('(min-width: 1800px)').matches ? 17 : 14;
+  const recommendationLimit = window.matchMedia('(min-width: 1800px)').matches ? 22 : 19;
   while (recommendationPool.length && recommendations.length < recommendationLimit) {
     let bestIndex = 0;
     let bestScore = -Infinity;
@@ -4663,16 +4659,27 @@ function initializeMoodDiscovery() {
   popup.addEventListener('click', event => {
     const choice = event.target.closest('[data-mood]');
     if (!choice) return;
+    const moodChanged = choice.dataset.mood !== getSelectedMood();
     try { sessionStorage.setItem('pleyz_play_mood', choice.dataset.mood); } catch (_) {}
-    if (choice.dataset.mood === 'surprise') {
-      const username = getCurrentUser();
-      const storage = username ? localStorage : sessionStorage;
-      const key = username ? `pleyz_surprise_history_${username}` : 'pleyz_surprise_history_guest';
-      const shownIds = [...document.querySelectorAll('#recommended-grid .game-card')].map(card => Number(card.dataset.id));
-      storage.setItem(key, JSON.stringify([...new Set([...getSurpriseHistory(username), ...shownIds])].slice(-60)));
+    trigger.textContent = `Mood: ${PLAY_MOODS[choice.dataset.mood].label}`;
+    if (moodChanged) {
+      const grid = document.getElementById('recommended-grid');
+      if (grid) {
+        window.clearTimeout(moodChangeRenderTimer);
+        grid.setAttribute('aria-busy', 'true');
+        const loading = document.createElement('div');
+        loading.className = 'recommendation-loading';
+        loading.setAttribute('role', 'status');
+        loading.innerHTML = '<span>Finding games for your mood</span><span class="recommendation-loading-dots" aria-hidden="true"><i></i><i></i><i></i></span>';
+        grid.replaceChildren(loading);
+        moodChangeRenderTimer = window.setTimeout(() => {
+          moodChangeRenderTimer = null;
+          renderRecommendedGames();
+        }, 650);
+      }
+    } else {
+      renderRecommendedGames();
     }
-    trigger.textContent = `Mood: ${PLAY_MOODS[choice.dataset.mood]?.label || 'Surprise Me'}`;
-    renderRecommendedGames();
     setOpen(false, true);
   });
   document.addEventListener('keydown', event => {
@@ -5910,7 +5917,7 @@ setTimeout(() => {
 
   @media (max-width: 768px) {
     body { padding-bottom: 76px; }
-    .hero-tagline, .discovery-copy { display: none; }
+    .hero-tagline, #popular-country .discovery-copy { display: none; }
     #home { padding: 6.8rem 1.2rem 1.5rem; }
     .hero-title { font-size: clamp(2rem, 11vw, 3rem); }
     .hero-badge { font-size: 0.4rem; letter-spacing: 2px; }
@@ -5942,6 +5949,7 @@ setTimeout(() => {
   .discovery-heading .section-underline, #popular-country > .section-underline { margin: 0.45rem 0 0.6rem; height: 2px; }
   .discovery-copy { max-width: 680px; margin: 0.4rem 0 1rem; color: var(--text-dim); font-size: 0.9rem; line-height: 1.45; }
   .discovery-heading .discovery-copy { margin-bottom: 0; }
+  .mood-discovery-kicker { margin: 0 0 0.35rem; color: var(--blue-1); font: 700 0.65rem 'Orbitron', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; }
   .category-discovery-title { margin: 1.8rem 0 0.9rem; font: 700 1rem 'Orbitron', sans-serif; color: var(--text); }
   .footer-auth-button { padding: 0; border: 0; background: transparent; color: var(--text-dim); font: inherit; text-align: left; cursor: pointer; }
   .footer-auth-button:hover { color: var(--blue-1); }
@@ -5966,6 +5974,14 @@ setTimeout(() => {
   .mood-option { display: flex; align-items: center; gap: 0.6rem; min-height: 48px; padding: 0.55rem 0.7rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; background: rgba(255,255,255,0.035); color: var(--text); font: 600 0.86rem 'Rajdhani', sans-serif; text-align: left; cursor: pointer; }
   .mood-option:hover, .mood-option:focus-visible { border-color: var(--blue-1); background: rgba(0,191,255,0.1); outline: none; }
   .mood-option span:first-child { font-size: 1.15rem; }
+  .mood-new-badge { margin-left: auto; padding: 0.16rem 0.34rem; border: 1px solid rgba(0,191,255,0.45); border-radius: 999px; background: rgba(0,191,255,0.12); color: var(--blue-1); font: 700 0.55rem 'Orbitron', sans-serif; letter-spacing: 0.05em; }
+  .recommendation-loading { grid-column: 1 / -1; display: flex; align-items: center; justify-content: center; gap: 0.65rem; min-height: 190px; color: var(--text-dim); font: 600 0.9rem 'Rajdhani', sans-serif; }
+  .recommendation-loading-dots { display: inline-flex; align-items: center; gap: 0.22rem; }
+  .recommendation-loading-dots i { width: 0.38rem; height: 0.38rem; border-radius: 50%; background: var(--blue-1); animation: recommendation-dot-bounce 0.6s ease-in-out infinite alternate; }
+  .recommendation-loading-dots i:nth-child(2) { animation-delay: 0.18s; }
+  .recommendation-loading-dots i:nth-child(3) { animation-delay: 0.36s; }
+  @keyframes recommendation-dot-bounce { to { transform: translateY(-0.45rem); } }
+  @media (prefers-reduced-motion: reduce) { .recommendation-loading-dots i { animation: none; } }
   @media (min-width: 1800px) { .mood-popup { width: min(500px, calc(100vw - 4rem)); padding: 1.5rem; } }
   @media (max-width: 768px) {
     #recommendations, #popular-country { padding: 2rem 1.2rem; }
@@ -6053,11 +6069,11 @@ setTimeout(() => {
   <div class="mood-options">
     <button class="mood-option" type="button" data-mood="intense"><span>⚡</span><span>Intense</span></button>
     <button class="mood-option" type="button" data-mood="think"><span>🧠</span><span>Make Me Think</span></button>
-    <button class="mood-option" type="button" data-mood="tired"><span>😴</span><span>I'm Tired</span></button>
-    <button class="mood-option" type="button" data-mood="chaos"><span>😂</span><span>Something Chaotic</span></button>
+    <button class="mood-option" type="button" data-mood="tired"><span>😴</span><span>Low-Key</span></button>
     <button class="mood-option" type="button" data-mood="challenge"><span>🏆</span><span>Challenge Me</span></button>
     <button class="mood-option" type="button" data-mood="weird"><span>🌌</span><span>Something Weird</span></button>
-    <button class="mood-option" type="button" data-mood="surprise"><span>🎲</span><span>Surprise Me</span></button>
+    <button class="mood-option" type="button" data-mood="quick"><span>⏱️</span><span>Quick Games</span><span class="mood-new-badge">NEW</span></button>
+    <button class="mood-option" type="button" data-mood="together"><span>👥</span><span>Play Together</span><span class="mood-new-badge">NEW</span></button>
   </div>
 </aside>
 <dialog class="install-help-dialog" id="install-help-dialog" aria-labelledby="install-help-title">

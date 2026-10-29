@@ -110,7 +110,7 @@ service cloud.firestore {
     }
 
     function validMood(mood) {
-      return mood in ['all', 'intense', 'think', 'tired', 'chaos', 'challenge', 'weird', 'surprise'];
+      return mood in ['all', 'intense', 'think', 'tired', 'chaos', 'challenge', 'weird', 'surprise', 'quick', 'together'];
     }
 
     function validFeedback(data) {
