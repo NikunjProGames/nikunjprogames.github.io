@@ -1,0 +1,964 @@
+{
+  "input": {
+    "ageGroups": [],
+    "interests": [
+      "basketball"
+    ],
+    "platforms": [],
+    "supportedLanguages": [],
+    "hasInAppPurchases": false,
+    "horizontal": false,
+    "vertical": false
+  },
+  "sort": {
+    "type": "ranking_default"
+  },
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 17,
+      "hits": [
+        {
+          "id": "114034",
+          "slug": "basketball-stars",
+          "title": "Basketball Stars",
+          "description": "Basketball Stars is a cool 2-player basketball game by MadPuffers. Prepared for the 2025 basketball season. Choose your team and enter a challenging tournament. Control your player to perform awesome dunks and 3-pointers to win the game. Feel free to block and slap your opponent to knock him out and get the ball, and pay attention to the supershot bar on the top of the screen. Once fully loaded, you can use the hot special dunk from wherever you stand; it never fails. Be the best player!",
+          "howToPlayText": "1 player controls\nWASD or arrow keys to move\nX/L to shoot/steal\nS to pump/block\nA+A or D+D or left/right arrow twice to dash\nK/Z to super shot\n\n2 player controls\nTo move, player 1 use the WASD keys and player 2 use arrow keys\nTo shoot/steal, player 1 use B and player 2 use L\nTo pump, player 1 use S and player 2 use down arrow\nTo dash, player 1 use A/D twice and player 2 use left/right arrow twice\nK to super shot",
+          "gameURL": "https://playgama.com/export/game/basketball-stars?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/basketball-stars",
+          "genres": [
+            "arcade",
+            "sports",
+            "two-player",
+            "basketball",
+            "pvp",
+            "popular",
+            "unblocked",
+            "ball",
+            "boys"
+          ],
+          "tags": [
+            "dunking-games",
+            "2-player-basketball",
+            "competitive-games",
+            "1-player-games",
+            "2-player-arcade",
+            "reaction-games",
+            "desktop-games",
+            "android-games",
+            "iphone-games",
+            "timing-games",
+            "2-player-sports",
+            "teams-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/basketball-stars/big_preview/2e0653c710ad43e09c40d1ba5968e447?width=448",
+            "https://static.playgama.com/p-img/pg/basketball-stars/icon/d2df0e57e80e4bfea7a40a7d6589d81c?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "c7ae7f11ad0f1a1178788aaa188f4508",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male"
+          ],
+          "inGamePurchases": "No",
+          "supportedLanguages": [
+            "en-US"
+          ],
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": true
+          },
+          "embed": "<iframe src='https://playgama.com/export/game/basketball-stars?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        },
+        {
+          "id": "122770",
+          "slug": "basket-random",
+          "title": "Basket Random",
+          "description": "Basket Random is a chaotic arcade basketball game where every match turns into a funny test of timing, luck, and unpredictable physics. Instead of giving players a serious sports simulation, it focuses on quick rounds, simple controls, and hilarious ragdoll movement. You control your team with one key, jump toward the ball, block your opponent, and try to score before the other side reaches the winning point. The idea is easy to understand, but the random physics make every attempt feel different.\n\nWhat makes Basket Random stand out is the way it changes after almost every score. One round may take place on a normal court, while the next may throw you into a completely different setup with unusual players, strange body proportions, or a ball that behaves in an unexpected way. Sometimes the characters have long arms, sometimes their movement feels heavier, and sometimes the ball bounces in a way that makes even a simple shot difficult to predict. This constant variety keeps the game fresh without making it complicated.\n\nThe controls are intentionally simple, which makes the game accessible for almost anyone. In single-player mode, you can play against the CPU and practice your timing. In 2-player mode, the game becomes even more entertaining because both players share the same device and compete in fast, messy basketball duels. Since both sides are dealing with the same strange physics, every point feels like a mix of skill, reaction, and comedy.\n\nBasket Random is especially enjoyable for players who like short sports games with instant action. You do not need to learn complex moves, manage a team, or follow advanced basketball rules. The goal is clear: jump, reach the ball, defend your basket, and score. However, the challenge comes from reading the movement of your characters and adapting quickly when the game changes the court, the players, or the ball behavior.\n\nThe pixel-style visuals give the game a clean and playful look, while the ragdoll animation creates many unexpected moments. A missed jump can turn into a lucky block. A bad shot can bounce into the basket. A perfect attack can fail because your player lands in the wrong position. These small surprises are the reason Basket Random feels fun even after many rounds.\n\nFor fans of funny basketball games, local 2-player games, and physics-based sports challenges, Basket Random offers a simple but highly replayable experience. It is easy to start, fast to understand, and unpredictable enough to keep every match exciting. Whether you are playing alone or challenging a friend, each round brings a new chance to score a ridiculous basket, make a surprising comeback, or laugh at a completely unexpected play.",
+          "howToPlayText": "Player 1: W\nPlayer 2: UP ARROW\n\nJump, block, and shoot with one key. Time your moves well and score before your opponent.",
+          "gameURL": "https://playgama.com/export/game/basket-random?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/basket-random",
+          "genres": [
+            "unblocked",
+            "basketball",
+            "arcade",
+            "ragdoll",
+            "two-player",
+            "sports",
+            "physics",
+            "action",
+            "ball",
+            "boys"
+          ],
+          "tags": [
+            "2-player-basketball",
+            "1-player-games",
+            "2-player-party",
+            "2-player-sports",
+            "addictive-games",
+            "fast-paced-games",
+            "fast-paced-action",
+            "agility-games",
+            "competitive-games",
+            "luck-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/basket-random/big_preview/796d7aa5c7c84741ae37cd1ae3da9c77?width=448",
+            "https://static.playgama.com/p-img/pg/basket-random/icon/5e177b56e0034c8cb50398a710a86568?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "cbc801637e5c42c88a4ed95bc33c2564",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male"
+          ],
+          "inGamePurchases": "No",
+          "supportedLanguages": [
+            "en-US"
+          ],
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": true
+          },
+          "embed": "<iframe src='https://playgama.com/export/game/basket-random?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        },
+        {
+          "id": "109069",
+          "slug": "school-of-basketball",
+          "title": "School Of Basketball",
+          "description": "It is the basketball arcade game in which you must try to score baskets in all the different game modes available. A basketball school opens its doors for enthusiasts like you. Do you know where to aim the ball so that you always hit the basket? Do you know any secret strategies? You have a limited number of balls and every time you miss, you also miss one ball. However, if you never miss, on the contrary, sometimes the ball will be added. How many points will you score? ",
+          "howToPlayText": "Touch and drug anywhere on screen to throw a ball!\nYou can play either arcade, time attack, and distance mode. Arcade mode gives you 10 balls to use; you must continue to score baskets although it becomes harder each time you score.\nTime attack mode requires you to score as many baskets within the time limit as possible; you have unlimited balls but limited time. \nDistance mode allows you to increase the distance of your shot each time that you score. The distance decreases every time you miss a shot, don’t let the distance reach zero; otherwise, it is game over.",
+          "gameURL": "https://playgama.com/export/game/school-of-basketball?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/school-of-basketball",
+          "genres": [
+            "arcade",
+            "sports",
+            "basketball",
+            "ball",
+            "boys"
+          ],
+          "tags": [
+            "dunking-games",
+            "throwing-games",
+            "1-player-games",
+            "target-games",
+            "challenge-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/school-of-basketball/big-preview/2210f40128f3439ca99a98e6144376ba?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-109069/icon/1ece3cd99ad23d1c542a0e29fb459abfda104f21a47fc490f256a2b63da8e347?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "743846388226436e9e8863b7a7421f51",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male"
+          ],
+          "inGamePurchases": "No",
+          "supportedLanguages": [
+            "en-US"
+          ],
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "embed": "<iframe src='https://playgama.com/export/game/school-of-basketball?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        },
+        {
+          "id": "123247",
+          "slug": "tiny-sports-empire-idle",
+          "title": "Tiny Sports Empire Idle",
+          "description": "Tiny Sports Empire Idle is a sports management idle game where you build a growing multi-sport franchise across basketball, hockey, soccer, rugby, volleyball, and baseball. Earn cash, upgrade your training plans, improve your win chance, unlock new sports, recruit players, equip gear, and boost your team power. Matches are simulated automatically, so every upgrade and strategic choice helps your club grow faster. Keep expanding your sports empire with idle income, offline rewards, special events, skills, and season progress as you turn a small hoops team into a full sports dynasty.",
+          "howToPlayText": "Build and manage your sports empire by earning cash, upgrading your team, unlocking new sports, recruiting players, equipping gear, using skills, and claiming special rewards. Matches run automatically, and your goal is to keep improving your win chance, team power, income, and league progress until your franchise becomes a sports dynasty.\n\nDesktop Controls:\nUse the left mouse button to interact with the game UI.\nClick buttons to buy upgrades, unlock sports, equip gear, recruit players, use skills, claim rewards, open settings, and switch between menu tabs.\nClick the Sports button to view or switch sports and check league progress.\n\nMobile Controls:\nTap buttons to interact with the game UI.\nTap upgrades, sports, gear, players, skills, and event cards to manage your team.\nTap and scroll panels to browse menus, claim offline rewards, and continue growing your empire.",
+          "gameURL": "https://playgama.com/export/game/tiny-sports-empire-idle?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/tiny-sports-empire-idle",
+          "genres": [
+            "basketball",
+            "tycoon",
+            "idle",
+            "sports",
+            "simulation"
+          ],
+          "tags": [
+            "business-games",
+            "incremental-games",
+            "ai-games",
+            "1-player-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/tiny-sports-empire-idle/big-preview/cf7ac737e3b449bfb404df6a0e622e75?width=448",
+            "https://static.playgama.com/p-img/pg/preview/be17e7b5c4654f6882c30c618912d689?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "a6bf4832abbb4c46a54076595d38df4f",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "inGamePurchases": "No",
+          "supportedLanguages": [
+            "en-US",
+            "ar-EG",
+            "de-DE",
+            "es-ES",
+            "fr-FR",
+            "hi-IN",
+            "id-ID",
+            "ja-JP",
+            "ko-KR",
+            "pt-PT",
+            "ru-RU",
+            "tr-TR",
+            "vi-VN"
+          ],
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "embed": "<iframe src='https://playgama.com/export/game/tiny-sports-empire-idle?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        },
+        {
+          "id": "125621",
+          "slug": "basketball-rush",
+          "title": "Basketball Rush",
+          "description": "You have two minutes. A ball appears somewhere on the court, you drag to set the top of its arc and let go. A new ball is waiting as soon as the last one leaves your hand.\n\nA make is worth the length of the shot, measured to the centimetre, times your multiplier. A clean swish adds 1 to it, a bank shot adds 0.5, and every make in a row adds another 1, up to ×10. One miss and the streak is gone. A shot released before 0:00 that drops after the buzzer gets 5 extra points.\n\nThe ball flies in 3D and spins. The rim gives a little when it's hit, so a shot that clips the iron can still roll in, or rattle out.\n\nRanked games go on the global leaderboard and count toward your league, and you can be relegated from a league too. Practice has no clock and counts for nothing, so that's the place to learn the long ones.",
+          "howToPlayText": "Score as many points as you can before the two minutes run out.\n\nMouse or touch: press anywhere on the screen and drag. The circle is the highest point the ball will reach, and the dotted line shows how it gets there. Let go to shoot. If you let go without dragging, the throw is cancelled.\n\nKeyboard: the arrow keys move the circle, Space shoots.\n\nLonger shots score more. Clean swishes, bank shots and makes in a row raise your multiplier, and a miss resets the streak. P or Esc pauses the game. On a phone, play in landscape.\n",
+          "gameURL": "https://playgama.com/export/game/basketball-rush?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/basketball-rush",
+          "genres": [
+            "arcade",
+            "skill",
+            "sports",
+            "basketball",
+            "physics",
+            "ball"
+          ],
+          "tags": [
+            "1-player-games",
+            "addictive-games",
+            "agility-games",
+            "arcade-shooter",
+            "casual-games",
+            "competitive-games",
+            "fast-paced-games",
+            "reaction-games",
+            "desktop-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/basketball-rush/big_preview/18b35b1800694950afdb037ccbdc2109?width=448",
+            "https://static.playgama.com/p-img/pg/basketball-rush/icon/4b0b98aefc734ee6994ef947e52bc314?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "ce62e525bd8048aa9034ff8b9c3e50d2",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "inGamePurchases": "No",
+          "supportedLanguages": [
+            "en-US",
+            "de-DE",
+            "es-ES",
+            "fr-FR",
+            "pl-PL",
+            "pt-PT",
+            "ru-RU",
+            "tr-TR"
+          ],
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "embed": "<iframe src='https://playgama.com/export/game/basketball-rush?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        },
+        {
+          "id": "124271",
+          "slug": "basket-sport-stars",
+          "title": "Basket Sport Stars",
+          "description": "Basket Sport Stars brings fast, playful basketball matches to colorful courts filled with unpredictable moments. Choose a character, challenge a computer-controlled rival, or share the keyboard with a friend in local 2-player mode. Move into position, time your jump, aim carefully, and score as many baskets as possible before the final buzzer.\n\nEvery match is short enough to start quickly but competitive enough to demand focus. A well-timed shot can put you ahead, while a successful attack may force your opponent to lose possession. With different characters, changing arenas, several game modes, and useful power-ups, no two matches feel exactly the same.\n\nChoose Your Game Mode\nQuick Match sends you straight into a 90-second basketball battle. The player with the most points when time runs out wins. It is the best mode for learning the basics or enjoying a fast match without a longer commitment.\n\nTournament Mode places you into a competitive bracket against several opponents. Win each round, adapt to different characters and courts, and continue advancing until you reach the final match.\n\nPractice Mode gives you room to learn movement, shooting, and attack timing. Use it to test jump shots, understand the aiming guide, and become more comfortable with the controls before entering harder matches.\n\n2 Player Mode lets two players compete locally on the same keyboard. Challenge a friend, fight for possession, and find out who can score more baskets before the buzzer.\n\nMaster the Shooting System\nJump to reach the ball, then hold the shooting control to aim toward the opposing basket. A dotted trajectory line shows where the ball is expected to travel. Watch the line closely and release at the right moment for a more accurate attempt.\n\nThe aiming indicator briefly turns green when the shot has a strong chance of reaching the hoop. This window does not stay open for long, so successful shooting depends on quick reactions and controlled timing rather than pressing the button as fast as possible.\n\nAttack and Take Possession\nBasketball is not only about shooting. When your opponent controls the ball, move close and use the attack button to weaken their grip. After enough successful hits, the rival drops the ball and gives you a chance to take possession.\n\nAttacking without a plan can leave your basket unprotected. Try to pressure the opponent when they are preparing a shot or moving into a dangerous position, then return quickly before they recover.\n\nCollect and Use Gift Boxes\nA flying gift box may appear during a match. Jump to collect it and save the reward for the right opportunity. Activating the gift launches a rocket across the court that can stun the opposing player and interrupt their attack.\n\nThe rocket can also become a threat when your rival uses one. Watch its direction and jump over it to avoid being stunned. A well-timed gift can change the score, especially during the final seconds of a close match.\n\nKey Features\n- Fast arcade-style basketball matches\n- Single-player and local 2-player gameplay\n- Quick Match, Tournament, Practice, and 2 Player modes\n- Competitive 90-second rounds\n- Different characters and colorful basketball courts\n- Timing-based aiming and shooting system\n- Attacks that can force opponents to drop the ball\n- Gift boxes with special rocket power-ups\n- Simple keyboard controls for both players\n- Short matches designed for repeated play\n\nTips for Beginners\n- Start in Practice Mode to learn how long to hold the shooting button.\n- Release the ball when the aiming guide gives you a clear trajectory.\n- Stay between your opponent and the basket when defending.\n- Do not attack constantly; wait until you are close enough to connect.\n- Collect gift boxes whenever the court is safe.\n- Keep watching the timer during close matches.\n\nAdvanced Tips\n- Use short jumps to control possession instead of always attempting a shot.\n- Attack just before the opponent releases the ball to disrupt their timing.\n- Save a rocket gift for a dangerous attack or the final seconds of the match.\n- Change your shooting position so the opponent cannot predict every attempt.\n- After stealing the ball, create space before aiming at the basket.\n- In tournaments, adjust your strategy to each opponent instead of repeating the same moves.\n\nCommon Mistakes\n- Releasing every shot before the aiming line is properly aligned.\n- Standing too close to the opponent while trying to aim.\n- Ignoring defense after taking an early lead.\n- Using gift rewards immediately without checking the rival's position.\n- Chasing the ball and leaving the basket completely open.\n- Forgetting that the match can be decided in the final few seconds.\n\nBecome the Court Star\nBasket Sport Stars combines accessible controls with quick competitive matches, accurate shooting, defensive attacks, and unexpected power-ups. Practice your timing, choose the right moment to challenge your opponent, and work your way through the tournament. Whether you compete against the CPU or face a friend on the same keyboard, every match offers another chance to become the star of the court.",
+          "howToPlayText": "Player 1\nMove: A and D\nJump: W\nAim and Shoot: Hold W and release\nAttack: S\nUse Gift: G\n\nPlayer 2\nMove: Left and Right Arrow Keys\nJump: Up Arrow\nAim and Shoot: Hold Up Arrow and release\nAttack: Down Arrow\nUse Gift: L",
+          "gameURL": "https://playgama.com/export/game/basket-sport-stars?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/basket-sport-stars",
+          "genres": [
+            "arcade",
+            "basketball",
+            "sports",
+            "two-player",
+            "pvp"
+          ],
+          "tags": [
+            "1-player-games",
+            "2-player-arcade",
+            "2-player-sports",
+            "competitive-games",
+            "fast-paced-games",
+            "2-player-basketball",
+            "addictive-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/basket-sport-stars/big_preview/911f428fd4a14cb0bff044898fe9a120?width=448",
+            "https://static.playgama.com/p-img/pg/basket-sport-stars/icon/6a4617121d6b4dbda0922d692b5bea66?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "7769821596254fd5976f472dfc86dfd5",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "inGamePurchases": "No",
+          "supportedLanguages": [
+            "en-US",
+            "ar-EG",
+            "de-DE",
+            "es-ES",
+            "ru-RU",
+            "tr-TR"
+          ],
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "embed": "<iframe src='https://playgama.com/export/game/basket-sport-stars?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        },
+        {
+          "id": "113618",
+          "slug": "cannon-basket",
+          "title": "Cannon Basket",
+          "description": "Cannon Basket is a fun and challenging physics-based puzzle game where your goal is to shoot colorful balls into the basket by adjusting moving platforms. Use your brain and quick reflexes to set the right trajectory and get every ball in! With simple one-touch controls and 45 unique levels, the game offers the perfect mix of logic, precision, and arcade-style fun. As the difficulty increases, you’ll need sharp timing and smart strategy to succeed. Can you complete every stage and become the master of ball cannons?",
+          "howToPlayText": "Tap or click to activate the cannon and launch a ball.Control the platforms by tapping or dragging to adjust their position.Use the platforms to guide the ball’s trajectory toward the basket.Try to get all the balls into the basket to complete the level.",
+          "gameURL": "https://playgama.com/export/game/cannon-basket?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/cannon-basket",
+          "genres": [
+            "sports",
+            "skill",
+            "basketball",
+            "puzzle"
+          ],
+          "tags": [
+            "1-player-games",
+            "challenge-games",
+            "gravity-games",
+            "simple-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/cannon-basket/big-preview/66f26e5879324ea7bcf1d5636fa76830?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-113618/icon/57e11275abbdee436a7fcd3c4c0216fe0d200b9f08ec44d96848cbd12f40710f?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "ea560917cdf4984e4abf180291fa51d8",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "inGamePurchases": "No",
+          "supportedLanguages": [
+            "ar-EG",
+            "zh-CN",
+            "de-DE",
+            "es-ES",
+            "fr-FR",
+            "hi-IN",
+            "id-ID",
+            "it-IT",
+            "ja-JP",
+            "ko-KR",
+            "pt-PT",
+            "ru-RU",
+            "tr-TR"
+          ],
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": true
+          },
+          "embed": "<iframe src='https://playgama.com/export/game/cannon-basket?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        },
+        {
+          "id": "126378",
+          "slug": "wing-dunk",
+          "title": "Wing Dunk",
+          "description": "Flap your winged basketball and dunk it through the hoops! Tap to fly, dive into each hoop from above, and chain perfect SWISH shots to build huge combos and set the ball on fire. Unlock 31 skins by completing challenges, climb 4 leaderboards and beat the other players one by one. Simple to learn, hard to master!",
+          "howToPlayText": "Tap the screen, click, or press Space / Up arrow to flap your wings and fly up. Gravity pulls the ball down. Drop into each hoop from the top to score. Go through without touching the rim for a SWISH: chain them for bigger combos and more points. Don't miss a hoop, fall off the bottom, or fly off the top! Complete challenges to unlock new balls and wings, and pass the players ahead of you in the ranking.",
+          "gameURL": "https://playgama.com/export/game/wing-dunk?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/wing-dunk",
+          "genres": [
+            "arcade",
+            "basketball",
+            "flappy-bird",
+            "skill",
+            "physics"
+          ],
+          "tags": [
+            "1-player-games",
+            "2d-games",
+            "agility-games",
+            "casual-games",
+            "challenge-games",
+            "dunking-games",
+            "endless-games",
+            "hyper-casual-games",
+            "jumping-games",
+            "one-button-games",
+            "reaction-games",
+            "timing-games",
+            "webgl-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/wing-dunk/big_preview/e8a296a866ea493eb3f2c868eadbebc5?width=448",
+            "https://static.playgama.com/p-img/pg/wing-dunk/icon/d2275a54b34e4444866928d44b5179db?width=448"
+          ],
+          "videos": [],
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "inGamePurchases": "No",
+          "supportedLanguages": [
+            "en-US",
+            "fr-FR"
+          ],
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": true
+          },
+          "embed": "<iframe src='https://playgama.com/export/game/wing-dunk?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        },
+        {
+          "id": "125016",
+          "slug": "flappy-ball",
+          "title": "Flappy Ball",
+          "description": "Take your basketball hopping skills to the limit in Flappy Ball — an addictive arcade sports runner with tactile, physics-based controls!\n\n🏀 Core Features:\n\nEndless Run & 15 Handcrafted Challenges: Test your reflexes across moving, pulsing, and tilted hoops or master the flap-count budget challenge.\nClean Swish & On-Fire Streaks: Score without touching the rim to ignite flame trails, multipliers, and acoustic swish sound effects.\nRich Customization: Unlock 11 unique ball skins (Classic, Billiards 8-Ball, Tennis, Watermelon, Glazed Donut, Lava Core, Dragon Eye, Cosmic Pulsar) and 7 parallax dynamic themes.\nWeekly Tournaments: Compete in 50-player weekly seasons to earn massive star rewards.\nLucky Wheel & Trophies: Spin daily for free rewards and unlock achievements as you beat your high score.",
+          "howToPlayText": "Objective: Keep the ball airborne and pass through every single hoop. Missing a hoop costs 1 Life ❤️ (3 Lives in Endless mode, strict 1-fail in Challenges). Score consecutive clean swishes without touching rims for bonus multiplier stars and Fire Mode!\n\nControls:\n\nMobile / Tablet: Tap anywhere on the screen to hop upward.\nDesktop / Laptop: Press Spacebar, Up Arrow (↑), or click the Left Mouse Button to hop.\nPause / Menu: Click the Pause ⏸️ icon or press Escape (Esc) / P.",
+          "gameURL": "https://playgama.com/export/game/flappy-ball?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/flappy-ball",
+          "genres": [
+            "arcade",
+            "ball",
+            "skill",
+            "basketball",
+            "sports",
+            "runner",
+            "flappy-bird"
+          ],
+          "tags": [
+            "1-player-games",
+            "addictive-games",
+            "dunking-games",
+            "endless-games",
+            "jumping-games",
+            "hyper-casual-games",
+            "one-button-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/flappy-ball/big_preview/33b4c70531844a0380b6006b9d5ff686?width=448",
+            "https://static.playgama.com/p-img/pg/flappy-ball/icon/ab00b054a8674021ae722fd92d5bab0f?width=448"
+          ],
+          "videos": [],
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "inGamePurchases": "Yes",
+          "supportedLanguages": [
+            "en-US",
+            "de-DE",
+            "es-ES",
+            "fr-FR",
+            "pt-PT",
+            "ru-RU",
+            "tr-TR"
+          ],
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": true
+          },
+          "embed": "<iframe src='https://playgama.com/export/game/flappy-ball?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        },
+        {
+          "id": "111095",
+          "slug": "dunkin-beanz",
+          "title": "Dunkin Beanz",
+          "description": "🌟 Dunkin Beanz: The Ultimate Basketball Challenge! 🏀🌟\n\n🆕 Update Alert! Dive into the thrilling world of Dunking Beanz with our latest version!\n\n🌟 Key Features:\n✨ - Addictive Gameplay: Experience the thrill of dunking in fast-paced and exciting matches.\n🌐 - Multiplayer Madness: Challenge and compete against players worldwide!\n🏆 - Compete for Glory: Climb the leaderboards, unlock achievements, and prove you're the ultimate Dunkin Beanz master.\n\n🎮 Get ready to Dunk, Upgrade, and Unbox your way to victory! 🏀🔥",
+          "howToPlayText": "Use WASD / arrow keys / drag the left mouse button to move around. Release the buttons to throw or pass.",
+          "gameURL": "https://playgama.com/export/game/dunkin-beanz?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/dunkin-beanz",
+          "genres": [
+            "sports",
+            "basketball",
+            "popular",
+            "boys"
+          ],
+          "tags": [
+            "challenge-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/dunkin-beanz/big-preview/a13713725de24b7e9681f8b4610701e4?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-111095/icon/5da7e75aead71e25dc18aace6e2d95055dc6df13222427d07927a29c7f7e9777?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "3bda48a403fe4bd48a959e1b54b21157",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male"
+          ],
+          "inGamePurchases": "No",
+          "supportedLanguages": [
+            "en-US"
+          ],
+          "screenOrientation": {
+            "horizontal": false,
+            "vertical": true
+          },
+          "embed": "<iframe src='https://playgama.com/export/game/dunkin-beanz?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        },
+        {
+          "id": "125482",
+          "slug": "super-basketball",
+          "title": "Super Basketball",
+          "description": "Super Basketball is a fast arcade sports game built around wild basketball battles and spectacular dunks. Grab the ball, push through your rivals, and score before the other team. Short matches, colorful arenas, unlockable players and basketballs, and dramatic slow-motion finishes make every round energetic and easy to jump into.\n",
+          "howToPlayText": "Objective: score more points than the opposing team before the match ends. Take possession of the ball, move toward the highlighted basket, avoid or bump past defenders, and reach the rim to perform a dunk. Win matches to earn coins, unlock new players, basketballs, and courts, and advance through tougher opponents.\n\nControls:\n- Mouse: hold the left mouse button and drag in the direction you want your player to move. Release to stop changing direction. Click interface buttons to choose modes and upgrades.\n- Touch: press and drag anywhere on the play area to move. Release your finger to stop changing direction. Tap interface buttons to choose modes and upgrades.\n",
+          "gameURL": "https://playgama.com/export/game/super-basketball?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/super-basketball",
+          "genres": [
+            "arcade",
+            "basketball",
+            "ball",
+            "sports",
+            "3d",
+            "skill"
+          ],
+          "tags": [
+            "1-player-games",
+            "arcade-shooter",
+            "competitive-games",
+            "dunking-games",
+            "fast-paced-games",
+            "addictive-games",
+            "reaction-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/super-basketball/big_preview/a3aa094d824d4a0598db9aac9270cfa5?width=448",
+            "https://static.playgama.com/p-img/pg/super-basketball/icon/53f7778979644e24b119b67331209ebd?width=448"
+          ],
+          "videos": [],
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "inGamePurchases": "Yes",
+          "supportedLanguages": [
+            "en-US"
+          ],
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "embed": "<iframe src='https://playgama.com/export/game/super-basketball?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        },
+        {
+          "id": "119080",
+          "slug": "flippee-ball",
+          "title": "Flippee Ball",
+          "description": "A HYBRID ARCADE GAME OF PINBALL & BASKETBALL\n\n-Flip the flippers and try to hit the ball into the basket.  \n-Play against the CPU or another player on the same device.  \n-Perfect your technique in the Academy - 100 increasingly challenging \"assists\" for you to try to score from.",
+          "howToPlayText": "You control one set of flippers - either red or blue.  Flipping uses just one button and flips all five of your flippers.  See if you have what it takes to beat the computer.  The default settings are \"AMATEUR\" speed against the computer on \"EASY\" difficulty with \"AIM ASSIST\" enabled (this gives you a little help with shot accuracy).  Once you feel comfortable, try the other difficulties, \"PROFFESSIONAL\" speed, then switch \"AIM ASSIST\" off!\n\nIf that's not enough, try the \"FLIPPEE ACADEMY\" - 100 levels (50 each at \"AMATEUR\" & \"PROFESSIONAL\" speeds) where the ball is launched and you must try to score - but each level only allows for a certain number of touches - and you must score before the ball hits your opponent's flippers.\n\nNavigate menus using:\n- Mouse\n- Touch\n- Keyboard (arrow keys and space to action)\n- Controller - direction pad and any of the main four buttons\n\nUse the game mode button to the left of the scoreboard to select between 7 game modes:\n\n- Longest Streak - see how many games in a row you can win against the computer:\n  - Easy\n  - Medium\n  - Hard\n  - Progressive (difficulty increases with every game)\n- Career - difficulty increases with every game, but losing doesn't reset progress\n- Player v Player - play against another human on the same device\n- Academy - 100 \"assists\" for you to try to score from \n\nTo flip:\n\nSingle player:\n- Mouse - click the screen\n- Touch - tap the screen\n- Keyboard - LEFT CTRL\n- Controller - any of the four main buttons\n\nPlayer vs Player:\n- Mouse - click the top left or top right of the screen to control either the left or right flippers\n- Touch - tap the top left or top right of the screen\n- Keyboard - LEFT CTRL (left flipper) & RIGHT ARROW (right flippers)\n- Controller - any of the four main buttons (supports 2 controllers for player v player)\n\nTo pause:\n\n- Mouse - click the scoreboard\n- Touch - tap the scoreboard\n- Keyboard - Press \"P\"\n- Controller - \"Start\" button\n\nTo win:\n\nSCORE MORE THAN YOUR OPPONENT!\n\nChange the game speed from \"AMATEUR\" to \"PROFESSIONAL\" and disable \"AIM ASSIST\" (if you're up for a challeng!) in the SETTINGS menu.\nA quick start guide is shown when the game is first run and full instructions can be found in the built-in help guide.\n",
+          "gameURL": "https://playgama.com/export/game/flippee-ball?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/flippee-ball",
+          "genres": [
+            "arcade",
+            "basketball",
+            "skill",
+            "two-player",
+            "sports",
+            "ball"
+          ],
+          "tags": [
+            "2-player-arcade",
+            "2-player-basketball",
+            "addictive-games",
+            "flip-games",
+            "pinball-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/flippee-ball/big-preview/d2f45c1f2ab04ea398fd53b8efaa65c3?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-119080/icon/9b0369aa675fc6ac02a517459aa79823184c118bba2c198524e99c8b5d8bd8ca?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "f059002a35494bf49fdfe2c070b08ca2",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "inGamePurchases": "No",
+          "supportedLanguages": [
+            "en-US",
+            "zh-CN"
+          ],
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "embed": "<iframe src='https://playgama.com/export/game/flippee-ball?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        },
+        {
+          "id": "111794",
+          "slug": "basketball-tap",
+          "title": "Basketball Tap",
+          "description": "Basketball Tap is a fast-paced casual sports game.\nTime your taps perfectly, launch the ball into the air, and score epic slam dunks!",
+          "howToPlayText": "Tap the screen, control the ball, and guide it toward the basket to make your best shots and score points!",
+          "gameURL": "https://playgama.com/export/game/basketball-tap?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/basketball-tap",
+          "genres": [
+            "arcade",
+            "sports",
+            "skill",
+            "basketball",
+            "mobile",
+            "ball"
+          ],
+          "tags": [
+            "fast-paced-games",
+            "timing-games",
+            "addictive-games",
+            "dunking-games",
+            "hyper-casual-games",
+            "reaction-games",
+            "simple-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/basketball-tap/big-preview/d049ea416a1740d2b24a6cf65678e1d3?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-111794/icon/bed4d770121764245df91cb3d6f9b15dd82a5ebe77fe172a6f823ff641b229eb?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "36eb2846bacd281d2a3437cf37c5a0e1",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "inGamePurchases": "No",
+          "supportedLanguages": [
+            "en-US"
+          ],
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": true
+          },
+          "embed": "<iframe src='https://playgama.com/export/game/basketball-tap?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        },
+        {
+          "id": "125503",
+          "slug": "swipe-swoosh",
+          "title": "Swipe Swoosh",
+          "description": "Swipe Swoosh is a fast-paced basketball skill game where every swipe matters. Aim, control your power and sink baskets to complete increasingly challenging levels. Master moving hoops, use helpful power-ups, complete daily challenges and achievements, and unlock a collection of unique basketballs as you climb the ranks.",
+          "howToPlayText": "Aim carefully and shoot the basketball through the hoop to complete each level. Adjust the direction and strength of your shot, score the required baskets, and avoid running out of attempts. Use available power-ups to overcome harder challenges.\n\nDesktop Controls:\nMouse: Click and drag from the basketball to aim and set power.\nRelease Mouse Button: Shoot.\nLeft Click: Select buttons and power-ups.\n\nMobile Controls:\nSwipe: Drag from the basketball to aim and set power.\nRelease Touch: Shoot.\nTap: Select buttons and activate power-ups.",
+          "gameURL": "https://playgama.com/export/game/swipe-swoosh?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/swipe-swoosh",
+          "genres": [
+            "arcade",
+            "ball",
+            "basketball",
+            "physics",
+            "sports",
+            "skill"
+          ],
+          "tags": [
+            "1-player-games",
+            "casual-games",
+            "dunking-games",
+            "fast-paced-games",
+            "swipe-games",
+            "timing-games",
+            "addictive-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/swipe-swoosh/big_preview/5fb545c91c1a45e39c805752e38d30ea?width=448",
+            "https://static.playgama.com/p-img/pg/swipe-swoosh/icon/06c25ec0b3c94ef5accae6f2bc411756?width=448"
+          ],
+          "videos": [],
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "inGamePurchases": "No",
+          "supportedLanguages": [
+            "en-US"
+          ],
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": true
+          },
+          "embed": "<iframe src='https://playgama.com/export/game/swipe-swoosh?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        },
+        {
+          "id": "110860",
+          "slug": "animal-basketball",
+          "title": "Animal Basketball",
+          "description": "Basketball games: The Power of Moe! Ultra-healing hand-painted physical shooting party\n\n[Moe Animal Troupe Gathering] \nManipulation will be serious kittens, cute chicks, naughty crocodiles! The cute characters come with their own exclusive shooting action, each action can trigger the screen heartbeat warning! \n\n[Visual Feast Blitz sports games]\n● Hoop game  with 100+ kinds of magical basketballs and special effects: pizza ball, fishbowl ball, baseball, etc. \n● 4 healing courts: beach by the sea, countryside at sunset, deep forest, and dangerous cliffs - every basket will play tricks!\n\n[Triple Pleasure Mode] \nArcade Rampage: 60-second adrenaline challenge! Combo effects are stacked, full-screen blow-up effects are cool!\nRoad to the Championship: Challenge how many throws without missing it.\nAchievement Mission: 200 missions! Unlock outrageous medals such as “Board Wipe King” and “God Pitcher” \n\n[Physics Ghostly Moments] \nReal Physics Engine x Moe's Magic Modification! The wall clock can also be used to shoot baskets!\n\nCall your friends and have a healing and addictive fingertip hoop party!",
+          "howToPlayText": "Desktop Controls:\nMouse left button to drag and shoot.\n\nMobile Controls:\nTouch and move on screen  to drag and shoot.",
+          "gameURL": "https://playgama.com/export/game/animal-basketball?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/animal-basketball",
+          "genres": [
+            "sports",
+            "animals",
+            "basketball",
+            "skill",
+            "mobile",
+            "popular"
+          ],
+          "tags": [
+            "animal-io"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/animal-basketball/big-preview/ac2ddd3862e64a5c8b58936e9d42be80?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-110860/icon/490c0eee96291b566a7fd8e53dec0b1537ad5e3bd00170e8dd052c44c4c27b7d?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "4bd84a98fb6a47ceb481318a40c1e1ab",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "inGamePurchases": "No",
+          "supportedLanguages": [
+            "en-US"
+          ],
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "embed": "<iframe src='https://playgama.com/export/game/animal-basketball?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        },
+        {
+          "id": "122263",
+          "slug": "precise-shooting",
+          "title": "Precise Shooting",
+          "description": "Test your aim and precision in Precise Shooting, a satisfying basketball shooting challenge! Launch the ball with perfect timing and angle to score into the hoop from various tricky positions and distances. The core idea is mastering trajectory and power — one well-timed shot can earn you massive points and combos. What makes it unique? Beautiful minimalist 3D visuals, realistic ball physics with satisfying arcs, increasing difficulty with moving hoops and obstacles, and the addictive “one more try” feeling as you chase perfect shots and high scores!",
+          "howToPlayText": "Your main goal is to shoot the basketball into the hoop with perfect precision. Hold and drag to adjust the power and angle, then release at the right moment to make the shot. Score as many points as possible by making clean shots — the better your timing and angle, the higher your score!\n\nPC Controls:\nMouse: Click and hold on the player, drag to set power and angle, then release to shoot.\n\nMobile Controls:\nTouchscreen: Tap and hold on the player, drag to adjust shooting power and angle, then release to shoot the ball.",
+          "gameURL": "https://playgama.com/export/game/precise-shooting?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/precise-shooting",
+          "genres": [
+            "sports",
+            "basketball",
+            "skill",
+            "physics"
+          ],
+          "tags": [
+            "1-player-games",
+            "fast-paced-games",
+            "hardcore-games",
+            "target-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/precise-shooting/big-preview/dbe93f397d0a49e791a7391ac1b19a3b?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-122263/icon/6cabcb521184e083aa2842dbee6a79f4cc53a4d8b048d6fa7884eaf1bb40deda?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "d92f2c2225a348fd821dbe0f619aedd5",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "inGamePurchases": "No",
+          "supportedLanguages": [
+            "en-US"
+          ],
+          "screenOrientation": {
+            "horizontal": false,
+            "vertical": true
+          },
+          "embed": "<iframe src='https://playgama.com/export/game/precise-shooting?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        },
+        {
+          "id": "117419",
+          "slug": "on-fire-basketball-shots",
+          "title": "On Fire Basketball Shots",
+          "description": "The gym is packed, and the crowd is roaring! The scoreboard's ticking down, and your team is trailing. The only way to win is to sink blazing basketball shots from the court. You're the star player, but the pressure's on—every shot counts, and the hoop's rim is red-hot, making each attempt trickier!\n\"Core: A highly engaging, physics-based arcade sports simulator centered on precision shooting and high-score chasing.\nLoop: Players engage in skill-based shooting mechanics to accumulate points, which convert into hard currency (coins) used for continuous progression and reward loops.\nStart: Features instant, intuitive accessibility, ensuring immediate player engagement and a strong hook from the first session.\nPlaygama Fact: The game is fully integrated with Playgama SDK: instant login and cross-device saves between PC and mobile. HTML5. Stable performance regardless of internet quality.\nVisual: Utilizes a clean, contemporary Flat Design aesthetic that ensures visual clarity and broad appeal.\nKey Feature: Offers deep player customization through various unlockable ball and environment skins, underpinned by robust, authentic shot physics.\"\t",
+          "howToPlayText": "Ignite the Hoops and Go On Fire! The crowd is roaring as you chain blazing basketball shots from hoop to sizzling hoop in this addictive arcade thriller. Pull back to launch perfect dunks, build unstoppable streaks, set the ball ablaze for massive multipliers, collect coins and stars, and climb the leaderboards with sky-high scores—every swish counts in this red-hot test of precision and timing!\nMain Objective and Winning Method:\nThe primary goal is to score as many points as possible by chaining consecutive successful basketball shots into moving hoops without missing. Each dunk adds to your score (with perfect swishes earning bonuses), builds your streak, and unlocks 'On Fire' mode for double points and fiery visual effects. The game ends when you miss a shot—survive longer, chain more dunks, and rack up the highest score to top the global leaderboards and earn coins for upgrades!\nDesktop Controls (via emulator or browser):\nMouse: Click and hold on the basketball, drag downward to aim and set power (watch the trajectory guide), release to shoot.\nMobile Controls:\nTouch Screen: Tap and hold on the basketball hanging in the net, drag your finger downward to adjust aim and strength, then release to launch the shot toward the next hoop.",
+          "gameURL": "https://playgama.com/export/game/on-fire-basketball-shots?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/on-fire-basketball-shots",
+          "genres": [
+            "basketball",
+            "arcade",
+            "sports",
+            "skill",
+            "physics"
+          ],
+          "tags": [
+            "timing-games",
+            "endless-games",
+            "touchscreen-games",
+            "1-player-games",
+            "desktop-games",
+            "android-games",
+            "iphone-games",
+            "gravity-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/on-fire-basketball-shots/big-preview/1f4fcffd2ecc48feb00783616960072d?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-117419/icon/e1cb0fb3d0d6762e82949839c9773c05792e893355fc5096455d9d22539fec5b?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "b7c0dbd0a13c4e3aaeefe2b7ff9fc1c7",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "inGamePurchases": "No",
+          "supportedLanguages": [
+            "en-US"
+          ],
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": true
+          },
+          "embed": "<iframe src='https://playgama.com/export/game/on-fire-basketball-shots?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}
