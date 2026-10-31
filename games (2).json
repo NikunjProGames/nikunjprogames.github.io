@@ -1,0 +1,676 @@
+{
+  "input": {
+    "ageGroups": [],
+    "interests": [
+      "shopping"
+    ],
+    "platforms": [],
+    "supportedLanguages": [],
+    "hasInAppPurchases": false,
+    "horizontal": false,
+    "vertical": false
+  },
+  "sort": {
+    "type": "ranking_default"
+  },
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 13,
+      "hits": [
+        {
+          "id": "124593",
+          "slug": "minimarket-677-store-tycoon",
+          "title": "Minimarket 67/7: Store Tycoon",
+          "description": "Become the manager of your own minimarket and turn a small store into a profitable retail business! Stock your shelves, hire employees, upgrade equipment, and expand your store. Serve customers, improve service speed, and make sure your visitors stay happy.\n\nAutomate your workflows, develop your store, and increase your profits. Every upgrade helps you serve more customers, earn more money, and unlock new opportunities to grow your business.\n\nGame Features:\n• Manage your minimarket and staff\n• Stock products and develop your store\n• Upgrade employees and equipment\n• Increase service speed and profits\n• Gradually expand your store\n• Simple and intuitive management\n• Unlock new opportunities as you progress\n• No complicated rules — perfect for relaxing\n\nCan you turn a small minimarket into a successful retail empire and become a true store tycoon?",
+          "howToPlayText": "Controls:\n• On mobile devices, move the joystick at the bottom of the screen to control your character.\n• On PC, use the WASD keys or the arrow keys to move.",
+          "gameURL": "https://playgama.com/export/game/minimarket-677-store-tycoon?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/minimarket-677-store-tycoon",
+          "genres": [
+            "management",
+            "tycoon",
+            "idle",
+            "shopping"
+          ],
+          "tags": [
+            "1-player-games",
+            "business-games",
+            "shop-games",
+            "time-management-games",
+            "resource-management-games",
+            "incremental-games",
+            "roblox-tycoon"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/minimarket-677-store-tycoon/big_preview/b7d9ab9ae0a54282addfe6a4ae405b75?width=448",
+            "https://static.playgama.com/p-img/pg/minimarket-677-store-tycoon/icon/0c3ebf989795450c8861a36c8007f2c4?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "e9accc0a12a7421a8e4c134c1df63a44",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "inGamePurchases": "No",
+          "supportedLanguages": [
+            "en-US",
+            "ru-RU"
+          ],
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": true
+          },
+          "embed": "<iframe src='https://playgama.com/export/game/minimarket-677-store-tycoon?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        },
+        {
+          "id": "90503",
+          "slug": "idle-supermarket-tycoon",
+          "title": "Idle Supermarket Tycoon",
+          "description": "Embark on a journey to become a retail mogul with Idle Supermarket Tycoon. This engaging online simulation game lets you transform a modest shopping mall into a bustling retail empire. Strategically develop new shops, enhance their interiors, and beautify the mall's exterior. Your mission: serve customers, boost your reputation, and watch your profits soar. Play for free on your phone or computer and experience the thrill of managing your own supermarket kingdom",
+          "howToPlayText": "You have a Shopping mall at your disposal, which you need to develop by acquiring new shops and outfitting them, as well as improving the exterior and interior of the entire Shopping mall.\n\nServe customers, earn money and reputation. Invest your profits into your Shopping mall, and distribute reputation points among visitors. Assign priority customers to each shop in your mall. This way, you can maximize profits from serving them!\n\nPurchase delivery vehicles to earn additional income from each completed trip. Don't forget to monitor the corridors, as trash cans or vending machines might get clogged.\n\nIf you're unsure what to do next, you can always refer to the missions. Complete them to earn valuable rewards and expand your Shopping mall, your grand Supermarket!\n\n\n\nControls:\nUse the left mouse button to interact with the in-game UI\nPlus and minus keys = change the size of the camera",
+          "gameURL": "https://playgama.com/export/game/idle-supermarket-tycoon?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/idle-supermarket-tycoon",
+          "genres": [
+            "simulation",
+            "tycoon",
+            "idle",
+            "shopping",
+            "management"
+          ],
+          "tags": [
+            "unity-games-online",
+            "business-games",
+            "iphone-games",
+            "android-games",
+            "incremental-games",
+            "shop-games",
+            "borwser-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/idle-supermarket-tycoon/big-preview/c341d0a8566f49a89546970826943d3d?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-90503/icon/14fe1e38a5af409b85627a50e0a47f9768bc86acfaa43a7b9513447ea65d013f?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "1ac12dbec49748ea9fa4ae7c0d715b44",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "inGamePurchases": "No",
+          "supportedLanguages": [
+            "en-US",
+            "ru-RU",
+            "es-ES",
+            "fr-FR",
+            "pt-PT",
+            "de-DE",
+            "id-ID",
+            "tr-TR",
+            "it-IT"
+          ],
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "embed": "<iframe src='https://playgama.com/export/game/idle-supermarket-tycoon?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        },
+        {
+          "id": "121661",
+          "slug": "girl-hair-salon--dress-up",
+          "title": "Girl Hair Salon & Dress Up",
+          "description": "In the game Hair and Beauty, you can experiment with the latest trends in hairdressing and fashion:\n\n💇‍♀️ **Create stunning looks**\nOffer your clients a variety of hairstyles, from trendy cuts to elegant updos.\n🎨 **Express yourself with makeup**\nChoose from a wide range of makeup products and styles to complete your clients' looks.\n👗 **Dress to impress**\nSelect from hundreds of outfits and accessories to help your clients look their best.\n💎 **Unlock new possibilities**\nEarn rewards as you progress through the game and expand your salon's offerings.\n📸 **Capture the moment**\nTake photos of your clients before and after their transformations to share with your friends and the world!",
+          "howToPlayText": "Girl Hair Salon & Dress Up is a game where you can:\n\n- Use your creativity in hairstyling – offer your clients a variety of options, from trendy cuts to vibrant colors and elegant updos;\n- Experiment with makeup and choose fabulous outfits – turn your clients into real fashion icons;\n- Get rewards like stickers for your progress – unlock new opportunities for your hair salon and improve your skills as a stylist;\n- Take photos of your best works – share your masterpieces with friends and other players.",
+          "gameURL": "https://playgama.com/export/game/girl-hair-salon--dress-up?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/girl-hair-salon--dress-up",
+          "genres": [
+            "hair",
+            "make-up",
+            "fashion",
+            "girls",
+            "shopping",
+            "dress-up",
+            "make-over"
+          ],
+          "tags": [
+            "beauty-games",
+            "beauty-salon-games",
+            "customization-games",
+            "doll-games",
+            "hairdressing-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/girl-hair-salon--dress-up/big-preview/687a966d6b724ab3b49008bd9186fbef?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-121661/icon/8eb05acbb57fdb25200cadea4f97c764f39153a32e6350fa728bfc1105a2552e?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "08afacac101b4b248eb1fd3028fb3656",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Female"
+          ],
+          "inGamePurchases": "No",
+          "supportedLanguages": [
+            "en-US"
+          ],
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": true
+          },
+          "embed": "<iframe src='https://playgama.com/export/game/girl-hair-salon--dress-up?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        },
+        {
+          "id": "121632",
+          "slug": "supermarket-empire",
+          "title": "Supermarket Empire",
+          "description": "Supermarket Empire is a simulation game where you become the master of your own retail kingdom! Take charge of managing and growing your supermarket as you aim to build a thriving empire. Earn money and expand your store by offering a wide range of products that cater to the needs of your customers!",
+          "howToPlayText": "Use WASD / arrow keys / drag the left mouse button to move around. Serve your customers and make them happy!",
+          "gameURL": "https://playgama.com/export/game/supermarket-empire?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/supermarket-empire",
+          "genres": [
+            "simulation",
+            "management",
+            "tycoon",
+            "shopping"
+          ],
+          "tags": [
+            "business-games",
+            "1-player-games",
+            "shop-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/supermarket-empire/big-preview/218dcd05a10a47b99b04bde304de916f?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-121632/icon/2435e71fea9d94a41dd4cfcfc80dc1b2ccc6db8931efa9c54d47db2dbeafa0a9?width=448"
+          ],
+          "videos": [],
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "inGamePurchases": "No",
+          "supportedLanguages": [
+            "en-US"
+          ],
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": true
+          },
+          "embed": "<iframe src='https://playgama.com/export/game/supermarket-empire?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        },
+        {
+          "id": "114350",
+          "slug": "black-friday-dress-up-selfie",
+          "title": "Black Friday Dress Up Selfie",
+          "description": "Shop the best looks in Black Friday Dress Up Selfie! Help your fashionista choose outfits from her wishlist, cozy fall fits, warm winter layers, sparkly holiday glam, and dark-academia vibes. Mix tops, bottoms, dresses, shoes, and accessories to create the perfect selfie-ready style. A fun, fast way to solve every “What should I wear?” moment!",
+          "howToPlayText": "Use your mouse to play the game on a desktop, tap to play on mobile devices. Browse through the category options, click or tap the clothing pieces and accessories you like the most, and see them pop on your character.",
+          "gameURL": "https://playgama.com/export/game/black-friday-dress-up-selfie?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/black-friday-dress-up-selfie",
+          "genres": [
+            "fashion",
+            "dress-up",
+            "girls",
+            "shopping"
+          ],
+          "tags": [
+            "1-player-games",
+            "beauty-games",
+            "customization-games",
+            "iphone-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/black-friday-dress-up-selfie/big-preview/1afd0cccd8014010b7b4488104e2f05b?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-114350/icon/d06fa047810bf31fde18a283d2463c1d444944e9af4717354f0fcc70109eb125?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "cccf1da7a9a9cc28bfba86bc9a78a852",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Female"
+          ],
+          "inGamePurchases": "No",
+          "supportedLanguages": [
+            "en-US",
+            "es-ES",
+            "pt-PT",
+            "ru-RU",
+            "tr-TR"
+          ],
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "embed": "<iframe src='https://playgama.com/export/game/black-friday-dress-up-selfie?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        },
+        {
+          "id": "120492",
+          "slug": "shoes-outlet-game",
+          "title": "Shoes Outlet Game",
+          "description": "In this idle game, simplicity is key! Tap your way to success as you build and expand your outlets from mini to mega. It's easy, it's fun, and it's all about the joy of watching your mall grow with minimal effort! Become a retail tycoon without breaking a sweat! Effortlessly manage your dream mall by hiring staff and making strategic decisions. Deal with displaying goods, cleaning fitting rooms, and helping customers check out. Fear not, for you can build your own dream team and manage them efficiently, turning challenges into opportunities and making every coin count!",
+          "howToPlayText": "- To click any button use mouse\n\n                                                                                                                                                                                                                                                                     \n                                                 ",
+          "gameURL": "https://playgama.com/export/game/shoes-outlet-game?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/shoes-outlet-game",
+          "genres": [
+            "shopping",
+            "idle",
+            "management",
+            "easy"
+          ],
+          "tags": [
+            "business-games",
+            "resource-management-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/shoes-outlet-game/big-preview/c51f612af7324a3fbe9ca6f33338d1ae?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-120492/icon/b73a95def744176644e6962c673713c4a31a104101df5cae418d22280c3957fe?width=448"
+          ],
+          "videos": [],
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "inGamePurchases": "No",
+          "supportedLanguages": [
+            "en-US"
+          ],
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "embed": "<iframe src='https://playgama.com/export/game/shoes-outlet-game?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        },
+        {
+          "id": "122119",
+          "slug": "my-sweetstreet-shop",
+          "title": "My SweetStreet Shop",
+          "description": "Sweet Street Shop is a charming shop management simulation where you run your own candy and pastry store. Serve customers, collect money, unlock new products, upgrade your character, hire helpers, and expand the shop into a successful sweet business",
+          "howToPlayText": "Use WASD or arrow keys on PC, or the floating joystick on mobile, to move around the shop. Pick up sweets, deliver them to customers and counters, collect money, and spend it on upgrades, new stations, and shop expansion. Keep serving customers to grow your SweetStreet Shop",
+          "gameURL": "https://playgama.com/export/game/my-sweetstreet-shop?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/my-sweetstreet-shop",
+          "genres": [
+            "management",
+            "shopping",
+            "simulation",
+            "cake"
+          ],
+          "tags": [
+            "casual-games",
+            "1-player-games",
+            "shop-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/my-sweetstreet-shop/big-preview/62db01755f184dae91dbeebb0950e176?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-122119/icon/0e0af87612573def3ec167b87b8cf6f7ca79b01f04c0dc07248cb0cdaf5b251e?width=448"
+          ],
+          "videos": [],
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "inGamePurchases": "No",
+          "supportedLanguages": [
+            "en-US"
+          ],
+          "screenOrientation": {
+            "horizontal": false,
+            "vertical": true
+          },
+          "embed": "<iframe src='https://playgama.com/export/game/my-sweetstreet-shop?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        },
+        {
+          "id": "121520",
+          "slug": "dream-supermarket-3d-shop",
+          "title": "Dream Supermarket: 3D Shop",
+          "description": "Welcome to Dream Supermarket: 3D Shop, an engaging simulation game where players can experience managing their very own supermarket. Enter the captivating world of Hypermarket 3D - Store 3D and strive to become a top-notch store manager. Assist customers, restock shelves, and ensure a lively shopping environment in the dynamic Grocery Store - 3D Cashier gameplay.",
+          "howToPlayText": "Embark on your journey as a cashier, mastering the art of scanning items and handling cash in the interactive Cashier Games - Store Simulator. Keep the lines flowing swiftly, provide accurate change, and guarantee each customer leaves content with their experience. However, the excitement doesn't end at the checkout—efficiently arrange your store layout, replenish product stocks, and maintain a well-prepared Hypermarket 3D - Store 3D at all times.",
+          "gameURL": "https://playgama.com/export/game/dream-supermarket-3d-shop?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/dream-supermarket-3d-shop",
+          "genres": [
+            "simulation",
+            "shopping",
+            "3d",
+            "management"
+          ],
+          "tags": [
+            "1-player-games",
+            "life-simulation-games",
+            "resource-management-games",
+            "shop-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/dream-supermarket-3d-shop/big-preview/c00c5e0213584f1aac5e1aff01899175?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-121520/icon/d4d230459d4a0bc6de391ef673f26026f1c177c6cfc9431d14036a389744b843?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "c02e44b48eb549c7b2c7e404fe9d162a",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "inGamePurchases": "No",
+          "supportedLanguages": [
+            "en-US"
+          ],
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": true
+          },
+          "embed": "<iframe src='https://playgama.com/export/game/dream-supermarket-3d-shop?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        },
+        {
+          "id": "105904",
+          "slug": "Shopping-simulator",
+          "title": "Shopping Simulator",
+          "description": "Earn game money by tapping the hamster, raise the customer's level and buy everything from the store shelves. Anime, horror, food, pets, household goods, hundreds of heroes in one place! Buy anything you want! More than 500 unique items, 200 leveling levels, lots of mini-games and lots of emotions are waiting for you!",
+          "howToPlayText": "Earn game money in different mini-games to upgrade your level! Tap the hamster and complete the puzzles to get as many as possible! Unlock new levels to become the best!",
+          "gameURL": "https://playgama.com/export/game/Shopping-simulator?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/Shopping-simulator",
+          "genres": [
+            "clicker",
+            "shopping",
+            "idle"
+          ],
+          "tags": [
+            "unity-games-online",
+            "shop-games",
+            "life-simulation-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/shopping-simulator/big_preview/8c8c56e9cd5d45ad83a6cd0d72ef3d02?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-105904/icon/ce4799624cfec946880cc4800efb7dd9d3359aefa497957fe1edf57192bb54f6?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "8096ec25c41b48b58f18c4d51b6f79a2",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "inGamePurchases": "No",
+          "supportedLanguages": [
+            "en-US"
+          ],
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": true
+          },
+          "embed": "<iframe src='https://playgama.com/export/game/Shopping-simulator?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        },
+        {
+          "id": "119220",
+          "slug": "my-phone-store",
+          "title": "My Phone Store",
+          "description": "My Phone Store is a fun and casual game about creating and selling tech devices!\nBuild smartphones, laptops, and tablets, improve your production, and sell devices to customers. Grow your shop, earn money, and turn a small store into a successful electronics business.\nFeatures:\nSimple and addictive gameplay\nCreate phones, laptops, and tablets\nSell devices and earn money\nUpgrade your store and expand your business\nPlay, earn, and build the best gadget store!",
+          "howToPlayText": "To control, you need to press the WASD keys or use a mouse if you're playing on a computer.\nIf you're playing on a phone, you need to use your finger.",
+          "gameURL": "https://playgama.com/export/game/my-phone-store?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/my-phone-store",
+          "genres": [
+            "simulation",
+            "management",
+            "tycoon",
+            "shopping",
+            "idle"
+          ],
+          "tags": [
+            "business-games",
+            "1-player-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/my-phone-store/big-preview/6fe57ddca8f6479583f0543d198cec8d?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-119220/icon/f119ea3aed504abbd4ce356e0b759b115e9e43d342caa278e7899fd7caaf5a8c?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "ab8bc3280589444faa106699342b82a8",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "inGamePurchases": "No",
+          "supportedLanguages": [
+            "en-US"
+          ],
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": true
+          },
+          "embed": "<iframe src='https://playgama.com/export/game/my-phone-store?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        },
+        {
+          "id": "120650",
+          "slug": "supermarket-manager",
+          "title": "Supermarket Manager",
+          "description": "Try your hand as a Supermarket Manager! Develop your store by purchasing shelves for products, which you will need to stock yourself at the beginning. Earn profits by serving customers and invest your earnings to hire staff like stockers and cashiers.\nBoost the prestige of your supermarket by improving the quality of the products you sell. Then, invest in more expensive shelves and fill them with a wider variety of goods. Start earning maximum profits from serving each customer and build the supermarket of your dreams!",
+          "howToPlayText": "For PC Controls = Use the left mouse button or the WASD keys to move your character\nFor Smartphone Controls = Hold your finger on the screen and drag it in the direction you want the character to move\nTo purchase a shelf or a cash register, stand on the corresponding areas marked on the game field\nTo stock shelves with products, first load products from the warehouse, then carry them to the appropriate shelf\nIn the warehouse area, you'll find a computer. Approaching it will open the store management menu. Here, you can improve product quality or hire staff",
+          "gameURL": "https://playgama.com/export/game/supermarket-manager?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/supermarket-manager",
+          "genres": [
+            "management",
+            "shopping",
+            "tycoon",
+            "simulation"
+          ],
+          "tags": [
+            "roblox-tycoon",
+            "shop-games",
+            "business-games",
+            "time-management-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/supermarket-manager/big-preview/ed773c08f2ba428e9ff43b0b65064075?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-120650/icon/9cc2481255276acd5d3f58ec513235e19582478b10fd36ea6010382c24177816?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "6ba0ea5da76d4abb8050b53f20e36de4",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "inGamePurchases": "No",
+          "supportedLanguages": [
+            "en-US",
+            "de-DE",
+            "es-ES",
+            "fr-FR",
+            "id-ID",
+            "it-IT",
+            "pl-PL",
+            "pt-PT",
+            "ru-RU",
+            "tr-TR"
+          ],
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "embed": "<iframe src='https://playgama.com/export/game/supermarket-manager?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        },
+        {
+          "id": "124100",
+          "slug": "agrarian-magnate",
+          "title": "Agrarian Magnate",
+          "description": "Agrarian Magnate is a farming business simulator. The farm, processing, and store are all in your hands. Build your business empire!\nComplete levels, complete tasks and earn money. Manage your farm, factory and store. Hire salespeople, upgrade your equipment, and take your business to the next level.Buy and earn daily bonuses. Bonuses are given for one round.",
+          "howToPlayText": "The tutorial is built into the game and adapts to your progress.\n\nControls:\nPC: left-click to select. On the farm, mission selection, and factory, hold left-click and drag to view the field.\n\nMobile: tap to select. On the farm, level selection, and factory, drag the field with your finger.",
+          "gameURL": "https://playgama.com/export/game/agrarian-magnate?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/agrarian-magnate",
+          "genres": [
+            "farm",
+            "cozy",
+            "simulation",
+            "cooking",
+            "tycoon",
+            "management",
+            "shopping"
+          ],
+          "tags": [
+            "business-games",
+            "resource-management-games",
+            "1-player-games",
+            "building-games",
+            "incremental-games",
+            "roblox-tycoon"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/agrarian-magnate/big_preview/e45f5dee5ad540eb88649ac2b9681051?width=448",
+            "https://static.playgama.com/p-img/pg/agrarian-magnate/icon/d7840efc9cd647bb8dd45edc7b7c44d2?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "33850029bb654191871a0349008c9e95",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "inGamePurchases": "Yes",
+          "supportedLanguages": [
+            "en-US"
+          ],
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "embed": "<iframe src='https://playgama.com/export/game/agrarian-magnate?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        },
+        {
+          "id": "118174",
+          "slug": "holemart",
+          "title": "HoleMart",
+          "description": "HoleMart is a fun and addictive casual game where you control a growing hole inside a busy market.\nMove around the area, swallow objects, and expand your size as you consume more items.\n\nStart small by absorbing tiny goods, shelves, and carts. As your hole grows bigger, you’ll be able to swallow larger objects and clear the market faster. The more you consume, the stronger and bigger your hole becomes.\n\nSimple controls, satisfying growth, and smooth gameplay make HoleMart perfect for quick play sessions and endless fun.",
+          "howToPlayText": "Move the Hole\nDrag your finger to move the hole around the market.\n\nConsume Objects\nAbsorb smaller objects to increase your size.\n\nGrow Bigger\nThe more items you swallow, the larger your hole becomes.\n\nUnlock Larger Items\nAs you grow, you can consume bigger shelves, carts, and objects.\n\nClear the Market\nKeep swallowing until the market is completely cleared.",
+          "gameURL": "https://playgama.com/export/game/holemart?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/holemart",
+          "genres": [
+            "arcade",
+            "shopping",
+            "io"
+          ],
+          "tags": [
+            "hole-io",
+            "grow-games"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/holemart/big-preview/0d1fba27876241c9bbc7c5986f2d1a2b?width=448",
+            "https://static.playgama.com/p-img/pg/backfill/game-118174/icon/61fdc65c9390a4075bcc003d9253256c41ac918745464033ca33cc6ffbd873fd?width=448"
+          ],
+          "videos": [],
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "inGamePurchases": "No",
+          "supportedLanguages": [
+            "en-US"
+          ],
+          "screenOrientation": {
+            "horizontal": false,
+            "vertical": true
+          },
+          "embed": "<iframe src='https://playgama.com/export/game/holemart?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

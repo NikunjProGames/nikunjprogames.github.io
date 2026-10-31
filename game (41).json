@@ -1,0 +1,68 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "123587",
+          "slug": "flying-robot-transform-car-games",
+          "title": "Flying Robot Transform Car Games ",
+          "description": "Transform into a powerful Wolf Robot and battle enemy machines in an open-world futuristic city. Switch between a robot, car, bike, helicopter, jet, and tank to complete action-packed missions, defeat enemies, and save the city from destruction.\n\nComplete exciting missions across the city to earn coins and unlock powerful upgrades for your robot hero. Use special attacks, missiles, and unique transformation abilities to overcome challenging enemies and bosses. Whether you prefer exploring freely, flying above the city, or jumping straight into intense battles, every mission offers new action and rewards to discover.\n\nGame Modes: \nChoose between exciting Mission Mode and Free Mode.\n\nMission Mode\nComplete challenging objectives, battle enemy robots, destroy targets, and protect the city from dangerous attacks. Test your combat skills, use powerful transformations, and overcome increasingly difficult missions to become the ultimate robot hero.\n\nFree Mode\nExplore the open world at your own pace and enjoy complete freedom across the futuristic city. Transform into different vehicles and robots, collect rewards, fly through the skies, and discover everything the city has to offer.",
+          "howToPlayText": "Desktop\nWASD = Move\nMouse: UI and Actions\nESC = pause\nTAB = settings\nN = Skip Level\n\nMobile\nOn-Screen Joystick: Move in all directions by dragging the joystick.",
+          "gameURL": "https://playgama.com/export/game/flying-robot-transform-car-games?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/flying-robot-transform-car-games",
+          "genres": [
+            "action",
+            "boys",
+            "car",
+            "flying",
+            "robot",
+            "3d",
+            "racing"
+          ],
+          "tags": [
+            "1-player-games",
+            "open-world-games",
+            "vehicles-games",
+            "flying-car",
+            "fast-paced-action"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/flying-robot-transform-car-games/big_preview/35c6286784674c5ab3f28e49b7287003?width=448",
+            "https://static.playgama.com/p-img/pg/flying-robot-transform-car-games/icon/ec9563bcb013430b939e396c4e03735a?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "100a7073f49e40e1a46f43caf468f1ba",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "100a7073f49e40e1a46f43caf468f1ba",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/flying-robot-transform-car-games/big_preview/35c6286784674c5ab3f28e49b7287003?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/flying-robot-transform-car-games/icon/ec9563bcb013430b939e396c4e03735a?width=448",
+          "inGamePurchases": "No",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": false
+          },
+          "supportedLanguages": [
+            "en-US"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/flying-robot-transform-car-games?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}

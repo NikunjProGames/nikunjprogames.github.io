@@ -1,0 +1,75 @@
+{
+  "input": null,
+  "sort": null,
+  "segments": [
+    {
+      "title": "Specially for you",
+      "count": 1,
+      "hits": [
+        {
+          "id": "127111",
+          "slug": "mutant-zone-zombie-merge-fighter",
+          "title": "Mutant Zone: Zombie Merge Fighter",
+          "description": "Zombies are coming! Collect equipment and fight. Merge items, combine weapons! Upgrade your fighter and go into battle with a crowd of zombies. Guns and armor!\n\nThe world is captured by a dangerous zombie virus. Hordes of mutants have filled the streets of cities. Grab a machine gun and go into battle! Go through a dangerous path through many locations and clear the streets of zombies. Pick up cool equipment and combine weapons and armor. Assemble a unique fighter with cool abilities. Defeat various mutants, zombies and dangerous Bosses.\nDefeat powerful bosses, look for treasure chests, capture enemy outposts!\nFeatures of the game:\n- Unique gameplay that combines merge, strategy, fighting and sandbox!\n- Combination of items, weapons and armor\n- Multifunctional character editor, you can assemble a unique character that will be only yours!\n- Lots of different weapons, from bats and knives to grenade launchers, flamethrowers and plasma guns!\n- Lots of cool locations, explore cities, factories, military bases, laboratories, etc.\n- Dangerous enemies! An army of evil zombies, mutants, big bosses. Defeat them all!\nAssemble your fighter and win!",
+          "howToPlayText": "To win the level, you need to clear the location of zombies.\nTo increase the level of items - combine 2 identical items.\nControls:\nTo buy a loot box - press the button with the image of the loot box and the price tag.\nTo open the loot box - click on the loot box in the inventory.\nTo send a fighter into battle - press the \"TO BATTLE\" button",
+          "gameURL": "https://playgama.com/export/game/mutant-zone-zombie-merge-fighter?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487",
+          "playgamaGameUrl": "https://playgama.com/game/mutant-zone-zombie-merge-fighter",
+          "genres": [
+            "action",
+            "strategy",
+            "3d",
+            "fighting",
+            "zombie",
+            "survival",
+            "merge"
+          ],
+          "tags": [
+            "mission-games",
+            "customization-games",
+            "kill-games",
+            "apocalypse-games",
+            "combat-games",
+            "1-player-games",
+            "horde-survival-games",
+            "action-adventure",
+            "action-rpg",
+            "survival-horror"
+          ],
+          "images": [
+            "https://static.playgama.com/p-img/pg/mutant-zone-zombie-merge-fighter/big_preview/f74c3b8decd540d194da338f35325256?width=448",
+            "https://static.playgama.com/p-img/pg/mutant-zone-zombie-merge-fighter/icon/2580c298b801406cbf17f7358b7b144d?width=448"
+          ],
+          "videos": [
+            {
+              "playgama_id": "04b1c3dcca7e466da3c3219604a40f17",
+              "external_url": "",
+              "type": "gameplay"
+            }
+          ],
+          "videoId": "04b1c3dcca7e466da3c3219604a40f17",
+          "mobileReady": [
+            "For Android",
+            "For IOS",
+            "For Desktop"
+          ],
+          "gender": [
+            "Male",
+            "Female"
+          ],
+          "imageSrc": "https://static.playgama.com/p-img/pg/mutant-zone-zombie-merge-fighter/big_preview/f74c3b8decd540d194da338f35325256?width=448",
+          "imageSrcSquare": "https://static.playgama.com/p-img/pg/mutant-zone-zombie-merge-fighter/icon/2580c298b801406cbf17f7358b7b144d?width=448",
+          "inGamePurchases": "Yes",
+          "screenOrientation": {
+            "horizontal": true,
+            "vertical": true
+          },
+          "supportedLanguages": [
+            "en-US",
+            "ru-RU"
+          ],
+          "embed": "<iframe src='https://playgama.com/export/game/mutant-zone-zombie-merge-fighter?clid=p_98609dfc-b567-44f0-b6c3-9769024bd487' allow='fullscreen; accelerometer; camera; clipboard-read; clipboard-write; screen-wake-lock; speaker-selection; web-share; geolocation; gyroscope; microphone; xr-spatial-tracking; autoplay; encrypted-media; picture-in-picture; payment; publickey-credentials-get; publickey-credentials-create; storage-access; attribution-reporting; browsing-topics' frameborder='0' width='800' height='450'></iframe>"
+        }
+      ]
+    }
+  ]
+}
