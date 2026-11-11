@@ -1966,6 +1966,7 @@
   const lowPowerDevice = window.matchMedia('(max-width: 768px)').matches
     || navigator.connection?.saveData === true
     || (navigator.hardwareConcurrency > 0 && navigator.hardwareConcurrency <= 4);
+  if (lowPowerDevice) document.documentElement.classList.add('low-power-device');
   if (!canvas || lowPowerDevice) {
     if (canvas) canvas.hidden = true;
     return;
@@ -7680,9 +7681,58 @@ setTimeout(() => {
     .mood-option-text strong { font-size: 0.76rem; }
     .mood-option-text small { font-size: 0.65rem; }
   }
+  @media (max-width: 600px) {
+    #recommendations {
+      width: calc(100% - 1rem);
+      margin: 0.45rem auto 1rem;
+      padding: 1rem;
+      border-color: rgba(199,125,255,0.28);
+      background: rgba(12,10,20,0.68);
+      box-shadow: none;
+    }
+    #recommendations .mood-discovery-kicker,
+    #recommendations .section-underline,
+    #recommendations .discovery-copy,
+    .mood-option-text small { display: none; }
+    #recommendations .discovery-heading { margin-bottom: 0.75rem; }
+    #recommendations .mood-discovery-title { font-size: clamp(1.45rem, 6.4vw, 1.9rem); line-height: 1.12; letter-spacing: -0.02em; }
+    .recommendation-mode-switch { display: flex; width: 100%; margin: 0 0 0.7rem; }
+    .recommendation-mode { flex: 1; min-height: 46px; min-width: 0; padding: 0.5rem 0.4rem; font-size: 0.85rem; }
+    .mood-options { gap: 0.45rem; margin-bottom: 0.8rem; }
+    .mood-option { min-height: 54px; padding: 0.5rem; gap: 0.45rem; border-radius: 10px; background: rgba(255,255,255,0.035); }
+    .mood-option-icon { width: 30px; height: 30px; flex-basis: 30px; border-radius: 8px; font-size: 0.95rem; }
+    .mood-option-text strong { font-size: 0.8rem; line-height: 1.1; }
+    .mood-option:hover { transform: none; }
+  }
+  @media (max-width: 360px) {
+    #recommendations { padding: 0.8rem; }
+    #recommendations .mood-discovery-title { font-size: 1.4rem; }
+    .mood-options { gap: 0.35rem; }
+    .mood-option { min-height: 50px; padding: 0.4rem; gap: 0.35rem; }
+    .mood-option-icon { width: 26px; height: 26px; flex-basis: 26px; font-size: 0.85rem; }
+    .mood-option-text strong { font-size: 0.74rem; }
+  }
   @media (min-width: 769px) and (max-width: 1100px) { .mood-options { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
   @media (max-width: 768px) { #install-app-button { display: none; } }
   @media (prefers-reduced-motion: reduce) { .recommendation-mode, .mood-option { transition: none; } .mood-option:hover { transform: none; } }
+  html.low-power-device .section-underline,
+  html.low-power-device .logo,
+  html.low-power-device .hero-badge,
+  html.low-power-device .hero-title { animation: none !important; }
+  html.low-power-device header,
+  html.low-power-device .mobile-bottom-nav,
+  html.low-power-device .recent-panel,
+  html.low-power-device .trending-card,
+  html.low-power-device #recommendations,
+  html.low-power-device .game-card { backdrop-filter: none; box-shadow: none; }
+  html.low-power-device .game-card,
+  html.low-power-device .trending-card,
+  html.low-power-device .btn,
+  html.low-power-device .recommendation-mode,
+  html.low-power-device .mood-option { transition: none; }
+  html.low-power-device .game-card:hover,
+  html.low-power-device .trending-card:hover,
+  html.low-power-device .mood-option:hover { transform: none; box-shadow: none; }
   .trending-row { width: 100%; min-width: 100%; }
   .trending-slider { position: relative; }
   .trending-scroll-wrap { scroll-behavior: smooth; }
