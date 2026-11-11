@@ -13,25 +13,24 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
 
-  <title>Free Online Games on PleyZ</title>
-  <meta name="description" content="Play free online games on PleyZ. Explore curated picks and mood-based discovery, or create a free account to save your profile and earn PleyZ Score." />
+  <title>Play Games by Mood | PleyZ Free Online Games</title>
+  <meta name="description" content="Find free online games for your mood on PleyZ. Choose intense, low-key, thoughtful, quick, or multiplayer games, or get picks shaped by your play history." />
 
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <meta name="msvalidate.01" content="094E1ED761D7CE3B597F41F2347CD317" />
   <link rel="canonical" href="https://nikunjprogames.github.io/" />
 
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://nikunjprogames.github.io/" />
-  <meta property="og:title" content="Free Online Games on PleyZ" />
-  <meta property="og:description" content="Play free online games on PleyZ. Explore curated picks and mood-based discovery, or create a free account to save your profile and earn PleyZ Score." />
+  <meta property="og:title" content="Play Games by Mood | PleyZ" />
+  <meta property="og:description" content="Find free online games for your mood on PleyZ. Choose intense, low-key, thoughtful, quick, or multiplayer games, or get picks shaped by your play history." />
   <meta property="og:site_name" content="PleyZ Games" />
   <meta property="og:image" content="https://nikunjprogames.github.io/icon-512.png" />
   <meta property="og:image:alt" content="PleyZ Games - Handpicked Games Worth Playing" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content="https://nikunjprogames.github.io/" />
-  <meta name="twitter:title" content="Free Online Games on PleyZ" />
-  <meta name="twitter:description" content="Play free online games on PleyZ. Explore curated picks and mood-based discovery, or create a free account to save your profile and earn PleyZ Score." />
+  <meta name="twitter:title" content="Play Games by Mood | PleyZ" />
+  <meta name="twitter:description" content="Find free online games for your mood on PleyZ. Choose intense, low-key, thoughtful, quick, or multiplayer games, or get picks shaped by your play history." />
   <meta name="twitter:image" content="https://nikunjprogames.github.io/icon-512.png" />
   <meta name="twitter:image:alt" content="PleyZ Games - Handpicked Games Worth Playing" />
 
@@ -51,7 +50,7 @@
         "url": "https://nikunjprogames.github.io/",
         "name": "PleyZ Games",
         "alternateName": "PleyZ",
-        "description": "Play free online games on PleyZ. Explore curated picks and mood-based discovery, or create a free account to save your profile and earn PleyZ Score.",
+        "description": "Discover free online games by mood on PleyZ, or find personalized browser game recommendations shaped by your play history.",
         "publisher": {
           "@id": "https://nikunjprogames.github.io/#organization"
         },
@@ -61,8 +60,8 @@
         "@type": "WebPage",
         "@id": "https://nikunjprogames.github.io/#webpage",
         "url": "https://nikunjprogames.github.io/",
-        "name": "Free Online Games on PleyZ",
-        "description": "Play free online games on PleyZ. Explore curated picks and mood-based discovery, or create a free account to save your profile and earn PleyZ Score.",
+        "name": "Play Games by Mood on PleyZ",
+        "description": "Find free online games for your mood on PleyZ. Choose a mood to discover curated browser games, or get personalized picks based on your play history.",
         "isPartOf": {
           "@id": "https://nikunjprogames.github.io/#website"
         },
@@ -77,7 +76,7 @@
         "name": "PleyZ Games",
         "alternateName": "PleyZ",
         "url": "https://nikunjprogames.github.io/",
-        "description": "PleyZ is an independently developed browser gaming platform with curated games, mood-based discovery, personalized recommendations, optional player profiles, PleyZ Score, and a leaderboard.",
+        "description": "PleyZ is an independent browser gaming hub for discovering free online games by mood, exploring curated picks, and finding personalized recommendations.",
         "logo": {
           "@type": "ImageObject",
           "url": "https://nikunjprogames.github.io/icon-512.png"
@@ -909,22 +908,15 @@
 .cat-parkour{background: rgba(255,140,0,0.1);   color: #bf00ff; border: 1px solid rgba(255, 0, 255, 0.3); }
 
     #trending {
-      padding: 4.5rem 2rem 3rem;
+      padding: 2rem 2rem 3rem;
       position: relative;
       z-index: 2;
       width: 100%;
       max-width: none;
     }
-    #trending::before {
-      content: '';
-      position: absolute;
-      inset: 1rem 0 0;
-      border-radius: 2rem;
-      background: radial-gradient(circle at top left, rgba(0,191,255,0.16), transparent 54%);
-      border: 1px solid rgba(255,255,255,0.06);
-      z-index: -1;
-      pointer-events: none;
-    }
+      #trending .trending-card { border-color: rgba(255,255,255,0.12); box-shadow: 0 12px 30px rgba(0,0,0,0.2); }
+      #trending .trending-card:hover { border-color: rgba(199,125,255,0.65); box-shadow: 0 18px 38px rgba(0,0,0,0.3), 0 0 28px rgba(139,0,255,0.13); }
+      #trending .trending-card.featured { border-color: rgba(199,125,255,0.32); background: linear-gradient(145deg, rgba(139,0,255,0.14), rgba(255,255,255,0.035)); }
     .trending-intro {
       display: flex;
       justify-content: space-between;
@@ -961,14 +953,13 @@
       gap: 0.45rem;
       padding: 0.75rem 1rem;
       border-radius: 999px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(0,191,255,0.24);
-      color: var(--text);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: var(--text-dim);
       font-family: 'Orbitron', sans-serif;
       font-size: 0.7rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
     }
     .trending-scroll-wrap {
       overflow-x: auto;
@@ -1583,7 +1574,7 @@
     width="2560"
     height="1440"
     decoding="async"
-    fetchpriority="high"
+    fetchpriority="low"
   />
 </picture>
 <canvas id="bg-canvas"></canvas>
@@ -1652,6 +1643,34 @@
 </nav>
 
 <!-- ============================================================
+     MOOD DISCOVERY
+============================================================ -->
+<section id="recommendations" aria-labelledby="recommendations-heading">
+  <div class="discovery-heading">
+    <div>
+      <p class="mood-discovery-kicker">Find a game for how you feel</p>
+      <h2 class="section-title mood-discovery-title" id="recommendations-heading">Play Games According to Your Mood on PleyZ</h2>
+      <div class="section-underline"></div>
+      <p class="discovery-copy" id="recommendations-caption">Choose a mood and discover browser games that fit the moment. Mood picks are open to everyone; sign in for recommendations shaped by your gameplay.</p>
+    </div>
+  </div>
+  <div class="recommendation-mode-switch" role="group" aria-label="Choose how games are recommended">
+    <button class="recommendation-mode is-active" type="button" data-recommendation-mode="mood" aria-controls="mood-options recommended-grid" aria-pressed="true"><span aria-hidden="true">✦</span> Play by mood</button>
+    <button class="recommendation-mode" type="button" data-recommendation-mode="for-you" aria-controls="recommended-grid" aria-pressed="false"><span aria-hidden="true">◎</span> For You</button>
+  </div>
+  <div class="mood-options" id="mood-options" role="group" aria-label="Choose a gaming mood">
+    <button class="mood-option" type="button" data-mood="intense" aria-pressed="false"><span class="mood-option-icon" aria-hidden="true">⚡</span><span class="mood-option-text"><strong>Intense</strong><small>Action and high-energy games</small></span></button>
+    <button class="mood-option" type="button" data-mood="think" aria-pressed="false"><span class="mood-option-icon" aria-hidden="true">🧠</span><span class="mood-option-text"><strong>Make Me Think</strong><small>Puzzles, strategy and brain games</small></span></button>
+    <button class="mood-option" type="button" data-mood="tired" aria-pressed="false"><span class="mood-option-icon" aria-hidden="true">😴</span><span class="mood-option-text"><strong>Low-Key</strong><small>Relaxed games at your own pace</small></span></button>
+    <button class="mood-option" type="button" data-mood="challenge" aria-pressed="false"><span class="mood-option-icon" aria-hidden="true">🏆</span><span class="mood-option-text"><strong>Challenge Me</strong><small>Test your timing and skills</small></span></button>
+    <button class="mood-option" type="button" data-mood="weird" aria-pressed="false"><span class="mood-option-icon" aria-hidden="true">🌌</span><span class="mood-option-text"><strong>Something Weird</strong><small>Try unusual and unexpected games</small></span></button>
+    <button class="mood-option" type="button" data-mood="quick" aria-pressed="false"><span class="mood-option-icon" aria-hidden="true">⏱️</span><span class="mood-option-text"><strong>Quick Games</strong><small>Find a game for a short break</small></span></button>
+    <button class="mood-option" type="button" data-mood="together" aria-pressed="false"><span class="mood-option-icon" aria-hidden="true">👥</span><span class="mood-option-text"><strong>Play Together</strong><small>Multiplayer and games with friends</small></span></button>
+  </div>
+  <div class="games-grid discovery-grid" id="recommended-grid" aria-live="polite"></div>
+</section>
+
+<!-- ============================================================
      TRENDING SECTION
 ============================================================ -->
 <section id="trending">
@@ -1659,9 +1678,9 @@
     <div>
       <h2 class="section-title">Your Next Pick</h2>
       <div class="section-underline"></div>
-    
+      <p class="trending-copy">Handpicked games to jump into next.</p>
     </div>
-    <div class="trending-badge"><i class="fas fa-star"></i> Featured on PleyZ</div>
+    <div class="trending-badge"><i class="fas fa-sparkles" aria-hidden="true"></i> Curated picks</div>
   </div>
   <div class="trending-slider">
     <button class="trending-arrow trending-arrow-previous" id="trending-previous" type="button" data-trending-direction="-1" aria-label="Show previous games" title="Previous games"><span aria-hidden="true">←</span></button>
@@ -1672,19 +1691,6 @@
     </div>
     <button class="trending-arrow trending-arrow-next" id="trending-next" type="button" data-trending-direction="1" aria-label="Show next games" title="Next games"><span aria-hidden="true">→</span></button>
   </div>
-</section>
-
-<section id="recommendations" aria-labelledby="recommendations-heading">
-  <div class="discovery-heading">
-    <div>
-      <p class="mood-discovery-kicker">Mood discovery</p>
-      <h2 class="section-title mood-discovery-title" id="recommendations-heading">PleyZ Picks</h2>
-      <div class="section-underline"></div>
-      <p class="discovery-copy" id="recommendations-caption">Choose a mood for picks that fit your play style. Helpful votes make future recommendations smarter.</p>
-    </div>
-    <button class="mood-trigger" type="button" id="mood-trigger" aria-haspopup="dialog" aria-controls="mood-popup">Choose a mood</button>
-  </div>
-  <div class="games-grid discovery-grid" id="recommended-grid" aria-live="polite"></div>
 </section>
 
 <section id="popular-country" aria-labelledby="popular-country-heading">
@@ -5756,11 +5762,11 @@ function createGameIconUrl(game) {
   return 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg);
 }
 
-function createGameImageMarkup(game) {
+function createGameImageMarkup(game, { eager = false, highPriority = false } = {}) {
   const imageUrl = game.imageUrl && game.imageUrl.trim();
   const src = imageUrl || createGameIconUrl(game);
   const className = imageUrl ? 'game-icon custom-game-image' : 'game-icon';
-  return `<img class="${className}" src="${src}" alt="${game.name} image" loading="lazy" decoding="async" />`;
+  return `<img class="${className}" src="${src}" alt="${game.name} image" loading="${eager ? 'eager' : 'lazy'}" fetchpriority="${highPriority ? 'high' : 'auto'}" decoding="async" />`;
 }
 
 function createGameVideoPreview(game) {
@@ -5983,7 +5989,7 @@ let currentFilteredGames = [];
 let currentGameFilter = 'all';
 let gamesReady = false;
 let recommendationsReady = false;
-let moodChangeRenderTimer = null;
+let recommendationMode = 'mood';
 
 function renderGames(filter = 'all', reset = true) {
   if (!gamesReady) return;
@@ -6072,14 +6078,13 @@ function getPlayHistory(username) {
 
 function renderRecommendedGames() {
   if (!recommendationsReady) return;
-  if (moodChangeRenderTimer) return;
   const grid = document.getElementById('recommended-grid');
   if (!grid) return;
   bindGameGrid(grid);
   grid.removeAttribute('aria-busy');
 
   const username = getCurrentUser();
-  const moodKey = getSelectedMood();
+  const moodKey = recommendationMode === 'mood' ? getSelectedMood() : '';
   const recent = username ? getRecentGamesForUser(username) : [];
   const preferences = getGamePreferences();
   const recommendationFeedback = username ? getRecommendationFeedback(username, moodKey || 'all') : {};
@@ -6189,11 +6194,15 @@ function renderRecommendedGames() {
 
   const caption = document.getElementById('recommendations-caption');
   if (caption) {
-    caption.textContent = mood
-      ? `A varied mix matched to ${mood.label.toLowerCase()}. Change your mood any time.`
+    caption.textContent = recommendationMode === 'mood'
+      ? mood
+        ? `A varied mix matched to ${mood.label.toLowerCase()}. Choose another mood any time.`
+        : 'Choose a mood to find games for how you feel right now. Mood discovery is free and does not require an account.'
       : username && (recent.length || Object.keys(history).length || Object.keys(preferences).length)
-        ? 'Balanced from your recent plays, genre patterns, feedback, and PleyZ trends.'
-        : 'A rotating mix of curated discoveries. Personal picks build from your play history when signed in.';
+        ? 'Picked for you from your recent plays, genre patterns, and feedback.'
+        : username
+          ? 'Play a few games and your picks will adapt to your play history and feedback.'
+          : 'Enjoy a curated mix, or sign in and play a few games for recommendations shaped by your gameplay.';
   }
 
   const recommendationFragment = document.createDocumentFragment();
@@ -6296,52 +6305,38 @@ function updatePopularCountryHeading() {
 }
 
 function initializeMoodDiscovery() {
-  const popup = document.getElementById('mood-popup');
-  const trigger = document.getElementById('mood-trigger');
-  if (!popup || !trigger) return;
+  const modeButtons = document.querySelectorAll('[data-recommendation-mode]');
+  const moodButtons = document.querySelectorAll('.mood-option[data-mood]');
+  const moodOptions = document.querySelector('.mood-options');
+  if (!modeButtons.length || !moodButtons.length || !moodOptions) return;
 
-  const setOpen = (open, returnFocus = false) => {
-    popup.classList.toggle('open', open);
-    popup.setAttribute('aria-hidden', open ? 'false' : 'true');
-    trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
-    if (!open && returnFocus) trigger.focus();
+  const updateMode = mode => {
+    recommendationMode = mode;
+    modeButtons.forEach(button => {
+      const active = button.dataset.recommendationMode === mode;
+      button.classList.toggle('is-active', active);
+      button.setAttribute('aria-pressed', String(active));
+    });
+    moodOptions.hidden = mode !== 'mood';
+    renderRecommendedGames();
   };
 
-  trigger.addEventListener('click', () => setOpen(!popup.classList.contains('open')));
-  popup.querySelector('.mood-close')?.addEventListener('click', () => setOpen(false, true));
-  popup.addEventListener('click', event => {
-    const choice = event.target.closest('[data-mood]');
-    if (!choice) return;
-    const moodChanged = choice.dataset.mood !== getSelectedMood();
-    try { sessionStorage.setItem('pleyz_play_mood', choice.dataset.mood); } catch (_) {}
-    trigger.textContent = `Mood: ${PLAY_MOODS[choice.dataset.mood].label}`;
-    if (moodChanged) {
-      const grid = document.getElementById('recommended-grid');
-      if (grid) {
-        window.clearTimeout(moodChangeRenderTimer);
-        grid.setAttribute('aria-busy', 'true');
-        const loading = document.createElement('div');
-        loading.className = 'recommendation-loading';
-        loading.setAttribute('role', 'status');
-        loading.innerHTML = '<span>Finding games for your mood</span><span class="recommendation-loading-dots" aria-hidden="true"><i></i><i></i><i></i></span>';
-        grid.replaceChildren(loading);
-        moodChangeRenderTimer = window.setTimeout(() => {
-          moodChangeRenderTimer = null;
-          renderRecommendedGames();
-        }, 650);
-      }
-    } else {
-      renderRecommendedGames();
-    }
-    setOpen(false, true);
+  modeButtons.forEach(button => {
+    button.addEventListener('click', () => updateMode(button.dataset.recommendationMode));
   });
-  document.addEventListener('keydown', event => {
-    if (event.key === 'Escape' && popup.classList.contains('open')) setOpen(false, true);
+  moodButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const moodKey = button.dataset.mood;
+      if (!PLAY_MOODS[moodKey]) return;
+      try { sessionStorage.setItem('pleyz_play_mood', moodKey); } catch (_) {}
+      moodButtons.forEach(option => option.setAttribute('aria-pressed', String(option === button)));
+      updateMode('mood');
+    });
   });
 
   const selectedMood = getSelectedMood();
-  if (selectedMood && PLAY_MOODS[selectedMood]) trigger.textContent = `Mood: ${PLAY_MOODS[selectedMood].label}`;
-  window.setTimeout(() => setOpen(true), 1200);
+  moodButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.mood === selectedMood)));
+  moodOptions.hidden = false;
 }
 
 function renderTrending() {
@@ -6356,7 +6351,7 @@ function renderTrending() {
     card.innerHTML = `
       <div class="hot-badge"><i class="fas fa-star"></i> PICK</div>
       <div class="trending-thumb" style="background:${g.gradient};">
-        ${createGameImageMarkup(game)}
+        ${createGameImageMarkup(game, { eager: index === 0, highPriority: index === 0 })}
       </div>
       <div class="trending-info">
         <div class="trending-topline">
@@ -6369,6 +6364,17 @@ function renderTrending() {
         </div>
       </div>`;
     row.appendChild(card);
+    if (index > 0) {
+      const image = card.querySelector('img');
+      const bounds = image?.getBoundingClientRect();
+      if (bounds
+        && bounds.top < window.innerHeight
+        && bounds.bottom > 0
+        && bounds.left < window.innerWidth
+        && bounds.right > 0) {
+        image.loading = 'eager';
+      }
+    }
   });
 
   const wrap = document.getElementById('trending-scroll');
@@ -7551,9 +7557,8 @@ setTimeout(() => {
   .hero-tagline { margin-bottom: 1rem; }
   .hero-explore { color: var(--blue-1); font-family: 'Orbitron', sans-serif; font-size: 0.76rem; font-weight: 700; letter-spacing: 1px; text-decoration: none; }
   .hero-explore:hover { color: #fff; text-shadow: 0 0 12px var(--blue-1); }
-  #trending { padding-top: calc(5.5rem + env(safe-area-inset-top)); }
-  #trending::before { inset: 0; border-radius: 0; border-left: 0; border-right: 0; }
-  .trending-intro { margin-bottom: 1.1rem; }
+  #trending { padding-top: 1.5rem; }
+  .trending-intro { margin-bottom: 1.1rem; align-items: center; }
   .trending-intro .section-title { text-align: left; font-size: clamp(1.4rem, 3vw, 2rem); }
   .trending-intro .section-underline { margin: 0.45rem 0 0.7rem; height: 2px; }
   .trending-copy { font-size: 0.95rem; }
@@ -7573,8 +7578,7 @@ setTimeout(() => {
     #home { padding: 6.8rem 1.2rem 1.5rem; }
     .hero-title { font-size: clamp(2rem, 11vw, 3rem); }
     .hero-badge { font-size: 0.4rem; letter-spacing: 2px; }
-    #trending { padding: calc(4.8rem + env(safe-area-inset-top)) 1.2rem 2.2rem; }
-    #trending::before { display: none; }
+    #trending { padding: 1.2rem 1.2rem 2.2rem; }
     .trending-intro .section-title { font-size: 1.45rem; }
     .trending-badge { display: none; }
     #games { padding: 2.2rem 1.2rem 3rem; }
@@ -7596,12 +7600,30 @@ setTimeout(() => {
   }
 
   #recommendations, #popular-country { padding: 2.6rem 2rem; }
+  #recommendations {
+    width: calc(100% - clamp(1.5rem, 6vw, 6rem));
+    max-width: 1440px;
+    margin: clamp(1.2rem, 3vw, 2.5rem) auto;
+    padding: clamp(1.5rem, 4vw, 3.5rem);
+    overflow: hidden;
+    border: 1px solid rgba(176,112,255,0.3);
+    border-radius: clamp(18px, 2.2vw, 30px);
+    background:
+      radial-gradient(ellipse at 92% 0%, rgba(139,0,255,0.2), transparent 38%),
+      linear-gradient(145deg, rgba(22,17,36,0.97), rgba(11,12,22,0.98) 62%);
+    box-shadow: 0 24px 70px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.045);
+  }
   .discovery-heading { display: flex; justify-content: space-between; align-items: end; gap: 1rem; margin-bottom: 1rem; }
   .discovery-heading .section-title, #popular-country > .section-title { text-align: left; font-size: clamp(1.35rem, 2vw, 1.8rem); }
   .discovery-heading .section-underline, #popular-country > .section-underline { margin: 0.45rem 0 0.6rem; height: 2px; }
   .discovery-copy { max-width: 680px; margin: 0.4rem 0 1rem; color: var(--text-dim); font-size: 0.9rem; line-height: 1.45; }
   .discovery-heading .discovery-copy { margin-bottom: 0; }
-  .mood-discovery-kicker { margin: 0 0 0.35rem; color: var(--blue-1); font: 700 0.65rem 'Orbitron', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; }
+  .mood-discovery-kicker { display: inline-flex; align-items: center; gap: 0.45rem; margin: 0 0 0.8rem; padding: 0.42rem 0.72rem; border: 1px solid rgba(176,112,255,0.32); border-radius: 999px; background: rgba(139,0,255,0.1); color: #d7b4ff; font: 700 0.65rem 'Orbitron', sans-serif; letter-spacing: 0.12em; text-transform: uppercase; }
+  .mood-discovery-kicker::before { content: ''; width: 0.42rem; height: 0.42rem; border-radius: 50%; background: #c77dff; box-shadow: 0 0 12px rgba(199,125,255,0.7); }
+  #recommendations .discovery-heading { margin-bottom: 1.3rem; }
+  #recommendations .mood-discovery-title { max-width: 1050px; margin: 0; text-align: left; font-size: clamp(2rem, 4.3vw, 4rem); line-height: 1.12; letter-spacing: -0.035em; text-wrap: balance; }
+  #recommendations .section-underline { width: clamp(72px, 9vw, 112px); height: 3px; margin: 0.9rem 0 0.8rem; border-radius: 99px; background: linear-gradient(90deg, var(--purple-1), var(--blue-1)); }
+  #recommendations .discovery-copy { max-width: 760px; font-size: clamp(0.95rem, 1.2vw, 1.08rem); line-height: 1.6; }
   .category-discovery-title { margin: 1.8rem 0 0.9rem; font: 700 1rem 'Orbitron', sans-serif; color: var(--text); }
   .footer-auth-button { padding: 0; border: 0; background: transparent; color: var(--text-dim); font: inherit; text-align: left; cursor: pointer; }
   .footer-auth-button:hover { color: var(--blue-1); }
@@ -7614,29 +7636,25 @@ setTimeout(() => {
   .load-more-button { min-width: 150px; min-height: 44px; padding: 0.7rem 1.2rem; border: 1px solid rgba(0,191,255,0.45); border-radius: 8px; background: rgba(0,191,255,0.08); color: var(--text); font: 700 0.78rem 'Orbitron', sans-serif; cursor: pointer; }
   .load-more-button:hover, .load-more-button:focus-visible { border-color: var(--blue-1); color: var(--blue-1); outline: none; }
   .load-more-button[hidden] { display: none; }
-  .mood-trigger { flex: 0 0 auto; border: 1px solid rgba(0,191,255,0.45); border-radius: 999px; padding: 0.65rem 1rem; background: rgba(0,191,255,0.08); color: var(--text); font: 700 0.72rem 'Orbitron', sans-serif; cursor: pointer; }
-  .mood-trigger:hover { border-color: var(--blue-1); color: var(--blue-1); }
-  .mood-popup { position: fixed; z-index: 1500; top: 78px; right: clamp(1rem, 4vw, 3.5rem); width: min(440px, calc(100vw - 2rem)); padding: 1.2rem; border: 1px solid rgba(176,112,255,0.55); border-radius: 14px; background: rgba(13,10,24,0.97); box-shadow: 0 20px 70px rgba(0,0,0,0.55), 0 0 36px rgba(139,0,255,0.18); opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(-10px) scale(0.98); transition: opacity 180ms ease, transform 180ms ease, visibility 180ms; }
-  .mood-popup.open { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0) scale(1); }
-  .mood-popup-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; }
-  .mood-popup-header h2 { margin: 0.2rem 0 0; font: 700 1.05rem 'Orbitron', sans-serif; color: #fff; }
-  .mood-eyebrow { color: var(--blue-1); font-size: 0.63rem; letter-spacing: 0.14em; text-transform: uppercase; }
-  .mood-close { border: 0; background: transparent; color: var(--text-dim); font-size: 1.35rem; line-height: 1; cursor: pointer; }
-  .mood-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.5rem; }
-  .mood-option { display: flex; align-items: center; gap: 0.6rem; min-height: 48px; padding: 0.55rem 0.7rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; background: rgba(255,255,255,0.035); color: var(--text); font: 600 0.86rem 'Rajdhani', sans-serif; text-align: left; cursor: pointer; }
-  .mood-option:hover, .mood-option:focus-visible { border-color: var(--blue-1); background: rgba(0,191,255,0.1); outline: none; }
-  .mood-option span:first-child { font-size: 1.15rem; }
-  .mood-new-badge { margin-left: auto; padding: 0.16rem 0.34rem; border: 1px solid rgba(0,191,255,0.45); border-radius: 999px; background: rgba(0,191,255,0.12); color: var(--blue-1); font: 700 0.55rem 'Orbitron', sans-serif; letter-spacing: 0.05em; }
-  .recommendation-loading { grid-column: 1 / -1; display: flex; align-items: center; justify-content: center; gap: 0.65rem; min-height: 190px; color: var(--text-dim); font: 600 0.9rem 'Rajdhani', sans-serif; }
-  .recommendation-loading-dots { display: inline-flex; align-items: center; gap: 0.22rem; }
-  .recommendation-loading-dots i { width: 0.38rem; height: 0.38rem; border-radius: 50%; background: var(--blue-1); animation: recommendation-dot-bounce 0.6s ease-in-out infinite alternate; }
-  .recommendation-loading-dots i:nth-child(2) { animation-delay: 0.18s; }
-  .recommendation-loading-dots i:nth-child(3) { animation-delay: 0.36s; }
-  @keyframes recommendation-dot-bounce { to { transform: translateY(-0.45rem); } }
-  @media (prefers-reduced-motion: reduce) { .recommendation-loading-dots i { animation: none; } }
-  @media (min-width: 1800px) { .mood-popup { width: min(500px, calc(100vw - 4rem)); padding: 1.5rem; } }
+  .recommendation-mode-switch { display: inline-flex; flex-wrap: wrap; gap: 0.3rem; margin: 0.25rem 0 1.1rem; padding: 0.3rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 13px; background: rgba(0,0,0,0.28); }
+  .recommendation-mode, .mood-option { min-height: 44px; padding: 0.6rem 0.95rem; border: 1px solid rgba(255,255,255,0.16); border-radius: 999px; background: rgba(255,255,255,0.04); color: var(--text); font: 700 0.82rem 'Rajdhani', sans-serif; cursor: pointer; transition: border-color 160ms ease, background 160ms ease, color 160ms ease, transform 160ms ease; }
+  .recommendation-mode { min-width: 138px; border-color: transparent; }
+  .recommendation-mode span { margin-right: 0.3rem; color: #c77dff; }
+  .recommendation-mode:hover, .recommendation-mode:focus-visible, .mood-option:hover, .mood-option:focus-visible { border-color: rgba(199,125,255,0.75); color: #fff; outline: none; }
+  .recommendation-mode.is-active { border-color: rgba(199,125,255,0.42); background: linear-gradient(135deg, rgba(139,0,255,0.35), rgba(106,13,173,0.18)); color: #fff; box-shadow: 0 4px 16px rgba(139,0,255,0.15); }
+  .mood-options { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.7rem; margin: 0 0 1.2rem; }
+  .mood-options[hidden] { display: none; }
+  .mood-option { display: flex; align-items: center; gap: 0.8rem; min-width: 0; min-height: 84px; padding: 0.85rem; border-color: rgba(255,255,255,0.11); border-radius: 14px; background: linear-gradient(145deg, rgba(255,255,255,0.055), rgba(255,255,255,0.018)); text-align: left; }
+  .mood-option:hover { transform: translateY(-2px); background: linear-gradient(145deg, rgba(139,0,255,0.16), rgba(255,255,255,0.035)); }
+  .mood-option[aria-pressed="true"] { border-color: rgba(199,125,255,0.75); background: linear-gradient(145deg, rgba(139,0,255,0.27), rgba(106,13,173,0.12)); box-shadow: inset 0 0 0 1px rgba(199,125,255,0.12), 0 8px 24px rgba(0,0,0,0.18); }
+  .mood-option-icon { display: grid; place-items: center; width: 42px; height: 42px; flex: 0 0 42px; border: 1px solid rgba(199,125,255,0.2); border-radius: 12px; background: rgba(139,0,255,0.12); font-size: 1.25rem; }
+  .mood-option-text { display: grid; gap: 0.2rem; min-width: 0; }
+  .mood-option-text strong { overflow-wrap: anywhere; color: #f5efff; font: 700 0.87rem 'Rajdhani', sans-serif; }
+  .mood-option-text small { color: var(--text-dim); font: 400 0.74rem/1.3 'Rajdhani', sans-serif; }
+  .recommendation-mode:focus-visible, .mood-option:focus-visible { outline: 2px solid #d6a5ff; outline-offset: 3px; }
   @media (max-width: 768px) {
     #recommendations, #popular-country { padding: 2rem 1.2rem; }
+    #recommendations { width: calc(100% - 1.5rem); margin: 0.8rem auto 1.5rem; padding: 1.4rem; }
     .trending-card { width: 156px; min-width: 156px; }
     .trending-card.featured { width: 184px; }
     .trending-thumb { height: 112px; }
@@ -7644,18 +7662,27 @@ setTimeout(() => {
     .trending-info { padding: 0.7rem; gap: 0.42rem; }
     .discovery-heading { align-items: flex-start; }
     .games-grid, .discovery-grid { column-gap: 0.65rem; row-gap: 0.72rem; }
-    .mood-popup { top: 68px; right: 0.75rem; width: calc(100vw - 1.5rem); padding: 1rem; }
-    .mood-option { min-height: 52px; }
+    #recommendations .mood-discovery-title { font-size: clamp(1.8rem, 5vw, 2.6rem); }
+    .mood-options { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.55rem; }
+    .mood-option { min-height: 78px; padding: 0.7rem; gap: 0.6rem; }
+    .mood-option-icon { width: 36px; height: 36px; flex-basis: 36px; font-size: 1.1rem; }
+    .mood-option-text strong { font-size: 0.82rem; }
+    .mood-option-text small { font-size: 0.7rem; }
+    .recommendation-mode, .mood-option { min-height: 44px; }
   }
   @media (max-width: 420px) {
     .discovery-heading { flex-direction: column; align-items: stretch; }
-    .mood-trigger { align-self: flex-start; }
-    .mood-options { grid-template-columns: 1fr; max-height: min(58vh, 390px); overflow-y: auto; }
+    #recommendations { padding: 1.15rem; border-radius: 18px; }
+    #recommendations .mood-discovery-title { font-size: clamp(1.7rem, 8vw, 2.15rem); }
+    .mood-options { gap: 0.45rem; }
+    .mood-option { min-height: 74px; padding: 0.55rem; gap: 0.45rem; border-radius: 11px; }
+    .mood-option-icon { width: 32px; height: 32px; flex-basis: 32px; border-radius: 9px; font-size: 1rem; }
+    .mood-option-text strong { font-size: 0.76rem; }
+    .mood-option-text small { font-size: 0.65rem; }
   }
+  @media (min-width: 769px) and (max-width: 1100px) { .mood-options { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
   @media (max-width: 768px) { #install-app-button { display: none; } }
-  @media (prefers-reduced-motion: reduce) {
-    .mood-popup { transition: none; }
-  }
+  @media (prefers-reduced-motion: reduce) { .recommendation-mode, .mood-option { transition: none; } .mood-option:hover { transform: none; } }
   .trending-row { width: 100%; min-width: 100%; }
   .trending-slider { position: relative; }
   .trending-scroll-wrap { scroll-behavior: smooth; }
@@ -7710,24 +7737,6 @@ setTimeout(() => {
   @media (max-width: 768px) { header .logo { font-size: 1.1rem; } }
   @media (min-width: 1440px) { .logo-tagline { display: inline; } }
 </style>
-<aside class="mood-popup" id="mood-popup" role="dialog" aria-modal="false" aria-labelledby="mood-popup-title" aria-hidden="true">
-  <div class="mood-popup-header">
-    <div>
-      <span class="mood-eyebrow">Play according to your mood</span>
-      <h2 id="mood-popup-title">What are you in the mood to play?</h2>
-    </div>
-    <button class="mood-close" type="button" aria-label="Close mood discovery">&times;</button>
-  </div>
-  <div class="mood-options">
-    <button class="mood-option" type="button" data-mood="intense"><span>⚡</span><span>Intense</span></button>
-    <button class="mood-option" type="button" data-mood="think"><span>🧠</span><span>Make Me Think</span></button>
-    <button class="mood-option" type="button" data-mood="tired"><span>😴</span><span>Low-Key</span></button>
-    <button class="mood-option" type="button" data-mood="challenge"><span>🏆</span><span>Challenge Me</span></button>
-    <button class="mood-option" type="button" data-mood="weird"><span>🌌</span><span>Something Weird</span></button>
-    <button class="mood-option" type="button" data-mood="quick"><span>⏱️</span><span>Quick Games</span><span class="mood-new-badge">NEW</span></button>
-    <button class="mood-option" type="button" data-mood="together"><span>👥</span><span>Play Together</span><span class="mood-new-badge">NEW</span></button>
-  </div>
-</aside>
 <dialog class="install-help-dialog" id="install-help-dialog" aria-labelledby="install-help-title">
   <h2 id="install-help-title">Install PleyZ</h2>
   <p id="install-help-copy"></p>
