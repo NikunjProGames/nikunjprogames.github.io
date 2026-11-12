@@ -2,20 +2,22 @@
 
 ## Project overview
 
-The home page is a single-file static website (`index.html`). Supporting static pages live at the repository root, and Firebase Cloud Functions are in `functions/`. The site has no front-end framework or build pipeline; browser libraries are loaded from CDNs.
+The home page is a static website: `index.html` contains its markup and styles, while `homepage.js` and `homepage-games.js` hold the application logic and game catalog. Supporting static pages live at the repository root, and Firebase Cloud Functions are in `functions/`. The site has no front-end framework or build pipeline; browser libraries are loaded from CDNs.
 
 ## Key directories
 
 ```
 /
-└── index.html        # Entire application — structure, styles, and logic
+└── index.html        # Home page structure, styles, and metadata
+└── homepage.js       # Home page behavior and rendering
+└── homepage-games.js # Home page game catalog
 └── README.md         # User-facing docs
 └── AGENTS.md         # This file
 ```
 
 ## Architecture
 
-Everything lives in `index.html` in three logical sections:
+The home page is split across three files:
 
 1. **`<style>` block** — all CSS, organized with comment banners:
    - CSS custom properties (color palette, shadows) at the top
@@ -24,9 +26,9 @@ Everything lives in `index.html` in three logical sections:
 
 2. **HTML body** — semantic sections: `header`, `#home` (hero), `#games`, `#trending`, `#leaderboard`, `#about`, `footer`, plus two modal overlays.
 
-3. **`<script>` blocks** — plain JavaScript in named IIFE/function sections:
+3. **`homepage.js`** — plain JavaScript in named IIFE/function sections:
    - `SYNTHWAVE BACKGROUND` — canvas grid and meteor shower, disabled on low-power/mobile devices
-   - `GAME DATA` — static arrays (`GAMES`, `TRENDING`, `LEADERBOARD`)
+   - `GAME DATA` — static arrays (`TRENDING`, `LEADERBOARD`); the `GAMES` catalog is in `homepage-games.js`
    - `RENDER FUNCTIONS` — `renderGames()`, `renderTrending()`, `renderLeaderboard()`
    - `FILTER TABS` — event delegation on the tabs container
    - `MOBILE NAV` — hamburger toggle

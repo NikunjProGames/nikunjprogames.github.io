@@ -1,0 +1,32 @@
+# PleyZ
+
+> PleyZ is an independently developed browser gaming platform for discovering and playing free online games, including games selected to match a player's mood.
+
+## What PleyZ offers
+
+PleyZ brings game discovery, browser-based play, and player features together in one platform. Players can browse and play supported games without creating an account; individual games may have their own requirements, advertisements, loading times, or device limitations.
+
+- **Mood-based discovery:** Choose a mood or intent—Intense, Make Me Think, Low-Key, Challenge Me, Something Weird, Quick Games, or Play Together—to get relevant game suggestions.
+- **Search and categories:** Search the catalog and explore games by category and genre, including action, adventure, arcade, puzzle, racing, sports, strategy, simulation, casual, multiplayer, and more.
+- **Curated and popular games:** Browse handpicked trending picks, featured games, rotating locally popular selections, and PleyZ Picks.
+- **Game information:** Game pages provide available descriptions, controls, instructions, supported details, and related recommendations to help players decide what to play.
+- **Personalized discovery:** The For You experience uses a signed-in player's own play history, preferences, and feedback to rank recommendations. Personal recommendations are based on that player's own activity, not pooled private activity from other players.
+- **Player accounts and profiles:** A free account provides a player profile and supports access to account features. Signing in is optional for general browsing and gameplay.
+- **Recently played games:** Signed-in players can view recent games and use play history to shape their recommendations.
+- **Liked games:** Players can save liked games and browse their saved-games list.
+- **PleyZ Score and leaderboard:** Signed-in players can earn PleyZ Score points when opening eligible games and appear on the player leaderboard.
+- **Notifications:** The notification center provides updates and recommendation notices. Browser push notifications are optional, require explicit opt-in, and depend on browser/device support and the required backend being enabled.
+- **Installable web app:** PleyZ can be installed as a progressive web app in supported browsers. The app shell may be available offline, but games require an internet connection.
+- **Game developer submissions:** Developers can learn how to submit browser games to PleyZ for consideration.
+
+## Main pages
+
+- [Homepage](https://nikunjprogames.github.io/): Mood discovery, curated picks, popular games, search, categories, and game catalog.
+- [About PleyZ](https://nikunjprogames.github.io/about-us.html): Platform background and features.
+- [Liked Games](https://nikunjprogames.github.io/liked-games.html): Saved games list.
+- [Player account](https://nikunjprogames.github.io/account.html): Player profile and progress.
+- [Developer submissions](https://nikunjprogames.github.io/developers.html): Information for game developers.
+- [Contact](https://nikunjprogames.github.io/contact-us.html): Contact the site.
+- [Privacy policy](https://nikunjprogames.github.io/privacy-policy.html)
+- [Terms of service](https://nikunjprogames.github.io/termsandconditions.html)
+- [XML sitemap](https://nikunjprogames.github.io/sitemap.xml): Published game, category, and information pages.

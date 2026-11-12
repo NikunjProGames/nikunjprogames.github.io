@@ -919,10 +919,15 @@ function getGameSchema(game) {
 }
 
 function loadHomepageGames() {
-  const homepage = fs.readFileSync(path.join(__dirname, 'index.html'), 'utf8');
-  const match = homepage.match(/const GAMES = (\[[\s\S]*?\n\]);/);
-  if (!match) return [];
-  return vm.runInNewContext(`(${match[1]})`);
+  const catalogPath = path.join(__dirname, 'homepage-games.js');
+  const catalogSource = fs.readFileSync(catalogPath, 'utf8');
+  const sandbox = { window: {} };
+  vm.runInNewContext(catalogSource, sandbox);
+  const games = sandbox.window.PLEYZ_GAMES;
+  if (!Array.isArray(games)) {
+    throw new Error(`Homepage game catalog is missing or invalid: ${catalogPath}`);
+  }
+  return games;
 }
 
 function generateSearchConsoleGameIndex(feedGames) {
