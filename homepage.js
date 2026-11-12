@@ -730,11 +730,15 @@ function updatePopularCountryHeading() {
     .finally(() => window.clearTimeout(timeout));
 }
 
+let moodDiscoveryInitialized = false;
+
 function initializeMoodDiscovery() {
+  if (moodDiscoveryInitialized) return;
   const modeButtons = document.querySelectorAll('[data-recommendation-mode]');
   const moodButtons = document.querySelectorAll('.mood-option[data-mood]');
   const moodOptions = document.querySelector('.mood-options');
   if (!modeButtons.length || !moodButtons.length || !moodOptions) return;
+  moodDiscoveryInitialized = true;
 
   const updateMode = mode => {
     recommendationMode = mode;
@@ -1460,6 +1464,7 @@ function initializeDeferredHomeSections() {
 }
 
 try {
+  initializeMoodDiscovery();
   applyUrlCategoryFilter();
   renderTrending();
   initializeDeferredHomeSections();
@@ -1471,6 +1476,6 @@ try {
   // Avoid halting the rest of the script — try again shortly
   console.warn('Initial render failed, retrying shortly', err);
   setTimeout(() => {
-    try { renderTrending(); initializeDeferredHomeSections(); } catch (e) { console.error('Retry failed', e); }
+    try { initializeMoodDiscovery(); renderTrending(); initializeDeferredHomeSections(); } catch (e) { console.error('Retry failed', e); }
   }, 200);
 }
