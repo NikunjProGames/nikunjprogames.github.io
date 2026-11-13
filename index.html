@@ -19,7 +19,7 @@
   <link rel="manifest" href="/site.webmanifest" />
 
   <title>Mood-Based Browser Games &amp; Gaming Platform | PleyZ</title>
-  <meta name="description" content="PleyZ is a free browser gaming platform for mood-based discovery, curated picks, searchable games, and recommendations from your play history." />
+  <meta name="description" content="Play 250+ free browser games on PleyZ. Discover games by mood, browse genres, and get recommendations based on your play history and preferences when signed in." />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
 
   <meta name="msvalidate.01" content="094E1ED761D7CE3B597F41F2347CD317" />
@@ -29,7 +29,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://nikunjprogames.github.io/" />
   <meta property="og:title" content="Mood-Based Browser Gaming Platform | PleyZ" />
-  <meta property="og:description" content="PleyZ is a free browser gaming platform for mood-based discovery, curated picks, searchable games, and recommendations from your play history." />
+  <meta property="og:description" content="Play 250+ free browser games on PleyZ. Discover games by mood, browse genres, and get recommendations based on your play history and preferences when signed in." />
   <meta property="og:site_name" content="PleyZ Games" />
   <meta property="og:image" content="https://nikunjprogames.github.io/icon-512.png" />
   <meta property="og:image:alt" content="PleyZ Games - Handpicked Games Worth Playing" />
@@ -37,7 +37,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content="https://nikunjprogames.github.io/" />
   <meta name="twitter:title" content="Mood-Based Browser Gaming Platform | PleyZ" />
-  <meta name="twitter:description" content="PleyZ is a free browser gaming platform for mood-based discovery, curated picks, searchable games, and recommendations from your play history." />
+  <meta name="twitter:description" content="Play 250+ free browser games on PleyZ. Discover games by mood, browse genres, and get recommendations based on your play history and preferences when signed in." />
   <meta name="twitter:image" content="https://nikunjprogames.github.io/icon-512.png" />
   <meta name="twitter:image:alt" content="PleyZ Games - Handpicked Games Worth Playing" />
 
@@ -57,7 +57,7 @@
         "url": "https://nikunjprogames.github.io/",
         "name": "PleyZ Games",
         "alternateName": "PleyZ",
-        "description": "PleyZ is a free browser gaming platform for mood-based discovery, searchable games, curated picks, and personal recommendations from your play history.",
+        "description": "PleyZ is a free browser gaming platform with more than 250 games, mood-based discovery, searchable genres, curated picks, and personalized recommendations based on each signed-in player's own play history and preferences.",
         "publisher": {
           "@id": "https://nikunjprogames.github.io/#organization"
         },
@@ -68,7 +68,7 @@
         "@id": "https://nikunjprogames.github.io/#webpage",
         "url": "https://nikunjprogames.github.io/",
         "name": "PleyZ: Mood-Based Browser Gaming Platform",
-        "description": "PleyZ is a free browser gaming platform where players can discover browser games by mood, browse and search genres, explore curated and popular picks, and, when signed in, receive recommendations based on their own play history and preferences. The platform also offers player profiles, liked and recently played games, PleyZ Score, a leaderboard, optional notifications, and an installable web app on supported browsers.",
+        "description": "Explore more than 250 browser games on PleyZ, a free gaming platform for mood-based discovery, searchable genres, curated picks, and browser play. The For You recommendation engine ranks games using a signed-in player's own play history, preferences, and feedback. Browsing the catalog does not require an account; personalized recommendations require sign-in.",
         "isPartOf": {
           "@id": "https://nikunjprogames.github.io/#website"
         },
@@ -83,11 +83,12 @@
         "name": "PleyZ Games",
         "alternateName": "PleyZ",
         "url": "https://nikunjprogames.github.io/",
-        "description": "PleyZ is an independently developed browser gaming platform for discovering free online games by mood, browsing a searchable genre-based catalog, exploring curated and popular picks, and getting personalized recommendations from a player's own history and preferences. Features include player profiles, liked and recently played games, PleyZ Score, a leaderboard, optional notifications, and an installable web app on supported browsers.",
+        "description": "PleyZ is an independently developed browser gaming platform with more than 250 free online games. Players can discover games by mood, search genres, explore curated and popular picks, and get personalized For You recommendations based on their own play history, preferences, and feedback when signed in. The platform also offers player profiles, liked and recently played games, PleyZ Score, a leaderboard, optional notifications, and an installable web app on supported browsers.",
         "knowsAbout": [
           "Mood-based browser game discovery",
+          "A catalog of more than 250 browser games",
           "Online games across action, arcade, puzzle, racing, sports, strategy, simulation, casual, and multiplayer genres",
-          "Personalized game recommendations based on a signed-in player's own play history and preferences",
+          "A personalized For You recommendation engine based on a signed-in player's own play history, preferences, and feedback",
           "Player profiles, liked games, and recently played games",
           "PleyZ Score and player leaderboards",
           "Optional browser notifications",
@@ -314,6 +315,10 @@
       transition: left 0.4s;
     }
     .btn:hover::before { left: 120%; }
+    .btn:focus-visible {
+      outline: 2px solid var(--blue-1);
+      outline-offset: 3px;
+    }
 
     .btn-primary {
       background: linear-gradient(135deg, var(--purple-1), var(--blue-2));
@@ -376,6 +381,7 @@
       display: flex;
       align-items: baseline;
       min-width: 0;
+      margin: 0;
     }
     .logo-tagline {
       display: none;
@@ -393,6 +399,8 @@
     }
 
     .nav-actions { display: flex; gap: 1rem; align-items: center; }
+    header .nav-actions > .btn,
+    header .recent-toggle { min-height: 44px; }
 
     .recent-games-wrapper { position: relative; }
     .recent-toggle { position: relative; }
@@ -482,8 +490,8 @@
 
     #profile-avatar-button {
       display: none;
-      width: 38px;
-      height: 38px;
+      width: 40px;
+      height: 40px;
       padding: 0;
       border: 1px solid rgba(0,191,255,0.55);
       border-radius: 50%;
@@ -1197,20 +1205,48 @@
       color: var(--purple-1);
       margin-bottom: 1rem;
     }
-    .footer-links ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
-    .footer-links a { color: var(--text-dim); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
-    .footer-links a:hover { color: var(--blue-1); }
+    .footer-links ul { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; margin: 0; padding: 0; }
+    .footer-links a,
+    .footer-auth-button {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      min-height: 44px;
+      padding: 0.55rem 0.75rem;
+      border: 1px solid transparent;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.025);
+      color: var(--text-dim);
+      font: 600 0.88rem/1.2 'Rajdhani', sans-serif;
+      text-align: left;
+      text-decoration: none;
+      cursor: pointer;
+      transition: color 0.2s, background 0.2s, border-color 0.2s, transform 0.2s;
+    }
+    .footer-links a:hover,
+    .footer-auth-button:hover {
+      border-color: rgba(0,191,255,0.2);
+      background: rgba(0,191,255,0.07);
+      color: var(--blue-1);
+      transform: translateX(2px);
+    }
+    .footer-links a:focus-visible,
+    .footer-auth-button:focus-visible,
+    .social-icon:focus-visible {
+      outline: 2px solid var(--blue-1);
+      outline-offset: 3px;
+    }
 
-    .social-icons { display: flex; gap: 0.8rem; }
+    .social-icons { display: flex; flex-wrap: wrap; gap: 0.6rem; }
     .social-icon {
-      width: 38px; height: 38px;
+      width: 44px; height: 44px;
       border-radius: 8px;
       border: 1px solid rgba(139,0,255,0.35);
       display: flex; align-items: center; justify-content: center;
       color: var(--text-dim);
       text-decoration: none;
       font-size: 1rem;
-      transition: all 0.25s;
+      transition: color 0.2s, border-color 0.2s, background 0.2s, box-shadow 0.2s, transform 0.2s;
     }
     .social-icon:hover {
       border-color: var(--blue-1);
@@ -1631,7 +1667,7 @@
     </button>
 
     <div class="recent-games-wrapper">
-      <button class="btn btn-outline recent-toggle" id="recent-toggle-button" onclick="toggleRecentPanel()" aria-expanded="false">
+      <button class="btn btn-outline recent-toggle" id="recent-toggle-button" onclick="toggleRecentPanel()" aria-label="Toggle recent games panel" aria-expanded="false">
         <span class="desktop-label"><i class="fas fa-history"></i> Recent</span>
       </button>
       <div class="recent-panel" id="recent-panel" data-open="false">
@@ -1865,9 +1901,9 @@
 
 <section id="about" class="pleyz-about-section" aria-labelledby="about-heading">
   <h2 id="about-heading">About PleyZ</h2>
-  <p>PleyZ is a browser-gaming destination built around one simple idea: finding a game should be as enjoyable as playing it. The homepage brings together current picks, popular games, and a searchable library, with categories that make it easier to move between different kinds of play. Whether you have a few minutes for a quick arcade round or want to explore a longer adventure, you can browse at your own pace and open games directly from your browser.</p>
+  <p>PleyZ is a free browser-gaming destination with more than 250 games, built around one simple idea: finding a game should be as enjoyable as playing it. The homepage brings together mood-based discovery, current picks, popular games, and a searchable library, with categories that make it easier to move between different kinds of play. Whether you have a few minutes for a quick arcade round or want to explore a longer adventure, you can browse at your own pace and open games directly from your browser.</p>
   <p>The library spans action, arcade, puzzle, racing, sports, strategy, simulation, casual, and multiplayer experiences. Game pages include the details available for each title, such as controls, instructions, and related games, so you can decide what to try before launching. Many games can be played without downloading a separate app; individual titles may have their own requirements, loading times, advertisements, or device limitations.</p>
-  <p>PleyZ is a complete browser gaming platform, not just a game list: players can discover games by mood, search and browse genres, explore curated and popular picks, save liked games, and—when signed in—see recent games and recommendations informed by their own play history and preferences. Free player profiles also support PleyZ Score and a shared leaderboard. Optional notifications and installing PleyZ as a web app are available on supported browsers; gameplay itself requires an internet connection.</p>
+  <p>PleyZ is a complete browser gaming platform, not just a game list: players can discover games by mood, search and browse genres, explore curated and popular picks, and save liked games. When signed in, players can see recent games and personalized For You recommendations ranked using their own play history, preferences, and feedback. Free player profiles also support PleyZ Score and a shared leaderboard. Optional notifications and installing PleyZ as a web app are available on supported browsers; gameplay itself requires an internet connection.</p>
   <h3>Free player accounts and personal recommendations</h3>
   <p>Players can sign up for a free PleyZ account or sign in to save a profile, earn one PleyZ Score point when opening an eligible game, and appear on the player leaderboard. Signed-in recommendations use that player's own play history and preferences, while mood discovery helps anyone find a game for the moment. You can browse and play the catalog without an account. <a href="/?signin=1&amp;signup=1">Create a free PleyZ account</a>.</p>
   <p>PleyZ is independently developed as a browser gaming platform, not a large game publisher. Its collection and discovery tools evolve as games are added and features improve. Players can explore categories to find a next pick, while browser-game developers can use the submission link to share work for consideration.</p>
@@ -2573,8 +2609,6 @@ setTimeout(() => {
   #recommendations .section-underline { width: clamp(72px, 9vw, 112px); height: 3px; margin: 0.9rem 0 0.8rem; border-radius: 99px; background: linear-gradient(90deg, var(--purple-1), var(--blue-1)); }
   #recommendations .discovery-copy { max-width: 760px; font-size: clamp(0.95rem, 1.2vw, 1.08rem); line-height: 1.6; }
   .category-discovery-title { margin: 1.8rem 0 0.9rem; font: 700 1rem 'Orbitron', sans-serif; color: var(--text); }
-  .footer-auth-button { padding: 0; border: 0; background: transparent; color: var(--text-dim); font: inherit; text-align: left; cursor: pointer; }
-  .footer-auth-button:hover { color: var(--blue-1); }
   .discovery-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, clamp(9.5rem, 16vw, 15rem)), 1fr)); }
   .country-feature-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); grid-auto-rows: minmax(160px, auto); grid-auto-flow: dense; }
   .country-feature-grid .country-featured { grid-column: span 2; grid-row: span 2; }
@@ -2761,6 +2795,150 @@ setTimeout(() => {
   header .logo { font-size: clamp(1.25rem, 2.4vw, 1.65rem); }
   @media (max-width: 768px) { header .logo { font-size: 1.1rem; } }
   @media (min-width: 1440px) { .logo-tagline { display: inline; } }
+  @media (max-width: 768px) {
+    header { flex-wrap: nowrap; }
+    .site-brand { flex: 0 0 auto; }
+    .nav-actions { min-width: 0; flex: 0 1 auto; }
+    #auth-action-button { display: none !important; }
+  }
+  @media (max-width: 900px) {
+    .site-brand { flex: 0 0 auto; }
+    #user-display,
+    .developer-nav-link { display: none !important; }
+  }
+  @media (max-width: 640px) {
+    header {
+      height: 56px;
+      padding: 0.45rem 0.65rem;
+      gap: 0.45rem;
+    }
+    header .logo { font-size: clamp(1rem, 4.5vw, 1.15rem); }
+    .nav-actions { flex: 0 0 auto; gap: 0.3rem; }
+    #random-game-button,
+    #recent-toggle-button {
+      width: 40px;
+      height: 40px;
+      min-height: 40px;
+      padding: 0;
+      justify-content: center;
+    }
+    #random-game-button { font-size: 0; }
+    #random-game-button i,
+    #recent-toggle-button .desktop-label i { font-size: 1rem; }
+    #recent-toggle-button .desktop-label { font-size: 0; }
+    #profile-avatar-button { width: 40px; height: 40px; flex-basis: 40px; }
+    #pleyz-notification-bell { width: 40px; height: 40px; }
+    .recent-panel { top: 64px; }
+  }
+  @media (max-width: 380px) {
+    header { padding-right: 0.5rem; padding-left: 0.5rem; gap: 0.3rem; }
+    .nav-actions { gap: 0.25rem; }
+  }
+  @media (max-width: 640px) {
+    footer { padding: 2.25rem 1rem calc(1.5rem + env(safe-area-inset-bottom)); }
+    .footer-top { gap: 1.5rem; margin-bottom: 1.75rem; }
+    .footer-links ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.4rem; }
+    .footer-links li { min-width: 0; }
+    .footer-links a,
+    .footer-auth-button { padding: 0.55rem 0.6rem; font-size: 0.84rem; }
+    .footer-bottom { padding-top: 1.15rem; line-height: 1.5; }
+  }
+  @media (max-width: 360px) {
+    .footer-top { grid-template-columns: minmax(0, 1fr); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .footer-links a,
+    .footer-auth-button,
+    .social-icon { transition: none; }
+    .footer-links a:hover,
+    .footer-auth-button:hover,
+    .social-icon:hover { transform: none; }
+  }
+  :root { --text-dim: #b5c2d8; --glass-border: rgba(0,191,255,0.34); }
+  .section-title { text-shadow: 0 0 18px rgba(0,191,255,0.16); }
+  .btn-primary {
+    box-shadow: 0 0 12px rgba(139,0,255,0.4), 0 0 20px rgba(0,191,255,0.22);
+  }
+  .btn-primary:hover {
+    box-shadow: 0 0 20px rgba(139,0,255,0.55), 0 0 38px rgba(0,191,255,0.35);
+  }
+  .hero-badge {
+    border-color: rgba(0,191,255,0.55);
+    color: #c7f5ff;
+    background: linear-gradient(110deg, rgba(139,0,255,0.14), rgba(0,191,255,0.09));
+  }
+  @keyframes badge-glow {
+    0%,100% { box-shadow: 0 0 7px rgba(139,0,255,0.35), 0 0 10px rgba(0,191,255,0.2); }
+    50% { box-shadow: 0 0 15px rgba(0,191,255,0.55), 0 0 28px rgba(139,0,255,0.35); }
+  }
+  .search-input input {
+    border-color: rgba(0,191,255,0.35);
+    box-shadow: inset 0 0 14px rgba(139,0,255,0.06);
+  }
+  .category-directory a {
+    border-color: rgba(0,191,255,0.34);
+    transition: color 0.2s, border-color 0.2s, background 0.2s, box-shadow 0.2s;
+  }
+  .category-directory a:hover,
+  .category-directory a:focus-visible {
+    background: rgba(0,191,255,0.08);
+    box-shadow: 0 0 14px rgba(0,191,255,0.18), 0 0 18px rgba(139,0,255,0.1);
+  }
+  #trending .trending-card:hover {
+    border-color: rgba(0,191,255,0.72);
+    box-shadow: 0 18px 38px rgba(0,0,0,0.3), 0 0 26px rgba(0,191,255,0.2), 0 0 24px rgba(139,0,255,0.14);
+  }
+  #trending .trending-card.featured {
+    border-color: rgba(0,191,255,0.38);
+    background: linear-gradient(145deg, rgba(139,0,255,0.15), rgba(0,191,255,0.09));
+  }
+  .leaderboard-table thead tr {
+    background: linear-gradient(100deg, rgba(139,0,255,0.16), rgba(0,191,255,0.12));
+  }
+  .leaderboard-table tbody tr:hover { background: rgba(0,191,255,0.08); }
+  .modal-box {
+    border-color: rgba(0,191,255,0.42);
+    box-shadow: 0 0 34px rgba(0,191,255,0.18), 0 0 58px rgba(139,0,255,0.2);
+  }
+  .auth-toggle { border-color: rgba(0,191,255,0.24); }
+  .auth-toggle button.active {
+    background: linear-gradient(125deg, var(--purple-1), var(--blue-2));
+    box-shadow: 0 0 14px rgba(0,191,255,0.24), 0 0 12px rgba(139,0,255,0.25);
+  }
+  #recommendations { border-color: rgba(0,191,255,0.3); }
+  #recommendations .mood-discovery-kicker {
+    border-color: rgba(0,191,255,0.38);
+    background: linear-gradient(110deg, rgba(139,0,255,0.12), rgba(0,191,255,0.08));
+    color: #c9f5ff;
+  }
+  .recommendation-mode:hover,
+  .recommendation-mode:focus-visible,
+  .mood-option:hover,
+  .mood-option:focus-visible {
+    border-color: rgba(0,191,255,0.72);
+    box-shadow: 0 0 16px rgba(0,191,255,0.14), 0 0 18px rgba(139,0,255,0.12);
+  }
+  .recommendation-mode.is-active {
+    border-color: rgba(0,191,255,0.5);
+    background: linear-gradient(120deg, rgba(139,0,255,0.3), rgba(0,71,171,0.24));
+    box-shadow: 0 4px 18px rgba(0,191,255,0.16), 0 0 18px rgba(139,0,255,0.14);
+  }
+  .mood-option[aria-pressed="true"] {
+    border-color: rgba(0,191,255,0.62);
+    background: linear-gradient(135deg, rgba(0,191,255,0.14), rgba(139,0,255,0.2));
+    box-shadow: inset 0 0 0 1px rgba(0,191,255,0.12), 0 8px 24px rgba(0,0,0,0.18);
+  }
+  .recommendation-mode:focus-visible,
+  .mood-option:focus-visible {
+    outline: 2px solid #7fe8ff;
+    outline-offset: 3px;
+  }
+  .mobile-nav-item.active {
+    border-color: rgba(0,191,255,0.34);
+    background: linear-gradient(120deg, rgba(139,0,255,0.16), rgba(0,191,255,0.08));
+    color: #d7f7ff;
+    box-shadow: 0 0 16px rgba(0,191,255,0.12);
+  }
 </style>
 <dialog class="install-help-dialog" id="install-help-dialog" aria-labelledby="install-help-title">
   <h2 id="install-help-title">Install PleyZ</h2>
