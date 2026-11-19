@@ -27,12 +27,16 @@
   let height = 0;
   let horizonY = 0;
   let vanishX = 0;
+  let pointerX = 0;
+  let pointerY = 0;
+  let pointerDriftX = 0;
+  let pointerDriftY = 0;
 
   function resizeCanvas() {
     width = window.innerWidth;
     height = window.innerHeight;
     horizonY = height * 0.52;
-    vanishX = width / 2;
+    vanishX = width / 2 + pointerX * 8;
     canvas.width = width;
     canvas.height = height;
   }
@@ -53,6 +57,7 @@
       wave: 8 + Math.random() * 18,
       phase: Math.random() * Math.PI * 2,
       length: 90 + Math.random() * 90,
+      depth: 0.45 + Math.random() * 0.55,
       age: 0,
       lifetime: travel / speed
     });
@@ -68,12 +73,14 @@
     for (let index = meteors.length - 1; index >= 0; index -= 1) {
       const meteor = meteors[index];
       meteor.age += deltaSeconds;
-      meteor.x = -90 + meteor.speed * meteor.age;
+      meteor.x = -90 + meteor.speed * meteor.age + pointerX * meteor.depth * 8
+        + pointerDriftX * meteor.depth * 3;
       const progress = Math.min(1, meteor.age / meteor.lifetime);
       const smoothArc = Math.sin(progress * Math.PI);
       const wave = Math.sin(progress * Math.PI * 2 + meteor.phase) - Math.sin(meteor.phase);
       meteor.y = meteor.startY + (meteor.endY - meteor.startY) * progress
-        + meteor.arc * smoothArc + meteor.wave * wave;
+        + meteor.arc * smoothArc + meteor.wave * wave
+        + pointerY * meteor.depth * 6 + pointerDriftY * meteor.depth * 2;
       const verticalSlope = ((meteor.endY - meteor.startY)
         + meteor.arc * Math.PI * Math.cos(progress * Math.PI)
         + meteor.wave * Math.PI * 2 * Math.cos(progress * Math.PI * 2 + meteor.phase))
@@ -88,14 +95,14 @@
       trail.addColorStop(0.18, `rgba(164,226,255,${alpha * 0.85})`);
       trail.addColorStop(1, 'rgba(0,191,255,0)');
       ctx.strokeStyle = trail;
-      ctx.lineWidth = 2.4;
+      ctx.lineWidth = 1.1 + meteor.depth * 1.4;
       ctx.beginPath();
       ctx.moveTo(meteor.x, meteor.y);
       ctx.lineTo(tailX, tailY);
       ctx.stroke();
       ctx.fillStyle = `rgba(255,255,255,${alpha})`;
       ctx.beginPath();
-      ctx.arc(meteor.x, meteor.y, 2, 0, Math.PI * 2);
+      ctx.arc(meteor.x, meteor.y, 1 + meteor.depth, 0, Math.PI * 2);
       ctx.fill();
 
       if (meteor.age >= meteor.lifetime
@@ -108,6 +115,8 @@
 
   function drawMovingGrid(deltaSeconds) {
     offset = (offset + deltaSeconds * 0.72) % 1;
+    pointerDriftX *= 0.9;
+    pointerDriftY *= 0.9;
     for (let row = 1; row <= 24; row += 1) {
       const depth = row - offset;
       if (depth <= 0.01) continue;
@@ -152,6 +161,16 @@
     resizeCanvas();
     startAnimation();
   }, { passive: true });
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    window.addEventListener('pointermove', event => {
+      if (event.pointerType !== 'mouse') return;
+      pointerX = (event.clientX / Math.max(width, 1) - 0.5) * 2;
+      pointerY = (event.clientY / Math.max(height, 1) - 0.5) * 2;
+      pointerDriftX = Math.max(-1, Math.min(1, (event.movementX || 0) / 30));
+      pointerDriftY = Math.max(-1, Math.min(1, (event.movementY || 0) / 30));
+      vanishX = width / 2 + pointerX * 8;
+    }, { passive: true });
+  }
   document.addEventListener('visibilitychange', () => {
     if (!document.hidden) startAnimation();
   });
@@ -165,6 +184,56 @@
 const GAMES = window.PLEYZ_GAMES;
 
 const GAME_PREVIEW_VIDEOS = window.PLEYZ_GAME_PREVIEW_VIDEOS;
+let scrollRevealObserver = null;
+
+function observeScrollReveal(element) {
+  if (!element) return;
+  element.classList.add('scroll-reveal');
+  if (scrollRevealObserver) scrollRevealObserver.observe(element);
+  else element.classList.add('is-visible');
+}
+
+function initializeScrollReveals() {
+  const targets = document.querySelectorAll(
+    '#recommendations, #trending, #popular-country, #games, #leaderboard, #about, footer'
+  );
+  if (!('IntersectionObserver' in window)
+    || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    targets.forEach(target => target.classList.add('is-visible'));
+    return;
+  }
+
+  scrollRevealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible');
+      scrollRevealObserver.unobserve(entry.target);
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+  targets.forEach(observeScrollReveal);
+}
+
+function initializeMagneticButtons() {
+  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches
+    || window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    || document.documentElement.classList.contains('low-power-device')) return;
+
+  document.querySelectorAll('#random-game-button, .btn-primary').forEach(button => {
+    button.classList.add('magnetic');
+    button.addEventListener('pointermove', event => {
+      if (event.pointerType !== 'mouse') return;
+      const bounds = button.getBoundingClientRect();
+      const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+      const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+      button.style.setProperty('--magnetic-x', `${(x * 5).toFixed(1)}px`);
+      button.style.setProperty('--magnetic-y', `${(y * 5).toFixed(1)}px`);
+    });
+    button.addEventListener('pointerleave', () => {
+      button.style.removeProperty('--magnetic-x');
+      button.style.removeProperty('--magnetic-y');
+    });
+  });
+}
 
 const TRENDING = [
   { id:95,  name:'Hazmob FPS: Online Shooter',    color:'#008840', gradient:'linear-gradient(135deg,#003300,#006600)' },
@@ -252,6 +321,7 @@ function createGameTile(game) {
     </div>
   `;
   card.dataset.hasPreview = String(Boolean(GAME_PREVIEW_VIDEOS[game.id]));
+  observeScrollReveal(card);
   return card;
 }
 
@@ -316,9 +386,29 @@ function bindGameGrid(grid) {
   });
   grid.addEventListener('pointerout', event => {
     const card = event.target.closest('.game-card[data-has-preview="true"]');
-    if (!card || !grid.contains(card) || card.contains(event.relatedTarget)) return;
-    stopGameVideoPreview(card);
+    if (card && grid.contains(card) && !card.contains(event.relatedTarget)) {
+      stopGameVideoPreview(card);
+    }
+    const tiltedCard = event.target.closest('.game-card');
+    if (tiltedCard && grid.contains(tiltedCard) && !tiltedCard.contains(event.relatedTarget)) {
+      tiltedCard.style.removeProperty('--tilt-x');
+      tiltedCard.style.removeProperty('--tilt-y');
+    }
   });
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches
+    && !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    && !document.documentElement.classList.contains('low-power-device')) {
+    grid.addEventListener('pointermove', event => {
+      if (event.pointerType !== 'mouse') return;
+      const card = event.target.closest('.game-card');
+      if (!card || !grid.contains(card)) return;
+      const bounds = card.getBoundingClientRect();
+      const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+      const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+      card.style.setProperty('--tilt-x', `${(-y * 5).toFixed(2)}deg`);
+      card.style.setProperty('--tilt-y', `${(x * 5).toFixed(2)}deg`);
+    });
+  }
 }
 
 /* ============================================================
@@ -794,6 +884,7 @@ function renderTrending() {
         </div>
       </div>`;
     row.appendChild(card);
+    observeScrollReveal(card);
     if (index > 0) {
       const image = card.querySelector('img');
       const bounds = image?.getBoundingClientRect();
@@ -1301,26 +1392,92 @@ function getValidRandomGamePool() {
 }
 
 function launchRandomGame() {
+  if (randomGameAnimating || gameLaunchPending) return;
   const pool = getValidRandomGamePool();
   if (!pool.length) {
     alert('No valid games are available right now.');
     return;
   }
   const selected = pool[Math.floor(Math.random() * pool.length)];
-  if (selected && selected.id) {
-    openGame(selected.id);
-    return;
-  }
-  const targetUrl = selected && (selected.iframeUrl || selected.href || selected.url);
-  if (targetUrl) {
-    window.location.assign(new URL(targetUrl, window.location.origin).href);
-  }
+  animateRandomGameSelection(pool, selected);
 }
 
 window.PLEYZ_GAME_LIBRARY = Array.isArray(GAMES) ? GAMES : [];
 const button = document.getElementById('random-game-button');
 if (button) {
   button.addEventListener('click', launchRandomGame);
+}
+
+let randomGameAnimating = false;
+let randomGameTimer = 0;
+
+function animateRandomGameSelection(pool, selected) {
+  const dialog = document.getElementById('random-game-dialog');
+  const stage = document.getElementById('random-game-stage');
+  const status = document.getElementById('random-game-status');
+  if (!dialog || !stage || !status) {
+    launchSelectedGame(selected);
+    return;
+  }
+
+  randomGameAnimating = true;
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const cards = Array.from({ length: 5 }, (_, index) => {
+    const card = document.createElement('div');
+    card.className = `random-game-card${index === 2 ? ' is-center' : ''}`;
+    card.setAttribute('aria-hidden', 'true');
+    const image = document.createElement('img');
+    image.alt = '';
+    image.loading = 'eager';
+    const name = document.createElement('span');
+    card.append(image, name);
+    stage.appendChild(card);
+    return { card, image, name };
+  });
+  dialog.showModal();
+  status.textContent = 'Picking a game from the PleyZ library...';
+
+  let frame = 0;
+  const revealNext = () => {
+    const finalFrame = reducedMotion || frame >= 7;
+    cards.forEach(({ card, image, name }, index) => {
+      const game = finalFrame && index === 2
+        ? selected
+        : pool[Math.floor(Math.random() * pool.length)];
+      card.classList.toggle('is-selected', finalFrame && index === 2);
+      name.textContent = game.name || 'Play a game';
+      image.src = game.imageUrl || '';
+      image.hidden = !game.imageUrl;
+    });
+    if (finalFrame) {
+      status.textContent = `Your pick: ${selected.name || 'a PleyZ game'}`;
+      randomGameTimer = window.setTimeout(() => {
+        randomGameAnimating = false;
+        dialog.close();
+        launchSelectedGame(selected);
+      }, reducedMotion ? 180 : 520);
+      return;
+    }
+    frame += 1;
+    randomGameTimer = window.setTimeout(revealNext, 135);
+  };
+  revealNext();
+
+  dialog.addEventListener('close', () => {
+    window.clearTimeout(randomGameTimer);
+    randomGameTimer = 0;
+    stage.replaceChildren();
+    randomGameAnimating = false;
+  }, { once: true });
+}
+
+function launchSelectedGame(selected) {
+  if (selected && selected.id) {
+    openGame(selected.id);
+    return;
+  }
+  const targetUrl = selected && (selected.iframeUrl || selected.href || selected.url);
+  if (targetUrl) window.location.assign(new URL(targetUrl, window.location.origin).href);
 }
 
 /* ============================================================
@@ -1464,6 +1621,8 @@ function initializeDeferredHomeSections() {
 }
 
 try {
+  initializeScrollReveals();
+  initializeMagneticButtons();
   initializeMoodDiscovery();
   applyUrlCategoryFilter();
   renderTrending();

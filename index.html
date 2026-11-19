@@ -1962,6 +1962,14 @@
   <span>Opening game...</span>
 </div>
 
+<dialog class="random-game-dialog" id="random-game-dialog" aria-labelledby="random-game-title">
+  <button class="random-game-close" type="button" aria-label="Cancel game selection" onclick="document.getElementById('random-game-dialog').close()">×</button>
+  <p class="random-game-kicker">A little PleyZ surprise</p>
+  <h2 id="random-game-title">Finding your next game</h2>
+  <p class="random-game-status" id="random-game-status" aria-live="polite">Picking a game from the PleyZ library...</p>
+  <div class="random-game-stage" id="random-game-stage" aria-hidden="true"></div>
+</dialog>
+
 <!-- LOGIN MODAL -->
 <div class="modal-overlay" id="login-modal">
   <div class="modal-box auth-modal-box">
@@ -2939,6 +2947,145 @@ setTimeout(() => {
     color: #d7f7ff;
     box-shadow: 0 0 16px rgba(0,191,255,0.12);
   }
+
+  #recommendations {
+    width: min(calc(100% - clamp(1.5rem, 6vw, 6rem)), 1260px);
+    padding: clamp(1.35rem, 3.2vw, 2.7rem);
+    border-color: rgba(153,132,255,0.26);
+    background:
+      radial-gradient(ellipse at 94% 4%, rgba(80,159,255,0.12), transparent 34%),
+      radial-gradient(ellipse at 4% 0%, rgba(139,0,255,0.14), transparent 38%),
+      linear-gradient(145deg, rgba(18,16,31,0.9), rgba(9,11,20,0.78));
+    box-shadow: 0 22px 62px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.055);
+  }
+  #recommendations .mood-discovery-title {
+    max-width: 880px;
+    font-size: clamp(1.85rem, 3.8vw, 3.1rem);
+    letter-spacing: -0.045em;
+  }
+  .mood-option {
+    min-height: 76px;
+    border-radius: 16px;
+    background: linear-gradient(145deg, rgba(255,255,255,0.065), rgba(255,255,255,0.018));
+    box-shadow: 0 10px 24px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.045);
+    transition: border-color 220ms ease, background 220ms ease, color 220ms ease, transform 220ms cubic-bezier(.2,.8,.2,1), box-shadow 220ms ease;
+  }
+  .mood-option:hover { transform: translateY(-3px) scale(1.012); }
+
+  .game-card {
+    transform: perspective(900px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+    transition: transform 260ms cubic-bezier(.2,.8,.2,1);
+    transform-style: preserve-3d;
+  }
+  @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    .game-card:hover,
+    .game-card:focus-visible {
+      transform: perspective(900px) translateY(-4px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+    }
+  }
+  .game-card:active { transform: perspective(900px) scale(0.985); }
+  .game-thumb { border-radius: 16px; }
+  .game-thumb img.custom-game-image { transition: transform 280ms cubic-bezier(.2,.8,.2,1); }
+  .btn { border-radius: 10px; transition: transform 220ms ease, box-shadow 220ms ease, background 220ms ease, translate 180ms ease; }
+  .magnetic { translate: var(--magnetic-x, 0px) var(--magnetic-y, 0px); }
+
+  .scroll-reveal {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0) rotateX(1.2deg);
+    transform-origin: center top;
+    transition: opacity 620ms ease, transform 720ms cubic-bezier(.2,.75,.25,1);
+  }
+  .scroll-reveal.is-visible { opacity: 1; transform: none; }
+  .game-card.scroll-reveal { transition: opacity 520ms ease, transform 620ms cubic-bezier(.2,.75,.25,1); }
+  .game-card.scroll-reveal.is-visible { transform: perspective(900px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)); }
+  @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    .game-card.scroll-reveal.is-visible:hover,
+    .game-card.scroll-reveal.is-visible:focus-visible {
+      transform: perspective(900px) translateY(-4px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+    }
+    .game-card.scroll-reveal.is-visible:active { transform: perspective(900px) scale(0.985); }
+  }
+
+  .random-game-dialog {
+    position: fixed;
+    inset: 50% auto auto 50%;
+    width: min(680px, calc(100vw - 28px));
+    max-width: 680px;
+    max-height: min(90vh, 680px);
+    padding: clamp(1.4rem, 4vw, 2.5rem);
+    overflow: hidden;
+    border: 1px solid rgba(147,154,255,0.3);
+    border-radius: 26px;
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(107,80,255,0.2), transparent 55%),
+      linear-gradient(145deg, rgba(16,17,32,0.98), rgba(7,9,17,0.98));
+    color: var(--text);
+    text-align: center;
+    box-shadow: 0 35px 100px rgba(0,0,0,0.65), 0 0 48px rgba(91,114,255,0.12);
+    transform: translate(-50%, -46%);
+    opacity: 0;
+    transition: opacity 220ms ease, transform 260ms cubic-bezier(.2,.8,.2,1);
+  }
+  .random-game-dialog[open] { opacity: 1; transform: translate(-50%, -50%); }
+  .random-game-dialog::backdrop { background: rgba(3,4,10,0.76); backdrop-filter: blur(12px); }
+  .random-game-close {
+    position: absolute;
+    top: 0.8rem;
+    right: 0.9rem;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+    color: var(--text);
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  .random-game-kicker { margin: 0 0 0.55rem; color: #b7aaff; font: 700 0.68rem 'Orbitron', sans-serif; letter-spacing: 0.14em; text-transform: uppercase; }
+  .random-game-dialog h2 { margin: 0; font: 700 clamp(1.15rem, 3.7vw, 1.8rem) 'Orbitron', sans-serif; }
+  .random-game-status { min-height: 1.5em; margin: 0.6rem 0 1.7rem; color: var(--text-dim); }
+  .random-game-stage { display: flex; justify-content: center; align-items: center; gap: clamp(0.35rem, 2vw, 0.9rem); min-height: clamp(140px, 31vw, 215px); perspective: 900px; }
+  .random-game-card {
+    display: grid;
+    align-content: start;
+    gap: 0.6rem;
+    width: clamp(70px, 16vw, 116px);
+    flex: 0 1 clamp(70px, 16vw, 116px);
+    padding: 0.45rem;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.11);
+    border-radius: 16px;
+    background: linear-gradient(145deg, rgba(255,255,255,0.09), rgba(255,255,255,0.025));
+    box-shadow: 0 14px 32px rgba(0,0,0,0.32);
+    transform: translateZ(-40px) rotateY(-12deg) scale(0.88);
+    transition: transform 300ms cubic-bezier(.2,.8,.2,1), opacity 260ms ease, border-color 260ms ease, box-shadow 260ms ease;
+    opacity: 0.68;
+  }
+  .random-game-card:nth-child(2), .random-game-card:nth-child(4) { transform: translateZ(0) rotateY(8deg) scale(0.94); }
+  .random-game-card:nth-child(3) { transform: translateZ(16px) scale(1.02); opacity: 0.92; }
+  .random-game-card img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 11px; }
+  .random-game-card img[hidden] { display: none; }
+  .random-game-card span { overflow: hidden; color: #e8e8ff; font: 600 clamp(0.62rem, 1.7vw, 0.78rem)/1.2 'Rajdhani', sans-serif; text-overflow: ellipsis; white-space: nowrap; }
+  .random-game-card.is-selected { z-index: 1; border-color: rgba(111,194,255,0.7); box-shadow: 0 20px 46px rgba(42,130,255,0.22), 0 0 24px rgba(139,0,255,0.16); opacity: 1; transform: translateZ(56px) rotateY(0) scale(1.1); }
+  .random-game-card.is-selected span { color: #fff; }
+  .random-game-dialog :focus-visible { outline: 2px solid #8bdcff; outline-offset: 3px; }
+
+  @media (max-width: 600px) {
+    .random-game-dialog { padding: 1.6rem 0.9rem 1.25rem; border-radius: 20px; }
+    .random-game-stage { gap: 0.35rem; min-height: 122px; }
+    .random-game-card { width: min(18vw, 82px); flex-basis: min(18vw, 82px); padding: 0.32rem; border-radius: 12px; }
+    .random-game-card:nth-child(1), .random-game-card:nth-child(5) { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-reveal, .game-card.scroll-reveal { opacity: 1; transform: none; transition: none; }
+    .game-card.scroll-reveal.is-visible { transform: none; }
+    .game-card, .game-thumb img.custom-game-image, .mood-option, .btn, .random-game-dialog, .random-game-card { transition: none; }
+    .game-card:hover, .game-card:focus-visible, .game-card:active, .mood-option:hover { transform: none; }
+    .random-game-dialog { opacity: 1; }
+    .random-game-dialog::backdrop { backdrop-filter: none; }
+  }
+  html.low-power-device .scroll-reveal { opacity: 1; transform: none; transition: none; }
+  html.low-power-device .game-card { transform: none; }
 </style>
 <dialog class="install-help-dialog" id="install-help-dialog" aria-labelledby="install-help-title">
   <h2 id="install-help-title">Install PleyZ</h2>
