@@ -1,0 +1,8 @@
+{
+	"mcpServers": {
+		"spline": {
+			"type": "http",
+			"url": "https://mcp.spline.design/mcp"
+		}
+	}
+}
