@@ -65,6 +65,16 @@
   document.body.classList.add('pleyz-site-shell-active');
   document.body.classList.toggle('pleyz-immersive-game', Boolean(document.querySelector('.game-viewport')));
 
+  const interactionStylesheet = document.createElement('link');
+  interactionStylesheet.rel = 'stylesheet';
+  interactionStylesheet.href = '/site-interactions.css';
+  document.head.appendChild(interactionStylesheet);
+
+  const interactionsScript = document.createElement('script');
+  interactionsScript.src = '/site-interactions.js';
+  interactionsScript.async = true;
+  document.head.appendChild(interactionsScript);
+
   const categoryNav = shell.querySelector('#pleyz-category-rail nav');
   categories.forEach(([label, slug]) => {
     const link = document.createElement('a');

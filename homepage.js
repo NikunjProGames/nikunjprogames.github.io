@@ -58,6 +58,7 @@
       phase: Math.random() * Math.PI * 2,
       length: 90 + Math.random() * 90,
       depth: 0.45 + Math.random() * 0.55,
+      tone: Math.random() < 0.48 ? '199,125,255' : '90,224,255',
       age: 0,
       lifetime: travel / speed
     });
@@ -92,13 +93,19 @@
       const tailY = meteor.y - verticalSlope * meteor.length;
       const trail = ctx.createLinearGradient(meteor.x, meteor.y, tailX, tailY);
       trail.addColorStop(0, `rgba(255,255,255,${alpha})`);
-      trail.addColorStop(0.18, `rgba(164,226,255,${alpha * 0.85})`);
-      trail.addColorStop(1, 'rgba(0,191,255,0)');
+      trail.addColorStop(0.2, `rgba(${meteor.tone},${alpha * 0.82})`);
+      trail.addColorStop(1, `rgba(${meteor.tone},0)`);
       ctx.strokeStyle = trail;
-      ctx.lineWidth = 1.1 + meteor.depth * 1.4;
+      ctx.lineWidth = 2.2 + meteor.depth * 2;
       ctx.beginPath();
       ctx.moveTo(meteor.x, meteor.y);
       ctx.lineTo(tailX, tailY);
+      ctx.stroke();
+      ctx.strokeStyle = `rgba(${meteor.tone},${alpha * 0.26})`;
+      ctx.lineWidth = 5 + meteor.depth * 4;
+      ctx.stroke();
+      ctx.strokeStyle = trail;
+      ctx.lineWidth = 1 + meteor.depth * 1.1;
       ctx.stroke();
       ctx.fillStyle = `rgba(255,255,255,${alpha})`;
       ctx.beginPath();
@@ -218,7 +225,11 @@ function initializeMagneticButtons() {
     || window.matchMedia('(prefers-reduced-motion: reduce)').matches
     || document.documentElement.classList.contains('low-power-device')) return;
 
-  document.querySelectorAll('#random-game-button, .btn-primary').forEach(button => {
+  document.querySelectorAll(
+    '#random-game-button, .btn-primary, #auth-action-button, #mobile-nav button, ' +
+    '.nav-actions a.btn, .mood-option, .recommendation-mode, .category-directory a, ' +
+    '.footer-links a, .footer-auth-button, .social-icon, .trending-arrow, #load-more-games'
+  ).forEach(button => {
     button.classList.add('magnetic');
     button.addEventListener('pointermove', event => {
       if (event.pointerType !== 'mouse') return;
@@ -393,6 +404,8 @@ function bindGameGrid(grid) {
     if (tiltedCard && grid.contains(tiltedCard) && !tiltedCard.contains(event.relatedTarget)) {
       tiltedCard.style.removeProperty('--tilt-x');
       tiltedCard.style.removeProperty('--tilt-y');
+      tiltedCard.style.removeProperty('--image-x');
+      tiltedCard.style.removeProperty('--image-y');
     }
   });
   if (window.matchMedia('(hover: hover) and (pointer: fine)').matches
@@ -407,6 +420,8 @@ function bindGameGrid(grid) {
       const y = (event.clientY - bounds.top) / bounds.height - 0.5;
       card.style.setProperty('--tilt-x', `${(-y * 5).toFixed(2)}deg`);
       card.style.setProperty('--tilt-y', `${(x * 5).toFixed(2)}deg`);
+      card.style.setProperty('--image-x', `${(-x * 5).toFixed(1)}px`);
+      card.style.setProperty('--image-y', `${(-y * 4).toFixed(1)}px`);
     });
   }
 }

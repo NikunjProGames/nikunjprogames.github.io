@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/site-interactions.css">
   <style>
     :root { color-scheme: dark; --bg: #090911; --panel: #11121d; --text: #f5f3ff; --muted: #a7a6bd; --violet: #a34cff; --cyan: #42d9ff; --line: rgba(164,104,255,.25); }
     * { box-sizing: border-box; }
@@ -54,7 +55,7 @@
     @media (max-width: 380px) { .metric-list { grid-template-columns: 1fr; } }
   </style>
 </head>
-<body>
+<body class="pleyz-account-page">
   <div class="shell">
     <header class="site-header">
       <a class="brand" href="/">Pley<span>Z</span></a>
@@ -179,5 +180,6 @@
     });
   </script>
   <script src="/notification-center.js" defer></script>
+  <script src="/site-interactions.js" defer></script>
 </body>
 </html>
