@@ -11,9 +11,20 @@
   }
 
   function addInteractiveTreatment(root = document) {
-    elementsWithin(root, 'button:not(:disabled), a[href]').forEach(element => {
+    elementsWithin(root, [
+      'button:not(:disabled)',
+      'a[href]',
+      '[role="button"]:not([aria-disabled="true"])',
+      '[role="tab"]',
+      'input:not([type="hidden"]):not(:disabled)',
+      'select:not(:disabled)',
+      'textarea:not(:disabled)'
+    ].join(',')).forEach(element => {
       if (element.closest('.game-shell, .game-viewport, [data-pleyz-game-runtime]')) return;
       element.classList.add('pleyz-interactive');
+      if (element.matches('input:not([type="hidden"]), select, textarea')) {
+        element.classList.add('pleyz-form-control');
+      }
     });
   }
 
@@ -28,6 +39,8 @@
       ['h1, h2, .section-title, .page-title, .hero-title, .mood-discovery-title', .7],
       ['.pleyz-developer-page .right-card, .pleyz-developer-page .step, .pleyz-developer-page .permission', 1.8],
       ['.pleyz-account-page .metric', 1.4],
+      ['input:not([type="hidden"]):not(:disabled), select:not(:disabled), textarea:not(:disabled)', .6],
+      ['[role="tab"]', 1],
       ['.pleyz-developer-page .logo, .pleyz-account-page .brand, .page-shell .site-brand, #pleyz-site-nav .pleyz-rail-brand, .footer-brand .logo', 1]
     ];
 
@@ -44,6 +57,10 @@
           element.classList.add('pleyz-pointer-tilt', 'pleyz-3d-heading');
         } else if (element.matches('.game-card')) {
           element.classList.add('pleyz-3d-card');
+        } else if (element.matches('input:not([type="hidden"]), select, textarea')) {
+          element.classList.add('pleyz-form-control');
+        } else if (element.matches('[role="tab"]')) {
+          element.classList.add('pleyz-3d-control');
         } else if (element.matches('.pleyz-developer-page .logo, .pleyz-account-page .brand, .page-shell .site-brand, #pleyz-site-nav .pleyz-rail-brand, .footer-brand .logo')) {
           element.classList.add('pleyz-pointer-tilt', 'pleyz-3d-logo');
         }
@@ -109,11 +126,6 @@
     const observer = new MutationObserver(records => {
       records.forEach(record => record.addedNodes.forEach(node => {
         if (node.nodeType !== Node.ELEMENT_NODE) return;
-        if (node.matches('button:not(:disabled), a[href]')) {
-          if (!node.closest('.game-shell, .game-viewport, [data-pleyz-game-runtime]')) {
-            node.classList.add('pleyz-interactive');
-          }
-        }
         addInteractiveTreatment(node);
         initializeDepthTargets(node);
         initializeReveals(node);
