@@ -32,7 +32,6 @@
     if (!isDesktopPointer || reducedMotion || document.documentElement.classList.contains('low-power-device')) return;
 
     const depthTargets = [
-      ['.mood-option', 4],
       ['.page-shell .related-game', 3],
       ['.game-card', 2],
       ['button:not(:disabled), .btn, .btn-primary, .submit-btn, [role="button"], .nav-actions a, .nav-actions button, .footer-links a, .social-icon, #random-game-button, #pleyz-category-rail a, #pleyz-mobile-bar a', 1.35],
@@ -49,7 +48,7 @@
         if (depthBoundElements.has(element)) return;
         depthBoundElements.add(element);
         element.classList.add('pleyz-depth-target');
-        if (element.matches('.mood-option, .page-shell .related-game')) {
+        if (element.matches('.page-shell .related-game')) {
           element.classList.add('pleyz-tilt-target');
         } else if (element.matches('button:not(:disabled), .btn, .btn-primary, .submit-btn, [role="button"], .nav-actions a, .nav-actions button, .footer-links a, .social-icon, #random-game-button, #pleyz-category-rail a, #pleyz-mobile-bar a')) {
           element.classList.add('pleyz-pointer-tilt', 'pleyz-3d-control');

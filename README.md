@@ -12,6 +12,7 @@ PleyZ combines game pages with available descriptions and controls, mood-based d
 
 * **Curated catalog:** Explore browser games across genres, with categories and game details that help you choose what to play.
 * **Personal discovery:** Find games by mood and get recommendations based on your own play history and preferences when signed in.
+* **3D mood discovery:** Choose a mood using real, touch-responsive 3D controls, with the original accessible buttons and filtering retained.
 * **Player accounts:** Create a free profile, earn PleyZ Score on eligible game opens, and appear on the leaderboard.
 * **Browser-first play:** Play supported titles without installing a separate app; individual games may have their own device requirements or loading times.
 * **PleyZ Originals:** The catalog includes original projects created for PleyZ, alongside other browser games.

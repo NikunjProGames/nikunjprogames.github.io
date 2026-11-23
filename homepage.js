@@ -227,7 +227,7 @@ function initializeMagneticButtons() {
 
   document.querySelectorAll(
     '#random-game-button, .btn-primary, #auth-action-button, #mobile-nav button, ' +
-    '.nav-actions a.btn, .mood-option, .recommendation-mode, .category-directory a, ' +
+    '.nav-actions a.btn, .recommendation-mode, .category-directory a, ' +
     '.footer-links a, .footer-auth-button, .social-icon, .trending-arrow, #load-more-games'
   ).forEach(button => {
     button.classList.add('magnetic');
