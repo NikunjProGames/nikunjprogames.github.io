@@ -3001,6 +3001,12 @@ setTimeout(() => {
     transition: border-color 220ms ease, background 220ms ease, color 220ms ease, transform 220ms cubic-bezier(.2,.8,.2,1), box-shadow 220ms ease;
   }
   .mood-option:hover { transform: translateY(-3px) scale(1.012); }
+  @media (max-width: 600px) {
+    #recommendations .mood-option { min-height: 54px; }
+  }
+  @media (max-width: 360px) {
+    #recommendations .mood-option { min-height: 56px; }
+  }
 
   .game-card {
     transform: perspective(900px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));

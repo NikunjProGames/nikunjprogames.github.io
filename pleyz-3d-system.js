@@ -348,6 +348,7 @@
       function syncLayout() {
         const viewportWidth = Math.max(1, window.innerWidth);
         const viewportHeight = Math.max(1, window.innerHeight);
+        const headerRect = document.querySelector('header')?.getBoundingClientRect();
         if (rendererWidth !== viewportWidth || rendererHeight !== viewportHeight) {
           renderer.setSize(viewportWidth, viewportHeight, false);
           camera.left = 0;
@@ -369,11 +370,17 @@
             && rect.right > -240
             && rect.top < viewportHeight + 240
             && rect.left < viewportWidth + 240;
+          const overlapsHeader = !record.element.closest('header')
+            && headerRect
+            && headerRect.bottom > 0
+            && rect.top < headerRect.bottom
+            && rect.bottom > Math.max(0, headerRect.top);
           record.mesh.visible = withinBuffer
             && rect.bottom > 0
             && rect.right > 0
             && rect.top < viewportHeight
-            && rect.left < viewportWidth;
+            && rect.left < viewportWidth
+            && !overlapsHeader;
           if (!withinBuffer) {
             releaseRecordGeometry(record);
             return;
