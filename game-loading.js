@@ -3,11 +3,16 @@
 
   const style = document.createElement('style');
   style.textContent = `
-    .game-opening-status { position: fixed; z-index: 2147483000; left: 50%; bottom: 24px; display: inline-flex; align-items: center; gap: 10px; padding: 10px 14px; border: 1px solid rgba(0,191,255,.42); border-radius: 8px; background: rgba(8,10,18,.94); color: #f5f7fb; font: 700 15px Rajdhani, sans-serif; box-shadow: 0 8px 28px rgba(0,0,0,.38); pointer-events: none; opacity: 1; transform: translate(-50%, 0); transition: opacity .18s ease, transform .18s ease; }
+    .game-opening-status { position: fixed; z-index: 2147483000; left: 50%; bottom: 24px; display: inline-flex; align-items: center; gap: 12px; max-width: min(460px,calc(100vw - 24px)); padding: 11px 15px; border: 1px solid rgba(0,191,255,.42); border-radius: 10px; background: rgba(8,10,18,.96); color: #f5f7fb; font: 700 15px Rajdhani, sans-serif; box-shadow: 0 8px 28px rgba(0,0,0,.38); pointer-events: none; opacity: 1; transform: translate(-50%, 0); transition: opacity .2s ease, transform .2s ease; }
     .game-opening-status.is-hidden { opacity: 0; transform: translate(-50%, 8px); }
-    .game-opening-spinner { width: 16px; height: 16px; flex: 0 0 16px; border: 2px solid rgba(255,255,255,.24); border-top-color: #00bfff; border-radius: 50%; animation: game-opening-spin .7s linear infinite; }
-    @keyframes game-opening-spin { to { transform: rotate(360deg); } }
-    @media (prefers-reduced-motion: reduce) { .game-opening-spinner { animation-duration: 1.5s; } }
+    .game-opening-blocks { display: grid; grid-template-columns: repeat(2, 9px); gap: 3px; flex: 0 0 21px; perspective: 80px; }
+    .game-opening-blocks span { width: 9px; height: 9px; border: 1px solid #ffffff50; border-radius: 2px; background: linear-gradient(145deg,#42d9ff,#1765b8); box-shadow: 2px 2px 0 #10356b; animation: game-opening-build .8s ease-in-out infinite alternate; }
+    .game-opening-blocks span:nth-child(2) { animation-delay: .14s; background: linear-gradient(145deg,#c17bff,#6a0dad); box-shadow: 2px 2px 0 #3f1768; }
+    .game-opening-blocks span:nth-child(3) { animation-delay: .28s; }
+    .game-opening-blocks span:nth-child(4) { animation-delay: .42s; background: linear-gradient(145deg,#c17bff,#6a0dad); box-shadow: 2px 2px 0 #3f1768; }
+    .game-opening-status.is-slow .game-opening-blocks { display: none; }
+    @keyframes game-opening-build { to { transform: translateY(-3px) rotateX(20deg); filter: brightness(1.25); } }
+    @media (prefers-reduced-motion: reduce) { .game-opening-blocks span { animation: none; } }
   `;
   document.head.appendChild(style);
 
@@ -16,7 +21,7 @@
   status.id = 'game-opening-status';
   status.setAttribute('role', 'status');
   status.setAttribute('aria-live', 'polite');
-  status.innerHTML = '<span class="game-opening-spinner" aria-hidden="true"></span><span>Opening game...</span>';
+  status.innerHTML = '<span class="game-opening-blocks" aria-hidden="true"><span></span><span></span><span></span><span></span></span><span>Opening game...</span>';
   document.body.appendChild(status);
 
   const minimumVisibleMs = 700;
@@ -37,9 +42,16 @@
 
   const gameFrame = document.querySelector('.game-frame iframe') || document.querySelector('iframe[src]');
   gameFrame?.addEventListener('load', dismiss, { once: true });
-  if (document.readyState === 'complete') window.setTimeout(dismiss, 300);
-  else window.addEventListener('load', dismiss, { once: true });
-  window.setTimeout(dismiss, 12000);
+  window.setTimeout(() => {
+    if (dismissScheduled || dismissed) return;
+    status.classList.add('is-slow');
+    status.lastElementChild.textContent = 'The game is taking longer to open. It may still finish loading.';
+    window.setTimeout(dismiss, 6000);
+  }, 12000);
+  if (!gameFrame) {
+    if (document.readyState === 'complete') window.setTimeout(dismiss, 300);
+    else window.addEventListener('load', dismiss, { once: true });
+  }
 })();
 
 (() => {

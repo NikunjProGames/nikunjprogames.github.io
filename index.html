@@ -132,18 +132,37 @@
     .site-loader.is-hidden { opacity: 0; pointer-events: none; }
     .site-loader-mark { font: 900 clamp(1.5rem, 3vw, 2.75rem) 'Orbitron', sans-serif; }
     .site-loader-mark span { color: #8b00ff; }
-    .site-loader-spinner {
-      width: clamp(24px, 2vw, 40px);
-      height: clamp(24px, 2vw, 40px);
-      border: 2px solid #ffffff30;
-      border-top-color: #00bfff;
-      border-radius: 50%;
-      animation: site-loader-spin .75s linear infinite;
+    .site-loader-blocks {
+      display: grid;
+      grid-template-columns: repeat(3, 14px);
+      gap: 5px;
+      padding: 10px;
+      perspective: 180px;
+      transform-style: preserve-3d;
     }
-    @keyframes site-loader-spin { to { transform: rotate(360deg); } }
+    .site-loader-blocks span {
+      width: 14px;
+      height: 14px;
+      border: 1px solid rgba(255,255,255,.32);
+      border-radius: 3px;
+      background: linear-gradient(145deg, #42d9ff, #1765b8 72%);
+      box-shadow: 3px 4px 0 #10356b, 0 0 12px rgba(66,217,255,.2);
+      transform: rotateX(10deg) rotateY(-12deg);
+      animation: site-loader-build 1.15s cubic-bezier(.2,.75,.25,1) infinite alternate;
+    }
+    .site-loader-blocks span:nth-child(2) { animation-delay: .12s; background: linear-gradient(145deg, #c17bff, #6a0dad 72%); box-shadow: 3px 4px 0 #3f1768, 0 0 12px rgba(163,76,255,.2); }
+    .site-loader-blocks span:nth-child(3) { animation-delay: .24s; }
+    .site-loader-blocks span:nth-child(4) { animation-delay: .36s; background: linear-gradient(145deg, #c17bff, #6a0dad 72%); box-shadow: 3px 4px 0 #3f1768, 0 0 12px rgba(163,76,255,.2); }
+    .site-loader-blocks span:nth-child(5) { animation-delay: .48s; }
+    .site-loader-blocks span:nth-child(6) { animation-delay: .6s; background: linear-gradient(145deg, #c17bff, #6a0dad 72%); box-shadow: 3px 4px 0 #3f1768, 0 0 12px rgba(163,76,255,.2); }
+    .site-loader-blocks span:nth-child(7) { animation-delay: .72s; }
+    @keyframes site-loader-build {
+      from { transform: translate3d(0, 5px, -8px) rotateX(20deg) rotateY(-18deg) scale(.86); opacity: .58; }
+      to { transform: translate3d(0, -3px, 8px) rotateX(-8deg) rotateY(8deg) scale(1); opacity: 1; }
+    }
     @media (prefers-reduced-motion: reduce) {
       .site-loader { transition: none; }
-      .site-loader-spinner { animation: none; }
+      .site-loader-blocks span { animation: none; }
     }
     .install-help-dialog {
       width: min(420px, calc(100vw - 24px));
@@ -1388,8 +1407,8 @@
     .ad-wrap { padding: 1.5rem 2rem; }
 
     @media (max-width: 768px) {
-      #background-scene { opacity: 0.45; }
-      #bg-canvas { opacity: 0.45; }
+      #background-scene { opacity: 0.52; }
+      #bg-canvas { opacity: 0.52; }
 
       .trending-card { backdrop-filter: none; }
 
@@ -1656,7 +1675,7 @@
 <canvas id="bg-canvas"></canvas>
 <div class="site-loader" id="site-loader" role="status" aria-live="polite">
   <span class="site-loader-mark">Pley<span>Z</span></span>
-  <span class="site-loader-spinner" aria-hidden="true"></span>
+  <span class="site-loader-blocks" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span>
   <span id="site-loader-message">Getting your games ready...</span>
   <span id="site-loader-network-note" hidden>Slow connection detected. Game images load as you browse.</span>
 </div>
@@ -2046,7 +2065,7 @@
 <script defer src="/homepage-games.js"></script>
 <script defer src="/homepage.js"></script>
 <script defer src="/site-interactions.js"></script>
-<script type="module" src="/mood-discovery-3d.js"></script>
+<script type="module" src="/pleyz-3d-system.js"></script>
 <script type="module">
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";

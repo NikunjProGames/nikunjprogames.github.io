@@ -4,33 +4,6 @@
   --pleyz-motion: cubic-bezier(.2, .75, .25, 1);
 }
 
-#recommendations .mood-options {
-  position: relative;
-}
-
-#recommendations .pleyz-3d-mood-canvas {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  display: block;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-
-#recommendations.pleyz-3d-mood-ready .mood-option {
-  position: relative;
-  z-index: 1;
-  border-color: transparent !important;
-  background: transparent !important;
-  box-shadow: none !important;
-  transform: none !important;
-  translate: none !important;
-  rotate: none !important;
-  scale: 1 !important;
-  filter: none !important;
-}
-
 .pleyz-interactive {
   -webkit-tap-highlight-color: transparent;
   transition:
@@ -41,7 +14,7 @@
     scale 180ms var(--pleyz-motion);
 }
 
-.pleyz-interactive:active:not(:disabled) {
+.pleyz-interactive:active:not(:disabled):not(.pleyz-3d-control) {
   scale: .94;
   translate: 0 1px;
 }
@@ -72,20 +45,103 @@
   filter: brightness(1.16);
 }
 
+.pleyz-3d-scene {
+  contain: strict;
+}
+
+.pleyz-3d-target {
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    translate 220ms var(--pleyz-motion),
+    box-shadow 220ms ease,
+    filter 220ms ease;
+}
+
+.pleyz-3d-target:active:not(:disabled) {
+  translate: 0 1px;
+  scale: .985;
+  transition-duration: 90ms;
+}
+
+.pleyz-3d-target:focus-visible {
+  outline: 2px solid rgba(66, 217, 255, .9);
+  outline-offset: 3px;
+}
+
+.pleyz-3d-frame {
+  position: relative;
+  padding: 7px !important;
+  border: 1px solid transparent !important;
+  border-radius: 17px !important;
+  background:
+    linear-gradient(145deg, #12121f, #070a12) padding-box,
+    linear-gradient(130deg, rgba(163, 76, 255, .88), rgba(66, 217, 255, .72), rgba(163, 76, 255, .48)) border-box !important;
+  box-shadow:
+    0 24px 58px rgba(0, 0, 0, .48),
+    0 0 28px rgba(163, 76, 255, .15),
+    inset 0 1px 0 rgba(255, 255, 255, .16) !important;
+}
+
+.pleyz-3d-frame > iframe {
+  position: relative;
+  z-index: 1406;
+  border-radius: 9px;
+  background: #000;
+}
+
+.pleyz-3d-frame:fullscreen,
+.pleyz-3d-frame:-webkit-full-screen {
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: #000 !important;
+  box-shadow: none !important;
+}
+
+.pleyz-3d-frame:fullscreen > iframe,
+.pleyz-3d-frame:-webkit-full-screen > iframe {
+  border-radius: 0;
+}
+
+body[class*="theme-"] header nav[aria-label="Primary"] a.pleyz-3d-target {
+  padding: 7px 10px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, .075), rgba(255, 255, 255, .02));
+  text-decoration: none;
+}
+
+.category-jump.pleyz-3d-target,
+.category-links a.pleyz-3d-target,
+.related-categories a.pleyz-3d-target {
+  background: linear-gradient(145deg, rgba(255, 255, 255, .075), rgba(255, 255, 255, .02));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .08), 0 3px 0 rgba(0, 0, 0, .24);
+}
+
+#recommendations .mood-option.pleyz-3d-target {
+  transform: none;
+}
+
 .pleyz-depth-target {
   translate: var(--pleyz-depth-x, 0px) var(--pleyz-depth-y, 0px);
   transition: translate 280ms var(--pleyz-motion), border-color 220ms ease, box-shadow 240ms ease;
 }
 
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .pleyz-3d-target:hover,
+  .pleyz-3d-target:focus-visible {
+    translate: 0 -2px;
+    filter: drop-shadow(0 5px 12px rgba(0, 0, 0, .28));
+  }
+
   .pleyz-pointer-tilt {
     rotate: var(--pleyz-tilt-axis, 1 0 0) var(--pleyz-tilt-angle, 0deg);
     transform-style: preserve-3d;
     transition: rotate 260ms var(--pleyz-motion), filter 220ms ease;
   }
 
-  .pleyz-3d-control:hover,
-  .pleyz-3d-control:focus-visible {
+  .pleyz-3d-control:not(.pleyz-3d-target):hover,
+  .pleyz-3d-control:not(.pleyz-3d-target):focus-visible {
     translate: var(--pleyz-depth-x, 0px) calc(var(--pleyz-depth-y, 0px) - 2px);
     scale: 1.015;
     filter:
@@ -109,7 +165,7 @@
     transition-duration: 100ms;
   }
 
-  .pleyz-3d-control:active:not(:disabled) {
+  .pleyz-3d-control:not(.pleyz-3d-target):active:not(:disabled) {
     scale: .94;
     translate: var(--pleyz-depth-x, 0px) calc(var(--pleyz-depth-y, 0px) + 1px);
   }
@@ -385,6 +441,15 @@
   .pleyz-interactive:active:not(:disabled) {
     scale: 1 !important;
     translate: none !important;
+  }
+
+  .pleyz-3d-target,
+  .pleyz-3d-target:hover,
+  .pleyz-3d-target:focus-visible,
+  .pleyz-3d-target:active:not(:disabled) {
+    transition: none !important;
+    translate: none !important;
+    scale: 1 !important;
   }
 }
 

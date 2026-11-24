@@ -51,7 +51,12 @@
         if (element.matches('.page-shell .related-game')) {
           element.classList.add('pleyz-tilt-target');
         } else if (element.matches('button:not(:disabled), .btn, .btn-primary, .submit-btn, [role="button"], .nav-actions a, .nav-actions button, .footer-links a, .social-icon, #random-game-button, #pleyz-category-rail a, #pleyz-mobile-bar a')) {
-          element.classList.add('pleyz-pointer-tilt', 'pleyz-3d-control');
+          if (element.classList.contains('pleyz-3d-target')) {
+            element.classList.remove('pleyz-depth-target', 'pleyz-pointer-tilt');
+          } else {
+            element.classList.add('pleyz-pointer-tilt');
+          }
+          element.classList.add('pleyz-3d-control');
         } else if (element.matches('h1, h2, .section-title, .page-title, .hero-title, .mood-discovery-title')) {
           element.classList.add('pleyz-pointer-tilt', 'pleyz-3d-heading');
         } else if (element.matches('.game-card')) {
@@ -59,11 +64,13 @@
         } else if (element.matches('input:not([type="hidden"]), select, textarea')) {
           element.classList.add('pleyz-form-control');
         } else if (element.matches('[role="tab"]')) {
+          element.classList.remove('pleyz-depth-target');
           element.classList.add('pleyz-3d-control');
         } else if (element.matches('.pleyz-developer-page .logo, .pleyz-account-page .brand, .page-shell .site-brand, #pleyz-site-nav .pleyz-rail-brand, .footer-brand .logo')) {
           element.classList.add('pleyz-pointer-tilt', 'pleyz-3d-logo');
         }
         element.addEventListener('pointermove', event => {
+          if (element.classList.contains('pleyz-3d-target')) return;
           if (event.pointerType !== 'mouse') return;
           const bounds = element.getBoundingClientRect();
           const x = (event.clientX - bounds.left) / Math.max(bounds.width, 1) - .5;
@@ -85,6 +92,7 @@
           }
         }, { passive: true });
         element.addEventListener('pointerleave', () => {
+          if (element.classList.contains('pleyz-3d-target')) return;
           element.style.removeProperty('--pleyz-depth-x');
           element.style.removeProperty('--pleyz-depth-y');
           element.style.removeProperty('--pleyz-rotate-x');
