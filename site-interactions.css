@@ -122,6 +122,16 @@ body[class*="theme-"] header nav[aria-label="Primary"] a.pleyz-3d-target {
   transform: none;
 }
 
+#recommendations .mood-option {
+  border-radius: 18px;
+}
+
+@media (max-width: 600px) {
+  #recommendations .mood-option {
+    border-radius: 16px;
+  }
+}
+
 .pleyz-depth-target {
   translate: var(--pleyz-depth-x, 0px) var(--pleyz-depth-y, 0px);
   transition: translate 280ms var(--pleyz-motion), border-color 220ms ease, box-shadow 240ms ease;
@@ -290,18 +300,6 @@ body[class*="theme-"] header nav[aria-label="Primary"] a.pleyz-3d-target {
     transform: scale(1.055);
   }
 
-  #pleyz-site-nav #pleyz-category-rail {
-    border-color: rgba(163, 76, 255, .34);
-    box-shadow: 0 20px 58px rgba(0, 0, 0, .48), 0 0 28px rgba(163, 76, 255, .08);
-  }
-
-  #pleyz-site-nav .pleyz-rail-brand,
-  #pleyz-mobile-bar a {
-    background: linear-gradient(100deg, #fff 20%, #d7b4ff 58%, #8deaff);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
   .pleyz-developer-page .nav-link:hover,
   .pleyz-developer-page .cta:hover,
   .pleyz-developer-page .terms-button:hover,
@@ -345,6 +343,31 @@ body[class*="theme-"] header nav[aria-label="Primary"] a.pleyz-3d-target {
     0 22px 58px rgba(0, 0, 0, .5),
     0 0 26px rgba(163, 76, 255, .12),
     inset 0 1px 0 rgba(255, 255, 255, .12);
+}
+
+:is(body.pleyz-legacy-game-page #pleyz-standard-game .game-primary, .page-shell .game-shell) {
+  position: relative;
+  isolation: isolate;
+}
+
+:is(body.pleyz-legacy-game-page #pleyz-standard-game .game-primary, .page-shell .game-shell)::before {
+  position: absolute;
+  z-index: -1;
+  top: 4%;
+  left: 50%;
+  width: min(92vw, 880px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse,
+    rgba(66, 217, 255, .15) 0%,
+    rgba(66, 217, 255, .07) 36%,
+    rgba(163, 76, 255, .035) 54%,
+    transparent 72%
+  );
+  content: "";
+  pointer-events: none;
+  transform: translateX(-50%);
 }
 
 :is(body.pleyz-legacy-game-page #pleyz-standard-game, .page-shell) .topbar,

@@ -26,7 +26,7 @@
       #pleyz-category-rail .pleyz-rail-brand { padding: 17px 15px 13px; border-bottom: 1px solid rgba(255,255,255,.08); color: var(--nav-text); font: 900 1.05rem 'Orbitron', sans-serif; text-decoration: none; }
       #pleyz-category-rail .pleyz-rail-heading { padding: 14px 15px 7px; color: var(--nav-muted); font: 700 .64rem 'Orbitron', sans-serif; text-transform: uppercase; }
       #pleyz-category-rail nav { display: grid; gap: 2px; padding: 0 8px 10px; overflow: auto; }
-      #pleyz-category-rail a.pleyz-category-link { display: flex; align-items: center; min-height: 36px; padding: 7px 9px; border: 1px solid rgba(0,191,255,.12); border-radius: 6px; background: linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.015)); color: var(--nav-muted); font-size: .92rem; font-weight: 700; text-decoration: none; transition: color .15s ease, border-color .15s ease, background .15s ease; }
+      #pleyz-category-rail a.pleyz-category-link { display: flex; align-items: center; min-height: 36px; padding: 7px 9px; border-radius: 6px; color: var(--nav-muted); font-size: .92rem; font-weight: 700; text-decoration: none; transition: color .15s ease, background .15s ease; }
       #pleyz-category-rail a.pleyz-category-link:hover, #pleyz-category-rail a.pleyz-category-link:focus-visible { background: rgba(139,0,255,.12); color: #fff; outline: 1px solid var(--nav-cyan); outline-offset: -1px; }
       #pleyz-nav-backdrop { display: none; }
       body.pleyz-site-shell-active { padding-left: 232px !important; }

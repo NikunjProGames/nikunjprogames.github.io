@@ -20,7 +20,7 @@
       'select:not(:disabled)',
       'textarea:not(:disabled)'
     ].join(',')).forEach(element => {
-      if (element.closest('.game-shell, .game-viewport, [data-pleyz-game-runtime]')) return;
+      if (element.closest('.game-shell, .game-viewport, [data-pleyz-game-runtime], .recent-panel, #pleyz-category-rail')) return;
       element.classList.add('pleyz-interactive');
       if (element.matches('input:not([type="hidden"]), select, textarea')) {
         element.classList.add('pleyz-form-control');
@@ -34,23 +34,24 @@
     const depthTargets = [
       ['.page-shell .related-game', 3],
       ['.game-card', 2],
-      ['button:not(:disabled), .btn, .btn-primary, .submit-btn, [role="button"], .nav-actions a, .nav-actions button, .footer-links a, .social-icon, #random-game-button, #pleyz-category-rail a, #pleyz-mobile-bar a', 1.35],
+      ['button:not(:disabled), .btn, .btn-primary, .submit-btn, [role="button"], .nav-actions a, .nav-actions button, .footer-links a, .social-icon, #random-game-button', 1.35],
       ['h1, h2, .section-title, .page-title, .hero-title, .mood-discovery-title', .7],
       ['.pleyz-developer-page .right-card, .pleyz-developer-page .step, .pleyz-developer-page .permission', 1.8],
       ['.pleyz-account-page .metric', 1.4],
       ['input:not([type="hidden"]):not(:disabled), select:not(:disabled), textarea:not(:disabled)', .6],
       ['[role="tab"]', 1],
-      ['.pleyz-developer-page .logo, .pleyz-account-page .brand, .page-shell .site-brand, #pleyz-site-nav .pleyz-rail-brand, .footer-brand .logo', 1]
+      ['.pleyz-developer-page .logo, .pleyz-account-page .brand, .page-shell .site-brand, .footer-brand .logo', 1]
     ];
 
     depthTargets.forEach(([selector, strength]) => {
       elementsWithin(root, selector).forEach(element => {
+        if (element.closest('.recent-panel, #pleyz-category-rail')) return;
         if (depthBoundElements.has(element)) return;
         depthBoundElements.add(element);
         element.classList.add('pleyz-depth-target');
         if (element.matches('.page-shell .related-game')) {
           element.classList.add('pleyz-tilt-target');
-        } else if (element.matches('button:not(:disabled), .btn, .btn-primary, .submit-btn, [role="button"], .nav-actions a, .nav-actions button, .footer-links a, .social-icon, #random-game-button, #pleyz-category-rail a, #pleyz-mobile-bar a')) {
+        } else if (element.matches('button:not(:disabled), .btn, .btn-primary, .submit-btn, [role="button"], .nav-actions a, .nav-actions button, .footer-links a, .social-icon, #random-game-button')) {
           if (element.classList.contains('pleyz-3d-target')) {
             element.classList.remove('pleyz-depth-target', 'pleyz-pointer-tilt');
           } else {
@@ -66,7 +67,7 @@
         } else if (element.matches('[role="tab"]')) {
           element.classList.remove('pleyz-depth-target');
           element.classList.add('pleyz-3d-control');
-        } else if (element.matches('.pleyz-developer-page .logo, .pleyz-account-page .brand, .page-shell .site-brand, #pleyz-site-nav .pleyz-rail-brand, .footer-brand .logo')) {
+        } else if (element.matches('.pleyz-developer-page .logo, .pleyz-account-page .brand, .page-shell .site-brand, .footer-brand .logo')) {
           element.classList.add('pleyz-pointer-tilt', 'pleyz-3d-logo');
         }
         element.addEventListener('pointermove', event => {

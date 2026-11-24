@@ -6,7 +6,6 @@
   const targetSelector = [
     'header a[href]:not(.logo):not(.brand):not(.site-brand)',
     'header button:not(.mobile-nav-item):not(:disabled)',
-    '#pleyz-category-rail a.pleyz-category-link',
     '#recommendations .recommendation-mode',
     '#recommendations .mood-option',
     '.category-directory a[href]',
@@ -36,10 +35,13 @@
     let resizeObserver = null;
     let mutationObserver = null;
     let frameId = 0;
+    let rendererWidth = 0;
+    let rendererHeight = 0;
     let layoutDirty = true;
     let renderDirty = true;
     let records = [];
     let geometryCache = new Map();
+    let emptyGeometry = null;
     let frontMaterial = null;
     const materials = new Map();
     let canvas = null;
@@ -57,8 +59,9 @@
     }
 
     function releaseRecordGeometry(record) {
-      if (record.geometryKey) releaseGeometry(record.geometryKey);
-      else record.mesh.geometry.dispose();
+      if (!record.geometryKey) return;
+      record.mesh.geometry = emptyGeometry;
+      releaseGeometry(record.geometryKey);
       record.geometryKey = '';
     }
 
@@ -67,6 +70,7 @@
       if (token !== initializationToken || !document.body) return;
 
       scene = new THREE.Scene();
+      emptyGeometry = new THREE.BufferGeometry();
       const camera = new THREE.OrthographicCamera(0, innerWidth, innerHeight, 0, 0.1, 2000);
       camera.position.z = 900;
       camera.lookAt(0, 0, 0);
@@ -122,7 +126,7 @@
         pointerEvents: 'none'
       });
       renderer.setClearColor(0x000000, 0);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, coarsePointer ? 1 : lowPower ? 1.15 : 1.5));
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, coarsePointer ? 1 : lowPower ? 1.1 : 1.25));
       renderer.outputColorSpace = THREE.SRGBColorSpace;
       renderer.shadowMap.enabled = false;
       document.body.appendChild(canvas);
@@ -186,7 +190,7 @@
           element,
           isFrame,
           palette: getPalette(element, isFrame),
-          mesh: new THREE.Mesh(new THREE.BufferGeometry(), materialFor({ palette: getPalette(element), selected: false })),
+          mesh: new THREE.Mesh(emptyGeometry, materialFor({ palette: getPalette(element), selected: false })),
           geometryKey: '',
           selected: selectedState(element),
           hovered: false,
@@ -314,7 +318,8 @@
       }
 
       function syncTargets() {
-        const nextTargets = new Set(document.querySelectorAll(targetSelector));
+        const nextTargets = new Set([...document.querySelectorAll(targetSelector)]
+          .filter(element => !element.closest('.recent-panel')));
         document.querySelectorAll('.game-frame:not(.native-game-frame)').forEach(element => {
           if (element.querySelector('iframe')) nextTargets.add(element);
         });
@@ -340,31 +345,44 @@
       function syncLayout() {
         const viewportWidth = Math.max(1, window.innerWidth);
         const viewportHeight = Math.max(1, window.innerHeight);
-        renderer.setSize(viewportWidth, viewportHeight, false);
-        camera.left = 0;
-        camera.right = viewportWidth;
-        camera.top = viewportHeight;
-        camera.bottom = 0;
-        camera.updateProjectionMatrix();
+        if (rendererWidth !== viewportWidth || rendererHeight !== viewportHeight) {
+          renderer.setSize(viewportWidth, viewportHeight, false);
+          camera.left = 0;
+          camera.right = viewportWidth;
+          camera.top = viewportHeight;
+          camera.bottom = 0;
+          camera.updateProjectionMatrix();
+          rendererWidth = viewportWidth;
+          rendererHeight = viewportHeight;
+        }
 
         records.forEach(record => {
           const rect = record.element.getBoundingClientRect();
-          const visible = rect.width > 0
+          const hasLayout = rect.width > 0
             && rect.height > 0
+            && !record.element.closest('[hidden]');
+          const withinBuffer = hasLayout
+            && rect.bottom > -240
+            && rect.right > -240
+            && rect.top < viewportHeight + 240
+            && rect.left < viewportWidth + 240;
+          record.mesh.visible = withinBuffer
             && rect.bottom > 0
             && rect.right > 0
             && rect.top < viewportHeight
-            && rect.left < viewportWidth
-            && !record.element.closest('[hidden]');
-          record.mesh.visible = visible;
-          if (!visible) return;
+            && rect.left < viewportWidth;
+          if (!withinBuffer) {
+            releaseRecordGeometry(record);
+            return;
+          }
 
           const computed = window.getComputedStyle(record.element);
           const targetWidth = Math.max(1, Math.round(rect.width * 2) / 2);
           const targetHeight = Math.max(1, Math.round(rect.height * 2) / 2);
+          const maxCornerFactor = record.element.matches('#recommendations .mood-option') ? 0.4 : 0.24;
           const radius = Math.max(2, Math.min(
             Number.parseFloat(computed.borderTopLeftRadius) || 10,
-            Math.min(targetWidth, targetHeight) * 0.24
+            Math.min(targetWidth, targetHeight) * maxCornerFactor
           ));
           const depth = record.isFrame ? 15 : 9;
           const key = `${targetWidth.toFixed(1)}:${targetHeight.toFixed(1)}:${radius.toFixed(1)}:${depth}`;
@@ -484,6 +502,7 @@
           geometryCache.clear();
           frontMaterial.dispose();
           materials.forEach(material => material.dispose());
+          emptyGeometry.dispose();
           renderer.dispose();
           canvas.remove();
           gsapObserver?.disconnect();
@@ -545,6 +564,7 @@
       geometryCache.clear();
       frontMaterial?.dispose();
       materials.forEach(material => material.dispose());
+      emptyGeometry?.dispose();
       renderer?.dispose();
       canvas?.remove();
       console.warn('PleyZ 3D visuals are unavailable; standard HTML controls remain active.', error);
