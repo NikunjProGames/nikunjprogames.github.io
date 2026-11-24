@@ -7,8 +7,6 @@
   const targetSelector = [
     'header a[href]:not(.logo):not(.brand):not(.site-brand)',
     'header button:not(.mobile-nav-item):not(:disabled)',
-    '#recommendations .recommendation-mode',
-    '#recommendations .mood-option',
     '.category-directory a[href]',
     '.category-jump',
     '.category-links a[href]',
@@ -389,10 +387,9 @@
           const computed = window.getComputedStyle(record.element);
           const targetWidth = Math.max(1, Math.round(rect.width * 2) / 2);
           const targetHeight = Math.max(1, Math.round(rect.height * 2) / 2);
-          const maxCornerFactor = record.element.matches('#recommendations .mood-option') ? 0.4 : 0.24;
           const radius = Math.max(2, Math.min(
             Number.parseFloat(computed.borderTopLeftRadius) || 10,
-            Math.min(targetWidth, targetHeight) * maxCornerFactor
+            Math.min(targetWidth, targetHeight) * 0.24
           ));
           const depth = record.isFrame ? 15 : 9;
           const key = `${targetWidth.toFixed(1)}:${targetHeight.toFixed(1)}:${radius.toFixed(1)}:${depth}`;

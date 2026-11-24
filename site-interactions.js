@@ -46,6 +46,7 @@
     depthTargets.forEach(([selector, strength]) => {
       elementsWithin(root, selector).forEach(element => {
         if (element.closest('.recent-panel, #pleyz-category-rail')) return;
+        if (element.matches('#recommendations .recommendation-mode, #recommendations .mood-option')) return;
         if (depthBoundElements.has(element)) return;
         depthBoundElements.add(element);
         element.classList.add('pleyz-depth-target');
