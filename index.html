@@ -185,7 +185,7 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;600;700&display=swap" />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
   <noscript><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet" /></noscript>
-  <link rel="stylesheet" href="/site-interactions.css?v=2d-mood" />
+  <link rel="stylesheet" href="/site-interactions.css" />
   <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" /></noscript>
 <meta name="google-site-verification" content="Tv6rcZkhJoP6OHr6VhgpgN_4DVGQt8qfx0oRQ5ADZx4" />
@@ -2064,8 +2064,8 @@
 <script src="/game-preview-videos.js"></script>
 <script defer src="/homepage-games.js"></script>
 <script defer src="/homepage.js"></script>
-<script defer src="/site-interactions.js?v=2d-mood"></script>
-<script type="module" src="/pleyz-3d-system.js?v=2d-mood"></script>
+<script defer src="/site-interactions.js"></script>
+<script type="module" src="/pleyz-3d-system.js"></script>
 <script type="module">
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
@@ -3006,21 +3006,6 @@ setTimeout(() => {
   }
   @media (max-width: 360px) {
     #recommendations .mood-option { min-height: 56px; }
-  }
-  #recommendations .mood-option,
-  #recommendations .mood-option:hover,
-  #recommendations .mood-option:focus-visible,
-  #recommendations .mood-option:active,
-  #recommendations .mood-option[aria-pressed="true"] {
-    transform: none;
-    transform-style: flat;
-    perspective: none;
-    rotate: none;
-    scale: 1;
-    translate: none;
-    filter: none;
-    box-shadow: none;
-    transition: border-color 160ms ease, background 160ms ease, color 160ms ease;
   }
 
   .game-card {
