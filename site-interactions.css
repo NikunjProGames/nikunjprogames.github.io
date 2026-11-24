@@ -52,55 +52,13 @@
 .pleyz-3d-target {
   -webkit-tap-highlight-color: transparent;
   transition:
-    translate 220ms var(--pleyz-motion),
     box-shadow 220ms ease,
     filter 220ms ease;
-}
-
-.pleyz-3d-target:active:not(:disabled) {
-  translate: 0 1px;
-  scale: .985;
-  transition-duration: 90ms;
 }
 
 .pleyz-3d-target:focus-visible {
   outline: 2px solid rgba(66, 217, 255, .9);
   outline-offset: 3px;
-}
-
-.pleyz-3d-frame {
-  position: relative;
-  padding: 7px !important;
-  border: 1px solid transparent !important;
-  border-radius: 17px !important;
-  background:
-    linear-gradient(145deg, #12121f, #070a12) padding-box,
-    linear-gradient(130deg, rgba(163, 76, 255, .88), rgba(66, 217, 255, .72), rgba(163, 76, 255, .48)) border-box !important;
-  box-shadow:
-    0 24px 58px rgba(0, 0, 0, .48),
-    0 0 28px rgba(163, 76, 255, .15),
-    inset 0 1px 0 rgba(255, 255, 255, .16) !important;
-}
-
-.pleyz-3d-frame > iframe {
-  position: relative;
-  z-index: 1406;
-  border-radius: 9px;
-  background: #000;
-}
-
-.pleyz-3d-frame:fullscreen,
-.pleyz-3d-frame:-webkit-full-screen {
-  padding: 0 !important;
-  border: 0 !important;
-  border-radius: 0 !important;
-  background: #000 !important;
-  box-shadow: none !important;
-}
-
-.pleyz-3d-frame:fullscreen > iframe,
-.pleyz-3d-frame:-webkit-full-screen > iframe {
-  border-radius: 0;
 }
 
 body[class*="theme-"] header nav[aria-label="Primary"] a.pleyz-3d-target {
@@ -140,7 +98,6 @@ body[class*="theme-"] header nav[aria-label="Primary"] a.pleyz-3d-target {
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
   .pleyz-3d-target:hover,
   .pleyz-3d-target:focus-visible {
-    translate: 0 -2px;
     filter: drop-shadow(0 5px 12px rgba(0, 0, 0, .28));
   }
 
@@ -246,27 +203,7 @@ body[class*="theme-"] header nav[aria-label="Primary"] a.pleyz-3d-target {
       box-shadow 240ms ease;
   }
 
-  :is(body.pleyz-legacy-game-page #pleyz-standard-game, .page-shell) .game-frame:not(.native-game-frame) {
-    border-color: rgba(163, 76, 255, .44);
-    border-radius: 15px;
-    box-shadow:
-      0 22px 58px rgba(0, 0, 0, .5),
-      0 0 26px rgba(163, 76, 255, .12),
-      inset 0 1px 0 rgba(255, 255, 255, .12);
-  }
-
-  :is(body.pleyz-legacy-game-page #pleyz-standard-game, .page-shell) .topbar,
-  :is(body.pleyz-legacy-game-page #pleyz-standard-game, .page-shell) .game-action-bar {
-    border-color: rgba(163, 76, 255, .24);
-    border-radius: 12px;
-    box-shadow: 0 12px 36px rgba(0, 0, 0, .24), inset 0 1px 0 rgba(255, 255, 255, .06);
-  }
-
   :is(body.pleyz-legacy-game-page #pleyz-standard-game, .page-shell) .info-card {
-    border-color: rgba(163, 76, 255, .2);
-    background:
-      radial-gradient(ellipse at 100% 0%, rgba(66, 217, 255, .045), transparent 42%),
-      linear-gradient(145deg, rgba(20, 19, 34, .82), rgba(11, 13, 23, .72));
     transition: border-color 240ms ease, box-shadow 240ms ease, translate 280ms var(--pleyz-motion);
   }
 
@@ -277,7 +214,6 @@ body[class*="theme-"] header nav[aria-label="Primary"] a.pleyz-3d-target {
 
   :is(body.pleyz-legacy-game-page #pleyz-standard-game, .page-shell) .related-game {
     position: relative;
-    border-color: rgba(163, 76, 255, .22);
     transition:
       transform 260ms var(--pleyz-motion),
       border-color 220ms ease,
@@ -334,58 +270,6 @@ body[class*="theme-"] header nav[aria-label="Primary"] a.pleyz-3d-target {
     width: min(calc(100% - clamp(1.5rem, 6vw, 6rem)), 1120px);
     padding: clamp(1.25rem, 2.8vw, 2.35rem);
   }
-}
-
-:is(body.pleyz-legacy-game-page #pleyz-standard-game, .page-shell) .game-frame:not(.native-game-frame) {
-  border-color: rgba(163, 76, 255, .44);
-  border-radius: 15px;
-  box-shadow:
-    0 22px 58px rgba(0, 0, 0, .5),
-    0 0 26px rgba(163, 76, 255, .12),
-    inset 0 1px 0 rgba(255, 255, 255, .12);
-}
-
-:is(body.pleyz-legacy-game-page #pleyz-standard-game .game-primary, .page-shell .game-shell) {
-  position: relative;
-  isolation: isolate;
-}
-
-:is(body.pleyz-legacy-game-page #pleyz-standard-game .game-primary, .page-shell .game-shell)::before {
-  position: absolute;
-  z-index: -1;
-  top: 4%;
-  left: 50%;
-  width: min(92vw, 880px);
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: radial-gradient(
-    ellipse,
-    rgba(66, 217, 255, .15) 0%,
-    rgba(66, 217, 255, .07) 36%,
-    rgba(163, 76, 255, .035) 54%,
-    transparent 72%
-  );
-  content: "";
-  pointer-events: none;
-  transform: translateX(-50%);
-}
-
-:is(body.pleyz-legacy-game-page #pleyz-standard-game, .page-shell) .topbar,
-:is(body.pleyz-legacy-game-page #pleyz-standard-game, .page-shell) .game-action-bar {
-  border-color: rgba(163, 76, 255, .24);
-  border-radius: 12px;
-  box-shadow: 0 12px 36px rgba(0, 0, 0, .24), inset 0 1px 0 rgba(255, 255, 255, .06);
-}
-
-:is(body.pleyz-legacy-game-page #pleyz-standard-game, .page-shell) .info-card {
-  border-color: rgba(163, 76, 255, .2);
-  background:
-    radial-gradient(ellipse at 100% 0%, rgba(66, 217, 255, .045), transparent 42%),
-    linear-gradient(145deg, rgba(20, 19, 34, .82), rgba(11, 13, 23, .72));
-}
-
-:is(body.pleyz-legacy-game-page #pleyz-standard-game, .page-shell) .related-game {
-  border-color: rgba(163, 76, 255, .22);
 }
 
 .pleyz-reveal {

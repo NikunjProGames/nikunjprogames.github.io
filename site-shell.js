@@ -1,4 +1,8 @@
 (() => {
+  const lowPowerDevice = navigator.connection?.saveData === true
+    || (navigator.hardwareConcurrency > 0 && navigator.hardwareConcurrency <= 4);
+  if (lowPowerDevice) document.documentElement.classList.add('low-power-device');
+
   if (!document.body || document.getElementById('pleyz-site-nav')) return;
 
   const categories = [
@@ -21,6 +25,64 @@
   shell.innerHTML = `
     <style>
       #pleyz-site-nav { --nav-bg: #0b0d16; --nav-panel: #111522; --nav-border: rgba(139,0,255,.3); --nav-text: #e8e8ff; --nav-muted: #a5a9c0; --nav-cyan: #00bfff; --nav-purple: #8b00ff; }
+      :is(body.pleyz-legacy-game-page #pleyz-standard-game .game-frame:not(.native-game-frame), .page-shell .game-frame:not(.native-game-frame)) {
+        position: relative;
+        padding: 7px !important;
+        border: 1px solid transparent !important;
+        border-radius: 17px !important;
+        background:
+          linear-gradient(145deg, #12121f, #070a12) padding-box,
+          linear-gradient(130deg, rgba(163,76,255,.88), rgba(66,217,255,.72), rgba(163,76,255,.48)) border-box !important;
+        box-shadow: 0 24px 58px rgba(0,0,0,.48), 0 0 28px rgba(163,76,255,.15), inset 0 1px 0 rgba(255,255,255,.16) !important;
+      }
+      :is(body.pleyz-legacy-game-page #pleyz-standard-game .game-frame:not(.native-game-frame) > iframe, .page-shell .game-frame:not(.native-game-frame) > iframe) {
+        position: relative;
+        z-index: 1406;
+        border-radius: 9px;
+        background: #000;
+      }
+      :is(body.pleyz-legacy-game-page #pleyz-standard-game .game-frame:not(.native-game-frame):fullscreen, body.pleyz-legacy-game-page #pleyz-standard-game .game-frame:not(.native-game-frame):-webkit-full-screen, .page-shell .game-frame:not(.native-game-frame):fullscreen, .page-shell .game-frame:not(.native-game-frame):-webkit-full-screen) {
+        padding: 0 !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+        background: #000 !important;
+        box-shadow: none !important;
+      }
+      :is(body.pleyz-legacy-game-page #pleyz-standard-game .game-frame:not(.native-game-frame):fullscreen > iframe, body.pleyz-legacy-game-page #pleyz-standard-game .game-frame:not(.native-game-frame):-webkit-full-screen > iframe, .page-shell .game-frame:not(.native-game-frame):fullscreen > iframe, .page-shell .game-frame:not(.native-game-frame):-webkit-full-screen > iframe) {
+        border-radius: 0;
+      }
+      :is(body.pleyz-legacy-game-page #pleyz-standard-game, .page-shell) .topbar,
+      :is(body.pleyz-legacy-game-page #pleyz-standard-game, .page-shell) .game-action-bar {
+        border-color: rgba(163,76,255,.24);
+        border-radius: 12px;
+        box-shadow: 0 12px 36px rgba(0,0,0,.24), inset 0 1px 0 rgba(255,255,255,.06);
+      }
+      :is(body.pleyz-legacy-game-page #pleyz-standard-game, .page-shell) .info-card {
+        border-color: rgba(163,76,255,.2);
+        background:
+          radial-gradient(ellipse at 100% 0%, rgba(66,217,255,.045), transparent 42%),
+          linear-gradient(145deg, rgba(20,19,34,.82), rgba(11,13,23,.72));
+      }
+      :is(body.pleyz-legacy-game-page #pleyz-standard-game, .page-shell) .related-game {
+        border-color: rgba(163,76,255,.22);
+      }
+      :is(body.pleyz-legacy-game-page #pleyz-standard-game .game-primary, .page-shell .game-shell) {
+        position: relative;
+        isolation: isolate;
+      }
+      :is(body.pleyz-legacy-game-page #pleyz-standard-game .game-primary, .page-shell .game-shell)::before {
+        position: absolute;
+        z-index: -1;
+        top: 4%;
+        left: 50%;
+        width: min(92vw, 880px);
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background: radial-gradient(ellipse, rgba(66,217,255,.15) 0%, rgba(66,217,255,.07) 36%, rgba(163,76,255,.035) 54%, transparent 72%);
+        content: "";
+        pointer-events: none;
+        transform: translateX(-50%);
+      }
       #pleyz-mobile-bar { display: none; }
       #pleyz-category-rail { position: fixed; z-index: 1400; inset: 12px auto 12px 12px; display: flex; flex-direction: column; width: 204px; overflow: hidden; border: 1px solid var(--nav-border); border-radius: 10px; background: rgba(8,10,18,.96); color: var(--nav-text); box-shadow: 0 16px 44px rgba(0,0,0,.4); font-family: 'Rajdhani', sans-serif; }
       #pleyz-category-rail .pleyz-rail-brand { padding: 17px 15px 13px; border-bottom: 1px solid rgba(255,255,255,.08); color: var(--nav-text); font: 900 1.05rem 'Orbitron', sans-serif; text-decoration: none; }
@@ -75,10 +137,12 @@
   interactionsScript.async = true;
   document.head.appendChild(interactionsScript);
 
-  const threeDimensionalScript = document.createElement('script');
-  threeDimensionalScript.type = 'module';
-  threeDimensionalScript.src = '/pleyz-3d-system.js';
-  document.head.appendChild(threeDimensionalScript);
+  if (!lowPowerDevice) {
+    const threeDimensionalScript = document.createElement('script');
+    threeDimensionalScript.type = 'module';
+    threeDimensionalScript.src = '/pleyz-3d-system.js';
+    document.head.appendChild(threeDimensionalScript);
+  }
 
   const categoryNav = shell.querySelector('#pleyz-category-rail nav');
   categories.forEach(([label, slug]) => {

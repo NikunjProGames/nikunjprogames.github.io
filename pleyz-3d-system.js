@@ -2,6 +2,7 @@
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const coarsePointer = window.matchMedia('(pointer: coarse)').matches;
   const lowPower = document.documentElement.classList.contains('low-power-device');
+  if (lowPower) return;
   const desktopPointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
   const targetSelector = [
     'header a[href]:not(.logo):not(.brand):not(.site-brand)',
@@ -86,7 +87,7 @@
       frontMaterial = new THREE.MeshStandardMaterial({
         color: 0xffffff,
         transparent: true,
-        opacity: 0.08,
+        opacity: 0,
         depthWrite: false
       });
       Object.entries(materialColors).forEach(([key, colors]) => {
@@ -108,7 +109,7 @@
 
       renderer = new THREE.WebGLRenderer({
         alpha: true,
-        antialias: !lowPower && !coarsePointer,
+        antialias: !coarsePointer,
         powerPreference: 'low-power',
         stencil: false
       });
@@ -126,7 +127,7 @@
         pointerEvents: 'none'
       });
       renderer.setClearColor(0x000000, 0);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, coarsePointer ? 1 : lowPower ? 1.1 : 1.25));
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, coarsePointer ? 1 : 1.25));
       renderer.outputColorSpace = THREE.SRGBColorSpace;
       renderer.shadowMap.enabled = false;
       document.body.appendChild(canvas);
@@ -210,8 +211,10 @@
         records.push(record);
         resizeObserver?.observe(element);
 
-        element.classList.add(isFrame ? 'pleyz-3d-frame' : 'pleyz-3d-target');
-        if (!isFrame) element.classList.remove('pleyz-depth-target', 'pleyz-pointer-tilt');
+        if (!isFrame) {
+          element.classList.add('pleyz-3d-target');
+          element.classList.remove('pleyz-depth-target', 'pleyz-pointer-tilt');
+        }
 
         const aimAtPointer = (event, touch = false) => {
           if (!record.bounds || reducedMotion || (!touch && !desktopPointer)) return;
@@ -335,7 +338,7 @@
           resizeObserver?.unobserve(record.element);
           releaseRecordGeometry(record);
           scene.remove(record.mesh);
-          record.element.classList.remove('pleyz-3d-target', 'pleyz-3d-frame');
+          record.element.classList.remove('pleyz-3d-target');
           return false;
         });
         layoutDirty = true;
@@ -416,7 +419,7 @@
         }
         const delta = lastTimestamp ? Math.min((timestamp - lastTimestamp) / 1000, 0.05) : 1 / 60;
         lastTimestamp = timestamp;
-        const easing = reducedMotion ? 1 : Math.min(1, delta * (lowPower || coarsePointer ? 18 : 15));
+        const easing = reducedMotion ? 1 : Math.min(1, delta * (coarsePointer ? 18 : 15));
         let animating = false;
         records.forEach(record => {
           if (!record.mesh.visible) return;
@@ -480,7 +483,7 @@
       canvas.addEventListener('webglcontextlost', event => {
         event.preventDefault();
         console.warn('PleyZ 3D visuals are unavailable; standard HTML controls remain active.');
-        records.forEach(record => record.element.classList.remove('pleyz-3d-target', 'pleyz-3d-frame'));
+        records.forEach(record => record.element.classList.remove('pleyz-3d-target'));
         instance?.dispose();
         instance = null;
       }, { once: true });
@@ -558,7 +561,7 @@
       records.forEach(record => {
         releaseRecordGeometry(record);
         scene?.remove(record.mesh);
-        record.element.classList.remove('pleyz-3d-target', 'pleyz-3d-frame');
+        record.element.classList.remove('pleyz-3d-target');
       });
       geometryCache.forEach(cached => cached.geometry.dispose());
       geometryCache.clear();

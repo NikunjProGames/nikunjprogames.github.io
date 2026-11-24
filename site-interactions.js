@@ -119,6 +119,7 @@
     );
     if (!targets.length) return;
     targets.forEach(element => {
+      if (element.matches('.page-shell .game-layout') && element.querySelector('.game-frame:not(.native-game-frame)')) return;
       if (revealBoundElements.has(element) || element.closest('[hidden]')) return;
       revealBoundElements.add(element);
       element.classList.add('pleyz-reveal');
