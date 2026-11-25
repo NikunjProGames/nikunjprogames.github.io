@@ -85,7 +85,9 @@ The `Gems for You` category updates automatically: games are included when marke
 
 To inspect feedback in Firebase Console, open **Firestore Database → Data → feedback**. Each user's UID contains `games` (ratings, tags, comments), `interactions` (likes/dislikes), and `recommendations` (helpful yes/no and mood). User feedback documents are private to that user in Firestore rules. When a user signs in, their ratings, selected tags, comments, reactions, and recommendation votes are synced into their personalized recommendation ranking; this does not pool private feedback from other users.
 
-Game submissions and contact messages are delivered by the `submitGame` Cloud Function. Game submissions from `/developers.html` require a signed-in Firebase account; the function verifies the Firebase ID token server-side. General inquiries remain available without signing in from `/contact-us.html`. Before deploying the function, configure these Firebase Functions secrets through the CLI prompts (do not put their values in source control):
+Contact messages from `/contact-us.html` are sent to `pleyzgithub@gmail.com` using FormSubmit. On first use, FormSubmit may require the inbox owner to confirm the address before it delivers messages. The contact form uses a normal browser form submission and does not require Firebase Functions or Cloud Build.
+
+Game submissions from `/developers.html` are handled separately by the `submitGame` Cloud Function and require a signed-in Firebase account; the function verifies the Firebase ID token server-side. Before deploying the function, configure these Firebase Functions secrets through the CLI prompts (do not put their values in source control):
 
 ```sh
 firebase functions:secrets:set SMTP_HOST
@@ -98,7 +100,7 @@ firebase functions:secrets:set SUBMISSION_RATE_LIMIT_KEY
 firebase deploy --only functions
 ```
 
-Use an SMTP account with permission to send from `SMTP_FROM`; set `GAME_SUBMISSION_TO` to the private inbox that should receive messages, and set `SUBMISSION_RATE_LIMIT_KEY` to a unique random value. The endpoint permits five attempts per IP address per hour and stores only an HMAC of the address in Firestore. Enable a Firestore TTL policy on the `expiresAt` field in the `submissionRateLimits` collection to expire those records after one day. The contact form supports general questions, game removal, account or privacy requests, copyright complaints, problem reports, and other inquiries.
+Use an SMTP account with permission to send from `SMTP_FROM`; set `GAME_SUBMISSION_TO` to the private inbox that should receive game submissions, and set `SUBMISSION_RATE_LIMIT_KEY` to a unique random value. The endpoint permits five attempts per IP address per hour and stores only an HMAC of the address in Firestore. Enable a Firestore TTL policy on the `expiresAt` field in the `submissionRateLimits` collection to expire those records after one day.
 
 The home page can be installed as a PWA on supported browsers. Its service worker caches the app shell and an offline notice; games still require an internet connection.
 
