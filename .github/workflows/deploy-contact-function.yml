@@ -1,0 +1,53 @@
+name: Deploy contact form function
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - functions/**
+      - firebase.json
+      - .github/workflows/deploy-contact-function.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: submit-game-function
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout site
+        uses: actions/checkout@v7
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+
+      - name: Install function dependencies
+        run: npm ci --prefix functions
+
+      - name: Deploy contact and game submission function
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_PLEYZ_DD9F8 }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT" ]; then
+            echo "FIREBASE_SERVICE_ACCOUNT_PLEYZ_DD9F8 is not configured." >&2
+            exit 1
+          fi
+
+          credentials_file="$RUNNER_TEMP/firebase-service-account.json"
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT" > "$credentials_file"
+          chmod 600 "$credentials_file"
+          trap 'rm -f "$credentials_file"' EXIT
+          export GOOGLE_APPLICATION_CREDENTIALS="$credentials_file"
+
+          npx --yes firebase-tools@latest deploy \
+            --only functions:submitGame \
+            --project pleyz-dd9f8 \
+            --non-interactive
