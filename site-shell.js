@@ -129,20 +129,18 @@
 
   const interactionStylesheet = document.createElement('link');
   interactionStylesheet.rel = 'stylesheet';
-  interactionStylesheet.href = '/site-interactions.css';
+  interactionStylesheet.href = '/site-interactions.css?v=2d-motion-20261125b';
   document.head.appendChild(interactionStylesheet);
 
   const interactionsScript = document.createElement('script');
-  interactionsScript.src = '/site-interactions.js';
+  interactionsScript.src = '/site-interactions.js?v=2d-motion-20261125b';
   interactionsScript.async = true;
   document.head.appendChild(interactionsScript);
 
-  if (!lowPowerDevice) {
-    const threeDimensionalScript = document.createElement('script');
-    threeDimensionalScript.type = 'module';
-    threeDimensionalScript.src = '/pleyz-3d-system.js';
-    document.head.appendChild(threeDimensionalScript);
-  }
+  const effectsScript = document.createElement('script');
+  effectsScript.type = 'module';
+  effectsScript.src = '/pleyz-effects.js?v=2d-motion-20261125b';
+  document.head.appendChild(effectsScript);
 
   const categoryNav = shell.querySelector('#pleyz-category-rail nav');
   categories.forEach(([label, slug]) => {

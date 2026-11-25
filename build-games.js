@@ -4,6 +4,7 @@ const vm = require('vm');
 const categoryTaxonomy = require('./game-category-taxonomy.js');
 const createPlaygamaVideoUrl = require('./playgama-video-url.js');
 const generateGamePreviewVideos = require('./generate-game-preview-videos.js');
+const createGameSeoDescription = require('./game-seo-description.js');
 
 // 1. Point to your sample JSON file
 const FEED_FILE = 'feed.json';
@@ -67,19 +68,12 @@ function getCompleteSentences(text) {
 }
 
 function getSeoDescription(title, description, providedSeoDescription, shortDescription) {
-  const supplied = toPlainText(providedSeoDescription);
-  const suppliedShort = toPlainText(shortDescription);
-  const firstSentence = getCompleteSentences(toPlainText(description))[0] || '';
-  const snippet = supplied || suppliedShort || firstSentence;
-  if (!snippet) return `Play ${toPlainText(title)} on PleyZ.`;
-  if (snippet.length <= 160) return snippet;
-
-  const withinLimit = snippet.slice(0, 160);
-  const sentenceEnd = Math.max(withinLimit.lastIndexOf('.'), withinLimit.lastIndexOf('!'), withinLimit.lastIndexOf('?'));
-  if (sentenceEnd >= 100) return withinLimit.slice(0, sentenceEnd + 1).trim();
-
-  const wordEnd = withinLimit.lastIndexOf(' ');
-  return `${withinLimit.slice(0, wordEnd > 0 ? wordEnd : 159).replace(/[,:;\u2013\u2014-]+$/, '').trim()}…`;
+  return createGameSeoDescription(
+    toPlainText(title),
+    toPlainText(description),
+    toPlainText(providedSeoDescription),
+    toPlainText(shortDescription)
+  );
 }
 
 function normalizeSeoContent(content, title) {

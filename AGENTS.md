@@ -4,7 +4,7 @@
 
 The home page is a static website: `index.html` contains its markup and styles, while `homepage.js` and `homepage-games.js` hold the application logic and game catalog. Supporting static pages live at the repository root, and Firebase Cloud Functions are in `functions/`. The site has no front-end framework or build pipeline; browser libraries are loaded from CDNs.
 
-Shared site interactions live in `site-interactions.js` and `site-interactions.css`. The optional Three.js presentation layer is initialized by `pleyz-3d-system.js` on the home, category, and game pages; its canvas is decorative only, while HTML controls and game iframes remain the interactive layer.
+Shared lightweight interactions live in `site-interactions.js` and `site-interactions.css`. They use CSS transforms for cursor tilt, raised button edges, and text response; `pleyz-effects.js` adds GSAP scroll reveals and animated section headings when motion is enabled, with native intersection-observer fallbacks. HTML controls and game iframes remain the interactive layer, with iframe framing handled by CSS.
 
 ## Key directories
 
@@ -38,7 +38,7 @@ The home page is split across three files:
    - `DIRECT GAME LAUNCH` — navigates to the selected game page
    - `INIT` — calls all three render functions on page load
 
-4. **Shared visual enhancements** — `site-shell.js` loads the site-wide interaction styles and the optional Three.js scene on category and game pages. The home page loads the same scene directly. It uses a single transparent, pointer-inert canvas and keeps controls, labels, and iframe input in their original HTML elements.
+4. **Shared visual enhancements** — `site-shell.js` loads the site-wide interaction styles and CSS/JS effects on category and game pages. The home page loads the same effects directly. Motion respects reduced-motion preferences and skips cursor-driven work on low-power devices.
 
 ## Coding conventions
 

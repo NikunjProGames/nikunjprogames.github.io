@@ -122,47 +122,48 @@
       display: grid;
       place-content: center;
       justify-items: center;
-      gap: .8rem;
+      gap: .55rem;
       background: #0a0a0f;
-      color: #e8e8ff;
+      color: #fff;
       font: 600 clamp(1rem, 1.2vw, 1.5rem) 'Rajdhani', sans-serif;
       opacity: 1;
       transition: opacity .18s ease;
     }
     .site-loader.is-hidden { opacity: 0; pointer-events: none; }
-    .site-loader-mark { font: 900 clamp(1.5rem, 3vw, 2.75rem) 'Orbitron', sans-serif; }
-    .site-loader-mark span { color: #8b00ff; }
-    .site-loader-blocks {
-      display: grid;
-      grid-template-columns: repeat(3, 14px);
-      gap: 5px;
-      padding: 10px;
-      perspective: 180px;
-      transform-style: preserve-3d;
+    .site-loader-spinner { display: grid; place-items: center; width: 136px; height: 136px; }
+    .site-loader-spinner-track { position: relative; width: 96px; height: 96px; transform: rotate(45deg); }
+    .site-loader-square { position: absolute; top: 0; left: 0; width: 28px; height: 28px; margin: 2px; border-radius: 0; background: #fff; background-size: cover; background-position: center; background-attachment: fixed; animation: pleyz-square-animation 10s ease-in-out infinite both; }
+    .site-loader-square:nth-of-type(1) { animation-delay: 0s; }
+    .site-loader-square:nth-of-type(2) { animation-delay: -1.4285714286s; }
+    .site-loader-square:nth-of-type(3) { animation-delay: -2.8571428571s; }
+    .site-loader-square:nth-of-type(4) { animation-delay: -4.2857142857s; }
+    .site-loader-square:nth-of-type(5) { animation-delay: -5.7142857143s; }
+    .site-loader-square:nth-of-type(6) { animation-delay: -7.1428571429s; }
+    .site-loader-square:nth-of-type(7) { animation-delay: -8.5714285714s; }
+    @keyframes pleyz-square-animation {
+      0%, 10.5% { left: 0; top: 0; }
+      12.5%, 23% { left: 32px; top: 0; }
+      25%, 35.5% { left: 64px; top: 0; }
+      37.5%, 48% { left: 64px; top: 32px; }
+      50%, 60.5% { left: 32px; top: 32px; }
+      62.5%, 73% { left: 32px; top: 64px; }
+      75%, 85.5% { left: 0; top: 64px; }
+      87.5%, 98% { left: 0; top: 32px; }
+      100% { left: 0; top: 0; }
     }
-    .site-loader-blocks span {
-      width: 14px;
-      height: 14px;
-      border: 1px solid rgba(255,255,255,.32);
-      border-radius: 3px;
-      background: linear-gradient(145deg, #42d9ff, #1765b8 72%);
-      box-shadow: 3px 4px 0 #10356b, 0 0 12px rgba(66,217,255,.2);
-      transform: rotateX(10deg) rotateY(-12deg);
-      animation: site-loader-build 1.15s cubic-bezier(.2,.75,.25,1) infinite alternate;
-    }
-    .site-loader-blocks span:nth-child(2) { animation-delay: .12s; background: linear-gradient(145deg, #c17bff, #6a0dad 72%); box-shadow: 3px 4px 0 #3f1768, 0 0 12px rgba(163,76,255,.2); }
-    .site-loader-blocks span:nth-child(3) { animation-delay: .24s; }
-    .site-loader-blocks span:nth-child(4) { animation-delay: .36s; background: linear-gradient(145deg, #c17bff, #6a0dad 72%); box-shadow: 3px 4px 0 #3f1768, 0 0 12px rgba(163,76,255,.2); }
-    .site-loader-blocks span:nth-child(5) { animation-delay: .48s; }
-    .site-loader-blocks span:nth-child(6) { animation-delay: .6s; background: linear-gradient(145deg, #c17bff, #6a0dad 72%); box-shadow: 3px 4px 0 #3f1768, 0 0 12px rgba(163,76,255,.2); }
-    .site-loader-blocks span:nth-child(7) { animation-delay: .72s; }
-    @keyframes site-loader-build {
-      from { transform: translate3d(0, 5px, -8px) rotateX(20deg) rotateY(-18deg) scale(.86); opacity: .58; }
-      to { transform: translate3d(0, -3px, 8px) rotateX(-8deg) rotateY(8deg) scale(1); opacity: 1; }
-    }
+    .site-loader-mark { color: #fff; font: 900 1.25rem 'Orbitron', sans-serif; letter-spacing: 0.22em; text-shadow: 0 0 24px rgba(255,255,255,0.32); }
+    .site-loader-message,
+    .site-loader-network-note { color: rgba(255,255,255,0.78); font: 600 0.9rem 'Rajdhani', sans-serif; letter-spacing: 0.04em; }
     @media (prefers-reduced-motion: reduce) {
       .site-loader { transition: none; }
-      .site-loader-blocks span { animation: none; }
+      .site-loader-spinner-track { transform: none; }
+      .site-loader-square { animation: none; }
+      .site-loader-square:nth-of-type(2) { left: 32px; }
+      .site-loader-square:nth-of-type(3) { left: 64px; }
+      .site-loader-square:nth-of-type(4) { left: 64px; top: 32px; }
+      .site-loader-square:nth-of-type(5) { left: 64px; top: 64px; }
+      .site-loader-square:nth-of-type(6) { left: 32px; top: 64px; }
+      .site-loader-square:nth-of-type(7) { top: 64px; }
     }
     .install-help-dialog {
       width: min(420px, calc(100vw - 24px));
@@ -185,7 +186,7 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;600;700&display=swap" />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
   <noscript><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet" /></noscript>
-  <link rel="stylesheet" href="/site-interactions.css" />
+  <link rel="stylesheet" href="/site-interactions.css?v=2d-motion-20261125b" />
   <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" /></noscript>
 <meta name="google-site-verification" content="Tv6rcZkhJoP6OHr6VhgpgN_4DVGQt8qfx0oRQ5ADZx4" />
@@ -1674,10 +1675,10 @@
 </picture>
 <canvas id="bg-canvas"></canvas>
 <div class="site-loader" id="site-loader" role="status" aria-live="polite">
-  <span class="site-loader-mark">Pley<span>Z</span></span>
-  <span class="site-loader-blocks" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span>
-  <span id="site-loader-message">Getting your games ready...</span>
-  <span id="site-loader-network-note" hidden>Slow connection detected. Game images load as you browse.</span>
+  <span class="site-loader-spinner" aria-hidden="true"><span class="site-loader-spinner-track"><span class="site-loader-square"></span><span class="site-loader-square"></span><span class="site-loader-square"></span><span class="site-loader-square"></span><span class="site-loader-square"></span><span class="site-loader-square"></span><span class="site-loader-square"></span></span></span>
+  <span class="site-loader-mark">PleyZ</span>
+  <span class="site-loader-message" id="site-loader-message">Getting your games ready...</span>
+  <span class="site-loader-network-note" id="site-loader-network-note" hidden>Slow connection detected. Game images load as you browse.</span>
 </div>
 <noscript><style>#site-loader { display: none !important; }</style></noscript>
 
@@ -1986,8 +1987,21 @@
 </footer>
 
 <div class="game-launch-loader" id="game-launch-loader" role="status" aria-live="polite" hidden>
-  <span class="game-launch-spinner" aria-hidden="true"></span>
-  <span>Opening game...</span>
+  <div class="game-launch-loader-content">
+    <div class="game-launch-spinner" aria-hidden="true">
+      <div class="game-launch-spinner-track">
+        <span class="game-launch-square"></span>
+        <span class="game-launch-square"></span>
+        <span class="game-launch-square"></span>
+        <span class="game-launch-square"></span>
+        <span class="game-launch-square"></span>
+        <span class="game-launch-square"></span>
+        <span class="game-launch-square"></span>
+      </div>
+    </div>
+    <span class="game-launch-brand" aria-hidden="true">PleyZ</span>
+    <span class="game-launch-status">Opening game...</span>
+  </div>
 </div>
 
 <dialog class="random-game-dialog" id="random-game-dialog" aria-labelledby="random-game-title">
@@ -2064,8 +2078,8 @@
 <script src="/game-preview-videos.js"></script>
 <script defer src="/homepage-games.js"></script>
 <script defer src="/homepage.js"></script>
-<script defer src="/site-interactions.js"></script>
-<script type="module" src="/pleyz-3d-system.js"></script>
+<script defer src="/site-interactions.js?v=2d-motion-20261125b"></script>
+<script type="module" src="/pleyz-effects.js?v=2d-motion-20261125b"></script>
 <script type="module">
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
@@ -2658,7 +2672,7 @@ setTimeout(() => {
   .load-more-button:focus-visible { outline: 2px solid var(--blue-1); outline-offset: 3px; }
   .load-more-button[hidden] { display: none; }
   .recommendation-mode-switch { display: inline-flex; flex-wrap: wrap; gap: 0.3rem; margin: 0.25rem 0 1.1rem; padding: 0.3rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 13px; background: rgba(0,0,0,0.28); }
-  .recommendation-mode, .mood-option { min-height: 44px; padding: 0.6rem 0.95rem; border: 1px solid rgba(255,255,255,0.16); border-radius: 999px; background: rgba(255,255,255,0.04); color: var(--text); font: 700 0.82rem 'Rajdhani', sans-serif; cursor: pointer; transition: border-color 160ms ease, background 160ms ease, color 160ms ease, transform 160ms ease; }
+  .recommendation-mode, .mood-option { min-height: 44px; padding: 0.6rem 0.95rem; border: 1px solid rgba(255,255,255,0.16); border-radius: 999px; background: rgba(255,255,255,0.04); color: var(--text); font: 700 0.82rem 'Rajdhani', sans-serif; cursor: pointer; transition: border-color 160ms ease, background 160ms ease, color 160ms ease; }
   .recommendation-mode { min-width: 138px; border-color: transparent; }
   .recommendation-mode span { margin-right: 0.3rem; color: #c77dff; }
   .recommendation-mode:hover, .recommendation-mode:focus-visible, .mood-option:hover, .mood-option:focus-visible { border-color: rgba(199,125,255,0.75); color: #fff; }
@@ -2666,7 +2680,7 @@ setTimeout(() => {
   .mood-options { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.7rem; margin: 0 0 1.2rem; }
   .mood-options[hidden] { display: none; }
   .mood-option { display: flex; align-items: center; gap: 0.8rem; min-width: 0; min-height: 84px; padding: 0.85rem; border-color: rgba(255,255,255,0.11); border-radius: 14px; background: linear-gradient(145deg, rgba(255,255,255,0.055), rgba(255,255,255,0.018)); text-align: left; }
-  .mood-option:hover { transform: translateY(-2px); background: linear-gradient(145deg, rgba(139,0,255,0.16), rgba(255,255,255,0.035)); }
+  .mood-option:hover { background: linear-gradient(145deg, rgba(139,0,255,0.16), rgba(255,255,255,0.035)); }
   .mood-option[aria-pressed="true"] { border-color: rgba(199,125,255,0.75); background: linear-gradient(145deg, rgba(139,0,255,0.27), rgba(106,13,173,0.12)); box-shadow: inset 0 0 0 1px rgba(199,125,255,0.12), 0 8px 24px rgba(0,0,0,0.18); }
   .mood-option-icon { display: grid; place-items: center; width: 42px; height: 42px; flex: 0 0 42px; border: 1px solid rgba(199,125,255,0.2); border-radius: 12px; background: rgba(139,0,255,0.12); font-size: 1.25rem; }
   .mood-option-text { display: grid; gap: 0.2rem; min-width: 0; }
@@ -2727,17 +2741,16 @@ setTimeout(() => {
     #recommendations .discovery-copy { display: block !important; max-width: 34rem; margin: 0.45rem 0 0; color: rgba(232,232,255,0.78); font-size: 0.82rem; line-height: 1.45; }
     .recommendation-mode-switch { display: flex; width: 100%; margin: 0 0 0.7rem; }
     .recommendation-mode { flex: 1; min-height: 46px; min-width: 0; padding: 0.5rem 0.4rem; font-size: 0.85rem; }
-    .mood-options { gap: 0.45rem; margin-bottom: 0.8rem; }
+    .mood-options { column-gap: 0.45rem; row-gap: 0.8rem; margin-bottom: 0.8rem; }
     .mood-option { min-height: 54px; padding: 0.5rem; gap: 0.45rem; border-radius: 10px; background: rgba(255,255,255,0.035); }
     .mood-option-icon { width: 30px; height: 30px; flex-basis: 30px; border-radius: 8px; font-size: 0.95rem; }
     .mood-option-text strong { font-size: 0.8rem; line-height: 1.1; }
     .mood-option-text small { display: block; color: rgba(232,232,255,0.72); font-size: 0.67rem; line-height: 1.2; }
-    .mood-option:active, .recommendation-mode:active { transform: scale(0.98); }
   }
   @media (max-width: 360px) {
     #recommendations { padding: 0.8rem; }
     #recommendations .mood-discovery-title { font-size: 1.35rem; }
-    .mood-options { gap: 0.35rem; }
+    .mood-options { column-gap: 0.35rem; row-gap: 0.8rem; }
     .mood-option { min-height: 56px; padding: 0.4rem; gap: 0.35rem; }
     .mood-option-icon { width: 26px; height: 26px; flex-basis: 26px; font-size: 0.85rem; }
     .mood-option-text strong { font-size: 0.74rem; }
@@ -2759,7 +2772,6 @@ setTimeout(() => {
   @media (prefers-reduced-motion: reduce) {
     #recommendations { animation: none !important; }
     .recommendation-mode, .mood-option { transition: none; }
-    .mood-option:hover, .mood-option:active, .recommendation-mode:active { transform: none; }
   }
   html.low-power-device .section-underline,
   html.low-power-device .logo,
@@ -2794,10 +2806,33 @@ setTimeout(() => {
       flex-basis: calc((100% - 6.6rem) / 7);
     }
   }
-  .game-launch-loader { position: fixed; z-index: 2200; left: 50%; bottom: 24px; display: inline-flex; align-items: center; gap: 0.7rem; padding: 0.75rem 1rem; border: 1px solid rgba(0,191,255,0.35); border-radius: 10px; background: rgba(8,10,18,0.96); color: var(--text); font: 700 0.84rem 'Rajdhani', sans-serif; box-shadow: 0 12px 36px rgba(0,0,0,0.4); transform: translateX(-50%); }
+  /* From Uiverse.io by ZacharyCrespin - https://uiverse.io/ZacharyCrespin/grumpy-stingray-26
+     MIT License, Copyright (c) ZacharyCrespin (Zachary Crespin) */
+  .game-launch-loader { position: fixed; z-index: 2200; inset: 0; display: grid; place-items: center; padding: 1.5rem; background: rgba(5,7,15,0.9); color: #fff; text-align: center; }
   .game-launch-loader[hidden] { display: none; }
-  .game-launch-spinner { width: 16px; height: 16px; flex: 0 0 16px; border: 2px solid rgba(255,255,255,0.24); border-top-color: var(--blue-1); border-radius: 50%; animation: game-launch-spin 0.7s linear infinite; }
-  @keyframes game-launch-spin { to { transform: rotate(360deg); } }
+  .game-launch-loader-content { display: grid; justify-items: center; gap: 0.55rem; }
+  .game-launch-spinner { display: grid; place-items: center; width: 136px; height: 136px; }
+  .game-launch-spinner-track { position: relative; width: 96px; height: 96px; transform: rotate(45deg); }
+  .game-launch-square { position: absolute; top: 0; left: 0; width: 28px; height: 28px; margin: 2px; border-radius: 0; background: #fff; background-size: cover; background-position: center; background-attachment: fixed; animation: pleyz-square-animation 10s ease-in-out infinite both; }
+  .game-launch-square:nth-of-type(1) { animation-delay: 0s; }
+  .game-launch-square:nth-of-type(2) { animation-delay: -1.4285714286s; }
+  .game-launch-square:nth-of-type(3) { animation-delay: -2.8571428571s; }
+  .game-launch-square:nth-of-type(4) { animation-delay: -4.2857142857s; }
+  .game-launch-square:nth-of-type(5) { animation-delay: -5.7142857143s; }
+  .game-launch-square:nth-of-type(6) { animation-delay: -7.1428571429s; }
+  .game-launch-square:nth-of-type(7) { animation-delay: -8.5714285714s; }
+  @media (prefers-reduced-motion: reduce) {
+    .game-launch-spinner-track { transform: none; }
+    .game-launch-square { animation: none; }
+    .game-launch-square:nth-of-type(2) { left: 32px; }
+    .game-launch-square:nth-of-type(3) { left: 64px; }
+    .game-launch-square:nth-of-type(4) { left: 64px; top: 32px; }
+    .game-launch-square:nth-of-type(5) { left: 64px; top: 64px; }
+    .game-launch-square:nth-of-type(6) { left: 32px; top: 64px; }
+    .game-launch-square:nth-of-type(7) { top: 64px; }
+  }
+  .game-launch-brand { color: #fff; font: 900 1.25rem 'Orbitron', sans-serif; letter-spacing: 0.22em; text-shadow: 0 0 24px rgba(255,255,255,0.32); }
+  .game-launch-status { color: rgba(255,255,255,0.78); font: 600 0.9rem 'Rajdhani', sans-serif; letter-spacing: 0.04em; }
   @media (max-width: 1024px) {
     .trending-card, .trending-card.featured { width: calc((100% - 3.3rem) / 4); flex-basis: calc((100% - 3.3rem) / 4); }
     .country-feature-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -2810,7 +2845,6 @@ setTimeout(() => {
     .trending-card, .trending-card.featured { width: min(78vw, 290px); min-width: min(78vw, 290px); flex-basis: min(78vw, 290px); }
     .trending-thumb { height: clamp(132px, 40vw, 156px); }
     .trending-card.featured .trending-thumb { height: clamp(144px, 44vw, 170px); }
-    .game-launch-loader { bottom: calc(86px + env(safe-area-inset-bottom)); }
     .games-grid .game-thumb { height: auto; aspect-ratio: 1 / 1; }
     .country-feature-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: minmax(120px, auto); }
     .country-feature-grid .country-featured .game-thumb { height: auto; min-height: 0; aspect-ratio: 1 / 1; }
@@ -2998,33 +3032,29 @@ setTimeout(() => {
     border-radius: 16px;
     background: linear-gradient(145deg, rgba(255,255,255,0.065), rgba(255,255,255,0.018));
     box-shadow: 0 10px 24px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.045);
-    transition: border-color 220ms ease, background 220ms ease, color 220ms ease, transform 220ms cubic-bezier(.2,.8,.2,1), box-shadow 220ms ease;
+    transition: border-color 220ms ease, background 220ms ease, color 220ms ease, box-shadow 220ms ease;
   }
-  .mood-option:hover { transform: translateY(-3px) scale(1.012); }
   @media (max-width: 600px) {
     #recommendations .mood-option { min-height: 54px; }
   }
   @media (max-width: 360px) {
     #recommendations .mood-option { min-height: 56px; }
   }
-
   .game-card {
-    transform: perspective(900px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+    transform: perspective(720px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
     transition: transform 260ms cubic-bezier(.2,.8,.2,1);
     transform-style: preserve-3d;
   }
   @media (hover: hover) and (prefers-reduced-motion: no-preference) {
     .game-card:hover,
     .game-card:focus-visible {
-      transform: perspective(900px) translateY(-4px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+      transform: perspective(720px) translateY(-4px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
     }
   }
-  .game-card:active { transform: perspective(900px) scale(0.985); }
-  .game-thumb { border-radius: 16px; }
+  .game-card:active { transform: perspective(720px) scale(0.985) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)); }
+  .game-thumb { border-radius: 16px; transform-style: preserve-3d; }
   .game-thumb img.custom-game-image { transition: transform 280ms cubic-bezier(.2,.8,.2,1); }
   .btn { border-radius: 10px; transition: transform 220ms ease, box-shadow 220ms ease, background 220ms ease, translate 180ms ease; }
-  .magnetic { translate: var(--magnetic-x, 0px) var(--magnetic-y, 0px); }
-
   .scroll-reveal {
     opacity: 0;
     transform: translate3d(0, 20px, 0) rotateX(1.2deg);
@@ -3033,13 +3063,13 @@ setTimeout(() => {
   }
   .scroll-reveal.is-visible { opacity: 1; transform: none; }
   .game-card.scroll-reveal { transition: opacity 520ms ease, transform 620ms cubic-bezier(.2,.75,.25,1); }
-  .game-card.scroll-reveal.is-visible { transform: perspective(900px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)); }
+  .game-card.scroll-reveal.is-visible { transform: perspective(720px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)); }
   @media (hover: hover) and (prefers-reduced-motion: no-preference) {
     .game-card.scroll-reveal.is-visible:hover,
     .game-card.scroll-reveal.is-visible:focus-visible {
-      transform: perspective(900px) translateY(-4px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+      transform: perspective(720px) translateY(-4px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
     }
-    .game-card.scroll-reveal.is-visible:active { transform: perspective(900px) scale(0.985); }
+    .game-card.scroll-reveal.is-visible:active { transform: perspective(720px) scale(0.985) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)); }
   }
 
   .random-game-dialog {

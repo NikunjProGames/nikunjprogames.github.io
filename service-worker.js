@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pleyz-app-shell-v1';
+const CACHE_NAME = 'pleyz-app-shell-v3';
 const SHELL_ASSETS = [
   '/',
   '/offline.html',

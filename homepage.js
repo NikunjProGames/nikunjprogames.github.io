@@ -191,59 +191,17 @@
 const GAMES = window.PLEYZ_GAMES;
 
 const GAME_PREVIEW_VIDEOS = window.PLEYZ_GAME_PREVIEW_VIDEOS;
-let scrollRevealObserver = null;
 
 function observeScrollReveal(element) {
   if (!element) return;
   element.classList.add('scroll-reveal');
-  if (scrollRevealObserver) scrollRevealObserver.observe(element);
-  else element.classList.add('is-visible');
 }
 
 function initializeScrollReveals() {
   const targets = document.querySelectorAll(
     '#recommendations, #trending, #popular-country, #games, #leaderboard, #about, footer'
   );
-  if (!('IntersectionObserver' in window)
-    || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    targets.forEach(target => target.classList.add('is-visible'));
-    return;
-  }
-
-  scrollRevealObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add('is-visible');
-      scrollRevealObserver.unobserve(entry.target);
-    });
-  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
   targets.forEach(observeScrollReveal);
-}
-
-function initializeMagneticButtons() {
-  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches
-    || window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    || document.documentElement.classList.contains('low-power-device')) return;
-
-  document.querySelectorAll(
-    '#random-game-button, .btn-primary, #auth-action-button, #mobile-nav button, ' +
-    '.nav-actions a.btn, .recommendation-mode, .category-directory a, ' +
-    '.footer-links a, .footer-auth-button, .social-icon, .trending-arrow, #load-more-games'
-  ).forEach(button => {
-    button.classList.add('magnetic');
-    button.addEventListener('pointermove', event => {
-      if (event.pointerType !== 'mouse') return;
-      const bounds = button.getBoundingClientRect();
-      const x = (event.clientX - bounds.left) / bounds.width - 0.5;
-      const y = (event.clientY - bounds.top) / bounds.height - 0.5;
-      button.style.setProperty('--magnetic-x', `${(x * 5).toFixed(1)}px`);
-      button.style.setProperty('--magnetic-y', `${(y * 5).toFixed(1)}px`);
-    });
-    button.addEventListener('pointerleave', () => {
-      button.style.removeProperty('--magnetic-x');
-      button.style.removeProperty('--magnetic-y');
-    });
-  });
 }
 
 const TRENDING = [
@@ -418,10 +376,10 @@ function bindGameGrid(grid) {
       const bounds = card.getBoundingClientRect();
       const x = (event.clientX - bounds.left) / bounds.width - 0.5;
       const y = (event.clientY - bounds.top) / bounds.height - 0.5;
-      card.style.setProperty('--tilt-x', `${(-y * 5).toFixed(2)}deg`);
-      card.style.setProperty('--tilt-y', `${(x * 5).toFixed(2)}deg`);
-      card.style.setProperty('--image-x', `${(-x * 5).toFixed(1)}px`);
-      card.style.setProperty('--image-y', `${(-y * 4).toFixed(1)}px`);
+      card.style.setProperty('--tilt-x', `${(-y * 10).toFixed(2)}deg`);
+      card.style.setProperty('--tilt-y', `${(x * 10).toFixed(2)}deg`);
+      card.style.setProperty('--image-x', `${(-x * 7).toFixed(1)}px`);
+      card.style.setProperty('--image-y', `${(-y * 6).toFixed(1)}px`);
     });
   }
 }
@@ -1637,7 +1595,6 @@ function initializeDeferredHomeSections() {
 
 try {
   initializeScrollReveals();
-  initializeMagneticButtons();
   initializeMoodDiscovery();
   applyUrlCategoryFilter();
   renderTrending();

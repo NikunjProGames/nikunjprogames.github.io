@@ -14,7 +14,7 @@
     scale 180ms var(--pleyz-motion);
 }
 
-.pleyz-interactive:active:not(:disabled):not(.pleyz-3d-control) {
+.pleyz-interactive:active:not(:disabled):not(.pleyz-retro-button) {
   scale: .94;
   translate: 0 1px;
 }
@@ -41,41 +41,6 @@
   box-shadow: 0 0 0 3px rgba(66, 217, 255, .1), 0 0 20px rgba(163, 76, 255, .1);
 }
 
-.pleyz-3d-control:active:not(:disabled) {
-  filter: brightness(1.16);
-}
-
-.pleyz-3d-scene {
-  contain: strict;
-}
-
-.pleyz-3d-target {
-  -webkit-tap-highlight-color: transparent;
-  transition:
-    box-shadow 220ms ease,
-    filter 220ms ease;
-}
-
-.pleyz-3d-target:focus-visible {
-  outline: 2px solid rgba(66, 217, 255, .9);
-  outline-offset: 3px;
-}
-
-body[class*="theme-"] header nav[aria-label="Primary"] a.pleyz-3d-target {
-  padding: 7px 10px;
-  border: 1px solid var(--border);
-  border-radius: 7px;
-  background: linear-gradient(145deg, rgba(255, 255, 255, .075), rgba(255, 255, 255, .02));
-  text-decoration: none;
-}
-
-.category-jump.pleyz-3d-target,
-.category-links a.pleyz-3d-target,
-.related-categories a.pleyz-3d-target {
-  background: linear-gradient(145deg, rgba(255, 255, 255, .075), rgba(255, 255, 255, .02));
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .08), 0 3px 0 rgba(0, 0, 0, .24);
-}
-
 #recommendations .mood-option {
   border-radius: 18px;
 }
@@ -86,69 +51,139 @@ body[class*="theme-"] header nav[aria-label="Primary"] a.pleyz-3d-target {
   }
 }
 
-.pleyz-depth-target {
-  translate: var(--pleyz-depth-x, 0px) var(--pleyz-depth-y, 0px);
-  transition: translate 280ms var(--pleyz-motion), border-color 220ms ease, box-shadow 240ms ease;
+.pleyz-retro-button {
+  position: relative;
+  transform-style: preserve-3d;
+  box-shadow:
+    0 2px 0 rgba(66, 217, 255, .9),
+    0 5px 0 rgba(108, 61, 157, .96),
+    0 9px 0 rgba(35, 17, 61, .98),
+    0 13px 22px rgba(0, 0, 0, .3),
+    inset 0 1px 0 rgba(255, 255, 255, .18) !important;
+  transition:
+    transform 220ms var(--pleyz-motion),
+    translate 220ms var(--pleyz-motion),
+    border-color 180ms ease,
+    background-color 180ms ease,
+    box-shadow 180ms ease,
+    filter 180ms ease;
+}
+
+.pleyz-retro-button:focus-visible {
+  outline: 2px solid rgba(66, 217, 255, .9);
+  outline-offset: 3px;
+}
+
+.pleyz-retro-button:active:not(:disabled) {
+  translate: 0 8px;
+  transition-duration: 90ms;
+  box-shadow:
+    0 1px 0 rgba(66, 217, 255, .9),
+    0 3px 8px rgba(0, 0, 0, .24),
+    inset 0 1px 0 rgba(255, 255, 255, .14) !important;
+}
+
+#recommendations .mood-option[aria-pressed="true"].pleyz-retro-button {
+  box-shadow:
+    0 2px 0 rgba(66, 217, 255, .96),
+    0 6px 0 rgba(108, 61, 157, .98),
+    0 10px 0 rgba(35, 17, 61, .98),
+    0 14px 24px rgba(0, 0, 0, .3),
+    0 0 20px rgba(66, 217, 255, .16),
+    inset 0 0 0 1px rgba(66, 217, 255, .18),
+    inset 0 1px 0 rgba(255, 255, 255, .18) !important;
+}
+
+#recommendations .recommendation-mode.is-active.pleyz-retro-button {
+  box-shadow:
+    0 2px 0 rgba(66, 217, 255, .96),
+    0 6px 0 rgba(108, 61, 157, .98),
+    0 10px 0 rgba(35, 17, 61, .98),
+    0 0 18px rgba(66, 217, 255, .15),
+    inset 0 0 0 1px rgba(66, 217, 255, .18),
+    inset 0 1px 0 rgba(255, 255, 255, .18) !important;
+}
+
+#recommendations .mood-option[aria-pressed="true"].pleyz-retro-button:active,
+#recommendations .recommendation-mode.is-active.pleyz-retro-button:active {
+  box-shadow:
+    0 1px 0 rgba(66, 217, 255, .9),
+    0 3px 8px rgba(0, 0, 0, .24),
+    inset 0 1px 0 rgba(255, 255, 255, .14) !important;
 }
 
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
-  .pleyz-3d-target:hover,
-  .pleyz-3d-target:focus-visible {
-    filter: drop-shadow(0 5px 12px rgba(0, 0, 0, .28));
-  }
-
-  .pleyz-pointer-tilt {
-    rotate: var(--pleyz-tilt-axis, 1 0 0) var(--pleyz-tilt-angle, 0deg);
-    transform-style: preserve-3d;
-    transition: rotate 260ms var(--pleyz-motion), filter 220ms ease;
-  }
-
-  .pleyz-3d-control:not(.pleyz-3d-target):hover,
-  .pleyz-3d-control:not(.pleyz-3d-target):focus-visible {
+  .pleyz-retro-button:hover,
+  .pleyz-retro-button:focus-visible {
     translate: var(--pleyz-depth-x, 0px) calc(var(--pleyz-depth-y, 0px) - 2px);
-    scale: 1.015;
-    filter:
-      drop-shadow(0 6px 12px rgba(0, 0, 0, .24))
-      drop-shadow(0 0 16px rgba(66, 217, 255, .2))
-      drop-shadow(0 0 24px rgba(163, 76, 255, .12));
-  }
-
-  .pleyz-3d-logo:hover {
-    filter: drop-shadow(0 0 12px rgba(66, 217, 255, .12));
-  }
-
-  .pleyz-3d-control:hover,
-  .pleyz-3d-control:focus-visible,
-  .pleyz-3d-control[aria-pressed="true"],
-  .pleyz-3d-control[aria-selected="true"] {
+    box-shadow:
+      0 2px 0 rgba(66, 217, 255, .96),
+      0 6px 0 rgba(108, 61, 157, .98),
+      0 10px 0 rgba(35, 17, 61, .98),
+      0 16px 26px rgba(0, 0, 0, .34),
+      0 0 18px rgba(66, 217, 255, .08),
+      inset 0 1px 0 rgba(255, 255, 255, .22) !important;
     border-color: rgba(66, 217, 255, .5);
   }
 
-  .pleyz-pointer-tilt:active:not(:disabled) {
-    transition-duration: 100ms;
+  .pleyz-retro-button.pleyz-button-tilt {
+    transform: perspective(760px)
+      rotateX(var(--pleyz-tilt-x, 0deg))
+      rotateY(var(--pleyz-tilt-y, 0deg))
+      translateY(var(--pleyz-button-lift, 0px));
+    transform-style: preserve-3d;
+    transition: transform 240ms var(--pleyz-motion);
   }
 
-  .pleyz-3d-control:not(.pleyz-3d-target):active:not(:disabled) {
-    scale: .94;
-    translate: var(--pleyz-depth-x, 0px) calc(var(--pleyz-depth-y, 0px) + 1px);
+  .pleyz-retro-button.pleyz-button-tilt:hover,
+  .pleyz-retro-button.pleyz-button-tilt:focus-visible {
+    --pleyz-button-lift: -1px;
   }
 
-  .pleyz-3d-heading:hover,
-  .pleyz-3d-heading:focus-visible {
-    filter: drop-shadow(0 0 16px rgba(163, 76, 255, .15));
+  .pleyz-reactive-text.pleyz-title-tilt {
+    transform: perspective(900px)
+      rotateX(var(--pleyz-tilt-x, 0deg))
+      rotateY(var(--pleyz-tilt-y, 0deg));
+    transform-style: preserve-3d;
+    transition: transform 280ms var(--pleyz-motion), text-shadow 280ms var(--pleyz-motion);
+  }
+
+  .pleyz-card-tilt:not(.game-card) {
+    transform: perspective(820px)
+      rotateX(var(--pleyz-tilt-x, 0deg))
+      rotateY(var(--pleyz-tilt-y, 0deg));
+    transform-style: preserve-3d;
+    transition: transform 280ms var(--pleyz-motion), border-color 220ms ease, box-shadow 240ms ease;
+  }
+
+  .pleyz-card-tilt.game-card {
+    transform: perspective(900px)
+      rotateX(var(--tilt-x, 0deg))
+      rotateY(var(--tilt-y, 0deg));
+    transform-style: preserve-3d;
+    transition: transform 260ms var(--pleyz-motion);
+  }
+
+  .pleyz-reactive-text {
+    text-shadow:
+      var(--pleyz-text-glow-x, 0px)
+      var(--pleyz-text-glow-y, 0px)
+      16px rgba(66, 217, 255, var(--pleyz-text-glow, .12));
+    transition: text-shadow 280ms var(--pleyz-motion);
+  }
+
+  .pleyz-title-character {
+    display: inline-block;
+    transform-origin: center bottom;
   }
 
   #recommendations .mood-discovery-title {
     animation: pleyz-mood-drift 7s ease-in-out infinite;
   }
 
-  .game-card .game-thumb img.custom-game-image {
-    will-change: transform;
-  }
-
   .game-card:hover .game-thumb img.custom-game-image,
   .game-card:focus-visible .game-thumb img.custom-game-image {
-    transform: translate(var(--image-x, 0px), var(--image-y, 0px)) scale(1.055);
+    transform: translate3d(var(--image-x, 0px), var(--image-y, 0px), 12px) scale(1.055);
   }
 
   .btn,
@@ -184,17 +219,21 @@ body[class*="theme-"] header nav[aria-label="Primary"] a.pleyz-3d-target {
     box-shadow: 0 16px 38px rgba(0, 0, 0, .2), inset 0 1px 0 rgba(255, 255, 255, .07);
   }
 
-  :is(body.pleyz-legacy-game-page #pleyz-standard-game, .page-shell) .related-game {
+  :is(body.pleyz-legacy-game-page #pleyz-standard-game, .page-shell) .related-game.pleyz-card-tilt {
     position: relative;
+    transform: perspective(820px)
+      rotateX(var(--pleyz-tilt-x, 0deg))
+      rotateY(var(--pleyz-tilt-y, 0deg));
+    transform-style: preserve-3d;
     transition:
       transform 260ms var(--pleyz-motion),
       border-color 220ms ease,
       box-shadow 240ms ease;
   }
 
-  :is(body.pleyz-legacy-game-page #pleyz-standard-game, .page-shell) .related-game:hover,
-  :is(body.pleyz-legacy-game-page #pleyz-standard-game, .page-shell) .related-game:focus-visible {
-    transform: perspective(780px) translateY(-4px) rotateX(var(--pleyz-rotate-x, 0deg)) rotateY(var(--pleyz-rotate-y, 0deg));
+  :is(body.pleyz-legacy-game-page #pleyz-standard-game, .page-shell) .related-game.pleyz-card-tilt:hover,
+  :is(body.pleyz-legacy-game-page #pleyz-standard-game, .page-shell) .related-game.pleyz-card-tilt:focus-visible {
+    transform: perspective(820px) translateY(-4px) rotateX(var(--pleyz-tilt-x, 0deg)) rotateY(var(--pleyz-tilt-y, 0deg));
     border-color: rgba(66, 217, 255, .55);
     box-shadow: 0 16px 32px rgba(0, 0, 0, .28), 0 0 18px rgba(66, 217, 255, .11);
   }
@@ -255,6 +294,11 @@ body[class*="theme-"] header nav[aria-label="Primary"] a.pleyz-3d-target {
   translate: 0 0;
 }
 
+.pleyz-gsap-active .pleyz-reveal,
+.pleyz-gsap-active .scroll-reveal {
+  transition: none !important;
+}
+
 .pleyz-account-page {
   background:
     radial-gradient(ellipse at 5% 34%, rgba(163, 76, 255, .12), transparent 38%),
@@ -303,8 +347,10 @@ body[class*="theme-"] header nav[aria-label="Primary"] a.pleyz-3d-target {
 @media (prefers-reduced-motion: reduce) {
   .pleyz-interactive,
   .pleyz-form-control,
-  .pleyz-pointer-tilt,
-  .pleyz-depth-target,
+  .pleyz-button-tilt,
+  .pleyz-card-tilt,
+  .pleyz-reactive-text,
+  .pleyz-retro-button,
   .pleyz-reveal,
   #recommendations .mood-discovery-title,
   :is(body.pleyz-legacy-game-page #pleyz-standard-game, .page-shell) .related-game,
@@ -320,19 +366,15 @@ body[class*="theme-"] header nav[aria-label="Primary"] a.pleyz-3d-target {
     scale: 1 !important;
     translate: none !important;
   }
-
-  .pleyz-3d-target,
-  .pleyz-3d-target:hover,
-  .pleyz-3d-target:focus-visible,
-  .pleyz-3d-target:active:not(:disabled) {
-    transition: none !important;
-    translate: none !important;
-    scale: 1 !important;
-  }
+  .pleyz-retro-button:active:not(:disabled) { translate: none !important; }
+  .pleyz-title-tilt { transform: none !important; }
 }
 
 @media (max-width: 768px), (pointer: coarse) {
-  .pleyz-depth-target { translate: none; }
+  .pleyz-button-tilt,
+  .pleyz-card-tilt,
+  .pleyz-title-tilt { transform: none; }
+  .pleyz-retro-button { transition-duration: 160ms; }
   .pleyz-reveal {
     opacity: 1;
     translate: none;
