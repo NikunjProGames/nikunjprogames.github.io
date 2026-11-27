@@ -1259,6 +1259,18 @@
       color: var(--blue-1);
       transform: translateX(2px);
     }
+    #liked-games-footer-link {
+      transform: perspective(760px) rotateX(var(--pleyz-tilt-x, 0deg)) rotateY(var(--pleyz-tilt-y, 0deg));
+      transform-style: preserve-3d;
+      border-color: rgba(66,217,255,.26);
+      box-shadow: 0 2px 0 rgba(66,217,255,.9), 0 5px 0 rgba(108,61,157,.96), 0 8px 0 rgba(35,17,61,.98), 0 11px 16px rgba(0,0,0,.24), inset 0 1px 0 rgba(255,255,255,.18);
+    }
+    #liked-games-footer-link:hover,
+    #liked-games-footer-link:focus-visible {
+      transform: perspective(760px) rotateX(var(--pleyz-tilt-x, 0deg)) rotateY(var(--pleyz-tilt-y, 0deg)) translateY(-2px);
+      border-color: rgba(66,217,255,.55);
+      box-shadow: 0 2px 0 rgba(66,217,255,.96), 0 6px 0 rgba(108,61,157,.98), 0 10px 0 rgba(35,17,61,.98), 0 16px 26px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.22);
+    }
     .footer-links a:focus-visible,
     .footer-auth-button:focus-visible,
     .social-icon:focus-visible {
@@ -1962,7 +1974,7 @@
         <li><a href="#trending">Home</a></li>
         <li><a href="#games">Games</a></li>
         <li><a href="#leaderboard">Leaderboard</a></li>
-        <li><a href="/liked-games.html">Liked Games</a></li>
+        <li><a id="liked-games-footer-link" class="pleyz-retro-button" href="/liked-games.html">Liked Games</a></li>
         <li><button class="footer-auth-button" id="footer-auth-button" type="button" onclick="openLoginModal()">Login</button></li>
         <li><a href="about-us.html">About</a></li>
       </ul>
@@ -2078,6 +2090,7 @@
 <script src="/game-preview-videos.js"></script>
 <script defer src="/homepage-games.js"></script>
 <script defer src="/homepage.js"></script>
+<script defer src="/image-loading.js"></script>
 <script defer src="/site-interactions.js?v=2d-motion-20261125b"></script>
 <script type="module" src="/pleyz-effects.js?v=2d-motion-20261125b"></script>
 <script type="module">
@@ -2925,6 +2938,8 @@ setTimeout(() => {
     .footer-links a:hover,
     .footer-auth-button:hover,
     .social-icon:hover { transform: none; }
+    #liked-games-footer-link:hover,
+    #liked-games-footer-link:focus-visible { transform: none; }
   }
   :root { --text-dim: #b5c2d8; --glass-border: rgba(0,191,255,0.34); }
   .section-title { text-shadow: 0 0 18px rgba(0,191,255,0.16); }
@@ -3230,7 +3245,7 @@ setTimeout(() => {
       loader.classList.add('is-hidden');
       window.setTimeout(() => loader.remove(), 220);
     };
-    window.requestAnimationFrame(() => window.requestAnimationFrame(finish));
+    window.addEventListener('pleyz-home-critical-ready', finish, { once: true });
     window.setTimeout(finish, 5000);
   })();
 </script>

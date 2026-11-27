@@ -127,6 +127,11 @@
   document.body.classList.add('pleyz-site-shell-active');
   document.body.classList.toggle('pleyz-immersive-game', Boolean(document.querySelector('.game-viewport')));
 
+  const imageLoadingScript = document.createElement('script');
+  imageLoadingScript.src = '/image-loading.js';
+  imageLoadingScript.async = true;
+  document.head.appendChild(imageLoadingScript);
+
   const interactionStylesheet = document.createElement('link');
   interactionStylesheet.rel = 'stylesheet';
   interactionStylesheet.href = '/site-interactions.css?v=2d-motion-20261125b';

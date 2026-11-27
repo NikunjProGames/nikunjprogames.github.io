@@ -165,7 +165,6 @@
           image.alt = '';
           image.loading = 'lazy';
           image.decoding = 'async';
-          image.addEventListener('error', () => image.remove(), { once: true });
           link.appendChild(image);
         }
         const removeButton = document.createElement('button');
@@ -211,5 +210,6 @@
         pageStatus.textContent = 'Your game catalog could not be loaded. Refresh the page to try again.';
       });
   </script>
+  <script src="/image-loading.js" defer></script>
 </body>
 </html>

@@ -185,9 +185,45 @@
     launcher.hidden = true;
     launcher.addEventListener('click', () => dialog.showModal());
     document.body.appendChild(launcher);
+    let feedbackDue = false;
+    let feedbackDismissed = false;
+    let closingForFullscreen = false;
+    let wasFullscreen = isFullscreen();
+    const isFullscreen = () => Boolean(
+      document.fullscreenElement
+      || document.webkitFullscreenElement
+      || document.mozFullScreenElement
+      || document.msFullscreenElement
+    );
+    dialog.addEventListener('close', () => {
+      if (closingForFullscreen) {
+        closingForFullscreen = false;
+        return;
+      }
+      feedbackDismissed = true;
+    });
+    const handleFullscreenChange = () => {
+      if (isFullscreen()) {
+        wasFullscreen = true;
+        launcher.hidden = true;
+        if (dialog.open) {
+          closingForFullscreen = true;
+          dialog.close();
+        }
+        return;
+      }
+      if (feedbackDue && wasFullscreen && !feedbackDismissed) {
+        launcher.hidden = false;
+        if (!dialog.open) dialog.showModal();
+      }
+      wasFullscreen = false;
+    };
+    ['fullscreenchange', 'webkitfullscreenchange', 'mozfullscreenchange', 'MSFullscreenChange']
+      .forEach(eventName => document.addEventListener(eventName, handleFullscreenChange));
     window.setTimeout(() => {
+      feedbackDue = true;
+      if (isFullscreen()) return;
       launcher.hidden = false;
-      dialog.showModal();
     }, 5 * 60 * 1000 + 5000);
   }
 

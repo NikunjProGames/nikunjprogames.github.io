@@ -1559,10 +1559,6 @@ function initializeDeferredHomeSections() {
         }
         renderInitialGamesFallback();
         break;
-      case 'recommendations':
-        recommendationsReady = true;
-        renderRecommendedGames();
-        break;
       case 'popular-country':
         popularCountryReady = true;
         renderPopularCountryGames();
@@ -1574,7 +1570,7 @@ function initializeDeferredHomeSections() {
         break;
     }
   };
-  const deferredSections = ['games', 'recommendations', 'popular-country', 'leaderboard']
+  const deferredSections = ['games', 'popular-country', 'leaderboard']
     .map(id => document.getElementById(id))
     .filter(Boolean);
 
@@ -1598,7 +1594,10 @@ try {
   initializeMoodDiscovery();
   applyUrlCategoryFilter();
   renderTrending();
+  recommendationsReady = true;
+  renderRecommendedGames();
   initializeDeferredHomeSections();
+  window.dispatchEvent(new Event('pleyz-home-critical-ready'));
   if (new URLSearchParams(location.search).get('signin') === '1') {
     setAuthMode(new URLSearchParams(location.search).get('signup') === '1' ? 'signup' : 'login');
     document.getElementById('login-modal').classList.add('open');
@@ -1607,6 +1606,13 @@ try {
   // Avoid halting the rest of the script — try again shortly
   console.warn('Initial render failed, retrying shortly', err);
   setTimeout(() => {
-    try { initializeMoodDiscovery(); renderTrending(); initializeDeferredHomeSections(); } catch (e) { console.error('Retry failed', e); }
+    try {
+      initializeMoodDiscovery();
+      renderTrending();
+      recommendationsReady = true;
+      renderRecommendedGames();
+      initializeDeferredHomeSections();
+      window.dispatchEvent(new Event('pleyz-home-critical-ready'));
+    } catch (e) { console.error('Retry failed', e); }
   }, 200);
 }
